@@ -142,7 +142,7 @@ public class MyEWM {
      **/
 
     public static void main(String[] args) throws Exception {
-        String text = "你们在说什么？我怎么听不懂？";
+        String text = "www.baidu.com";
         int width = 300;
         int height = 300;
         String format = "gif";
