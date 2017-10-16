@@ -18,6 +18,8 @@
 		<property name="dataSource" ref="dataSource" />
 		<!--自动去匹配mapper下面的 xml文件 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml" />
+		<!-- bean别名 -->
+		<property name="typeAliasesPackage" value="com.bean"/>
 	</bean>
 	<!-- spring 需要扫描mapper定义接口和mapper.xml文件 -->
 	<!-- 这个扫描器将指定包下的mapper接口自动创建实现类，对应的bean的id就是类名，首字母小写 -->
@@ -37,10 +39,10 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- 定义代理对象 -->
-	<bean id="tUserServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+	<!-- <bean id="tUserServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="tUserService" />
-		<!-- 采用cglib的方式去生成动态代理 -->
+		采用cglib的方式去生成动态代理
 		<property name="proxyTargetClass" value="true" />
-	</bean>
+	</bean> -->
 
 </beans>

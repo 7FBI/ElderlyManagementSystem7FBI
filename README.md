@@ -1,13 +1,15 @@
-<<====================================================>>
+<<=======================================================================================>>
 1.框架说明
 	1.1框架集成架包版本:
 		spring:4.3.2
 		springMVC:4.3.2
 		mybatis:3.4.4
 	1.2框架使用环境:
-		jdk:1.8
-		开发软件:myeclipes(eclipes)
-		模板:maven webapp模板.
+		jdk:1.8.
+		tomcat:tomcat8(或以上)
+		开发软件:myeclipes(eclipes).
+		模板:maven(3.3.9) webapp模板.
+		jquery:3.2.0.
 2.目录说明:
 	2.1main:
 		java:所有的java代码都放在这下面
@@ -33,6 +35,7 @@
 			com.controller:存放controller控制器目录.
 				com.controller.front:前台控制器目录.
 				com.controller.backstage:后台控制器目录.
+				com.controller.util:存放其他用途的控制器目录
 			>>>>>>>>>>>>>>
 			com.converter:转换器目录
 			>>>>>>>>>>>>>>
@@ -50,3 +53,29 @@
 			!!!>>>>>>>>>>>>>>(@Service标注处)
 				com.service.Impl:存放***Service.java接口的实例化类的目录
 				com.service.Impl.views:存放***ViewService.java接口的实例化类的目录
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+3.项目命名规范:
+	3.1service层规范:
+		com.service:这是接口，不加注解.
+					类名:bean名字+Service	例如(OldUsersService)
+		com.serviceImpl:实现service接口的类>>>>>添加注解@Service("")
+					类名:bean名字+ServiceImpl	例如(OldUsersServiceImpl)
+					注解规范:@Service("oldUsersService")>>>>>使用驼峰命名规范(小大小)
+					>>>>>(与类名一致就是首字母小写)
+		com.serviceImpl.view:
+							类名:bean名字+ViewServiceImpl	例如(OldUsersViewServiceImpl)
+							注解规范>>>类似上面(与类名一致就是首字母小写)
+	3.2dao层规范:
+		com.dao:这里全是接口:
+			接口名:(如果不是逆向生成，那就自己写)>>>>>bean名字+Mapper
+			注解规范:@Repository("oldUsersMapper")
+				>>>>>使用驼峰命名规范(小大小)
+				>>>>>(与类名一致就是首字母小写)
+		com.dao.view:
+			接口名:(如果不是逆向生成，那就自己写)>>>>>bean名字+ViewMapper
+			注解规范:@Repository("oldUsersViewMapper")
+				>>>>>使用驼峰命名规范(小大小)
+				>>>>>(与类名一致就是首字母小写)
+	3.3bean规范:
+		com.bean:名字.(这里查询的是单表基本的信息:即不做关联查询)
+		com.bean.view:名字View	例如(OldUsersView)	(用来做关联查询的)
