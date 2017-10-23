@@ -39,15 +39,29 @@ public class OldUsersServiceImpl implements OldUsersService {
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(OldUsers record) {
+	public int updateByPrimaryKeySelective( OldUsers record) {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(OldUsers record) {
+
+	public int updateByPrimaryKey( OldUsers record) {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public OldUsers selectByUid(String uid) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.selectByUid(uid);
+	}
+
+	@Override
+	public void updateByUidSelective(OldUsers oldUsers) {
+		// TODO Auto-generated method stub
+		oldUsersMapper.updateByUidSelective(oldUsers);
+		
 	}
 
 }

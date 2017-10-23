@@ -52,4 +52,8 @@ public interface OldUsersMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(OldUsers record);
+    
+    public OldUsers selectByUid(String uid);
+    
+    public void updateByUidSelective(OldUsers oldUsers);
 }

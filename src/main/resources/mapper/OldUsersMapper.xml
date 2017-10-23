@@ -431,4 +431,104 @@
       extended20 = #{extended20,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByUid" resultType="OldUsers" parameterType="java.lang.String">
+		select * from old_Users where uid = #{uid}
+	</select>
+
+
+
+	<update id="updateByUidSelective" parameterType="oldUsers">
+		
+		update old_Users
+		<set>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex= #{sex,jdbcType=INTEGER},
+			</if>
+			<if test="idcard != null">
+				idcard = #{idcard,jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				birthday = #{birthday,jdbcType=DATE},
+			</if>
+			<if test="tell != null">
+				tell = #{tell,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="area != null">
+				area = #{area,jdbcType=INTEGER},
+			</if>
+			<if test="userurl != null">
+				userurl = #{userurl,jdbcType=VARCHAR},
+			</if>
+			<if test="extended1 != null">
+				extended1 = #{extended1,jdbcType=VARCHAR},
+			</if>
+			<if test="extended2 != null">
+				extended2 = #{extended2,jdbcType=VARCHAR},
+			</if>
+			<if test="extended3 != null">
+			
+				extended3 = #{extended3,jdbcType=VARCHAR},
+			</if>
+			<if test="extended4 != null">
+				extended4 = #{extended4,jdbcType=VARCHAR},
+			</if>
+			<if test="extended5 != null">
+				extended5 = #{extended5,jdbcType=VARCHAR},
+			</if>
+			<if test="extended6 != null">
+				extended6 = #{extended6,jdbcType=VARCHAR},
+			</if>
+			<if test="extended7 != null">
+				extended7 = #{extended7,jdbcType=VARCHAR},
+			</if>
+			<if test="extended8 != null">
+				extended8 = #{extended8,jdbcType=VARCHAR},
+			</if>
+			<if test="extended9 != null">
+				extended9 = #{extended9,jdbcType=VARCHAR},
+			</if>
+			<if test="extended10 != null">
+				extended10 = #{extended10,jdbcType=VARCHAR},
+			</if>
+			<if test="extended11 != null">
+				extended11 = #{extended11,jdbcType=VARCHAR},
+			</if>
+			<if test="extended12 != null">
+				extended12 = #{extended12,jdbcType=VARCHAR},
+			</if>
+			<if test="extended13 != null">
+				extended14 = #{extended14,jdbcType=VARCHAR},
+			</if>
+			<if test="extended14 != null">
+				extended14 = #{extended14,jdbcType=VARCHAR},
+			</if>
+			<if test="extended15 != null">
+				extended15 = #{extended15,jdbcType=VARCHAR},
+			</if>
+			<if test="extended16 != null">
+				extended16 = #{extended16,jdbcType=VARCHAR},
+			</if>
+			<if test="extended17 != null">
+				extended17 = #{extended17,jdbcType=VARCHAR},
+			</if>
+			<if test="extended18 != null">
+				extended18 = #{extended18,jdbcType=VARCHAR},
+			</if>
+			<if test="extended19 != null">
+				extended19 = #{extended19,jdbcType=VARCHAR},
+			</if>
+			<if test="extended20 != null">
+				extended20 = #{extended20,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where uid = #{uid}
+	</update>
+	
 </mapper>
