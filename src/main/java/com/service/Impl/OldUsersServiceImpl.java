@@ -1,5 +1,8 @@
 package com.service.Impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -62,6 +65,12 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		oldUsersMapper.updateByUidSelective(oldUsers);
 		
+	}
+
+	@Override
+	public List<OldUsers> selectByLikeUserName(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.selectByLikeUserName(map);
 	}
 
 }

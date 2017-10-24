@@ -7,13 +7,14 @@
 	<!--静态资源访问 -->
 	<mvc:default-servlet-handler />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/files/**" location="/files/" />
 	<!--开启注解 -->
 	<mvc:annotation-driven>
 		<!-- 消息转换器，解决responseBody返回中外乱码问题 -->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property
-					name="supportedMediaTypes ”  value = “ text / plain; charset = UTF-8" />
+					name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
