@@ -34,13 +34,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <body oncontextmenu ="return false">
 		
         <div class="page-container">
-            <h1>欢迎登陆</h1>
-            <form action="/log/log.action" method="post">
+            <h1>欢迎店长登陆</h1>
+            <form action="/manager/login.action" method="post">
 				<div>
-					<input type="text" name="name" class="username" placeholder="请输入您的用户名" autocomplete="off"/>
+					<input type="text" name="mnumber" class="username" placeholder="请输入您的用户名" autocomplete="off"/>
 				</div>
                 <div>
-					<input type="password" name="password" class="password" placeholder="请输入您的密码" oncontextmenu="return false" onpaste="return false" />
+					<input type="password" name="mpassword" class="password" placeholder="请输入您的密码" oncontextmenu="return false" onpaste="return false" />
                 </div>
                 <button id="submit" type="submit">登录</button>
             </form>
