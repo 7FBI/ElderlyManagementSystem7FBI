@@ -36,6 +36,31 @@
       <arg column="extended20" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
+  
+  <resultMap type="speak" id="SpeakAndOldUsers">
+		<id property="id" column="id" />
+		<result column="uidhead" property="uidhead" />
+		<result column="uidfoot" property="uidfoot" />
+		<result column="type" property="type" />
+		<result column="content" property="content" />
+		<result column="speaktime" property="speaktime" />
+		<result column="status" property="status" />
+		<collection property="oldUsers" ofType="oldUsers">
+			<id column="id" property="id" />
+			<result column="username" property="username" />
+			<result column="sex" property="sex" />
+			<result column="idcard" property="idcard" />
+			<result column="birthday" property="birthday" />
+			<result column="tell" property="tell" />
+			<result column="address" property="address" />
+			<result column="area" property="area" />
+			<result column="uid" property="uid" />
+			<result column="password" property="password" />
+			<result column="userurl" property="userurl" />
+		</collection>
+	</resultMap>
+  
+  
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbggenerated
@@ -56,6 +81,14 @@
     from speak
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <!-- 查询某人的留言版 -->
+  <select id="selectByUidFoot" resultMap="SpeakAndOldUsers" parameterType="java.lang.String" >
+    select 
+    *
+    from speak s join old_Users u on s.uidfoot = #{uidfoot} and s.type=0 and s.uidhead=u.uid ORDER BY s.id
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

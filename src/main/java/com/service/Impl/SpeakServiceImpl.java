@@ -1,6 +1,9 @@
 package com.service.Impl;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +50,12 @@ public class SpeakServiceImpl implements SpeakService {
 	public int updateByPrimaryKey(Speak record) {
 		// TODO Auto-generated method stub
 		return speakMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Speak> selectByUidFoot(String uidfoot) {
+		// TODO Auto-generated method stub
+		return speakMapper.selectByUidFoot(uidfoot);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import com.bean.Friend;
 
 public interface FriendService {
+	Friend selectByUidHeadAndUidFoot(Friend record);
 	List<Friend> selectByUidHeadFriends(String uidhead);
 	int deleteByFriend(Friend record);
 	/**

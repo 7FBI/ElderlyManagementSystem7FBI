@@ -18,7 +18,7 @@ import com.service.OldUsersService;
 import com.service.OldloginService;
 
 @Controller
-@RequestMapping("/front/oldMan")
+@RequestMapping("/front/oldUsers")
 public class OldUsersLoginController {
 	@Autowired
 	@Qualifier("oldUsersService")
@@ -38,17 +38,14 @@ public class OldUsersLoginController {
 	
 		OldUsers user = oldUsersService.selectByUid(uid);
 		if (password.equals(user.getPassword())) {
-			request.getSession().setAttribute("oldMan", user);
+			request.getSession().setAttribute("oldUsers", user);
 			Oldlogin old =new Oldlogin();
 			old.setLoadtime(new Date());
 			old.setUid(uid);
 			oldloginService.insertSelective(old);
-			
+			return "front/oldUser/friend";
 		} else {
-
 			return "front/login";
 		}
-
-		return "front/index";
 	}
 }

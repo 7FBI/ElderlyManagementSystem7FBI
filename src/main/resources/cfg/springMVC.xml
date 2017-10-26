@@ -9,20 +9,20 @@
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/files/**" location="/files/" />
 	<!--开启注解 -->
+	<!-- 设置对字符串的消息转换器 -->
+	<!-- text/plain;charset=UTF-8 -->
 	<mvc:annotation-driven>
 		<!-- 消息转换器，解决responseBody返回中外乱码问题 -->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<property
-					name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+				<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
+
 	<!-- 扫描基本包，来确定控制器中的注解 -->
 	<context:component-scan base-package="com.controller" />
 	<!-- 注解配置映射器 -->
-	<bean
-		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />
 	<!-- 注解适配器 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -41,6 +41,8 @@
 		<!-- 使用转换器 -->
 		<property name="conversionService" ref="converter"></property>
 	</bean>
+
+	<mvc:annotation-driven conversion-service="converter" />
 
 	<!-- 注册转换器 -->
 	<bean id="converter"

@@ -31,6 +31,9 @@ public class FriendServiceImpl implements FriendService {
 	@Override
 	public int insertSelective(Friend record) {
 		// TODO Auto-generated method stub
+		if (this.selectByUidHeadAndUidFoot(record)==null) {
+			return -1;
+		}
 		return friendMapper.insertSelective(record);
 	}
 
@@ -62,6 +65,12 @@ public class FriendServiceImpl implements FriendService {
 	public List<Friend> selectByUidHeadFriends(String uidhead) {
 		// TODO Auto-generated method stub
 		return friendMapper.selectByUidHeadFriends(uidhead);
+	}
+
+	@Override
+	public Friend selectByUidHeadAndUidFoot(Friend record) {
+		// TODO Auto-generated method stub
+		return friendMapper.selectByUidHeadAndUidFoot(record);
 	}
 
 }

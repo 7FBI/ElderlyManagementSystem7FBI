@@ -11,6 +11,7 @@ import com.bean.OldUsers;
 import com.service.OldUsersService;
 
 @Controller
+@RequestMapping("/front/oldUsers")
 public class OldUsersController {
 	@Autowired
 	@Qualifier("oldUsersService")
@@ -19,13 +20,11 @@ public class OldUsersController {
 
 	@RequestMapping("/selectByUid")
 	public ModelAndView selectByUid(String uid) {
-		OldUsers oldUsers = oldUsersService.selectByUid("1827526748");
+		OldUsers oldUsers = oldUsersService.selectByUid(uid);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldUsers", oldUsers);
 		modelAndView.setViewName("front/showOldUsersPersonalInfomation");
-
 		return modelAndView;
-
 	}
 
 	@RequestMapping("/oldUserModify")

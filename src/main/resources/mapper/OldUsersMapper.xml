@@ -70,7 +70,7 @@
     <include refid="Base_Column_List" />
     from old_Users
     <where>
-    <if test="username!=null"> and username=#{username}</if>
+    <if test="username!=null"> and (username like '%${username}%' or uid=#{username} )</if>
     <if test="sex!=null"> and sex=#{sex}</if>
     </where>
   </select>

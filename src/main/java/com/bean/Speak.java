@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Speak {
 	
-	List<OldUsers> oldUsers;
+	OldUsers oldUsers;
 	
-    public List<OldUsers> getOldUsers() {
+    public OldUsers getOldUsers() {
 		return oldUsers;
 	}
 
-	public void setOldUsers(List<OldUsers> oldUsers) {
+	public void setOldUsers(OldUsers oldUsers) {
 		this.oldUsers = oldUsers;
 	}
 

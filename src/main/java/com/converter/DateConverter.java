@@ -13,13 +13,13 @@ public class DateConverter implements Converter<String,Date> {
 
 	public Date convert(String s) {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        Date date=null;
-        try {
-            date=sdf.parse(s);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
+		sdf.setLenient(false);
+        try {    
+            return sdf.parse(s);    
+        } catch (ParseException e) {    
+            e.printStackTrace();    
+        }           
+        return null;   
 	}
    
 }

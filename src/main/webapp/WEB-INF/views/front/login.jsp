@@ -18,7 +18,7 @@
 <body oncontextmenu="return false">
 	<div class="page-container">
 		<h1>欢迎登录</h1>
-		<form action="/front/oldMan/login" id="loginForm" method="post">
+		<form action="/front/oldUsers/login" id="loginForm" method="post">
 			<div>
 				<input type="text" id="username" name="username" class="username"
 					placeholder="请输入您的帐号" autocomplete="off" />
@@ -43,16 +43,14 @@
 	</div>
 
 	<!-- Javascript -->
-		<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-        <script src="js/supersized.3.2.7.min.js"></script>
-        <script src="js/supersized-init.js"></script>
+		<script src="/resources/unity/jquery/jquery-3.2.0.js" type="text/javascript"></script>
 		<script>
 		$(".btn").click(function(){
 			is_hide();
 		})
 		var u = $("input[name=username]");
 		var p = $("input[name=password]");
-		$("#submit").live('click',function(){
+		$("#submit").click(function(){
 			if(u.val() == '' || p.val() =='')
 			{
 				$("#ts").html("用户名或密码不能为空~");
