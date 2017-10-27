@@ -12,8 +12,8 @@ public class Encryption {
         String d=null;
         try {
             MessageDigest  md=MessageDigest.getInstance("MD5");
-            BASE64Encoder b=new BASE64Encoder();
-            d=b.encode(md.digest(data.getBytes("utf-8")));
+            BASE64Encoder aftermb=new BASE64Encoder();
+            d=aftermb.encode(md.digest(data.getBytes("utf-8")));
         } catch (Exception e) {
             e.printStackTrace();
         }

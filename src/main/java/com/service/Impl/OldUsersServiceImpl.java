@@ -24,11 +24,17 @@ public class OldUsersServiceImpl implements OldUsersService {
 	}
 
 	@Override
-	public int insert(OldUsers record) {
-		// TODO Auto-generated method stub
-		return oldUsersMapper.insert(record);
+	public void insert(OldUsers oldUsers) {
+		
+		 oldUsersMapper.insert(oldUsers);
 	}
-
+	@Override
+	public void insertOldUsers(OldUsers oldUsers) {
+		// TODO Auto-generated method stub
+	
+		oldUsersMapper.insertOldUsers(oldUsers);
+	}
+	
 	@Override
 	public int insertSelective(OldUsers record) {
 		// TODO Auto-generated method stub
@@ -40,7 +46,11 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.selectByPrimaryKey(id);
 	}
-
+	@Override
+	public List<OldUsers> queryUsers(){
+		return oldUsersMapper.queryUsers();
+	}
+	
 	@Override
 	public int updateByPrimaryKeySelective( OldUsers record) {
 		// TODO Auto-generated method stub
@@ -53,7 +63,10 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.updateByPrimaryKey(record);
 	}
-
+	public List<OldUsers> findUserNameById(OldUsers oldUsers){
+		return oldUsersMapper.findUserNameById(oldUsers);
+		
+	}
 	@Override
 	public OldUsers selectByUid(String uid) {
 		// TODO Auto-generated method stub
@@ -72,5 +85,27 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.selectByLikeUserName(map);
 	}
+	@Override
+	public OldUsers queryByUid(String uid) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.queryByUid(uid);
+	}
+	   //修改用户信息
+	public void modifyById(OldUsers oldUsers){
+		 oldUsersMapper.modifyById(oldUsers);
+		 
+	}
+	public OldUsers queryById(Integer id){
+		return oldUsersMapper.queryById(id);
+		}
+	 //根据id删除用户基本信息以及相关的消费信息
+    public void deleteUserById(OldUsers oldUsers){
+    	oldUsersMapper.deleteUserById(oldUsers);
+    }
 
+	@Override
+	public List<OldUsers> queryByConditions(String findbycondition) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.queryByConditions(findbycondition);
+	}
 }

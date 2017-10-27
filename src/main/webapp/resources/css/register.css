@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+/**清除原本的样式*/
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px; //
+	background-color: #E3E3E3;
+	font-size: 14px;
+	/* background: url("../image/registerbg.jpg");
+	图片不重复，并铺满整个屏幕
+	background-repeat: no-repeat;
+	no-repeat: center fixed;
+	background-size: contain;
+	background-size: 100% 100%;
+	background-size: cover;
+	-webkit-background-size: cover; */
+}
+
+.register_title {
+	font-size: 20px;
+}
+.err{
+	color:red;
+.str{
+	margin:0 auto;
+}
+.pleft{
+flow: left;	
+
+}
+.error{
+	font-style:red;
+}
+.success{
+	color:green;
+}

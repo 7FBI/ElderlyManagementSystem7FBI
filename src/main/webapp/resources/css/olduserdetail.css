@@ -1,0 +1,70 @@
+body{
+    width:100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.titles{
+	background-color:#7eeef8;
+	text-align: center;
+}
+.bgdivstyle{
+    width:80%;
+    margin: 0 auto;
+
+}
+.lefttips{
+    width: 8%;
+    float: left;
+    margin: 0;
+}
+.righttips{
+    width: 80%;
+    float: left;
+    margin: 0;
+}
+.rows{
+    width: 100%;
+
+}
+.centerstyle{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+}
+.centerleft{
+    width: 8%;
+    float: left;
+}
+.centerright{
+    width: 42%;
+    float: left;
+}
+.topleft{
+    width: 8%;
+    float: left;
+}
+.topcenter{
+    width: 25%;
+    float: left;
+}
+.colleft{
+    width: 90%;
+    float: left;
+}
+.colleright{
+    width: 10%;
+    float: left;
+}
+.hs{
+   text-align: center;
+}
+.a.hover{
+	display;
+}
+.photostyle{
+	width:100%;
+	height:160px;
+	border: solid;
+	border-color: #59a4a6;
+}
