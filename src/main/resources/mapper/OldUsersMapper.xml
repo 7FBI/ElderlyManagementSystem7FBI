@@ -108,16 +108,14 @@
 	</select>
 	
 	<!-- 根据条件查询用户 -->
-	<select id="queryByConditions" parameterType="String" resultMap="alluserdetail">
-	select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id  from localarea,old_users 
+	<select id="queryByConditions" parameterType="java.lang.String" resultMap="alluserdetail">
+	select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_users 
 	<where>
-      localarea.id=old_users.area
-	<if test="findbycondition != null"> 
-	 and old_users.uid=#{findbycondition} </if>
-	 <if test="findbycondition != null"> 
-	 or  old_users.username=#{findbycondition}</if>
-	 <if test="findbycondition != null">
-	  or localarea.provincename like '%${value}%'
+      localarea.id=old_users.area 
+	<if test="value!= null and value!=''" > 
+	  
+	 and (localarea.provincename=#{value} or old_users.username=#{value} or old_users.uid=#{value} )
+	  
 	 </if>
 	</where> 
 	</select>

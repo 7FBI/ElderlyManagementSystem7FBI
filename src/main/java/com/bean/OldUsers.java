@@ -11,7 +11,18 @@ public class OldUsers {
      * @mbggenerated
      */
     private Integer id;
-    private List<OldDiseasedetails> listOldDiseasedetails;
+//    String  findbycondition;
+//    public OldUsers(String findbycondition){
+//    	this. findbycondition=findbycondition;
+//    }
+//    public String getFindbycondition() {
+//		return findbycondition;
+//	}
+//
+//	public void setFindbycondition(String findbycondition) {
+//		this.findbycondition = findbycondition;
+//	}
+	private List<OldDiseasedetails> listOldDiseasedetails;
 
   
 

@@ -30,7 +30,6 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -40,7 +39,7 @@
 				height="29" /></td>
 			<td valign="top" width="100%"
 				background="/resources/backstage/Images/content_bg.gif">
-				<!--此处表示右边主体部分的小标题  --> <!-- <table width="100%" height="60px" border="0" cellpadding="0"
+				<!-- <table width="100%" height="60px" border="0" cellpadding="0"
 					cellspacing="0"
 					background="/resources/backstage/Images/content_bg.gif">
 					 --> <!-- <td height="31"><div class="title">用户列表</div></td> --> <!-- </table> -->
@@ -57,11 +56,6 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
-				
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -75,55 +69,12 @@
 						     
 							
 						</div> -->
-						<!--  -->
-				<%-- <div class="row">
-					<div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control"
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-info" type="button">
-									<a href="#">Search</a>
-								</button>
-							</span>
-						</div>
-						<!-- /input-group -->
-					</div>
-
-					<div class="col-md-3 col-md-offset-1 addstyle">
-						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/register"
-							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-						</a>
-
-						<!-- /input-group -->
-					</div>
-				</div> --%>
+				<div class="row addstyle"></div>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
-					<!-- 空白行-->
-					<!-- <div class="row div_width"> -->
-					<!-- 
-						<div class="col-md-3 col-md-offset-2">
-						
+					<!-- 空白行 可在此处添加描述或者其他内容-->
 
-								<a href="register" class="btn btn-success"> <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							/input-group
-						</div> -->
-
-
-					<!-- <div class="col-md-5">
-								
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
-									class="input-group-btn"> <a class="btn btn-default">查询</span>
-                              
-							</div> -->
 
 
 					<!-- 一条线 -->
@@ -144,54 +95,38 @@
 						<td>
 
 							<table width="100%">
-								
 								<tr>
 									<td colspan="2">
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-											<tr align="center" height="40px"><td colspan="6"><font size="5px">就诊情况</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color">
-													<th width="80px">序号</th>
-													<th width="100px">患者账号</th>
 
-													<th width="100px">就诊时间</th>
-													<th width="300px">就诊意见</th>
+												<!-- <tr align="center" height="40px" class="td_title_color">
+													<th width="100px">序号</th>
+													<th width="130px">病名</th>
 
-													<th width="300px">就诊情况</th>
+													<th width="500px">病理特征</th>
+													<th width="150px">&nbsp;&nbsp;别名</th>
 
 													<th width="150px">操作</th>
-												</tr>
-												<c:forEach items="${oldDiseasedetails}"
-													var="oldDiseasedetails" varStatus="var">
-													<tr align="left" class="d">
+												</tr> -->
+												<c:forEach items="${listProducts}" var="listProduct">
 
-														<td>${var.count}</td>
-														<td>${oldDiseasedetails.uid}</td>
+													<div style="float: left; width: 20%;">${listProduct.producturl}</div>
+													<div style="float: left;width: 20%">${listProduct.pname}</div>
+													<div style="float: left;width: 20%">${listProduct.price}</div>
+													<c:forEach items="${listProduct.listPhotos}"
+														var="listPhoto">
+														<div>${listPhoto.showphotosurl}</div>
+													</c:forEach>
 
-														<td>${oldDiseasedetails.treatTiem}</td>
-														<td>${oldDiseasedetails.suggest}</td>
-
-														<td>${oldDiseasedetails.history}</td>
-
-														<td><a
-															href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${oldDiseasedetails.id}">详情</a>
-															<%-- <a
-															href="${pageContext.request.contextPath}/backoldSickness/querySicknessById.action?oldDiseasedetail_id=${oldDiseasedetails.id}">修改</a>
-
-															<a
-															href="${pageContext.request.contextPath}/backoldSickness/deleteSicknessById.action?oldDiseasedetail_id=${oldDiseasedetails.id}">删除</a>
-                                                              --%>
-														</td>
-
-
-													</tr>
 												</c:forEach>
 
 											</table>
 										</form>
 									</td>
 								</tr>
+							
 							</table>
 						</td>
 						<td width="2%">&nbsp;</td>

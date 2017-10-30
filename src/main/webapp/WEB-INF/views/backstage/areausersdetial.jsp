@@ -200,7 +200,7 @@
 														<td>${olduser.uid}</td>
 														<%-- <td width="300px" nowrap>${olduser.password}</td>
 			<td width="600px" nowrap>${olduser.userurl}</td> --%>
-														<td>回访记录</td>
+														<td></td>
 														<td>
 														<a
 															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?

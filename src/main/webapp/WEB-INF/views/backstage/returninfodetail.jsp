@@ -167,58 +167,32 @@
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="9"><font size="5px">用户列表</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color">
-													<th width="100px">序号</th>
-													<th width="180px">姓名</th>
-													<!--  <td width="50px" nowrap>性别</td>
-		                                          	   <td width="300px" nowrap>身份证号</td>
-			                                           <td width="200px" nowrap>出生日期</td>
-			                                           <td width="200px" nowrap>电话</td>
-			                                           <td width="200px" nowrap>住址</td> -->
-													<th width="120px">地域</th>
-													<th width="150px">登录账号</th>
-													<!--  <td width="300px" nowrap>密码</td>
-			                                           <td width="600px" nowrap>照片</td> -->
-													<th width="100px">回访情况</th>
-													<th width="100px">病例情况</th>
-													<th width="100px">参加活动</th>
-													<th width="100px">购买记录</th>
-													<th width="150px">操作</th>
+												<tr align="center" height="50px"><td colspan="6"><font size="5px">地域列表</font></td></tr>
+												<tr align="center" height="40px" class="td_title_color" width="100%">
+													<th >商品名</th>
+													<th >价格</th>
+													<th >商品描述</th>	
+													<th >图片</th>
+													<th ></th>
+													<th ></th>
+													<th >购买数量</th>
+													<th >操作</th>
 												</tr>
-												<c:forEach items="${olduser }" var="olduser" varStatus="var">
+												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
+													<c:forEach items="${listReturnShoppings}" var="listReturnShopping">
 													<tr align="left" class="d">
 
-														<td>${var.count}</td>
-														<td>${olduser.username}</td>
-														<%-- <td width="50px" nowrap>${olduser.sex}</td>
-			<td width="300px" nowrap>${olduser.idcard}</td>
-			<td width="200px" nowrap>${olduser.birthday}</td>
-			<td width="200px" nowrap>${olduser.tell}</td>
-			<td width="200px" nowrap>${olduser.address}</td> --%>
-														<td>${olduser.localarea.provincename}</td>
-														<td>${olduser.uid}</td>
-														<%-- <td width="300px" nowrap>${olduser.password}</td>
-			<td width="600px" nowrap>${olduser.userurl}</td> --%>
-														<td>回访记录</td>
-														<td>
-														<a
-															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
-															uid=${olduser.uid}">病例详情</a>
-															
-															
-														</td>
-														<td></td>
-														<td></td>
-														<td><a
-															href="${pageContext.request.contextPath}/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
-															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserById.action?id=${olduser.id}">修改</a>
-
-
-															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserdetail.action?id=${olduser.id}">详情</a></td>
-
+														<%-- <td>${var.count}</td> --%>
+														<td>${listReturnShopping.products.pname}</td>
+					                                    <td>${listReturnShopping.products.price}</td>
+					                                    <td>${listReturnShopping.products.pdescription}</td>
+					                                   <%--  <td>${listReturnShopping.products.count}</td> --%>
+					                                    <td>${listReturnShopping.products.producturl}</td>
+					                                    <td>${listReturnShopping.products.producttype1}</td>
+					                                    <td>${listReturnShopping.products.producttype2}</td>
+					                                    <%-- <td>${listReturnShopping.id}</td>
+					                                    <td>${listReturnShopping.returnid}</td> --%>
+					                                    <td>${listReturnShopping.shoppingcount}</td>	
 													</tr>
 												</c:forEach>
 

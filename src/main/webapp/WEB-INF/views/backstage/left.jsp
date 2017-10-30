@@ -39,6 +39,80 @@
 		<tr>
 			<td width="182" valign="top">
 				<div id="container">
+				<h1 class="type">
+						<a href="javascript:void(0)">客户管理</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						
+							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" target="main">客户列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加客户</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加回访记录</a></li>
+						</ul>
+					</div>
+					<!-----------  ------------>
+					<h1 class="type">
+						<a href="javascript:void(0)">地域管理</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						
+							<li><a href="${pageContext.request.contextPath}/area/findAllArea.action" target="main">地域列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
+						</ul>
+					</div>
+					<!-------------------  -->
+					<h1 class="type">
+						<a href="javascript:void(0)">病例管理</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						
+							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>
+							<li><a href="#" target="main">活动管理</a></li>
+						</ul>
+					</div>
+					<!-------------------  -->
+					<h1 class="type">
+						<a href="javascript:void(0)">教育模块</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						
+							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加活动</a></li>
+							<li><a href="#" target="main">活动管理</a></li>
+						</ul>
+					</div>
+		
+				<!------------  ----------------->
 					<h1 class="type">
 						<a href="javascript:void(0)">分店系统</a>
 					</h1>
@@ -56,6 +130,7 @@
 							<li><a href="#" target="main">活动管理</a></li>
 						</ul>
 					</div>
+					<!-- ------------------- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">产品管理</a>
 					</h1>

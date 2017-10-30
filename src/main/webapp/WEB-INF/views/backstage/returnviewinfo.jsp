@@ -30,7 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-	
+
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -56,12 +56,12 @@
 			<td valign="middle"
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
-			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
-				<!-- <div   class="col-md-3  input-group addstyle">
+			<td valign="top" bgcolor="#F7F8F9"><a
+				href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action"><font
+					size="2px" color="blue"> <span
+						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
+				</font></a> <br>
+			<br> <!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
 								
@@ -75,23 +75,25 @@
 							
 						</div> -->
 				<div class="row">
-				<form action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action" method="post">
-				<div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control" name="findbycondition" 
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-info" type="submit">
-								<!-- <a href="#">   </a> -->
-								<!-- <a href="#" type="submit" role="button">Search</a> -->
-			                   <!--  <input type="submit" value="Search"> -->
-								Search
-								</button> 
-									
-							</span>
-						</div>
-				</form>
-					
+					<form
+						action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action"
+						method="post">
+						<div class="col-md-offset-1 col-md-4 addstyle">
+							<div class="input-group">
+								<input type="text" class="form-control" name="findbycondition"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-info" type="submit">
+										<!-- <a href="#">   </a> -->
+										<!-- <a href="#" type="submit" role="button">Search</a> -->
+										<!--  <input type="submit" value="Search"> -->
+										Search
+									</button>
+
+								</span>
+							</div>
+					</form>
+
 					<%-- <div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" id="findbycondition" name="findbycondition"
@@ -104,19 +106,18 @@
 									
 							</span>
 						</div> --%>
-					
-						<!-- /input-group -->
-					</div>
 
-					<div class="col-md-3 col-md-offset-1 addstyle">
-						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/register"
-							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
-						</a>
+					<!-- /input-group -->
+				</div>
 
-						<!-- /input-group -->
-					</div>
+				<div class="col-md-3 col-md-offset-1 addstyle">
+					<a href="${pageContext.request.contextPath}/gotoBackstage/register"
+						class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
+						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
+					</a>
+
+					<!-- /input-group -->
+				</div>
 				</div>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
@@ -167,58 +168,38 @@
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="9"><font size="5px">用户列表</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color">
-													<th width="100px">序号</th>
-													<th width="180px">姓名</th>
-													<!--  <td width="50px" nowrap>性别</td>
-		                                          	   <td width="300px" nowrap>身份证号</td>
-			                                           <td width="200px" nowrap>出生日期</td>
-			                                           <td width="200px" nowrap>电话</td>
-			                                           <td width="200px" nowrap>住址</td> -->
-													<th width="120px">地域</th>
-													<th width="150px">登录账号</th>
-													<!--  <td width="300px" nowrap>密码</td>
-			                                           <td width="600px" nowrap>照片</td> -->
-													<th width="100px">回访情况</th>
-													<th width="100px">病例情况</th>
-													<th width="100px">参加活动</th>
-													<th width="100px">购买记录</th>
-													<th width="150px">操作</th>
+												<tr align="center" height="50px">
+													<td colspan="6"><font size="5px">地域列表</font></td>
 												</tr>
-												<c:forEach items="${olduser }" var="olduser" varStatus="var">
+												<tr align="center" height="40px" class="td_title_color"
+													width="100%">
+													<th>序号</th>
+													<th>客户账号</th>
+
+													<th>客户姓名</th>
+													<th>回访内容</th>
+													<th>回访时间</th>
+													<th>回访者</th>
+													<th></th>
+
+													<th width="10%">操作</th>
+												</tr>
+												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
+												<c:forEach items="${listReturninfos}" var="listReturninfo">
 													<tr align="left" class="d">
 
-														<td>${var.count}</td>
-														<td>${olduser.username}</td>
-														<%-- <td width="50px" nowrap>${olduser.sex}</td>
-			<td width="300px" nowrap>${olduser.idcard}</td>
-			<td width="200px" nowrap>${olduser.birthday}</td>
-			<td width="200px" nowrap>${olduser.tell}</td>
-			<td width="200px" nowrap>${olduser.address}</td> --%>
-														<td>${olduser.localarea.provincename}</td>
-														<td>${olduser.uid}</td>
-														<%-- <td width="300px" nowrap>${olduser.password}</td>
-			<td width="600px" nowrap>${olduser.userurl}</td> --%>
-														<td>回访记录</td>
-														<td>
-														<a
-															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
-															uid=${olduser.uid}">病例详情</a>
-															
-															
-														</td>
-														<td></td>
-														<td></td>
+														<%-- <td>${var.count}</td> --%>
+														<td>${listReturninfo.id}</td>
+
+														<td>${listReturninfo.oldUser.uid}</td>
+														<td>${listReturninfo.oldUser.username}</td>
+														<td>${listReturninfo.returncontent}</td>
+														<td>${listReturninfo.returndate}</td>
+														<td>${listReturninfo.manager.mnane}</td>
 														<td><a
-															href="${pageContext.request.contextPath}/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
-															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserById.action?id=${olduser.id}">修改</a>
+															href="/returnshopping/querys.action?returnid=${listReturninfo.id}">回访详情</a></td>
 
-
-															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserdetail.action?id=${olduser.id}">详情</a></td>
-
+														
 													</tr>
 												</c:forEach>
 
@@ -253,8 +234,7 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td> -->
 					</tr>
-				</table>
-			</td>
+				</table></td>
 			<td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>
 		</tr>
 		<!-- 底部部分 -->

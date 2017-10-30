@@ -32,9 +32,9 @@ public class BackstsgeOldDiseaseDetailsController {
 	}
 	@RequestMapping("/querys")
 	//查询UID账号的所有病例记录
-	public ModelAndView getOldDiseasedetails(String oldDiseasedetail_id){
+	public ModelAndView getOldDiseasedetails(String uid){
 	  //  String uid=(String) request.getSession().getAttribute("uid");	
-		List<OldDiseasedetails> oldDiseasedetails=oldDiseasedetailsService.selectOldDiseasedetailsByUid(oldDiseasedetail_id);
+		List<OldDiseasedetails> oldDiseasedetails=oldDiseasedetailsService.selectOldDiseasedetailsByUid(uid);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldDiseasedetails",oldDiseasedetails);
 	/*	modelAndView.setViewName("front/getoldDiseasedetails");*/

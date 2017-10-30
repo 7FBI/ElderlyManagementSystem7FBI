@@ -14,7 +14,14 @@ public class MainController {
     public String homes(){
         return "front/index";
     }
-    
+    @RequestMapping("/backhome")
+    public String backend(){
+    	return "backstage/index";
+    }
+    @RequestMapping("/register")
+    public String register(){
+        return "backstage/register";
+    }
     /*平层路径访问*/
     @RequestMapping("/gotoFront/{page}")
     public String gotoFront1(@PathVariable String page){
@@ -36,4 +43,5 @@ public class MainController {
     public String gotoBackstage2(@PathVariable String url,@PathVariable String page){
         return "backstage/"+url+"/"+page;
     }
+    
 }

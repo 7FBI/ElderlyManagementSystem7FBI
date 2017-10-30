@@ -44,7 +44,7 @@
 		enctype="multipart/form-data">
 
 		<label class="register_title"> <strong> <span
-				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;注册新会员
+				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;修改用户信息
 		</strong></label>
 		<div class="form-group col-md-offset-3">
 			<label for="username" class="col-sm-2 control-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>

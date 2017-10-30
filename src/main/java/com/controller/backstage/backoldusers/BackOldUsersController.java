@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,6 +38,7 @@ public class BackOldUsersController {
 	private OldUsersService oldUsersService;
 	private DateConverter dateConverter;
 
+	//添加用户
 	@RequestMapping("/insterOldUsers")
 	@ResponseBody
 	public ModelAndView insterOldUsers(@RequestParam("file") CommonsMultipartFile file,  OldUsers oldUsers,
@@ -68,10 +70,7 @@ public class BackOldUsersController {
 			// 调用加密方法将密码加密
 			String pwd = Encryption.encrypation(oldUsers.getPassword());
 			oldUsers.setPassword(pwd);
-			/*
-			 * String username = new String(oldUsers.getUsername()); String
-			 * address = new String(oldUsers.getAddress());
-			 */
+			
 			String username = new String(oldUsers.getUsername().getBytes("iso-8859-1"),"utf-8");
 			oldUsers.setUsername(username);
 			String address = new String(oldUsers.getAddress().getBytes("iso-8859-1"),"utf-8");
@@ -110,11 +109,7 @@ public class BackOldUsersController {
 	public ModelAndView queryAllUsers() {
 		List<OldUsers> olduser = oldUsersService.queryUsers();
 		ModelAndView modelAndView=new ModelAndView();
-		
-//		for(OldUsers user:oldUsers){
-//			System.out.println(user);
-//		}
-		
+			
 		modelAndView.addObject("olduser", olduser);
 		modelAndView.setViewName("backstage/allolduser");
 		return modelAndView;
@@ -157,7 +152,7 @@ public class BackOldUsersController {
 		 ModelAndView modelAndView=new ModelAndView();
 		 modelAndView.addObject("olduser", olduser);
 		 modelAndView.setViewName("backstage/allolduser");
-		 //model.addAttribute("olduser", olduser);
+		
 		return modelAndView;
 	}
 	//根据id删除用户基本信息以及相关的消费信息
@@ -179,9 +174,6 @@ public class BackOldUsersController {
 		@ResponseBody
 		public ModelAndView queryUserDetail(Integer id){
 			OldUsers userdetail=oldUsersService.queryById(id);
-			/*String imgpath=userdetail.getUserurl();
-			userdetail.setUserurl("/resources/upload/backstage/image"+imgpath.substring(91, imgpath.length()));
-			System.out.println("/resources/upload/backstage/image"+imgpath.substring(91, imgpath.length()));*/
 			ModelAndView modelAndView=new ModelAndView();
 			modelAndView.addObject("userdetail", userdetail);
 			modelAndView.setViewName("backstage/olduserdetail");
@@ -189,13 +181,12 @@ public class BackOldUsersController {
 		}
 		//按条件查询
 		@RequestMapping(value="/selectuserbyconditions")
-	/*	@ResponseBody*/
-		public ModelAndView selectByConditions(HttpServletRequest request){
-			String findbycondition=request.getParameter("findbycondition");
-			List<OldUsers> olduser=oldUsersService.queryByConditions(findbycondition);
-			/*String imgpath=userdetail.getUserurl();
-			userdetail.setUserurl("/resources/upload/backstage/image"+imgpath.substring(91, imgpath.length()));
-			System.out.println("/resources/upload/backstage/image"+imgpath.substring(91, imgpath.length()));*/
+		@ResponseBody
+//		public ModelAndView selectByConditions( HttpServletRequest request){
+	//		String findbycondition=request.getParameter("findbycondition");
+		public ModelAndView selectByConditions(String findbycondition){	
+		    List<OldUsers> olduser=oldUsersService.queryByConditions(findbycondition);
+			
 			ModelAndView modelAndView=new ModelAndView();
 			modelAndView.addObject("olduser", olduser);
 			modelAndView.setViewName("backstage/allolduser");
