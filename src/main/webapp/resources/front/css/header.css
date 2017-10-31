@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+/*header*/
+header{width:100%;height:80px;position:fixed;top:0;z-index:999;}
+* html{background-image:url(about:blank);background-attachment:fixed}
+* html header{position:absolute;top:expression(eval(document.documentElement.scrollTop))}
+#navbg{width:100%;height:80px;overflow:hidden;text-indent:-9999px;position:absolute;left:0;top:0;background:orange;}
+#ruifoxHome #navbg{filter:alpha(opacity=80);opacity:0.8;}
+#ruifoxHome .cat_title{overflow:hidden;padding:35px 0;height:150px;border-bottom:1px solid #d8d9d8;}
+#ruifoxHome .cat_title h2{font-size:46px;text-indent:10px}
+#ruifoxHome .cat_title p{display:inline-block;zoom:1;*display:inline;vertical-align:middle;font-size:12px;color:#999;margin-top:80px;}
+#ruifoxHome .cat_title strong{font-size:50px;float:none;font-weight:normal;font-family:Verdana;color:#999;margin:0 6px;vertical-align:top;}
+header h1.logo{position:absolute;top:20px;left:-150px;}
+header nav{display:block;position:absolute;right:0;top:0;font-size:0;}
+header nav li{display:inline-block;zoom:1;*display:inline;width:135px;height:78px;background:url("images/nav_ico.png") no-repeat;}
+header nav li.home{border-left:none;background-position:10px 0}
+header nav li.about{background-position:10px -78px}
+header nav li.service{background-position:10px -156px}
+header nav li.cases{background-position:10px -234px}
+header nav li.client{background-position:10px -312px}
+header nav li a{display:block;height:40px;padding-left:40px;margin:20px 5px 0 5px;font-size:14px;color:#fff;text-decoration:none;}
+header nav li a:hover{text-decoration:none;}
+header nav li span{display:block;color:#999;font-size:11px;-webkit-text-size-adjust:none;}
