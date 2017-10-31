@@ -23,8 +23,8 @@ public class UploadImage {
 				String endPath=uploadPath+File.separator+imagePath;
 				File loadFile=new File(endPath);
 				//没有这个目录就创建
-				if (loadFile.isDirectory()) {
-					loadFile.mkdir();
+				if (!loadFile.exists()) {
+					loadFile.mkdirs();
 				}
 				String path=endPath+File.separator+newFileName;
 				File image=new File(path);
@@ -35,7 +35,7 @@ public class UploadImage {
 				e.printStackTrace();
 			}
 		}
-		return "no";
+		return null;
 	}
 	
 	//多图片上传
@@ -50,8 +50,8 @@ public class UploadImage {
 					String endPath=uploadPath+File.separator+imagePath;
 					File loadFile=new File(endPath);
 					//没有这个目录就创建
-					if (loadFile.isDirectory()) {
-						loadFile.mkdir();
+					if (!loadFile.exists()) {
+						loadFile.mkdirs();
 					}
 					String path=endPath+File.separator+newFileName;
 					File image=new File(path);
