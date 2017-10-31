@@ -20,16 +20,16 @@ public class UploadImage {
 				String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
 				String newFileName=UUID.randomUUID()+fileName;
 				String uploadPath = request.getSession().getServletContext().getRealPath("/files");
-				String endPath=uploadPath+File.separator+imagePath;
+				String endPath=uploadPath+imagePath;
 				File loadFile=new File(endPath);
 				//没有这个目录就创建
 				if (!loadFile.exists()) {
 					loadFile.mkdirs();
 				}
-				String path=endPath+File.separator+newFileName;
+				String path=endPath+"/"+newFileName;
 				File image=new File(path);
 				file.transferTo(image);
-				return imagePath+newFileName;
+				return new String(imagePath+"/"+newFileName);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -43,20 +43,20 @@ public class UploadImage {
 		List<String> list=new ArrayList<String>();
 			String uploadPath = request.getSession().getServletContext().getRealPath("/files");
 			for (MultipartFile file : files) {
-				String fileName;
+				String fileName="";
 				try {
 					fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
 					String newFileName=UUID.randomUUID()+fileName;
-					String endPath=uploadPath+File.separator+imagePath;
+					String endPath=uploadPath+imagePath;
 					File loadFile=new File(endPath);
 					//没有这个目录就创建
 					if (!loadFile.exists()) {
 						loadFile.mkdirs();
 					}
-					String path=endPath+File.separator+newFileName;
+					String path=endPath+"/"+newFileName;
 					File image=new File(path);
 					file.transferTo(image);
-					list.add(imagePath+newFileName);
+					list.add(new String(imagePath+"/"+newFileName));
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
