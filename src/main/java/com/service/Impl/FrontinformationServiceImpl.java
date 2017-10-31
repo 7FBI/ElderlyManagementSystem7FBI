@@ -1,5 +1,8 @@
 package com.service.Impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -47,6 +50,30 @@ public class FrontinformationServiceImpl implements FrontinformationService {
 	public int updateByPrimaryKey(Frontinformation record) {
 		// TODO Auto-generated method stub
 		return frontinformationMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Frontinformation> selectByKey(Integer id) {
+		// TODO Auto-generated method stub
+		return frontinformationMapper.selectByKey(id);
+	}
+
+	@Override
+	public List<Frontinformation> selectByMid(Map map) {
+		// TODO Auto-generated method stub
+		return frontinformationMapper.selectByMid(map);
+	}
+
+	@Override
+	public int selectByMidCount(Map map) {
+		// TODO Auto-generated method stub
+		return frontinformationMapper.selectByMidCount(map);
+	}
+
+	@Override
+	public List<String> selectAllKinds(Map map) {
+		// TODO Auto-generated method stub
+		return frontinformationMapper.selectAllKinds(map);
 	}
 
 }

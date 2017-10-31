@@ -1,5 +1,10 @@
 package com.controller.backstage.info;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +12,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Frontinformation;
+import com.bean.Infopicture;
 import com.others.file.UploadImage;
 import com.service.FrontinformationService;
 import com.service.InfopictureService;
@@ -34,7 +41,17 @@ public class InfoController {
 		}
 		frontinformation.setMid("dpeng123");
 		frontinformationService.insertSelective(frontinformation);
-		System.out.println(">>>>>>>>>>>>>>>id:"+frontinformation.getId());
+		String[] imageContent=request.getParameterValues("imageContent");
+		List<String> filesList=UploadImage.addImages(files, "/info/others", request);
+		int x=0;
+		for (String content : imageContent) {
+			Infopicture infopicture=new Infopicture();
+			infopicture.setInfoid(frontinformation.getId());
+			infopicture.setImagecontent(content);
+			infopicture.setImagepath(filesList.get(x));
+			x++;
+			infopictureService.insertSelective(infopicture);
+		}
 		return "redirect:/backstage/info/allInfo";
 	}
 	
@@ -42,7 +59,56 @@ public class InfoController {
 	public ModelAndView allInfo(HttpServletRequest request){
 		ModelAndView view=new ModelAndView();
 		view.setViewName("backstage/frontinformation");
+		Map<String,Object> map=new HashMap<String, Object>();
+		String mid="dpeng123";
+		map.put("mid", mid);
+		Integer max=2;
+		Integer page=0;
+		Integer counts=0;
+		//当前页
+		if (request.getParameter("page")!=null) {
+			page=Integer.valueOf(request.getParameter("page"));
+		}
+		if (page<0) {
+			page=0;
+		}
+		counts=frontinformationService.selectByMidCount(map)/max;
+		if (counts<=0) {
+			counts=0;
+		}
+		if (page>=counts) {
+			page=counts;
+		}
+		List<Frontinformation> list=null;
+		map.put("page", page*max);
+		map.put("max", max);
+		list=frontinformationService.selectByMid(map);
+		List<String> kinds=frontinformationService.selectAllKinds(map);
+		view.addObject("frontinformation", list);
+		view.addObject("counts", counts);
+		view.addObject("page", page);
+		view.addObject("kinds", kinds);
 		return view;
 	}
-
+	
+	@RequestMapping("/deleteInfo")
+	public String deleteInfo(HttpServletRequest request){
+		Integer id=Integer.valueOf(request.getParameter("id"));
+		frontinformationService.deleteByPrimaryKey(id);
+		return "redirect:/backstage/info/allInfo";
+	}
+	
+	@RequestMapping("/updateInfo")
+	@ResponseBody
+	public List<Frontinformation> updateInfo(HttpServletRequest request){
+		ModelAndView view=new ModelAndView();
+		view.setViewName("backstage/frontinformationInfo");
+		/*if (request.getParameter("id")==null|request.getParameter("id")=="") {
+			return allInfo(request);
+		}*/
+		Integer id=Integer.valueOf(request.getParameter("id"));
+		List<Frontinformation> frontinformations=frontinformationService.selectByKey(id);
+		view.addObject("frontinformation", frontinformations);
+		return frontinformations;
+	}
 }

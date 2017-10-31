@@ -342,4 +342,6 @@
 		extended20 = #{extended20,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	
+	
 </mapper>

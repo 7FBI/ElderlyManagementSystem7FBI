@@ -16,7 +16,7 @@
                 </td>
                 <td valign="top" background="./Images/content_bg.gif">
                     <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr><td height="31"><div class="title">管理员添加信息</div></td></tr>
+                        <tr><td height="31"><div class="title">信息详情页</div></td></tr>
                     </table>
                 </td>
                 <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
@@ -35,8 +35,7 @@
                                 <table>
                                     <tr>
                                         <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
-                                        
+                                        <td valign="bottom"><h3 style="letter-spacing:1px;">可修改以下数据>>></h3></td>
                                     </tr>
                                 </table>
                             </td>
@@ -56,7 +55,7 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="/backstage/info/addInfo" method="post" enctype="multipart/form-data">
+                                            <form action="" method="">
                                                 <table width="100%"class="cont">
                                                 
                                                     <tr>
@@ -71,55 +70,22 @@
                                                         <td width="2%">&nbsp;</td>
                                                         <td>信息图片：</td>
                                                         <td width="20%"><input type="file" name="file" /></td>
-                                                        <td>上传信息图片</td>
+                                                        <td><img src="" /></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
-                                                    
+                                                                           
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td>信息分类：</td>
-                                                        <td>
-                                                            <select name="kinds">
-                                                                <option selected="true">新闻</option>
-                                                                <option>喜讯</option>
-                                                                <option>公告</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>设置产品分类</td>
-                                                        <td>&nbsp;</td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>描述内容：</td>
-                                                        <td><textarea name="newscontent" ></textarea></td>
+                                                        <td>描述(Description)：</td>
+                                                        <td><textarea></textarea></td>
                                                         <td>信息简短描述</td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td width="15%">发布日期(yyyy/mm/dd)：</td>
-                                                        <td width="25%"><input class="text" type="text" name="sendtiem" value="" /></td>
-                                                        <td>设置信息发布日期</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                </table>
-                                                <table>
-                                                <tbody>
-                                                <tr>
-                                                        
-                                                        <td valign="bottom" id="addBtnImage"><button type="button" class="btn">添加附加图片</button></td>
-                                                    </tr>
-                                                    <tr id="addImageContent">
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                	<tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" /></td>
+                                                        <td colspan="3"><input class="btn" type="submit" value="修改" /></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
-                                                </tfoot>
                                                 </table>
                                             </form>
                                         </td>
@@ -128,7 +94,7 @@
                             </td>
                             <td width="2%">&nbsp;</td>
                         </tr>
-                        <!-- 添加信息结束 -->
+                        <!-- 添加活动结束 -->
                         <tr>
                             <td height="40" colspan="4">
                                 <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
@@ -162,15 +128,5 @@
             </tr>
         </table>
     </body>
-<script type="text/javascript" src="/resources/unity/jquery/jquery-3.2.0.js" ></script>
-<script type="text/javascript">
-$("#addBtnImage").click(function(){
-	var htmlf='<td>&nbsp;</td><td><input type="file" name="files" /></td><td>&nbsp;</td>';
-	var htmli='<td>&nbsp;</td><td><textarea name="imageContent"></textarea></td><td>&nbsp;</td>';
-	var fdiv=$("#addBtnImage");
-	var idiv=$("#addImageContent");
-	fdiv.before(htmlf);
-	idiv.before(htmli);
-})
-</script>
+
 </html>
