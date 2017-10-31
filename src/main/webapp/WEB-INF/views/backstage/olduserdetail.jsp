@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -85,7 +86,13 @@
                  &nbsp;    <div class="col-md-6 form-group">
                         <label for="locals" class="col-md-3 control-label">性别</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="locals" value="${userdetail.sex}" readonly>
+                        <c:if test="${userdetail.sex==1}">
+                        <input type="text" class="form-control" id="locals" value="女" readonly>
+                        </c:if>
+                         <c:if test="${userdetail.sex==0}">
+                        <input type="text" class="form-control" id="locals" value="男" readonly>
+                        </c:if>
+                            
                         </div>
                     </div>
                     <div class="col-md-6 form-group">
