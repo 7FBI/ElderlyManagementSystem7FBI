@@ -57,7 +57,7 @@
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加回访记录</a></li>
 						</ul>
 					</div>
-					<!-----------  ------------>
+					<!-- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">地域管理</a>
 					</h1>
@@ -75,7 +75,7 @@
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
 						</ul>
 					</div>
-					<!-------------------  -->
+					<!-- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">病例管理</a>
 					</h1>
@@ -93,7 +93,7 @@
 							<li><a href="#" target="main">活动管理</a></li>
 						</ul>
 					</div>
-					<!-------------------  -->
+					<!-- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">教育模块</a>
 					</h1>
@@ -107,12 +107,13 @@
 						</table>
 						<ul class="RM">
 						
-							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加活动</a></li>
-							<li><a href="#" target="main">活动管理</a></li>
+							<li><a href="${pageContext.request.contextPath}/edu/alledu.action" target="main">新闻列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addedunews" target="main">发布新闻</a></li>
+						    <li><a href="${pageContext.request.contextPath}/.action" target="main">教学视屏</a></li>
 						</ul>
 					</div>
 		
-				<!------------  ----------------->
+				<!--  -->
 					<h1 class="type">
 						<a href="javascript:void(0)">分店系统</a>
 					</h1>
@@ -130,7 +131,7 @@
 							<li><a href="#" target="main">活动管理</a></li>
 						</ul>
 					</div>
-					<!-- ------------------- -->
+					<!--  -->
 					<h1 class="type">
 						<a href="javascript:void(0)">产品管理</a>
 					</h1>

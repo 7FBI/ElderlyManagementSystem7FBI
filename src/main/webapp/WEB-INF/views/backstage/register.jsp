@@ -26,7 +26,8 @@
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" type="text/css"
+	href="/resources/backstage/Style/skin.css" />
 
 <!-- 验证 -->
 
@@ -35,18 +36,68 @@
 </head>
 
 <body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<!-- 头部开始 -->
+		<tr>
+			<td width="17" valign="top"
+				background="/resources/backstage/Images/mail_left_bg.gif"><img
+				src="/resources/backstage/Images/left_top_right.gif" width="17"
+				height="29" /></td>
+			<td valign="top" background="/resources/backstage/Images/content_bg.gif">
+                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
+                        <tr><td height="31"><div class="title">
+                        <!-- <strong><font color="blue">修改内容</font></strong> -->
+                        
+                        </div></td></tr>
+                    </table>
+                </td>
+                <td width="16" valign="top" background="/resources/backstage/Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
+            </tr>
+		<!-- 中间部分开始 -->
+		<tr>
+			<!--第一行左边框-->
+			<td valign="middle"
+				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
+			<!--第一行中间内容-->
+			<td valign="top" bgcolor="#F7F8F9"><a
+				href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action"><font
+					size="2px" color="blue"> <span
+						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
+				</font></a> <br> 
 
-	<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font  color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br>
-	<form  class="form-horizontal col-md-offset-2"
-		action="/oldusers/insterOldUsers.action" method="post"
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<!-- 空白行-->
+					<!-- <div class="row div_width"> -->
+
+					<!-- 一条线 -->
+					<tr>
+						<td colspan="4">
+							<table width="100%" height="1" border="0" cellpadding="0"
+								cellspacing="0" bgcolor="#CCCCCC">
+								<tr>
+									<td></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<!-- 商品分类开始 -->
+					<tr><td >
+							<div class="col-md-offset-2"
+								style="font-size: 26px;color: #9fdfdc;font-family: "楷体";text-align:left;width:80%; margin: 0 auto;">
+								<span class="glyphicon glyphicon-user" aria-hidden="true">
+								</span>&nbsp;注册新会员
+
+								<HR
+									style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)"
+									width="80%" color=#987cb9 SIZE=3>
+							</div>
+
+
+							<form  class="form-horizontal col-md-offset-2"
+		action="/oldusers/insterOldUsers.action" method="Post"
 		enctype="multipart/form-data">
         
-		<label class="register_title"> <strong> <span
-				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;注册新会员
-		</strong></label>
 		<!-- <div><div>姓名:<input onblur="username()" id="uname"></div><div id="xm"></div></div>
 		<div><div>密码:<input onblur="passwod()" id="passwd"></div><div id="mm"></div></div>
  -->		<div class="form-group col-md-offset-3">
@@ -206,6 +257,48 @@
 			</div>
 		</div>
 	</form>
-
+</td></tr>
+						
+					<!-- 商品分类结束 -->
+					<tr>
+						<td height="20" colspan="4">
+							<table width="100%" height="1" border="0" cellpadding="0"
+								cellspacing="0" bgcolor="#CCCCCC">
+								<tr>
+									<td></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<!--底部信息  -->
+						<!-- <td width="2%">&nbsp;</td>
+						<td width="51%" class="left_txt"><img
+							src="/resources/backstage/Images/icon_mail.gif" width="16"
+							height="11"> 客户服务邮箱：rainman@foxmail.com<br /> <img
+							src="/resources/backstage/Images/icon_phone.gif" width="17"
+							height="14"> 官方网站：<a href="http://h2design.taobao.com/"
+							target="_blank">氢设计</a></td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td> -->
+					</tr>
+				</table></td>
+			<td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>
+		</tr>
+		<!-- 底部部分 -->
+		<tr>
+			<td valign="bottom"
+				background="/resources/backstage/Images/mail_left_bg.gif"><img
+				src="/resources/backstage/Images/buttom_left.gif" width="17"
+				height="17" /></td>
+			<td background="/resources/backstage/Images/buttom_bgs.gif"><img
+				src="/resources/backstage/Images/buttom_bgs.gif" width="17"
+				height="17"></td>
+			<td valign="bottom"
+				background="/resources/backstage/Images/buttom_right.gif"><img
+				src="/resources/backstage/Images/buttom_right.gif" width="16"
+				height="17" /></td>
+		</tr>
+	</table>
 </body>
 </html>

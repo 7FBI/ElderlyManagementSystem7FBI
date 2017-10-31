@@ -70,12 +70,12 @@ public class BackOldUsersController {
 			// 调用加密方法将密码加密
 			String pwd = Encryption.encrypation(oldUsers.getPassword());
 			oldUsers.setPassword(pwd);
-			
-			String username = new String(oldUsers.getUsername().getBytes("iso-8859-1"),"utf-8");
-			oldUsers.setUsername(username);
-			String address = new String(oldUsers.getAddress().getBytes("iso-8859-1"),"utf-8");
-			oldUsers.setAddress(address);
-			
+//			
+//			String username = new String(oldUsers.getUsername().getBytes("iso-8859-1"),"utf-8");
+//			oldUsers.setUsername(username);
+//			String address = new String(oldUsers.getAddress().getBytes("iso-8859-1"),"utf-8");
+//			oldUsers.setAddress(address);
+//			
 			oldUsersService.insertOldUsers(oldUsers);
 			//modelAndView.addObject("err", "");
 			List<OldUsers> olduser = oldUsersService.queryUsers();
@@ -141,11 +141,6 @@ public class BackOldUsersController {
 		users.setUserurl(sqlPath);
 		System.out.println("------文件路径:" + newFile.getPath());
 		file.transferTo(newFile);
-		//转码
-		String username = new String(users.getUsername().getBytes("iso-8859-1"),"utf-8");
-		users.setUsername(username);
-		String address = new String(users.getAddress().getBytes("iso-8859-1"),"utf-8");
-		users.setAddress(address);
 		
 		 oldUsersService.modifyById(users);
 		 List<OldUsers> olduser = oldUsersService.queryUsers();
