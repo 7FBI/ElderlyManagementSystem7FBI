@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <!-- 	<link rel="stylesheet" href="/resources/login_ceo_backstage/css/reset.css">
         <link rel="stylesheet" href="/resources/login_ceo_backstage/css/supersized.css"> -->
-        <link rel="stylesheet" href="/resources/login_ceo_backstage/css/style.css">
+        <link rel="stylesheet" href="/resources/front/css/login.css">
 	
 
   </head>
