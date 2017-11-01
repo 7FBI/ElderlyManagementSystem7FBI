@@ -144,9 +144,9 @@
 							</tr>
 						</table>
 						<ul class="RM">
-							<li><a href="#" target="main">产品分类</a></li>
-							<li><a href="#" target="main">添加产品</a></li>
-							<li><a href="#" target="main">产品列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/Class/select_to.action" target="main">产品分类</a></li>
+							<li><a href="/gotoBackstage/goods_add" target="main">添加产品</a></li>
+							<li><a href="${pageContext.request.contextPath}/Store/See_to.action" target="main">产品列表</a></li>
 						</ul>
 					</div>
 					<h1 class="type">
@@ -161,32 +161,12 @@
 							</tr>
 						</table>
 						<ul class="RM">
-							<li><a href="#" target="main">待处理订单</a></li>
+							<li><a href="${pageContext.request.contextPath}/Orders/selectByorderstatus.action" target="main">待处理订单</a></li>
 							<li><a href="#" target="main">处理中订单</a></li>
 							<li><a href="#" target="main">已发货订单</a></li>
-							<li><a href="#" target="main">已完成订单</a></li>
+							<li><a href="${pageContext.request.contextPath}/Orders/selectOrders.action" target="main">已完成订单</a></li>
 						</ul>
 					</div>
-
-					<h1 class="type">
-						<a href="javascript:void(0)">订单管理</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu_top_line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-							<li><a href="#" target="main">待处理订单</a></li>
-							<li><a href="#" target="main">处理中订单</a></li>
-							<li><a href="#" target="main">已发货订单</a></li>
-							<li><a href="#" target="main">已完成订单</a></li>
-						</ul>
-					</div>
-
 					<!-- *********** -->
 					<h1 class="type">
 						<a href="javascript:void(0)">会员管理</a>

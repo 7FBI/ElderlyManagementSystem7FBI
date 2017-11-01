@@ -18,10 +18,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     body{height:100%;background:#16a085;overflow:hidden;}
     canvas{z-index:-1;position:absolute;}
     </style> 
-    <script type="text/javascript" src="resources/ManagerInfo_login/js/jquery.js"></script>
-    <script src="resources/ManagerInfo_login/js/verificationNumbers.js" ></script>
-    <script src="resources/ManagerInfo_login/js/Particleground.js" tppabs="js/Particleground.js"></script>
-   <script> 
+   <script type="text/javascript" src="/resources/ManagerInfo_login/js/jquery.js"></script>
+    <script src="/resources/ManagerInfo_login/js/verificationNumbers.js" ></script>
+    <script src="/resources/ManagerInfo_login/js/Particleground.js" tppabs="js/Particleground.js"></script>
+   <script>     
    $(document).ready(function() {
   //粒子背景特效
   $('body').particleground({

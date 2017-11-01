@@ -22,6 +22,11 @@ public class MainController {
     public String register(){
         return "backstage/register";
     }
+    @RequestMapping("/login")
+    public String login(){
+    	return "backstage/jsp/ManagerInfo/ManagerInfo_login";
+    }
+    
     /*平层路径访问*/
     @RequestMapping("/gotoFront/{page}")
     public String gotoFront1(@PathVariable String page){
