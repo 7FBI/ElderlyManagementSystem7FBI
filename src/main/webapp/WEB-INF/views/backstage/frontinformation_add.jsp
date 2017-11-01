@@ -107,7 +107,6 @@
                                                 <table>
                                                 <tbody>
                                                 <tr>
-                                                        
                                                         <td valign="bottom" id="addBtnImage"><button type="button" class="btn">添加附加图片</button></td>
                                                     </tr>
                                                     <tr id="addImageContent">

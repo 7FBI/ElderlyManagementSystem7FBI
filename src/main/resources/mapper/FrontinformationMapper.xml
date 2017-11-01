@@ -82,7 +82,7 @@
 			MyBatis Generator, do not modify. -->
 		select
 		*
-		from infopicture i join frontinformation f on f.id=i.infoid and f.id=#{id}
+		from infopicture i join frontinformation f on f.id=#{id} and f.id=i.infoid
 	</select>
 	
 	<!-- 查询出mid的发布消息 -->

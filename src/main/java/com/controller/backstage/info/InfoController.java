@@ -1,5 +1,6 @@
 package com.controller.backstage.info;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -99,8 +100,7 @@ public class InfoController {
 	}
 	
 	@RequestMapping("/updateInfo")
-	@ResponseBody
-	public List<Frontinformation> updateInfo(HttpServletRequest request){
+	public ModelAndView updateInfo(HttpServletRequest request){
 		ModelAndView view=new ModelAndView();
 		view.setViewName("backstage/frontinformationInfo");
 		/*if (request.getParameter("id")==null|request.getParameter("id")=="") {
@@ -109,6 +109,35 @@ public class InfoController {
 		Integer id=Integer.valueOf(request.getParameter("id"));
 		List<Frontinformation> frontinformations=frontinformationService.selectByKey(id);
 		view.addObject("frontinformation", frontinformations);
-		return frontinformations;
+		if (frontinformations.size()>0) {
+			view.addObject("id", frontinformations.get(0).getId());
+		}
+		return view;
 	}
+	
+	@RequestMapping("/updateInfoValues")
+	public String updateInfoValues(HttpServletRequest request,Frontinformation frontinformation){
+		frontinformationService.updateByPrimaryKeySelective(frontinformation);
+		return "redirect:/backstage/info/updateInfo?id="+frontinformation.getId();
+	}
+	
+	@RequestMapping("/updateInfoImage")
+	public String updateInfoImage(Frontinformation frontinformation,@RequestParam("file") MultipartFile file,HttpServletRequest request){
+		String url="";
+		if (file!=null) {
+			url=UploadImage.addImage(file, "/info/main", request);
+			if (frontinformation.getFrontpicture()!=null) {
+				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+frontinformation.getFrontpicture());
+				if (oldfile.exists() && oldfile.isFile()) {
+		            oldfile.delete();
+		        }
+			}
+		}
+		if (!"".equals(url)) {
+			frontinformation.setFrontpicture(url);
+		}
+		frontinformationService.updateByPrimaryKeySelective(frontinformation);
+		return "redirect:/backstage/info/updateInfo?id="+frontinformation.getId();
+	}
+	
 }
