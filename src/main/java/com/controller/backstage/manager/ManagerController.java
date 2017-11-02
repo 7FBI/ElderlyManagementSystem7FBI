@@ -54,14 +54,14 @@ public class ManagerController {
 	
 	@RequestMapping("/showactivitydetailinfo.action")
 	@ResponseBody
-	public ModelAndView showActivitydetailinfo(HttpServletRequest request) {	
+	public ModelAndView showActivitydetailinfo(HttpServletRequest request) {
 		ModelAndView mv =new ModelAndView();
 		if(request.getSession().getAttribute("manager")==null){
 			mv.setViewName("backstage/login_manager");
 			return mv;
 		}
 		Manager manager=(Manager) request.getSession().getAttribute("manager");
-		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getId());
+		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getLocaid());
 		mv.addObject("activitydetailinfoList", list);
 		mv.setViewName("backstage/manager_activity_index");
 		return mv;
@@ -77,6 +77,8 @@ public class ManagerController {
 	
 	@RequestMapping("/insert")
 	public String addActivityinfo(Activitydetailinfo record,@RequestParam("files") MultipartFile[] files,HttpServletRequest request) {
+		Manager manager=(Manager) request.getSession().getAttribute("manager");
+		record.setMid(manager.getLocaid());
 		activitydetailinfoService.insertSelective(record);
 		List<String> list =  new ArrayList<String>();
 		if(files != null){

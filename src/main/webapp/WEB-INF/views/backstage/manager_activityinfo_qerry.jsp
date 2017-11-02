@@ -11,7 +11,7 @@
 <body  align="center">
 <h1 align="center">活动详情</h1>
 	
-<form action="${pageContext.request.contextPath }/manager/showactivitydetailinfo.action" method="post">
+<form action="${pageContext.request.contextPath }/backstage/manager/showactivitydetailinfo.action" method="post">
 <input type="hidden" name="mid" value="${activitydetailinfo.mid}" />
 <table width="100%"  class="cont tr_color" border="1">
 	<tr>

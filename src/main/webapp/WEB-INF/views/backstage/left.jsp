@@ -58,7 +58,8 @@
 							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers" target="main">客户列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加客户</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加回访记录</a></li>
-							<li><a href="#" target="main">活动管理</a></li>
+							<li><a href="/gotoBackstage/activity_add" target="main">活动添加</a></li>
+							<li><a href="/backstage/manager/showactivitydetailinfo.action" target="main">活动列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>
 						</ul>
 						
@@ -82,13 +83,34 @@
 							</tr>
 						</table>
 						<ul class="RM">
-							<li><a href="${pageContext.request.contextPath}/edu/alledu.action" target="main">新闻列表</a></li>
-							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addedunews" target="main">发布新闻</a></li>
 						    <li><a href="${pageContext.request.contextPath}/video/allvideo.action" target="main">视频列表</a></li>
 						    <li><a href="${pageContext.request.contextPath}/gotoBackstage/addvideo" target="main">上传视频</a></li>
 						</ul>
 					</div>
 				</c:if>
+				<!--  -->
+				<c:if test="${ManagerIndo!=null and ManagerIndo.type==1 }">
+				<h1 class="type">
+						<a href="javascript:void(0)">信息发布中心</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						    <li><a href="#" target="main">信息列表</a></li>
+						    <li><a href="#" target="main">发布信息</a></li>
+						</ul>
+					</div>
+				</c:if>
+				<!--  -->
+				<!--  -->
+				
+				
 				<!--  -->
 				<c:if test="${ceoinfo!=null }">
 					<h1 class="type">
@@ -122,7 +144,9 @@
 						<ul class="RM">
 						
 							<li><a href="${pageContext.request.contextPath}/area/findAllArea.action" target="main">地域列表</a></li>
-							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
+							<%-- <li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li> --%>
+							<li><a href="#" target="main">管理员列表</a></li>
+							<li><a href="#" target="main">公告栏</a></li>
 						</ul>
 					</div>
 					</c:if>

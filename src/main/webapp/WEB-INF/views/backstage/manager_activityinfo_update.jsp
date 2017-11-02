@@ -11,7 +11,7 @@
 <body align="center">
 <h1>修改活动</h1>
 
-<form action="${pageContext.request.contextPath }/manager/update" method="post"  enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath }/backstage/manager/update" method="post"  enctype="multipart/form-data">
 <input type="hidden" name="mid" value="${activitydetailinfo.mid}" />
 <table width="100%" border="1">
 	<tr>

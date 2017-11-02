@@ -63,7 +63,7 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="manager_activitydetailinfo"action="${pageContext.request.contextPath }/manager/query.action" method="post">
+                                            <form name="manager_activitydetailinfo"action="${pageContext.request.contextPath }/backstage/manager/query.action" method="post">
                                                 <table width="100%"  class="cont tr_color">
                                                     <tr>
                                                      

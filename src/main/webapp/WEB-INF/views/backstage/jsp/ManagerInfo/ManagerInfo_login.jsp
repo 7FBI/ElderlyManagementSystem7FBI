@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <em>welcome!</em>
        </div>
       <div class="admin_main">
-        <form action="/user/login.action" method="post" class="fitfrom">
+        <form action="/backstage/user/login.action" method="post" class="fitfrom">
         <div class="input_outer">
         <span class="u_user"></span>
         <input type="text" name="name" class="name" placeholder="账号" autocomplete="off"> 
