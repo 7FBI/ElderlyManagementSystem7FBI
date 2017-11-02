@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,14 +12,20 @@
             <!-- 头部开始 -->
             <tr>
                 <td width="17" valign="top" background="./Images/mail_left_bg.gif">
-                    <img src="./Images/left_top_right.gif" width="17" height="29" />
+                    <img src="./Images/left_top_right.gif" width="100" height="29" />
+                           	 
                 </td>
                 <td valign="top" background="./Images/content_bg.gif">
                     <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr><td height="31"><div class="title">活动展示与编辑</div></td></tr>
+                        <tr><td height="31"><div class="title">活动展示</div></td></tr>
                     </table>
                 </td>
-                <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
+                <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="100" height="29" />
+           				     当前用户：${manager.mnane}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+                       	  <c:if test="${manager.mnane!=null }">
+ 							  <a href="${pageContext.request.contextPath }/manager/login_out.action">退出</a>
+						  </c:if>
+                </td>
             </tr>
             <!-- 中间部分开始 -->
             <tr>
@@ -34,7 +41,9 @@
                                 <table>
                                     <tr>
                                         <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
+                                        <td valign="bottom"><h3 style="letter-spacing:1px;">活动列表：</h3></td>
+                                        <td width="200" align="center"><a href="/gotoBackstage/activity_add"><h3>新增活动</h3></a></td>
+                                        <td></td>
                                     </tr>
                                 </table>
                             </td>
@@ -54,114 +63,36 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="" method="">
+                                            <form name="manager_activitydetailinfo"action="${pageContext.request.contextPath }/manager/query.action" method="post">
                                                 <table width="100%"  class="cont tr_color">
                                                     <tr>
-                                                        <th>选中</th>
-                                                        <th>排序</th>
+                                                     
+                                                        <th>序号</th>
                                                         <th>活动标题</th>
                                                         <th>价格</th>
                                                         <th>教导老师</th>
                                                         <th>活动内容简介</th>
+                                                        <th>报名开始日期</th>
                                                         <th>报名截至日期</th>
-                                                        <th>活动详情</th>
                                                         <th>活动编辑</th>
                                                     </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                      
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                       
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                       
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                        
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                       
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                       
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                       
-                                                        <td>删除</td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>RainMan</td>
-                                                        <td>瑞曼</td>
-                                                        <td>15901256171</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>609307843</td>
-                                                        <td>2013-01-22 11:42:00</td>                                                     
-                                                        <td>删除</td>
-                                                    </tr>
+                                                    <c:forEach items="${activitydetailinfoList}" var="activitydetailinfoList">
+													<tr>	
+														<th>${activitydetailinfoList.id}</th>
+														<th>${activitydetailinfoList.activitytitle}</th>
+   														<th>${activitydetailinfoList.activityprice}</th>
+   														<th>${activitydetailinfoList.activityteacher}</th>
+   														<th>${activitydetailinfoList.activitycontent}</th>
+ 														<th>${activitydetailinfoList.activitystarttime}</th>
+ 														<th>${activitydetailinfoList.actitvityendtime}</th> 
+														<th>
+															<tt><a href="${pageContext.request.contextPath }/manager/selectById2?id=${activitydetailinfoList.id}">详情</a></tt>
+															<tt><a href="${pageContext.request.contextPath }/manager/delete?id=${activitydetailinfoList.id}">删除</a></tt>
+															<tt><a href="${pageContext.request.contextPath }/manager/selectById?id=${activitydetailinfoList.id}">修改</a></tt>
+														</th>
+													</tr>
+												</c:forEach>
+                                                 
                                                 </table>
                                             </form>
                                         </td>
@@ -190,7 +121,7 @@
                 </td>
                 <td background="./Images/mail_right_bg.gif">&nbsp;</td>
             </tr>
-            <!-- 底部部分 -->
+             <!-- 底部部分 -->
             <tr>
                 <td valign="bottom" background="./Images/mail_left_bg.gif">
                     <img src="./Images/buttom_left.gif" width="17" height="17" />

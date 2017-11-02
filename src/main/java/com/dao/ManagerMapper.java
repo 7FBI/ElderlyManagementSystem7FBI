@@ -50,8 +50,6 @@ public interface ManagerMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Manager record);
-    
-    //添加通过账号查找信息的方法
-    Manager selectManagerByMnumber(String Mnumber);
-    
+
+	Manager selectManagerByMnumber(String mnumber);
 }

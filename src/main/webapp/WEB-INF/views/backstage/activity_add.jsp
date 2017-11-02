@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -35,7 +36,7 @@
                                 <table>
                                     <tr>
                                         <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
+                                        <td valign="bottom"><h2 style="letter-spacing:1px;">添加新活动</h2></td>
                                     </tr>
                                 </table>
                             </td>
@@ -49,87 +50,89 @@
                             </td>
                         </tr>
                         <!-- 添加产品开始 -->
+                
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="96%">
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="" method="">
+                                            <form action="${pageContext.request.contextPath }/manager/insert" method="post" enctype="multipart/form-data">
                                                 <table width="100%"class="cont">
-                                                    <tr>
-                                                        <td width="2%">&nbsp;</td>
+                                                <tr>
+                                                 <td><input type="hidden" name="mid" value="${manager.id}"/></td>
+                                                 </tr>
+                                                   <!--  <tr>
+                                                   	    <td width="2%">&nbsp;</td>
                                                         <td>活动编号：</td>
-                                                        <td width="20%"><input class="text" type="text" name="cat_name" value="" /></td>
+                                                        <td width="20%"><input class="text" type="text" name="id" value="" /></td>
                                                         <td>设置活动编号，不填将自动创建!</td>
                                                         <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                
+                                                    </tr> -->
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="15%">活动标题：</td>
                                                         <td width="25%"><input class="text" type="text" name="activitytitle" value="" /></td>
                                                         <td>设置活动名称</td>
                                                         <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                    
-                                                    <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td>活动图片：</td>
-                                                        <td width="20%"><input type="file" name="cat_name" /></td>
-                                                        <td>上传活动图片</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>                                             
+                                                    </tr>                                          
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>活动价格：</td>
-                                                        <td width="20%"><input class="text" style="width:100px;" type="text" name="activityprice" value="" /></td>
+                                                        <td width="20%"><input class="text" type="text" name="activityprice" value="" /></td>
                                                         <td>填写活动价格</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>活动带队老师：</td>
-                                                        <td>
-                                                            <select>
-                                                                <option selected="true">请选择...</option>
-                                                                <option>老王</option>
-                                                                <option>张三</option>
-                                                            </select>
-                                                        </td>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>带队老师：</td>
+                                                        <td width="20%"><input class="text" type="text" name="activityteacher" value="" /></td>                                                                           
                                                         <td>设置带队老师</td>
-                                                        <td>&nbsp;</td>
+                                                        <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     
                                                     <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>活动分类：</td>
-                                                        <td>
-                                                            <select>
-                                                                <option selected="true">请选择...</option>
-                                                                <option>室内活动</option>
-                                                                <option>室外活动</option>
-                                                                <option>室外活动和室外活动</option>
-                                                            </select>
-                                                        </td>
-                                                        <td>设置产品分类</td>
-                                                        <td>&nbsp;</td>
+                                                    	<td width="2%">&nbsp;</td>
+                                                        <td>活动地址：</td>
+                                                        <td width="20%"><input class="text" type="text" name="activitylocation" value="" /></td>                                                                           
+                                                        <td>设置活动地址</td>
+                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
-                                                                           
                                                     <tr>
-                                                        <td>&nbsp;</td>
+                                                    <td width="2%">&nbsp;</td>
+                                                        <td width="15%">开始日期：</td>
+                                                        <td width="25%"><input class="text" type="text" name="activitystarttime" value="" /></td>
+                                                        <td>设置活动开始日期</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                      <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                        <td width="15%">结束日期：</td>
+                                                        <td width="25%"><input class="text" type="text" name="actitvityendtime" value="" /></td>
+                                                        <td>设置活动结束日期</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td width="2%">&nbsp;</td>
+                                                        <td width="15%">报名截止日期：</td>
+                                                        <td width="25%"><input class="text" type="text" name="activitystoptime" value="" /></td>
+                                                        <td>设置活动截止日期</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr> 
+                                                     <tr>
+                                                        <td width="2%">&nbsp;</td>
                                                         <td>描述(Description)：</td>
-                                                        <td><textarea></textarea></td>
+                                                        <td><textarea class="text" type="text" name="activitycontent"></textarea></td>
                                                         <td>活动简短描述</td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
-                                                        <td width="15%">报名截至日期：</td>
-                                                        <td width="25%"><input class="text" type="text" name="cat_name" value="" /></td>
-                                                        <td>设置活动日期</td>
+                                                        <td>活动图片：</td>
+                                                        <td width="20%"><input type="file" name="files" multiple="multiple" /></td>
+                                                        <td>上传活动图片</td>
                                                         <td width="2%">&nbsp;</td>
-                                                    </tr>
+                                                    </tr> 
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td colspan="3"><input class="btn" type="submit" value="提交" /></td>
