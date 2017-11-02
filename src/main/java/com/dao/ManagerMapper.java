@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import com.bean.Manager;
 
 public interface ManagerMapper {
@@ -52,4 +54,6 @@ public interface ManagerMapper {
     int updateByPrimaryKey(Manager record);
 
 	Manager selectManagerByMnumber(String mnumber);
+	
+   List<Manager> selectAllManager(Integer cid);
 }

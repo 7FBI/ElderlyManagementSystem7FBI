@@ -398,9 +398,11 @@
   </update>
   <select id="selectManagerByMnumber" parameterType="java.lang.String" resultType="com.bean.Manager">
   select * from manager where mnumber = #{mnumber}
-
+ </select>
   
+ <!--  <delete id="deleteManagerById"></delete> -->
+  
+  <select id="selectAllManager" parameterType="java.lang.Integer" resultType="com.bean.Manager">
+  select * from manager where cid =#{cid}
   </select>
-  
-  
 </mapper>

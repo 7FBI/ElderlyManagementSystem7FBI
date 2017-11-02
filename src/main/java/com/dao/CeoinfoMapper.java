@@ -50,8 +50,6 @@ public interface CeoinfoMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Ceoinfo record);
-    
-    
-    //定义通过传入的登录名获取用户对象的方法
-    Ceoinfo selectCeoinfoByName(String name);
+
+	Ceoinfo selectCeoinfoByName(String name);
 }

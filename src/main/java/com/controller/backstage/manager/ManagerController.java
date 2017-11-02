@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Activepicutre;
 import com.bean.Activitydetailinfo;
+import com.bean.Ceoinfo;
 import com.bean.Manager;
 import com.others.file.UploadImage;
 import com.others.md5.Encryption;
@@ -36,11 +37,13 @@ public class ManagerController {
 	
 	@RequestMapping("/login")
 	public String login(Manager manager,HttpServletRequest request){
+		//分店店长登陆功能的验证
 		Manager manager2 = new Manager();
 		manager2 = managerService.checkLogin(manager.getMnumber());
 		if (manager2==null) {
 			return "redirect:/gotoBackstage/index";
 		}else {
+			//加密传入的密码，与存在数据库中的密码进行比较判断
 			if(Encryption.encrypation(manager.getMpassword()).equals(manager2.getMpassword())){
 				request.getSession().setAttribute("manager", manager2);
 			}
@@ -49,19 +52,21 @@ public class ManagerController {
 	}
 	@RequestMapping("login_out.action")
 	public String login_out(){
+		//退出 功能
 		return "backstage/login_manager";
 		}
 	
 	@RequestMapping("/showactivitydetailinfo.action")
 	@ResponseBody
 	public ModelAndView showActivitydetailinfo(HttpServletRequest request) {
+		//在店长已经登陆后根据店长的id在活动表中查询出所有属于本店的活动并显示
 		ModelAndView mv =new ModelAndView();
 		if(request.getSession().getAttribute("manager")==null){
 			mv.setViewName("backstage/login_manager");
 			return mv;
 		}
 		Manager manager=(Manager) request.getSession().getAttribute("manager");
-		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getLocaid());
+		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getId());
 		mv.addObject("activitydetailinfoList", list);
 		mv.setViewName("backstage/manager_activity_index");
 		return mv;
@@ -77,8 +82,6 @@ public class ManagerController {
 	
 	@RequestMapping("/insert")
 	public String addActivityinfo(Activitydetailinfo record,@RequestParam("files") MultipartFile[] files,HttpServletRequest request) {
-		Manager manager=(Manager) request.getSession().getAttribute("manager");
-		record.setMid(manager.getLocaid());
 		activitydetailinfoService.insertSelective(record);
 		List<String> list =  new ArrayList<String>();
 		if(files != null){
@@ -128,13 +131,48 @@ public class ManagerController {
 	public String selectById2(Integer id, HttpServletRequest request){
 		Activitydetailinfo activitydetailinfo = activitydetailinfoService.selectByPrimaryKey(id);
 		List<Activepicutre> list= activepicutreService.selectByActivityid((activitydetailinfoService.selectByPrimaryKey(id)).getId());
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i));
-		}
 		request.setAttribute("activitydetailinfo", activitydetailinfo);
 		request.setAttribute("list", list);
 		
 		return "backstage/manager_activityinfo_qerry";
 	}
+	
+	@RequestMapping("/selectAllManager.action")
+	public String selectAllManager(HttpServletRequest request){
+		Ceoinfo ceoinfo =(Ceoinfo) request.getSession().getAttribute("ceoinfo");
+		List<Manager> list =managerService.selectAllManager(ceoinfo.getId());
+		request.setAttribute("list", list);
+		return "backstage/manager_index";
+	}
+	
+	@RequestMapping("addManager")
+	public String insertSelective(Manager manager,HttpServletRequest request){
+		if(managerService.selectManagerByMnumber(manager.getMnumber())!=null){
+			return "backstage/manager_add";
+		}
+		managerService.insertSelective(manager);
+		return "redirect:selectAllManager.action";
+	}
+	
+	@RequestMapping("deleteById")
+	public String deleteById(int id,HttpServletRequest request){
+		managerService.deleteByPrimaryKey(id);
+		return "redirect:selectAllManager.action";
+		}
+	
+	@RequestMapping("updateByPrimaryKeySelective")
+	public String updateByPrimaryKeySelective(Manager manager,HttpServletRequest request){
+		managerService.updateByPrimaryKeySelective(manager);
+		return "redirect:selectAllManager.action";
+	}
+	
+	@RequestMapping("selectByPrimaryKey")
+	public String selectByPrimaryKey(int id,HttpServletRequest request) {
+		Manager manager=managerService.selectByPrimaryKey(id);
+		request.setAttribute("manager", manager);
+		return "backstage/manager_update";
+	}
+	
+	
 	
 }
