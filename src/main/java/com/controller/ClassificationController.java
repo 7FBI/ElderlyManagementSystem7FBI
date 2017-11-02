@@ -12,7 +12,7 @@ import com.bean.Classification;
 import com.service.ClassificationService;
 
 @Controller
-@RequestMapping("/Class")
+@RequestMapping("/backstage/Class")
 public class ClassificationController {
 	
 	@Autowired

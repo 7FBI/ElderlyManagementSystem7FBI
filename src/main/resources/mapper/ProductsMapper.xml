@@ -431,8 +431,8 @@
       producturl = #{producturl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectProducts" resultType="com.bean.Products">
-    select * from products
+  <select id="selectProductsByPage" resultType="com.bean.Products" >
+    select * from products  
   </select>
   
   
@@ -558,4 +558,68 @@
   <select id="selectId" resultType="java.lang.Integer">
    SELECT LAST_INSERT_ID()
   </select>  
+  <select id="getProductsCount" resultType="long">
+   select count(*) from products
+  </select>
+  
+  <resultMap id="invatition" type="com.bean.Products">
+        <id column="id" property="id"></id>
+        <result column="pname" property="pname"></result>
+        <result column="size" property="size"></result>
+        <result column="productscolor" property="productscolor"></result>
+        <result column="productstype1" property="productstype1"></result>
+        <result column="productstype2" property="productstype2"></result>
+        <result column="price" property="price"></result>
+        <result column="pdescription" property="pdescription"></result>
+        <result column="count" property="count"></result>
+        <result column="tid" property="tid"></result>
+        <result column="extended1" property="extended1"></result>
+        <result column="extended2" property="extended2"></result>
+        <result column="extended3" property="extended3"></result>
+        <result column="extended4" property="extended4"></result>
+        <result column="extended5" property="extended5"></result>
+        <result column="extended6" property="extended6"></result>
+        <result column="extended7" property="extended7"></result>
+        <result column="extended8" property="extended8"></result>
+        <result column="extended9" property="extended9"></result>
+        <result column="extended10" property="extended10"></result>
+        <result column="extended11" property="extended11"></result>
+        <result column="extended12" property="extended12"></result>
+        <result column="extended13" property="extended13"></result>
+        <result column="extended14" property="extended14"></result>
+        <result column="extended15" property="extended15"></result>
+        <result column="extended16" property="extended16"></result>
+        <result column="extended17" property="extended17"></result>
+        <result column="extended18" property="extended18"></result>
+        <result column="extended19" property="extended19"></result>
+        <result column="extended20" property="extended20"></result>
+        <result column="producturl" property="producturl"></result>
+  </resultMap>
+  <select id="fenye" parameterType="com.bean.Page" resultMap="invatition">
+    select * from products limit #{startRow},#{pageSize}
+  </select>
+  
+  <select id="searchTotalCount"  parameterType="com.bean.Page" resultType="java.lang.Integer">     <!-- //模糊查询描述sql -->
+  select count(id) from products
+  <where>
+   <if test="queryCondition!=null">
+     and  pdescription like count{'%',#{queryCondition},'%'}
+   </if>
+  </where>
+  </select>
+  
+  <select id="getInvBycondtion" parameterType="com.bean.Page" resultMap="invatition">  <!--模糊查询用户名-->
+   select * from products
+    <where>
+            <if test="queryCondition!=null">
+                 pname like  CONCAT('%',#{queryCondition},'%')    
+            </if>
+        </where>
+  </select>
+  
+  <delete id="deleteInvition" parameterType="java.lang.Integer">
+        delete from products
+        where
+        id=#{id}
+  </delete>
 </mapper>

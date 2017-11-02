@@ -3,15 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<title>查看商品分类</title>  
-<link rel="stylesheet" type="text/css" href="resources/ProductsAdmin/css/king-table.css">
-<script type="text/javascript" src="resources/ProductsAdmin/js/jquery-1.7.2.min.js"></script> 
-<script type="text/javascript" src="/resources/ProductsAdmin/js/king-table.js"></script> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <link rel="stylesheet" type="text/css" href="/resources/ManagerInfo_login/css/skin.css" />
+ <script type="text/javascript" src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<title>测试页面</title>
 <style>
  *:focus {outline:none; }
- #baidu{height:35px;margin-top:18px;margin-left:20px;}
+ #baidu{height:35px;margin-left:340px;}
 #baidu .input{border:1px solid #999999;height:100%;}
 #baidu .input .clear{width: 30px;height: 35px;line-height: 30px;text-align: center;cursor: pointer;opacity: 0.8;color:gray;}
 #baidu input[type=text]{height:86%;border:0px;width: 250px;}
@@ -23,61 +22,201 @@
  #tb td{border:1px solid #EEE;padding:4px;}
   
 </style>
- 
 </head>
 <body>
- <div id="baidu">
-  <div class="input">
-  <form action="${pageContext.request.contextPath }/backstage/Store/QuertByname.action" method="post" >
-  <input type="text" class="span2" id="search" name="pname">
-  <span class="clear" id="cls">X</span>
-  <input type="submit" value="查询商品名" class="ft"> 
- </form>
-  </div>
-  </div>
  
-
- <table id="tb"  >
-   <thead>
-  <tr> 
-  <th>产品名称</th>
-  <th>产品尺寸 </th>
-  <th>产品颜色 </th>
-  <th>产品价格 </th>
-  <th>产品余量 </th>
-  <th>产品描述 </th>
-  </tr>
-  </thead>
-  <tbody>
- <c:forEach items="${products1 }" var="products1">
- <tr>
-  <td>${products1.pname}</td>
-  <td>${products1.size}</td>
-  <td>${products1.productscolor}</td>
-  <td>${products1.price}</td>
-  <td>${products1.count}</td>
-  <td>${products1.pdescription}</td>
-  <td><a href="${pageContext.request.contextPath}/backstage/Store/delectByid.action?id=${products1.id}">删除</a></td>
-  <td><a href="${pageContext.request.contextPath}/backstage/Store/update.action?id=${products1.id}">修改</a></td>
-  </tr>
- </c:forEach> 
- </tbody>
- <tfoot>
- <tr>
- <td colspan="7" class="paging">
- <span>公  多少条数据</span>
- <span>第1页/10页</span>
- <a href="#1">首页</a>
- <a href="#2">下一页</a>
- <a href="#">尾页</a>
- <input type="text" class="search-txt">
- <input type="button" value="搜索" class="search-btn">
- </td>
- </tr>
- </tfoot>
- </table>
-<hr>
-<table id="cs_table2" class="data-table"></table>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <!-- 头部开始 -->
+            <tr>
+                <td width="17" valign="top" background="resources/backstage/Images/mail_left_bg.gif">
+                    <img src="/resources/backstage/Images/left_top_right.gif" width="17" height="29" />
+                </td>
+                <td valign="top" background="/resources/backstage/Images/content_bg.gif">
+                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="resources/backstage/Images/content_bg.gif">
+                        <tr><td height="31"><div class="title">添加栏目</div></td></tr>
+                    </table>
+                </td>
+                <td width="16" valign="top" background="/resources/backstage/Images/mail_right_bg.gif"><img src="resources/backstage/Images/nav_right_bg.gif" width="16" height="29" /></td>
+            </tr>
+            <!-- 中间部分开始 -->
+            <tr>
+                <!--第一行左边框-->
+                <td valign="middle" background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
+                <!--第一行中间内容-->
+                <td valign="top" bgcolor="#F7F8F9">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <!-- 空白行-->
+                        <tr><td colspan="2" valign="top">&nbsp;</td><td>&nbsp;</td><td valign="top">&nbsp;</td></tr>
+                        <tr>
+                            <td colspan="4">
+                                <table>
+                                    <tr>
+                                        <td width="100" align="center"><img src="/resources/backstage/Images/mime.gif" /></td>
+                                        <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 一条线 -->
+                        <tr>
+                            <td height="40" colspan="4">
+                                <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+                                    <tr><td></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 添加栏目开始 -->
+                        <tr>
+                        <td height="40" colspan="4">
+                        <table width="100%" height="40px;" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                        <div id="baidu">
+                        <div class="input">
+                        <form action="${pageContext.request.contextPath }/backstage/Store/init.do" method="post" >
+                        <input type="text" class="span2" id="search" name="queryCondition" value="${page.queryCondition}">
+                        <span class="clear" id="cls">X</span>
+                        <input type="submit" value="查询商品名" class="ft"> 
+                        </form>
+                        </div>
+                        </div>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td width="2%">&nbsp;</td>
+                            <td width="96%">
+                                <table width="100%">
+                                    <tr>
+                                        <td colspan="2">
+                                            <form action="" method="">
+                                                <table width="100%"  class="cont tr_color">
+                                                    <tr>
+                                                        <th width="10%">商品名</th> 
+                                                        <th>大小</th> 
+                                                        <th>颜色</th> 
+                                                        <th>商品其它属性1</th>
+                                                        <th>商品其它属性2</th>
+                                                        <th>价格</th> 
+                                                        <th>余量</th> 
+                                                        <th>类别</th>
+                                                        <th width="10%">描述</th>
+                                                        <th width="10%">编辑</th>
+                                                    </tr>
+                                                     <c:forEach items="${InvList }" var="Invlist">
+                                                    <tr align="center" class="d">
+                                                       <td>${Invlist.pname}</td> 
+                                                       <td>${Invlist.size}</td>  
+                                                       <td>${Invlist.productscolor}</td>  
+                                                       <td>${Invlist.productstype1}</td>  
+                                                       <td>${Invlist.productstype2}</td>  
+                                                       <td>${Invlist.price}</td>  
+                                                       <td>${Invlist.count}</td>  
+                                                       <td>${Invlist.tid}</td>  
+                                                       <td>${Invlist.pdescription}</td> 
+                                                       <td>
+                                                        <a href="${pageContext.request.contextPath}/backstage/Store/delectByid.action?id=${Invlist.id}">删除</a> 
+                                                        
+                                                        <a href="${pageContext.request.contextPath}/backstage/Store/update.action?id=${Invlist.id}">修改</a> 
+                                                       </td>     
+                                                    </tr>
+                                                     </c:forEach> 
+                                                </table>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="2%">&nbsp;</td>
+                        </tr>
+                        <!-- 添加栏目结束 -->
+                        <tr>
+                         <td height="40" colspan="4">
+                         <table width="100%" height="40px" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                          <tr>
+                          <td width="25%"></td>
+                          <td><label>第${page.currentPage}/${page.totalPage}页 共${page.totalRows}条</label></td>
+                          <td>
+                           <a href="/backstage/Store/init.do?currentPage=0">首页</a>   
+                           <a href="/backstage/Store/init.do?currentPage=${page.currentPage-1}" onclick="return checkFirst()">上一页</a>
+                           <a href="/backstage/Store/init.do?currentPage=${page.currentPage+1}" onclick="return checkNext()">下一页</a>   
+                          </td>
+                          <td>
+                          <a href="/backstage/Store/init.do?currentPage=${page.totalPage}">尾页</a> 跳转到:
+                          <input type="text" style="width:30px" id="turnPage" />页 
+                          <input type="button" onclick="startTurn()" value="跳转" /> 
+                          </td>
+                          <td width="25%"></td>
+                          </tr>
+                          </tbody>
+                         </table>  
+                         </td>
+                        </tr>
+                        <tr>
+                          <td height="40" colspan="4">
+                                <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+                                    <tr><td></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="2%">&nbsp;</td>
+                            <td width="51%" class="left_txt">
+                                <img src="/resources/backstage/Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：rainman@foxmail.com<br />
+                                <img src="/resources/backstage/Images/icon_phone.gif" width="17" height="14"> 官方网站：<a href="http://h2design.taobao.com/" target="_blank">氢设计</a>
+                            </td>
+                            <td>&nbsp;</td><td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+                <td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>
+            </tr>
+            <!-- 底部部分 -->
+            <tr>
+                <td valign="bottom" background="/resources/backstage/Images/mail_left_bg.gif">
+                    <img src="/resources/backstage/Images/buttom_left.gif" width="17" height="17" />
+                </td>
+                <td background="/resources/backstage/Images/buttom_bgs.gif">
+                    <img src="/resources/backstage/Images/buttom_bgs.gif" width="17" height="17">
+                </td>
+                <td valign="bottom" background="/resources/backstage/Images/mail_right_bg.gif">
+                    <img src="/resources/backstage/Images/buttom_right.gif" width="16" height="17" />
+                </td>           
+            </tr>
+        </table> 
+     
+     <script type="text/javascript">
+    function checkFirst(){
+         if(${page.currentPage>1}){
+           return true;
+         }
+         alert("已到页首,无法加载更多");
+        
+       return false;
+    }
+    
+    function checkNext(){
+    if(${page.currentPage<page.totalPage}){
+      return true;
+    }
+    alert("已到页尾，无法加载更多页");
+    return false;
+    }
+     
+    function startTurn(){
+    var turnPage=document.getElementById("turnPage").value;
+    if(turnPage>${page.totalPage}){
+      alert("对不起已超过最大页数");
+      return false;
+    }
+    var shref="init.do?currentPage="+turnPage; 
+    window.location.href=shref;
+ } 
+</script>   
+ 
 <script type="text/javascript">
     var data = [];
     for(var i=0;i<100;i++)
@@ -166,6 +305,6 @@
 		document.getElementById("cls").style.visibility="hidden";
 	}
 });
-</script>
+</script>   
 </body>
 </html>

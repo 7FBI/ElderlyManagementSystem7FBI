@@ -2,6 +2,9 @@ package com.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.bean.Page;
 import com.bean.Products;
 
 public interface ProductsMapper {
@@ -53,9 +56,17 @@ public interface ProductsMapper {
      */
     int updateByPrimaryKey(Products record);
 
-	List<Products> selectProducts();
+    List<Products> selectProductsByPage();      //查询所有商品
 
 	List<Products> QueryProductsBypname(String pname);
 	
 	int selectId();
+	
+	long getProductsCount();     //获取商品总数量
+	
+	List<Products> fenye(Page page);        //分页方法 Page是分页公共类 根据page查询到该页面的商品
+	
+    public List<Products> getInvBycondtion(Page page); //根据条件查询帖子 模糊查询
+    
+    public Integer searchTotalCount(Page page);// 根据描述 搜索商品数量
 }
