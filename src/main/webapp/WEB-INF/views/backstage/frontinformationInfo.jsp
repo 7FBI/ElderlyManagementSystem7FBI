@@ -8,15 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/backstage/Style/skin.css" />
-	
-	<style type="text/css">
-	img{  
-    width: auto;  
-    height: auto;  
-    max-width: 100%;  
-    max-height: 100%;     
-}  
-	</style>
+
+<style type="text/css">
+img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+</style>
 </head>
 <body>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -56,7 +56,9 @@
 								<tr>
 									<td width="100" align="center"><img
 										src="./Images/mime.gif" /></td>
-									<td valign="bottom"><h3 style="letter-spacing: 1px;"><a href="/backstage/info/allInfo">>>>返回上页</a></h3></td>
+									<td valign="bottom"><h3 style="letter-spacing: 1px;">
+											<a href="/backstage/info/allInfo">>>>返回上页</a>
+										</h3></td>
 								</tr>
 							</table>
 						</td>
@@ -79,21 +81,24 @@
 							<table width="100%">
 								<tr>
 									<td colspan="2">
-										<form action="/backstage/info/updateInfoValues?id=${frontinformation.get(0).infopuctures.get(0).infoid}" method="post" enctype="multipart/form-data">
+										<form
+											action="/backstage/info/updateInfoValues?id=${frontinformation.get(0).infopuctures.get(0).infoid}"
+											method="post" enctype="multipart/form-data">
 											<table width="100%" class="cont">
 
 												<tr>
 													<td width="2%">&nbsp;</td>
 													<td width="15%">信息标题：</td>
 													<td width="25%"><input class="text" type="text"
-														name="newstitle" value="${frontinformation.get(0).newstitle}" /></td>
+														name="newstitle"
+														value="${frontinformation.get(0).newstitle}" /></td>
 													<td>设置信息名称</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
 												<tr>
 													<td>&nbsp;</td>
 													<td>描述(Description)：</td>
-													<td><textarea name="newscontent" >${frontinformation.get(0).getNewscontent()}</textarea></td>
+													<td><textarea name="newscontent">${frontinformation.get(0).getNewscontent()}</textarea></td>
 													<td>信息简短描述</td>
 													<td>&nbsp;</td>
 												</tr>
@@ -105,45 +110,59 @@
 												</tr>
 											</table>
 										</form>
-										<form action="/backstage/info/updateInfoImage?id=${frontinformation.get(0).infopuctures.get(0).infoid}&frontpicture=${frontinformation.get(0).getFrontpicture()}" method="post" enctype="multipart/form-data">
-										<table width="100%" class="cont">
-										<tr>
+										<form
+											action="/backstage/info/updateInfoImage?id=${frontinformation.get(0).infopuctures.get(0).infoid}&frontpicture=${frontinformation.get(0).getFrontpicture()}"
+											method="post" enctype="multipart/form-data">
+											<table width="100%" class="cont">
+												<tr>
 													<td width="2%">&nbsp;</td>
 													<td>信息图片：</td>
 													<td width="20%">
-													<button upImage="up" class="btn">修改图片</button></td>
-													<td><button class="btn" type="submit" > 确认修改图片</button> </td>
-													<td><img src="/files${frontinformation.get(0).getFrontpicture()}" /></td>
+														<button upImage="up" class="btn">修改图片</button>
+													</td>
+													<td><button class="btn" type="submit">确认修改图片</button></td>
+													<td><img
+														src="/files${frontinformation.get(0).getFrontpicture()}" /></td>
 													<td width="2%">&nbsp;</td>
 												</tr>
-										</table>
+											</table>
 										</form>
-										<table width="100%" class="cont">
-											<c:forEach items="${frontinformation}"
-												var="imgs" varStatus="i">
+										<hr /> <!--  --> 
+										<c:forEach items="${frontinformation}"
+											var="imgs" varStatus="i">
+											<form action="/backstage/infoImage/updateInfoImageValue?infoid=${imgs.infopuctures.get(0).infoid}&id=${imgs.infopuctures.get(0).id}"
+												name="file" method="post" enctype="multipart/form-data">
+												<table width="100%" class="cont">
+													<tr>
+														<td><textarea name="imagecontent">${imgs.infopuctures.get(0).imagecontent}</textarea></td>
+														<td><input class="btn" type="submit" value="修改" /></td>
+													</tr>
+												</table>
+											</form>
+									<!--  -->		
+											<form action="/backstage/infoImage/updateInfoImages?infoid=${imgs.infopuctures.get(0).infoid}&imagepath=${imgs.infopuctures.get(0).imagepath}&id=${imgs.infopuctures.get(0).id}"
+												name="file" method="post" enctype="multipart/form-data">
+												<table width="100%" class="cont">
+													<tr>
+														<td><button upImage="up" class="btn">修改图片</button></td>
+														<td><input class="btn" type="submit" value="修改" /></td>
+														<td><img width="60px" height="90px" src="/files${imgs.infopuctures.get(0).imagepath}"></td>
+													</tr>
+												</table>
+											</form>
+										</c:forEach>
+
+										<form action="/backstage/infoImage/addInfoImages?infoid=${frontinformation.get(0).infopuctures.get(0).infoid}"
+											method="post" enctype="multipart/form-data">
+											<table width="100%" class="cont">
 												<tr>
-													<td>
-														<form action="/backstage/infoImage/updateInfoImages?infoid=${imgs.infopuctures.get(0).infoid}&imagepath=${imgs.infopuctures.get(0).imagepath}&id=${imgs.infopuctures.get(0).id}" name="file" method="post"
-															enctype="multipart/form-data">
-															<td><button upImage="up" class="btn">修改图片</button></td>
-															<td><textarea name="imagecontent">${imgs.infopuctures.get(0).imagecontent}</textarea></td>
-															<td><input class="btn" type="submit" value="修改" /></td>
-														</form>
-													</td>
-													<td><img width="60px" height="90px" src="/files${imgs.infopuctures.get(0).imagepath}"></td>
+													<td valign="bottom" id="addBtnImage"><button type="button" class="btn">添加附加图片</button></td>
 												</tr>
-											</c:forEach>
-										</table>
-										<form action="/backstage/infoImage/addInfoImages?infoid=${frontinformation.get(0).infopuctures.get(0).infoid}" method="post" enctype="multipart/form-data">
-										<table width="100%" class="cont">
-											<tr>
-												<td valign="bottom" id="addBtnImage"><button
-														type="button" class="btn">添加附加图片</button></td>
-											</tr>
-											<tr id="addImageContent"></tr>
-										</table>
-										<input class="btn" type="submit" value="确认添加图片" />
+												<tr id="addImageContent"></tr>
+											</table>
+											<input class="btn" type="submit" value="确认添加图片" />
 										</form>
+
 									</td>
 								</tr>
 							</table>
@@ -199,9 +218,9 @@
 							fdiv.before(htmlf);
 							idiv.before(htmli);
 						})
-		$("button[upImage='up']").on('click',function(){
-			var fhtml='<input type="file" name="file" />';
-			var b=$(this);
+		$("button[upImage='up']").on('click', function() {
+			var fhtml = '<input type="file" name="file" />';
+			var b = $(this);
 			b.before(fhtml);
 			b.remove();
 		})

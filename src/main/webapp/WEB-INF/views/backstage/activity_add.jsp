@@ -57,10 +57,10 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="${pageContext.request.contextPath }/manager/insert" method="post" enctype="multipart/form-data">
+                                            <form action="${pageContext.request.contextPath }/backstage/manager/insert" method="post" enctype="multipart/form-data">
                                                 <table width="100%"class="cont">
                                                 <tr>
-                                                 <td><input type="hidden" name="mid" value="${manager.id}"/></td>
+                                                 
                                                  </tr>
                                                    <!--  <tr>
                                                    	    <td width="2%">&nbsp;</td>

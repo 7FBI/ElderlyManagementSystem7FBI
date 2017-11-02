@@ -28,7 +28,9 @@ public class ManagerInfoController {
 		if (mangerIndo == null) {
 			return "redirect:/gotoBackstage/index";
 		} else{
-			if (pwd.equals(mangerIndo.getPassword())) request.getSession().setAttribute("ManagerIndo", mangerIndo);
+			if (pwd.equals(mangerIndo.getPassword())){
+				request.getSession().setAttribute("ManagerIndo", mangerIndo);
+			}
 		}
 		return "redirect:/gotoBackstage/index";
 	}

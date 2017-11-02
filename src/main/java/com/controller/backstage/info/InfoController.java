@@ -19,6 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Frontinformation;
 import com.bean.Infopicture;
+import com.bean.Manager;
+import com.bean.ManagerInfo;
 import com.others.file.UploadImage;
 import com.service.FrontinformationService;
 import com.service.InfopictureService;
@@ -61,8 +63,8 @@ public class InfoController {
 		ModelAndView view=new ModelAndView();
 		view.setViewName("backstage/frontinformation");
 		Map<String,Object> map=new HashMap<String, Object>();
-		String mid="dpeng123";
-		map.put("mid", mid);
+		ManagerInfo managerInfo=(ManagerInfo) request.getSession().getAttribute("ManagerIndo");
+		map.put("mid", managerInfo.getName());
 		Integer max=2;
 		Integer page=0;
 		Integer counts=0;
@@ -95,6 +97,7 @@ public class InfoController {
 	@RequestMapping("/deleteInfo")
 	public String deleteInfo(HttpServletRequest request){
 		Integer id=Integer.valueOf(request.getParameter("id"));
+		deleteImageFile(request,id);
 		frontinformationService.deleteByPrimaryKey(id);
 		return "redirect:/backstage/info/allInfo";
 	}
@@ -140,4 +143,16 @@ public class InfoController {
 		return "redirect:/backstage/info/updateInfo?id="+frontinformation.getId();
 	}
 	
+	public String deleteImageFile(HttpServletRequest request,Integer id){
+		List<Frontinformation> list=frontinformationService.selectByKey(id);
+		for (Frontinformation frontinformation : list) {
+			if (frontinformation.getInfopuctures().get(0).getImagepath()!=null) {
+				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+frontinformation.getInfopuctures().get(0).getImagepath());
+				if (oldfile.exists() && oldfile.isFile()) {
+		            oldfile.delete();
+		        }
+			}
+		}
+		return "redirect:/backstage/info/updateInfo?id="+id;
+	}
 }

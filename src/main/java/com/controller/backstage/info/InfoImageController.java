@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bean.Infopicture;
 import com.others.file.UploadImage;
 import com.service.InfopictureService;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 @Controller
 @RequestMapping("/backstage/infoImage")
@@ -23,11 +24,18 @@ public class InfoImageController {
 	@Qualifier("infopictureService")
 	private InfopictureService infopictureService;
 	
+	@RequestMapping("/updateInfoImageValue")
+	public String updateInfoImageValue(Infopicture infopicture,HttpServletRequest request){
+		Integer infoid=infopicture.getInfoid();
+		infopicture.setInfoid(null);
+		infopictureService.updateByPrimaryKeySelective(infopicture);
+		return "redirect:/backstage/info/updateInfo?id="+infoid;
+	}
+	
+	
 	@RequestMapping("/updateInfoImages")
 	public String updateInfoImages(Infopicture infopicture,HttpServletRequest request,@RequestParam("file") MultipartFile file){
 		String url="";
-		Integer infoid=infopicture.getInfoid();
-		infopicture.setInfoid(null);
 		if (file!=null&file.getName().length()>0) {
 			url=UploadImage.addImage(file, "/info/others", request);
 			if (infopicture.getImagepath()!=null) {
@@ -41,7 +49,7 @@ public class InfoImageController {
 			infopicture.setImagepath(url);
 		}
 		infopictureService.updateByPrimaryKeySelective(infopicture);
-		return "redirect:/backstage/info/updateInfo?id="+infoid;
+		return "redirect:/backstage/info/updateInfo?id="+infopicture.getInfoid();
 	}
 	
 	@RequestMapping("/addInfoImages")
@@ -65,4 +73,6 @@ public class InfoImageController {
 		}
 		return "redirect:/backstage/info/updateInfo?id="+infoid;
 	}
+	
+	
 } 

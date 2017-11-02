@@ -97,13 +97,12 @@
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td><img
-									src="/resources/backstage/Images/menu-top-line.gif" width="182"
-									height="5" /></td>
+									src="/resources/backstage/Images/menu-top-line.gif" width="182" height="5" /></td>
 							</tr>
 						</table>
 						<ul class="RM">
-						    <li><a href="#" target="main">信息列表</a></li>
-						    <li><a href="#" target="main">发布信息</a></li>
+						    <li><a href="/backstage/info/allInfo" target="main">信息列表</a></li>
+						    <li><a href="/gotoBackstage/frontinformation_add" target="main">发布信息</a></li>
 						</ul>
 					</div>
 				</c:if>
