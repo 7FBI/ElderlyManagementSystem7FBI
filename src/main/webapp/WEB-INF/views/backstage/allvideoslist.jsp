@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/video/allvideoslist.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -75,7 +75,7 @@
 							
 						</div> -->
 				<div class="row">
-				<form action="${pageContext.request.contextPath}/video/findvideos.action" method="post">
+				<form action="${pageContext.request.contextPath}/backstage/video/findvideos.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" name="queryVideoByConditions" 
@@ -99,7 +99,7 @@
 						<a
 							href="${pageContext.request.contextPath}/gotoBackstage/addvideo"
 							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
+							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加视频</span>
 						</a>
 
 						<!-- /input-group -->
@@ -134,9 +134,10 @@
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="7"><font size="5px">用户列表</font></td></tr>
+												<tr align="center" height="50px"><td colspan="8"><font size="5px">用户列表</font></td></tr>
 												<tr align="center" height="40px" class="td_title_color">
 													<th>序号</th>
+													<th>视频名称</th>
 													<th>主讲教师</th>
 													
 													<th>价格</th>
@@ -150,6 +151,7 @@
 													<tr align="left" class="d">
 
 														<td>${var.count}</td>
+														<td>${allVideos.vtitle}</td>
 														<td>${allVideos.vteacher}</td>
 														
 														<td>${allVideos.vprice}</td>
@@ -157,9 +159,9 @@
 														<td>${allVideos.vurl}</td>
 														<td></td>
 														<td><a
-															href="${pageContext.request.contextPath}/video/deletevideo.action?id=${allVideos.id}">删除</a>
+															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}">删除</a>
 															<a
-															href="${pageContext.request.contextPath}/video/selectvideobyid.action?id=${allVideos.id}">修改</a>
+															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}">修改</a>
 
 															</td>
 

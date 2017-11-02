@@ -21,7 +21,7 @@ import com.bean.Edunews;
 import com.service.EdunewsService;
 
 @Controller
-@RequestMapping("/edu")
+@RequestMapping("/backstage/edu")
 public class EdunewsController {
 
 	@Autowired

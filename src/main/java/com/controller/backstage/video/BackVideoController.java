@@ -20,7 +20,7 @@ import com.others.file.UploadImage;
 import com.service.VideoService;
 
 @Controller
-@RequestMapping("/video")
+@RequestMapping("/backstage/video")
 public class BackVideoController {
 
 	@Autowired

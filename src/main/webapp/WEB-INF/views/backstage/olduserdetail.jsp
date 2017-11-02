@@ -34,7 +34,7 @@
 </head>
 
 <body>
-	<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font  color="blue"> 
+	<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font  color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>

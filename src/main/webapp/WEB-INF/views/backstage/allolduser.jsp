@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -75,7 +75,7 @@
 							
 						</div> -->
 				<div class="row">
-				<form action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action" method="post">
+				<form action="${pageContext.request.contextPath}/backstage/oldusers/selectuserbyconditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" name="findbycondition" 
@@ -110,7 +110,7 @@
 
 					<div class="col-md-3 col-md-offset-1 addstyle">
 						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/register"
+							href="${pageContext.request.contextPath}/backstage/oldusers/gotoregister.action"
 							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
 							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
 						</a>
@@ -203,7 +203,7 @@
 														<td>回访记录</td>
 														<td>
 														<a
-															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
+															href="${pageContext.request.contextPath}/backstage/OldDiseasedetails/querys.action?
 															uid=${olduser.uid}">病例详情</a>
 															
 															
@@ -211,13 +211,13 @@
 														<td></td>
 														<td></td>
 														<td><a
-															href="${pageContext.request.contextPath}/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
+															href="${pageContext.request.contextPath}/backstage/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
 															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserById.action?id=${olduser.id}">修改</a>
+															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserById.action?id=${olduser.id}">修改</a>
 
 
 															<a
-															href="${pageContext.request.contextPath}/oldusers/queryUserdetail.action?id=${olduser.id}">详情</a></td>
+															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserdetail.action?id=${olduser.id}">详情</a></td>
 
 													</tr>
 												</c:forEach>

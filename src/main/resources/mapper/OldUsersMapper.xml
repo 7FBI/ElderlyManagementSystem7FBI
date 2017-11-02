@@ -119,6 +119,15 @@
 	 </if>
 	</where> 
 	</select>
+	<!--根据管理员的地址信息查找出该地所有的用户  -->
+	<select id="findAllUserByManager" parameterType="java.lang.Integer" resultMap="alluserdetail">
+	select old_Users.id id,username,sex,
+	idcard,birthday,tell,address,uid,password,
+	userurl,localarea.provincename myarea, 
+	localarea.id lid from localarea,old_Users,manager
+	 where localarea.id=manager.locaid
+	  and manager.locaid=#{locaid,jdbcType=INTEGER}
+	</select>
 	<!-- 修改用户信息 -->
 	<update id="modifyById" parameterType="com.bean.OldUsers">
 		update old_Users

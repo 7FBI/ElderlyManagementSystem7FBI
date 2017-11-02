@@ -55,9 +55,10 @@
 						</table>
 						
 						<ul class="RM">
-							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers" target="main">客户列表</a></li>
-							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加客户</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManager.action" target="main">客户列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/oldusers/gotoregister.action" target="main">添加客户</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加回访记录</a></li>
+							
 							<li><a href="/gotoBackstage/activity_add" target="main">活动添加</a></li>
 							<li><a href="/backstage/manager/showactivitydetailinfo.action" target="main">活动列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>

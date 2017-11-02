@@ -58,5 +58,10 @@ public class ManagerServiceImpl implements ManagerService{
 		// TODO Auto-generated method stub
 		return managerMapper.selectAllManager(cid);
 	}
+	@Override
+	public Manager findPrivenceName(Integer locaid) {
+		// TODO Auto-generated method stub
+		return managerMapper.findPrivenceName(locaid);
+	}
 
 }

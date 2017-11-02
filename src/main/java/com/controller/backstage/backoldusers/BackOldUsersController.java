@@ -25,19 +25,35 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Localarea;
+import com.bean.Manager;
 import com.bean.OldUsers;
 import com.converter.DateConverter;
+import com.others.file.UploadImage;
 import com.others.md5.Encryption;
+import com.service.ManagerService;
 import com.service.OldUsersService;
 
 @Controller
-@RequestMapping("/oldusers")
+@RequestMapping("/backstage/oldusers")
 public class BackOldUsersController {
 	@Autowired
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
+	@Autowired
+	@Qualifier("ManagerService")
+	private ManagerService managerService;
 	private DateConverter dateConverter;
-
+	@RequestMapping("/gotoregister")
+	public ModelAndView gotoRetisterPage(HttpServletRequest request) {
+		ModelAndView modelAndView = new ModelAndView();
+		if (request.getSession().getAttribute("manager") != null) {
+			Manager manage= (Manager) request.getSession().getAttribute("manager");
+			Manager mangerArea = managerService.findPrivenceName(manage.getLocaid());
+			modelAndView.addObject("mangerArea", mangerArea);
+			modelAndView.setViewName("backstage/register");
+		}
+		return modelAndView;
+	}
 	//添加用户
 	@RequestMapping("/insterOldUsers")
 	@ResponseBody
@@ -49,33 +65,31 @@ public class BackOldUsersController {
 		OldUsers users = oldUsersService.queryByUid(oldUsers.getUid());
 		  System.out.println(users);
 		if (users == null ) {
-			String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
-			System.out.println("原始文件名:" + fileName);
-			String newFileName = UUID.randomUUID() + fileName;
-			/*String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload/backstage");
-
-			String path = uploadPath + File.separator + fileName;
-			File newFile = new File(path);
-			oldUsers.setUserurl(newFile.getPath());*/
-			String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
-			String endPath="/upload/backstage/";
-			String path = uploadPath+endPath + File.separator + newFileName;
-			//存入数据库在路径
-			String sqlPath=endPath+File.separator+ newFileName;
-			File newFile = new File(path);
-			oldUsers.setUserurl(sqlPath);
-			
-			System.out.println("------文件路径:" + newFile.getPath());
-			file.transferTo(newFile);
+			String newuserUrl = UploadImage.addImage(file, "/backstage/oldusers", request);
+			System.out.println(newuserUrl);
+			oldUsers.setUserurl(newuserUrl);
+//			String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
+//			System.out.println("原始文件名:" + fileName);
+//			String newFileName = UUID.randomUUID() + fileName;
+//			/*String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload/backstage");
+//
+//			String path = uploadPath + File.separator + fileName;
+//			File newFile = new File(path);
+//			oldUsers.setUserurl(newFile.getPath());*/
+//			String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
+//			String endPath="/upload/backstage/";
+//			String path = uploadPath+endPath + File.separator + newFileName;
+//			//存入数据库在路径
+//			String sqlPath=endPath+File.separator+ newFileName;
+//			File newFile = new File(path);
+//			oldUsers.setUserurl(sqlPath);
+//			
+//			System.out.println("------文件路径:" + newFile.getPath());
+//			file.transferTo(newFile);
 			// 调用加密方法将密码加密
 			String pwd = Encryption.encrypation(oldUsers.getPassword());
 			oldUsers.setPassword(pwd);
-//			
-//			String username = new String(oldUsers.getUsername().getBytes("iso-8859-1"),"utf-8");
-//			oldUsers.setUsername(username);
-//			String address = new String(oldUsers.getAddress().getBytes("iso-8859-1"),"utf-8");
-//			oldUsers.setAddress(address);
-//			
+		
 			oldUsersService.insertOldUsers(oldUsers);
 			//modelAndView.addObject("err", "");
 			List<OldUsers> olduser = oldUsersService.queryUsers();
@@ -114,6 +128,22 @@ public class BackOldUsersController {
 		modelAndView.setViewName("backstage/allolduser");
 		return modelAndView;
 	}
+//	根据管理员的所属地找出该地的所有用户
+	@RequestMapping("findUserByManager")
+	public ModelAndView selectAllUserByManager(HttpServletRequest request){
+		ModelAndView modelAndView=new ModelAndView();
+		if(request.getSession().getAttribute("manager")!=null){
+			Manager manager=(Manager) request.getSession().getAttribute("manager");
+			List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
+			modelAndView.addObject("olduser", olduser);
+			modelAndView.setViewName("backstage/allolduser");
+		}
+		
+		
+		
+		return modelAndView;
+		
+	}
 //根据id查找用户信息
 	@RequestMapping(value="/queryUserById")
 	@ResponseBody
@@ -128,19 +158,23 @@ public class BackOldUsersController {
 	@RequestMapping(value="/modifyUserById")
 	@ResponseBody
 	public ModelAndView modifyUserById(@RequestParam("file") CommonsMultipartFile file,OldUsers users,Model model,HttpServletRequest request)throws IOException{
-		String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
-		System.out.println("原始文件名:" + fileName);
-		String newFileName = UUID.randomUUID() + fileName;
-		String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
-		String endPath="/upload/backstage/";
-		String path = uploadPath+endPath + File.separator + newFileName;
-		//存入数据库在路径
-		String sqlPath=endPath+File.separator+ newFileName;
-		File newFile = new File(path);
-		//File newFile = new File(sqlPath);
-		users.setUserurl(sqlPath);
-		System.out.println("------文件路径:" + newFile.getPath());
-		file.transferTo(newFile);
+		String newuserUrl = UploadImage.addImage(file, "/backstage/oldusers", request);
+		System.out.println(newuserUrl);
+		users.setUserurl(newuserUrl);
+		
+//		String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
+//		System.out.println("原始文件名:" + fileName);
+//		String newFileName = UUID.randomUUID() + fileName;
+//		String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
+//		String endPath="/upload/backstage/";
+//		String path = uploadPath+endPath + File.separator + newFileName;
+//		//存入数据库在路径
+//		String sqlPath=endPath+File.separator+ newFileName;
+//		File newFile = new File(path);
+//		//File newFile = new File(sqlPath);
+//		users.setUserurl(sqlPath);
+//		System.out.println("------文件路径:" + newFile.getPath());
+//		file.transferTo(newFile);
 		
 		 oldUsersService.modifyById(users);
 		 List<OldUsers> olduser = oldUsersService.queryUsers();

@@ -60,7 +60,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action"><font
+				href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 				</font></a> <br> 
@@ -95,7 +95,7 @@
 
 
 							<form  class="form-horizontal col-md-offset-2"
-		action="/oldusers/insterOldUsers.action" method="Post"
+		action="/backstage/oldusers/insterOldUsers.action" method="Post"
 		enctype="multipart/form-data">
         
 		<!-- <div><div>姓名:<input onblur="username()" id="uname"></div><div id="xm"></div></div>
@@ -170,6 +170,20 @@
 		         </div>
 		</div>
 		<div class="form-group col-md-offset-3">
+			<label for="area" class="col-sm-2 control-label">所属地域</label>
+			<div class="col-sm-3">
+				<!--  <select class="form-control" name="area">
+					<option value="2">北京</option>
+					<option value="3">江苏</option>
+					<option value="4">上海</option>
+					<option value="5">浙江</option>
+					<option value="6">天津</option>
+				</select>-->
+				<input type="hidden" class="form-control" name="area" value="${manager.locaid}" readonly>
+				<input type="text" class="form-control" value="${mangerArea.localarea.provincename}" readonly>
+			</div>
+		</div>
+		<div class="form-group col-md-offset-3">
 			<label for="address" class="col-sm-2 control-label">家庭住址</label>
 			<div class="col-sm-3">
 				<input type="text" class="form-control" name="address" id="address" onblur="checkAddress()"
@@ -182,18 +196,7 @@
 		</div>
 
 
-		<div class="form-group col-md-offset-3">
-			<label for="area" class="col-sm-2 control-label">所属地域</label>
-			<div class="col-sm-3">
-				<select class="form-control" name="area">
-					<option value="2">北京</option>
-					<option value="3">江苏</option>
-					<option value="4">上海</option>
-					<option value="5">浙江</option>
-					<option value="6">天津</option>
-				</select>
-			</div>
-		</div>
+	
 		<div class="form-group col-md-offset-3">
 			<label for="uid" class="col-sm-2 control-label">登录账号</label>
 			<div class="col-sm-3">

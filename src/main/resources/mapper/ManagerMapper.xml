@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.ManagerMapper">
+  <!-- 更据分店管理员的地址id查找地域名 -->
+	<resultMap type="com.bean.Manager" id="findAreaNameByManager">
+		<id column="id" property="id" />
+		<result column="locaid" property="locaid" />
+		<association property="localarea" javaType="com.bean.Localarea">
+			<id column="lid" property="id"/>
+			<result column="provincename" property="provincename"/>
+		</association>
+	</resultMap>
+ 
   <resultMap id="BaseResultMap" type="com.bean.Manager">
     <!--
       WARNING - @mbggenerated
@@ -57,6 +67,18 @@
     from manager
     where id = #{id,jdbcType=INTEGER}
   </select>
+   <!-- 更据分店管理员的地址id查找地域名 -->
+	<select id="findPrivenceName" parameterType="java.lang.Integer"
+		resultMap="findAreaNameByManager">
+		select localarea.id lid,localarea.provincename provincename,
+		manager.id id,manager.locaid locaid
+
+		from localarea,manager
+		where localarea.id=manager.locaid
+		and manager.locaid=#{locaid,jdbcType=INTEGER}
+	</select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbggenerated

@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/edu/alledu.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -75,7 +75,7 @@
 							
 						</div> -->
 				<div class="row">
-				<form action="${pageContext.request.contextPath}/edu/selectEduByConditions.action" method="post">
+				<form action="${pageContext.request.contextPath}/backstage/edu/selectEduByConditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" name="findEduByConditions" 
@@ -184,11 +184,11 @@
 														
 														<td>${alledunews.edutime}</td>
 														
-														<td><a href="${pageContext.request.contextPath}/edu/deleteedu.action?id=${alledunews.id}">删除</a>
+														<td><a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${alledunews.id}">删除</a>
 															
-															<a href="${pageContext.request.contextPath}/edu/selectedubyid.action?id=${alledunews.id}">修改</a>
+															<a href="${pageContext.request.contextPath}/backstage/edu/selectedubyid.action?id=${alledunews.id}">修改</a>
 															
-															<a href="${pageContext.request.contextPath}/edu/selectedudetailbyid.action?id=${alledunews.id}">详情</a></td>
+															<a href="${pageContext.request.contextPath}/backstage/edu/selectedudetailbyid.action?id=${alledunews.id}">详情</a></td>
 															
 
 													</tr>

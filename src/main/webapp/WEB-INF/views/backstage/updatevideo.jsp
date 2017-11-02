@@ -71,7 +71,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/video/allvideo.action"><font
+				href="${pageContext.request.contextPath}/backstage/video/allvideo.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 				</font></a> <br> 
@@ -98,8 +98,21 @@
 											   <strong>内容修改 </strong>
 											</div>
 							<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=3>
-										<form class="form-horizontal col-md-offset-1" action="/video/modifyvideo.action" method="post" enctype="multipart/form-data">
+								<form class="form-horizontal col-md-offset-1" action="/backstage/video/modifyvideo.action" method="post" enctype="multipart/form-data">
+			                            <div class="form-group col-md-offset-2">
+			                               <label for="vprice" class="col-sm-2 control-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
 			
+			                                  <div class="col-sm-6">
+				                                 <input type="text" class="form-control" name="vtitle" value="${oneVideoById.vtitle}"
+					                                   placeholder="视频名称" id="vprice" onblur="usenameCheck()">
+			
+			                                  </div>
+				                              <div class="pleft">
+	  			                                  <font color="red"><p id="error1"></p></font>
+		                                          <font color="green"><p id="success1"></p></font>
+		                                       </div>
+			
+		                             </div>
 											
 											<div class="form-group col-md-offset-2">
 												<label for="vteacher" class="col-sm-2 control-label">主讲老师</label>

@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/edu/alledu.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 <br>
@@ -137,9 +137,9 @@
 														          &nbsp;&nbsp; &nbsp;&nbsp;
 														             <font size="3px"> ${oneEduDetail.educontent}</font><br><br> <br><br> 
 														      &nbsp;&nbsp; &nbsp;&nbsp;
-														       <a href="${pageContext.request.contextPath}/edu/deleteedu.action?id=${olduser.id}">删除</a>
+														       <a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${olduser.id}">删除</a>
 															
-															<a href="${pageContext.request.contextPath}/edu/selectedubyid.action?id=${olduser.id}">修改</a>
+															<a href="${pageContext.request.contextPath}/backstage/edu/selectedubyid.action?id=${olduser.id}">修改</a>
 															 </div>
 														   </td>
 													

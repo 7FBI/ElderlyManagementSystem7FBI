@@ -108,4 +108,10 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.queryByConditions(findbycondition);
 	}
+
+	@Override
+	public List<OldUsers> findAllUserByManager(Integer locaid) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.findAllUserByManager(locaid);
+	}
 }
