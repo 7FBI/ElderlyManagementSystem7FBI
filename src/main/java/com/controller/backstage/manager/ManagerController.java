@@ -147,6 +147,8 @@ public class ManagerController {
 	
 	@RequestMapping("addManager")
 	public String insertSelective(Manager manager,HttpServletRequest request){
+		String str =Encryption.encrypation(manager.getMpassword());
+		manager.setMpassword(str);
 		if(managerService.selectManagerByMnumber(manager.getMnumber())!=null){
 			return "backstage/manager_add";
 		}
@@ -162,6 +164,8 @@ public class ManagerController {
 	
 	@RequestMapping("updateByPrimaryKeySelective")
 	public String updateByPrimaryKeySelective(Manager manager,HttpServletRequest request){
+		String str =Encryption.encrypation(manager.getMpassword());
+		manager.setMpassword(str);
 		managerService.updateByPrimaryKeySelective(manager);
 		return "redirect:selectAllManager.action";
 	}
