@@ -4,16 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
- <link rel="stylesheet" type="text/css" href="/resources/ManagerInfo_login/css/skin.css" />
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<title>查看类别</title>
+<title>已发货订单</title>
+<link rel="stylesheet" type="text/css" href="/resources/ManagerInfo_login/css/skin.css" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
- <body>
- <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
-                <td width="17" valign="top" background="./Images/mail_left_bg.gif">
+                <td width="17" valign="top" background="/resources/backstage/Images/mail_left_bg.gif">
                     <img src="/resources/backstage/Images/left_top_right.gif" width="17" height="29" />
                 </td>
                 <td valign="top" background="/resources/backstage/Images/content_bg.gif">
@@ -50,7 +49,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <!-- 添加栏目开始 -->
+                        <!-- 产品列表开始 -->
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="96%">
@@ -60,19 +59,25 @@
                                             <form action="" method="">
                                                 <table width="100%"  class="cont tr_color">
                                                     <tr>
-                                                        <th>类别id</th>
-                                                        <th>类别名称</th>
-                                                        <th></th>
-                                                        <th></th>  
+                                                        <th>选中</th>
+                                                        <th>用户id</th>
+                                                        <th>下单时间</th>
+                                                        <th>订单状态</th>
+                                                        <th>支付方式</th>
+                                                        <th>订单地址</th>
+                                                        <th>买家留言</th>
                                                     </tr>
-                                                    <c:forEach items="${classifications }" var="classification">
+                                                    <c:forEach items="${OrdersSend }" var="Orders">
                                                     <tr align="center" class="d">
-                                                       <td>${classification.id}</td>
-                                                       <td>${classification.classname}</td>
-                                                       <td><a href="${pageContext.request.contextPath }/backstage/Class/update_classification.action?id=${classification.id}">修改</a></td>
-                                                       <td><a href="#">删除</a></td>
+                                                        <td><input type="checkbox" value="" /></td>
+                                                       <td>${Orders.uid }</td>
+                                                       <td>${Orders.ordertime }</td>
+                                                       <td>${Orders.orderstatus }</td>
+                                                       <td>${Orders.payment }</td>
+                                                       <td>${Orders.orderaddress }</td>
+                                                       <td>${Orders.remarks }</td>
                                                     </tr>
-                                                    </c:forEach> 
+                                                   </c:forEach> 
                                                 </table>
                                             </form>
                                         </td>
@@ -81,7 +86,7 @@
                             </td>
                             <td width="2%">&nbsp;</td>
                         </tr>
-                        <!-- 添加栏目结束 -->
+                        <!-- 产品列表结束 -->
                         <tr>
                             <td height="40" colspan="4">
                                 <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
@@ -114,5 +119,5 @@
                 </td>           
             </tr>
         </table>
- </body>
+</body>
 </html>

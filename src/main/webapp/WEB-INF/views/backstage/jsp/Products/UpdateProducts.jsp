@@ -75,7 +75,7 @@
 							<table width="100%">
 								<tr>
 									<td colspan="2">
-										<form action="${pageContext.request.contextPath }/Store/updateProducts.action" method="post" enctype="multipart/form-data">
+										<form action="${pageContext.request.contextPath }/backstage/Store/updateProducts.action" method="post" enctype="multipart/form-data">
 											 <input class="text" type="hidden" name="id" value="${products2.id }" />
 											<table width="100%" class="cont">	  
 												<tr>

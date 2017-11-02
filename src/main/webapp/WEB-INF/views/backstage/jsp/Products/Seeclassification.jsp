@@ -28,7 +28,7 @@
 <body>
  <div id="baidu">
   <div class="input">
-  <form action="${pageContext.request.contextPath }/Store/QuertByname.action" method="post" >
+  <form action="${pageContext.request.contextPath }/backstage/Store/QuertByname.action" method="post" >
   <input type="text" class="span2" id="search" name="pname">
   <span class="clear" id="cls">X</span>
   <input type="submit" value="查询商品名" class="ft"> 
@@ -57,8 +57,8 @@
   <td>${products1.price}</td>
   <td>${products1.count}</td>
   <td>${products1.pdescription}</td>
-  <td><a href="${pageContext.request.contextPath}/Store/delectByid.action?id=${products1.id}">删除</a></td>
-  <td><a href="${pageContext.request.contextPath}/Store/update.action?id=${products1.id}">修改</a></td>
+  <td><a href="${pageContext.request.contextPath}/backstage/Store/delectByid.action?id=${products1.id}">删除</a></td>
+  <td><a href="${pageContext.request.contextPath}/backstage/Store/update.action?id=${products1.id}">修改</a></td>
   </tr>
  </c:forEach> 
  </tbody>

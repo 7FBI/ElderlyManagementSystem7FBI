@@ -7,7 +7,7 @@
 <title>添加商品类</title>
 </head>
 <body>
-   <form action="${pageContext.request.contextPath }/Class/insertClassification.action" method="post" class="test">
+   <form action="${pageContext.request.contextPath }/backstage/Class/insertClassification.action" method="post" class="test">
      <h6>输入添加的id:</h6><input type="text" name="id" value=""/>
      <h6>输入添加的id:</h6><input type="text" name="classname" value="" />
      <input type="submit" value="添加">

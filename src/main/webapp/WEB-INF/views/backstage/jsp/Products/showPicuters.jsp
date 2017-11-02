@@ -7,6 +7,8 @@
 <title>添加其余图片和展示</title>
 <link rel="stylesheet" type="text/css" href="../resources/ManagerInfo_login/css/skin.css" />
 </head>
+<script language=javascript>
+</script>
 <body>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
@@ -72,7 +74,7 @@
 							<table width="100%">
 								<tr>
 									<td colspan="2">
-										<form action="${pageContext.request.contextPath }/Store/Uploadfiles.action" method="post" enctype="multipart/form-data">
+										<form action="${pageContext.request.contextPath }/backstage/Store/Uploadfiles.action" method="post" enctype="multipart/form-data">
 											<table width="100%" class="cont">
 											   <tr>
 											    <td width="2%">&nbsp;</td> 
@@ -83,7 +85,7 @@
 													<td width="2%">&nbsp;</td>
 													<td>产品其它图片：</td>
 													<td width="20%"> 
-														<input class="filePrew" type="file" name="graphTheorise" multiple>
+														<input class="filePrew" type="file" name="graphTheorise" id="st18" onchange="previewImage(this,5)" multiple>
 														</td>
 													<td>上传产品图片</td>
 													<td width="2%">&nbsp;</td>
@@ -103,9 +105,37 @@
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>
+					<tr>
+					<td width="2%">&nbsp;</td>
+					<td width="96%">
+					<table width="100%" height="160px">
+					<tbody>
+					<!-- 遍历图片 -->
+				    <tr>
+				    <td colspan="3">
+				    <img alt="上传商品图片" src="" style="float:left;width:160px;height:140px;margin-top:10px;margin-left:100px;margin-right:20px;border:1px solid black;">
+				    <!-- <div style="float:left;width:160px;height:140px;margin-top:10px;margin-left:100px;margin-right:20px;">
+                     <img alt="" src="" style="border:1px soild black;width:100px;height:100px;">
+				    </div> -->
+				    <img alt="上传商品图片" src=" " style="float:left;width:160px;height:140px;;margin:10px 20px;border:1px solid black;">
+				   <!--  <div style="float:left;width:160px;height:140px;margin:10px 20px;">
+				     <img alt="" src="" style="border:1px soild black;width:100px;height:100px;">
+				    </div> -->
+				     <img alt="上传商品图片" src=" " style="float:left;width:160px;height:140px;;margin:10px 20px;border:1px solid black;">
+				    <!-- <div style="float:left;width:160px;height:140px;margin:10px 20px;">
+				     <img alt="" src="" style="border:1px soild black;width:100px;height:100px;">
+				    </div> -->
+				    </td>
+				    </tr>
+					</tbody>
+					</table>
+					</td>
+					<td width="2%">&nbsp;</td>
+					</tr>
 						<!-- 添加产品结束 -->
 					<tr>
 						<td height="40" colspan="4">
+							
 							<table width="100%" height="1" border="0" cellpadding="0"
 								cellspacing="0" bgcolor="#CCCCCC">
 								<tr>
@@ -114,6 +144,7 @@
 							</table>
 						</td>
 					</tr>
+					
 					<tr>
 						<td width="2%">&nbsp;</td>
 						<td width="51%" class="left_txt"><img

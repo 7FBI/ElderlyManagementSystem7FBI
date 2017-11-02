@@ -145,9 +145,9 @@
 							</tr>
 						</table>
 						<ul class="RM">
-							<li><a href="${pageContext.request.contextPath}/Class/select_to.action" target="main">产品分类</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Class/select_to.action" target="main">产品分类</a></li>
 							<li><a href="/gotoBackstage/goods_add" target="main">添加产品</a></li>
-							<li><a href="${pageContext.request.contextPath}/Store/See_to.action" target="main">产品列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Store/See_to.action" target="main">产品列表</a></li>
 						</ul>
 					</div>
 					<h1 class="type">
@@ -162,10 +162,9 @@
 							</tr>
 						</table>
 						<ul class="RM">
-							<li><a href="${pageContext.request.contextPath}/Orders/selectByorderstatus.action" target="main">待处理订单</a></li>
-							<li><a href="#" target="main">处理中订单</a></li>
-							<li><a href="#" target="main">已发货订单</a></li>
-							<li><a href="${pageContext.request.contextPath}/Orders/selectOrders.action" target="main">已完成订单</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectByorderstatus.action" target="main">待处理订单</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Orders/SelectTOsend.action" target="main">已发货订单</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单</a></li>
 						</ul>
 					</div>
 					<!-- *********** -->

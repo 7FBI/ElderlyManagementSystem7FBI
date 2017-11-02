@@ -12,27 +12,35 @@ import com.bean.Orders;
 import com.service.OrdersService;
 
 @Controller
-@RequestMapping("/Orders")
+@RequestMapping("/backstage/Orders")
 public class OrdersController {
 
 	@Autowired
 	private OrdersService ordersService;
 	
 	@RequestMapping(value="/selectOrders.action")
-	public String SelectOrders(HttpServletRequest request){
+	public String SelectOrders(HttpServletRequest request){    //已经收货 已完成订单     
 		List<Orders> list;
-		list=ordersService.selectOrders();
+		list=ordersService.selectByorderstatus(2);
 		request.getSession().setAttribute("Orders",list);
 		return "backstage/jsp/Orders/ExhibitionOrders";
 		
 	}
 	
 	@RequestMapping(value="/selectByorderstatus.action")
-	public String SelectByorderstatus(HttpServletRequest request){
+	public String SelectByorderstatus(HttpServletRequest request){  //待处理订单
 		List<Orders> orders;
-		orders=ordersService.selectByorderstatus(0);   //待处理订单
+		orders=ordersService.selectByorderstatus(0);   
 		request.getSession().setAttribute("Orders", orders);
 		return "backstage/jsp/Orders/waitfor";
 	}
 	
+   @RequestMapping(value="SelectTOsend.action")
+   public String SelectBySend(HttpServletRequest request){        //已发货 待收货订单
+	List<Orders> orders;
+	orders=ordersService.selectByorderstatus(1);  
+	request.getSession().setAttribute("OrdersSend", orders);
+	return "backstage/jsp/Orders/ofterfahuo";
+	   
+   }
 }
