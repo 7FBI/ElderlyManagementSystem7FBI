@@ -6,5 +6,5 @@ import com.bean.ManagerInfo;
 
 @Repository("ManagerInfosMapper")
 public interface ManagerInfoMapper {
-  public ManagerInfo findManagerBynametype(String name);
+  public ManagerInfo findManagerBynametype(ManagerInfo managerInfo);
 }

@@ -13,9 +13,9 @@ public class ManagerInfoServiceImpl implements ManagerInfoService{
 	@Autowired
 	private ManagerInfoMapper managerInfoMapper;
 	@Override
-	public ManagerInfo findManagerBynametype(String name) {
+	public ManagerInfo findManagerBynametype(ManagerInfo managerInfo) {
 		// TODO Auto-generated method stub
-		return  managerInfoMapper.findManagerBynametype(name);
+		return  managerInfoMapper.findManagerBynametype(managerInfo);
 	}
 
 }

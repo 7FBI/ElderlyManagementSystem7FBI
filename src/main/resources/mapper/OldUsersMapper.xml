@@ -95,26 +95,26 @@
   <!-- 查询所有用户 -->
 	<select id="queryUsers"  resultMap="alluserdetail">
 		<!-- select * from old_Users -->
-		<!-- select @row := @row +1 AS row, username,sex,localarea.provincename area,uid from localarea,old_users, (  
+		<!-- select @row := @row +1 AS row, username,sex,localarea.provincename area,uid from localarea,old_Users, (  
         SELECT @row :=0 
         )r ; -->
-      <!-- select old_users.id oid,username,sex,uid,localarea.provincename myarea, localarea.id lid from localarea,old_users where localarea.id=old_users.area -->
-			 select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_users where localarea.id=old_users.area
+      <!-- select old_Users.id oid,username,sex,uid,localarea.provincename myarea, localarea.id lid from localarea,old_Users where localarea.id=old_Users.area -->
+			 select old_Users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_Users where localarea.id=old_Users.area
 	</select>
 	<!--根据uid查询 -->
 	<select id="queryByUid" parameterType="com.bean.OldUsers"
 		resultMap="alluserdetail">
-		 select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id  from localarea,old_users where localarea.id=old_users.area and uid=#{uid}
+		 select old_Users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id  from localarea,old_Users where localarea.id=old_Users.area and uid=#{uid}
 	</select>
 	
 	<!-- 根据条件查询用户 -->
 	<select id="queryByConditions" parameterType="java.lang.String" resultMap="alluserdetail">
-	select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_users 
+	select old_Users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_Users 
 	<where>
-      localarea.id=old_users.area 
+      localarea.id=old_Users.area 
 	<if test="value!= null and value!=''" > 
 	  
-	 and (localarea.provincename=#{value} or old_users.username=#{value} or old_users.uid=#{value} )
+	 and (localarea.provincename=#{value} or old_Users.username=#{value} or old_Users.uid=#{value} )
 	  
 	 </if>
 	</where> 
@@ -158,7 +158,7 @@
 		where id = #{id}
 	</update>
 	<select id="queryById" parameterType="java.lang.Integer" resultMap="alluserdetail">
-	 select old_users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id  from localarea,old_users where localarea.id=old_users.area and old_users.id=#{id}
+	 select old_Users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id  from localarea,old_Users where localarea.id=old_Users.area and old_Users.id=#{id}
 	</select>
 	<!-- 根据用户id删除用基本信息及消费记录-->
 	<delete id="deleteUserById" parameterType="com.bean.OldUsers">

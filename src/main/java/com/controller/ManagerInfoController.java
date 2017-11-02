@@ -14,31 +14,22 @@ import com.others.md5.Encryption;
 import com.service.ManagerInfoService;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/backstage/user")
 public class ManagerInfoController {
-	
+
 	@Autowired
 	private ManagerInfoService managerInfoService;
-	 
 
-@RequestMapping(value="/login.action")
-	 public String ManagerInfo(ManagerInfo managerInfo,HttpServletRequest request) throws UnsupportedEncodingException{
-	 String pwd=Encryption.encrypation(managerInfo.getPassword());  
-	 
-	 ManagerInfo mangerIndo=null;
-	 mangerIndo=managerInfoService.findManagerBynametype(managerInfo.getName());
-	
-	 if(mangerIndo==null){
-		 return "backstage/jsp/ceo/login_name_error";
-	 } 
-	 else if(pwd.equals(mangerIndo.getPassword())){
-		 if(mangerIndo.getType()==managerInfo.getType()){
-		 request.getSession().setAttribute("ManagerIndo",mangerIndo);
-		 return "backstage/jsp/Admin_login";
-		 }
-	 } 
-	 
-	  return "backstage/jsp/ceo/login_password_error";
-		  
-	 }
+	@RequestMapping(value = "/login.action")
+	public String ManagerInfo(ManagerInfo managerInfo, HttpServletRequest request) throws UnsupportedEncodingException {
+		String pwd = Encryption.encrypation(managerInfo.getPassword());
+		ManagerInfo mangerIndo = null;
+		mangerIndo = managerInfoService.findManagerBynametype(managerInfo);
+		if (mangerIndo == null) {
+			return "redirect:/gotoBackstage/index";
+		} else{
+			if (pwd.equals(mangerIndo.getPassword())) request.getSession().setAttribute("ManagerIndo", mangerIndo);
+		}
+		return "redirect:/gotoBackstage/index";
+	}
 }

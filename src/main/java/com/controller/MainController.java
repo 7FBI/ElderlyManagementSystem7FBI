@@ -29,24 +29,34 @@ public class MainController {
     
     /*平层路径访问*/
     @RequestMapping("/gotoFront/{page}")
-    public String gotoFront1(@PathVariable String page){
+    public String gotoFront(@PathVariable String page){
         return "front/"+page;
     }
     /*平层路径访问*/
     @RequestMapping("/gotoBackstage/{page}")
-    public String gotoBackstage1(@PathVariable String page){
+    public String gotoBackstage(@PathVariable String page){
         return "backstage/"+page;
     }
     
     /*两层路径访问*/
     @RequestMapping("/gotoFront/{url}/{page}")
-    public String gotoFront2(@PathVariable String url,@PathVariable String page){
+    public String gotoFront(@PathVariable String url,@PathVariable String page){
         return "front/"+url+"/"+page;
     }
     /*两层路径访问*/
     @RequestMapping("/gotoBackstage/{url}/{page}")
-    public String gotoBackstage2(@PathVariable String url,@PathVariable String page){
+    public String gotoBackstage(@PathVariable String url,@PathVariable String page){
         return "backstage/"+url+"/"+page;
+    }
+    
+    @RequestMapping("/gotoBackstage/{url1}/{url2}/{url3}")
+    public String gotoBackstage(@PathVariable String url1,@PathVariable String url2,@PathVariable String url3){
+        return "backstage/"+url1+"/"+url2+"/"+url3;
+    }
+    
+    @RequestMapping("/gotoFront/{url1}/{url2}/{url3}")
+    public String gotoFront(@PathVariable String url1,@PathVariable String url2,@PathVariable String url3){
+        return "front/"+url1+"/"+url2+"/"+url3;
     }
     
 }

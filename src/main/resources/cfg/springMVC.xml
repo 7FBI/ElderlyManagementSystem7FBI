@@ -15,7 +15,7 @@
 		<!-- 消息转换器，解决responseBody返回中外乱码问题 -->
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
@@ -60,8 +60,11 @@
 		</property>
 	</bean>
 	<!-- springmvc 拦截器的配置 -->
-	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/user/**"/> 
-		<bean class="com.interceptor.UserInfoInterceptor"></bean> </mvc:interceptor> 
-		</mvc:interceptors> -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/gotoBackstage/index" />
+			<bean class="com.interceptor.BackstageIndex"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>

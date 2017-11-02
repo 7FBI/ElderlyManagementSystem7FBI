@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,8 +38,10 @@
 		<table width="100%" height="280" border="0" cellpadding="0"
 		cellspacing="0" bgcolor="#E0EEEE">
 		<tr>
+		
 			<td width="182" valign="top">
 				<div id="container">
+				<c:if test="${manager!=null}">
 				<h1 class="type">
 						<a href="javascript:void(0)">客户管理</a>
 					</h1>
@@ -50,14 +53,61 @@
 									height="5" /></td>
 							</tr>
 						</table>
-						<ul class="RM">
 						
-							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" target="main">客户列表</a></li>
+						<ul class="RM">
+							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers" target="main">客户列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加客户</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/register" target="main">添加回访记录</a></li>
+							<li><a href="#" target="main">活动管理</a></li>
+							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>
+						</ul>
+						
+					</div>
+					</c:if>
+					<!-- -->
+					
+					<!-- -->
+					
+					<!-- -->
+					<c:if test="${ManagerIndo!=null and ManagerIndo.type==2 }">
+					<h1 class="type">
+						<a href="javascript:void(0)">教育模块</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+							<li><a href="${pageContext.request.contextPath}/edu/alledu.action" target="main">新闻列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addedunews" target="main">发布新闻</a></li>
+						    <li><a href="${pageContext.request.contextPath}/video/allvideo.action" target="main">视频列表</a></li>
+						    <li><a href="${pageContext.request.contextPath}/gotoBackstage/addvideo" target="main">上传视频</a></li>
 						</ul>
 					</div>
-					<!-- -->
+				</c:if>
+				<!--  -->
+				<c:if test="${ceoinfo!=null }">
+					<h1 class="type">
+						<a href="javascript:void(0)">分店系统</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+							<li><a href="${pageContext.request.contextPath}/area/findAllArea.action" target="main">地域列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
+						</ul>
+					</div>
+					<!-- ----- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">地域管理</a>
 					</h1>
@@ -75,66 +125,11 @@
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
 						</ul>
 					</div>
-					<!-- -->
-					<h1 class="type">
-						<a href="javascript:void(0)">病例管理</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu-top-line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-						
-							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>
-							<li><a href="#" target="main">活动管理</a></li>
-						</ul>
-					</div>
-					<!-- -->
-					<h1 class="type">
-						<a href="javascript:void(0)">教育模块</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu-top-line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-						
-							<li><a href="${pageContext.request.contextPath}/edu/alledu.action" target="main">新闻列表</a></li>
-							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addedunews" target="main">发布新闻</a></li>
-						    <li><a href="${pageContext.request.contextPath}/video/allvideo.action" target="main">视频列表</a></li>
-						    <li><a href="${pageContext.request.contextPath}/gotoBackstage/addvideo" target="main">上传视频</a></li>
-						</ul>
-					</div>
-		
-				<!--  -->
-					<h1 class="type">
-						<a href="javascript:void(0)">分店系统</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu-top-line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-						
-							<li><a href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" target="main">老人管理</a></li>
-							<li><a href="#" target="main">活动管理</a></li>
-						</ul>
-					</div>
+					</c:if>
 					<!--  -->
+					<c:if test="${ManagerIndo!=null and ManagerIndo.type==0 }">
 					<h1 class="type">
-						<a href="javascript:void(0)">产品管理</a>
+						<a href="javascript:void(0)">商场管理</a>
 					</h1>
 					<div class="content">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -150,6 +145,7 @@
 							<li><a href="${pageContext.request.contextPath}/backstage/Store/See_to.action" target="main">产品列表</a></li>
 						</ul>
 					</div>
+					
 					<h1 class="type">
 						<a href="javascript:void(0)">订单管理</a>
 					</h1>
@@ -167,25 +163,9 @@
 							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单</a></li>
 						</ul>
 					</div>
+					</c:if>
 					<!-- *********** -->
-					<h1 class="type">
-						<a href="javascript:void(0)">会员管理</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu_top_line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-							<li><a href="#" target="main">注册设置</a></li>
-							<li><a href="#" target="main">审核设置</a></li>
-							<li><a href="#" target="main">添加会员</a></li>
-							<li><a href="#" target="main">会员管理</a></li>
-						</ul>
-					</div>
+					
 					<!-- *********** -->
 				</div>
 			</td>

@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 <!-- 	<link rel="stylesheet" href="/resources/login_ceo_backstage/css/reset.css">
         <link rel="stylesheet" href="/resources/login_ceo_backstage/css/supersized.css"> -->
-        <link rel="stylesheet" href="/resources/front/css/login.css">
+        <link rel="stylesheet" href="/resources/css/login.css">
 	
 
   </head>
@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
         <div class="page-container">
             <h1>欢迎CEO登陆</h1>
-            <form action="/ceoinfo/login.action" method="post">
+            <form action="/backstage/ceoinfo/login" method="post">
 				<div>
 					<input type="text" name="name" class="username" placeholder="请输入您的用户名" autocomplete="off"/>
 				</div>
