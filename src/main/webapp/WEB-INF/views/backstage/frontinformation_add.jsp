@@ -99,7 +99,7 @@
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="15%">发布日期(yyyy/mm/dd)：</td>
-                                                        <td width="25%"><input class="text" type="text" name="sendtiem" value="" /></td>
+                                                        <td width="25%"><input class="text" id="date" type="text" name="sendtiem" value="" /></td>
                                                         <td>设置信息发布日期</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
@@ -162,6 +162,15 @@
         </table>
     </body>
 <script type="text/javascript" src="/resources/unity/jquery/jquery-3.2.0.js" ></script>
+<script src="/resources/unity/layer/laydate/laydate.js"></script>
+	<!-- 改成你的路径 -->
+	<script>
+		//执行一个laydate实例
+		laydate.render({
+			elem : '#date' //指定元素
+			,type: 'datetime'
+		});
+	</script>
 <script type="text/javascript">
 $("#addBtnImage").click(function(){
 	var htmlf='<td>&nbsp;</td><td><input type="file" name="files" /></td><td>&nbsp;</td>';

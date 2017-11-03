@@ -63,12 +63,24 @@
 							<li><a href="/backstage/manager/showactivitydetailinfo.action" target="main">活动列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/.action" target="main">添加病例</a></li>
 						</ul>
-						
+					</div>
+					
+					<h1 class="type">
+						<a href="javascript:void(0)">分店活动中心</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182" height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						    <li><a href="/backstage/manager/showactivitydetailinfo.action" target="main">活动列表</a></li>
+						    <li><a href="/gotoBackstage/activity_add" target="main">添加活动</a></li>
+						</ul>
 					</div>
 					</c:if>
-					<!-- -->
-					
-					<!-- -->
 					
 					<!-- -->
 					<c:if test="${ManagerIndo!=null and ManagerIndo.type==2 }">
@@ -90,6 +102,8 @@
 						    <li><a href="${pageContext.request.contextPath}/gotoBackstage/addvideo" target="main">上传视频</a></li>
 						</ul>
 					</div>
+					<!--  -->
+					
 				</c:if>
 				<!--  -->
 				<c:if test="${ManagerIndo!=null and ManagerIndo.type==1 }">
@@ -109,28 +123,9 @@
 						</ul>
 					</div>
 				</c:if>
-				<!--  -->
-				<!--  -->
-				
 				
 				<!--  -->
 				<c:if test="${ceoinfo!=null }">
-					<h1 class="type">
-						<a href="javascript:void(0)">分店系统</a>
-					</h1>
-					<div class="content">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td><img
-									src="/resources/backstage/Images/menu-top-line.gif" width="182"
-									height="5" /></td>
-							</tr>
-						</table>
-						<ul class="RM">
-							<li><a href="${pageContext.request.contextPath}/area/findAllArea.action" target="main">地域列表</a></li>
-							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
-						</ul>
-					</div>
 					<!-- ----- -->
 					<h1 class="type">
 						<a href="javascript:void(0)">地域管理</a>
@@ -144,11 +139,28 @@
 							</tr>
 						</table>
 						<ul class="RM">
-						
-							<li><a href="${pageContext.request.contextPath}/area/findAllArea.action" target="main">地域列表</a></li>
-							<%-- <li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li> --%>
+						<li><a href="${pageContext.request.contextPath}/backstage/localarea/findAllArea" target="main">地域列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
 							<li><a href="#" target="main">管理员列表</a></li>
 							<li><a href="#" target="main">公告栏</a></li>
+						</ul>
+					</div>
+					<!--  -->
+					<h1 class="type">
+						<a href="javascript:void(0)">店长管理</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu-top-line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						
+							<li><a href="${pageContext.request.contextPath}/backstage/manager/selectAllManager.action" target="main">店长列表</a><>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/manager_add" target="main">添加店长</a><>
 						</ul>
 					</div>
 					</c:if>
