@@ -1,7 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
 <link rel="stylesheet" href="../../../resources/unity/style404/css/main.css" type="text/css" media="screen, projection" /> <!-- main stylesheet -->
 <link rel="stylesheet" type="text/css" media="all" href="../../../resources/unity/style404/css/tipsy.css" /> <!-- Tipsy implementation -->
 
@@ -41,8 +47,13 @@ $(window).load(function(){
 <title>404 - Not found</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 
+</head>
 <body>
-
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+ <input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);">
+ <!-- &nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="#" onClick="javascript:history.back(-1);"><font color="white">返回上一页</font></a>
+  -->
 <!-- Universal preloader -->
 <div id="universal-preloader">
     <div class="preloader">
@@ -62,18 +73,18 @@ $(window).load(function(){
 <!-- Not found text -->
 
 <!-- search form -->
-<div class="search">
+<!-- <div class="search">
 	<form name="search" method="get" action="#" />
         <input type="text" name="search" value="Search ..." />
         <input class="with-tooltip" title="Search!" type="submit" name="submit" value="" />
     </form>
-</div>
+</div> -->
 <!-- search form -->
 
 <!-- top menu -->
-<div class="top-menu">
+<!-- <div class="top-menu">
 	<a href="#" class="with-tooltip" title="Return to the home page">Home</a> | <a href="#" class="with-tooltip" title="Navigate through our sitemap">Sitemap</a> | <a href="#" class="with-tooltip" title="Contact us!">Contact</a> | <a href="http://www.cssmoban.com" class="with-tooltip" title="模板之家">模板之家</a>
-</div>
+</div> -->
 <!-- top menu -->
 
 <div class="dog-wrapper">
