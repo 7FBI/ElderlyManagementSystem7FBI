@@ -53,5 +53,5 @@ public interface ClassificationMapper {
      */
     int updateByPrimaryKey(Classification record);
     
-    List<Classification> selectClassifiaction();
+    List<Classification> selectClassifiaction();         //查询类别
 }

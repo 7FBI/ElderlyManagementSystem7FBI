@@ -23,7 +23,6 @@ public class ClassificationController {
 		List<Classification> classification;
 		classification=classificationService.selectClassifiaction();
 		request.getSession().setAttribute("classifications",classification); 
-		
 		return "backstage/jsp/Classification/ShowClassification";
 	}
 	
@@ -48,5 +47,7 @@ public class ClassificationController {
 		return "redirect:select_to.action";
 		
 	}
+	
+	 
 	
 }

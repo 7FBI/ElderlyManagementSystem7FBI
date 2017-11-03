@@ -70,11 +70,20 @@ public class ProductsController {
  			 productsadd.setProducturl(path);
  		  
 		}
-		productService.insertSelective(productsadd);
+		productService.insertSelective(productsadd);    //添加商品
 		int test=productService.selectId();  //拿到刚刚插入的商品的id
 		productsadd.setId(test);
 		request.getSession().setAttribute("product", productsadd);
 		return "backstage/jsp/Products/showPicuters";	
+	}
+	
+	@RequestMapping(value="/add_Products.action")
+	public String AddProducts(HttpServletRequest request){
+		List<Classification> calssification=null;
+		calssification=classificationService.selectClassifiaction();
+		request.getSession().setAttribute("calssification",calssification );
+		return "backstage/goods_add";
+		
 	}
 	
 	@RequestMapping(value="/Uploadfiles.action")   //上传商品其余图片方法
@@ -111,7 +120,7 @@ public class ProductsController {
 		int size=list.size();
 		String[] picuter=(String[])list.toArray(new String[size]);
 		request.getSession().setAttribute("picuter", picuter);
-		return "backstage/jsp/Products/showPicuters";
+		return "redirect:add_Products.action";
 	}
 
 	@RequestMapping(value="/QuertByname.action")    //商品查询方法
@@ -126,8 +135,20 @@ public class ProductsController {
 	@RequestMapping(value="/update.action")     //修改商品方法
 	public String UpdateToJsp(HttpServletRequest request,Integer id){
 		Products products;
+		List<Classification> calssificationType=null;
+		String tidType=null;
+		int tid;
+		calssificationType=classificationService.selectClassifiaction();     //获取类型表所有类型
 		products=productService.selectByPrimaryKey(id);
+		id=products.getTid();
+		for(Classification tf:calssificationType){
+			if(id==tf.getId()){
+				tidType=tf.getClassname();
+			}
+		}
 		request.getSession().setAttribute("products2",products);
+		request.getSession().setAttribute("calssification",calssificationType);
+		request.getSession().setAttribute("type",tidType);
 		return "backstage/jsp/Products/UpdateProducts";
 		
 	}
@@ -176,7 +197,6 @@ public class ProductsController {
     
    @RequestMapping(value="/init.do")
    public String searchInvList(Page page,HttpServletRequest request)throws UnsupportedEncodingException{     //展示商品 分页实现
-	
 	 //组装page对象,传入方法中查询列表 回显数据
        Page p =page;
        int pageSize=10; //设置每页大小
@@ -193,25 +213,16 @@ public class ProductsController {
     	   startRow=getStartRowBycurrentPage(curPage, pageSize);    //传入当前页面，和每个页面大小 得到开始条数
        }
        p.setStartRow(startRow);   //设置开始条数
-       
        String queryCondition=null;    //查询条件字段
        if (page.getQueryCondition()!=null) {   //获得查询条件
            queryCondition = page.getQueryCondition();//查询条件
-      }
-       
+      } 
       List<Products> Invlist=getInvListByCondition(page);    //得到模糊查询获得是商品序列
-      
       long totalCounts=productService.getProductsCount();    //获得商品总的条数
-      
       int totalPages=(int) ((totalCounts%pageSize==0)?(totalCounts/pageSize):(totalCounts/pageSize+1)); //总页数=总条数/页大小+1
-       
       p.setTotalPage(totalPages);  //获得总页数
-      
       page.setTotalRows(totalCounts);//总行数    TotalRows属性的字段为long
-      
-     /* request.setAttribute("InvList",Invlist);*/
       request.getSession().setAttribute("InvList", Invlist);
-     /* request.setAttribute("page", page);*/
       request.getSession().setAttribute("page", page);
 	   return "backstage/jsp/Products/Seeclassification";  
    }

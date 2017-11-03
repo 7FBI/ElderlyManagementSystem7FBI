@@ -1,5 +1,8 @@
 package com.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +24,7 @@ public class OrdersController {
 	@RequestMapping(value="/selectOrders.action")
 	public String SelectOrders(HttpServletRequest request){    //已经收货 已完成订单     
 		List<Orders> list;
+		List<String> str = new ArrayList<String>();
 		list=ordersService.selectByorderstatus(2);
 		request.getSession().setAttribute("Orders",list);
 		return "backstage/jsp/Orders/ExhibitionOrders";
@@ -43,4 +47,18 @@ public class OrdersController {
 	return "backstage/jsp/Orders/ofterfahuo";
 	   
    }
+   /**  
+    * 将Date类型时间转换为字符串  
+    * @param date  
+    * @return  
+    */    
+   public static String toString(Date date) {    
+   
+       String time;    
+       SimpleDateFormat formater = new SimpleDateFormat();    
+       formater.applyPattern("yyyy年MM月dd日 HH:mm");    
+       time = formater.format(date);    
+       return time;    
+   }    
+   
 }

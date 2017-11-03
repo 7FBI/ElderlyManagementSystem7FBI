@@ -8,7 +8,7 @@ public interface ClassificationService {
     
 	public  Classification selectByPrimaryKey(int id);   //根据id查询类别对象
 	
-	public List<Classification> selectClassifiaction();
+	public List<Classification> selectClassifiaction();   //修改类别
 	
     public void insertSelective(Classification record);   //添加类别
     

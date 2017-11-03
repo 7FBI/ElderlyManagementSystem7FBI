@@ -38,6 +38,8 @@
                                     <tr>
                                         <td width="100" align="center"><img src="/resources/backstage/Images/mime.gif" /></td>
                                         <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
+                                        <td width="40%"></td>
+                                        <td valign="bottom" width="200"><h4 style="letter-spacing:1px;"><a href="/gotoBackstage/jsp/Classification/add_classification">添加商品类别</a></h4></td>
                                     </tr>
                                 </table>
                             </td>

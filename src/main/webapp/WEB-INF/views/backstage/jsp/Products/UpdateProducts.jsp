@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <title>商品信息修改</title>
  <link rel="stylesheet" type="text/css" href="../resources/ManagerInfo_login/css/skin.css" />
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
   	<table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -137,14 +138,14 @@
 												<tr>
 													<td>&nbsp;</td>
 													<td>产品分类：</td>
-													<td><select>
-															<option selected="true" name="tid">请选择...</option>
-															<option value="0">顶级栏目</option>
-															<option value="1">公司动态</option>
-															<option value="2">产品展示</option>
-															<option value="3">关于我们</option>
-													</select></td>
-													<td>设置产品分类</td>
+													<td><select name="tid">
+															<option selected="true" >请选择...</option>
+															<c:forEach items="${calssification }" var="calssification">
+															<option value="${calssification.id}" name="tid">${calssification.classname}</option>
+															</c:forEach> 
+													</select>
+													</td>
+													<td>该产品属于 ${type}类</td>
 													<td>&nbsp;</td>
 												</tr>
 												<tr>

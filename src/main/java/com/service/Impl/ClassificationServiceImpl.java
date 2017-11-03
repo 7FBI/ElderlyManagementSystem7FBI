@@ -23,13 +23,13 @@ public class ClassificationServiceImpl implements ClassificationService {
 	}
 
 	@Override
-	public List<Classification> selectClassifiaction() {
+	public List<Classification> selectClassifiaction() {        //查询类别
 		 
 		return classificationMapper.selectClassifiaction();
 	}
 
 	@Override
-	public void insertSelective(Classification record) {
+	public void insertSelective(Classification record) {        //添加类别
 		// TODO Auto-generated method stub
 		classificationMapper.insertSelective(record);
 		

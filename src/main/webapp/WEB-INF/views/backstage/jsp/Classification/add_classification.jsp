@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link rel="stylesheet" type="text/css" href="/resources/ManagerInfo_login/css/skin.css" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<title>订单展示</title>
+ <link rel="stylesheet" type="text/css" href="/resources/backstage/Style/skin.css" />
+<title>添加商品类别</title>
 </head>
 <body>
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
-                <td width="17" valign="top" background="/resources/backstage/Images/mail_left_bg.gif">
+                <td width="17" valign="top" background="./Images/mail_left_bg.gif">
                     <img src="/resources/backstage/Images/left_top_right.gif" width="17" height="29" />
                 </td>
                 <td valign="top" background="/resources/backstage/Images/content_bg.gif">
@@ -49,37 +48,36 @@
                                 </table>
                             </td>
                         </tr>
-                        <!-- 产品列表开始 -->
+                        <!-- 添加栏目开始 -->
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="96%">
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="" method="">
-                                                <table width="100%"  class="cont tr_color">
+                                             <form action="${pageContext.request.contextPath}/backstage/Class/insertClassification.action" method="post">
+                                                <table width="100%" class="cont">
+                                                   <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td width="20%"></td>
+                                                        <td>
+                                                          <h3>系统自动为类别添加id</h3>
+                                                        </td>
+                                                        <td></td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
                                                     <tr>
-                                                        <th>选中</th>
-                                                        <th>用户id</th>
-                                                        <th>下单时间</th>
-                                                        <th>订单状态</th>
-                                                        <th>支付方式</th>
-                                                        <th>订单地址</th>
-                                                        <th>买家留言</th>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>商品类别名称：</td>
+                                                        <td width="20%"><input class="text" type="text" name="classname" value="" /></td>
+                                                        <td>设置新添加商品类别名</td>
+                                                        <td width="2%">&nbsp;</td>
                                                     </tr>
-                                                    <c:forEach items="${Orders }"  var="Orders">
-                                                    
-                                                    <tr align="center" class="d">
-                                                       <td><input type="checkbox" value="" /></td>
-                                                       <td>${Orders.uid }</td>
-                                                       <td>${Orders.ordertime}</td>
-                                                       <td>已完成</td>
-                                                       <td>${Orders.payment }</td>
-                                                       <td>${Orders.orderaddress }</td>
-                                                       <td>${Orders.remarks }</td>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td width="20%" colspan="6"><input class="btn" type="submit" value="确认添加" style="width:100px;"/></td>
+                                                        <td>&nbsp;</td>
                                                     </tr>
-                                                   </c:forEach> 
-                                                  
                                                 </table>
                                             </form>
                                         </td>
@@ -88,7 +86,7 @@
                             </td>
                             <td width="2%">&nbsp;</td>
                         </tr>
-                        <!-- 产品列表结束 -->
+                        <!-- 添加栏目结束 -->
                         <tr>
                             <td height="40" colspan="4">
                                 <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
@@ -121,6 +119,5 @@
                 </td>           
             </tr>
         </table>
-
 </body>
 </html>

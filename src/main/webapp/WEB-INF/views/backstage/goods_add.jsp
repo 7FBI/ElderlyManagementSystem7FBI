@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/resources/ManagerInfo_login/css/skin.css" />
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -103,7 +104,7 @@
 													<td width="2%">&nbsp;</td>
 													<td>产品属性1：</td>
 													<td width="20%"><input class="text" type="text"
-														name="ProductsType1" value="" /></td>
+														name="productstype1" value="" /></td>
 													<td>设置产品其他属性</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
@@ -111,7 +112,7 @@
 													<td width="2%">&nbsp;</td>
 													<td>产品属性2：</td>
 													<td width="20%"><input class="text" type="text"
-														name="ProductsType2" value="" /></td>
+														name="productstype2" value="" /></td>
 													<td>设置产品其他属性</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
@@ -134,11 +135,11 @@
 												<tr>
 													<td>&nbsp;</td>
 													<td>产品分类：</td>
-													<td><select>
+													<td><select name="tid">
 															<option selected="true" name="tid">请选择...</option>
-															<option value="">好运来</option>
-															<option value="">运气真好</option>
-															<option value="">这是什么</option>
+															<c:forEach items="${calssification }" var="Invlist">
+															<option value="${Invlist.id}" name="tid">${Invlist.classname}</option>
+															</c:forEach> 
 													</select>
 													</td>
 													<td>设置产品分类</td>
