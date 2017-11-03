@@ -122,6 +122,52 @@ public class ProductsController {
 		request.getSession().setAttribute("picuter", picuter);
 		return "redirect:add_Products.action";
 	}
+	
+	@RequestMapping(value="/updatepivuter.action")   //上传商品其余图片方法
+	public String updateProducts(HttpServletRequest request,MultipartFile[] graphTheorise,int id){
+		int pid=id;
+		List<String> list=new ArrayList<String>(); 
+		List<Showsphotos> showphotos;
+		showphotos=showsphotosService.selectBypid(pid);
+		String uploadPath = request.getSession().getServletContext().getRealPath("/files"); //文件下载存储的路径
+		for(MultipartFile files:graphTheorise){     //遍历文件
+			String fileName;   //文件名
+			try{
+				fileName = new String(files.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
+				String newFileName=UUID.randomUUID()+fileName;
+				String endPath=uploadPath+File.separator+newFileName;
+				File loadFile=new File(endPath);    //新建文件
+				if (!loadFile.getParentFile().exists()) {
+					loadFile.getParentFile().mkdirs();
+				}
+				files.transferTo(loadFile);
+				list.add(endPath);
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		if(showphotos!=null&&showphotos.size()>0){
+		int size=list.size();
+		String[] picuter=(String[])list.toArray(new String[size]);    //picuter[size] 传入的图片
+		for(int x=0;x<size;x++){
+			Showsphotos show=null;
+			show=showphotos.get(x);
+			show.setImage(picuter[x]);
+			showsphotosService.updateByPrimaryKeySelective(show);
+		}
+		}else{
+			if(list!=null){
+				for(String tr:list){
+					Showsphotos show=new Showsphotos();
+					show.setPid(pid);
+					show.setImage(tr);
+					showsphotosService.insertFrompidimage(show);
+				}
+			}
+		}
+		return "redirect:init.do";
+	}
 
 	@RequestMapping(value="/QuertByname.action")    //商品查询方法
 	public String QueryBypnameProducts(HttpServletRequest request,
@@ -153,7 +199,6 @@ public class ProductsController {
 		
 	}
 	
-	
 	@RequestMapping(value="/updateProducts.action")   //商品信息修改提交方法，返回提交成功
     public String UpdateProducts(HttpServletRequest request,Products products,MultipartFile file){
 		if(file!=null){
@@ -176,8 +221,8 @@ public class ProductsController {
 			  products.setProducturl(path);
 		}
 		productService.updateByPrimaryKeySelective(products);
-		/*request.getSession().setAttribute("products2",products);*/
-		return "redirect:init.do";
+		request.getSession().setAttribute("product",products);
+		return "backstage/jsp/Products/updatePicuter";
     	
     }
     

@@ -77,7 +77,7 @@
 								<tr>
 									<td colspan="2">
 										<form action="${pageContext.request.contextPath }/backstage/Store/updateProducts.action" method="post" enctype="multipart/form-data">
-											 <input class="text" type="hidden" name="id" value="${products2.id }" />
+											<input class="text" type="hidden" name="id" value="${products2.id }" />
 											<table width="100%" class="cont">	  
 												<tr>
 													<td width="2%">&nbsp;</td>
@@ -107,7 +107,7 @@
 													<td width="2%">&nbsp;</td>
 													<td>产品属性1：</td>
 													<td width="20%"><input class="text" type="text"
-														name="ProductsType1" value="${products2.productstype1 }" /></td>
+														name="productstype1" value="${products2.productstype1 }" /></td>
 													<td>设置产品其他属性</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
@@ -115,7 +115,7 @@
 													<td width="2%">&nbsp;</td>
 													<td>产品属性2：</td>
 													<td width="20%"><input class="text" type="text"
-														name="ProductsType2" value="${products2.productstype2 }" /></td>
+														name="productstype2" value="${products2.productstype2 }" /></td>
 													<td>设置产品其他属性</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
@@ -139,7 +139,7 @@
 													<td>&nbsp;</td>
 													<td>产品分类：</td>
 													<td><select name="tid">
-															<option selected="true" >请选择...</option>
+															<option selected="true" value="${products2.tid}">请选择...</option>
 															<c:forEach items="${calssification }" var="calssification">
 															<option value="${calssification.id}" name="tid">${calssification.classname}</option>
 															</c:forEach> 

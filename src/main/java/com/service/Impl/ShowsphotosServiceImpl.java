@@ -1,5 +1,7 @@
 package com.service.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,16 +39,17 @@ public class ShowsphotosServiceImpl implements ShowsphotosService {
 		return null;
 	}
 
-	@Override
-	public int updateByPrimaryKeySelective(Showsphotos record) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	@Override
 	public int updateByPrimaryKey(Showsphotos record) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public int updateByPrimaryKeySelective(Showsphotos record) {
+		// TODO Auto-generated method stub
+		return showsphotosMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
@@ -54,6 +57,12 @@ public class ShowsphotosServiceImpl implements ShowsphotosService {
 		
 		showsphotosMapper.insertFrompidimage(record);
 		
+	}
+
+	@Override
+	public List<Showsphotos> selectBypid(int pid) {
+		// TODO Auto-generated method stub
+		return showsphotosMapper.selectBypid(pid);
 	}
 
 }
