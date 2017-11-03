@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -128,7 +129,10 @@
                     <div class="col-md-6 form-group">
                         <label for="qq" class="col-md-3 control-label">出生<br>日期</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="qq" value="${userdetail.birthday}" readonly>
+                        
+                     <%--  <fmt:formatDate value=" ${userdetail.birthday}" pattern="yyyy-MM-dd"/>  --%>
+                      <input type="text" class="form-control" id="qq" value="${userdetail.birthday}"  readonly>
+                       
                         </div>
                     </div> 
                    <%--  <div class="col-md-6 form-group">

@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -130,7 +131,10 @@
 	                                                  
 														   <td rowspan="6" colspan="4" align="center">
 														      <font size="5px">${oneEduDetail.edutitle} </font> <br><br>
-														       <font color="blue"> ${oneEduDetail.edutime}</font> <br><br><br>
+														       <font color="blue">发布日期：
+														       <fmt:formatDate value="${oneEduDetail.edutime}" pattern="yyyy-MM-dd"/>
+														
+														       </font> <br><br><br>
 														       
 														       <div style="width:60% ;margin: 0 auto; text-align: left;padding-bottom: 60px">
 														        <img alt="" src="">    <br>  

@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!-- 引用c标签库 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- 引用日期标签库 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()

@@ -63,13 +63,13 @@ public class BackVideoController {
 	public String allVideos(Video video){
 		videoService.updateVideo(video);
 		
-		return "redirect:/video/allvideo";
+		return "redirect:/backstage/video/allvideo";
 	}
 //  删除
 	@RequestMapping("/deletevideo")
 	public String deleteVideosById(Integer id){
 		videoService.deleteById(id);
-		return "redirect:/video/allvideo";
+		return "redirect:/backstage/video/allvideo";
 	}
 // 按条件查询
 	@RequestMapping("/findvideos")

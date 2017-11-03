@@ -63,7 +63,7 @@ public class EdunewsController {
 //		List <Edunews> alleducational=edunewsService.selectAllEdu();
 //		modelAndView.addObject("alleducational", alleducational);
 //		modelAndView.setViewName("/backstage/alleduinfo");
-		return "redirect:/edu/alledu.action";
+		return "redirect:/backstage/edu/alledu.action";
 		
 	}
 	//删除
@@ -71,7 +71,7 @@ public class EdunewsController {
 	public String deleteEdunews(Integer id){
 		edunewsService.deleteEduById(id);
 		
-		return "redirect:/edu/alledu.action";
+		return "redirect:/backstage/edu/alledu.action";
 		
 	}
 	//修改
@@ -83,7 +83,7 @@ public class EdunewsController {
 		List <Edunews> alleducational=edunewsService.selectAllEdu();
 		modelAndView.addObject("alleducational", alleducational);
 		modelAndView.setViewName("/backstage/alleduinfo");*/
-		return "redirect:/edu/alledu.action";
+		return "redirect:/backstage/edu/alledu.action";
 		
 	}
 	//更据ID查询

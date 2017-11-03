@@ -12,7 +12,7 @@ public class OldSickness {
     private Integer id;
     private List<OldDiseaselibrary> listOldDiseaselibraries;
     private List<Matchdisease> listMatchdiseases;
-
+    private OldDiseasedetails oldDiseasedetails;
     public List<Matchdisease> getListMatchdiseases() {
 		return listMatchdiseases;
 	}
@@ -27,6 +27,13 @@ public class OldSickness {
 
 	public void setListOldDiseaselibraries(List<OldDiseaselibrary> listOldDiseaselibraries) {
 		this.listOldDiseaselibraries = listOldDiseaselibraries;
+	}
+	public OldDiseasedetails getOldDiseasedetails() {
+		return oldDiseasedetails;
+	}
+
+	public void setOldDiseasedetails(OldDiseasedetails oldDiseasedetails) {
+		this.oldDiseasedetails = oldDiseasedetails;
 	}
 
 	/**

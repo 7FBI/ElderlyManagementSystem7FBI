@@ -84,7 +84,9 @@
 							</tr>
 						</table>
 						<ul class="RM">
-						    <li><a href="${pageContext.request.contextPath}/video/allvideo.action" target="main">视频列表</a></li>
+						    <li><a href="${pageContext.request.contextPath}/backstage/edu/alledu.action" target="main">新闻列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addedunews" target="main">发布新闻</a></li>
+						    <li><a href="${pageContext.request.contextPath}/backstage/video/allvideo.action" target="main">视频列表</a></li>
 						    <li><a href="${pageContext.request.contextPath}/gotoBackstage/addvideo" target="main">上传视频</a></li>
 						</ul>
 					</div>

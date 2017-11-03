@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/video/allvideo.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -74,11 +74,11 @@
 						     
 							
 						</div> -->
-				<div class="row">
-				<form action="${pageContext.request.contextPath}/backstage/video/findvideos.action" method="post">
+				<%-- <div class="row">
+				<form action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
-							<input type="text" class="form-control" name="queryVideoByConditions" 
+							<input type="text" class="form-control" name="findbycondition" 
 								placeholder="Search for..."> <span
 								class="input-group-btn">
 								<button class="btn btn-info" type="submit">
@@ -92,24 +92,43 @@
 						</div>
 				</form>
 					
-					
 					</div>
 
 					<div class="col-md-3 col-md-offset-1 addstyle">
 						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/addvideo"
+							href="${pageContext.request.contextPath}/gotoBackstage/register"
 							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加视频</span>
+							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
 						</a>
 
 						<!-- /input-group -->
 					</div>
-				</div>
+				</div> --%>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<!-- 空白行-->
-					
+					<!-- <div class="row div_width"> -->
+					<!-- 
+						<div class="col-md-3 col-md-offset-2">
+						
+
+								<a href="register" class="btn btn-success"> <span
+									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+								</a>
+						
+							/input-group
+						</div> -->
+
+
+					<!-- <div class="col-md-5">
+								
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn"> <a class="btn btn-default">查询</span>
+                              
+							</div> -->
+
 
 					<!-- 一条线 -->
 					<tr>
@@ -134,42 +153,32 @@
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="9"><font size="5px">用户列表</font></td></tr>
+												<tr align="center" height="50px"><td colspan="7"><font size="5px">推荐用户列表</font></td></tr>
 												<tr align="center" height="40px" class="td_title_color">
-													<th>序号</th>
-													<th>视频名称</th>
-													<th>主讲教师</th>
+													<th width="100px">序号</th>
+		
+													<th width="120px">视频标题</th>
+													<th width="180px">用户姓名</th>
+													<th width="150px">登录账号</th>
+													<th width="150px">用户电话</th>
+													<th width="100px">家庭住址</th>
+													<th width="100px">疾病名称</th>
 													
-													<th>价格</th>
-													<th>内容描述</th>
-													
-													<th>视频</th>
-													<th></th>
-													<th>推荐用户</th>
-													<th>操作</th>
 												</tr>
-												<c:forEach items="${allVideos }" var="allVideos" varStatus="var">
+												<c:forEach items="${matchpeoplebyvideolist }" var="matchpeoplebyvideolist" varStatus="var">
 													<tr align="left" class="d">
 
 														<td>${var.count}</td>
-														<td>${allVideos.vtitle}</td>
-														<td>${allVideos.vteacher}</td>
+														<td>${matchpeoplebyvideolist.video.vtitle}</td>
 														
-														<td>${allVideos.vprice}</td>
-														<td>${allVideos.vcontent}</td>
-														<td>${allVideos.vurl}</td>
-														<td></td>
-														<td>
-														<a
-															href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
-														</td>
-														<td><a
-															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}">删除</a>
-															<a
-															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}">修改</a>
-
-															</td>
-
+														<td>${matchpeoplebyvideolist.oldDiseaselibrary.oldSickness.oldDiseasedetails.oldUsers.username}</td>
+														<td>${matchpeoplebyvideolist.oldDiseaselibrary.oldSickness.oldDiseasedetails.uid}</td>
+														
+														<td>${matchpeoplebyvideolist.oldDiseaselibrary.oldSickness.oldDiseasedetails.oldUsers.tell}</td>
+														
+														<td>${matchpeoplebyvideolist.oldDiseaselibrary.oldSickness.oldDiseasedetails.oldUsers.address}</td>
+														<td>${matchpeoplebyvideolist.oldDiseaselibrary.diseasename}</td>
+														
 													</tr>
 												</c:forEach>
 

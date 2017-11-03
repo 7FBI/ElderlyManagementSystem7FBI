@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -182,7 +183,12 @@
 														<td>${var.count}</td>
 														<td>${alledunews.edutitle}</td>
 														
-														<td>${alledunews.edutime}</td>
+														<td>
+														<fmt:formatDate value="${alledunews.edutime}" pattern="yyyy-MM-dd" />
+														
+														
+														
+														</td>
 														
 														<td><a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${alledunews.id}">删除</a>
 															
