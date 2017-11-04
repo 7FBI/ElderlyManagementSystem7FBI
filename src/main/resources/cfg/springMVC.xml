@@ -62,6 +62,7 @@
 	<!-- springmvc 拦截器的配置 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
+			<mvc:mapping path="/backstage/**"/>
 			<mvc:mapping path="/gotoBackstage/index" />
 			<bean class="com.interceptor.BackstageIndex"></bean>
 		</mvc:interceptor>
