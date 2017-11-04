@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Localarea;
-import com.bean.ManagerInfo;
+import com.bean.Managerinfo;
 import com.service.LocalAreaService;
 
 @Controller

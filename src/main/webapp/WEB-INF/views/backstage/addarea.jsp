@@ -26,12 +26,6 @@
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 
-
-<!-- 验证 -->
-
-<script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
-
 </head>
 
 <body>
@@ -41,15 +35,14 @@
 	</font></a>
 	<br>
 	<center>
-		<form class="form-inline" action="/backstage/localarea/addAreaInfo"
-			method="post">
+		<form class="form-inline" id=""
+			action="/backstage/localarea/addAreaInfo" method="post">
 			<div class="form-group">
 				<label for="exampleInputName2">地域名称:</label> <input type="text"
-					style="width: 360px;" class="form-control" name="provincename"
-					placeholder="${localArea.provincename }">
+					style="width: 360px;" class="form-control" NoNull=""
+					name="provincename" placeholder="${localArea.provincename }">
 			</div>
-			<br />
-			<br />
+			<br /> <br />
 			<div class="form-group">
 				<label for="exampleInputName2">所属地域</label> <select
 					style="width: 360px;" id="sele" class="form-control"
@@ -61,36 +54,52 @@
 			<div class="form-group">
 				<label for="exampleInputName2">地域简介</label>
 				<textarea style="width: 360px; height: 120px" class="form-control"
-					name="localintroduce" placeholder="请输入简介......."></textarea>
-			</div><br/><br/>
+					name="localintroduce" NoNull="" placeholder="请输入简介......."></textarea>
+			</div>
+			<br />
+			<br />
 			<!-- 按钮 -->
 			<div class="form-group">
-					<button type="submit" class="btn btn-success">添加</button>
-					<button type="reset" class="btn btn-warning">重置</button>
+				<button type="button" id="sbmit" class="btn btn-success">添加</button>
+				<button type="reset" class="btn btn-warning">重置</button>
 			</div>
 		</form>
 	</center>
+	<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					$.ajax({
-						type : 'get',
-						url : '/backstage/localarea/selectAllInfo',
-						success : function(data) {
-							if (data != null) {
-								var s = $("#sele");
-								for ( var k in data) {
-									var chtml = '<option value="'+k['id']+'">'
-											+ k['selftcityid'] + '</option>';
-									s.append(chtml);
-								}
-							}
-						},
-						error : function() {
-							alert("网络错误!!");
-						}
-					})
-				})
+		$(document)
+				.ready(
+						function() {
+							$
+									.ajax({
+										type : 'get',
+										url : '/backstage/localarea/selectAllInfo',
+										success : function(data) {
+											if (data != null) {
+												var s = $("#sele");
+												for ( var k in data) {
+													var chtml = '<option value="'+data[k].id+'">'
+															+ data[k].selftcityid
+															+ '</option>';
+													s.append(chtml);
+												}
+											}
+										},
+										error : function() {
+											alert("网络错误!!");
+										}
+									})
+						});
+
+		$("#sbmit").click(function() {
+			if (formInputNoNull() & formTextNoNull()) {
+				$("#f").submit();
+			}else {
+				rmvErr();
+			}
+		})
+
+		
 	</script>
 
 </body>

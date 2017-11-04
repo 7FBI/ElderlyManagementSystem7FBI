@@ -17,7 +17,7 @@
 	<center>
 		<div style="width: 100%; padding: 5px 5px 5px 5px;">
 			<a style="float: left;" class="btn btn-lg btn-default"
-				href="/gotoBackstage/index">返回首页>>></a>
+				href="/gotoBackstage/main">返回首页</a>
 			<hr />
 		</div>
 		<table width="100%" class="table"
@@ -84,6 +84,11 @@
 										}
 									})
 						});
+		
+		$("#jumpBtn").click(function(){
+			var b = $("input[page='page']").val();
+			window.location.href = "/backstage/localarea/findAllArea?page=" + b;
+		})
 
 		$("button[page='page']").click(function() {
 			var b = $(this).val();

@@ -57,7 +57,7 @@ img {
 									<td width="100" align="center"><img
 										src="./Images/mime.gif" /></td>
 									<td valign="bottom"><h3 style="letter-spacing: 1px;">
-											<a href="/backstage/info/allInfo">>>>返回上页</a>
+											<a href="/backstage/info/allInfo">返回上页</a>
 										</h3></td>
 								</tr>
 							</table>
@@ -97,7 +97,7 @@ img {
 												</tr>
 												<tr>
 													<td width="2%">&nbsp;</td>
-													<td width="15%">信息标题：</td>
+													<td width="15%">发布时间：</td>
 													<td width="25%"><input class="text" type="text"
 														name="sendtiem" id="date"
 														value="${frontinformation.get(0).sendtiem}" /></td>

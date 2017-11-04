@@ -19,14 +19,22 @@
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-
+	<mvc:annotation-driven conversion-service="conversionService" />
 	<!-- 扫描基本包，来确定控制器中的注解 -->
 	<context:component-scan base-package="com.controller" />
 	<!-- 注解配置映射器 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+	</bean>
 	<!-- 注解适配器 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="webBindingInitializer" ref="binder" />
+		<!-- json数据转换 -->
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+			</list>
+		</property>
 	</bean>
 	<!--配置视图解析器 -->
 	<bean
@@ -39,17 +47,15 @@
 	<bean id="binder"
 		class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
 		<!-- 使用转换器 -->
-		<property name="conversionService" ref="converter"></property>
+		<property name="conversionService" ref="conversionService"></property>
 	</bean>
 
-	<mvc:annotation-driven conversion-service="converter" />
-
 	<!-- 注册转换器 -->
-	<bean id="converter"
+	<bean id="conversionService"
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<!-- 可以配置多个转换器 -->
-			<bean class="com.converter.DateConverter"></bean>
+			<list><bean class="com.converter.DateConverter"></bean></list>
 		</property>
 	</bean>
 	<!-- 上传解析器 上传解析器multipartResolver -->

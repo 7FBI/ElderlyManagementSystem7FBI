@@ -141,7 +141,7 @@
 						<ul class="RM">
 						<li><a href="${pageContext.request.contextPath}/backstage/localarea/findAllArea" target="main">地域列表</a></li>
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/addarea" target="main">添加地域</a></li>
-							<li><a href="#" target="main">管理员列表</a></li>
+							<li><a href="/backstage/user/selectAlls" target="main">管理员列表</a></li>
 							<li><a href="/backstage/backinformation/selectByAuthor2" target="main">公告栏</a></li>
 						</ul>
 					</div>
