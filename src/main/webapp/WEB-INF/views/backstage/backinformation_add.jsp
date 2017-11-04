@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/resources/backstage/Style/skin.css" />
@@ -12,20 +13,14 @@
             <!-- 头部开始 -->
             <tr>
                 <td width="17" valign="top" background="./Images/mail_left_bg.gif">
-                    <img src="./Images/left_top_right.gif" width="100" height="29" />
-                           	 
+                    <img src="./Images/left_top_right.gif" width="17" height="29" />
                 </td>
                 <td valign="top" background="./Images/content_bg.gif">
                     <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr><td height="31"><div class="title">活动展示</div></td></tr>
+                        <tr><td height="31"><div class="title">新增公告</div></td></tr>
                     </table>
                 </td>
-                <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="100" height="29" />
-           				     当前用户：${manager.mnane}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-                       	  <c:if test="${manager.mnane!=null }">
- 							  <a href="${pageContext.request.contextPath }/manager/login_out.action">退出</a>
-						  </c:if>
-                </td>
+                <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
             </tr>
             <!-- 中间部分开始 -->
             <tr>
@@ -41,9 +36,7 @@
                                 <table>
                                     <tr>
                                         <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">活动列表：</h3></td>
-                                        <td width="200" align="center"><a href="/gotoBackstage/activity_add"><h3>新增活动</h3></a></td>
-                                        <td></td>
+                                        <td valign="bottom"><h2 style="letter-spacing:1px;">添加新公告</h2></td>
                                     </tr>
                                 </table>
                             </td>
@@ -56,43 +49,40 @@
                                 </table>
                             </td>
                         </tr>
-                        <!-- 产品列表开始 -->
+                        <!-- 添加产品开始 -->
+                
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="96%">
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="manager_activitydetailinfo"action="${pageContext.request.contextPath }/backstage/manager/query.action" method="post">
-                                                <table width="100%"  class="cont tr_color">
-                                                    <tr>
-                                                     
-                                                        <th>序号</th>
-                                                        <th>活动标题</th>
-                                                        <th>价格</th>
-                                                        <th>教导老师</th>
-                                                        <th>活动内容简介</th>
-                                                        <th>报名开始日期</th>
-                                                        <th>报名截至日期</th>
-                                                        <th>活动编辑</th>
-                                                    </tr>
-                                                    <c:forEach items="${activitydetailinfoList}" var="activitydetailinfoList">
-													<tr>	
-														<th>${activitydetailinfoList.id}</th>
-														<th>${activitydetailinfoList.activitytitle}</th>
-   														<th>${activitydetailinfoList.activityprice}</th>
-   														<th>${activitydetailinfoList.activityteacher}</th>
-   														<th>${activitydetailinfoList.activitycontent}</th>
- 														<th>${activitydetailinfoList.activitystarttime}</th>
- 														<th>${activitydetailinfoList.actitvityendtime}</th> 
-														<th>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/selectById2?id=${activitydetailinfoList.id}">详情</a></tt>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/delete?id=${activitydetailinfoList.id}">删除</a></tt>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/selectById?id=${activitydetailinfoList.id}">修改</a></tt>
-														</th>
-													</tr>
-												</c:forEach>
+                                            <form action="${pageContext.request.contextPath }/backstage/backinformation/insert" method="post">
+                                                <table width="100%"class="cont">
+                                                <tr>
                                                  
+                                                 </tr>
+                                                  
+                                                    <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td width="15%">标题：</td>
+                                                        <td width="25%"><input class="text" type="text" name="title" value="" /></td>
+                                                        <td>设置名称</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>                                          
+                                                    <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>内容：</td>
+                                                        <td width="20%"><input class="text" type="text" name="news" value="" /></td>
+                                                        <td>填写内容</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                   
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td colspan="3"><input class="btn" type="submit" value="提交" /></td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
                                                 </table>
                                             </form>
                                         </td>
@@ -101,7 +91,7 @@
                             </td>
                             <td width="2%">&nbsp;</td>
                         </tr>
-                        <!-- 产品列表结束 -->
+                        <!-- 添加活动结束 -->
                         <tr>
                             <td height="40" colspan="4">
                                 <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
@@ -121,7 +111,7 @@
                 </td>
                 <td background="./Images/mail_right_bg.gif">&nbsp;</td>
             </tr>
-             <!-- 底部部分 -->
+            <!-- 底部部分 -->
             <tr>
                 <td valign="bottom" background="./Images/mail_left_bg.gif">
                     <img src="./Images/buttom_left.gif" width="17" height="17" />
@@ -135,4 +125,5 @@
             </tr>
         </table>
     </body>
+
 </html>

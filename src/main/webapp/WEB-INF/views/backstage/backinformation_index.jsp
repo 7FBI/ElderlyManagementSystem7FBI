@@ -11,26 +11,20 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
-                <td width="17" valign="top" background="./Images/mail_left_bg.gif">
-                    <img src="./Images/left_top_right.gif" width="100" height="29" />
+                <td width="17" valign="top" background="/resources/backstage/Images/mail_left_bg.gif">
+                    <img src="/resources/backstage/Images/left_top_right.gif" width="100" height="29" />
                            	 
                 </td>
-                <td valign="top" background="./Images/content_bg.gif">
-                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr><td height="31"><div class="title">活动展示</div></td></tr>
+                <td valign="top" background="/resources/backstage/Images/content_bg.gif">
+                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="/resources/backstage/Images/content_bg.gif">
+                        <tr><td height="31"><div class="title">所有公告</div></td></tr>
                     </table>
-                </td>
-                <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="100" height="29" />
-           				     当前用户：${manager.mnane}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
-                       	  <c:if test="${manager.mnane!=null }">
- 							  <a href="${pageContext.request.contextPath }/manager/login_out.action">退出</a>
-						  </c:if>
                 </td>
             </tr>
             <!-- 中间部分开始 -->
             <tr>
                 <!--第一行左边框-->
-                <td valign="middle" background="./Images/mail_left_bg.gif">&nbsp;</td>
+                <td   background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
                 <!--第一行中间内容-->
                 <td valign="top" bgcolor="#F7F8F9">
                     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -40,9 +34,9 @@
                             <td colspan="4">
                                 <table>
                                     <tr>
-                                        <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">活动列表：</h3></td>
-                                        <td width="200" align="center"><a href="/gotoBackstage/activity_add"><h3>新增活动</h3></a></td>
+                                        <td width="100" align="center"><img src="/resources/backstage/Images/mime.gif" /></td>
+                                        <td valign="bottom"><h3 style="letter-spacing:1px;">所有公告：</h3></td>
+                                        <td width="200" align="center"><a href="/gotoBackstage/backinformation_add"><h3>新增公告</h3></a></td>
                                         <td></td>
                                     </tr>
                                 </table>
@@ -63,32 +57,27 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="manager_activitydetailinfo"action="${pageContext.request.contextPath }/backstage/manager/query.action" method="post">
+                                            <form name="list"action="${pageContext.request.contextPath }/backstage/backinformation" method="post">
                                                 <table width="100%"  class="cont tr_color">
                                                     <tr>
-                                                     
+                                                     <th></th>
                                                         <th>序号</th>
-                                                        <th>活动标题</th>
-                                                        <th>价格</th>
-                                                        <th>教导老师</th>
-                                                        <th>活动内容简介</th>
-                                                        <th>报名开始日期</th>
-                                                        <th>报名截至日期</th>
-                                                        <th>活动编辑</th>
+                                                        <th>标题</th>
+                                                        <th>时间</th>
+                                                        <th>内容</th>
+                                                        <th>编辑</th>
                                                     </tr>
-                                                    <c:forEach items="${activitydetailinfoList}" var="activitydetailinfoList">
+                                                    <c:forEach items="${list}" var="list">
 													<tr>	
-														<th>${activitydetailinfoList.id}</th>
-														<th>${activitydetailinfoList.activitytitle}</th>
-   														<th>${activitydetailinfoList.activityprice}</th>
-   														<th>${activitydetailinfoList.activityteacher}</th>
-   														<th>${activitydetailinfoList.activitycontent}</th>
- 														<th>${activitydetailinfoList.activitystarttime}</th>
- 														<th>${activitydetailinfoList.actitvityendtime}</th> 
+														<th><input type=hidden name=author value="${list.author}"></th>
+														<th>${list.id}</th>
+														<th>${list.title}</th>
+   														<th>${list.time}</th>
+   														<th>${list.news}</th>
 														<th>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/selectById2?id=${activitydetailinfoList.id}">详情</a></tt>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/delete?id=${activitydetailinfoList.id}">删除</a></tt>
-															<tt><a href="${pageContext.request.contextPath }/backstage/manager/selectById?id=${activitydetailinfoList.id}">修改</a></tt>
+															<tt><a href="${pageContext.request.contextPath }/backstage/backinformation/selectByPrimaryKey?id=${list.id}">详情</a></tt>
+															<tt><a href="${pageContext.request.contextPath }/backstage/backinformation/deleteByPrimaryKey?id=${list.id}">删除</a></tt>
+															<tt><a href="${pageContext.request.contextPath }/backstage/backinformation/selectByPrimaryKey2?id=${list.id}">修改</a></tt>
 														</th>
 													</tr>
 												</c:forEach>
@@ -112,25 +101,25 @@
                         <tr>
                             <td width="2%">&nbsp;</td>
                             <td width="51%" class="left_txt">
-                                <img src="./Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：rainman@foxmail.com<br />
-                                <img src="./Images/icon_phone.gif" width="17" height="14"> 官方网站：<a href="http://h2design.taobao.com/" target="_blank">氢设计</a>
+                                <img src="/resources/backstage/Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：rainman@foxmail.com<br />
+                                <img src="/resources/backstage/Images/icon_phone.gif" width="17" height="14"> 官方网站：<a href="http://h2design.taobao.com/" target="_blank">氢设计</a>
                             </td>
                             <td>&nbsp;</td><td>&nbsp;</td>
                         </tr>
                     </table>
                 </td>
-                <td background="./Images/mail_right_bg.gif">&nbsp;</td>
+                <td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>
             </tr>
              <!-- 底部部分 -->
             <tr>
-                <td valign="bottom" background="./Images/mail_left_bg.gif">
-                    <img src="./Images/buttom_left.gif" width="17" height="17" />
+                <td valign="bottom" background="/resources/backstage/Images/mail_left_bg.gif">
+                    <img src="/resources/backstage/Images/buttom_left.gif" width="17" height="17" />
                 </td>
-                <td background="./Images/buttom_bgs.gif">
-                    <img src="./Images/buttom_bgs.gif" width="17" height="17">
+                <td background="/resources/backstage/Images/buttom_bgs.gif">
+                    <img src="/resources/backstage/Images/buttom_bgs.gif" width="17" height="17">
                 </td>
-                <td valign="bottom" background="./Images/mail_right_bg.gif">
-                    <img src="./Images/buttom_right.gif" width="16" height="17" />
+                <td valign="bottom" background="/resources/backstage/Images/mail_right_bg.gif">
+                    <img src="/resources/backstage/Images/buttom_right.gif" width="16" height="17" />
                 </td>           
             </tr>
         </table>
