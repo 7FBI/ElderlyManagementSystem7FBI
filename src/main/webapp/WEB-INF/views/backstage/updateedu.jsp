@@ -38,7 +38,7 @@
 <!-- 验证 -->
 
 <script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
+	src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 
@@ -100,7 +100,10 @@
 											   <strong>内容修改 </strong>
 											</div>
 							<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=3>
-										<form class="form-horizontal col-md-offset-1" action="/backstage/edu/updateedu.action" method="post" enctype="multipart/form-data">
+										<form class="form-horizontal col-md-offset-1" 
+										action="/backstage/edu/updateedu.action" 
+										method="post" enctype="multipart/form-data" 
+										onsubmit="return edunewscheck()">
 			
 											
 											<div class="form-group col-md-offset-2">
@@ -109,7 +112,7 @@
 												<div class="col-sm-6">
 													<input type="text" class="form-control" name="edutitle"
 														value="${oneEducational.edutitle}" placeholder="新闻标题"
-														id="edutitle" onblur="usenameCheck()">
+														id="vtitle" onblur="titleCheck()">
 
 												</div>
 												<div class="pleft">
@@ -122,11 +125,11 @@
 											<div class="form-group col-md-offset-2">
 												<label for="educontent" class="col-sm-2 control-label">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
 												<div class="col-sm-6">
-													<textarea  class="form-control" rows="10" cols="70" name="educontent">${oneEducational.educontent}</textarea>
+													<textarea  class="form-control" rows="10" cols="70" name="educontent" id="educontent" onblur="educontentCheck()">${oneEducational.educontent}</textarea>
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error2"></p></font> <font
-														color="green"><p id="success2"></p></font>
+													<font color="red"><p id="error6"></p></font>
+		                                            <font color="green"><p id="success6"></p></font>
 												</div>
 
 											</div>
@@ -136,12 +139,12 @@
 												<label for="eduurl" class="col-sm-2 control-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
 												<div class="col-sm-3">
 													<input type="file" name="file" multiple="multiple"
-														id="eduurl" value="${oneEducational.eduurl}"
-														onblur="checkUrl()" />
+														 value="${oneEducational.eduurl}"
+														id="eduurl" onblur="checkeduUrl()" />
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error8"></p></font> <font
-														color="green"><p id="success8"></p></font>
+													<font color="red"><p id="error7"></p></font> <font
+														color="green"><p id="success7"></p></font>
 												</div>
 											</div>
 											

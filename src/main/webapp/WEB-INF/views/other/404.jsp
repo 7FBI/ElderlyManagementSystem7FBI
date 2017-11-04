@@ -50,7 +50,7 @@ $(window).load(function(){
 </head>
 <body>
  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
- <input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);">
+ <!-- <input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);"> -->
  <!-- &nbsp;&nbsp;&nbsp;&nbsp;
  <a href="#" onClick="javascript:history.back(-1);"><font color="white">返回上一页</font></a>
   -->
@@ -68,6 +68,7 @@ $(window).load(function(){
 <!-- 404 graphic -->
 <!-- Not found text -->
 	<div class="not-found-text">
+	<input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);">
     	<h1 class="not-found-text">File not found, sorry!</h1>
     </div>
 <!-- Not found text -->
@@ -85,6 +86,8 @@ $(window).load(function(){
 <!-- <div class="top-menu">
 	<a href="#" class="with-tooltip" title="Return to the home page">Home</a> | <a href="#" class="with-tooltip" title="Navigate through our sitemap">Sitemap</a> | <a href="#" class="with-tooltip" title="Contact us!">Contact</a> | <a href="http://www.cssmoban.com" class="with-tooltip" title="模板之家">模板之家</a>
 </div> -->
+
+
 <!-- top menu -->
 
 <div class="dog-wrapper">

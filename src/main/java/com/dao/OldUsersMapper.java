@@ -1,11 +1,13 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.bean.OldUsers;
+import com.bean.Page;
 @Repository("oldUsersMapper")
 public interface OldUsersMapper {
 	List<OldUsers> selectByLikeUserName(Map map);
@@ -73,4 +75,8 @@ public interface OldUsersMapper {
     public void updateByUidSelective(OldUsers oldUsers);
     public List<OldUsers> findUserNameById(OldUsers oldUsers);
     public List<OldUsers> queryByConditions(String findbycondition);
+//  获得用户总数
+    public int getOldUsersCount();
+    //分页
+    List<OldUsers> pagiNation(HashMap<String,Object> map);
 }

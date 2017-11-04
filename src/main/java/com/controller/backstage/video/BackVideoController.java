@@ -60,7 +60,10 @@ public class BackVideoController {
 	}
 //  修改
 	@RequestMapping("/modifyvideo")
-	public String allVideos(Video video){
+	public String allVideos(@RequestParam("file") CommonsMultipartFile file,Video video,HttpServletRequest request) throws IOException {
+		String newVideoUrl=UploadImage.addImage(file, "/backstage/video", request);
+		System.out.println(newVideoUrl);
+		video.setVurl(newVideoUrl);
 		videoService.updateVideo(video);
 		
 		return "redirect:/backstage/video/allvideo";

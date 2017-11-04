@@ -58,10 +58,10 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
+				<%-- <a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
+	--%><br><br> 
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -75,6 +75,54 @@
 						     
 							
 						</div> -->
+						 <c:if test="${empty alledunews}">
+						 <a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
+	
+              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+	<br><br>
+                                <div style="margin-left:150px; height: 260px;">
+                               <font color="green" >sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸</font> 
+                                </div>  
+                           </c:if>
+                 
+
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<!-- 空白行-->
+					<!-- <div class="row div_width"> -->
+					<!-- 
+						<div class="col-md-3 col-md-offset-2">
+						
+
+								<a href="register" class="btn btn-success"> <span
+									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+								</a>
+						
+							/input-group
+						</div> -->
+
+
+					<!-- <div class="col-md-5">
+								
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn"> <a class="btn btn-default">查询</span>
+                              
+							</div> -->
+
+
+					<!-- 一条线 -->
+					<tr>
+						<td height="40" colspan="4">
+							<table width="100%" height="1" border="0" cellpadding="0"
+								cellspacing="0" bgcolor="#CCCCCC">
+								<tr>
+									<td></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<c:if test="${!empty alledunews}">   
 				<div class="row">
 				<form action="${pageContext.request.contextPath}/backstage/edu/selectEduByConditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
@@ -119,43 +167,6 @@
 						<!-- /input-group -->
 					</div>
 				</div>
-
-				<table width="100%" border="0" align="center" cellpadding="0"
-					cellspacing="0">
-					<!-- 空白行-->
-					<!-- <div class="row div_width"> -->
-					<!-- 
-						<div class="col-md-3 col-md-offset-2">
-						
-
-								<a href="register" class="btn btn-success"> <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							/input-group
-						</div> -->
-
-
-					<!-- <div class="col-md-5">
-								
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
-									class="input-group-btn"> <a class="btn btn-default">查询</span>
-                              
-							</div> -->
-
-
-					<!-- 一条线 -->
-					<tr>
-						<td height="40" colspan="4">
-							<table width="100%" height="1" border="0" cellpadding="0"
-								cellspacing="0" bgcolor="#CCCCCC">
-								<tr>
-									<td></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
 					<!-- 商品分类开始 -->
 					<tr>
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
@@ -190,11 +201,11 @@
 														
 														</td>
 														
-														<td><a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${alledunews.id}">删除</a>
+														<td><a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${alledunews.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
 															
-															<a href="${pageContext.request.contextPath}/backstage/edu/selectedubyid.action?id=${alledunews.id}">修改</a>
+															<a href="${pageContext.request.contextPath}/backstage/edu/selectedubyid.action?id=${alledunews.id}" role="button" class="btn btn-warning btn-sm">修改</a>
 															
-															<a href="${pageContext.request.contextPath}/backstage/edu/selectedudetailbyid.action?id=${alledunews.id}">详情</a></td>
+															<a href="${pageContext.request.contextPath}/backstage/edu/selectedudetailbyid.action?id=${alledunews.id}" role="button" class="btn btn-info btn-sm">详情</a></td>
 															
 
 													</tr>
@@ -205,6 +216,7 @@
 									</td>
 								</tr>
 							</table>
+							</c:if>
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>

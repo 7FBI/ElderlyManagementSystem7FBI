@@ -4,14 +4,15 @@ function usenameCheck() {
 	if (username.length == 0) {
 		var str = "× 姓名不能为空";
 		document.getElementById("error1").innerHTML = str;
+		return false;
 	} else if (reg.test(username)) {
 		document.getElementById("error1").innerHTML = "";
 		document.getElementById("success1").innerHTML = "√";
-
+		return true;
 	} else {
 		var str = "× 真实姓名为2-6个汉字"
 		document.getElementById("username").value = "";
-		//document.getElementById("usename").focus();
+		document.getElementById("username").focus();
 		document.getElementById("success1").innerHTML = "";
 		document.getElementById("error1").innerHTML = str;
 		return false;
@@ -26,14 +27,15 @@ function checkCard() {
 	if (idcard.length == 0) {
 		var str = "× 身份证号不能为空";
 		document.getElementById("error2").innerHTML = str;
+		return false;
 	} else if (reg.test(idcard)) {
 		document.getElementById("error2").innerHTML = "";
 		document.getElementById("success2").innerHTML = "√";
-
+		return true;
 	} else {
 		var str = "× 请输入真实的身份证号"
 		document.getElementById("idcard").value = "";
-		//document.getElementById("usename").focus();
+		document.getElementById("idcard").focus();
 		document.getElementById("success2").innerHTML = "";
 		document.getElementById("error2").innerHTML = str;
 		return false;
@@ -48,14 +50,15 @@ function checkTell() {
 	if (tell.length == 0) {
 		var str = "× 电话号码不能为空";
 		document.getElementById("error3").innerHTML = str;
+		return false;
 	} else if (reg.test(tell)) {
 		document.getElementById("error3").innerHTML = "";
 		document.getElementById("success3").innerHTML = "√";
-
+		return true;
 	} else {
 		var str = "× 请输入有效的电话号码"
 		document.getElementById("tell").value = "";
-		//document.getElementById("usename").focus();
+		document.getElementById("tell").focus();
 		document.getElementById("success3").innerHTML = "";
 		document.getElementById("error3").innerHTML = str;
 		return false;
@@ -69,13 +72,15 @@ function checkAddress() {
 	if (address.length == 0) {
 		var str = "× 地址不能为空";
 		document.getElementById("error4").innerHTML = str;
+		return false;
 	} else if (reg.test(address)) {
 		document.getElementById("error4").innerHTML = "";
 		document.getElementById("success4").innerHTML = "√";
-
+		return true;
 	} else {
 		var str = "× 输入非法";
 		document.getElementById("address").value = "";
+		document.getElementById("address").focus();
 		document.getElementById("success4").innerHTML = "";
 		document.getElementById("error4").innerHTML = str;
 		return false;
@@ -91,12 +96,13 @@ function uidCheck() {
 	if (uid.length == 0) {
 		var str = "× 用户名不能为空";
 		document.getElementById("error5").innerHTML = str;
+		return false;
 	} else if (uid.length < 6 || uid.length > 12) {
 		var str = "× 用户名不能小于6位且不能大于12位字母与数字的组合！";
 		document.getElementById("uid").value = "";
-		//document.getElementById("useid").focus();
+		document.getElementById("uid").focus();
 		document.getElementById("error5").innerHTML = str;
-
+		return false;
 	}
 	/*else{
 
@@ -107,13 +113,14 @@ function uidCheck() {
 	else if (reg.test(uid)) {
 		document.getElementById("error5").innerHTML = "";
 		document.getElementById("success5").innerHTML = "√";
+		return true;
 	} else {
 		var str = "× 用户名由6-12个数字和字母组成！"
 		document.getElementById("uid").value = "";
-		//document.getElementById("passwd").focus();
+		document.getElementById("uid").focus();
 		document.getElementById("success5").innerHTML = "";
 		document.getElementById("error5").innerHTML = str;
-
+		return false;
 	}
 }
 
@@ -124,17 +131,19 @@ function passwordCheck(){
 	if (password.length == 0) {
 		var str = "× 密码不能为空";
 		document.getElementById("error6").innerHTML = str;
+		return false;
 	}
 	else if (reg.test(password)) {
 		document.getElementById("error6").innerHTML = "";
 		document.getElementById("success6").innerHTML = "√";
+		return true;
 	} else {
 		var str = "× 密码由6-20个数字和字母组成！"
 		document.getElementById("password").value = "";
-		//document.getElementById("passwd").focus();
+		document.getElementById("password").focus();
 		document.getElementById("success6").innerHTML = "";
 		document.getElementById("error6").innerHTML = str;
-
+		return false;
 	}
 }
 
@@ -144,20 +153,22 @@ function pass_wdCheck() {
 	if (pass_wd.length == 0) {
 		var str = "× 不能为空！"
 		document.getElementById("pass_wd").value = "";
-		//document.getElementById("pass_wd").focus();
+		document.getElementById("pass_wd").focus();
 		document.getElementById("success7").innerHTML = "";
 		document.getElementById("error7").innerHTML = str;
+		return false;
 	} else {
 		if (pass_wd == passwd) {
 			document.getElementById("error7").innerHTML = "";
 			document.getElementById("success7").innerHTML = "√";
+			return true;
 		} else {
 			var str = "× 两次输入的密码不一致！"
 			document.getElementById("pass_wd").value = "";
-			//document.getElementById("pass_wd").focus();
+			document.getElementById("pass_wd").focus();
 			document.getElementById("success7").innerHTML = "";
 			document.getElementById("error7").innerHTML = str;
-
+			return false;
 		}
 	}
 
@@ -170,12 +181,13 @@ function checkUrl() {
 	if (userurl.length == 0) {
 		var str = "× 图片不能为空";
 		document.getElementById("error8").innerHTML = str;
+		return false;
 	} else {
 		document.getElementById("error8").innerHTML = "";
 		document.getElementById("success8").innerHTML = "√";
+		return true;
 	}
 }
-
 
 function checkBirthday(){
 	var birthday = document.getElementById("birthday").value;
@@ -183,11 +195,20 @@ function checkBirthday(){
 if (birthday.length == 0) {
 	var str = "× 日期不能为空";
 	document.getElementById("error9").innerHTML = str;
+	return false;
 } else {
 	document.getElementById("error9").innerHTML = "";
 	document.getElementById("success9").innerHTML = "√";
+	return true;
 }
-
+function userscheck(){
+	if(usenameCheck() && checkCard() && checkTell() && checkAddress()
+			&& uidCheck() && passwordCheck() &&pass_wdCheck() && checkUrl() &&checkBirthday()){
+		return true;
+	}else{
+		return false;
+	}
+}
 /*function useidCheck(){
 	
 	var userid = document.getElementById("userid").value;

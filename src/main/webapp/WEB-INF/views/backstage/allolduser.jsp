@@ -57,10 +57,10 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
+				<%-- <a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
+	<br><br> --%>
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -74,6 +74,54 @@
 						     
 							
 						</div> -->
+						<c:if test="${empty olduser}">
+						<a  href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManager.action" ><font size="2px" color="blue"> 
+	
+              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+	<br><br>
+                                <div style="margin-left:150px; height: 260px;">
+                               <font color="orange" >sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该用户哦！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸</font> 
+                                </div>  
+                           </c:if>
+                
+
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<!-- 空白行-->
+					<!-- <div class="row div_width"> -->
+					<!-- 
+						<div class="col-md-3 col-md-offset-2">
+						
+
+								<a href="register" class="btn btn-success"> <span
+									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+								</a>
+						
+							/input-group
+						</div> -->
+
+
+					<!-- <div class="col-md-5">
+								
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn"> <a class="btn btn-default">查询</span>
+                              
+							</div> -->
+
+
+					<!-- 一条线 -->
+					<tr>
+						<td height="40" colspan="4">
+							<table width="100%" height="1" border="0" cellpadding="0"
+								cellspacing="0" bgcolor="#CCCCCC">
+								<tr>
+									<td></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<c:if test="${!empty olduser}">
 				<div class="row">
 				<form action="${pageContext.request.contextPath}/backstage/oldusers/selectuserbyconditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
@@ -118,43 +166,6 @@
 						<!-- /input-group -->
 					</div>
 				</div>
-
-				<table width="100%" border="0" align="center" cellpadding="0"
-					cellspacing="0">
-					<!-- 空白行-->
-					<!-- <div class="row div_width"> -->
-					<!-- 
-						<div class="col-md-3 col-md-offset-2">
-						
-
-								<a href="register" class="btn btn-success"> <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							/input-group
-						</div> -->
-
-
-					<!-- <div class="col-md-5">
-								
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
-									class="input-group-btn"> <a class="btn btn-default">查询</span>
-                              
-							</div> -->
-
-
-					<!-- 一条线 -->
-					<tr>
-						<td height="40" colspan="4">
-							<table width="100%" height="1" border="0" cellpadding="0"
-								cellspacing="0" bgcolor="#CCCCCC">
-								<tr>
-									<td></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
 					<!-- 商品分类开始 -->
 					<tr>
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
@@ -186,7 +197,8 @@
 													<th width="100px">购买记录</th>
 													<th width="150px">操作</th>
 												</tr>
-												<c:forEach items="${olduser }" var="olduser" varStatus="var">
+												 <c:forEach items="${olduser }" var="olduser" varStatus="var"> 
+													<%-- <c:forEach items="${requestScope.olduser.lists}" var="olduser" varStatus="var"> --%>
 													<tr align="left" class="d">
 
 														<td>${var.count}</td>
@@ -211,22 +223,43 @@
 														<td></td>
 														<td></td>
 														<td><a
-															href="${pageContext.request.contextPath}/backstage/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
+															href="${pageContext.request.contextPath}/backstage/oldusers/deleteUserById.action?id=${olduser.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
 															<a
-															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserById.action?id=${olduser.id}">修改</a>
+															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserById.action?id=${olduser.id}" role="button" class="btn btn-warning btn-sm">修改</a>
 
 
 															<a
-															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserdetail.action?id=${olduser.id}">详情</a></td>
+															href="${pageContext.request.contextPath}/backstage/oldusers/queryUserdetail.action?id=${olduser.id}" role="button" class="btn btn-info btn-sm">详情</a></td>
 
 													</tr>
 												</c:forEach>
 
 											</table>
+											</c:if>
+											<%-- <table  border="0" cellspacing="0" cellpadding="0"  width="900px">
+<tr>
+<td class="td2">
+   <span>第${requestScope.pagemsg.currPage }/ ${requestScope.pagemsg.totalPage}页</span>&nbsp;&nbsp;
+   <span>总记录数：${requestScope.pagemsg.totalCount }&nbsp;&nbsp;每页显示:${requestScope.pagemsg.pageSize}</span>&nbsp;&nbsp;
+   <span>
+       <c:if test="${requestScope.pagemsg.currPage != 1}">
+           <a href="${pageContext.request.contextPath }/backstage/oldusers/searchByPage.action?currentPage=1">[首页]</a>&nbsp;&nbsp;
+           <a href="${pageContext.request.contextPath }/backstage/oldusers/searchByPage.action?currentPage=${requestScope.pagemsg.currPage-1}">[上一页]</a>&nbsp;&nbsp;
+       </c:if>
+
+       <c:if test="${requestScope.pagemsg.currPage != requestScope.pagemsg.totalPage}">
+           <a href="${pageContext.request.contextPath }/backstage/oldusers/searchByPage.action?currentPage=${requestScope.pagemsg.currPage+1}">[下一页]</a>&nbsp;&nbsp;
+           <a href="${pageContext.request.contextPath }/backstage/oldusers/searchByPage.action?currentPage=${requestScope.pagemsg.totalPage}">[尾页]</a>&nbsp;&nbsp;
+       </c:if>
+   </span>
+</td>
+</tr>
+</table> --%>
 										</form>
 									</td>
 								</tr>
 							</table>
+							
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>

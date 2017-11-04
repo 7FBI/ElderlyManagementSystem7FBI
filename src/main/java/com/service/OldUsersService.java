@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.bean.OldUsers;
+import com.bean.Page;
+import com.bean.PageBean;
 public interface OldUsersService {
 	List<OldUsers> selectByLikeUserName(Map map);
 	/**
@@ -69,5 +71,8 @@ public interface OldUsersService {
   //根据id删除用户基本信息以及相关的消费信息
     public void deleteUserById(OldUsers oldUsers);
 	public List<OldUsers> queryByConditions(String findbycondition);
-    
+//  获得用户总数
+    public int getOldUsersCount();
+    //分页    
+    PageBean<OldUsers> pagiNation(int currentPage);
 }

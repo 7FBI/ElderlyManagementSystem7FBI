@@ -1,5 +1,6 @@
 package com.service.Impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.bean.OldUsers;
+import com.bean.Page;
+import com.bean.PageBean;
 import com.dao.OldUsersMapper;
 import com.service.OldUsersService;
 @Service("oldUsersService")
@@ -114,4 +117,43 @@ public class OldUsersServiceImpl implements OldUsersService {
 		// TODO Auto-generated method stub
 		return oldUsersMapper.findAllUserByManager(locaid);
 	}
+
+	@Override
+	public int getOldUsersCount() {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.getOldUsersCount();
+	}
+
+	@Override
+	public PageBean<OldUsers> pagiNation(int currentPage) {
+		// TODO Auto-generated method stub
+		HashMap<String,Object> map = new HashMap<String,Object>();
+        PageBean<OldUsers> pageBean = new PageBean<OldUsers>();
+
+        //封装当前页数
+        pageBean.setCurrPage(currentPage);
+
+        //每页显示的数据
+        int pageSize=2;
+        pageBean.setPageSize(pageSize);
+
+        //封装总记录数
+        int totalCount = oldUsersMapper.getOldUsersCount();
+        pageBean.setTotalCount(totalCount);
+
+        //封装总页数
+        double tc = totalCount;
+        Double num =Math.ceil(tc/pageSize);//向上取整
+        pageBean.setTotalPage(num.intValue());
+
+        map.put("start",(currentPage-1)*pageSize);
+        map.put("size", pageBean.getPageSize());
+        //封装每页显示的数据
+        List<OldUsers> lists = oldUsersMapper.pagiNation(map);
+        pageBean.setLists(lists);
+
+        return pageBean;
+	}
+
+	
 }

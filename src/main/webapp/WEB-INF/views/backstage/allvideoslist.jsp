@@ -57,10 +57,10 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
+				<%-- <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
+	 --%><br><br>
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -74,6 +74,35 @@
 						     
 							
 						</div> -->
+						 
+                  <c:if test="${empty allVideos}">
+                               <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
+	
+              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+	<br><br>
+                                <div style="margin-left:100px; height: 260px;">
+                               <font color="pink" >sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸</font> 
+                                </div>  
+                           </c:if>
+                    
+
+				<table width="100%" border="0" align="center" cellpadding="0"
+					cellspacing="0">
+					<!-- 空白行-->
+					
+
+					<!-- 一条线 -->
+					<tr>
+						<td height="40" colspan="4">
+							<table width="100%" height="1" border="0" cellpadding="0"
+								cellspacing="0" bgcolor="#CCCCCC">
+								<tr>
+									<td></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<c:if test="${!empty allVideos}">        
 				<div class="row">
 				<form action="${pageContext.request.contextPath}/backstage/video/findvideos.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
@@ -105,29 +134,12 @@
 						<!-- /input-group -->
 					</div>
 				</div>
-
-				<table width="100%" border="0" align="center" cellpadding="0"
-					cellspacing="0">
-					<!-- 空白行-->
-					
-
-					<!-- 一条线 -->
-					<tr>
-						<td height="40" colspan="4">
-							<table width="100%" height="1" border="0" cellpadding="0"
-								cellspacing="0" bgcolor="#CCCCCC">
-								<tr>
-									<td></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
 					<!-- 商品分类开始 -->
 					<tr>
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
 						<td>
-
+                          
 							<table width="100%">
 								<tr>
 									<td colspan="2">
@@ -157,30 +169,42 @@
 														
 														<td>${allVideos.vprice}</td>
 														<td>${allVideos.vcontent}</td>
-														<td>${allVideos.vurl}</td>
+														<td>
+														  <video width="200" height="160" controls>
+                                                            <source src="/files${allVideos.vurl}"  type="video/mp4">
+                                                            <source src="/files${allVideos.vurl}"  type="video/ogg">
+                                                            <!-- 如果浏览器不支持video标签，则使用flash -->
+                                                             <embed src="/files${allVideos.vurl}" type="application/x-shockwave-flash"
+                                                                width="240" height="160" allowscriptaccess="always" allowfullscreen="true"></embed>
+                                                                                                                                                                 您的浏览器不支持视频播放
+                                                           </video>
+														<%-- ${allVideos.vurl} --%>
+														</td>
 														<td></td>
 														<td>
 														<a
 															href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
 														</td>
 														<td><a
-															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}">删除</a>
+															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
 															<a
-															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}">修改</a>
+															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}" role="button" class="btn btn-warning btn-sm">修改</a>
 
 															</td>
 
 													</tr>
 												</c:forEach>
-
+                                 
 											</table>
 										</form>
 									</td>
 								</tr>
 							</table>
+							 </c:if>
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>
+					
 					<!-- 商品分类结束 -->
 					<tr>
 						<td height="100" colspan="4">

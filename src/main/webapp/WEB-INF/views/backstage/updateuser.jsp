@@ -104,7 +104,7 @@
 	<br> --%>
 							<form class="form-horizontal col-md-offset-2"
 								action="/backstage/oldusers/modifyUserById.action" method="post"
-								enctype="multipart/form-data">
+								enctype="multipart/form-data" onsubmit="return userscheck()">
 
 								<!-- <label class="register_title"> <strong> <span
 				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;修改用户信息

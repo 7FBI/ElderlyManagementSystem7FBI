@@ -18,6 +18,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Edunews;
+import com.others.file.UploadImage;
 import com.service.EdunewsService;
 
 @Controller
@@ -41,22 +42,9 @@ public class EdunewsController {
 	
 	public String insertEdunews(@RequestParam("file") CommonsMultipartFile file,Edunews edunews,
 			HttpServletRequest request) throws IOException{
-		if (file != null ) {
-			String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
-			System.out.println("原始文件名:" + fileName);
-			String newFileName = UUID.randomUUID() + fileName;
-			
-			String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
-			String endPath="/upload/backstage/";
-			String path = uploadPath+endPath + File.separator + newFileName;
-			//存入数据库在路径
-			String sqlPath=endPath+File.separator+ newFileName;
-			File newFile = new File(path);
-			edunews.setEduurl(sqlPath);
-			
-			System.out.println("------文件路径:" + newFile.getPath());
-			file.transferTo(newFile);
-		}
+		String newuserUrl = UploadImage.addImage(file, "/backstage/edunews", request);
+		System.out.println(newuserUrl);
+		edunews.setEduurl(newuserUrl);
 		edunews.setEdutime(new Date());
 		edunewsService.addEdu(edunews);
 //		ModelAndView modelAndView =new ModelAndView();
@@ -76,7 +64,10 @@ public class EdunewsController {
 	}
 	//修改
 	@RequestMapping("/updateedu")
-	public String updateEdunews(Edunews edunews){
+	public String updateEdunews(@RequestParam("file") CommonsMultipartFile file,Edunews edunews,HttpServletRequest request) throws IOException{
+		String newuserUrl = UploadImage.addImage(file, "/backstage/edunews", request);
+		System.out.println(newuserUrl);
+		edunews.setEduurl(newuserUrl);
 		edunews.setEdutime(new Date());
 		edunewsService.updateEduById(edunews);;
 		/*ModelAndView modelAndView =new ModelAndView();

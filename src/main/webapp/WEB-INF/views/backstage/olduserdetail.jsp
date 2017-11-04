@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font  color="blue"> 
+	<a  href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManager.action" ><font  color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -148,7 +148,7 @@
             <!--照片-->
             <div class="col-md-2">
                 
-                <div class="photostyle" readonly><img src="/resources/${userdetail.userurl}" width="122px" height="156px"/> </div>
+                <div class="photostyle" readonly><img src="/files${userdetail.userurl}" width="122px" height="156px"/> </div>
             </div>
 
         </div>

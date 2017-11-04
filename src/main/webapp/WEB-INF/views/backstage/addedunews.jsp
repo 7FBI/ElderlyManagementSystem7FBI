@@ -31,7 +31,7 @@
 
 <!-- 验证 -->
 
-<script type="text/javascript" language="javascript" src="/resources/js/registercheck.js"></script>
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 
@@ -90,14 +90,14 @@
 							<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=3>
 	<form  class="form-horizontal col-sm-offset-1"
 		action="/backstage/edu/insertedu.action" method="post"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" onsubmit="return edunewscheck()">
        
      	<div class="form-group col-md-offset-2">
 			<label for="edutitle" class="col-sm-2 control-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="edutitle"
-					placeholder="新闻标题" id="edutitle" onblur="usenameCheck()">
+					placeholder="新闻标题" id="vtitle" onblur="titleCheck()">
 			
 			</div>
 				<div class="pleft">
@@ -112,11 +112,11 @@
 		<div class="form-group col-md-offset-2">
 			<label for="educontent" class="col-sm-2 control-label">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
 			<div class="col-sm-6">
-				<textarea rows="10" cols="70" class="form-control" name="educontent"></textarea>
+				<textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()"></textarea>
 			</div>
 			<div class="pleft">
-	  			 <font color="red"><p id="error2"></p></font>
-		         <font color="green"><p id="success2"></p></font>
+	  			 <font color="red"><p id="error6"></p></font>
+		         <font color="green"><p id="success6"></p></font>
 		         </div>
 			
 		</div>
@@ -135,11 +135,11 @@
 		<div class="form-group col-md-offset-2">
 			<label for="eduurl" class="col-sm-2 control-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
 			<div class="col-sm-3">
-				<input type="file" name="file" multiple="multiple" id="eduurl" onblur="checkUrl()"/>
+				<input type="file" name="file" multiple="multiple" id="eduurl" onblur="checkeduUrl()"/>
 			</div>
 			<div class="pleft">
-	  			 <font color="red"><p id="error8"></p></font>
-		         <font color="green"><p id="success8"></p></font>
+	  			 <font color="red"><p id="error7"></p></font>
+		         <font color="green"><p id="success7"></p></font>
 		         </div>
 		</div>
 		<!-- 按钮 -->

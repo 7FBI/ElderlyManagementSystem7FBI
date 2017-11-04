@@ -27,6 +27,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bean.Localarea;
 import com.bean.Manager;
 import com.bean.OldUsers;
+import com.bean.Page;
+import com.bean.PageBean;
 import com.converter.DateConverter;
 import com.others.file.UploadImage;
 import com.others.md5.Encryption;
@@ -68,34 +70,19 @@ public class BackOldUsersController {
 			String newuserUrl = UploadImage.addImage(file, "/backstage/oldusers", request);
 			System.out.println(newuserUrl);
 			oldUsers.setUserurl(newuserUrl);
-//			String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
-//			System.out.println("原始文件名:" + fileName);
-//			String newFileName = UUID.randomUUID() + fileName;
-//			/*String uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload/backstage");
-//
-//			String path = uploadPath + File.separator + fileName;
-//			File newFile = new File(path);
-//			oldUsers.setUserurl(newFile.getPath());*/
-//			String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
-//			String endPath="/upload/backstage/";
-//			String path = uploadPath+endPath + File.separator + newFileName;
-//			//存入数据库在路径
-//			String sqlPath=endPath+File.separator+ newFileName;
-//			File newFile = new File(path);
-//			oldUsers.setUserurl(sqlPath);
-//			
-//			System.out.println("------文件路径:" + newFile.getPath());
-//			file.transferTo(newFile);
+
 			// 调用加密方法将密码加密
 			String pwd = Encryption.encrypation(oldUsers.getPassword());
 			oldUsers.setPassword(pwd);
 		
 			oldUsersService.insertOldUsers(oldUsers);
 			//modelAndView.addObject("err", "");
-			List<OldUsers> olduser = oldUsersService.queryUsers();
-			modelAndView.addObject("olduser",olduser);
-			
-			modelAndView.setViewName("backstage/allolduser");
+			if(request.getSession().getAttribute("manager")!=null){
+				Manager manager=(Manager) request.getSession().getAttribute("manager");
+				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
+				modelAndView.addObject("olduser", olduser);
+				modelAndView.setViewName("backstage/allolduser");
+			}
 			
 		}
 //		else{
@@ -139,8 +126,6 @@ public class BackOldUsersController {
 			modelAndView.setViewName("backstage/allolduser");
 		}
 		
-		
-		
 		return modelAndView;
 		
 	}
@@ -162,39 +147,24 @@ public class BackOldUsersController {
 		System.out.println(newuserUrl);
 		users.setUserurl(newuserUrl);
 		
-//		String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
-//		System.out.println("原始文件名:" + fileName);
-//		String newFileName = UUID.randomUUID() + fileName;
-//		String uploadPath = request.getSession().getServletContext().getRealPath("/resources");
-//		String endPath="/upload/backstage/";
-//		String path = uploadPath+endPath + File.separator + newFileName;
-//		//存入数据库在路径
-//		String sqlPath=endPath+File.separator+ newFileName;
-//		File newFile = new File(path);
-//		//File newFile = new File(sqlPath);
-//		users.setUserurl(sqlPath);
-//		System.out.println("------文件路径:" + newFile.getPath());
-//		file.transferTo(newFile);
-		
 		 oldUsersService.modifyById(users);
-		 List<OldUsers> olduser = oldUsersService.queryUsers();
 		 ModelAndView modelAndView=new ModelAndView();
-		 modelAndView.addObject("olduser", olduser);
-		 modelAndView.setViewName("backstage/allolduser");
-		
+		 if(request.getSession().getAttribute("manager")!=null){
+				Manager manager=(Manager) request.getSession().getAttribute("manager");
+				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
+				modelAndView.addObject("olduser", olduser);
+				modelAndView.setViewName("backstage/allolduser");
+			}
 		return modelAndView;
 	}
 	//根据id删除用户基本信息以及相关的消费信息
 	@RequestMapping(value="/deleteUserById")
-	@ResponseBody
-	public ModelAndView deleteUserById(OldUsers oldUsersid){
+	
+	public String deleteUserById(OldUsers oldUsersid){
 		
 		 oldUsersService.deleteUserById(oldUsersid);
-		 ModelAndView modelAndView=new ModelAndView();
-		 List<OldUsers> olduser = oldUsersService.queryUsers();
-		 modelAndView.addObject("olduser", olduser);
-		 modelAndView.setViewName("backstage/allolduser");
-		return modelAndView;
+		 
+		return "redirect:/backstage/oldusers/findUserByManager.action";
 	}
 	
 
@@ -221,4 +191,17 @@ public class BackOldUsersController {
 			modelAndView.setViewName("backstage/allolduser");
 			return modelAndView;
 		}
+		
+  //分页
+	@RequestMapping("/searchByPage")
+	
+    public String main(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,Model model){
+        
+		
+		model.addAttribute("olduser", oldUsersService.pagiNation(currentPage));//回显分页数据
+       
+       
+		return "/backstage/alluser";
+    }
+	
 }

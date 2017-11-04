@@ -36,7 +36,7 @@
 <!-- 验证 -->
 
 <script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
+	src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 
@@ -98,13 +98,13 @@
 											   <strong>内容修改 </strong>
 											</div>
 							<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=3>
-								<form class="form-horizontal col-md-offset-1" action="/backstage/video/modifyvideo.action" method="post" enctype="multipart/form-data">
+								<form class="form-horizontal col-md-offset-1" action="/backstage/video/modifyvideo.action" method="post" enctype="multipart/form-data" onsubmit="return videocheck()">
 			                            <div class="form-group col-md-offset-2">
 			                               <label for="vprice" class="col-sm-2 control-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
 			
 			                                  <div class="col-sm-6">
 				                                 <input type="text" class="form-control" name="vtitle" value="${oneVideoById.vtitle}"
-					                                   placeholder="视频名称" id="vprice" onblur="usenameCheck()">
+					                                   placeholder="视频名称" id="vtitle" onblur="titleCheck()">
 			
 			                                  </div>
 				                              <div class="pleft">
@@ -119,13 +119,13 @@
 												<input type="hidden" name="id" value="${oneVideoById.id}">
 												<div class="col-sm-6">
 													<input type="text" class="form-control" name="vteacher"
-														value="${oneVideoById.vteacher}" placeholder="新闻标题"
-														id="edutitle" onblur="usenameCheck()">
+														value="${oneVideoById.vteacher}" placeholder="主讲老师"
+														id="vteacher" onblur="teacherCheck()">
 
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error1"></p></font> <font
-														color="green"><p id="success1"></p></font>
+													<font color="red"><p id="error5"></p></font>
+		                                           <font color="green"><p id="success5"></p></font>
 												</div>
 												
 											</div>
@@ -133,11 +133,11 @@
 											<div class="form-group col-md-offset-2">
 												<label for="vcontent" class="col-sm-2 control-label">内容描述</label>
 												<div class="col-sm-6">
-													<textarea  class="form-control" rows="10" cols="70" name="vcontent">${oneVideoById.vcontent}</textarea>
+													<textarea  class="form-control" rows="10" cols="70" name="vcontent" id="vcontent" onblur="contentCheck()">${oneVideoById.vcontent}</textarea>
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error2"></p></font> <font
-														color="green"><p id="success2"></p></font>
+													<font color="red"><p id="error3"></p></font> <font
+														color="green"><p id="success3"></p></font>
 												</div>
 
 											</div>
@@ -146,12 +146,12 @@
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="vprice" value="${oneVideoById.vprice}"
-					placeholder="价格" id="vprice" onblur="usenameCheck()">
+					placeholder="价格" id="vprice" onblur="priceCheck()">
 			
 			</div>
 				<div class="pleft">
-	  			 <font color="red"><p id="error1"></p></font>
-		         <font color="green"><p id="success1"></p></font>
+	  			 <font color="red"><p id="error2"></p></font>
+		         <font color="green"><p id="success2"></p></font>
 		         </div>
 			
 		</div>
@@ -160,12 +160,12 @@
 												<label for="vurl" class="col-sm-2 control-label">视&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;频</label>
 												<div class="col-sm-3">
 													<input type="file" name="file" multiple="multiple"
-														id="eduurl" value="${oneEducational.vurl}"
+														id="vurl" onfocus="checkUrl()"
 														onblur="checkUrl()" />
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error8"></p></font> <font
-														color="green"><p id="success8"></p></font>
+													<font color="red"><p id="error4"></p></font> <font
+														color="green"><p id="success4"></p></font>
 												</div>
 											</div>
 											

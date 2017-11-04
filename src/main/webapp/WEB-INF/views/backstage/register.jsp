@@ -96,7 +96,7 @@
 
 							<form  class="form-horizontal col-md-offset-2"
 		action="/backstage/oldusers/insterOldUsers.action" method="Post"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" onsubmit="return userscheck()">
         
 		<!-- <div><div>姓名:<input onblur="username()" id="uname"></div><div id="xm"></div></div>
 		<div><div>密码:<input onblur="passwod()" id="passwd"></div><div id="mm"></div></div>
@@ -246,6 +246,7 @@
 			<div class="col-sm-3">
 				<input type="file" name="file" multiple="multiple" id="userurl" onblur="checkUrl()"/>
 			</div>
+			
 			<div class="pleft">
 	  			 <font color="red"><p id="error8"></p></font>
 		         <font color="green"><p id="success8"></p></font>
