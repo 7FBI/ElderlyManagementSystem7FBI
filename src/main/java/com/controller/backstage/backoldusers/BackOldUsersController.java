@@ -28,7 +28,7 @@ import com.bean.Localarea;
 import com.bean.Manager;
 import com.bean.OldUsers;
 import com.bean.Page;
-import com.bean.PageBean;
+
 import com.converter.DateConverter;
 import com.others.file.UploadImage;
 import com.others.md5.Encryption;
@@ -192,16 +192,6 @@ public class BackOldUsersController {
 			return modelAndView;
 		}
 		
-  //分页
-	@RequestMapping("/searchByPage")
-	
-    public String main(@RequestParam(value="currentPage",defaultValue="1",required=false)int currentPage,Model model){
-        
-		
-		model.addAttribute("olduser", oldUsersService.pagiNation(currentPage));//回显分页数据
-       
-       
-		return "/backstage/alluser";
-    }
+ 
 	
 }

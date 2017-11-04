@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.OldUsers;
 import com.bean.Page;
-import com.bean.PageBean;
+
 public interface OldUsersService {
 	List<OldUsers> selectByLikeUserName(Map map);
 	/**
@@ -73,6 +73,6 @@ public interface OldUsersService {
 	public List<OldUsers> queryByConditions(String findbycondition);
 //  获得用户总数
     public int getOldUsersCount();
-    //分页    
-    PageBean<OldUsers> pagiNation(int currentPage);
+   
+   
 }

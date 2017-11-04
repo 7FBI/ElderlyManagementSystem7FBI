@@ -77,6 +77,5 @@ public interface OldUsersMapper {
     public List<OldUsers> queryByConditions(String findbycondition);
 //  获得用户总数
     public int getOldUsersCount();
-    //分页
-    List<OldUsers> pagiNation(HashMap<String,Object> map);
+    
 }
