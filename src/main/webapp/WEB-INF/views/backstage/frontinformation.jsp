@@ -66,22 +66,19 @@
 						<td width="2%">&nbsp;</td>
 						<td width="96%">
 							<form action="" name="sousuo">
-							<table>
-								<tr>
-									<td width="100" align="center"></td>
-									<td>
-										类型:<select name="kinds" style="width: 120px" >
-										<option selected="selected" value="null"></option>
-										<c:forEach items="${kinds }" var="k">
-										<option value="${k}">${k }</option>
-										</c:forEach>
-										</select>&nbsp;
-										搜索(标题):
-										<input class="text" name="likes" />&nbsp;&nbsp;&nbsp;
-										<button type="button" id="likesBtn" class="btn">搜索</button>
-									</td>
-								</tr>
-							</table>
+								<table>
+									<tr>
+										<td width="100" align="center"></td>
+										<td>类型:<select name="kinds" style="width: 120px">
+												<option selected="selected" value="null"></option>
+												<c:forEach items="${kinds }" var="k">
+													<option value="${k}">${k }</option>
+												</c:forEach>
+										</select>&nbsp; 搜索(标题): <input class="text" name="likes" />&nbsp;&nbsp;&nbsp;
+											<button type="button" id="likesBtn" class="btn">搜索</button>
+										</td>
+									</tr>
+								</table>
 							</form>
 						</td>
 						<td width="2%">&nbsp;</td>
@@ -111,7 +108,8 @@
 													<td>${f.sendtiem }</td>
 													<td>${f.kinds }</td>
 													<td>${f.frontpicture }</td>
-													<td><button class="btn" do="delete" value="${f.id }">删除</button><button class="btn" do="update" value="${f.id }">编辑</button></td>
+													<td><button class="btn" do="delete" value="${f.id }">删除</button>
+														<button class="btn" do="update" value="${f.id }">编辑</button></td>
 												</tr>
 											</c:forEach>
 										</table>
@@ -174,16 +172,17 @@
 
 	<script type="text/javascript"
 		src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+	
 	<script type="text/javascript">
 		$("button[page='page']").on('click', function() {
 			var p = $(this).val();
-			var f=$("form[name='sousuo']");
+			var f = $("form[name='sousuo']");
 			window.location.href = "/backstage/info/allInfo?page=" + p;
 			$.ajax({
-				type:'post',
-				url:'',
-				data:f,
-				errory:function(){
+				type : 'post',
+				url : '',
+				data : f,
+				errory : function() {
 					alert("网络出问题了");
 				}
 			})
@@ -192,17 +191,16 @@
 			var p = $("input[page='page']").val() - 1;
 			window.location.href = "/backstage/info/allInfo?page=" + p;
 		})
-		
-		$("button[do='delete']").click(function(){
-			var d=$(this).val();
-			window.location.href="/backstage/info/deleteInfo?id="+d;
+
+		$("button[do='delete']").click(function() {
+			var d = $(this).val();
+			window.location.href = "/backstage/info/deleteInfo?id=" + d;
 		})
-		
-		$("button[do='update']").click(function(){
-			var d=$(this).val();
-			window.location.href="/backstage/info/updateInfo?id="+d;
+
+		$("button[do='update']").click(function() {
+			var d = $(this).val();
+			window.location.href = "/backstage/info/updateInfo?id=" + d;
 		})
-		
 	</script>
 
 </body>

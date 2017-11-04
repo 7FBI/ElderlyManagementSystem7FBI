@@ -96,6 +96,15 @@ img {
 													<td width="2%">&nbsp;</td>
 												</tr>
 												<tr>
+													<td width="2%">&nbsp;</td>
+													<td width="15%">信息标题：</td>
+													<td width="25%"><input class="text" type="text"
+														name="sendtiem" id="date"
+														value="${frontinformation.get(0).sendtiem}" /></td>
+													<td>设置信息名称</td>
+													<td width="2%">&nbsp;</td>
+												</tr>
+												<tr>
 													<td>&nbsp;</td>
 													<td>描述(Description)：</td>
 													<td><textarea name="newscontent">${frontinformation.get(0).getNewscontent()}</textarea></td>
@@ -207,6 +216,15 @@ img {
 
 	<script type="text/javascript"
 		src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+		<script src="/resources/unity/layer/laydate/laydate.js"></script>
+	<!-- 改成你的路径 -->
+	<script>
+		//执行一个laydate实例
+		laydate.render({
+			elem : '#date' //指定元素
+			,type: 'datetime'
+		});
+	</script>
 	<script type="text/javascript">
 		$("#addBtnImage")
 				.click(

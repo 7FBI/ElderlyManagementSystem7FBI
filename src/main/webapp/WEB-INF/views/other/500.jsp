@@ -66,10 +66,8 @@
 						var interval = setInterval(function() {
 							var time = --wait.innerHTML;
 							if (time <= 0) {
-								
 								clearInterval(interval);
-								//location.href = href;
-								alert("开始跳转提示");
+								history.go(-1)
 							}
 							;
 						}, 1000);

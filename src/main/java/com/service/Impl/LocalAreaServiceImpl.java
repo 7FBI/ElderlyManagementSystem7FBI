@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,21 +17,21 @@ public class LocalAreaServiceImpl implements LocalAreaService{
 @Qualifier("localareaMapper")
 private LocalareaMapper localareaMapper;
 	@Override
-	public void updateLocalAreaById(Localarea localArea) {
+	public int updateLocalAreaById(Localarea localArea) {
 		// TODO Auto-generated method stub
-		localareaMapper.updateLocalAreaById(localArea);
+		return localareaMapper.updateLocalAreaById(localArea);
 	}
 
 	@Override
-	public void deleteLocalAreaById(Localarea localArea) {
+	public int deleteLocalAreaById(Localarea localArea) {
 		// TODO Auto-generated method stub
-		localareaMapper.deleteLocalAreaById(localArea);
+		return localareaMapper.deleteLocalAreaById(localArea);
 	}
 
 	@Override
-	public void addLocalArea(Localarea localArea) {
+	public int addLocalArea(Localarea localArea) {
 		// TODO Auto-generated method stub
-		localareaMapper.addLocalArea(localArea);
+		return localareaMapper.addLocalArea(localArea);
 	}
 
 	@Override
@@ -45,6 +46,42 @@ private LocalareaMapper localareaMapper;
 		// TODO Auto-generated method stub
 		List<Localarea> localAreas=localareaMapper.findLocalAreaByRecord(localArea);
 		return localAreas;
+	}
+
+	@Override
+	public int insert(Localarea record) {
+		// TODO Auto-generated method stub
+		return localareaMapper.insert(record);
+	}
+
+	@Override
+	public int updateByPrimaryKey(Localarea record) {
+		// TODO Auto-generated method stub
+		return localareaMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public Localarea selectByPrimaryKey(Integer id) {
+		// TODO Auto-generated method stub
+		return localareaMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public int deleteByPrimaryKey(Integer id) {
+		// TODO Auto-generated method stub
+		return localareaMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int findAllCounts() {
+		// TODO Auto-generated method stub
+		return localareaMapper.findAllCounts();
+	}
+
+	@Override
+	public List<Localarea> findAllLocalAreaMap(Map map) {
+		// TODO Auto-generated method stub
+		return localareaMapper.findAllLocalAreaMap(map);
 	}
 
 }
