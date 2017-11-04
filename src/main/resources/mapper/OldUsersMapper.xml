@@ -847,14 +847,7 @@
 	</select>
 	
 	 <!--分页 limit start代表开始行数 size 代表每一页显示的行数 -->
-  <select id="pagiNation" parameterType="Map" resultMap="alluserdetail">
-     select old_Users.id id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename myarea, localarea.id lid from localarea,old_Users
-       where localarea.id=old_Users.area 
-      
-      <if test="start!=null and size!=null">
-         and  limit #{start},#{size}
-        </if>
-  </select> 
+  
   
   <!--查询出所有的用户数  -->
   <select id="getOldUsersCount" resultType="java.lang.Integer">
