@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action"><font
+				href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 				</font></a> <br>
@@ -69,10 +69,7 @@
 									class="input-group-btn">
 									<a href="#" class="btn btn-primary btn-lg active" role="button"></a>
 									
-									</span>
-								
-						     
-							
+									</span>							
 						</div> -->
 				<div class="row">
 					<form
@@ -111,41 +108,19 @@
 				</div>
 
 				<div class="col-md-3 col-md-offset-1 addstyle">
-					<a href="${pageContext.request.contextPath}/gotoBackstage/register"
+					<a href="${pageContext.request.contextPath}/returninfo/addgojsp?uid=${uid}"
 						class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加用户</span>
+						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加回访记录</span>
 					</a>
 
 					<!-- /input-group -->
 				</div>
-				</div>
+				
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
-					<!-- 空白行-->
-					<!-- <div class="row div_width"> -->
-					<!-- 
-						<div class="col-md-3 col-md-offset-2">
-						
+					
 
-								<a href="register" class="btn btn-success"> <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							/input-group
-						</div> -->
-
-
-					<!-- <div class="col-md-5">
-								
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
-									class="input-group-btn"> <a class="btn btn-default">查询</span>
-                              
-							</div> -->
-
-
-					<!-- 一条线 -->
 					<tr>
 						<td height="40" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
@@ -161,7 +136,6 @@
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
 						<td>
-
 							<table width="100%">
 								<tr>
 									<td colspan="2">
@@ -169,19 +143,16 @@
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
 												<tr align="center" height="50px">
-													<td colspan="6"><font size="5px">地域列表</font></td>
+													<td colspan="6"><font size="5px">回访记录列表</font></td>
 												</tr>
 												<tr align="center" height="40px" class="td_title_color"
 													width="100%">
 													<th>序号</th>
 													<th>客户账号</th>
-
 													<th>客户姓名</th>
 													<th>回访内容</th>
 													<th>回访时间</th>
 													<th>回访者</th>
-													<th></th>
-
 													<th width="10%">操作</th>
 												</tr>
 												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
@@ -190,16 +161,15 @@
 
 														<%-- <td>${var.count}</td> --%>
 														<td>${listReturninfo.id}</td>
-
 														<td>${listReturninfo.oldUser.uid}</td>
 														<td>${listReturninfo.oldUser.username}</td>
 														<td>${listReturninfo.returncontent}</td>
 														<td>${listReturninfo.returndate}</td>
 														<td>${listReturninfo.manager.mnane}</td>
 														<td><a
-															href="/returnshopping/querys.action?returnid=${listReturninfo.id}">回访详情</a></td>
-
-														
+															href="/returnshopping/querys.action?returnid=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">回访详情</a> 
+															<a href="/returninfo/updatejsp.action?id=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">修改</a>
+															<a href="/returninfo/remove.action?id=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">删除</a></td>								
 													</tr>
 												</c:forEach>
 

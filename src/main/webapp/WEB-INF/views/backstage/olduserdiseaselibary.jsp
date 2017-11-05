@@ -30,7 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-	
+
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -40,7 +40,7 @@
 				height="29" /></td>
 			<td valign="top" width="100%"
 				background="/resources/backstage/Images/content_bg.gif">
-				<!-- <table width="100%" height="60px" border="0" cellpadding="0"
+				<!--此处表示右边主体部分的小标题  --> <!-- <table width="100%" height="60px" border="0" cellpadding="0"
 					cellspacing="0"
 					background="/resources/backstage/Images/content_bg.gif">
 					 --> <!-- <td height="31"><div class="title">用户列表</div></td> --> <!-- </table> -->
@@ -57,11 +57,9 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/returninfo/querys.action?
-															uid=${uid}" ><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+				
 	<br><br>
+				
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -75,54 +73,65 @@
 						     
 							
 						</div> -->
-				<div class="row">
-				<form action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action" method="post">
-				<div class="col-md-offset-1 col-md-4 addstyle">
+						<!--  -->
+				<%-- <div class="row">
+					<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
-							<input type="text" class="form-control" name="findbycondition" 
+							<input type="text" class="form-control"
 								placeholder="Search for..."> <span
 								class="input-group-btn">
-								<button class="btn btn-info" type="submit">
-								<!-- <a href="#">   </a> -->
-								<!-- <a href="#" type="submit" role="button">Search</a> -->
-			                   <!--  <input type="submit" value="Search"> -->
-								Search
-								</button> 
-									
+								<button class="btn btn-info" type="button">
+									<a href="#">Search</a>
+								</button>
 							</span>
 						</div>
-				</form>
-					
-					<%-- <div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control" id="findbycondition" name="findbycondition"
-								placeholder="Search for..."/>
-								<span
-								class="input-group-btn">
-								<button class="btn btn-info" type="button">
-								<a href="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action?findbycondition=${findbycondition}">Search</a>
-								</button> 
-									
-							</span>
-						</div> --%>
-					
 						<!-- /input-group -->
 					</div>
 
 					<div class="col-md-3 col-md-offset-1 addstyle">
 						<a
-							href="${pageContext.request.contextPath}/returnshopping/addjsp?returnid=${returnid}&&uid=${uid}"
+							href="${pageContext.request.contextPath}/gotoBackstage/register"
 							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加回访销售记录</span>
+							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
 						</a>
 
 						<!-- /input-group -->
 					</div>
-				</div>
+				</div> --%>
+                <div class="col-md-3 col-md-offset-1 addstyle">
+					<a href="${pageContext.request.contextPath}/oldDiseaselibrary/addjsp.action"
+						class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
+						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加疾病</span>
+					</a>
 
+					<!-- /input-group -->
+				</div>
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
-				
+					<!-- 空白行-->
+					<!-- <div class="row div_width"> -->
+					<!-- 
+						<div class="col-md-3 col-md-offset-2">
+						
+
+								<a href="register" class="btn btn-success"> <span
+									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
+								</a>
+						
+							/input-group
+						</div> -->
+
+
+					<!-- <div class="col-md-5">
+								
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn"> <a class="btn btn-default">查询</span>
+                              
+							</div> -->
+
+
+					<!-- 一条线 -->
 					<tr>
 						<td height="40" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
@@ -133,46 +142,46 @@
 							</table>
 						</td>
 					</tr>
-					<!-- 商品分类开始 -->
 					<tr>
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
 						<td>
 
 							<table width="100%">
+								
 								<tr>
 									<td colspan="2">
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="6"><font size="5px">回访销售列表</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color" width="100%">
-													<th >商品名</th>
-													<th >价格</th>
-													<th >商品描述</th>	
-													<th >图片</th>
-													<th ></th>
-													<th ></th>
-													<th >购买数量</th>
-													<th >操作</th>
+											<tr align="center" height="40px"><td colspan="5"><font size="5px">疾病库</font></td></tr>
+												<tr align="center" height="40px" class="td_title_color">
+													<th width="5%">序号</th>
+													<th width="10%">疾病名称</th>
+
+													<th width="60%">病理特征</th>
+													<th width="10%">疾病别名</th>
+													<th width="15%">操作</th>
 												</tr>
-												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
-													<c:forEach items="${listReturnShoppings}" var="listReturnShopping">
+												<c:forEach items="${listOldDiseaselibraries}"
+													var="listOldDiseaselibrary" varStatus="var">
 													<tr align="left" class="d">
 
-														<%-- <td>${var.count}</td> --%>
-														<td>${listReturnShopping.products.pname}</td>
-					                                    <td>${listReturnShopping.products.price}</td>
-					                                    <td>${listReturnShopping.products.pdescription}</td>
-					                                   <%--  <td>${listReturnShopping.products.count}</td> --%>
-					                                    <td>${listReturnShopping.products.producturl}</td>
-					                                    <td>${listReturnShopping.products.productstype1}</td>
-					                                    <td>${listReturnShopping.products.productstype2}</td>
-					                                    <%-- <td>${listReturnShopping.id}</td>
-					                                    <td>${listReturnShopping.returnid}</td> --%>
-					                                    <td>${listReturnShopping.shoppingcount}</td>
-					                                      <td><a href="${pageContext.request.contextPath}/returnshopping/updatejsp.action?returnid=${listReturnShopping.returnid}&&id=${listReturnShopping.id}&&uid=${uid}">修改</a> 
-					                                          <a href="${pageContext.request.contextPath}/returnshopping/remove.action?returnid=${listReturnShopping.returnid}&&id=${listReturnShopping.id}&&uid=${uid}">删除</a> </td>	
+														<td>${var.count}</td>
+														<td>${listOldDiseaselibrary.diseasename}</td>
+
+														<td>${listOldDiseaselibrary.description}</td>
+														<td>${listOldDiseaselibrary.alias}</td>
+														<td>
+															 <a
+															href="${pageContext.request.contextPath}/oldDiseaselibrary/updatejsp.action?id=${listOldDiseaselibrary.id}">修改</a>
+
+															<a
+															href="${pageContext.request.contextPath}/oldDiseaselibrary/remove.action?id=${listOldDiseaselibrary.id}">删除</a>
+                                                              
+														</td>
+
+
 													</tr>
 												</c:forEach>
 

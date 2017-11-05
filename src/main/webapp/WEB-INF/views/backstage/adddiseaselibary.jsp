@@ -39,43 +39,24 @@
 <body>
 
 	<a
-		href="${pageContext.request.contextPath}/returninfo/querys.action?
-															uid=${uid}"><font
+		href="${pageContext.request.contextPath}/oldDiseaselibrary/querys.action"><font
 		color="blue"> <span class="glyphicon glyphicon-backward"
 			aria-hidden="true"></span>&nbsp;返回
 	</font></a>
 	<br>
 	<form class="form-horizontal col-md-offset-2"
-		action="/returninfo/add.action" method="post"
+		action="/oldDiseaselibrary/add.action" method="post"
 		enctype="multipart/form-data">
 
 		<label class="register_title"> <strong> <span
-				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;添加回访记录
+				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;添加疾病
 		</strong></label>
 			<div class="form-group col-md-offset-3">
-				<label for="uid" class="col-sm-2 control-label">回访客户</label>
+				<label  class="col-sm-2 control-label">疾病名称</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" name="uid" id="uid"
-						value="${uid}" readonly="readonly">
+					<input type="text" class="form-control" name="diseasename" id="diseasename">
 
-				</div>
-				<div class="pleft">
-				<font color="red"><span id="error5"></span></font> <font color="green"><span
-							id="success5"></span></font>
-				</div>
-				<c:if test="${!empty error}">
-					<div>
-						<span style="color: red">${err}</span>
-					</div>
-				</c:if>
-			</div>
-			<div class="form-group col-md-offset-3">
-				<label for="uid" class="col-sm-2 control-label">回访者</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" name="mid" id="mid"
-						value="1" readonly="readonly">
-
-				</div>
+		    </div>
 				<div class="pleft">
 					<font color="red"><span id="error5"></span></font> <font color="green">
 					<span id="success5"></span></font>
@@ -86,23 +67,12 @@
 					</div>
 				</c:if>
 			</div>
+			
 			<div class="form-group col-md-offset-3">
-				<label for="birthday" class="col-sm-2 control-label">回访时间</label>
-				<div class="col-sm-3 am-datepicker-date">
-					<input type="date" class="form-control" name="returndate"
-						id="returndate" onblur="checkBirthday()">
-				</div>
-				<div class="pleft">
-					<font color="red"><p id="error9"></p></font> <font color="green">
-					<p id="success9"></p></font>
-				</div>
-			</div>
-
-			<div class="form-group col-md-offset-3">
-				<label for="address" class="col-sm-2 control-label">回访内容描述</label>
+				<label for="address" class="col-sm-2 control-label">病理特征</label>
 			
 				<div class="col-sm-3">
-				   <textarea rows="5" cols="50" class="form-control" name="returncontent" id="returncontent"
+				   <textarea rows="5" cols="50" class="form-control" name="description" id="description"
 						onblur="checkAddress()"></textarea>	
 				</div>
 				<div class="pleft">
@@ -111,7 +81,22 @@
 				</div>
 			</div>
 
+           <div class="form-group col-md-offset-3">
+				<label class="col-sm-2 control-label">疾病别名</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" name="alias" id="alias">
 
+		    </div>
+				<div class="pleft">
+					<font color="red"><span id="error5"></span></font> <font color="green">
+					<span id="success5"></span></font>
+				</div>
+				<c:if test="${!empty error}">
+					<div>
+						<span style="color: red">${err}</span>
+					</div>
+				</c:if>
+			</div>
 
 			
 			<!-- 按钮 -->

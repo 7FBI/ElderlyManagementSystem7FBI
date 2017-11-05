@@ -40,23 +40,25 @@
 
 	<a
 		href="${pageContext.request.contextPath}/returninfo/querys.action?
-															uid=${uid}"><font
+															uid=${returninfo.uid}"><font
 		color="blue"> <span class="glyphicon glyphicon-backward"
 			aria-hidden="true"></span>&nbsp;返回
 	</font></a>
 	<br>
 	<form class="form-horizontal col-md-offset-2"
-		action="/returninfo/add.action" method="post"
+		action="/returninfo/update.action" method="post"
 		enctype="multipart/form-data">
 
 		<label class="register_title"> <strong> <span
 				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;添加回访记录
 		</strong></label>
 			<div class="form-group col-md-offset-3">
-				<label for="uid" class="col-sm-2 control-label">回访客户</label>
+				<label  class="col-sm-2 control-label">回访客户</label>
 				<div class="col-sm-3">
+				<input type="hidden" class="form-control" name="id" id="id"
+						value="${returninfo.id}" >
 					<input type="text" class="form-control" name="uid" id="uid"
-						value="${uid}" readonly="readonly">
+						value="${returninfo.uid}" readonly="readonly">
 
 				</div>
 				<div class="pleft">
@@ -90,7 +92,7 @@
 				<label for="birthday" class="col-sm-2 control-label">回访时间</label>
 				<div class="col-sm-3 am-datepicker-date">
 					<input type="date" class="form-control" name="returndate"
-						id="returndate" onblur="checkBirthday()">
+						id="returndate" value="${returninfo.returndate}" onblur="checkBirthday()">
 				</div>
 				<div class="pleft">
 					<font color="red"><p id="error9"></p></font> <font color="green">
@@ -103,7 +105,7 @@
 			
 				<div class="col-sm-3">
 				   <textarea rows="5" cols="50" class="form-control" name="returncontent" id="returncontent"
-						onblur="checkAddress()"></textarea>	
+					onblur="checkAddress()">${returninfo.returncontent}	</textarea>	
 				</div>
 				<div class="pleft">
 					<font color="red"><p id="error4"></p></font> <font color="green"><p

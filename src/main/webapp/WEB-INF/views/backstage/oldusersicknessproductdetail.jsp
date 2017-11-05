@@ -69,6 +69,10 @@
 						     
 							
 						</div> -->
+						 <a  href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${did}&&uid=${uid}"><font size="2px" color="blue"> 
+	
+                        <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+	
 				<div class="row addstyle"></div>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
@@ -112,12 +116,16 @@
 												</tr> -->
 												<c:forEach items="${listProducts}" var="listProduct">
 
-													<div style="float: left; width: 20%;">${listProduct.producturl}</div>
-													<div style="float: left;width: 20%">${listProduct.pname}</div>
-													<div style="float: left;width: 20%">${listProduct.price}</div>
-													<c:forEach items="${listProduct.listPhotos}"
-														var="listPhoto">
-														<div>${listPhoto.showphotosurl}</div>
+													<div style="width: 20%;"><img src="/resources/upload/images/sjgmp.jpg" /><%-- ${listProduct.producturl} --%></div>
+													<div style="width: 20%">${listProduct.pname}</div>
+													<div style="width: 20%"><font style="color: red ;font-size:3px;">￥：${listProduct.price}</font></div>
+													<div style="height:100px;background:#fff;"></div>
+													<div>商品描述</div>
+													<div>${listProduct.pdescription}</div>
+													<div>商品详情</div>
+													<c:forEach items="${listProduct.listPhotos}" var="listPhoto">
+										                 <div style="height:20px;"></div>
+														<div><img src="/resources/upload/images/sjgmp.jpg" /><%-- ${listPhoto.showphotosurl} --%></div>
 													</c:forEach>
 
 												</c:forEach>

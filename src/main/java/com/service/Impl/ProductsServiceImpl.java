@@ -1,9 +1,9 @@
 package com.service.Impl;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import com.bean.Products;
 import com.dao.ProductsMapper;
 
 import com.service.ProductsService;
-@Service()
+@Service("productsService")
 @Transactional     //事物操作
 public class ProductsServiceImpl implements ProductsService {
 	
@@ -93,4 +93,14 @@ public class ProductsServiceImpl implements ProductsService {
 	 public List<Products> getInvBycondtion(Page page){     //模糊查询商品
 	        return productsMapper.getInvBycondtion(page);
 	    }
+	@Override
+	public List<Products> selectProductUrlByPid(Integer pid) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductUrlByPid(pid);
+	}
+	@Override
+	public List<Products> selectAllProducts() {
+		// TODO Auto-generated method stub
+		return productsMapper.selectAllProducts();
+	}
 }

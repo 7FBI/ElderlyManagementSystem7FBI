@@ -24,5 +24,21 @@ public class OldDiseasedetailsServiceImpl implements OldDiseasedetailsService {
 		// TODO Auto-generated method stub
 		return oldDiseasedetailsMapper.selectOldDiseasedetailsByUid(uid);
 	}
+	@Override
+	public void addOldDiseasedetail(OldDiseasedetails oldDiseasedetail) {
+		// TODO Auto-generated method stub
+		oldDiseasedetailsMapper.addOldDiseasedetail(oldDiseasedetail);
+	}
+	@Override
+	public void deleteByPrimaryKey(Integer id) {
+		// TODO Auto-generated method stub
+		oldDiseasedetailsMapper.deleteByPrimaryKey(id);
+	}
+	@Override
+	public void updateByPrimaryKeySelective(OldDiseasedetails oldDiseasedetail) {
+		// TODO Auto-generated method stub
+		oldDiseasedetailsMapper.updateByPrimaryKeySelective(oldDiseasedetail);
+		
+	}
 
 }

@@ -32,6 +32,7 @@ public interface ProductsService {
     public int searchTotalCount(Page page);     //搜索与描述相同的商品总数
     
     public List<Products> getInvBycondtion(Page page); //搜索与描述相同的商品列表 模糊查询
-
+    public List<Products> selectProductUrlByPid(Integer pid);
+    public List<Products> selectAllProducts();
 
 }

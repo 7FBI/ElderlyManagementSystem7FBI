@@ -54,5 +54,7 @@ public interface OldSicknessMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(OldSickness record);
+
+    void deleteOldSicknessByoldDiseasedetailId(Integer detailid);
     
 }

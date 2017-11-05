@@ -71,7 +71,10 @@
   where 
   os.did=odl.id and os.detailid= #{oldDiseasedetail_id,jdbcType=INTEGER}
   </select>
-  
+   <delete id="deleteOldSicknessByoldDiseasedetailId" parameterType="java.lang.Integer">
+    delete from old_sickness
+    where detailid = #{detailid}
+   </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

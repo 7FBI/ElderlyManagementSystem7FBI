@@ -31,42 +31,6 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-	<%-- <a href="register">添加</a>
-	<table>
-	<a href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action">所有</a>
-		<tr>
-			<td>姓名</td>
-			<td>性别</td>
-			<td>身份证号</td>
-			<td>出生日期</td>
-			<td>电话</td>
-			<td>住址</td>
-			<td>地域</td>
-			<td>登录账号</td>
-			<td>密码</td>
-			<td>照片</td>
-			<td>操作</td>
-		</tr>
-		<c:forEach items="${olduser }" var="olduser">
-		<tr>
-			<td>${olduser.username}</td>
-			<td>${olduser.sex}</td>
-			<td>${olduser.idcard}</td>
-			<td>${olduser.birthday}</td>
-			<td>${olduser.tell}</td>
-			<td>${olduser.address}</td>
-			<td>${olduser.area}</td>
-			<td>${olduser.uid}</td>
-			<td>${olduser.password}</td>
-			<td>${olduser.userurl}</td>
-			<td><a
-				href="${pageContext.request.contextPath}/oldusers/deleteUserById.action?id=${olduser.id}">删除</a>
-				<a
-				href="${pageContext.request.contextPath}/oldusers/queryUserById.action?id=${olduser.id}">修改</a></td>
-
-		</tr>
-		</c:forEach>
-	</table> --%>
 
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
@@ -101,50 +65,19 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;用户列表</font></a>
               <a  href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
-															uid=${olduser.uid}"><font size="2px" color="blue"> 
+															uid=${uid}"><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;就诊情况</font></a>
 	
 	
 				
-				<!-- <div   class="col-md-3  input-group addstyle">
-						
-                               <input type="text" class="form-control" name="" id="" />
-								
-								 <span
-									class="input-group-btn">
-									<a href="#" class="btn btn-primary btn-lg active" role="button"></a>
-									
-									</span>
-								
-						     
-							
-						</div> -->
+			
 						<div class="row addstyle">
-						<%-- <div class="col-md-offset-1 col-md-4 addstyle">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search for...">
-      <span class="input-group-btn">
-        <button class="btn btn-info" type="button">
-            <a href="#">Search</a></button>
-      </span>
-    </div><!-- /input-group -->
-  </div>
 						
-					<div   class="col-md-3 col-md-offset-1 addstyle">
-						<a href="${pageContext.request.contextPath}/gotoBackstage/register" class="btn btn-success">
-
-								<!-- <a href="register" class="btn btn-success"> -->
-								 <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							<!-- /input-group -->
-						</div> --%>
 						</div>
 						
 				<table width="100%" border="0" align="center" cellpadding="0"
@@ -233,26 +166,16 @@
 											<td colspan="3"><font size="5px">推荐商品</font></td></tr>	
 								
 												<c:forEach items="${listMatchdiseaseMap}" var="listMatchdiseaseMap">
-													<tr><td colspan="3">${listMatchdiseaseMap.getKey()}</td></tr>
+													<tr><td colspan="3"><font size="4px">${listMatchdiseaseMap.getKey()}</font></td></tr>
 													<%-- <c:forEach items="${listMatchdiseaseMap.getValue()}" var="listMatchdisease"> --%>
 													<tr align="left" class="d">
                                                       <c:forEach items="${listMatchdiseaseMap.getValue()}" var="listMatchdisease">
-														<td ><a href=""><img src="/resources/upload/images/sjgmp.jpg" /></a>
-														 <br><a href="/products/getProductShowUrl.action?pid=${listMatchdisease.product.id}">${listMatchdisease.product.pname}
+														<td ><a href="/backstage/Store/productShowUrl.action?pid=${listMatchdisease.product.id}&&did=${did}&&uid=${uid}"><img src="${listMatchdisease.product.producturl}" />${listMatchdisease.product.producturl}</a>
+														 <br><a href="/backstage/Store/productShowUrl.action?pid=${listMatchdisease.product.id}&&did=${did}&&uid=${uid}">${listMatchdisease.product.pname}
 					                                      
 					                                      </a><br>
-					                                       <font style="color: red">Y:${listMatchdisease.product.price}</font>
+					                                       <font style="color: red ;font-size:3px;">￥:${listMatchdisease.product.price}</font>
 														</td>
-														<%-- <tr>
-					                                      <td>
-					                                     
-					                                      <a href="/products/getProductShowUrl.action?pid=${listMatchdisease.product.id}">${listMatchdisease.product.pname}
-					                                      
-					                                      </a><br>
-					                                       <font style="color: red">Y:${listMatchdisease.product.price}</font>
-					                                      </td>
-						                                  <td style="color: red">Y:${listMatchdisease.product.price}</td>
-						                                </tr> --%>
 													  </c:forEach>
 													 </tr>
 												  

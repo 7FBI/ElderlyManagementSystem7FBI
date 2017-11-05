@@ -43,6 +43,10 @@
     <result column="count" property="count"/>
     <result column="producturl" property="producturl"/>
     <result column="tid" property="tid"/>
+    <collection property="listPhotos" ofType="com.bean.Showsphotos">
+    <id column="sp_id" property="id"/>
+    <result column="sp_url" property="showphotosurl"/>
+    </collection>
   </association>
   </resultMap>
  
@@ -67,9 +71,9 @@
   </select>
   
   <select id="selectProductByDiseasesId" resultMap="ProductByDiseases" parameterType="java.lang.Integer">
- SELECT md.id id,md.did did,p.id pid,p.pname pname,p.price price,p.pdescription pdescription,p.count count,p.producturl producturl,p.tid tid
+ SELECT md.id id,md.did did,p.id pid,p.pname pname,p.price price,p.pdescription pdescription,p.count count,p.producturl producturl,p.tid tid,sp.id sp_id,sp.showphotosurl sp_url
  from 
-   old_sickness os,matchdisease md,products p
+   old_sickness os,matchdisease md,products p,showsphotos sp
  WHERE 
    os.did=md.did AND md.pid=p.id and os.did=#{id,jdbcType=INTEGER}
   </select>

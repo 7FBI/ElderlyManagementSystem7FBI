@@ -19,5 +19,15 @@ public class OldSicknessServiceImpl implements OldSicknessService{
 		// TODO Auto-generated method stub
 		return oldSicknessMapper.selectOldSicknessByoldDiseasedetailIid(oldDiseasedetail_id);
 	}
+	@Override
+	public void insertSelective(OldSickness oldSickness) {
+		// TODO Auto-generated method stub
+		oldSicknessMapper.insertSelective(oldSickness);
+	}
+	@Override
+	public void deleteOldSicknessByoldDiseasedetailId(Integer detailid) {
+		// TODO Auto-generated method stub
+		oldSicknessMapper.deleteOldSicknessByoldDiseasedetailId(detailid);
+	}
 	
 }

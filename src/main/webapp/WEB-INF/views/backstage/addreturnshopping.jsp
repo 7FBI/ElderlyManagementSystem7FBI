@@ -30,35 +30,34 @@
 
 
 <!-- 验证 -->
-
-<script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
-
+ <script type="text/javascript" language="javascript" src="/resources/js/registercheck.js">
+</script> 
 </head>
 
 <body>
-
 	<a
-		href="${pageContext.request.contextPath}/returninfo/querys.action?
-															uid=${uid}"><font
+		href="${pageContext.request.contextPath}/returnshopping/querys.action?returnid=${returnid}&&uid=${uid}"><font
 		color="blue"> <span class="glyphicon glyphicon-backward"
 			aria-hidden="true"></span>&nbsp;返回
 	</font></a>
 	<br>
 	<form class="form-horizontal col-md-offset-2"
-		action="/returninfo/add.action" method="post"
+		action="/returnshopping/add.action" method="post"
 		enctype="multipart/form-data">
 
 		<label class="register_title"> <strong> <span
 				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;添加回访记录
 		</strong></label>
 			<div class="form-group col-md-offset-3">
-				<label for="uid" class="col-sm-2 control-label">回访客户</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" name="uid" id="uid"
-						value="${uid}" readonly="readonly">
-
-				</div>
+				<label for="pname" class="col-sm-2 control-label">商品名称</label>
+			<div class="col-sm-3">
+				<select class="form-control" name="pid" >
+					<c:forEach items="${listProducts}" var="listProduct" varStatus="var">
+					<option value="${listProduct.id}">${listProduct.pname}</option>
+					</c:forEach>					
+				</select>
+				
+			</div>
 				<div class="pleft">
 				<font color="red"><span id="error5"></span></font> <font color="green"><span
 							id="success5"></span></font>
@@ -68,29 +67,17 @@
 						<span style="color: red">${err}</span>
 					</div>
 				</c:if>
-			</div>
+			</div>			
+					<input type="hidden" class="form-control" name="returnid"
+						value="${returnid}" >
+						<input type="hidden" class="form-control" name="uid"
+						value="${uid}" >
 			<div class="form-group col-md-offset-3">
-				<label for="uid" class="col-sm-2 control-label">回访者</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" name="mid" id="mid"
-						value="1" readonly="readonly">
-
-				</div>
-				<div class="pleft">
-					<font color="red"><span id="error5"></span></font> <font color="green">
-					<span id="success5"></span></font>
-				</div>
-				<c:if test="${!empty error}">
-					<div>
-						<span style="color: red">${err}</span>
-					</div>
-				</c:if>
-			</div>
-			<div class="form-group col-md-offset-3">
-				<label for="birthday" class="col-sm-2 control-label">回访时间</label>
+				<label for="birthday" class="col-sm-2 control-label">购买数量</label>
 				<div class="col-sm-3 am-datepicker-date">
-					<input type="date" class="form-control" name="returndate"
-						id="returndate" onblur="checkBirthday()">
+					<button type="button" style="width:40px ;height:30px ; border-radius:3px;font-size:16px;" id="add" onclick="addcount()">+</button>&nbsp;&nbsp;
+					<input style="width:50px ;height:30px ;text-align:right;" id="pcount" name="shoppingcount" value="0"/>&nbsp;&nbsp;
+					<button type="button" style="width:40px ;height:30px ; border-radius:3px; font-size:16px;" id="sub" onclick="subcount()">-</button>
 				</div>
 				<div class="pleft">
 					<font color="red"><p id="error9"></p></font> <font color="green">
@@ -98,22 +85,6 @@
 				</div>
 			</div>
 
-			<div class="form-group col-md-offset-3">
-				<label for="address" class="col-sm-2 control-label">回访内容描述</label>
-			
-				<div class="col-sm-3">
-				   <textarea rows="5" cols="50" class="form-control" name="returncontent" id="returncontent"
-						onblur="checkAddress()"></textarea>	
-				</div>
-				<div class="pleft">
-					<font color="red"><p id="error4"></p></font> <font color="green"><p
-							id="success4"></p></font>
-				</div>
-			</div>
-
-
-
-			
 			<!-- 按钮 -->
 			<div class="row">
 				<div class="col-sm-offset-3 col-md-3">

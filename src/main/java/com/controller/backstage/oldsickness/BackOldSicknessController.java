@@ -37,11 +37,13 @@ public class BackOldSicknessController {
 	
 	  @RequestMapping("/querys")
 	  //查询每次的病例的详情
-	public ModelAndView getOldDiseasedetails(HttpServletRequest request,Integer oldDiseasedetail_id){
+	public ModelAndView getOldDiseasedetails(HttpServletRequest request,Integer oldDiseasedetail_id,String uid){
 	  //  String uid=(String) request.getSession().getAttribute("uid");	
 		List<OldSickness> oldSicknesss=oldSicknessService.selectOldSicknesses(oldDiseasedetail_id);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldSickness",oldSicknesss);
+		modelAndView.addObject("did",oldDiseasedetail_id);
+		modelAndView.addObject("uid",uid);
 		   //根据疾病id查询对应的药品
          Map<String, List<Matchdisease>> listMatchdiseaseMap=new HashMap<String, List<Matchdisease>>();
 		
@@ -58,5 +60,7 @@ public class BackOldSicknessController {
 	modelAndView.setViewName("backstage/oldusersickness");
 		return modelAndView;
 	}
+	  
+	  
 	
 }

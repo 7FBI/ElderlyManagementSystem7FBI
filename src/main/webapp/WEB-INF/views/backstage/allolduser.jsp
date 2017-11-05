@@ -212,10 +212,11 @@
 														<td>${olduser.uid}</td>
 														<%-- <td width="300px" nowrap>${olduser.password}</td>
 			<td width="600px" nowrap>${olduser.userurl}</td> --%>
-														<td>回访记录</td>
+															<td><a href="${pageContext.request.contextPath}/returninfo/querys.action?
+															uid=${olduser.uid}">回访记录</a></td>
 														<td>
 														<a
-															href="${pageContext.request.contextPath}/backstage/OldDiseasedetails/querys.action?
+															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
 															uid=${olduser.uid}">病例详情</a>
 															
 															

@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -100,7 +100,14 @@
 						<!-- /input-group -->
 					</div>
 				</div> --%>
+                <div class="col-md-3 col-md-offset-1 addstyle">
+					<a href="${pageContext.request.contextPath}/backstageOldDiseasedetails/addjsp?uid=${uid}"
+						class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
+						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加就诊记录</span>
+					</a>
 
+					<!-- /input-group -->
+				</div>
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<!-- 空白行-->
@@ -175,13 +182,13 @@
 														<td>${oldDiseasedetails.history}</td>
 
 														<td><a
-															href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${oldDiseasedetails.id}">详情</a>
-															<%-- <a
-															href="${pageContext.request.contextPath}/backoldSickness/querySicknessById.action?oldDiseasedetail_id=${oldDiseasedetails.id}">修改</a>
+															href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">详情</a>
+															 <a
+															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/updatejsp.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">修改</a>
 
 															<a
-															href="${pageContext.request.contextPath}/backoldSickness/deleteSicknessById.action?oldDiseasedetail_id=${oldDiseasedetails.id}">删除</a>
-                                                              --%>
+															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/remove.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">删除</a>
+                                                              
 														</td>
 
 

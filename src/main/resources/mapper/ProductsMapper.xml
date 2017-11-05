@@ -40,6 +40,21 @@
       <arg column="producturl" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
+   <resultMap type="com.bean.Products" id="ProductUrlByPid">
+  <id column="id" property="id"/>
+  <result column="pname" property="pname"/>
+  <result column="price" property="price"/>
+  <result column="pdescription" property="pdescription"/>
+  <result column="producttype1" property="producttype1"/>
+  <result column="producttype2" property="producttype2"/>
+  <result column="size" property="size"/>
+  <result column="count" property="count"/>
+  <result column="producturl" property="producturl"/>
+  <collection property="listPhotos" ofType="com.bean.Showsphotos">
+  <id column="sp_id" property="id"/>
+  <result column="sp_url" property="showphotosurl"/>
+  </collection>
+  </resultMap>
   <sql id="Base_Column_List">
     <!--
       WARNING - @mbggenerated
@@ -59,6 +74,12 @@
     <include refid="Base_Column_List" />
     from products
     where id = #{id,jdbcType=INTEGER}
+  </select>
+   <select id="selectAllProducts" resultType="com.bean.Products">
+      select * from products
+  </select>
+  <select id="selectProductUrlByPid" parameterType="java.lang.Integer" resultMap="ProductUrlByPid">
+  SELECT p.*,sp.id sp_id,sp.showphotosurl sp_url FROM products p,showsphotos sp WHERE p.id=sp.product_id AND p.id=#{pid}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--

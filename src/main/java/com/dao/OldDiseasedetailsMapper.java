@@ -56,4 +56,6 @@ public interface OldDiseasedetailsMapper {
     int updateByPrimaryKey(OldDiseasedetails record);
 
 	List<OldDiseasedetails> selectOldDiseasedetailsByUid(String uid);
+
+	void addOldDiseasedetail(OldDiseasedetails oldDiseasedetail);
 }

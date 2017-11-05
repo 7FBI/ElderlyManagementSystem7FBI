@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Classification;
 import com.bean.Page;
@@ -85,7 +86,17 @@ public class ProductsController {
 		return "backstage/goods_add";
 		
 	}
+	@RequestMapping("/productShowUrl")
+	public ModelAndView getProductShowUrl(Integer pid,Integer did,Integer uid){
+		List<Products> listProducts= productService.selectProductUrlByPid(pid);
+			ModelAndView modelAndView=new ModelAndView();
+		    modelAndView.addObject("listProducts",listProducts);
+		    modelAndView.addObject("did",did);
+		    modelAndView.addObject("uid",uid);
+		    modelAndView.setViewName("backstage/oldusersicknessproductdetail");
+		    return modelAndView;
 	
+	}
 	@RequestMapping(value="/Uploadfiles.action")   //上传商品其余图片方法
 	public String UploadFilestest(HttpServletRequest request,MultipartFile[] graphTheorise,int id){
 		int pid=id;

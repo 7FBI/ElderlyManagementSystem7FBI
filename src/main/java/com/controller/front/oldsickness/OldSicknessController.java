@@ -42,7 +42,7 @@ public class OldSicknessController {
 		List<OldSickness> oldSicknesss=oldSicknessService.selectOldSicknesses(oldDiseasedetail_id);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldSickness",oldSicknesss);
-		   //根据疾病id查询对应的药品
+		   //根据疾病id查询对应的
          Map<String, List<Matchdisease>> listMatchdiseaseMap=new HashMap<String, List<Matchdisease>>();
 		
 		for (OldSickness oldSickness : oldSicknesss) {
@@ -55,7 +55,7 @@ public class OldSicknessController {
 	}
 		}
 	   modelAndView.addObject("listMatchdiseaseMap",listMatchdiseaseMap);
-	modelAndView.setViewName("front/getOldSickness");
+	modelAndView.setViewName("front/ProductImage");
 		return modelAndView;
 	}
 	

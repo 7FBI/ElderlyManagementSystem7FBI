@@ -69,4 +69,8 @@ public interface ProductsMapper {
     public List<Products> getInvBycondtion(Page page); //根据条件查询帖子 模糊查询
     
     public Integer searchTotalCount(Page page);// 根据描述 搜索商品数量
+
+	List<Products> selectProductUrlByPid(Integer pid);
+
+	List<Products> selectAllProducts();
 }
