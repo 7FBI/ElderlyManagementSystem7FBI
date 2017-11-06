@@ -18,6 +18,8 @@ public class UploadImage {
 		if (file!=null) {
 			try {
 				String fileName = new String(file.getOriginalFilename().getBytes("iso-8859-1"), "utf-8");
+				String[] ns=fileName.split(".");
+				fileName=new String("."+ns[ns.length-1]);
 				String newFileName=UUID.randomUUID()+fileName;
 				String uploadPath = request.getSession().getServletContext().getRealPath("/files");
 				String endPath=uploadPath+imagePath;
