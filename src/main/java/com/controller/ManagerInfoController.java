@@ -101,6 +101,10 @@ public class ManagerInfoController {
 		if (managerinfo.getId()==null|managerinfo.getId()<=0) {
 			return selectAlls(request);
 		}
+		Managerinfo m=managerInfoService.selectByPrimaryKey(managerinfo.getId());
+		if (m.getPassword().equals(managerinfo.getPassword())) {
+			managerinfo.setPassword(null);
+		}
 		managerInfoService.updateByPrimaryKeySelective(managerinfo);
 		return updateView(request);
 	}

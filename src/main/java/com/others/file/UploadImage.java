@@ -67,5 +67,10 @@ public class UploadImage {
 		
 		return list;
 	}
+	
+	public boolean deleteWebFiles(HttpServletRequest request,String path){
+		
+		return false;
+	}
 
 }
