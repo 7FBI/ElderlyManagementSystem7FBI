@@ -51,6 +51,13 @@
 						</div>
 						<br /> <br />
 						<div class="form-group">
+							<label for="exampleInputName2">密码:</label> <input
+								style="width: 360px; height: 40px" NoNull="" type="password"
+								class="form-control" name="password" value="${managerInfo.password }"
+								placeholder="请输入">
+						</div>
+						<br /> <br />
+						<div class="form-group">
 							<label for="exampleInputName2">类型:</label> <select
 								class="form-control" style="width: 360px; height: 40px"
 								name="type">
