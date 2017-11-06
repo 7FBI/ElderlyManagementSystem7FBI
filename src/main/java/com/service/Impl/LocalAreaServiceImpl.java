@@ -84,4 +84,10 @@ private LocalareaMapper localareaMapper;
 		return localareaMapper.findAllLocalAreaMap(map);
 	}
 
+	@Override
+	public Localarea findTheName(String provincename) {
+		// TODO Auto-generated method stub
+		return localareaMapper.findTheName(provincename);
+	}
+
 }

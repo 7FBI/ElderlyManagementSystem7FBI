@@ -86,6 +86,10 @@
 	<select id="findAllCounts" resultType="java.lang.Integer">
 		select count(*) from localarea
 	</select>
+	<!-- 查询是否存在这个名字 -->
+	<select id="findTheName" resultType="java.lang.String" resultMap="BaseResultMap">
+		select * from localarea where provincename=#{provincename}
+	</select>
 	
 	<!--根据条件删除 -->
 	<delete id="deleteLocalAreaById" parameterType="java.lang.Integer">

@@ -9,6 +9,7 @@ import com.bean.Localarea;
 
 @Repository("localareaMapper")
 public interface LocalareaMapper {
+	Localarea findTheName(String provincename);
 	List<Localarea> findAllLocalAreaMap(Map map);
 	int findAllCounts();
     /**

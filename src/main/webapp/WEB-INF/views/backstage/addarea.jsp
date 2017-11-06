@@ -35,8 +35,7 @@
 	</font></a>
 	<br>
 	<center>
-		<form class="form-inline" id=""
-			action="/backstage/localarea/addAreaInfo" method="post">
+		<form class="form-inline" id="f">
 			<div class="form-group">
 				<label for="exampleInputName2">地域名称:</label> <input type="text"
 					style="width: 360px;" class="form-control" NoNull=""
@@ -67,11 +66,8 @@
 	</center>
 	<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							$
-									.ajax({
+		$(document).ready(function() {
+							$.ajax({
 										type : 'get',
 										url : '/backstage/localarea/selectAllInfo',
 										success : function(data) {
@@ -79,7 +75,7 @@
 												var s = $("#sele");
 												for ( var k in data) {
 													var chtml = '<option value="'+data[k].id+'">'
-															+ data[k].selftcityid
+															+ data[k].provincename
 															+ '</option>';
 													s.append(chtml);
 												}
@@ -93,7 +89,23 @@
 
 		$("#sbmit").click(function() {
 			if (formInputNoNull() & formTextNoNull()) {
-				$("#f").submit();
+				/* $("#f").submit(); */
+				var f=$("#f");
+				$.ajax({
+					type:'post',
+					url:'/backstage/localarea/addAreaInfo',
+					data:f.serialize(),
+					success:function(data){
+						if(data=="true"){
+							window.location.href="/backstage/localarea/findAllArea";
+						}else {
+							alert(data)
+						}
+					},
+					error:function(){
+						alert("网络错误!!")
+					}
+				})
 			}else {
 				rmvErr();
 			}

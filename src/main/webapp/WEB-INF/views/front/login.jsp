@@ -11,9 +11,7 @@
 <meta name="author" content="">
 
 <!-- CSS -->
-<link rel="stylesheet" href="/resources/front/css/reset.css">
-<link rel="stylesheet" href="/resources/front/css/supersized.css">
-<link rel="stylesheet" href="/resources/front/css/style.css">
+<link rel="stylesheet" href="/resources/css/login.css">
 </head>
 <body oncontextmenu="return false">
 	<div class="page-container">
@@ -27,6 +25,12 @@
 				<input type="password" id="password" name="password" class="password"
 					placeholder="请输入您的密码" oncontextmenu="return false"
 					onpaste="return false" />
+			</div>
+			<div>
+				<input type="password" id="password" name="password" class="password"
+					placeholder="请输入验证码" oncontextmenu="return false"
+					onpaste="return false" />
+					<img src="/code/front/getCode" >
 			</div>
 			<button id="submit">点击登录</button>
 		</form>

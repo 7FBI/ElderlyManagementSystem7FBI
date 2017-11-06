@@ -11,19 +11,25 @@
 	<!--开启注解 -->
 	<!-- 设置对字符串的消息转换器 -->
 	<!-- text/plain;charset=UTF-8 -->
+
 	<mvc:annotation-driven>
-		<!-- 消息转换器，解决responseBody返回中外乱码问题 -->
-		<mvc:message-converters register-defaults="true">
+		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+						<value>*/*;charset=UTF-8</value>
+					</list>
+				</property>
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	<mvc:annotation-driven conversion-service="conversionService" />
 	<!-- 扫描基本包，来确定控制器中的注解 -->
 	<context:component-scan base-package="com.controller" />
 	<!-- 注解配置映射器 -->
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
 	</bean>
 	<!-- 注解适配器 -->
 	<bean
@@ -32,7 +38,8 @@
 		<!-- json数据转换 -->
 		<property name="messageConverters">
 			<list>
-				<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
 			</list>
 		</property>
 	</bean>
@@ -55,7 +62,9 @@
 		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<!-- 可以配置多个转换器 -->
-			<list><bean class="com.converter.DateConverter"></bean></list>
+			<list>
+				<bean class="com.converter.DateConverter"></bean>
+			</list>
 		</property>
 	</bean>
 	<!-- 上传解析器 上传解析器multipartResolver -->
@@ -74,6 +83,13 @@
 			<mvc:exclude-mapping path="/backstage/manager/login" />
 			<mvc:exclude-mapping path="/backstage/user/login.action" />
 			<bean class="com.interceptor.BackstageIndex"></bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/front/oldUsers/**" />
+			<mvc:exclude-mapping path="/" />
+			<mvc:exclude-mapping path="/front/oldUsers/login" />
+			<mvc:exclude-mapping path="/front/oldUsers/register" />
+			<bean class="com.interceptor.FrontUserLoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

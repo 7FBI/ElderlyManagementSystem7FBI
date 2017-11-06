@@ -17,7 +17,7 @@ a:hover{text-decoration:underline;}
 header{width:100%;height:80px;position:fixed;top:0;z-index:999;}
 * html{background-image:url(about:blank);background-attachment:fixed}
 * html header{position:absolute;top:expression(eval(document.documentElement.scrollTop))}
-#navbg{width:100%;height:80px;overflow:hidden;text-indent:-9999px;position:absolute;left:0;top:0;background:#111;}
+#navbg{width:100%;height:80px;overflow:hidden;text-indent:-9999px;position:absolute;left:0;top:0;background:red;}
 #ruifoxHome #navbg{filter:alpha(opacity=80);opacity:0.8;}
 #ruifoxHome .cat_title{overflow:hidden;padding:35px 0;height:150px;border-bottom:1px solid #d8d9d8;}
 #ruifoxHome .cat_title h2{font-size:46px;text-indent:10px}
@@ -35,7 +35,7 @@ header nav li a{display:block;height:40px;padding-left:40px;margin:20px 5px 0 5p
 header nav li a:hover{text-decoration:none;}
 header nav li span{display:block;color:#999;font-size:11px;-webkit-text-size-adjust:none;}
 /*banner*/
-#banner{width:100%;height:600px;background:#000;overflow:hidden;position:relative;}
+#banner{width:100%;height:600px;background:#fff;overflow:hidden;position:relative;}
 #banner_img{display:block;position:relative;}
 #banner_img li{position:absolute;top:0;left:0;width:100%;height:650px;background-position:center;background-size:cover;display:none;}
 #banner_img .ad_img{position:absolute;right:10px;top:80px;width:506px;height:404px}
@@ -43,7 +43,7 @@ header nav li span{display:block;color:#999;font-size:11px;-webkit-text-size-adj
 #banner_img .ad_txt h2{font:bold 36px/60px Microsoft YaHei;}
 #banner_img .ad_txt a{display:block;width:100px;height:25px;line-height:25px;text-align:center;margin-top:10px;background:#fff;color:#666;text-decoration:none;text-shadow:none;}
 #banner_ctr{position:absolute;width:960px;height:122px;margin-left:-480px;left:50%;bottom:40px;z-index:1;}
-#banner_ctr ul{width:960px;height:122px;background:url("images/serv_ico.png") center no-repeat;font-size:0;line-height:0;position:relative;}
+/*#banner_ctr ul{width:960px;height:122px;background:url("images/serv_ico.png") center no-repeat;font-size:0;line-height:0;position:relative;}*/
 #banner_ctr li{display:block;float:left;width:115px;height:122px;cursor:pointer;}
 #banner_ctr li.first-item{background:#fff;width:20px;-webkit-border-radius:20px 0 0 20px;-moz-border-radius:20px 0 0 20px;border-radius:20px 0 0 20px;cursor:default;}
 #banner_ctr li.last-item{background:#fff;width:20px;-webkit-border-radius:0 20px 20px 0;-moz-border-radius:0 20px 20px 0;border-radius:0 20px 20px 0;cursor:default;}
@@ -231,6 +231,39 @@ footer{clear:both;}
 .dede_pages{ text-align:center; width:300px; padding:10px 0 0 0; margin:0 auto 50px;}
 .dede_pages ul li{ float:left; margin:0 3px; background:#ccc; padding:3px 8px}
 .dede_pages ul li a{ display:block; background:#ccc;color:#999}
+/*==========以下部分是Validform必须的===========*/
+.Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:#999;
+	font-size:12px;
+}
+.Validform_right{
+	color:#71b83d;
+	padding-left:20px;
+	background:url(../images/right.png) no-repeat left center;
+}
+.Validform_wrong{
+	color:red;
+	padding-left:20px;
+	white-space:nowrap;
+	background:url(../images/error.png) no-repeat left center;
+}
+.Validform_loading{
+	padding-left:20px;
+	background:url(../images/onLoad.gif) no-repeat left center;
+}
+.Validform_error{
+	background-color:#ffe7e7;
+}
+#Validform_msg{color:#7d8289; font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif; width:280px; -webkit-box-shadow:2px 2px 3px #aaa; -moz-box-shadow:2px 2px 3px #aaa; background:#fff; position:absolute; top:0px; right:50px; z-index:99999; display:none;filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');}
+#Validform_msg .iframe{position:absolute; left:0px; top:-1px; z-index:-1;}
+#Validform_msg .Validform_title{line-height:25px; height:25px; text-align:left; font-weight:bold; padding:0 8px; color:#fff; position:relative; background-color:#000;}
+#Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
+#Validform_msg a.Validform_close:hover{color:#cc0;}
+#Validform_msg .Validform_info{padding:8px;border:1px solid #000; border-top:none; text-align:left;}
 
 
 

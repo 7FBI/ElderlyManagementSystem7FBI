@@ -6,6 +6,7 @@ import java.util.Map;
 import com.bean.Localarea;
 
 public interface LocalAreaService {
+	Localarea findTheName(String provincename);
 	List<Localarea> findAllLocalAreaMap(Map map);
 	int findAllCounts();
 	/**

@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="/resources/unity/layer/css/layui.css" media="all">
 <link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" />
 
-<!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
 </head>
 <body id="ruifoxHome">
 <%@ include file="header.jsp" %>
@@ -205,14 +204,13 @@
   </div>
 </section>
 
-<%@ include file="footer.jsp"%>
+<%-- <%@ include file="footer.jsp"%> --%>
+<jsp:include page="footer.jsp" flush="true"/>
 
 <script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 <script type="text/javascript" src="/resources/front/js/jquery.1.8.2.min.js" ></script>
 <script type="text/javascript" src="/resources/front/js/jquery.plugin.min.js"></script>
-<!--[if IE 6]>
-<script type="text/javascript" src="js/killie6.js"></script>
-<![endif]-->
+
 <script type="text/javascript">
 layui.use('carousel', function(){
   var carousel = layui.carousel;

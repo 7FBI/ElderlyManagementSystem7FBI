@@ -99,12 +99,16 @@ public class LocalAreaController {
 		return list;
 	}
 	
-	@RequestMapping("/addAreaInfo")
-	public ModelAndView addAreaInfo(HttpServletRequest request,Localarea localarea){
+	@RequestMapping(value="/addAreaInfo")
+	@ResponseBody
+	public String addAreaInfo(HttpServletRequest request,Localarea localarea){
 		if (localarea.getSelftcityid()==-1) {
 			localarea.setSelftcityid(null);
 		}
+		if (localAreaService.findTheName(localarea.getProvincename())!=null) {
+			return "该地域已经存在!";
+		}
 		localAreaService.addLocalArea(localarea);
-		return findAllArea(request);
+		return "true";
 	}
 }
