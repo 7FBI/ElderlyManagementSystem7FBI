@@ -52,9 +52,9 @@ public class BackinformationServiceImpl implements BackinformationService {
 	}
 
 	@Override
-	public List<Backinformation> selectByAuthor(Integer author) {
+	public List<Backinformation> selectByAuthor() {
 		
-		return backinformationMapper.selectByAuthor(author);
+		return backinformationMapper.selectByAuthor();
 		}
 
 	@Override

@@ -50,7 +50,7 @@ public interface BackinformationService {
 	     */
 	    int updateByPrimaryKey(Backinformation record);
 	    
-	    List<Backinformation>selectByAuthor(Integer author);
+	    List<Backinformation>selectByAuthor();
 
 	    List<Backinformation>selectAllByAuthor(Integer author);
 

@@ -22,8 +22,7 @@ public class BackinformationController {
 	@RequestMapping("/selectByAuthor")
 	@ResponseBody
 	public List<Backinformation> selectByAuthor(HttpServletRequest request){
-		Ceoinfo ceoinfo=(Ceoinfo) request.getSession().getAttribute("ceoinfo");
-		 List<Backinformation> list = backinformationService.selectByAuthor(ceoinfo.getId());
+		 List<Backinformation> list = backinformationService.selectByAuthor();
 		 return list;
 		}
 	

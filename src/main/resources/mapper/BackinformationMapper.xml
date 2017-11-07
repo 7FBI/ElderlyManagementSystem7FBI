@@ -361,8 +361,8 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="selectByAuthor" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-  select * from backinformation where author =#{author} order by time DESC limit 0,10
+  <select id="selectByAuthor" resultMap="BaseResultMap">
+  select * from backinformation order by time DESC limit 0,10
   </select>
   <select id="selectAllByAuthor" parameterType="java.lang.Integer" resultMap="BaseResultMap">
   select * from backinformation where author =#{author} 
