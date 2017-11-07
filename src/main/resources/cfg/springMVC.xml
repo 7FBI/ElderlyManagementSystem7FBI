@@ -12,7 +12,7 @@
 	<!-- 设置对字符串的消息转换器 -->
 	<!-- text/plain;charset=UTF-8 -->
 
-	<mvc:annotation-driven>
+	<mvc:annotation-driven  conversion-service="conversionService" >
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">

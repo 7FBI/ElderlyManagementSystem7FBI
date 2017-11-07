@@ -12,14 +12,15 @@ import org.springframework.core.convert.converter.Converter;
 public class DateConverter implements Converter<String,Date> {
 
 	public Date convert(String s) {
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-		sdf.setLenient(false);
-        try {    
-            return sdf.parse(s);    
-        } catch (ParseException e) {    
-            e.printStackTrace();    
-        }           
-        return null;   
+		Date date = null;
+		try {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			simpleDateFormat.setLenient(false);
+			date = simpleDateFormat.parse(s);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return date;
 	}
    
 }
