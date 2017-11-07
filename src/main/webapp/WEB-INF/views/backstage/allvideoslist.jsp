@@ -61,19 +61,7 @@
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	 --%>
-				<!-- <div   class="col-md-3  input-group addstyle">
-						
-                               <input type="text" class="form-control" name="" id="" />
-								
-								 <span
-									class="input-group-btn">
-									<a href="#" class="btn btn-primary btn-lg active" role="button"></a>
-									
-									</span>
-								
-						     
-							
-						</div> -->
+				
 						 
                   <c:if test="${empty allVideos}">
                                <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action?"><font size="2px" color="blue"> 

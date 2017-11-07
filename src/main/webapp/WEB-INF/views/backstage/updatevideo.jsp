@@ -161,7 +161,7 @@
 												<div class="col-sm-3">
 													<input type="file" name="file" multiple="multiple"
 														id="vurl" onfocus="checkvideoUrl()"
-														onblur="checkUrl()" />
+														onblur="checkUrl()" value="${oneVideoById.vurl}"/>
 												</div>
 												<div class="pleft">
 													<font color="red"><p id="error7"></p></font> <font
