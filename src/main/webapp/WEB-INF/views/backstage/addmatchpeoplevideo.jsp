@@ -1,10 +1,11 @@
-<%request.setCharacterEncoding("UTF-8");%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 
@@ -12,13 +13,12 @@
 <html>
 <head>
 <title>My JSP 'register.jsp'</title>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link
-	href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+<link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/resources/css/register.css" rel="stylesheet"
 	type="text/css">
@@ -31,7 +31,8 @@
 
 <!-- 验证 -->
 
-<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
+<script type="text/javascript" language="javascript"
+	src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 
@@ -44,16 +45,22 @@
 				background="/resources/backstage/Images/mail_left_bg.gif"><img
 				src="/resources/backstage/Images/left_top_right.gif" width="17"
 				height="29" /></td>
-			<td valign="top" background="/resources/backstage/Images/content_bg.gif">
-                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr><td height="31"><div class="title">
-                        <!-- <strong><font color="blue">修改内容</font></strong> -->
-                        
-                        </div></td></tr>
-                    </table>
-                </td>
-                <td width="16" valign="top" background="/resources/backstage/Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
-            </tr>
+			<td valign="top"
+				background="/resources/backstage/Images/content_bg.gif">
+				<table width="100%" height="31" border="0" cellpadding="0"
+					cellspacing="0" background="././Images/content_bg.gif">
+					<tr>
+						<td height="31"><div class="title">
+								<!-- <strong><font color="blue">修改内容</font></strong> -->
+
+							</div></td>
+					</tr>
+				</table>
+			</td>
+			<td width="16" valign="top"
+				background="/resources/backstage/Images/mail_right_bg.gif"><img
+				src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
+		</tr>
 		<!-- 中间部分开始 -->
 		<tr>
 			<!--第一行左边框-->
@@ -64,7 +71,7 @@
 				href="${pageContext.request.contextPath}/backstage/edu/alledu.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
-				</font></a> <br> 
+				</font></a> <br>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
@@ -83,56 +90,59 @@
 						</td>
 					</tr>
 					<!-- 商品分类开始 -->
-					<tr><td align="center">
-								<div class="register_title">
-											   <strong>新闻发布 </strong>
-											</div>
-							<HR style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)" width="80%" color=#987cb9 SIZE=3>
-	<form  class="form-horizontal col-sm-offset-1"
-		action="/backstage/edu/insertedu.action" method="post"
-		enctype="multipart/form-data" onsubmit="return edunewscheck()">
-       
-     	<div class="form-group col-md-offset-2">
-			<label for="edutitle" class="col-sm-2 control-label">标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label>
-			
-			<div class="col-sm-6">
-				<input type="text" class="form-control" name="edutitle"
-					placeholder="新闻标题" id="vtitle" onblur="titleCheck()">
-			
-			</div>
-				<div class="pleft">
-	  			 <font color="red"><p id="error1"></p></font>
-		         <font color="green"><p id="success1"></p></font>
-		         </div>
-			<!--  -->
-			<!-- <div class="pleft"><p class="msg"><i class="ati"></i></p></div>
+					<tr>
+						<td align="center">
+							<div class="register_title">
+								<strong>视频适用病 </strong>
+							</div>
+							<HR
+								style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)"
+								width="80%" color=#987cb9 SIZE=3>
+							<form class="form-horizontal col-sm-offset-1"
+								action="/backstage/matchpeoplbyevideo/addvideoanddisease.action"
+								method="post" enctype="multipart/form-data"
+								onsubmit="return edunewscheck()">
+
+								<div class="form-group col-md-offset-2">
+									<label for="edutitle" class="col-sm-2 control-label">视频名称</label>
+
+									<div class="col-sm-6">
+										<input type="text" class="form-control"
+											value="${matchpeoplevideo.video.vtitle}" readonly>
+											 <input type="hidden"
+											class="form-control" name="vid" value="${matchpeoplevideo.vid}"
+											>
+
+									</div>
+									<div class="pleft">
+										<font color="red"><p id="error1"></p></font> <font
+											color="green"><p id="success1"></p></font>
+									</div>
+									<!--  -->
+									<!-- <div class="pleft"><p class="msg"><i class="ati"></i></p></div>
 			<div class="pleft"><label><span></span><b id="count"></b></label></div>	 -->
-		</div>
-		
-		<div class="form-group col-md-offset-2">
-			<label for="educontent" class="col-sm-2 control-label">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
-			<div class="col-sm-6">
-				<textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()"></textarea>
-			</div>
-			<div class="pleft">
-	  			 <font color="red"><p id="error6"></p></font>
-		         <font color="green"><p id="success6"></p></font>
-		         </div>
-			
-		</div>
-		<!-- <div class="form-group col-md-offset-2">
-			<label for="birthday" class="col-sm-2 control-label">出生日期</label>
-			<div class="col-sm-3 am-datepicker-date">
-					<input type="date" class="form-control" name="birthday" id="birthday" onblur="checkBirthday()"
-					> 
-			</div>
-			<div class="pleft">
-	  			 <font color="red"><p id="error9"></p></font>
-		         <font color="green"><p id="success9"></p></font>
-		         </div>
-		</div>  -->
-		
-		<div class="form-group col-md-offset-2">
+								</div>
+
+								<div class="form-group col-md-offset-2">
+									<label for="educontent" class="col-sm-2 control-label">适用疾病</label>
+									<div class="col-sm-6">
+										<!-- <textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()"></textarea> -->
+										<select type="text" class="form-control" name="did">
+											<c:forEach items="${alloldDiseaselibrary}" var="alloldDiseaselibrary">
+											   
+												<option value="${alloldDiseaselibrary.id}">${alloldDiseaselibrary.diseasename}</option>
+											</c:forEach>
+										</select>
+									</div>
+									<div class="pleft">
+										<font color="red"><p id="error6"></p></font> <font
+											color="green"><p id="success6"></p></font>
+									</div>
+
+								</div>
+
+
+								<!-- <div class="form-group col-md-offset-2">
 			<label for="eduurl" class="col-sm-2 control-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
 			<div class="col-sm-3">
 				<input type="file" name="file" multiple="multiple" id="eduurl" onblur="checkUrl()"/>
@@ -141,18 +151,19 @@
 	  			 <font color="red"><p id="error4"></p></font>
 		         <font color="green"><p id="success4"></p></font>
 		         </div>
-		</div>
-		<!-- 按钮 -->
-		<div class="row">
-			<div class="col-sm-offset-3 col-md-3">
-				<br>
-				<button type="submit" class="btn btn-success">发布</button>
-				<button type="reset" class="btn btn-warning">重置</button>
-			</div>
-		</div>
-	</form>
-</td></tr>
-						
+		</div> -->
+								<!-- 按钮 -->
+								<div class="row">
+									<div class="col-sm-offset-3 col-md-3">
+										<br>
+										<button type="submit" class="btn btn-success">添加</button>
+										<button type="reset" class="btn btn-warning">重置</button>
+									</div>
+								</div>
+							</form>
+						</td>
+					</tr>
+
 					<!-- 商品分类结束 -->
 					<tr>
 						<td height="20" colspan="4">

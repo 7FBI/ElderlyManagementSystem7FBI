@@ -160,12 +160,12 @@
 												<label for="vurl" class="col-sm-2 control-label">视&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;频</label>
 												<div class="col-sm-3">
 													<input type="file" name="file" multiple="multiple"
-														id="vurl" onfocus="checkUrl()"
+														id="vurl" onfocus="checkvideoUrl()"
 														onblur="checkUrl()" />
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error4"></p></font> <font
-														color="green"><p id="success4"></p></font>
+													<font color="red"><p id="error7"></p></font> <font
+														color="green"><p id="success7"></p></font>
 												</div>
 											</div>
 											

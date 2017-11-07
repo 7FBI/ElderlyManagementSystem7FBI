@@ -140,11 +140,11 @@
 												<div class="col-sm-3">
 													<input type="file" name="file" multiple="multiple"
 														 value="${oneEducational.eduurl}"
-														id="eduurl" onblur="checkeduUrl()" />
+														id="eduurl" onblur="checkUrl()" />
 												</div>
 												<div class="pleft">
-													<font color="red"><p id="error7"></p></font> <font
-														color="green"><p id="success7"></p></font>
+													<font color="red"><p id="error4"></p></font> <font
+														color="green"><p id="success4"></p></font>
 												</div>
 											</div>
 											

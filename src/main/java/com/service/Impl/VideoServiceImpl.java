@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,7 +17,7 @@ public class VideoServiceImpl implements VideoService{
 	@Qualifier("videoMapper")
 	private VideoMapper videoMapper;
 	public void addVideo(Video video){
-		videoMapper.addVideo(video);
+		 videoMapper.addVideo(video);
 	}
 	@Override
 	public List<Video> queryAllVideo() {
@@ -42,5 +43,15 @@ public class VideoServiceImpl implements VideoService{
 	public Video queryOneVideo(Integer id) {
 		// TODO Auto-generated method stub
 		return videoMapper.queryOneVideo(id);
+	}
+	@Override
+	public List<Video> findVieoMap(Map map) {
+		// TODO Auto-generated method stub
+		return videoMapper.findVieoMap(map);
+	}
+	@Override
+	public int videoCount() {
+		// TODO Auto-generated method stub
+		return videoMapper.videoCount();
 	}
 }

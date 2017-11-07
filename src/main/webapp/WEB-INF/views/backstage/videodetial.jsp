@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -31,7 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-	
+
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -58,11 +57,12 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<%-- <a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	--%>
-				<!-- <div   class="col-md-3  input-group addstyle">
+				<a
+				href="${pageContext.request.contextPath}/backstage/video/allvideo.action?"><font
+					size="2px" color="blue"> <span
+						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
+				</font></a> <br>
+			<br> <!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
 								
@@ -74,46 +74,29 @@
 								
 						     
 							
-						</div> -->
-						 <c:if test="${empty alledunews}">
-						 <a  href="${pageContext.request.contextPath}/backstage/edu/alledu.action" ><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
-                                <div style="margin-left:150px; height: 260px;">
-                               <font color="green" >sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸</font> 
-                                </div>  
-                           </c:if>
-                 
+						</div> --> <c:if test="${empty oneVideoById}">
+					<a
+						href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action"><font
+						size="2px" color="blue"> <span
+							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
+					</font></a>
+					<br>
+					<br>
+					<div style="margin-left:100px; height: 260px;">
+						<font color="pink">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸
+						</font>
+					</div>
+				</c:if>
+
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<!-- 空白行-->
-					<!-- <div class="row div_width"> -->
-					<!-- 
-						<div class="col-md-3 col-md-offset-2">
-						
-
-								<a href="register" class="btn btn-success"> <span
-									class="glyphicon glyphicon-plus" aria-hidden="true">添加</span>
-								</a>
-						
-							/input-group
-						</div> -->
-
-
-					<!-- <div class="col-md-5">
-								
-								<input type="text" class="form-control"
-									placeholder="Search for..."> <span
-									class="input-group-btn"> <a class="btn btn-default">查询</span>
-                              
-							</div> -->
 
 
 					<!-- 一条线 -->
 					<tr>
-						<td height="40" colspan="4">
+						<td height="10" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
 								cellspacing="0" bgcolor="#CCCCCC">
 								<tr>
@@ -122,12 +105,14 @@
 							</table>
 						</td>
 					</tr>
-					<c:if test="${!empty alledunews}">   
-				<div class="row">
-				<form action="${pageContext.request.contextPath}/backstage/edu/selectEduByConditions.action" method="post">
-				<div class="col-md-offset-1 col-md-4 addstyle">
+					<c:if test="${!empty oneVideoById}">
+						<div class="row">
+							<form
+								action="${pageContext.request.contextPath}/backstage/video/findvideos.action"
+								method="post">
+								<%-- <div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
-							<input type="text" class="form-control" name="findEduByConditions" 
+							<input type="text" class="form-control" name="queryVideoByConditions" 
 								placeholder="Search for..."> <span
 								class="input-group-btn">
 								<button class="btn btn-info" type="submit">
@@ -141,88 +126,87 @@
 						</div>
 				</form>
 					
-					<%-- <div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control" id="findbycondition" name="findbycondition"
-								placeholder="Search for..."/>
-								<span
-								class="input-group-btn">
-								<button class="btn btn-info" type="button">
-								<a href="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action?findbycondition=${findbycondition}">Search</a>
-								</button> 
-									
-							</span>
-						</div> --%>
 					
-						<!-- /input-group -->
 					</div>
 
 					<div class="col-md-3 col-md-offset-1 addstyle">
 						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/addedunews"
+							href="${pageContext.request.contextPath}/gotoBackstage/addvideo"
 							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">发布新闻</span>
+							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加视频</span>
 						</a>
 
 						<!-- /input-group -->
 					</div>
-				</div>
-					<!-- 商品分类开始 -->
-					<tr>
-						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
-
-						<td>
-
-							<table width="100%">
+				</div> --%>
+								<!-- 商品分类开始 -->
 								<tr>
-									<td colspan="2">
-										<form action="" method="">
-											<table width="100%" class="cont tr_color"
-												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="4"><font size="5px">新闻列表</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color">
-													<th>序号</th>
-													<th >标题</th>
-													
-													<th >发布时间</th>
-											
-													<th>操作</th>
-												</tr>
-												<c:forEach items="${alledunews }" var="alledunews" varStatus="var">
-													<tr align="left" class="d">
+									<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
-														<td>${var.count}</td>
-														<td>${alledunews.edutitle}</td>
-														
-														<td>
-														<fmt:formatDate value="${alledunews.edutime}" pattern="yyyy-MM-dd" />
-														
-														
-														
-														</td>
-														
-														<td><a href="${pageContext.request.contextPath}/backstage/edu/deleteedu.action?id=${alledunews.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
-															
-															<a href="${pageContext.request.contextPath}/backstage/edu/selectedubyid.action?id=${alledunews.id}" role="button" class="btn btn-warning btn-sm">修改</a>
-															
-															<a href="${pageContext.request.contextPath}/backstage/edu/selectedudetailbyid.action?id=${alledunews.id}" role="button" class="btn btn-info btn-sm">详情</a></td>
-															
+									<td>
 
-													</tr>
-												</c:forEach>
+										<table width="100%">
+											<tr>
+												<td colspan="2">
+													<form action="" method="">
+														<!-- <table width="100%" class="cont tr_color"
+															 > -->
+															<table class="table table-hover table-bordered">
+															<tr align="center" height="50px" class="success">
+																<td colspan="2" ><font size="5px">视频详情</font></td>
+															</tr>
+															
+															<tr align="left">
+																<td width="20%">视频名称</td>
+																<td width="80%">${oneVideoById.vtitle}</td>
+															</tr>
+															<tr align="left">
+																<td width="20%">主讲教师</td>
+																<td  width="80%">${oneVideoById.vteacher}</td>
+															</tr>
+															<tr align="left">
+																<td width="20%">价格</td>
+																<td  width="80%"><font color="red">${oneVideoById.vprice}</font></td>
+															</tr>
+															<tr align="left">
+																<td width="20%">内容描述</td>
+																<td style="word-break:break-all;">${oneVideoById.vcontent}</td>
+															</tr>
+															<tr >
+																<td width="20%">视频</td>
+																<td width="80%" align="center"><video width="200" height="160" controls>
+																	<source src="/files${oneVideoById.vurl}"
+																		type="video/mp4"> <source
+																		src="/files${oneVideoById.vurl}" type="video/ogg">
+																	<!-- 如果浏览器不支持video标签，则使用flash --> <embed
+																		src="/files${oneVideoById.vurl}"
+																		type="application/x-shockwave-flash" width="240"
+																		height="160" allowscriptaccess="always"
+																		allowfullscreen="true"></embed> 您的浏览器不支持视频播放 </video> <%-- ${allVideos.vurl} --%>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="2" align="center"><a
+																	href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${oneVideoById.id}"
+																	onclick="return confirm('确定要删除吗')" role="button"
+																	class="btn btn-danger btn-sm">删除</a> <a
+																	href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${oneVideoById.id}"
+																	role="button" class="btn btn-warning btn-sm">修改</a></td>
+															</tr>
 
-											</table>
-										</form>
-									</td>
-								</tr>
-							</table>
-							</c:if>
-						</td>
-						<td width="2%">&nbsp;</td>
+														</table>
+													</form>
+												</td>
+											</tr>
+										</table>
+					</c:if>
+					</td>
+					<td width="2%">&nbsp;</td>
 					</tr>
+
 					<!-- 商品分类结束 -->
 					<tr>
-						<td height="100" colspan="4">
+						<td height="20" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
 								cellspacing="0" bgcolor="#CCCCCC">
 								<tr>

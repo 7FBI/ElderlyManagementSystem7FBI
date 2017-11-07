@@ -33,7 +33,9 @@ public class BackVideoController {
 		String newVideoUrl=UploadImage.addImage(file, "/backstage/video", request);
 		System.out.println(newVideoUrl);
 		video.setVurl(newVideoUrl);
+		System.out.println(video.getId());
 		videoService.addVideo(video);
+		System.out.println(video.getId());
 		List<Video> allVideos=videoService.queryAllVideo();
 		ModelAndView modelAndView=new ModelAndView();
 		modelAndView.addObject("allVideos", allVideos);
@@ -42,13 +44,20 @@ public class BackVideoController {
 	}
 //	视频列表
 	@RequestMapping("/allvideo")
-	public ModelAndView allVideos(){
-		List<Video> allVideos=videoService.queryAllVideo();
+	public ModelAndView allVideos(HttpServletRequest request){
 		ModelAndView modelAndView=new ModelAndView();
+		/*if(request.getSession().getAttribute("managerinfo")==null){
+			modelAndView.setViewName("backstage/loginWTF");
+			return modelAndView;
+		}*/
+		List<Video> allVideos=videoService.queryAllVideo();
+		
 		modelAndView.addObject("allVideos", allVideos);
 		modelAndView.setViewName("backstage/allvideoslist");
 		return modelAndView;
 	}
+	
+	
 //	根据id查询
 	@RequestMapping("/selectvideobyid")
 	public ModelAndView selectvideoById(Integer id){
@@ -81,6 +90,15 @@ public class BackVideoController {
 		ModelAndView modelAndView=new ModelAndView();
 		modelAndView.addObject("allVideos", allVideos);
 		modelAndView.setViewName("backstage/allvideoslist");
+		return modelAndView;
+	}
+	@RequestMapping("/videodetailbyid")
+	public ModelAndView selectvideodetailById(Integer id){
+		Video oneVideoById=videoService.queryOneVideo(id);
+		System.out.println(oneVideoById);
+		ModelAndView modelAndView=new ModelAndView();
+		modelAndView.addObject("oneVideoById", oneVideoById);
+		modelAndView.setViewName("backstage/videodetial");
 		return modelAndView;
 	}
 }

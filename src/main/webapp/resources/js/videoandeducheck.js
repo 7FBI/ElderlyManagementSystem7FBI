@@ -80,7 +80,7 @@ function contentCheck() {
 		var str = "× 内容不能为空";
 		document.getElementById("error3").innerHTML = str;
 		return false;
-	} else if (reg.test(username)) {
+	} else if (reg.test(vcontent)) {
 		document.getElementById("error3").innerHTML = "";
 		document.getElementById("success3").innerHTML = "√";
 		return true;
@@ -119,8 +119,8 @@ function educontentCheck() {
 }
 function checkUrl() {
 	//var reg = /^[0-9a-z|A-Z]{6,12}$/;
-	var vurl = document.getElementById("vurl").value;
-	if (vurl.length == 0) {
+	var eduurl = document.getElementById("eduurl").value;
+	if (eduurl.length == 0) {
 		var str = "× 图片不能为空";
 		document.getElementById("error4").innerHTML = str;
 		return false;
@@ -130,10 +130,10 @@ function checkUrl() {
 		return true;
 	}
 }
-function checkeduUrl() {
+function checkvideoUrl() {
 	//var reg = /^[0-9a-z|A-Z]{6,12}$/;
-	var eduurl = document.getElementById("eduurl").value;
-	if (eduurl.length == 0) {
+	var vurl = document.getElementById("vurl").value;
+	if (vurl.length == 0) {
 		var str = "× 视频不能为空";
 		document.getElementById("error7").innerHTML = str;
 		return false;
@@ -145,7 +145,7 @@ function checkeduUrl() {
 }
 
 function videocheck() {  
-    if( titleCheck() && teacherCheck() && priceCheck() && contentCheck() && checkeduUrl()){ 
+    if( titleCheck() && teacherCheck() && priceCheck() && contentCheck() && checkvideoUrl()){ 
     return true;  
     }else{
     	return false;

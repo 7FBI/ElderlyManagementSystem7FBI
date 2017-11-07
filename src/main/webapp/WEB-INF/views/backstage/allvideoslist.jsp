@@ -60,7 +60,7 @@
 				<%-- <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	 --%><br><br>
+	 --%>
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -76,7 +76,7 @@
 						</div> -->
 						 
                   <c:if test="${empty allVideos}">
-                               <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
+                               <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action?"><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>
@@ -146,29 +146,29 @@
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="9"><font size="5px">用户列表</font></td></tr>
+												<tr align="center" height="50px"><td colspan="5"><font size="5px">用户列表</font></td></tr>
 												<tr align="center" height="40px" class="td_title_color">
 													<th>序号</th>
 													<th>视频名称</th>
-													<th>主讲教师</th>
+													<!-- <th>主讲教师</th>
 													
 													<th>价格</th>
 													<th>内容描述</th>
 													
-													<th>视频</th>
-													<th></th>
+													<th>视频</th> -->
+													<th>适用疾病</th>
 													<th>推荐用户</th>
 													<th>操作</th>
 												</tr>
-												<c:forEach items="${allVideos }" var="allVideos" varStatus="var">
+												<c:forEach items="${allVideos}" var="allVideos" varStatus="var">
 													<tr align="left" class="d">
 
 														<td>${var.count}</td>
 														<td>${allVideos.vtitle}</td>
-														<td>${allVideos.vteacher}</td>
+														<%-- <td>${allVideos.vteacher}</td>
 														
 														<td>${allVideos.vprice}</td>
-														<td>${allVideos.vcontent}</td>
+														<td nowrap>${allVideos.vcontent}</td>
 														<td>
 														  <video width="200" height="160" controls>
                                                             <source src="/files${allVideos.vurl}"  type="video/mp4">
@@ -178,9 +178,9 @@
                                                                 width="240" height="160" allowscriptaccess="always" allowfullscreen="true"></embed>
                                                                                                                                                                  您的浏览器不支持视频播放
                                                            </video>
-														<%-- ${allVideos.vurl} --%>
-														</td>
-														<td></td>
+														${allVideos.vurl}
+														</td> --%>
+														<td><a href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?vid=${allVideos.id}">适用疾病</a></td>
 														<td>
 														<a
 															href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
@@ -189,6 +189,8 @@
 															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
 															<a
 															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}" role="button" class="btn btn-warning btn-sm">修改</a>
+                                                           <a
+															href="${pageContext.request.contextPath}/backstage/video/videodetailbyid.action?id=${allVideos.id}" role="button" class="btn btn-info btn-sm">详情</a>
 
 															</td>
 
