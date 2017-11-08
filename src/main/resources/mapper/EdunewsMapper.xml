@@ -74,6 +74,14 @@
       </if>
     </where>  
   </select>
+  <!--查询所有的记录数  -->
+  <select id="eduCount" resultType="java.lang.Integer">
+  select count(*) from edunews
+  </select>
+  <!--分页  -->
+  <select id="findAllEduNews" parameterType="hashMap" resultMap="BaseResultMap">
+  select * from edunews order by id limit #{page},#{max}
+  </select>
   <!-- 删除 -->
   <delete id="deleteEduById" parameterType="java.lang.Integer">
      delete from edunews where id=#{id}

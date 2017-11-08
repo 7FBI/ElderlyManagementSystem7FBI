@@ -137,16 +137,22 @@
 	<!--根据管理员的地址信息查找出该地所有的用户 -->
 	<select id="findAllUserByManager" parameterType="java.lang.Integer"
 		resultMap="alluserdetail">
-		select old_Users.id id,username,sex,
+		<!-- select old_Users.id id,username,sex,
 		idcard,birthday,tell,address,uid,password,
 		userurl,localarea.provincename myarea,
-		localarea.id lid from
-		localarea,old_Users,manager
+		localarea.id lid from localarea,old_Users,manager
 		where localarea.id=manager.locaid
-		and
-		old_Users.area=manager.locaid
-		and
-		manager.locaid=#{locaid,jdbcType=INTEGER}
+		and old_Users.area=manager.locaid
+		and manager.locaid=#{locaid,jdbcType=INTEGER} -->
+		CREATE OR REPLACE view localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,myarea,lid)
+           AS
+        select old_Users.id id,username,sex,
+		idcard,birthday,tell,address,uid,password,
+		userurl,localarea.provincename myarea,
+		localarea.id lid from localarea,old_Users,manager
+		where localarea.id=manager.locaid
+		and old_Users.area=manager.locaid
+		and manager.locaid=#{locaid,jdbcType=INTEGER}
 	</select>
 	<!-- 修改用户信息 -->
 	<update id="modifyById" parameterType="com.bean.OldUsers">
@@ -943,13 +949,14 @@
 		old_Users
 	</select>
 
-	<!--分页 limit start代表开始行数 size 代表每一页显示的行数 -->
+	<!--分页-->
+<select id="findUserMap" parameterType="hashMap" resultMap="alluserdetail">
+  select * from localuser ORDER BY id LIMIT #{page},#{max} 
+</select>
 
-
-	<!--查询出所有的用户数 -->
+	<!--查询出各地所有的用户数 -->
 	<select id="getOldUsersCount" resultType="java.lang.Integer">
-		select count(*) from
-		old_Users
+		SELECT count(*) from localuser	
 	</select>
 	<!-- 查询出是否存在 -->
 	<select id="selectByTellOrUidOrIdcard" parameterType="hashMap" resultMap="BaseResultMap">

@@ -23,7 +23,7 @@
 <link href="/resources/css/register.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript"
-	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
@@ -216,13 +216,30 @@
 									</td>
 								</tr>
 							</table>
+							<table class="table">
+									<tr>
+										<td class="form-inline">
+											<button page="page" value="0" class="btn btn-default">首页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page-1}">上一页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page}">${page+1}</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page+1}">下一页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${counts}">尾页(${counts+1})</button>
+											<div class="form-group">
+												<label for="exampleInputName2">跳到:</label><input page="page"
+													style="width: 60px" type="text" class="form-control"><label
+													for="exampleInputName2">&nbsp;页</label>
+											</div>
+											<button id="jumpBtn" class="btn btn-default">跳转</button>&nbsp;
+										</td>
+									</tr>
+								</table>
 							</c:if>
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>
 					<!-- 商品分类结束 -->
 					<tr>
-						<td height="100" colspan="4">
+						<td height="50" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
 								cellspacing="0" bgcolor="#CCCCCC">
 								<tr>
@@ -262,5 +279,16 @@
 				height="17" /></td>
 		</tr>
 	</table>
+	<script type="text/javascript">
+	 $("#jumpBtn").click(function(){
+			var b = $("input[page='page']").val();
+			window.location.href = "/backstage/edu/alledu?page=" + b;
+		})
+
+		$("button[page='page']").click(function() {
+			var b = $(this).val();
+			window.location.href = "/backstage/edu/alledu?page=" + b;
+		})
+	</script>
 </body>
 </html>

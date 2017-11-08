@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -52,6 +53,18 @@ public class EdunewsServiceImpl implements EdunewsService{
 	public List<Edunews> queryEduByConditions(String findEduByConditions) {
 		// TODO Auto-generated method stub
 		return edunewsMapper.queryEduByConditions(findEduByConditions);
+	}
+
+	@Override
+	public int eduCount() {
+		// TODO Auto-generated method stub
+		return edunewsMapper.eduCount();
+	}
+
+	@Override
+	public List<Edunews> findAllEduNews(Map map) {
+		// TODO Auto-generated method stub
+		return edunewsMapper.findAllEduNews(map);
 	}
 	
 

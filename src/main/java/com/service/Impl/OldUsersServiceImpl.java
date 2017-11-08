@@ -130,6 +130,12 @@ public class OldUsersServiceImpl implements OldUsersService {
 		return oldUsersMapper.selectByTellOrUidOrIdcard(map);
 	}
 
+	@Override
+	public List<OldUsers> findUserMap(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.findUserMap(map);
+	}
+
 	
 
 	

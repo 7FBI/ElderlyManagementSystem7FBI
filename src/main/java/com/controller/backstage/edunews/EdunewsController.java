@@ -3,7 +3,9 @@ package com.controller.backstage.edunews;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,11 +32,38 @@ public class EdunewsController {
 	private EdunewsService edunewsService;
 	//查询所有
 	@RequestMapping("/alledu")
-	public ModelAndView selectAllEdunews(){
-		List <Edunews> alledunews=edunewsService.selectAllEdu();
+	public ModelAndView selectAllEdunews(HttpServletRequest request){
 		ModelAndView modelAndView =new ModelAndView();
-		modelAndView.addObject("alledunews", alledunews);
+//		if(request.getSession().getAttribute("managerinfo")==null){
+//			modelAndView.setViewName("backstage/loginWTF");
+//			return modelAndView;
+//		}
 		modelAndView.setViewName("/backstage/alleduinfo");
+		Map<String,Object>map=new HashMap<String, Object>();
+		Integer max=5;
+		Integer page=0;
+		Integer counts=0;
+		//当前页
+		if(request.getParameter("page")!=null){
+			page=Integer.valueOf(request.getParameter("page"));
+		}
+		if(page<=0){
+			page=0;
+		}
+		counts=edunewsService.eduCount()/max;
+		if(counts<=0){
+			counts=0;
+		}
+		if(page>=counts){
+			page=counts;
+		}
+		map.put("page", page*max);
+		map.put("max", max);
+//		List <Edunews> alledunews=edunewsService.selectAllEdu();
+		List <Edunews> alledunews=edunewsService.findAllEduNews(map);
+		modelAndView.addObject("alledunews", alledunews);
+		modelAndView.addObject("page", page);
+		modelAndView.addObject("counts", counts);
 		return modelAndView;
 	}
 	//添加

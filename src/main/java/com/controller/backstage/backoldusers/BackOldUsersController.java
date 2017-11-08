@@ -5,7 +5,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,10 +80,38 @@ public class BackOldUsersController {
 			oldUsersService.insertOldUsers(oldUsers);
 			//modelAndView.addObject("err", "");
 			if(request.getSession().getAttribute("manager")!=null){
-				Manager manager=(Manager) request.getSession().getAttribute("manager");
+				/*Manager manager=(Manager) request.getSession().getAttribute("manager");
 				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
 				modelAndView.addObject("olduser", olduser);
+				modelAndView.setViewName("backstage/allolduser");*/
+				Manager manager = (Manager) request.getSession().getAttribute("manager");
 				modelAndView.setViewName("backstage/allolduser");
+				Map<String,Object>map=new HashMap<String, Object>();
+				Integer max=2;
+				Integer page=0;
+				Integer counts=0;
+				if(request.getParameter("page")!=null){
+					page=Integer.valueOf(request.getParameter("page"));
+				}
+				if(page<=0){
+					page=0;
+				}
+				//counts = oldUsersService.getOldUsersCount(manager.getLocaid()) / max;
+				counts = oldUsersService.getOldUsersCount() / max;
+				System.out.println(counts);
+				if(counts<=0){
+					counts=0;
+				}
+				if(page>=counts){
+					page=counts;
+				}
+				map.put("page", page * max);
+				map.put("max", max);
+				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+				List<OldUsers> olduser = oldUsersService.findUserMap(map);
+				modelAndView.addObject("olduser", olduser);
+				modelAndView.addObject("page", page);
+				modelAndView.addObject("counts", counts);
 			}
 			
 		}
@@ -129,6 +159,47 @@ public class BackOldUsersController {
 		return modelAndView;
 		
 	}
+	// 根据管理员的所属地找出该地的所有用户并进行分页
+		@RequestMapping("/findUserByManagerPage")
+		public ModelAndView selectUserByManagerPage(HttpServletRequest request) {
+			ModelAndView modelAndView = new ModelAndView();
+			if (request.getSession().getAttribute("manager") == null) {
+				modelAndView.setViewName("backstage/loginWTF");
+				return modelAndView;
+			}
+			if (request.getSession().getAttribute("manager") != null) {
+				Manager manager = (Manager) request.getSession().getAttribute("manager");
+				modelAndView.setViewName("backstage/allolduser");
+				Map<String,Object>map=new HashMap<String, Object>();
+				Integer max=2;
+				Integer page=0;
+				Integer counts=0;
+				if(request.getParameter("page")!=null){
+					page=Integer.valueOf(request.getParameter("page"));
+				}
+				if(page<=0){
+					page=0;
+				}
+				//counts = oldUsersService.getOldUsersCount(manager.getLocaid()) / max;
+				counts = oldUsersService.getOldUsersCount() / max;
+				System.out.println(counts);
+				if(counts<=0){
+					counts=0;
+				}
+				if(page>=counts){
+					page=counts;
+				}
+				map.put("page", page * max);
+				map.put("max", max);
+				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+				List<OldUsers> olduser = oldUsersService.findUserMap(map);
+				modelAndView.addObject("olduser", olduser);
+				modelAndView.addObject("page", page);
+				modelAndView.addObject("counts", counts);
+			}
+			return modelAndView;
+
+		}
 //根据id查找用户信息
 	@RequestMapping(value="/queryUserById")
 	@ResponseBody
@@ -150,10 +221,38 @@ public class BackOldUsersController {
 		 oldUsersService.modifyById(users);
 		 ModelAndView modelAndView=new ModelAndView();
 		 if(request.getSession().getAttribute("manager")!=null){
-				Manager manager=(Manager) request.getSession().getAttribute("manager");
-				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
-				modelAndView.addObject("olduser", olduser);
+//				Manager manager=(Manager) request.getSession().getAttribute("manager");
+//				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
+//				modelAndView.addObject("olduser", olduser);
+//				modelAndView.setViewName("backstage/allolduser");
+				Manager manager = (Manager) request.getSession().getAttribute("manager");
 				modelAndView.setViewName("backstage/allolduser");
+				Map<String,Object>map=new HashMap<String, Object>();
+				Integer max=2;
+				Integer page=0;
+				Integer counts=0;
+				if(request.getParameter("page")!=null){
+					page=Integer.valueOf(request.getParameter("page"));
+				}
+				if(page<=0){
+					page=0;
+				}
+				//counts = oldUsersService.getOldUsersCount(manager.getLocaid()) / max;
+				counts = oldUsersService.getOldUsersCount() / max;
+				System.out.println(counts);
+				if(counts<=0){
+					counts=0;
+				}
+				if(page>=counts){
+					page=counts;
+				}
+				map.put("page", page * max);
+				map.put("max", max);
+				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+				List<OldUsers> olduser = oldUsersService.findUserMap(map);
+				modelAndView.addObject("olduser", olduser);
+				modelAndView.addObject("page", page);
+				modelAndView.addObject("counts", counts);
 			}
 		return modelAndView;
 	}

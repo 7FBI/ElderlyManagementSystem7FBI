@@ -1,7 +1,9 @@
 package com.controller.backstage.video;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -50,10 +52,32 @@ public class BackVideoController {
 			modelAndView.setViewName("backstage/loginWTF");
 			return modelAndView;
 		}*/
-		List<Video> allVideos=videoService.queryAllVideo();
+		modelAndView.setViewName("backstage/allvideoslist");
+		Map<String,Object> map=new HashMap<String, Object>();
+		Integer max=5;
+		Integer page=0;
+		Integer counts=0;
+//		当前页
+		if (request.getParameter("page")!=null) {
+					page=Integer.valueOf(request.getParameter("page"));
+				}
+		if(page<0){
+			page=0;
+		}
+		counts=videoService.videoCount()/max;
+		if(counts<=0){
+			counts=0;
+		}
+		if(page>=counts){
+			page=counts;
+		}
+		map.put("page", page*max);
+		map.put("max", max);
+		List<Video> allVideos=videoService.findVieoMap(map);
 		
 		modelAndView.addObject("allVideos", allVideos);
-		modelAndView.setViewName("backstage/allvideoslist");
+		modelAndView.addObject("page", page);
+		modelAndView.addObject("counts", counts);
 		return modelAndView;
 	}
 	

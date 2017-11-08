@@ -22,7 +22,7 @@
 <link href="/resources/css/register.css" rel="stylesheet"
 	type="text/css">
 <script type="text/javascript"
-	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
@@ -30,7 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-	
+
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -60,24 +60,25 @@
 				<%-- <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	 --%>
-				
-						 
-                  <c:if test="${empty allVideos}">
-                               <a  href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action?"><font size="2px" color="blue"> 
-	
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
-                                <div style="margin-left:100px; height: 260px;">
-                               <font color="pink" >sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸</font> 
-                                </div>  
-                           </c:if>
-                    
+	 --%> <c:if test="${empty allVideos}">
+					<a
+						href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action?"><font
+						size="2px" color="blue"> <span
+							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
+					</font></a>
+					<br>
+					<br>
+					<div style="margin-left:100px; height: 260px;">
+						<font color="pink">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸
+						</font>
+					</div>
+				</c:if>
+
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
 					<!-- 空白行-->
-					
+
 
 					<!-- 一条线 -->
 					<tr>
@@ -90,70 +91,75 @@
 							</table>
 						</td>
 					</tr>
-					<c:if test="${!empty allVideos}">        
-				<div class="row">
-				<form action="${pageContext.request.contextPath}/backstage/video/findvideos.action" method="post">
-				<div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control" name="queryVideoByConditions" 
-								placeholder="Search for..."> <span
-								class="input-group-btn">
-								<button class="btn btn-info" type="submit">
-								<!-- <a href="#">   </a> -->
-								<!-- <a href="#" type="submit" role="button">Search</a> -->
-			                   <!--  <input type="submit" value="Search"> -->
-								Search
-								</button> 
-									
-							</span>
+					<c:if test="${!empty allVideos}">
+						<div class="row">
+							<form
+								action="${pageContext.request.contextPath}/backstage/video/findvideos.action"
+								method="post">
+								<div class="col-md-offset-1 col-md-4 addstyle">
+									<div class="input-group">
+										<input type="text" class="form-control"
+											name="queryVideoByConditions" placeholder="Search for...">
+										<span class="input-group-btn">
+											<button class="btn btn-info" type="submit">
+												<!-- <a href="#">   </a> -->
+												<!-- <a href="#" type="submit" role="button">Search</a> -->
+												<!--  <input type="submit" value="Search"> -->
+												Search
+											</button>
+
+										</span>
+									</div>
+							</form>
+
+
 						</div>
-				</form>
-					
-					
-					</div>
 
-					<div class="col-md-3 col-md-offset-1 addstyle">
-						<a
-							href="${pageContext.request.contextPath}/gotoBackstage/addvideo"
-							class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-							<span class="glyphicon glyphicon-plus" aria-hidden="true">添加视频</span>
-						</a>
+						<div class="col-md-3 col-md-offset-1 addstyle">
+							<a
+								href="${pageContext.request.contextPath}/gotoBackstage/addvideo"
+								class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
+								<span class="glyphicon glyphicon-plus" aria-hidden="true">添加视频</span>
+							</a>
 
-						<!-- /input-group -->
-					</div>
-				</div>
-					<!-- 商品分类开始 -->
-					<tr>
-						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
+							<!-- /input-group -->
+						</div>
+						</div>
+						<!-- 商品分类开始 -->
+						<tr>
+							<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
-						<td>
-                          
-							<table width="100%">
-								<tr>
-									<td colspan="2">
-										<form action="" method="">
-											<table width="100%" class="cont tr_color"
-												style="table-layout:fixed;">
-												<tr align="center" height="50px"><td colspan="5"><font size="5px">用户列表</font></td></tr>
-												<tr align="center" height="40px" class="td_title_color">
-													<th>序号</th>
-													<th>视频名称</th>
-													<!-- <th>主讲教师</th>
+							<td>
+
+								<table width="100%">
+									<tr>
+										<td colspan="2">
+											<form action="" method="">
+												<table width="100%" class="cont tr_color"
+													style="table-layout:fixed;">
+													<tr align="center" height="50px">
+														<td colspan="5"><font size="5px">用户列表</font></td>
+													</tr>
+													<tr align="center" height="40px" class="td_title_color">
+														<th>序号</th>
+														<th>视频名称</th>
+														<!-- <th>主讲教师</th>
 													
 													<th>价格</th>
 													<th>内容描述</th>
 													
 													<th>视频</th> -->
-													<th>适用疾病</th>
-													<th>推荐用户</th>
-													<th>操作</th>
-												</tr>
-												<c:forEach items="${allVideos}" var="allVideos" varStatus="var">
-													<tr align="left" class="d">
+														<th>适用疾病</th>
+														<th>推荐用户</th>
+														<th>操作</th>
+													</tr>
+													<c:forEach items="${allVideos}" var="allVideos"
+														varStatus="var">
+														<tr align="left" class="d">
 
-														<td>${var.count}</td>
-														<td>${allVideos.vtitle}</td>
-														<%-- <td>${allVideos.vteacher}</td>
+															<td>${var.count}</td>
+															<td>${allVideos.vtitle}</td>
+															<%-- <td>${allVideos.vteacher}</td>
 														
 														<td>${allVideos.vprice}</td>
 														<td nowrap>${allVideos.vcontent}</td>
@@ -168,36 +174,53 @@
                                                            </video>
 														${allVideos.vurl}
 														</td> --%>
-														<td><a href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?vid=${allVideos.id}">适用疾病</a></td>
-														<td>
-														<a
-															href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
-														</td>
-														<td><a
-															href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}" onclick="return confirm('确定要删除吗')" role="button" class="btn btn-danger btn-sm">删除</a>
-															<a
-															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}" role="button" class="btn btn-warning btn-sm">修改</a>
-                                                           <a
-															href="${pageContext.request.contextPath}/backstage/video/videodetailbyid.action?id=${allVideos.id}" role="button" class="btn btn-info btn-sm">详情</a>
-
+															<td><a
+																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?vid=${allVideos.id}">适用疾病</a></td>
+															<td><a
+																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
 															</td>
+															<td><a
+																href="${pageContext.request.contextPath}/backstage/video/deletevideo.action?id=${allVideos.id}"
+																onclick="return confirm('确定要删除吗')" role="button"
+																class="btn btn-danger btn-sm">删除</a> <a
+																href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}"
+																role="button" class="btn btn-warning btn-sm">修改</a> <a
+																href="${pageContext.request.contextPath}/backstage/video/videodetailbyid.action?id=${allVideos.id}"
+																role="button" class="btn btn-info btn-sm">详情</a></td>
 
-													</tr>
-												</c:forEach>
-                                 
-											</table>
-										</form>
-									</td>
-								</tr>
-							</table>
-							 </c:if>
-						</td>
-						<td width="2%">&nbsp;</td>
+														</tr>
+													</c:forEach>
+
+												</table>
+											</form>
+										</td>
+									</tr>
+								</table>
+								<table class="table">
+									<tr>
+										<td class="form-inline">
+											<button page="page" value="0" class="btn btn-default">首页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page-1}">上一页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page}">${page+1}</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${page+1}">下一页</button>&nbsp;
+											<button page="page" class="btn btn-default" value="${counts}">尾页(${counts+1})</button>
+											<div class="form-group">
+												<label for="exampleInputName2">跳到:</label><input page="page"
+													style="width: 60px" type="text" class="form-control"><label
+													for="exampleInputName2">&nbsp;页</label>
+											</div>
+											<button id="jumpBtn" class="btn btn-default">跳转</button>&nbsp;
+										</td>
+									</tr>
+								</table>
+					</c:if>
+					</td>
+					<td width="2%">&nbsp;</td>
 					</tr>
-					
+
 					<!-- 商品分类结束 -->
 					<tr>
-						<td height="100" colspan="4">
+						<td height="50" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
 								cellspacing="0" bgcolor="#CCCCCC">
 								<tr>
@@ -237,5 +260,35 @@
 				height="17" /></td>
 		</tr>
 	</table>
+	<script type="text/javascript">
+		$("#deleteBtn").click(function() {
+							var b = $(this).val();
+							
+									$.ajax({
+										type : 'post',
+										url : b,
+										success : function(data) {
+											if (data.toString() == "true") {
+												window.location.href = "/backstage/video/allvideo";
+											} else {
+												alert(data);
+											}
+										},
+										error : function() {
+											alert("网络错误!!");
+										}
+									})
+						});
+		
+		 $("#jumpBtn").click(function(){
+			var b = $("input[page='page']").val();
+			window.location.href = "/backstage/video/allvideo?page=" + b;
+		})
+
+		$("button[page='page']").click(function() {
+			var b = $(this).val();
+			window.location.href = "/backstage/video/allvideo?page=" + b;
+		})
+	</script>
 </body>
 </html>

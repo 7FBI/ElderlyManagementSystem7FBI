@@ -68,7 +68,7 @@ $(window).load(function(){
 <!-- 404 graphic -->
 <!-- Not found text -->
 	<div class="not-found-text">
-	<input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);">
+	 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input type="button" name="Submit" value="返回上一页" onclick="javascript:window.history.back(-1);">
     	<h1 class="not-found-text">File not found, sorry!</h1>
     </div>
 <!-- Not found text -->

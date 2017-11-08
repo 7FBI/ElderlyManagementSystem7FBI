@@ -78,5 +78,6 @@ public interface OldUsersMapper {
     public List<OldUsers> queryByConditions(String findbycondition);
 //  获得用户总数
     public int getOldUsersCount();
+    public List<OldUsers> findUserMap(Map map);
     
 }
