@@ -584,4 +584,43 @@
 		where
 		id=#{id}
 	</delete>
+<!-- 以下罗双专属 -->	
+<resultMap type="Products" id="productsAndClassification">
+<id property="id" column="id"/>
+<result property="pname" column="pname"/>
+<result property="price" column="price"/>
+<result property="pdescription" column="pdescription"/>
+<result property="count" column="count"/>
+<result property="producturl" column="producturl"/>
+<result property="pattern1" column="pattern1"/>
+<result property="pattern2" column="pattern2"/>
+<result property="pattern3" column="pattern3"/>
+<result property="pattern4" column="pattern4"/>
+<result property="pattern5" column="pattern5"/>
+<association property="classifications" javaType="Classification">
+<id property="id" column="cid"/>
+<result property="classname" column="classname"/>
+</association>
+</resultMap>
+	<!--商品根据商品名模糊查询  -->
+<select id="selectProductsByLikeName" parameterType="java.lang.String" resultType="Products">
+select * from products where pname like '%${value}%'
+</select>
+<!-- 根据商品类型查询商品 -->
+<select id="selectAllProductsByType" parameterType="java.lang.Integer" resultType="Products">
+select * from products where tid = #{tid}
+    
+</select>
+
+<select id="selectProductDetailByPrimaryKey" parameterType="java.lang.Integer" resultMap="productsAndClassification" >
+select p.*,c.id cid,c.classname classname from products p,classification c where p.tid = c.id and p.id = #{id}
+</select>
+<!-- 根据商品匹配疾病 -->
+<select id="selectOldDiseaselibraryByProducts" parameterType="java.lang.Integer" resultType="OldDiseaselibrary">
+SELECT diseasename,description,alias FROM old_Diseaselibrary odl,products p,matchdisease md WHERE p.id = md.pid AND md.did = odl.id AND pid = #{pid}
+ 
+</select>
+<!-- 以上罗双专属 -->	
+
+
 </mapper>

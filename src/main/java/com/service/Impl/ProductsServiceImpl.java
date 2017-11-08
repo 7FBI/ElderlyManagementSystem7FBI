@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
+import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
 import com.dao.ProductsMapper;
@@ -106,5 +107,29 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<Products> selectProductList(Map list) {
 		// TODO Auto-generated method stub
 		return productsMapper.selectProductList(list);
+	}
+	
+	@Override
+	public List<Products> selectProductsByLikeName(String pName) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductsByLikeName(pName);
+	}
+
+	@Override
+	public List<Products> selectAllProductsByType(Integer tid) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectAllProductsByType(tid);
+	}
+
+	@Override
+	public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectOldDiseaselibraryByProducts(pid);
+	}
+
+	@Override
+	public Products selectProductDetailByPrimaryKey(Integer id) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductDetailByPrimaryKey(id);
 	}
 }

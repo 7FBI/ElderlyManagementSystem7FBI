@@ -32,9 +32,10 @@
 			<li class="about"><a href="/gotoFront/HealthSystem">健康系统<span>关于健康？</span></a></li>
 			<li class="service"><a href="/gotoFront/EducationSystem">教育系统<span>学习使人快乐
 						？</span></a></li>
-			<li class="cases"><a href="/gotoFront/ElectronicCommerce">电子商务<span>我们能卖什么？</span></a></li>
+			<li class="cases"><a href="/front/products/selectAllProducts">电子商务<span>我们能卖什么？</span></a></li>
 			<li class="client"><c:if test="${oldUsers==null }">
-					<a href="/gotoFront/ElectronicCommerce">个人中心<span>我的资料？</span></a>
+					<a href="/front/oldUsers/selectByUid">个人中心<span>我的资料？</span></a>
+
 				</c:if> <c:if test="${oldUsers!=null }">
 					<a href="/gotoFront/ElectronicCommerce">${oldUsers.username}<span>我的首页！</span></a>
 				</c:if></li>

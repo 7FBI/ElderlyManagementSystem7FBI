@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
 
@@ -75,4 +76,10 @@ public interface ProductsMapper {
 	List<Products> selectProductUrlByPid(Integer pid);
 
 	List<Products> selectAllProducts();
+	
+	 public List<Products> selectProductsByLikeName(String pName);
+	 public List<Products> selectAllProductsByType(Integer tid);
+	 
+	 public Products selectProductDetailByPrimaryKey(Integer id);
+	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
 }

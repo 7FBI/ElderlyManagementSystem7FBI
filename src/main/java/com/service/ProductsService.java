@@ -3,6 +3,7 @@ package com.service;
 import java.util.List;
 import java.util.Map;
 
+import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
 
@@ -36,5 +37,12 @@ public interface ProductsService {
     public List<Products> getInvBycondtion(Page page); //搜索与描述相同的商品列表 模糊查询
     public List<Products> selectProductUrlByPid(Integer pid);
     public List<Products> selectAllProducts();
+    
+    public List<Products> selectProductsByLikeName(String pName);
+	 
+	 public List<Products> selectAllProductsByType(Integer tid);
+	 
+	 public Products selectProductDetailByPrimaryKey(Integer id);
+	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
 
 }
