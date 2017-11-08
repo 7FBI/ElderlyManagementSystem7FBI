@@ -2,8 +2,7 @@ package com.service.Impl;
 
 
 import java.util.List;
-
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -102,5 +101,10 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<Products> selectAllProducts() {
 		// TODO Auto-generated method stub
 		return productsMapper.selectAllProducts();
+	}
+	@Override
+	public List<Products> selectProductList(Map list) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductList(list);
 	}
 }

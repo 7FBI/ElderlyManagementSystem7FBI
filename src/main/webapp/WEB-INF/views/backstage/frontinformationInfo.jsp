@@ -81,8 +81,7 @@ img {
 							<table width="100%">
 								<tr>
 									<td colspan="2">
-										<form
-											action="/backstage/info/updateInfoValues?id=${frontinformation.get(0).infopuctures.get(0).infoid}"
+										<form action="/backstage/info/updateInfoValues?id=${id}"
 											method="post" enctype="multipart/form-data">
 											<table width="100%" class="cont">
 
@@ -90,8 +89,7 @@ img {
 													<td width="2%">&nbsp;</td>
 													<td width="15%">信息标题：</td>
 													<td width="25%"><input class="text" type="text"
-														name="newstitle"
-														value="${frontinformation.get(0).newstitle}" /></td>
+														name="newstitle" value="${frontinformation.newstitle}" /></td>
 													<td>设置信息名称</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
@@ -100,14 +98,14 @@ img {
 													<td width="15%">发布时间：</td>
 													<td width="25%"><input class="text" type="text"
 														name="sendtiem" id="date"
-														value="${frontinformation.get(0).sendtiem}" /></td>
+														value="${frontinformation.sendtiem}" /></td>
 													<td>设置信息名称</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
 												<tr>
 													<td>&nbsp;</td>
 													<td>描述(Description)：</td>
-													<td><textarea name="newscontent">${frontinformation.get(0).getNewscontent()}</textarea></td>
+													<td><textarea name="newscontent">${frontinformation.newscontent}</textarea></td>
 													<td>信息简短描述</td>
 													<td>&nbsp;</td>
 												</tr>
@@ -120,7 +118,7 @@ img {
 											</table>
 										</form>
 										<form
-											action="/backstage/info/updateInfoImage?id=${frontinformation.get(0).infopuctures.get(0).infoid}&frontpicture=${frontinformation.get(0).getFrontpicture()}"
+											action="/backstage/info/updateInfoImage?id=${id}&frontpicture=${frontinformation.frontpicture}"
 											method="post" enctype="multipart/form-data">
 											<table width="100%" class="cont">
 												<tr>
@@ -130,42 +128,45 @@ img {
 														<button upImage="up" class="btn">修改图片</button>
 													</td>
 													<td><button class="btn" type="submit">确认修改图片</button></td>
-													<td><img
-														src="/files${frontinformation.get(0).getFrontpicture()}" /></td>
+													<td><img src="/files${frontinformation.frontpicture}" /></td>
 													<td width="2%">&nbsp;</td>
 												</tr>
 											</table>
 										</form>
-										<hr /> <!--  --> 
-										<c:forEach items="${frontinformation}"
-											var="imgs" varStatus="i">
-											<form action="/backstage/infoImage/updateInfoImageValue?infoid=${imgs.infopuctures.get(0).infoid}&id=${imgs.infopuctures.get(0).id}"
+										<hr /> <!--  --> <c:forEach items="${list}" var="imgs"
+											varStatus="i">
+											<form
+												action="/backstage/infoImage/updateInfoImageValue?infoid=${imgs.infoid}&id=${imgs.id}"
 												name="file" method="post" enctype="multipart/form-data">
 												<table width="100%" class="cont">
 													<tr>
-														<td><textarea name="imagecontent">${imgs.infopuctures.get(0).imagecontent}</textarea></td>
+														<td><textarea name="imagecontent">${imgs.imagecontent}</textarea></td>
 														<td><input class="btn" type="submit" value="修改" /></td>
 													</tr>
 												</table>
 											</form>
-									<!--  -->		
-											<form action="/backstage/infoImage/updateInfoImages?infoid=${imgs.infopuctures.get(0).infoid}&imagepath=${imgs.infopuctures.get(0).imagepath}&id=${imgs.infopuctures.get(0).id}"
+											<!--  -->
+											<form
+												action="/backstage/infoImage/updateInfoImages?infoid=${imgs.infoid}&imagepath=${imgs.imagepath}&id=${imgs.id}"
 												name="file" method="post" enctype="multipart/form-data">
 												<table width="100%" class="cont">
 													<tr>
 														<td><button upImage="up" class="btn">修改图片</button></td>
 														<td><input class="btn" type="submit" value="修改" /></td>
-														<td><img width="60px" height="90px" src="/files${imgs.infopuctures.get(0).imagepath}"></td>
+														<td><img width="60px" height="90px"
+															src="/files${imgs.imagepath}"></td>
 													</tr>
 												</table>
 											</form>
 										</c:forEach>
 
-										<form action="/backstage/infoImage/addInfoImages?infoid=${frontinformation.get(0).infopuctures.get(0).infoid}"
+										<form
+											action="/backstage/infoImage/addInfoImages?infoid=${frontinformation.id}"
 											method="post" enctype="multipart/form-data">
 											<table width="100%" class="cont">
 												<tr>
-													<td valign="bottom" id="addBtnImage"><button type="button" class="btn">添加附加图片</button></td>
+													<td valign="bottom" id="addBtnImage"><button
+															type="button" class="btn">添加附加图片</button></td>
 												</tr>
 												<tr id="addImageContent"></tr>
 											</table>
@@ -216,13 +217,17 @@ img {
 
 	<script type="text/javascript"
 		src="/resources/unity/jquery/jquery-3.2.0.js"></script>
-		<script src="/resources/unity/layer/laydate/laydate.js"></script>
+	<script src="/resources/unity/layer/layui.js"></script>
 	<!-- 改成你的路径 -->
 	<script>
 		//执行一个laydate实例
-		laydate.render({
-			elem : '#date' //指定元素
-			,type: 'datetime'
+		layui.use('laydate', function() {
+			var laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem : '#date' //指定元素
+			});
 		});
 	</script>
 	<script type="text/javascript">

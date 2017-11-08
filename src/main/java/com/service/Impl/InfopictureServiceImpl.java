@@ -51,6 +51,12 @@ public class InfopictureServiceImpl implements InfopictureService {
 		return infopictureMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public List<Infopicture> selectByInfoid(Integer infoid) {
+		// TODO Auto-generated method stub
+		return infopictureMapper.selectByInfoid(infoid);
+	}
+
 	
 
 }

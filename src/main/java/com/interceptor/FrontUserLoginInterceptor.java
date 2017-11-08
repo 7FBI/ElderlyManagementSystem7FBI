@@ -30,7 +30,7 @@ public class FrontUserLoginInterceptor implements HandlerInterceptor {
 		if (session.getAttribute("oldUsers")!=null) {
 			return true;
 		}
-		response.sendRedirect("login");
+		response.sendRedirect("/gotoFront/login");
 		return false;
 	}
 

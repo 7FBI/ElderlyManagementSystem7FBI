@@ -53,7 +53,7 @@ public class FrontinformationServiceImpl implements FrontinformationService {
 	}
 
 	@Override
-	public List<Frontinformation> selectByKey(Integer id) {
+	public Frontinformation selectByKey(Integer id) {
 		// TODO Auto-generated method stub
 		return frontinformationMapper.selectByKey(id);
 	}

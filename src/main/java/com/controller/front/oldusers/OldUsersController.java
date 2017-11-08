@@ -86,18 +86,20 @@ public class OldUsersController {
 	@ResponseBody
 	public String register(HttpServletRequest request,OldUsers oldUsers){
 		Map<String, Object> map=new HashMap<String, Object>();
+		System.out.println(">>>>>>>>>>>>姓名:"+oldUsers.getUsername());
 		map.put("tell", oldUsers.getTell());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map)!=null) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
 			return "该电话已经被绑定了!!";
 		}
 		map.put("uid", oldUsers.getUid());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map)!=null) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
 			return "该帐号已经被使用!!";
 		}
 		map.put("idcard", oldUsers.getIdcard());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map)!=null) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
 			return "该身份证已经被绑定了!!";
 		}
+		oldUsers.setType(1);
 		oldUsersService.insertSelective(oldUsers);
 		request.getSession().setAttribute("oldUsers", oldUsers);
 		return "true";

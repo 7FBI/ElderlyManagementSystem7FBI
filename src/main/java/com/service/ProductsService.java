@@ -1,11 +1,13 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bean.Page;
 import com.bean.Products;
 
 public interface ProductsService {
+	List<Products> selectProductList(Map list);
 	
 	public void insertSelective(Products record);
 	

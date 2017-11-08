@@ -70,18 +70,20 @@ function dcooxx(d, tag) {
 // 中文验证
 function isChinese() {
 	var data = $("input[china]");
-	var flg = true;
+	var flg = false;
 	if (data != undefined) {
-		data.each(function(index, element) {
-			var va_txt = $(element).val();
-			var pattern = /^[\u4E00-\u9FA5]{1,6}$/;
-			flg = pattern.test(va_txt);
-			dcooxx($(element), flg);
-			if(flg==true){
-				$(element).focus();
-				return false;
+			var va_txt = data.val();
+			if(va_txt.trim().length>=6){
+				var pattern = /^[\u4E00-\u9FA5]{6,16}$/;
+				flg = !pattern.test(va_txt);
+				dcooxx(data,flg);
+				if(flg==false){
+					data.focus();
+					return false;
+				}
+			}else{
+				dcooxx(data,false);
 			}
-		})
 	}
 	return flg;
 }
@@ -92,17 +94,15 @@ function isPhones() {
 	var p = $("input[phone]");
 	var tgl = false;
 	if (p != undefined) {
-		p.each(function(index, element) {
-			var va_txt = $(element).val();
+			var va_txt = p.val();
 			tgl = pattern.test(va_txt);
 			dcooxx($("input[phone]"), tgl);
 			if (tgl == false) {
-				$(element).focus();
+				p.focus();
 				return false;
 			}
-		})
 	}
-	return false;
+	return tgl;
 }
 
 // 验证身份证
@@ -111,15 +111,13 @@ function isCardNo() {
 	var p=$("input[idcard]");
 	var tgl = false;
 	if (p != undefined) {
-		p.each(function(index, element) {
-			var va_txt = $(element).val();
+			var va_txt = p.val();
 			tgl = pattern.test(va_txt);
-			dcooxx($(element),tgl);
+			dcooxx(p,tgl);
 			if(tgl==false){
-				$(element).focus();
+				p.focus();
 				return false;
 			}
-		})
 	}
 	return tgl;
 }

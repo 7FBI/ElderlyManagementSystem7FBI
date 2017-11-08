@@ -41,18 +41,24 @@ public class InfoController {
 		if (file!=null) {
 			frontinformation.setFrontpicture(UploadImage.addImage(file, "/info/main", request));
 		}
-		frontinformation.setMid("dpeng123");
+		Managerinfo managerinfo=(Managerinfo) request.getSession().getAttribute("ManagerIndo");
+		if (managerinfo==null & managerinfo.getType()!=1) {
+			return "redirect:/backstage/info/allInfo";
+		}
+		frontinformation.setMid(managerinfo.getName());
 		frontinformationService.insertSelective(frontinformation);
-		String[] imageContent=request.getParameterValues("imageContent");
-		List<String> filesList=UploadImage.addImages(files, "/info/others", request);
-		int x=0;
-		for (String content : imageContent) {
-			Infopicture infopicture=new Infopicture();
-			infopicture.setInfoid(frontinformation.getId());
-			infopicture.setImagecontent(content);
-			infopicture.setImagepath(filesList.get(x));
-			x++;
-			infopictureService.insertSelective(infopicture);
+		if (files.length>0) {
+			String[] imageContent=request.getParameterValues("imageContent");
+			List<String> filesList=UploadImage.addImages(files, "/info/others", request);
+			int x=0;
+			for (String content : imageContent) {
+				Infopicture infopicture=new Infopicture();
+				infopicture.setInfoid(frontinformation.getId());
+				infopicture.setImagecontent(content);
+				infopicture.setImagepath(filesList.get(x));
+				x++;
+				infopictureService.insertSelective(infopicture);
+			}
 		}
 		return "redirect:/backstage/info/allInfo";
 	}
@@ -105,15 +111,13 @@ public class InfoController {
 	public ModelAndView updateInfo(HttpServletRequest request){
 		ModelAndView view=new ModelAndView();
 		view.setViewName("backstage/frontinformationInfo");
-		/*if (request.getParameter("id")==null|request.getParameter("id")=="") {
-			return allInfo(request);
-		}*/
 		Integer id=Integer.valueOf(request.getParameter("id"));
-		List<Frontinformation> frontinformations=frontinformationService.selectByKey(id);
+		System.out.println(">>>id:"+id);
+		Frontinformation frontinformations=frontinformationService.selectByKey(id);
 		view.addObject("frontinformation", frontinformations);
-		if (frontinformations.size()>0) {
-			view.addObject("id", frontinformations.get(0).getId());
-		}
+		List<Infopicture> list=infopictureService.selectByInfoid(id);
+		view.addObject("id", frontinformations.getId());
+		view.addObject("list", list);
 		return view;
 	}
 	
@@ -143,15 +147,16 @@ public class InfoController {
 	}
 	
 	public String deleteImageFile(HttpServletRequest request,Integer id){
-		List<Frontinformation> list=frontinformationService.selectByKey(id);
-		for (Frontinformation frontinformation : list) {
-			if (frontinformation.getInfopuctures().get(0).getImagepath()!=null) {
-				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+frontinformation.getInfopuctures().get(0).getImagepath());
+		List<Infopicture> infopictures =infopictureService.selectByInfoid(id);
+		for (Infopicture infopicture : infopictures) {
+			if (infopicture.getImagepath()!=null) {
+				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+infopicture.getImagepath());
 				if (oldfile.exists() && oldfile.isFile()) {
 		            oldfile.delete();
 		        }
 			}
 		}
+			
 		return "redirect:/backstage/info/updateInfo?id="+id;
 	}
 }

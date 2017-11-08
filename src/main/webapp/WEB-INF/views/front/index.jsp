@@ -208,8 +208,10 @@
 <jsp:include page="footer.jsp" flush="true"/>
 
 <script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
+<script src="/resources/unity/jquery/jquery-3.2.0.js" type="text/javascript"></script>
 <script type="text/javascript" src="/resources/front/js/jquery.1.8.2.min.js" ></script>
 <script type="text/javascript" src="/resources/front/js/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 
 <script type="text/javascript">
 layui.use('carousel', function(){
@@ -222,6 +224,67 @@ layui.use('carousel', function(){
     //,anim: 'updown' //�л�������ʽ
   });
 });
+
+layui.use('layer',function() { //独立版的layer无需执行这一句
+	var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+	$("#sumbit").click(
+					function() {
+						layer.open({
+									type : 1,
+									title : false //不显示标题栏
+									,
+									closeBtn : false,
+									offset: [180,0],
+									shade : 0.8,
+									id : 'LAY_layuipro' //设定一个id，防止重复弹出
+									,
+									btn : [ '取消'], 
+									btnAlign : 'c',
+									moveType : 1 //拖拽模式，0或者1
+									,
+									content : '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">'
+										    +'<legend>用户帐号</legend></fieldset>'
+										    +'<form style="margin-top: 25px; padding: 0 15px;" id="f" class="layui-form layui-form-pane" action="">'
+											+ '<div class="layui-form-item"><label class="layui-form-label">帐号:</label><div class="layui-input-block"><input NoNull="" type="text" name="uid" autocomplete="off" placeholder="请输入帐号" class="layui-input"></div></div>'
+											+ '<div class="layui-form-item"><label class="layui-form-label">密码:</label><div class="layui-input-block"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input"></div></div>'
+											+ '<div class="layui-form-item"><img code="" class="layui-form-label" src="/code/front/getCode"/><div class="layui-input-block"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input"></div></div>'
+											+ '<div class="layui-form-item"><a href="/gotoFront/register">未有帐号?</a></div>'
+											+ '<div class="layui-form-item"><div class="layui-input-block"><button id="loginBtn" type="button" class="layui-btn layui-btn-primary layui-btn-small" >登录</button></div></div>'
+											+'</form>',
+									success : function(layero) {
+										//var btn = layero.find('.layui-layer-btn');
+										$(document).on("click","#loginBtn",function(){
+											if(formInputNoNull()){
+												$.ajax({
+													type:'post',
+													url:'/front/oldUsers/login',
+													data:$("#f").serialize(),
+													success:function(data){
+														if (data=="true") {
+															location.reload()
+														}else{
+															layer.msg(data);
+														}
+													}
+												})
+												
+											}else{
+												rmvErr()
+											}
+												
+										})
+										
+											
+									}
+								});
+					})
+})
+	$(document).on("click","img[code]",function() {
+		var m = $(this);
+		m.attr("src", "/code/front/getCode" + "?" + new Date().getTime());
+	})
+	
+	
 </script>
 
 <script type="text/javascript">
@@ -277,6 +340,9 @@ layui.use('carousel', function(){
 	$("#cases>ul>li>img").lazyload({effect:"fadeIn",failurelimit:10});
 						$("#gotop").click(function(){$('body,html').animate({scrollTop:0},500);})
 	
+	
+		
+
 //]]>
 </script>
 </body>
