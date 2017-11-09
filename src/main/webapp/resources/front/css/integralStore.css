@@ -1,0 +1,355 @@
+@CHARSET "UTF-8";
+body {
+    color: #666;
+    font: 12px/1.5 'Lucida Grande', Arial, '\5FAE\8F6F\96C5\9ED1', '\5b8b\4f53';
+}
+input, select, button, h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: inherit;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+img {
+    border: 0 none;
+    vertical-align: top;
+}
+i, em {
+    font-style: normal;
+}
+ 
+/*******积分抽大奖*******/
+.top_bar{z-index:50;}
+.wrapper{
+	width:1200px;
+	margin:0 auto;
+}
+.top_bar .banner_title{
+	font-size: 24px;
+	color: #333;
+    line-height: 60px;
+}
+.top_bar .banner_ba{
+	width:100%;
+	height:39px;
+	position: relative;
+    overflow: hidden;
+}
+.top_bar .banner_wrapper{
+	width:2000px;
+	height:390px;
+	position:absolute;
+	top:0px;
+	left:50%;
+	margin-left:-1000px;
+	
+}
+.top_bar .banner_img{
+	display:block;
+	width:2000px;
+	height:390px;
+}
+.top_bar .basic_ba{
+	width: 320px;
+	height: 350px;
+	background-color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 20px;
+	margin-left: -600px;
+}
+.top_bar .banner_bar {
+    width: 100%;
+    height: 390px;
+    position: relative;
+    overflow: hidden;
+}
+.top_bar .basic_bar{
+	width: 320px;
+    height: 350px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    margin-left: -600px;
+}
+.login_ed .head{
+	display: inline-block;
+   vertical-align: top
+}
+.top_bar .head{
+	width:100px;
+	height:100px;
+	border: 5px solid #fff;
+	border-radius: 100%;
+    overflow: hidden;
+}
+.top_bar .head .img {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+.login_ed .head_bar{
+	margin:30px 0 0 40px;
+}
+.login_ed .head_text{
+	display: inline-block;
+	vertical-align: top;
+    height: 110px;
+    margin-left: 10px;
+}
+.login_ed .head_name {
+    font-size: 16px;
+    color: #333;
+    width: 130px;
+    margin-top: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.login_ed .to_phone{
+	color: #333;
+    margin-top: 8px;
+    line-height: 12px;
+}
+.login_ed .icon_phone{
+	background-position: -206px -44px;
+    width: 12px;
+    height: 12px;
+    vertical-align: top;
+}
+.icon_atom{
+	display: inline-block;
+	background:url(/resources/front/image/atom_sprite.png) no-repeat 1000px 1000px;
+}
+.login_ed .my_score_bar {
+    margin: 40px 0 28px 0;
+}
+.login_ed .score_item {
+    float: left;
+    width: 158px;
+    text-align: center;
+}
+.login_ed .score_item .num{
+	width: 158px;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 30px;
+    color: #fe4d21;
+}
+.login_ed .score_item .text{
+	font-size: 16px;
+    color: #333333;
+    margin-top: 3px;
+}
+.login_ed .not_use{
+	border-left: 1px solid #e6e6e6;
+}
+.login_ed .not_use .num {
+    color: #a7a7a7;
+}
+.top_bar .href_bar {
+	margin-top:140px;
+    margin-left: 60px;
+}
+.top_bar .href_bar .first {
+    display: block;
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+.coupon_bar {
+    margin: 70px 0 140px;
+}
+ .content_bar .main_title {
+    font-size: 36px;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+}
+.content_bar .look_for {
+    display: block;
+    margin-top: 2px;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+.content_bar .look_for .arrow {
+    font-family: 黑体;
+}
+.mc_pre_2cols {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+    border-left: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+.coupon_list {
+    margin: 64px 0 0 0;
+}
+.over_box {
+    cursor: default;
+}
+.mc_product_box {
+    background: #fff;
+    position: relative;
+    width: 24.91%;
+    height: auto;
+    font-size: 14px;
+    
+}
+.coupon_item {
+    float: left;
+    border: 1px solid #e0e0e0;
+    margin: -1px 0 0 -1px;
+}
+.mc_product_img {
+    position: relative;
+    padding: 20px 25px 0;
+    width: 250px;
+    height: 250px;
+}
+.mc_product_img img {
+    width: 100%;
+    height: 100%;
+}
+.mc_product_detail {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 25px;
+    color: #333;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #e4e7ea;
+    text-align: center;
+}
+.mc_product_sale_point {
+    height: 35px;
+    line-height: 35px;
+    margin: 0 25px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #f60;
+    text-align: center;
+    border-bottom: 1px solid #e4e7ea;
+}
+.mc_product_price_area {
+    color: #999;
+    position: relative;
+    padding: 5px 25px;
+}
+.mc_product_price_area .mc_current_price {
+    display: block;
+    overflow: hidden;
+}
+.mc_product_price_area .mc_current_price .mc_c_price {
+    color: #f60;
+    font-size: 20px;
+    margin-left: 5px;
+    vertical-align: -2px;
+}
+.mc_product_price_area .mc_ori_price {
+    position: absolute;
+    right: 25px;
+    top: 5px;
+}
+.mc_product_price_area .mc_o_price {
+    font-size: 18px;
+}
+.mc_btn_area {
+    padding: 5px 25px 23px 25px;
+}
+.over_box .mc_btn_pre {
+    border-color: #999;
+    cursor: default;
+}
+.mc_btn_area .mc_btn_pre{
+	display:block;
+	border: 1px solid #0093d5;
+	border-radius: 3px;
+	position: relative;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+    padding-right: 85px;
+    overflow: hidden;
+}
+.mc_btn_area .mc_btn_left {
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #0092d8;
+}
+.over_box .mc_btn_right::after {
+    content: '已兑完';
+}
+.mc_btn_area .mc_btn_right::after {
+    content: '立即换购';
+}
+.mc_btn_area .mc_btn_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 85px;
+    background-color: #0092d8;
+    color: #FFFFFF;
+}
+.mc_icon_tag {
+    background: url("/resources/front/image/coupon_bg.png")no-repeat 0 -875px;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 50%;
+}
+.mc_icon_tag .middle_center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    margin: -18px 0 0 -32px;
+}
+.mc_icon_tag span {
+    display: block;
+    line-height: 1.3;
+    overflow: hidden;
+}
+.mc_icon_tag span {
+    display: block;
+    line-height: 1.3;
+    overflow: hidden;
+}
+.mc_icon_tag span {
+    display: block;
+    line-height: 1.3;
+    overflow: hidden;
+}
+.content_bar .new_try{
+	margin-top:64px;
+}
+.content_bar .look_for .arrow {
+    font-family: 黑体;
+}
+.content_bar .img_bar{
+	display:block;
+	margin-top:38px;
+	width: 100%;
+}
+.content_bar .img {
+    width: 100%;
+}
