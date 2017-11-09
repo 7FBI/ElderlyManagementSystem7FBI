@@ -2,6 +2,7 @@ package com.controller.front.oldusers;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,16 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bean.OldUsers;
 import com.bean.Oldlogin;
+import com.bean.Profile;
 import com.others.md5.Encryption;
 import com.service.OldUsersService;
 import com.service.OldloginService;
+import com.service.ProfileService;
 
 @Controller
 @RequestMapping("/front/oldUsers")
@@ -26,30 +30,29 @@ public class OldUsersController {
 	@Autowired
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
-
+	
 	@Autowired
 	@Qualifier("oldloginService")
 	private OldloginService oldloginService;
+	
+	@Autowired
+	@Qualifier("profileService")
+	private ProfileService profileService;	
+
+	
 
 	@RequestMapping("/selectByUid")
-	public ModelAndView selectByUid(String uid) {
-		OldUsers oldUsers = oldUsersService.selectByUid(uid);
+	public ModelAndView selectByUid(HttpServletRequest request) {
+		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");
+		OldUsers oldUsers = oldUsersService.selectByUid(oldUser.getUid());
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldUsers", oldUsers);
-		modelAndView.setViewName("front/showOldUsersPersonalInfomation");
+		modelAndView.addObject("uid", oldUser.getUid());
+		modelAndView.setViewName("front/SelfCenter");
 		return modelAndView;
 	}
 
-	@RequestMapping("/oldUserModify")
-	public ModelAndView oldUserModify() {
-		OldUsers oldUsers = oldUsersService.selectByUid("1827526748");
-		System.out.println(oldUsers);
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("oldUsers", oldUsers);
-		modelAndView.setViewName("front/oldUserModify");
-		return modelAndView;
-	}
-
+	
 	@RequestMapping("/updateByUidSelective")
 	public String updateByUidSelective(OldUsers oldUsers) {
 		System.out.println(oldUsers.getUsername());
@@ -57,6 +60,83 @@ public class OldUsersController {
 		return "redirect:/front/oldUsers/selectByUid.action";
 
 	}
+	
+	
+	@RequestMapping("/updatePasswordJsp")
+	public ModelAndView updatePasswordJsp(String uid){
+		OldUsers oldUsers = oldUsersService.selectByUid(uid);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("oldUsers", oldUsers);
+		modelAndView.setViewName("front/SelfCenter_updatepassword");
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping("/updatePasswordByUid")
+	public String updatePasswordByUid(OldUsers oldUsers,String sid,RedirectAttributes mAttributes){
+		oldUsers.setUid(sid);
+		oldUsersService.updatePasswordByUid(oldUsers);
+		mAttributes.addFlashAttribute("uid", oldUsers.getUid());
+		return "redirect:/front/oldUsers/selectProfileByUid";
+	}
+	
+	
+	
+	@RequestMapping("/selectProfileByUid")
+	public ModelAndView selectProfileByUid(HttpServletRequest request){
+		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");
+		List<Profile> profiles = profileService.selectProfileByUid(oldUser.getUid());
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("profiles", profiles);
+		modelAndView.addObject("uid", oldUser.getUid());
+		modelAndView.setViewName("front/SelfCenter_updateaddress");
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping("/insertProfileByUid")
+	public String insertProfileByUid(Profile profile,RedirectAttributes mAttributes){
+		 profileService.insertProfileByUid(profile);
+		 mAttributes.addFlashAttribute("uid", profile.getUid());
+		return "redirect:/front/oldUsers/selectProfileByUid.action";
+		
+	}
+	
+	@RequestMapping("/selectByPrimaryKey")
+	public ModelAndView selectByPrimaryKey(@ModelAttribute Integer id){
+		Profile profile = profileService.selectByPrimaryKey(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("profile", profile);
+		modelAndView.setViewName("front/SelfCenter_updateaddress");
+		return modelAndView;
+	}
+	
+	@RequestMapping("/updateAddressjsp")
+	public ModelAndView updateAddressJsp(Integer id,String uid){
+		Profile profile = profileService.selectByPrimaryKey(id);
+		List<Profile> profiles = profileService.selectProfileByUid(uid);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("profile", profile);
+		modelAndView.addObject("profiles", profiles);
+		modelAndView.setViewName("front/SelfCenter_updateaddress");
+		return modelAndView;
+	}
+	
+	@RequestMapping("/updateAddressByPrimarykey")
+	public String updateAddressByPrimarykey(Profile profile,String sid,RedirectAttributes mAttributes){
+		profile.setUid(sid);
+		profileService.updateAddressByPrimarykey(profile);
+		 mAttributes.addFlashAttribute("uid", profile.getUid());
+		return "redirect:/front/oldUsers/selectProfileByUid.action";
+	}
+	
+	@RequestMapping("/deleteAddressByPrimarykey")
+	public String deleteAddressByPrimarykey(Profile profile,Integer id,RedirectAttributes mAttributes){
+		profileService.deleteAddressByPrimarykey(id);
+		mAttributes.addFlashAttribute("uid", profile.getUid());
+		return "redirect:/front/oldUsers/selectProfileByUid.action";
+	}
+
 
 	@RequestMapping("/login")
 	@ResponseBody

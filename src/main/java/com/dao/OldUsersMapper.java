@@ -74,6 +74,10 @@ public interface OldUsersMapper {
     public OldUsers selectByUid(String uid);
     
     public void updateByUidSelective(OldUsers oldUsers);
+    
+    public void updatePasswordByUid(OldUsers oldUsers);
+    
+    
     public List<OldUsers> findUserNameById(OldUsers oldUsers);
     public List<OldUsers> queryByConditions(String findbycondition);
 //  获得用户总数

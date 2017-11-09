@@ -67,6 +67,9 @@ public interface OldUsersService {
     //
     public OldUsers queryById(Integer id);
     public List<OldUsers> findUserNameById(OldUsers oldUsers);
+    public void updatePasswordByUid(OldUsers oldUsers);
+    
+    
     //修改用户信息
     public void modifyById(OldUsers oldUsers);
   //根据id删除用户基本信息以及相关的消费信息

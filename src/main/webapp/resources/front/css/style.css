@@ -196,6 +196,7 @@ footer{clear:both;}
 .share #bdshare{float:none;}
 .related ul{padding-left:20px}
 .related li{height:22px;line-height:22px;list-style-type:disc;}
+
 /*SubPage About*/
 .catbtn{position:absolute;display:block;height:68px;right:0;top:0;}
 .catbtn li{margin:0 auto;*margin-top:20px;*margin-left:5px}
@@ -204,6 +205,36 @@ footer{clear:both;}
 #single #detailed p{text-indent:2em;margin:5px auto;}
 #single #detailed strong{font-weight:bold;}
 #single #detailed .slide{display:none;}
+/* selfcenter 
+ 个人中心页 */
+#selfcenter_detailed{width:90%;height:100%;margin:0 auto;backgrund:black;position:relative;}
+.selfcenter_left{width:20%;height:100%;/* background:black; */float:left;}
+.selfcenter_cont{width:45%;height:465px;/* background:red; */float:left;font-size:15px;}
+.oldUsers_property_dear{width:500px;height:40px;/* background:red; */}
+.oldUsers_property_userurl{width:500px;height:145px;background:white;text-align:center;}
+.oldUsers_lable_userurl{width:100px;height:140px;/* background:blue; */float:left;line-height:150px;}
+.oldUsers_value_userurl{width:200px;height:140px;/* background:gray; */float:left;}
+.oldUsers_property{width:500px;height:40px;/* background:white; */text-align:center;}
+.oldUsers_lable{width:100px;height:30px;/* background:blue; */float:left;line-height:30px;}
+.oldUsers_value{width:200px;height:30px;/* background:gray; */float:left;}
+.oldUsers_warning{width:200px;height:30px;/* background:green; */float:left;}
+.oldUsers_property input{width:180px;height:25px;}
+.oldUsers_property_sex{width:500px;height:40px;/* background:white; */text-align:center;}
+.oldUsers_lable_sex{width:100px;height:30px;/* background:blue; */float:left;line-height:30px;}
+.oldUsers_value_sex{width:200px;height:30px;/* background:gray; */float:left;line-height:30px;}
+.oldUsers_warning_sex{width:200px;height:30px;/* background:green; */float:left;}
+.oldUsers_property_sex  input{width:20px;height:20px;}
+.oldUsers_property_submit{width:290px;height:40px;/* background:blue; */margin:-20px 120px 20px;}
+.oldUsers_property_submit btn_btn_update{width:100px;height:50px;float:right;}
+.selfcenter_right{width:35%;height:100%;/* background:blue; */float:left;}
+
+/* 个人中心地址修改页  */
+.selfcenter_cont .add_address{width:100%;height:45%;/* background:black; */}
+.selfcenter_cont .show_address{width:100%;height:50%;/* background:yellow; */margin:-20px 0px 100px;}
+.table th, .table td {text-align: center;height: 38px;}
+
+
+
 /*SubPage Service*/
 .pdl250{padding-left:250px;}
 #single .serv_detailed #detailed,#single .pro_detailed #detailed{width:986px;margin:0 auto;}

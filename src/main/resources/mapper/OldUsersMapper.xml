@@ -944,6 +944,14 @@
 		</set>
 		where uid = #{uid}
 	</update>
+	
+	<!-- 用户前台修改密码 -->
+	<update id="updatePasswordByUid" parameterType="OldUsers">
+	update old_Users set password=#{password} where uid=#{uid}
+	</update>
+	
+	
+	
 	<select id="findUserNameById" resultType="com.bean.OldUsers">
 		select uid from
 		old_Users

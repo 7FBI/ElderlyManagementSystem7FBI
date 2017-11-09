@@ -35,7 +35,7 @@
 			<li class="cases"><a href="/front/products/selectAllProducts">电子商务<span>我们能卖什么？</span></a></li>
 			<li class="client">
 				<c:if test="${oldUsers==null }">
-					<a href="#" id="sumbit">个人中心<span>我的资料？</span></a>
+					<a href="/front/oldUsers/selectByUid" id="sumbit">个人中心<span>我的资料？</span></a>
 				</c:if>
 				<c:if test="${oldUsers!=null }">
 					<a href="/front/oldUsers/selectByUid">${oldUsers.username}<span>我的首页！</span></a>

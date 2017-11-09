@@ -82,6 +82,13 @@ public class OldUsersServiceImpl implements OldUsersService {
 		oldUsersMapper.updateByUidSelective(oldUsers);
 		
 	}
+	
+	@Override
+	public void updatePasswordByUid(OldUsers oldUsers) {
+		// TODO Auto-generated method stub
+		oldUsersMapper.updatePasswordByUid(oldUsers);
+		
+	}
 
 	@Override
 	public List<OldUsers> selectByLikeUserName(Map map) {
