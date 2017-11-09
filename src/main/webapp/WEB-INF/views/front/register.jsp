@@ -72,7 +72,7 @@
 							data : f.serialize(),
 							success : function(data) {
 								if (data == "true") {
-									history.go(-1);
+									window.location.href="/";
 								} else {
 									alert(data);
 								}

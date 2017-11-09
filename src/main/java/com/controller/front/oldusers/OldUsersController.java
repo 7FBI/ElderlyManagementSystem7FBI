@@ -64,7 +64,8 @@ public class OldUsersController {
 		String uid = null;
 		String password = null;
 		System.out.println("------------>code:"+request.getSession().getAttribute("code").toString());
-		if (request.getSession().getAttribute("code").toString().equalsIgnoreCase(request.getParameter("code"))) {
+		System.out.println("------------>code:"+request.getParameter("code").toString());
+		if (!request.getSession().getAttribute("code").toString().equalsIgnoreCase(request.getParameter("code").toString())) {
 			return "验证码输入错误!";
 		}
 		uid = request.getParameter("username");
