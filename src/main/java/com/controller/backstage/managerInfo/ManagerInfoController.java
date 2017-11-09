@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.backstage.managerInfo;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
