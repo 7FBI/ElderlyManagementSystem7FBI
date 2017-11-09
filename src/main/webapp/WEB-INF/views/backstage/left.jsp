@@ -180,7 +180,7 @@
 						<ul class="RM">
 							<li><a href="${pageContext.request.contextPath}/backstage/Class/select_to.action" target="main">产品分类</a></li>
 							<li><a href="/gotoBackstage/goods_add" target="main">添加产品</a></li>
-							<li><a href="${pageContext.request.contextPath}/backstage/Store/See_to.action" target="main">产品列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Store/init.do" target="main">产品列表</a></li>
 						</ul>
 					</div>
 					

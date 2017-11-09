@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+body {
+    color: #333;
+    font: 12px/1.5 微软雅黑, tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+.base_clear, .cart_top::after, .cart_detail .cart_title::after, .cart_list .item_sub::after, .cart_list .num_wrap::after, .hinter_gift .gift_item::after, .hinter_gift_select .gift_item::after, .active_list ul li::after, .item_detail::after, .activity_top::after, .package_top::after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+/*****购物车部分*******/
+.cart_wrap {
+    position: relative;
+    padding-bottom: 70px;
+}
+.cart_top{
+	background:#fff;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 20px;	
+}
+.cart_top .cart_top_inner {
+    width: 1200px;
+    margin: 0 auto;
+    font-weight: normal;
+}
+.cart_top .cart_title {
+    float: left;
+    font-size: 32px;
+    line-height: 80px;
+    color: #333;
+    font-weight: normal;
+}
+.cart_top .cart_address {
+    float: right;
+    background-color: #fff;
+    max-width: 260px;
+    margin-top: 26px;
+}
+.cart_top .cart_address .address_wrap {
+    padding-left: 10px;
+}
+.address_wrap {
+    -moz-user-select: none;
+    position: relative;
+    float: left;
+    height: 28px;
+    line-height: 26px;
+    z-index: 49;
+}
+.cart_top .cart_address .address_hinter {
+    float: left;
+}
+.address_wrap .address_hinter {
+    height: 28px;
+    line-height: 28px;
+}
+.cart_top .cart_address .address_selected {
+    float: right;
+    border: 0;
+}
+.address_wrap .address_selected{
+	display: inline-block;
+    position: relative;
+    height: 28px;
+   line-height: 28px;
+   padding: 0 10px 0 10px;
+   float: left;
+   overflow: hidden;
+}
+.cart_top .cart_address .address_option {
+    margin: 0;
+}
+.address_wrap .address_selected .address_option {
+    margin: 0 0 0 5px;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    float: left;
+    max-width: 53px;
+}
+.address_wrap .address_selected .arrow {
+    width: 10px;
+    height: 6px;
+    background-position: 0 -44px;
+}
+.address_wrap .arrow, .address_wrap .address_list .close {
+    background: url(/resources/front/image/atom_sprite.png) no-repeat;
+}
+.address_wrap .arrow{
+	display: inline-block;
+	margin-left:6px;
+	margin-top:10px;
+    position: relative;
+}
