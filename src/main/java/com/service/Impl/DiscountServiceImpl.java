@@ -50,4 +50,10 @@ public class DiscountServiceImpl implements DiscountService {
 		return discountMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Discount selectByProductPid(Integer pid) {
+		// TODO Auto-generated method stub
+		return discountMapper.selectByProductPid(pid);
+	}
+
 }

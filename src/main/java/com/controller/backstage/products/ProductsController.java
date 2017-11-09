@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.backstage.products;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

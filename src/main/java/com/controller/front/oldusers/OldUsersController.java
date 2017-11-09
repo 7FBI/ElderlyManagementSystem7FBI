@@ -1,4 +1,5 @@
 package com.controller.front.oldusers;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +26,10 @@ public class OldUsersController {
 	@Autowired
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
-	
+
 	@Autowired
 	@Qualifier("oldloginService")
 	private OldloginService oldloginService;
-	
 
 	@RequestMapping("/selectByUid")
 	public ModelAndView selectByUid(String uid) {
@@ -49,7 +49,7 @@ public class OldUsersController {
 		modelAndView.setViewName("front/oldUserModify");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/updateByUidSelective")
 	public String updateByUidSelective(OldUsers oldUsers) {
 		System.out.println(oldUsers.getUsername());
@@ -57,22 +57,26 @@ public class OldUsersController {
 		return "redirect:/front/oldUsers/selectByUid.action";
 
 	}
-	
+
 	@RequestMapping("/login")
 	@ResponseBody
 	public String login(HttpServletRequest request) {
 		String uid = null;
 		String password = null;
+		System.out.println("------------>code:"+request.getSession().getAttribute("code").toString());
+		if (request.getSession().getAttribute("code").toString().equalsIgnoreCase(request.getParameter("code"))) {
+			return "验证码输入错误!";
+		}
 		uid = request.getParameter("username");
 		password = request.getParameter("password");
-		password=Encryption.encrypation(password);
+		password = Encryption.encrypation(password);
 		OldUsers user = oldUsersService.selectByUid(uid);
-		if (user==null) {
+		if (user == null) {
 			return "帐号不存在";
 		}
 		if (password.equals(user.getPassword())) {
 			request.getSession().setAttribute("oldUsers", user);
-			Oldlogin old =new Oldlogin();
+			Oldlogin old = new Oldlogin();
 			old.setLoadtime(new Date());
 			old.setUid(uid);
 			oldloginService.insertSelective(old);
@@ -81,25 +85,26 @@ public class OldUsersController {
 			return "密码有误";
 		}
 	}
-	
+
 	@RequestMapping("/register")
 	@ResponseBody
-	public String register(HttpServletRequest request,OldUsers oldUsers){
-		Map<String, Object> map=new HashMap<String, Object>();
-		System.out.println(">>>>>>>>>>>>姓名:"+oldUsers.getUsername());
+	public String register(HttpServletRequest request, OldUsers oldUsers) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		System.out.println(">>>>>>>>>>>>姓名:" + oldUsers.getUsername());
 		map.put("tell", oldUsers.getTell());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size() >= 1) {
 			return "该电话已经被绑定了!!";
 		}
 		map.put("uid", oldUsers.getUid());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size() >= 1) {
 			return "该帐号已经被使用!!";
 		}
 		map.put("idcard", oldUsers.getIdcard());
-		if (oldUsersService.selectByTellOrUidOrIdcard(map).size()>=1) {
+		if (oldUsersService.selectByTellOrUidOrIdcard(map).size() >= 1) {
 			return "该身份证已经被绑定了!!";
 		}
 		oldUsers.setType(1);
+		oldUsers.setPassword(Encryption.encrypation(oldUsers.getPassword()));
 		oldUsersService.insertSelective(oldUsers);
 		request.getSession().setAttribute("oldUsers", oldUsers);
 		return "true";

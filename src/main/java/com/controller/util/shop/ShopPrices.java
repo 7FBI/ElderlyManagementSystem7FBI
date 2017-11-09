@@ -1,27 +1,43 @@
 package com.controller.util.shop;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import com.bean.Products;
+import com.bean.Discount;
+import com.bean.Groupbuying;
+import com.bean.Orderdetails;
+import com.service.DiscountService;
+import com.service.GroupbuyingService;
+import com.service.OrderdetailsService;
+import com.service.OrdersService;
 import com.service.ProductsService;
+
 public class ShopPrices {
-	public Double getAllShowPrices(List<Integer> pids,Integer[] num,ProductsService productsService){
-		Map<String, List<Integer>> map=new HashMap<String, List<Integer>>();
-		map.put("list", pids);
-		List<Products> list=productsService.selectProductList(map);
-		Double d=0.0;
-		int i=0;
-		for (Products products : list) {
-			System.out.println("-------------------------------------------------");
-			System.out.println("商品id:"+products.getId()+"--商品名称:"+products.getPname());
-			System.out.println("--单价:"+products.getPrice()+"--数量:"+num[i]);
-			d+=products.getPrice()*num[i];
-			i++;
+	
+	public Double getAllShowPrices(String oid, ProductsService productsService,
+			GroupbuyingService groupbuyingService,DiscountService discountService,OrdersService ordersService,OrderdetailsService orderdetailsService){
+		List<Orderdetails> list=orderdetailsService.selectByOrdersId(oid);
+		double d=0.0;
+		Groupbuying g=new Groupbuying();
+		for (Orderdetails orderdetails : list) {
+			System.out.println("------------------------------------------------");
+			g.setPid(orderdetails.getPid());
+			Groupbuying groupbuying=groupbuyingService.selectByGroupBuyPid(g);
+			Discount discount=discountService.selectByProductPid(orderdetails.getPid());
+			double d2=orderdetails.getOrdercount()*orderdetails.getProducts().getPrice();
+			if (groupbuying!=null) {
+				System.out.println("--------->>>团购打"+groupbuying.getGroupprice()*10+" 折");
+				d2=d2*groupbuying.getGroupprice();
+			}
+			if (discount!=null) {
+				System.out.println("--------->>>折扣打"+discount.getDiscountprice()*10+" 折");
+				d2=d2*discount.getDiscountprice();
+			}
+			d+=d2;
 		}
-		System.out.println("-------------------------------------------------");
+		System.out.println("------------------------------------------------");
 		return d;
 	}
 	
+	
+
 }

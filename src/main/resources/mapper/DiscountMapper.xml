@@ -53,6 +53,16 @@
     from discount
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <!-- 打折商品 -->
+  <select id="selectByProductPid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from discount
+    where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

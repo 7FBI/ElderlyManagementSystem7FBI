@@ -11,8 +11,8 @@ function formInputNoNull() {
 			if (va_txt.trim().length < 1) {
 				$(element).focus();
 				flg = false;
-				dcooxx($(element), false)
-				/* return false; */
+				$(element).after('<label err="" style="width: 140px;font-size: 10px;line-height: 35px;margin-left: 10px;color: red;" >该项不能为空</label>');
+				return false;
 			}
 		})
 	}
@@ -58,11 +58,11 @@ function rmvErr() {
 function dcooxx(d, tag) {
 	if (tag) {
 		if (d.next().text() != "✔") {
-			d.after('<label succ="" style="color:green">✔</label>');
+			d.after('<label succ="" style="width: 140px;font-size: 24px;line-height: 35px;margin-left: 10px;color: green;" >✔</label>');
 		}
 	} else {
 		if (d.next().text() != "✘") {
-			d.after('<label err="" style="color:red">✘</label>');
+			d.after('<label err="" style="width: 140px;font-size: 24px;line-height: 35px;margin-left: 10px;color: red;" >✘</label>');
 		}
 	}
 }

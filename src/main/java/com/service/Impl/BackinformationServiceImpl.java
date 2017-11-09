@@ -3,15 +3,17 @@ package com.service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.bean.Backinformation;
 import com.dao.BackinformationMapper;
 import com.service.BackinformationService;
 
-@Service("BackinformationService")
+@Service("backinformationService")
 public class BackinformationServiceImpl implements BackinformationService {
 	@Autowired
+	@Qualifier("backinformationMapper")
 	private BackinformationMapper backinformationMapper;
 	
 	

@@ -49,4 +49,10 @@ public class GroupbuyingServiceImpl implements GroupbuyingService {
 		return groupbuyingMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Groupbuying selectByGroupBuyPid(Groupbuying groupbuying) {
+		// TODO Auto-generated method stub
+		return groupbuyingMapper.selectByGroupBuyPid(groupbuying);
+	}
+
 }

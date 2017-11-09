@@ -245,10 +245,10 @@ layui.use('layer',function() { //独立版的layer无需执行这一句
 									content : '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">'
 										    +'<legend>用户帐号</legend></fieldset>'
 										    +'<form style="margin-top: 25px; padding: 0 15px;" id="f" class="layui-form layui-form-pane" action="">'
-											+ '<div class="layui-form-item"><label class="layui-form-label">帐号:</label><div class="layui-input-block"><input NoNull="" type="text" name="uid" autocomplete="off" placeholder="请输入帐号" class="layui-input"></div></div>'
-											+ '<div class="layui-form-item"><label class="layui-form-label">密码:</label><div class="layui-input-block"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input"></div></div>'
-											+ '<div class="layui-form-item"><img code="" class="layui-form-label" src="/code/front/getCode"/><div class="layui-input-block"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input"></div></div>'
-											+ '<div class="layui-form-item"><a href="/gotoFront/register">未有帐号?</a></div>'
+											+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">帐号:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="uid" autocomplete="off" placeholder="请输入帐号" class="layui-input" style="width: 200px;float: left;"></div></div>'
+											+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">密码:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input" style="width: 200px;float: left;"></div></div>'
+											+ '<div class="layui-form-item" style="width: 500px;"><img code="" class="layui-form-label" src="/code/front/getCode" style="width: 110px" /><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input" style="width: 200px;float: left;"></div></div>'
+											+ '<div class="layui-form-item" style="width: 500px;"><a href="/gotoFront/register">未有帐号?</a></div>'
 											+ '<div class="layui-form-item"><div class="layui-input-block"><button id="loginBtn" type="button" class="layui-btn layui-btn-primary layui-btn-small" >登录</button></div></div>'
 											+'</form>',
 									success : function(layero) {
@@ -263,7 +263,7 @@ layui.use('layer',function() { //独立版的layer无需执行这一句
 														if (data=="true") {
 															location.reload()
 														}else{
-															layer.msg(data);
+															alert(data);
 														}
 													}
 												})
