@@ -7,6 +7,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/resources/backstage/Style/skin.css" />
+    <script src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+    
 </head>
     <body>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -57,72 +59,64 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="${pageContext.request.contextPath }/backstage/manager/insert" method="post" enctype="multipart/form-data">
+                                            <form action="/backstage/manager/insert" method="post" id="f" enctype="multipart/form-data">
                                                 <table width="100%"class="cont">
                                                 <tr>
-                                                 
                                                  </tr>
-                                                   <!--  <tr>
-                                                   	    <td width="2%">&nbsp;</td>
-                                                        <td>活动编号：</td>
-                                                        <td width="20%"><input class="text" type="text" name="id" value="" /></td>
-                                                        <td>设置活动编号，不填将自动创建!</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr> -->
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td width="15%">活动标题：</td>
-                                                        <td width="25%"><input class="text" type="text" name="activitytitle" value="" /></td>
-                                                        <td>设置活动名称</td>
+                                                        <td width="25%"><input class="text" type="text" name="activitytitle" id="title" value=""/></td>
+                                                        <td>设置活动名称,最多只能填写64个字符（包括标点符号）</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>                                          
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>活动价格：</td>
-                                                        <td width="20%"><input class="text" type="text" name="activityprice" value="" /></td>
+                                                        <td width="20%"><input class="text" type="text" name="activityprice" id="price" onkeyup="isPriceNumber(this)" value="" /></td>
                                                         <td>填写活动价格</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>带队老师：</td>
-                                                        <td width="20%"><input class="text" type="text" name="activityteacher" value="" /></td>                                                                           
-                                                        <td>设置带队老师</td>
+                                                        <td width="20%"><input class="text" type="text" name="activityteacher" id="teacher" value="" /></td>                                                                           
+                                                        <td>设置带队老师，名字不能超过32个字符</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     
                                                     <tr>
                                                     	<td width="2%">&nbsp;</td>
                                                         <td>活动地址：</td>
-                                                        <td width="20%"><input class="text" type="text" name="activitylocation" value="" /></td>                                                                           
+                                                        <td width="20%"><input class="text" type="text" name="activitylocation"  id="location" value="" /></td>                                                                           
                                                         <td>设置活动地址</td>
                                                          <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                     <td width="2%">&nbsp;</td>
                                                         <td width="15%">开始日期：</td>
-                                                        <td width="25%"><input class="text" type="text" name="activitystarttime" value="" /></td>
+                                                        <td width="25%"><input class="text" type="text" name="activitystarttime" date="date" id="starttime" value="" /></td>
                                                         <td>设置活动开始日期</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                       <tr>
                                                     <td width="2%">&nbsp;</td>
                                                         <td width="15%">结束日期：</td>
-                                                        <td width="25%"><input class="text" type="text" name="actitvityendtime" value="" /></td>
+                                                        <td width="25%"><input class="text" type="text" name="actitvityendtime" date="date" id="endtime" value="" /></td>
                                                         <td>设置活动结束日期</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                     <td width="2%">&nbsp;</td>
                                                         <td width="15%">报名截止日期：</td>
-                                                        <td width="25%"><input class="text" type="text" name="activitystoptime" value="" /></td>
+                                                        <td width="25%"><input class="text" type="text" name="activitystoptime" date="date" id="stoptime" value="" /></td>
                                                         <td>设置活动截止日期</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr> 
                                                      <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>描述(Description)：</td>
-                                                        <td><textarea class="text" type="text" name="activitycontent"></textarea></td>
+                                                        <td><textarea class="text" type="text" name="activitycontent" id="context"></textarea></td>
                                                         <td>活动简短描述</td>
                                                         <td>&nbsp;</td>
                                                     </tr>
@@ -135,7 +129,8 @@
                                                     </tr> 
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" /></td>
+                                                        <td colspan="3"><input class="btn" onclick="titleIsNull()" type="button" value="提交" /></td>
+                                                       
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
@@ -179,6 +174,21 @@
                 </td>           
             </tr>
         </table>
+        
+        <script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
+        <script type="text/javascript" src="/resources/backstage/Js/activity_add.js"></script>
+    
+    <script>
+    layui.use('laydate', function(){
+    	  var laydate = layui.laydate;
+    	  
+    	  //执行一个laydate实例
+    	  laydate.render({
+    	   
+    	    elem:"input[date='date']"
+    	  });
+    	});
+    </script>
     </body>
 
 </html>

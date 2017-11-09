@@ -1,7 +1,12 @@
 package com.controller.backstage.manager;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -66,7 +71,7 @@ public class ManagerController {
 			return mv;
 		}
 		Manager manager=(Manager) request.getSession().getAttribute("manager");
-		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getId());
+		List<Activitydetailinfo> list=activitydetailinfoService.selectByMid(manager.getLocaid());
 		mv.addObject("activitydetailinfoList", list);
 		mv.setViewName("backstage/manager_activity_index");
 		return mv;
@@ -81,19 +86,33 @@ public class ManagerController {
 		}
 	
 	@RequestMapping("/insert")
-	public String addActivityinfo(Activitydetailinfo record,@RequestParam("files") MultipartFile[] files,HttpServletRequest request) {
-		activitydetailinfoService.insertSelective(record);
+	public String addActivityinfo(Activitydetailinfo activitydetailinfo,@RequestParam("files") MultipartFile[] files,HttpServletRequest request) {
+		/*System.out.println(activitydetailinfo.getActivitystarttime());
+		int a = activitydetailinfo.getActivitystarttime().compareTo(activitydetailinfo.getActivitystoptime());
+		System.out.println(a);*/
+		Date a = activitydetailinfo.getActivitystarttime();
+		Date b = activitydetailinfo.getActivitystoptime();
+		long time1 = a.getTime();
+		long time2 = b.getTime();
+		long s = time2-time1;
+		if(s>0){
+		Manager manager=(Manager) request.getSession().getAttribute("manager");
+		activitydetailinfo.setMid(manager.getLocaid());
+		activitydetailinfoService.insertSelective(activitydetailinfo);
 		List<String> list =  new ArrayList<String>();
-		if(files != null){
+		
+		if(!(files[0].isEmpty())){
 			list =UploadImage.addImages(files,"/backstage/manager/activitydetailinfo/picture",request);
 				for(int i=0;i<list.size();i++){
 				Activepicutre activepicutre =new Activepicutre();
 				activepicutre.setActiveimageurl(list.get(i));
-				activepicutre.setActivityid(record.getId());
+				activepicutre.setActivityid(activitydetailinfo.getId());
 				activepicutreService.insertSelective(activepicutre);
 				}
+			}
+		return "redirect:showactivitydetailinfo.action";
 		}
-		return "redirect:showactivitydetailinfo.action";	
+		return "redirect:showactivitydetailinfo.action";
 	}
 	
 	@RequestMapping("/update")
@@ -147,13 +166,16 @@ public class ManagerController {
 	
 	@RequestMapping("addManager")
 	public String insertSelective(Manager manager,HttpServletRequest request){
-		String str =Encryption.encrypation(manager.getMpassword());
-		manager.setMpassword(str);
 		if(managerService.selectManagerByMnumber(manager.getMnumber())!=null){
+			String str =Encryption.encrypation(manager.getMpassword());
+			manager.setMpassword(str);
 			return "backstage/manager_add";
 		}
-		managerService.insertSelective(manager);
-		return "redirect:selectAllManager.action";
+		else if(managerService.selectManagerByMnumber(manager.getMnumber())==null&&manager.getMnumber()!=null&&manager.getMpassword()!=null){
+			managerService.insertSelective(manager);
+			return "redirect:selectAllManager.action";
+		}
+		return "backstage/manager_add";
 	}
 	
 	@RequestMapping("deleteById")
