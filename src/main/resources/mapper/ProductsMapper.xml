@@ -88,6 +88,9 @@
 	<select id="selectAllProducts" resultType="com.bean.Products">
 		select * from products
 	</select>
+	<select id="selectProductsByTid" resultType="com.bean.Products">
+      select * from products WHERE tid=1
+  </select>
 	<select id="selectProductUrlByPid" parameterType="java.lang.Integer"
 		resultMap="ProductUrlByPid">
 		SELECT p.*,sp.id sp_id,sp.showphotosurl sp_url FROM products p,showsphotos

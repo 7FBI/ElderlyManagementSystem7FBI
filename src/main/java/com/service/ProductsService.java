@@ -44,5 +44,6 @@ public interface ProductsService {
 	 
 	 public Products selectProductDetailByPrimaryKey(Integer id);
 	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
+	 public List<Products> selectProductsByTid();
 
 }

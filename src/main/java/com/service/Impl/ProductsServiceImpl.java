@@ -132,4 +132,9 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.selectProductDetailByPrimaryKey(id);
 	}
+	@Override
+	public List<Products> selectProductsByTid() {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductsByTid();
+	}
 }

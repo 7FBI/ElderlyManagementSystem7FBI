@@ -82,4 +82,5 @@ public interface ProductsMapper {
 	 
 	 public Products selectProductDetailByPrimaryKey(Integer id);
 	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
+      List<Products> selectProductsByTid();
 }
