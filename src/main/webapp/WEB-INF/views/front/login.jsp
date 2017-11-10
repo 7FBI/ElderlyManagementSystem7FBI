@@ -74,8 +74,8 @@
 	<script src="/resources/unity/layer/layui.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 	<script>
-		layui.use('layer', function() { //独立版的layer无需执行这一句
-			var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+		layui.use('layer', function() {
+			var $ = layui.jquery, layer = layui.layer;
 			$("#loginBtn").click(function() {
 				if (formInputNoNull()) {
 					var f = $("#f");

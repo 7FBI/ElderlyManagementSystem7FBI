@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bean.OldUsers;
 import com.bean.Orderdetails;
 import com.bean.Orders;
+import com.bean.Products;
+import com.controller.util.shop.ShopPrices;
 import com.service.DiscountService;
 import com.service.GroupbuyingService;
 import com.service.OrderdetailsService;
@@ -47,11 +49,14 @@ public class ProductOrdersController {
 
 	@RequestMapping("/addOrder")
 	public ModelAndView addOrder(HttpServletRequest request) {
-		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		ModelAndView view = new ModelAndView();
+		view.setViewName("/");
 		String[] pid = request.getParameterValues("pid");
 		String[] num = request.getParameterValues("num");
 		Orders orders = getNewOrders(oldUsers);
+		List<Products> products = ShopPrices.getNewPorducts(pid, productsService, groupbuyingService, discountService,
+				ordersService, orderdetailsService);
 		List<Orderdetails> list = new ArrayList<Orderdetails>();
 		for (int i = 0; i < num.length; i++) {
 			Orderdetails orderdetails = new Orderdetails();
@@ -60,21 +65,24 @@ public class ProductOrdersController {
 			orderdetails.setOid(orders.getId());
 			list.add(orderdetails);
 		}
+		view.addObject("products", products);
 		return view;
 	}
 
 	// 生成新订单
-	public Orders getNewOrders(OldUsers oldUsers) {
+	private Orders getNewOrders(OldUsers oldUsers) {
 		Orders orders = new Orders();
 		/*
 		 * 设置属性
 		 * 
 		 */
-		/*OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		String address = request.getParameter("address");
-		if (request.getParameter("remarks").length() >= 2) {
-			orders.setRemarks(request.getParameter("remarks"));
-		}*/
+		/*
+		 * OldUsers oldUsers = (OldUsers)
+		 * request.getSession().getAttribute("oldUsers"); String address =
+		 * request.getParameter("address"); if
+		 * (request.getParameter("remarks").length() >= 2) {
+		 * orders.setRemarks(request.getParameter("remarks")); }
+		 */
 		orders.setUid(oldUsers.getUid());
 		orders.setOrderaddress(oldUsers.getAddress());
 		orders.setOrdertime(new Date());
