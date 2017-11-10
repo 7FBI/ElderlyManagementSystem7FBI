@@ -122,17 +122,6 @@
 								readonly="readonly" name="" class="layui-input" /> <label
 								class="lables_d" style="width: 60px;">商品单价:</label> <label
 								class="lables_v"><span style="color: red;">￥</span>18.5</label>
-							<!-- <div style="width: 120px;float: left;">
-								减少
-								<a href="#" num="down" style="float: left;"><i class="layui-icon" style="font-size: 20px;">&#xe625;</i></a> 
-								<input value="1" class="layui-input" style="width: 40px; height: 20px; float: left;" /> 
-								添加
-								<a href="#" num="up" style="float: left;"><i class="layui-icon" style="font-size: 20px;">&#xe654;</i></a>
-							</div>
-							删除
-							<div style="width: 100px;float: left;">
-								<a href="#" del="del" style="float: left;"><i class="layui-icon" style="font-size: 20px;">&#xe640;</i></a>
-							</div> -->
 						</div>
 						<div style="float: left; width: 500px;">
 							<label class="lables_d" style="width: 60px;">商品类型:</label> 
@@ -173,9 +162,9 @@
 						content : '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">'
 							    +'<legend>用户帐号</legend></fieldset>'
 							    +'<form style="margin-top: 25px; padding: 0 15px;" id="f" class="layui-form layui-form-pane" action="">'
-								+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">帐号:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="username" autocomplete="off" placeholder="请输入帐号" class="layui-input" style="width: 200px;float: left;"></div></div>'
-								+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">密码:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input" style="width: 200px;float: left;"></div></div>'
-								+ '<div class="layui-form-item" style="width: 500px;"><img code="" class="layui-form-label" src="/code/front/getCode" style="width: 110px" /><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input" style="width: 200px;float: left;"></div></div>'
+								+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">收货人:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="signname" autocomplete="off" placeholder="请输入收货人名字" class="layui-input" style="width: 200px;float: left;"></div></div>'
+								+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">收货地址:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="signaddress" autocomplete="off" placeholder="请输入收货地址" class="layui-input" style="width: 200px;float: left;"></div></div>'
+								+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">收货人电话:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="signtell" autocomplete="off" placeholder="请输入收货人电话" class="layui-input" style="width: 200px;float: left;"></div></div>'
 								+ '<div class="layui-form-item" style="width: 500px;"><a href="/gotoFront/register">未有帐号?</a></div>'
 								+ '<div class="layui-form-item"><div class="layui-input-block"><button id="loginBtn" type="button" class="layui-btn layui-btn-primary layui-btn-small" >登录</button></div></div>'
 								+'</form>',
@@ -185,7 +174,7 @@
 								if(formInputNoNull()){
 									$.ajax({
 										type:'post',
-										url:'/front/oldUsers/login',
+										url:'/front/profile/addAddress',
 										data:$("#f").serialize(),
 										success:function(data){
 											if (data=="true") {
@@ -207,18 +196,6 @@
 					});
 				}
 			})
-			/* $(document).on('click',"a[num='down']",function(){
-				var i=$(this).next();
-				if (i.val()<=1) {
-					return false;
-				}else {
-					var ii=i.val()-1;
-					i.val(ii);
-				}
-			})
-			$(document).on('click',"a[num='up']",function(){
-				
-			}) */
 		})
 	</script>
 </body>

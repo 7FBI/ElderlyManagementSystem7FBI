@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bean.Credit;
 import com.dao.CreditMapper;
 import com.service.CreditService;
-@Service("CreditService")
+@Service("creditService")
 @Transactional     //事物操作
 public class CreditServiceImpl implements CreditService {
 

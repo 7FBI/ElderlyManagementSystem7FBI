@@ -56,5 +56,11 @@ public class OrderdetailsServiceImpl implements OrderdetailsService {
 		// TODO Auto-generated method stub
 		return orderdetailsMapper.updateByPrimaryKey(record);
 	}
+
+	@Override
+	public int insertSelectiveList(List list) {
+		// TODO Auto-generated method stub
+		return orderdetailsMapper.insertSelectiveList(list);
+	}
 	
 }

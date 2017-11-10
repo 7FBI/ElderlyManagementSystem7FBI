@@ -49,4 +49,34 @@ public class ProfileServiceImpl implements ProfileService {
 		
 	}
 
+	@Override
+	public int deleteByPrimaryKey(Integer id) {
+		// TODO Auto-generated method stub
+		return profileMapper.deleteByPrimaryKey(id);
+	}
+
+	@Override
+	public int insert(Profile record) {
+		// TODO Auto-generated method stub
+		return profileMapper.insert(record);
+	}
+
+	@Override
+	public int insertSelective(Profile record) {
+		// TODO Auto-generated method stub
+		return profileMapper.insertSelective(record);
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(Profile record) {
+		// TODO Auto-generated method stub
+		return profileMapper.updateByPrimaryKeySelective(record);
+	}
+
+	@Override
+	public int updateByPrimaryKey(Profile record) {
+		// TODO Auto-generated method stub
+		return profileMapper.updateByPrimaryKey(record);
+	}
+
 }
