@@ -191,4 +191,14 @@ public class OldUsersController {
 		return "true";
 	}
 
+	@RequestMapping("/getNowOldUsers")
+	@ResponseBody
+	public OldUsers getNowOldUsers(HttpServletRequest request){
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			return null;
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		return oldUsers;
+	}
+	
 }

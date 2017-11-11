@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -26,16 +27,23 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<section id="single">
-	<div class="cat_title" style=" /*  background:yellow;  */  height:168px;width:100%;position:relative;">
-    <div class="wrapper" style=" /*  background:green; */    height:168px;width:50%;position:absolute;top:75px;left:0;"><br><br>
-      <h2><strong>SelfCenter</strong>个人中心</h2>
-      <p>我们的作品，他们的故事<br/>
-        Our work, their stories </p>
-    
+	<div class="cat_title"
+		style="height: 168px; width: 100%; position: relative;">
+		<div class="wrapper"
+			style="height: 168px; width: 50%; position: absolute; top: 75px; left: 0;">
+			<br>
+			<br>
+			<h2>
+				<strong>SelfCenter</strong>个人中心
+			</h2>
+			<p>
+				我们的作品，他们的故事<br /> Our work, their stories
+			</p>
+
 		</div>
-  </div>
-	<div class="category" >
-		<div class="wrapper" >
+	</div>
+	<div class="category">
+		<div class="wrapper">
 			<h1>我的资料</h1>
 
 		</div>
@@ -43,22 +51,22 @@
 	<article class="serv_detailed">
 	<div class="selfcenter_detailed">
 		<div class="selfcenter_left" style="">
-		
+
 			<ul>
-			<li><a href="/front/oldUsers/selectByUid">个人资料</a></li>
-			<br>
-			<li><a href="/gotoFront/SelfCenter_updatepassword">修改密码</a></li>
-			<br>
-			<li><a href="/front/oldUsers/selectProfileByUid">地址管理</a></li>
-			<br>
-			<li><a href="####">个人交易信息</a></li>
+				<li><a href="/front/oldUsers/selectByUid">个人资料</a></li>
+				<br>
+				<li><a href="/gotoFront/SelfCenter_updatepassword">修改密码</a></li>
+				<br>
+				<li><a href="/front/oldUsers/selectProfileByUid">地址管理</a></li>
+				<br>
+				<li><a href="####">个人交易信息</a></li>
 			</ul>
 		</div>
 		<div class="selfcenter_cont">
 			<form id="itemForm" action="/front/oldUsers/updateByUidSelective"
 				method="post">
-					<input type="hidden" name="uid" value="${uid}" />
-				<input type="hidden" name="id" value="${oldUsers.id }" />
+				<input type="hidden" name="uid" value="${uid}" /> <input
+					type="hidden" name="id" value="${oldUsers.id }" />
 				<!-- <div class="oldUsers_property"></div> -->
 				<!--  头像-->
 				<div class="oldUsers_property_userurl">
@@ -141,9 +149,9 @@
 				<div class="oldUsers_property">
 					<label for="birthday" class="oldUsers_lable">出生日期</label>
 					<div class="oldUsers_value ">
-						<input type="date" class="form-control" name="birthday"
-							value="${oldUsers.birthday}" id="birthday"
-							onblur="checkBirthday()">
+						<input type="text" class="form-control" name="birthday"
+							value="<fmt:formatDate value="${oldUsers.birthday}" pattern="yyyy-MM-dd" />"
+							id="birthday" onblur="checkBirthday()">
 					</div>
 					<div class="oldUsers_warning">
 						<font color="red"><p id="error9"></p></font> <font color="green"><p
@@ -179,7 +187,8 @@
 				<!-- 按钮 -->
 				<div class="oldUsers_property_submit">
 					<br>
-					<button type="submit" class="btn_btn_update" style="width:100px;height:27px;">修改</button>
+					<button type="submit" class="btn_btn_update"
+						style="width: 100px; height: 27px;">修改</button>
 				</div>
 			</form>
 
@@ -187,16 +196,27 @@
 		<div class="selfcenter_right">
 
 			<div class="oldUsers_property_dear">
-					<h2 style="font-size:18px;">
-						亲爱的&nbsp;&nbsp;<i>${oldUsers.username}</i>&nbsp;&nbsp;,请填写真实信息！
-					</h2>
-				</div>
+				<h2 style="font-size: 18px;">
+					亲爱的&nbsp;&nbsp;<i>${oldUsers.username}</i>&nbsp;&nbsp;,请填写真实信息！
+				</h2>
+			</div>
 
 		</div>
 	</div>
 
 	</article> </section>
-	
+
+<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
+	<script type="text/javascript">
+		layui.use('laydate', function() {
+			var laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem : '#birthday' //指定元素
+			});
+		});
+	</script>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

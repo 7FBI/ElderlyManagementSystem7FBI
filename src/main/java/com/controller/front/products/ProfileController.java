@@ -21,15 +21,27 @@ public class ProfileController {
 
 	@RequestMapping("/addAddress")
 	@ResponseBody
-	public String addAddress(HttpServletRequest request,Profile profile){
+	public Profile addAddress(HttpServletRequest request,Profile profile){
 		if (request.getSession().getAttribute("oldUsers")==null) {
-			return "请先登录!";
+			return null;
 		}
 		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
 		profile.setUid(oldUsers.getUid());
 		profileService.insertSelective(profile);
-		return "true";
+		return profile;
 	}
 	
-	
+	@RequestMapping("/getByIdProfiel")
+	@ResponseBody
+	public Profile getByIdProfiel(HttpServletRequest request){
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			return null;
+		}
+		if (request.getParameter("id")==null|"".equals(request.getParameter("id"))) {
+			return null;
+		}
+		Integer id=Integer.valueOf(request.getParameter("id"));
+		Profile profile=profileService.selectByPrimaryKey(id);
+		return profile;
+	}
 }

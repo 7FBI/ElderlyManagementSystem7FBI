@@ -236,6 +236,7 @@ layui.use('layer',function() { //独立版的layer无需执行这一句
 									closeBtn : false,
 									offset: [180,0],
 									shade : 0.8,
+									area : '580px',
 									id : 'LAY_layuipro' //设定一个id，防止重复弹出
 									,
 									btn : [ '取消'], 

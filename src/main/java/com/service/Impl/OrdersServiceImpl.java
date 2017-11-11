@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -64,6 +65,18 @@ public class OrdersServiceImpl implements OrdersService {
 	public int updateByPrimaryKey(Orders record) {
 		// TODO Auto-generated method stub
 		return ordersMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Orders> selectFrontOrderstatus(Map map) {
+		// TODO Auto-generated method stub
+		return ordersMapper.selectFrontOrderstatus(map);
+	}
+
+	@Override
+	public Integer selectByorderstatusCount(Map map) {
+		// TODO Auto-generated method stub
+		return ordersMapper.selectByorderstatusCount(map);
 	}
 
 }

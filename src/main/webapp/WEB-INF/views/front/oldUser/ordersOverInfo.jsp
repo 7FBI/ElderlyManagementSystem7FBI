@@ -66,25 +66,14 @@
 								<label class="lables_d">支付方式:</label> <label class="lables_v">余额支付</label>
 							</div>
 							<div style="float: left; width: 150px;">
-								<label class="lables_d">订单状态:</label> <label class="lables_v">待付款</label>
+								<label class="lables_d">订单状态:</label> <label class="lables_v">已付款</label>
 							</div>
 						</div>
 						<div style="width: 100%; float: left;">
 							<div class="layui-input-item" style="float: left; width: 230px;">
 
-								<label class="lables_d">收货地址:</label> <select id="selectAddress"
-									style="height: 20px; width: 150px; border: none;"
-									class="layui-input" name="signaddress">
-									<option id="uad" selected="selected" upd="upd"
-										value="${oldUsers.address}">${oldUsers.address}</option>
-
-									<c:forEach items="${profile}" var="pds">
-										<option value="${pds.id}">${pds.signaddress}</option>
-									</c:forEach>
-									<option value="" disabled>————————</option>
-									<option value="-1"
-										style="border-top: 12px; border-top-color: #999;">添加新地址</option>
-								</select>
+								<label class="lables_d">收货地址:</label>
+								<label style="height: 20px; width: 150px; border: none;" class="layui-input">${orders.orderaddress}</label>
 							</div>
 							<div style="float: left; width: 200px;">
 								<label class="lables_d">下单时间:</label> <label class="lables_v"><fmt:formatDate
@@ -99,22 +88,22 @@
 
 						<div style="width: 100%; float: left;">
 							<div style="float: left; width: 800px">
-								<label class="lables_d">用户备注:</label> <input
-									style="height: 20px; width: 450px;" name="" class="layui-input" />
+								<label class="lables_d">用户备注:</label> <label
+									style="height: 20px; width: 450px;" class="layui-input" >${orders.remarks}</label>
 							</div>
 						</div>
 					</div>
 					<div class="layui-col-md3">
 						<div style="width: 100%; float: left;">
 							<div style="float: left; width: 200px;">
-								<label class="lables_d">收货人:</label> <input class="lables_v"
+								<label class="lables_d">下单人:</label> <input class="lables_v"
 									style="border: none;" id="signname" name="signname"
-									readonly="readonly" value="${oldUsers.username }" />
+									readonly="readonly" value="${orders.username }" />
 							</div>
 							<div style="float: left; width: 200px;">
 								<label class="lables_d">预留电话:</label> <input class="lables_v"
 									style="border: none;" id="signtell" name="signtell"
-									readonly="readonly" value="${oldUsers.tell }" />
+									readonly="readonly" value="${orders.tell }" />
 							</div>
 						</div>
 					</div>
@@ -158,28 +147,7 @@
 
 			<!-- 分割 -->
 
-			<li style="height: 30px; width: 100%; margin-top: 30px;">
-				<div class="layui-row layui-col-space1">
-					<div class="layui-col-md1"></div>
-					<div class="layui-col-md8">
-						<button type="button" id="overOrderBtn" value="${orders.id }"
-							class="layui-btn layui-btn-small layui-btn-normal"
-							style="font-size: 15px">
-							直接结账<i class="layui-icon"
-								style="font-size: 18px; margin-top: 2px;">&#xe65e;</i>
-						</button>
-
-					</div>
-					<div class="layui-col-md3">
-						<button type="button" id="deletOrderBtn" value="${orders.id }"
-							class="layui-btn layui-btn-small layui-btn-danger"
-							style="font-size: 15px">
-							去意已决<i class="layui-icon"
-								style="font-size: 18px; margin-top: 2px;">&#xe640;</i>
-						</button>
-					</div>
-				</div>
-			</li>
+			
 		</ul>
 	</div>
 	</section>
