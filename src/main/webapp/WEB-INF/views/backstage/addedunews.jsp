@@ -97,7 +97,7 @@
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="edutitle"
-					placeholder="新闻标题" id="vtitle" onblur="titleCheck()">
+					placeholder="新闻标题 " id="vtitle" onblur="titleCheck()">
 			
 			</div>
 				<div class="pleft">

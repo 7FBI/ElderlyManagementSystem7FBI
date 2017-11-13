@@ -14,4 +14,5 @@ public interface EdunewsService {
 	public List<Edunews>queryEduByConditions(String findEduByConditions);
 	public int eduCount();
     public List<Edunews> findAllEduNews(Map map);
+    public List<Edunews> findHotNews();
 }

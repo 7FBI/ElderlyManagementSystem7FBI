@@ -1,0 +1,169 @@
+@CHARSET "UTF-8";
+/**清除原本的样式*/
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px; 
+	/* background-color: #f1f3f5;  */
+	font-size: 14px;
+	
+}
+/*前台新闻列表样式  */
+.edutitle{
+	width:90%;
+	margin:0 auto;
+	height:180px;
+	/* margin-bottom: 50px;
+	 */
+}
+.frontedusearch{
+	margin-top: 2px;
+}
+/* 视频列表样式 */
+.eduvideobgcolor{
+	background-color: #d8dfe9;
+	width: 100%;
+	margin-bottom: 20px;
+}
+.videolisttitle{
+	font-family: monospace;
+	font-size: 32px;
+    padding-left: 150px;
+    color: red;
+    padding-top: 10px;
+}
+.videolisttitle hr{
+	background-color:white; 
+	SIZE:3;
+	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:white,direction:145,strength:15);
+    width:95%; 
+}
+/* 视频详情 */
+.videodetail{
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+.videocontment{
+	width:20%;
+	float: left;
+	text-align: left;
+	
+}
+.videocontment ul li{
+	list-style-type: none;
+	line-height: 40px;
+	font-size: 20px;
+	color:#96c2da;
+	list-style-type:none; border-bottom:1px dashed orange;
+}
+.myvideos{
+	width: 79%;
+	padding-right: 2px;
+	float: left;
+	background-color: #8cdcea;
+	height: 300px;
+}
+.videodetail_title{
+	border-bottom: 2px solid d;
+	border-bottom-color: orange;
+	
+}
+.contentstyle{
+       line-height:35px;
+		text-decoration:underline dashed orange;
+		margin-left: 42px;
+		color:#81727a;
+}
+
+
+@import url("reset.css");
+/*public*/
+a {
+	color: #39f;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+/* .wrapper {width:986px;margin:0 auto;position:relative;} */
+.wrapper {width:90%;margin:0 auto;position:relative;}
+/* .cat_title{overflow:hidden;padding:35px 0;height:120px;border-bottom:1px solid #d8d9d8;padding-bottom: 90px;} */
+/*被注释的为原始的  */
+.cat_title{overflow:hidden;padding:35px 0;height:120px;border-bottom:1px solid #d8d9d8;padding-bottom: 30px; width: 86%;margin: 0 auto;}
+.cat_title h2{font-size:48px;display:inline-block;zoom:1;*display:inline;vertical-align:middle;margin-top:65px;}
+.cat_title p{display:inline-block;zoom:1;*display:inline;vertical-align:middle;color:#999;margin-top:90px;margin-left:10px;}
+.cat_title strong{font-size:60px;font-family:Arial;font-weight:bold;color:#333;margin-right:6px;vertical-align:middle;}
+.cat_title .more{font-size:24px;position:absolute;right:10px;top:50px;margin-bottom: 200px;}
+/*前台新闻列表样式  */
+.edutitle{
+	width:90%;
+	margin:0 auto;
+	height:180px;
+	/* margin-bottom: 50px;
+	 */
+}
+.frontedusearch{
+	margin-top: 2px;
+}
+/* 视频列表样式 */
+.eduvideobgcolor{
+	background-color: #e8ebee;
+	width: 100%;
+	margin-bottom: 20px;
+}
+/*首页新闻部分  */
+.indexnews{
+	padding-top: 30px;
+	width: 85%;
+	margin: 0 auto;
+	padding-bottom: 15px;
+}
+/*cases*/
+#cases ul{display:block;font-size:0;letter-spacing:-6px;text-align:center;width:100%;}
+#cases ul li{display:inline-block;zoom:1;*display:inline;vertical-align:top;position:relative;width:210px;height:180px;overflow:hidden;margin:2px 0 0 2px;letter-spacing:normal;}
+#cases ul li img{position:absolute;top:0;left:0;width:210px;height:180px}
+#cases ul li p{display:none;width:210px;height:100%;position:absolute;z-index:1;font-size:12px;text-align:left;padding:0 15px;background:#212121;color:#999;left:0;bottom:0;}
+#cases ul li p strong{display:block;font:bold 14px/30px Microsoft YaHei;color:#fff;margin-top:10px;text-align: center;}
+#cases ul li p a{display:inline-block;zoom:1;*display:inline;font-weight:bold;height:30px;line-height:30px;padding:0 8px;margin-top:8px;}
+#cases ul li p a.openurl{width:23px;height:23px;padding:0;background:url("images/ico_website.png") no-repeat;overflow:hidden;text-indent:-9999px;position:absolute;bottom:5px;right:5px;}
+#cases ul li p a.openurl:hover{background-position:0 -23px}
+/*news*/
+/*修改前：#news{height:675px;background:#DBDBDB;}  */
+#mynews{height:100%;background:#DBDBDB;}
+/* #news .newsdata{background:#fff;width:986px;height:520px;margin:0 auto;position:relative;} */
+#mynews .newsdata{background:#fff;width:80%; margin:0 auto;height:100%;margin:0 auto;position:relative;margin-top: 60px;}
+#mynews .newsad{position:absolute;top:30px;left:15px;}
+#mynews ul{position:absolute;width:66%;top:15px;right:15px;}
+#mynews ul li{position:relative;border-bottom:1px dotted #ccc;padding:15px 0;}
+#mynews ul li .newslist{position:absolute;width:85%;right:0;top:10px;}
+#mynews ul li .newslist a{font:bold 16px/30px Microsoft YaHei;color:#444;}
+#mynews ul li .newslist span{display:block;line-height:20px;color:#999;}
+
+/*SubPage Caseslist*/
+#cases {height:598px;position:relative;overflow:hidden;}
+#case_search,#news_search{position:absolute;right:0;top:85px;height:29px;vertical-align:middle;}
+#case_search #keywords,#news_search #keywords{width:210px;vertical-align:middle;}
+#case_search #submit,#news_search #submit{width:80px;height:27px;font-size:13px;font-weight:bold;padding:1px 8px;vertical-align:middle;}
+#caseslist .cases {padding:20px 0;font-size:0;letter-spacing:-6px;}
+#caseslist .cases li{display:inline-block;zoom:1;*display:inline;position:relative;width:210px;height:210px;overflow:hidden;background:#fff;padding:4px;margin:0 0 10px 4px;font-size:12px;letter-spacing:normal;}
+#caseslist .cases li video{width:210px;height:152px;}
+#caseslist .cases li strong{display:block;font:bold 12px/24px Microsoft YaHei;color:#666;width:210px;}
+#caseslist .cases li a:hover{text-decoration:none;}
+#caseslist .cases  li p{display:none;width:210px;height:100%;font-size:12px;line-height:1.5;text-align:left;padding:0 15px;background:#212121;background:rgba(0,0,0,0.8);color:#999;position:absolute;left:2px;bottom:0;}
+#caseslist .cases  li  p strong{margin-top:10px;color:#fff;width:210px;}
+#caseslist .cases  li  p em{display:block;color:#ddd;margin-bottom:5px;}
+#caseslist .cases  li p a{display:inline-block;zoom:1;*display:inline;font-weight:bold;color:#fff;height:30px;line-height:30px;padding:0 8px;margin-top:8px;}
+#caseslist .cases  li p a.openurl{width:23px;height:23px;padding:0;background:url("images/ico_website.png") no-repeat;overflow:hidden;text-indent:-9999px;position:absolute;bottom:5px;right:5px;}
+#caseslist li p a.openurl:hover{background-position:0 -23px;}
+#case_footer{background:#f5f4f4;border-top:1px solid #d8d9d8;padding:15px 0;}
+/* 新闻详情 */
+
+#newslist .news{padding:15px 0;}
+#newslist .news li{position:relative;border-bottom:1px dotted #ccc;padding:10px 0;}
+#newslist .news li img{width:94px;height:94px;}
+#newslist .news li .newslist{position:absolute;width:876px;right:0;top:10px;}
+#newslist .news li .newslist a{font:bold 16px/30px Microsoft YaHei;color:#444;}
+#newslist .news li .newslist span{display:block;line-height:20px;color:#999;}

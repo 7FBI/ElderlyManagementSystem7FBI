@@ -12,7 +12,17 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" href="/resources/unity/layer/css/layui.css" media="all">
 <link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" />
-
+<!--  -->
+<link href="/resources/css/frontedu.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+<link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+<script type="text/javascript"
+	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body id="ruifoxHome">
 <%@ include file="header.jsp" %>
@@ -170,39 +180,77 @@
   </ul>
 </section>
 
-<section id="news">
-  <div class="cat_title wrapper">
-    <h2>新闻<strong>News</strong></h2>
-    <p>关注我们、关注前沿<br/>
-      Recently is to do ...</p>
-    <a href="news/index.htm"  class="more">MORE+</a> </div>
+<!--新闻部分  -->
+<div id="mynews">
+<div class="indexnews">
+  <div class="col-xs-3"><font size="12px">新闻<strong>News</strong></font></div>
+    <!-- <div style="float: left;margin-top: 25px;"><p>关注我们、关注前沿<br/>
+      Recently is to do ...</p></div> -->
+  <div class="col-md-offset-6 col-md-1" style="margin-top: 25px;font-size: 18px;"> <a href="${pageContext.request.contextPath}/front/edu/alledunews.action?"  class="more">MORE+</a> </div>  
+   </div>
+ <!--  <div class="cat_title wrapper">
+   </div> -->
   <div class="newsdata">
-    <div class="newsad"> <img src="images/news.png"  alt="html5" width="320" height="485" /> </div>
+    <div class="newsad"> 
+    
+    <!--图片轮播  -->
+		<div id="carousel-example-generic" class="carousel slide"
+			data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+			</ol>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox"
+				style=" padding-bottom: 6px;">
+				<div class="item active">	
+						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360" height="100%" />     
+					
+					<!-- <div class="carousel-caption">...</div> -->
+				</div>	
+				<c:forEach items="${hotnews }" var="hotnews">
+				<div class="item">
+						
+						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="100%" />     
+					
+					<!-- <div class="carousel-caption">...</div> -->
+				</div>
+				 </c:forEach> 			
+			</div>
+			
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	
+    </div>
     <ul>
-      
-       <li> <a href="news/hynews/23.html"><img src="uploads/131102/1-131102210K4H1.jpg"   width="90" height="90" alt="网络营销最重要的一步，你做到了吗？"/></a>
-        <div class="newslist"> <a href="news/hynews/23.html" title="网络营销最重要的一步，你做到了吗？">网络营销最重要的一步，你做到了吗？</a> <span>UPTATED:2013/11/02</span>
-          <p>很多人总是会问，为什么我的网站转化率总是居高不下？也许你的网站很美观大气，功能很完善，入口非常便捷丰富，但是就是转化不好！原因只在于，你....</p>
+      <c:forEach items="${hotnews }" var="hotnews">
+      <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
+          <img src="/files${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>
+        <div class="newslist"> 
+           <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" title="百度免费＂发武器＂ 布局移动互联网">${hotnews.edutitle }</a>
+           <span><fmt:formatDate value="${hotnews.edutime }" pattern="yyyy-MM-dd"/></span>
+           <p>${hotnews.educontent }........</p>
         </div>
       </li>
-<li> <a href="news/hynews/9.html" ><img src="uploads/131101/1-1311012213054G.png"  width="90" height="90" alt="百度免费＂发武器＂ 布局移动互联网"/></a>
-        <div class="newslist"> <a href="news/hynews/9.html" title="百度免费＂发武器＂ 布局移动互联网">百度免费＂发武器＂ 布局移动互联网</a> <span>UPTATED:2013/11/01</span>
-          <p>中广网北京9月3日消息 据经济之声《天下公司》报道，说起百度，恐怕听众朋友们都不会陌生。这家创办于2001年1月1日的中文互联网搜索公司，经过十余年....</p>
-        </div>
-      </li>
-<li> <a href="news/hynews/8.html" ><img src="uploads/131101/1-13110122115U92.png"  width="90" height="90" alt="企业网站已经悄悄的转变成了一种网络营销应用"/></a>
-        <div class="newslist"> <a href="news/hynews/8.html" title="企业网站已经悄悄的转变成了一种网络营销应用">企业网站已经悄悄的转变成了一种网络营销应用</a> <span>UPTATED:2013/11/01</span>
-          <p>当是你最后一次使用的电话簿找到的产品或服务？如果你有一台电脑，平板电脑或智能手机的技术和访问，甚至有基本的了解，这可能是很难记住，当你拖....</p>
-        </div>
-      </li>
-<li> <a href="news/gsnews/7.html" ><img src="uploads/131031/1-1310312352421V.jpg"  width="90" height="90" alt="html5+js技术网站应用案例：三盛·都会城网站建设"/></a>
-        <div class="newslist"> <a href="news/gsnews/7.html"  title="html5+js技术网站应用案例：三盛·都会城网站建设">html5+js技术网站应用案例：三盛·都会城网站建设</a> <span>UPTATED:2013/11/01</span>
-          <p>三盛·都会城作为三盛地产在成都的全资开发项目，入主龙泉经开区，承载三盛地产在成都建立品牌的任务，三盛·都会城总投入近40亿元，前期将投入3亿重....</p>
-        </div>
-      </li>
+      </c:forEach>
+
     </ul>
   </div>
-</section>
+</div>
 
 <%-- <%@ include file="footer.jsp"%> --%>
 <jsp:include page="footer.jsp" flush="true"/>

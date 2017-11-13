@@ -66,6 +66,12 @@ public class EdunewsServiceImpl implements EdunewsService{
 		// TODO Auto-generated method stub
 		return edunewsMapper.findAllEduNews(map);
 	}
+
+	@Override
+	public List<Edunews> findHotNews() {
+		// TODO Auto-generated method stub
+		return edunewsMapper.findHotNews();
+	}
 	
 
 }

@@ -14,4 +14,6 @@ public interface VideoService {
 	public Video queryOneVideo(Integer id);
 	public List<Video> findVieoMap(Map map);
     public int videoCount();
+    public List<Video> freePrice(Map map);
+    public int freeCount();
 }

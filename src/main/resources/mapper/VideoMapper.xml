@@ -80,6 +80,14 @@
  <select id="findVieoMap" parameterType="hashMap" resultMap="BaseResultMap">
  select * from video ORDER BY id LIMIT #{page},#{max}
  </select>
+ <!--免费资源  -->
+ <select id="freePrice" parameterType="hashMap" resultMap="BaseResultMap">
+ SELECT * from video WHERE vprice=0 ORDER BY id LIMIT #{page},#{max}
+ </select>
+ <!--查出免费的资源的条数  -->
+ <select id="freeCount" resultType="java.lang.Integer">
+ SELECT count(*) from video WHERE vprice=0
+ </select>
  <!--根据id删除  -->
  <delete id="deleteById" parameterType="java.lang.Integer">
      delete from video where id=#{id}

@@ -54,4 +54,14 @@ public class VideoServiceImpl implements VideoService{
 		// TODO Auto-generated method stub
 		return videoMapper.videoCount();
 	}
+	@Override
+	public List<Video> freePrice(Map map) {
+		// TODO Auto-generated method stub
+		return videoMapper.freePrice(map);
+	}
+	@Override
+	public int freeCount() {
+		// TODO Auto-generated method stub
+		return videoMapper.freeCount();
+	}
 }

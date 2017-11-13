@@ -62,7 +62,7 @@
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	 --%> <c:if test="${empty allVideos}">
 					<a
-						href="${pageContext.request.contextPath}/backstage/video/allvideoslist.action?"><font
+						href="${pageContext.request.contextPath}/backstage/video/allvideo.action?"><font
 						size="2px" color="blue"> <span
 							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 					</font></a>

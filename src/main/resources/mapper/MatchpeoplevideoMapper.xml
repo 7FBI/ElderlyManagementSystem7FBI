@@ -54,11 +54,41 @@
 			</collection>
 		</collection>
 	</resultMap>
+	<!--前台 更据人找 视频 -->
+	<resultMap type="com.bean.Matchpeoplevideo" id="findVideoToUser">
+		<id column="id" property="id" />
+		<result column="did" property="did" />
+		<collection property="video" ofType="com.bean.Video">
+			<id column="videoid" property="id" />
+			<result column="vtitle" property="vtitle" />
+			<result column="vcontent" property="vcontent" />
+			<result column="vteacher" property="vteacher" />
+			<result column="vprice" property="vprice" />
+			<result column="vurl" property="vurl" />
+			<collection property="oldDiseaselibrary" ofType="com.bean.OldDiseaselibrary">
+				<id column="diseaselibraryid" property="id" />
+				<result column="diseasename" property="diseasename" />
+				<collection property="oldSickness" ofType="com.bean.OldSickness">
+					<id column="sicknessid" property="id" />
+					<collection property="oldDiseasedetails" ofType="com.bean.OldDiseasedetails">
+						<id column="diseaseid" property="id" />
+						<result column="uid" property="uid" />
+						<association property="oldUsers" javaType="com.bean.OldUsers">
+							<id column="userid" property="id" />
+							<result column="username" property="username" />
+							<result column="address" property="address" />
+							<result column="tell" property="tell" />
+  		               </association>
+					</collection>
+				</collection>
+			</collection>
+		</collection>
+	</resultMap>
 	<!--查找全部 -->
 	<resultMap type="com.bean.Matchpeoplevideo" id="queryVidoeAndDiseaseName">
-		<id column="id" property="id"/>
-		<result column="vid" property="vid"/>
-		<result column="did" property="did"/>
+		<id column="id" property="id" />
+		<result column="vid" property="vid" />
+		<result column="did" property="did" />
 		<collection property="video" ofType="com.bean.Video">
 			<id column="vid" property="id" />
 			<result column="vtitle" property="vtitle" />
@@ -68,11 +98,11 @@
 			</collection>
 		</collection>
 	</resultMap>
-	
+
 	<resultMap type="com.bean.Matchpeoplevideo" id="queryVidoedisease">
-		<id column="id" property="id"/>
-		<result column="vid" property="vid"/>
-		<result column="did" property="did"/>
+		<id column="id" property="id" />
+		<result column="vid" property="vid" />
+		<result column="did" property="did" />
 		<association property="video" javaType="com.bean.Video">
 			<id column="vid" property="id" />
 			<result column="vtitle" property="vtitle" />
@@ -82,12 +112,12 @@
 			</association>
 		</association>
 	</resultMap>
-	
-	
+
+
 	<resultMap type="com.bean.Matchpeoplevideo" id="queryVideoTitles">
-		<id column="id" property="id"/>
-		<result column="vid" property="vid"/>
-		<result column="did" property="did"/>
+		<id column="id" property="id" />
+		<result column="vid" property="vid" />
+		<result column="did" property="did" />
 		<association property="video" javaType="com.bean.Video">
 			<id column="vid" property="id" />
 			<result column="vtitle" property="vtitle" />
@@ -118,7 +148,8 @@
 		resultMap="findUsersByVideo">
 
 		select
-		old_users.id userid,old_users.username username,old_users.address
+		old_users.id userid,old_users.username
+		username,old_users.address
 		address,old_users.tell tell,
 		matchpeopleVideo.id id,matchpeopleVideo.did,v.id
 		videoid,v.vtitle,v.vcontent,v.vteacher,v.vprice,v.vurl,old_DiseaseDetails.id
@@ -142,61 +173,106 @@
 		v.id=#{id,jdbcType=INTEGER}
 	</select>
 
+	<!--前台 根据用户名为其推荐视频 -->
+	<select id="selectVideoByUid" parameterType="java.lang.String"
+		resultMap="findVideoToUser">
+		select
+		old_users.id userid,old_users.username
+		username,old_users.address
+		address,old_users.tell tell,
+		matchpeopleVideo.id id,matchpeopleVideo.did,v.id
+		videoid,v.vtitle
+		vtitle,v.vcontent vcontent,v.vteacher vteacher,
+		v.vprice vprice,v.vurl
+		vurl,old_DiseaseDetails.id
+		diseaseid,old_sickness.id sicknessid,
+		old_DiseaseDetails.uid uid,
+		old_Diseaselibrary.diseasename
+		diseasename,old_Diseaselibrary.id
+		diseaselibraryid
+		from
+		matchpeopleVideo,video v,
+		old_sickness,old_DiseaseDetails,old_Diseaselibrary,old_users
+		where
+		old_DiseaseDetails.uid=old_users.uid AND
+		matchpeopleVideo.vid=v.id
+		and
+		old_sickness.did=matchpeopleVideo.did
+		and
+		old_sickness.did=old_Diseaselibrary.id
+		AND
+		old_DiseaseDetails.id=old_Sickness.detailid
+		AND
+		old_users.uid=#{uid,jdbcType=VARCHAR}
+	</select>
 
 	<!--查找全部 -->
 	<select id="queryAllVideoMatchdisease" resultMap="queryVidoeAndDiseaseName">
-		select matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did did,
+		select
+		matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did
+		did,
 		video.id vid,video.vtitle vtitle, old_diseaselibrary.id
 		did,old_diseaselibrary.diseasename diseasename
-		from matchpeoplevideo,video,old_diseaselibrary
+		from
+		matchpeoplevideo,video,old_diseaselibrary
 		where
 		matchpeoplevideo.vid=video.id
 		and
 		matchpeoplevideo.did=old_diseaselibrary.id
 	</select>
 	<!--根据视频找出适合的病 -->
-	<select id="queryVideoMatchdisease" parameterType="java.lang.Integer" resultMap="queryVidoedisease">
-		select matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did did,
-		video.id vid,video.vtitle vtitle, old_diseaselibrary.id
+	<select id="queryVideoMatchdisease" parameterType="java.lang.Integer"
+		resultMap="queryVidoedisease">
+		select matchpeoplevideo.id id,matchpeoplevideo.vid
+		vid,matchpeoplevideo.did did,
+		video.id vid,video.vtitle vtitle,
+		old_diseaselibrary.id
 		did,old_diseaselibrary.diseasename diseasename
 		from matchpeoplevideo,video,old_diseaselibrary
 		where
 		matchpeoplevideo.vid=video.id
 		and
 		matchpeoplevideo.did=old_diseaselibrary.id
-		and video.id=#{id,jdbcType=INTEGER}
+		and
+		video.id=#{id,jdbcType=INTEGER}
 	</select>
 	<!--视频标题 -->
-	<select id="queryVideotitle" parameterType="java.lang.Integer" resultMap="queryVideoTitles">
-		select matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did did,
+	<select id="queryVideotitle" parameterType="java.lang.Integer"
+		resultMap="queryVideoTitles">
+		select matchpeoplevideo.id id,matchpeoplevideo.vid
+		vid,matchpeoplevideo.did did,
 		video.id vid,video.vtitle vtitle
-		from matchpeoplevideo,video
+		from
+		matchpeoplevideo,video
 		where
 		matchpeoplevideo.vid=video.id
-		and matchpeoplevideo.vid=#{id,jdbcType=INTEGER}
+		and
+		video.id=#{id,jdbcType=INTEGER}
 		GROUP BY vtitle
 	</select>
-	<!--模糊查询  -->
-<select id="queryMatchByConditions" parameterType="java.lang.String" resultMap="queryVidoeAndDiseaseName">
-select matchpeoplevideo.id id,
-		video.id vid,video.vtitle vtitle, old_diseaselibrary.id
+	<!--模糊查询 -->
+	<select id="queryMatchByConditions" parameterType="java.lang.String"
+		resultMap="queryVidoeAndDiseaseName">
+		select matchpeoplevideo.id id,
+		video.id vid,video.vtitle vtitle,
+		old_diseaselibrary.id
 		did,old_diseaselibrary.diseasename diseasename
 		from matchpeoplevideo,video,old_diseaselibrary
 		<where>
-		matchpeoplevideo.vid=video.id
-		and
-		matchpeoplevideo.did=old_diseaselibrary.id
-		and
-		<if test="value !=null">
-		  (vtitle like '%#{value}%' or diseasename like '%#{value}%')
-		</if>
+			matchpeoplevideo.vid=video.id
+			and
+			matchpeoplevideo.did=old_diseaselibrary.id
+			and
+			<if test="value !=null">
+				(vtitle like '%#{value}%' or diseasename like '%#{value}%')
+			</if>
 		</where>
-		
-</select>
-	<!--删除联系  -->
-    <delete id="deleteMatchvideo" parameterType="java.lang.Integer">
-    delete from matchpeoplevideo where id=#{id,jdbcType=INTEGER}
-    </delete>
+
+	</select>
+	<!--删除联系 -->
+	<delete id="deleteMatchvideo" parameterType="java.lang.Integer">
+		delete from matchpeoplevideo where id=#{id,jdbcType=INTEGER}
+	</delete>
 	<!--添加联系 -->
 	<insert id="addMatchvideo" parameterType="com.bean.Matchpeoplevideo">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
@@ -345,9 +421,9 @@ select matchpeoplevideo.id id,
 			</if>
 		</trim>
 	</insert>
-	
+
 	<!--修改联系 -->
-<update id="updateMatchvideo" parameterType="com.bean.Matchpeoplevideo">
+	<update id="updateMatchvideo" parameterType="com.bean.Matchpeoplevideo">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
 		update matchpeoplevideo

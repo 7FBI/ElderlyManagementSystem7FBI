@@ -12,7 +12,9 @@ public interface MatchpeoplevideoMapper {
      * @mbggenerated
      */
     int deleteByPrimaryKey(Integer id);
+    //视频适用用户
     public List<Matchpeoplevideo> selectUsersByVideoId(Integer id);
+   //为用户推荐视频
     public List<Matchpeoplevideo> selectVideoByUid(String uid);
     public void addMatchvideo(Matchpeoplevideo matchpeoplevideo);
     public void updateMatchvideo(Matchpeoplevideo matchpeoplevideo);

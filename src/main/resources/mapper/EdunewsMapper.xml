@@ -57,7 +57,7 @@
   
   <!-- 查询所有新闻 -->
   <select id="selectAllEdu" resultType="com.bean.Edunews">
-   select id,edutitle,edutime from edunews
+   select * from edunews
   </select>
   <!-- 根据id查询 -->
   <select id="selectEduById" parameterType="java.lang.Integer" resultType="com.bean.Edunews">
@@ -81,6 +81,10 @@
   <!--分页  -->
   <select id="findAllEduNews" parameterType="hashMap" resultMap="BaseResultMap">
   select * from edunews order by id limit #{page},#{max}
+  </select>
+  <!--查询最新的5条记录  -->
+  <select id="findHotNews" resultMap="BaseResultMap">
+  select * from edunews ORDER BY edutime DESC LIMIT 5
   </select>
   <!-- 删除 -->
   <delete id="deleteEduById" parameterType="java.lang.Integer">

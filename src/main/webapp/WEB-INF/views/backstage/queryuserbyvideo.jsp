@@ -60,7 +60,19 @@
 				<a  href="${pageContext.request.contextPath}/backstage/video/allvideo.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
-	<br><br>
+					<br>
+					<br>
+				<c:if test="${empty matchpeoplebyvideolist}">
+					<%-- <a  href="${pageContext.request.contextPath}/backstage/video/allvideo.action" ><font size="2px" color="blue"> 
+	
+              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+					<br>
+					<br> --%>
+					<div style="margin-left:100px; height: 260px;">
+						<font color="pink">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸
+						</font>
+					</div>
+				</c:if>
 				<!-- <div   class="col-md-3  input-group addstyle">
 						
                                <input type="text" class="form-control" name="" id="" />
@@ -142,6 +154,7 @@
 						</td>
 					</tr>
 					<!-- 商品分类开始 -->
+					<c:if test="${!empty matchpeoplebyvideolist}">
 					<tr>
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
@@ -187,6 +200,7 @@
 									</td>
 								</tr>
 							</table>
+							</c:if>
 						</td>
 						<td width="2%">&nbsp;</td>
 					</tr>

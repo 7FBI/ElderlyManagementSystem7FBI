@@ -1,17 +1,24 @@
-function titleCheck() {
-	var reg = /^[\u4e00-\u9fa5]{1,7}$|^[\dA-Za-z_]{4,40}$/;
+function titleCheck(){
+	var reg = /^[\u4e00-\u9fa5]{2,40}$|^[\dA-Za-z_]{2,40}$/;
 	var vtitle = document.getElementById("vtitle").value;
 	if (vtitle.length == 0) {
 		var str = "× 标题不能为空";
 		document.getElementById("error1").innerHTML = str;
 		return false;
-	} else if (reg.test(vtitle)) {
+	}  else if (vtitle.length <2||vtitle.length >40){
+		var str = "× 标题长度在2-20"
+			document.getElementById("vtitle").value = "";
+			document.getElementById("vtitle").focus();
+			document.getElementById("success1").innerHTML = "";
+			document.getElementById("error1").innerHTML = str;
+			return false;
+	}else if (reg.test(vtitle)) {
 		document.getElementById("error1").innerHTML = "";
 		document.getElementById("success1").innerHTML = "√";
 		return true;
 	} else {
-		var str = "× 标题长度在2-20"
-		document.getElementById("vtitle").value = "";
+		var str = "× 输入非法"
+		document.getElementById("vtitle").value ="";
 		document.getElementById("vtitle").focus();
 		document.getElementById("success1").innerHTML = "";
 		document.getElementById("error1").innerHTML = str;
@@ -153,7 +160,7 @@ function videocheck() {
 }
 
 function edunewscheck() {  
-    if( titleCheck() && teacherCheck() && educontentCheck() && checkUrl()){ 
+    if(titleCheck() && teacherCheck() && educontentCheck() && checkUrl()){ 
     return true;  
     }else{
     	return false;

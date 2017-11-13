@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Matchpeoplevideo;
 import com.bean.OldDiseaselibrary;
+import com.bean.Video;
 import com.service.MatchpeoplevideoService;
 import com.service.OldDiseaselibraryService;
 import com.service.VideoService;
@@ -23,6 +24,9 @@ private MatchpeoplevideoService matchpeoplevideoService;
 @Autowired
 @Qualifier("oldDiseaselibraryService")
 private OldDiseaselibraryService oldDiseaselibraryService;
+@Autowired
+@Qualifier("videoService")
+private VideoService videoService;
 //视频适用人群
 @RequestMapping("/finduserbyvideo")
 public ModelAndView findUsersByVideoId(Integer id){
@@ -56,13 +60,13 @@ public ModelAndView selectVideoMatchDisease(Integer vid){
 
 @RequestMapping("/queryvideotitle")
 public ModelAndView selectVideotile(Integer id){
-	Matchpeoplevideo matchpeoplevideo=matchpeoplevideoService.queryVideotitle(id);
-	System.out.println(matchpeoplevideo);
+	Video video=videoService.queryOneVideo(id);
+	System.out.println(video);
 	 List<OldDiseaselibrary> alloldDiseaselibrary=oldDiseaselibraryService.selectAllDiseaselibrary();
 	System.out.println(alloldDiseaselibrary.size());
 	 ModelAndView modelAndView=new ModelAndView();
 	modelAndView.addObject("alloldDiseaselibrary", alloldDiseaselibrary);
-	modelAndView.addObject("matchpeoplevideo", matchpeoplevideo);
+	modelAndView.addObject("video", video);
 	modelAndView.setViewName("/backstage/addmatchpeoplevideo");
 	return modelAndView;
 }
@@ -71,7 +75,7 @@ public ModelAndView selectVideotile(Integer id){
 public String insertVideoMatchDisease(Matchpeoplevideo matchpeoplevideo){
 	matchpeoplevideoService.addMatchvideo(matchpeoplevideo);
 	
-	return "redirect:/backstage/matchpeoplbyevideo/queryallmatch.action";
+	return "redirect:/backstage/matchpeoplbyevideo/videoanddisease.action";
 }
 
 //删除联系

@@ -60,25 +60,27 @@
 			<td valign="top" bgcolor="#F7F8F9"> 
 			<c:if test="${empty allmatch}">
 					<a
-						href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/queryallmatch.action"><font
+						href="${pageContext.request.contextPath}/backstage/video/allvideo.action"><font
 						size="2px" color="blue"> <span
 							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 					</font></a>
 					<br>
 					<br>
 					<div style="margin-left:100px; height: 260px;">
-						<font color="lilac">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;小编会继续努力的哦！嘿嘿,给笑脸
+						<font color="lilac">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;您可以点击右的按钮添加哦！<br>&nbsp;&nbsp;&nbsp;&nbsp;祝您生活愉快
 						</font>
+					<a
+								href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/queryvideotitle.actino?id=${vid}"
+								class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
+								<span class="glyphicon glyphicon-plus" aria-hidden="true">添加适用疾病</span>
+							</a>
 					</div>
+					
 				</c:if>
-
-
-				<table width="100%" border="0" align="center" cellpadding="0"
-					cellspacing="0">
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					
 					<!-- 空白行-->
-
-
-					<!-- 一条线 -->
+              	   <!-- 一条线 -->
 					<tr>
 						<td height="40" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
@@ -91,12 +93,12 @@
 					</tr>
 					<c:if test="${!empty allmatch}">
 						<a
-				href="${pageContext.request.contextPath}/backstage/video/allvideo.action?"><font
-					size="2px" color="blue"> <span
+				          href="${pageContext.request.contextPath}/backstage/video/allvideo.action?"><font
+					        size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 				</font></a> <br>
 						<div class="row">
-							<%-- <form action="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/findmatchbyconditions.action" method="post">
+							 <form action="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/findmatchbyconditions.action" method="post">
 				<div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" name="queryVideomatchdisease" 
@@ -112,8 +114,6 @@
 							</span>
 						</div>
 				</form>
-					 --%>
-
 						</div>
 
 						<div class="col-md-3 col-sm-offset-1 addstyle">
@@ -139,7 +139,7 @@
 												<table width="100%" class="cont tr_color"
 													style="table-layout:fixed;">
 													<tr align="center" height="50px">
-														<td colspan="4"><font size="5px">用户列表</font></td>
+														<td colspan="4"><font size="5px">视频适用疾病推荐列表</font></td>
 													</tr>
 													<tr align="center" height="40px" class="td_title_color">
 														<td>序号</td>

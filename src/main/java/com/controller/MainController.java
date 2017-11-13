@@ -1,17 +1,40 @@
 package com.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.bean.Edunews;
+import com.service.EdunewsService;
 
 /**
  * Created by Administrator on 2017/9/28.
  */
 @Controller
 public class MainController {
+	@Autowired
+	@Qualifier("edunewsService")
+	private EdunewsService edunewsService;
     @RequestMapping("/")
-    public String homes(){
+    public String homes(Model model){
+    	List<Edunews> hotfivenews=edunewsService.findHotNews();
+    	List<Edunews> hotnews=new ArrayList<Edunews>();
+    	for(Edunews edunews:hotfivenews){
+    		String newcontent=edunews.getEducontent();
+    		edunews.setEducontent(newcontent.substring(0, 5));
+    		hotnews.add(edunews);
+    	}
+    	Edunews leftpicture=hotnews.get(0);
+    	//hotNews.remove(0);
+    	model.addAttribute("hotnews", hotnews);
+    	model.addAttribute("leftpicture", leftpicture);
         return "front/index";
     }
     @RequestMapping("/backhome")
@@ -21,6 +44,10 @@ public class MainController {
     @RequestMapping("/register")
     public String register(){
         return "backstage/register";
+    }
+    @RequestMapping("/edu")
+    public String edu(){
+        return "front/educational/edunews";
     }
     @RequestMapping("/login")
     public String login(){
