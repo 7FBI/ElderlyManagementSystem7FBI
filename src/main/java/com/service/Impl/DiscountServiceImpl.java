@@ -1,5 +1,8 @@
 package com.service.Impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -7,9 +10,10 @@ import org.springframework.stereotype.Service;
 import com.bean.Discount;
 import com.dao.DiscountMapper;
 import com.service.DiscountService;
+
 @Service("discountService")
 public class DiscountServiceImpl implements DiscountService {
-	
+
 	@Autowired
 	@Qualifier("discountMapper")
 	private DiscountMapper discountMapper;
@@ -54,6 +58,24 @@ public class DiscountServiceImpl implements DiscountService {
 	public Discount selectByProductPid(Integer pid) {
 		// TODO Auto-generated method stub
 		return discountMapper.selectByProductPid(pid);
+	}
+
+	@Override
+	public List<Discount> selectListDiscount(Map map) {
+		// TODO Auto-generated method stub
+		return discountMapper.selectListDiscount(map);
+	}
+
+	@Override
+	public List<Discount> selectAll() {
+		// TODO Auto-generated method stub
+		return discountMapper.selectAll();
+	}
+
+	@Override
+	public Discount selectByPid(int pid) {
+		// TODO Auto-generated method stub
+		return discountMapper.selectByPid(pid);
 	}
 
 }

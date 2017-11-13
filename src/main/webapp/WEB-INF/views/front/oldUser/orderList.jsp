@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,34 +27,46 @@
 			</h2>
 			<a href="case/index.htm" class="more">MORE+</a>
 		</div>
-		
-		
-		<c:forEach items="${orders}" var="ord">
-		<ul style="width: 726px; border-top: dashed; height: 154px; float: left;margin-left: 450px">
-			<c:forEach items="${ord.orderdetails}" var="odt" begin="0" end="2">
-			<li style="height: 152; width: 240px; float: left;"><img
-				src="/files${odt.products.producturl }" width="240"
-				height="152" alt="${odt.products.pname}" />
-				<p>
-					<strong>${odt.products.pname}</strong>${odt.products.pdescription}<br />
-					<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}" class="btn_blue">查看商品详情</a> <a href="#"
-						target="_blank" class="openurl">访问品牌网站</a>
-				</p></li>
-			</c:forEach>
-		</ul>
-		<div style="width: 200px; height: 152px; float: left;">
-			<h5 style="margin: 10px 20px;">
-				<strong style="font-size: 20px;">总价:</strong><strong
-					style="color: red;">￥</strong><strong style="color: green;">${ord.money }</strong>
-			</h5>
-			<a href="/front/orders/ordersOverInfo?id=${ord.id}" style="margin: 10px 20px;"
-				class="layui-btn layui-btn-small layui-btn-normal">查看详情</a>
-		</div>
-		
-		
-		</c:forEach>
 
-		</section>
+
+		<c:forEach items="${orders}" var="ord">
+			<ul
+				style="width: 726px; border-top: dashed; height: 154px; float: left; margin-left: 450px">
+				<c:forEach items="${ord.orderdetails}" var="odt" begin="0" end="2">
+					<li style="height: 152; width: 240px; float: left;"><img
+						src="/files${odt.products.producturl }" width="240" height="152"
+						 />
+						<p>
+							<strong>${fn:length(odt.products.pname)>20?fn:substring(odt.products.pname,0, 20)+"...":odt.products.pname}</strong>${fn:substring(odt.products.pdescription,0, 30)}<br />
+							<strong>类型:</strong>${odt.products.tid}<br />
+							<a
+								href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
+								class="btn_blue">查看商品详情</a> <a href="#" target="_blank"
+								class="openurl">访问品牌网站</a>
+						</p></li>
+				</c:forEach>
+			</ul>
+			<div style="width: 200px; height: 152px; float: left;">
+				<h5 style="margin: 10px 20px;">
+					<strong style="font-size: 20px;">总价:</strong><strong
+						style="color: red;">￥</strong><strong style="color: green;">${ord.money }</strong>
+				</h5>
+				<c:if test="${ord.orderstatus>=1}">
+					<a href="/front/orders/ordersOverInfo?id=${ord.id}"
+						style="margin: 10px 20px;"
+						class="layui-btn layui-btn-small layui-btn-normal">查看详情</a>
+				</c:if>
+
+				<c:if test="${ord.orderstatus<=0}">
+					<a href="/front/orders/ordersInfo?id=${ord.id}"
+						style="margin: 10px 20px;"
+						class="layui-btn layui-btn-small layui-btn-normal">查看详情</a>
+				</c:if>
+
+			</div>
+
+
+		</c:forEach> </section>
 	</center>
 	<script src="/resources/unity/jquery/jquery-3.2.0.js"
 		type="text/javascript"></script>

@@ -87,6 +87,26 @@ public class ProductOrdersController {
 		return view;
 	}
 
+	@RequestMapping("/addOneOrder")
+	public ModelAndView addOneOrder(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("/front/login");
+			return view;
+		}
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		Integer pid = Integer.valueOf(request.getParameter("pid"));
+		Integer num = Integer.valueOf(request.getParameter("num"));
+		Orders orders = getNewOrders(oldUsers);
+		Orderdetails orderdetails = new Orderdetails();
+		orderdetails.setPid(pid);
+		orderdetails.setOrdercount(num);
+		orderdetails.setOid(orders.getId());
+		orderdetailsService.insertSelective(orderdetails);
+		request.setAttribute("id", orders.getId());
+		return ordersInfo(request);
+	}
+
 	@RequestMapping("/ordersInfo")
 	public ModelAndView ordersInfo(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
@@ -110,8 +130,7 @@ public class ProductOrdersController {
 		view.addObject("profile", profiles);
 		return view;
 	}
-	
-	
+
 	@RequestMapping("/ordersOverInfo")
 	public ModelAndView ordersOverInfo(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
@@ -135,7 +154,6 @@ public class ProductOrdersController {
 		view.addObject("profile", profiles);
 		return view;
 	}
-	
 
 	@RequestMapping("/allOrdersList")
 	@ResponseBody
@@ -146,13 +164,13 @@ public class ProductOrdersController {
 			return view;
 		}
 		view.setViewName("/front/oldUser/orderList");
-		Integer status=0;
-		if (request.getParameter("status")!=null) {
-			status=Integer.valueOf(request.getParameter("status"));
+		Integer status = 0;
+		if (request.getParameter("status") != null) {
+			status = Integer.valueOf(request.getParameter("status"));
 		}
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Map<String, Object> map = new HashMap<String, Object>();
-		Orders ord=new Orders();
+		Orders ord = new Orders();
 		ord.setOrderstatus(status);
 		ord.setUid(oldUsers.getUid());
 		Integer max = 10;
@@ -178,8 +196,8 @@ public class ProductOrdersController {
 		List<Orders> orders = ordersService.selectFrontOrderstatus(map);
 		for (Orders orders2 : orders) {
 			if (orders2.getMoney() <= 0.0) {
-				orders2.setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService, discountService,
-						ordersService, orderdetailsService));
+				orders2.setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService,
+						discountService, ordersService, orderdetailsService));
 				ordersService.updateByPrimaryKeySelective(orders2);
 			}
 		}
@@ -248,4 +266,5 @@ public class ProductOrdersController {
 		ordersService.insertSelective(orders);
 		return orders;
 	}
+	
 }
