@@ -9,7 +9,7 @@ import com.bean.Classification;
 import com.dao.ClassificationMapper;
 import com.service.ClassificationService;
 
-@Service()
+@Service("classificationService")
 public class ClassificationServiceImpl implements ClassificationService {
 	
 	@Autowired
@@ -18,8 +18,8 @@ public class ClassificationServiceImpl implements ClassificationService {
 	@Override
 	public Classification selectByPrimaryKey(int id) {        //根据id查询类别对象
 		// TODO Auto-generated method stub
-		
-		return classificationMapper.selectByPrimaryKey(id);
+			
+		return classificationMapper.selectByPrimaryKey(id);	
 	}
 
 	@Override

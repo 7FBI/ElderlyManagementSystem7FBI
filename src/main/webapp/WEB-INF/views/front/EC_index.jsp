@@ -28,7 +28,7 @@
 			<div id="overview">
 				<div class="overview_bg"></div>
 				<div id="case_info">
-																																							<h1><img src="../../uploads/131102/1-1311021SZNS.png" tppabs="http://mc18.eatdou.com/uploads/131102/1-1311021SZNS.png" width="180" height="120" alt="西南财经大学" /></h1>
+																																							<h1><img src="./resources/./resources/uploads/131102/1-1311021SZNS.png" tppabs="http://mc18.eatdou.com/uploads/131102/1-1311021SZNS.png" width="180" height="120" alt="西南财经大学" /></h1>
 					<ul>
 						<li>名称：西南财经大学</li>
 						<li>分类：学校政府</li>
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div id="detailed">
-				<img alt="" src="../../uploads/allimg/131102/1-1311021T226.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T226.png" style="height: 499px; width: 700px;" /><img alt="" src="../../uploads/allimg/131102/1-1311021T227-50.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227-50.png" /><img alt="" src="../../uploads/allimg/131102/1-1311021T227.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227.png" />					
+				<img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T226.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T226.png" style="height: 499px; width: 700px;" /><img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T227-50.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227-50.png" /><img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T227.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227.png" />					
 			</div>
 		</div>
 	</article>

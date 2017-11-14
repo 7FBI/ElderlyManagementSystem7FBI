@@ -58,7 +58,7 @@ public class ProductsServiceImpl implements ProductsService {
 		
 	}
 	@Override
-	public Products selectByPrimaryKey(int id) {
+	public Products selectByPrimaryKey(int id) {           //根据商品id获得商品
 		// TODO Auto-generated method stub
 		return productsMapper.selectByPrimaryKey(id);
 	}

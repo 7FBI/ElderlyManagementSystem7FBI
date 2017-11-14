@@ -1,18 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 /**样式重置**/
-* {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	text-align: none;
-	font-size: 12px;
-	color: #4d4d4d;
-	font-family:"微软雅黑";
-	text-decoration: none;
-	font-weight: normal;
-	outline: none ;
-}
 body{
 	overflow-y:scroll;
 	color: #333;
@@ -725,7 +713,7 @@ area{outline: none;}
 	padding: 0;
 }
 .share_kits .share_wrap .icon_qq{
-	background:url(/resources/front/image/detail_sprite.png) no-repeat;
+	background:url(/resources/front/images/detail_sprite.png) no-repeat;
 	background-position:-20px -66px;
 }
 .share_kits .share_wrap .icon{
@@ -738,7 +726,7 @@ area{outline: none;}
 }
 .share_kits .share_wrap .icon_wx{
 	width: 22px;
-	background:url(/resources/front/image/detail_sprite.png) no-repeat;
+	background:url(/resources/front/images/detail_sprite.png) no-repeat;
 	background-position: -38px -66px;
 }
 .share_collect .collect_wrap{
@@ -751,7 +739,7 @@ area{outline: none;}
 	overflow: hidden;
 }
 .share_collect .icon_collect{
-	background:url(/resources/front/image/detail_sprite.png) no-repeat;
+	background:url(/resources/front/images/detail_sprite.png) no-repeat;
 	background-position:-40px -90px;
 }
 .share_collect .icon{
@@ -775,7 +763,7 @@ area{outline: none;}
     color: #333;
 }
 .share_collect .icon_contrast{
-	background:url(/resources/front/image/detail_sprite.png) no-repeat;
+	background:url(/resources/front/images/detail_sprite.png) no-repeat;
 	background-position: -100px -126px;
 }
 
@@ -1612,7 +1600,7 @@ area{outline: none;}
 }
 	
 .input{
-	height: 30px;
+	height: 28px;
 	width: 60px;
 	margin-top: 34px;
 	border: 1px solid #dddddd;
@@ -1865,6 +1853,37 @@ area{outline: none;}
 	margin-left: 36px;
 	margin-top: 40px;
 }
+.Xcontent34 .cart_btn{
+	background-color: #0092d8;
+    margin-right: 10px;
+}
+.cart_btn {
+    display: inline-block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    width: 205px;
+    text-align: center;
+    color: #fff;
+    padding: 0;
+    cursor: pointer;
+    -webkit-border-radius: 2px;
+}
+.Xcontent35 .primary_btn{
+	background-color:#f60;
+}
+ .Xcontent35 a{
+ display: inline-block;
+ font-size: 14px;
+ height: 40px;
+ line-height: 40px;
+ width: 205px;
+ text-align: center;
+ color: #fff;
+ padding: 0;
+ cursor: pointer;
+ -webkit-border-radius: 2px;
+ }
 /***************购物车*******************************/
 .Gcontent01{
 	height: 70px;
@@ -3788,4 +3807,91 @@ margin-bottom: 16px;
 }
 .tabs_content_wrap .tabs_content .tabs_content_hinter {
     text-align: center;
+}
+/*********购物车提示页面****************/
+.mod_lary{
+    display:none;   
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border: 1px solid #c8c8c8;
+    max-width: 600px;
+    min-width: 360px;
+}
+.show {
+    display: block !important;
+}
+.close_ico{
+	position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 1001;
+}
+.close_ico {
+    width: 8px;
+    height: 8px;
+    background:url(/resources/front/images/layer_ico.png) no-repeat;
+    background-position: -78px 0;
+}
+.mod_layer_bd{
+    padding: 60px 50px;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+}
+.mod_layer_bd .suc_ico {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    margin-top: -25px;
+}
+.mod_layer_bd .js_hinter_ico {
+    width: 48px;
+    height: 48px;
+    background:url(/resources/front/images/layer_ico.png) no-repeat;
+    background-position: 0 0;
+}
+.mod_layer_bd .suc_ico ~ p {
+    padding-left: 70px;
+    text-align: left;
+}
+.prompt_txt {
+    font-size: 18px;
+}
+.mod_layer_ft::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.mod_layer_ft{
+	border-top:1px solid #e6e6e6;
+}
+.layer_btn {
+    padding: 17px 0;
+    font-size: 12px;
+    color: #08c;
+    text-align: center;
+    float: left;
+    display: block;
+    width: 50%;
+    min-width: 30%;
+    cursor: pointer;
+}
+.layer_btn + .layer_btn {
+    border-left: 1px solid #e6e6e6;
+    margin-left: -1px;
+}
+.mod_layer_bd .fail_ico{
+    width: 48px;
+    height: 48px;
+    background:url(/resources/front/images/detail_reminder.png) no-repeat;
+    background-position: 0 0;
 }

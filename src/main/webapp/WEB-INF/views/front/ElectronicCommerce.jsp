@@ -12,6 +12,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" />
 </head>
+ 
+
+ 
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <!-- 查找最顶级栏目  -->
@@ -65,10 +68,12 @@
 			<li class="item1"><img
 				src="/resources/front/images/uploads/131102/1-131102210430T2.png"
 				width="240" height="152" alt="成都城市设计研究中心" /> 
-				<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
+				<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a> 
 				<p>
 					<em>￥</em><strong> ${products.price}</strong>
-				</p></li>
+				</p>
+				
+				</li>
 		</c:forEach>
 
 

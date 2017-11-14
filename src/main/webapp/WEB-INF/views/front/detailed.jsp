@@ -5,9 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商品详细信息</title>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="/resources/front/css/shouye.css">
 <link rel="stylesheet" href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
-<script type="text/javascript" src="/resources/front/oldman/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript" src="/resources/front/oldman/modernizr-custom-v2.7.1.min.js"></script>
 <script type="text/javascript" src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -48,6 +49,7 @@ $(document).ready(function(){
 	})
 
 })
+
 </script>
 </head>
 <body>
@@ -56,32 +58,29 @@ $(document).ready(function(){
 <div class="crumb">
 <a class="home_page" href="" >首页</a>
 <label></label>
-<a href="">厨房大电器</a>
+<a href="">${classifiCationName}</a>
 <label></label>
-<a href="">烟灶套装</a>
-<label></label>
-<a href="">超级家居套装</a>
+<a href="">${product.pname }</a>
 </div>
 </div>
 <!-- 商品展示部分 -->
 <div class="Xcontent">
 		<ul class="Xcontent01">
 			
-				<div class="Xcontent06"><img src="${product.producturl}"></div>
+				<div class="Xcontent06"><img src="D:\javawenjian\41824602289ffe8aA23827_120 120.jpg"></div>
 				<ol class="Xcontent08">
 					<div class="Xcontent07"><img src="${product.producturl}"></div>
-					<div class="Xcontent09"><img src="${photosUrl[0]}"></div>
-					<div class="Xcontent10"><img src="${photosUrl[1]}"></div>
-					<div class="Xcontent11"><img src="${photosUrl[2]}"></div>
-					<div class="Xcontent12"><img src="${photosUrl[3]}"></div>
+					<c:forEach items="${photosUrl }" var="url">
+					<div class="Xcontent09"><img src="${url}"></div>
+					</c:forEach>
 				</ol>
 				<ol class="Xcontent13">
-					<div class="Xcontent14"><a href="#"><p>新物品</p></a></div>
+					<div class="Xcontent14"><a href="#"><p>${product.pname}</p></a></div>
 					<div class="Xcontent15"><img src="/resources/front/images/shangpinxiangqing/X11.png"></div>
-					<div class="Xcontent16"><p>充电5分钟，温暖2小时</p></div>
+					<div class="Xcontent16"><p>${product.pdescription}</p></div>
 					<div class="Xcontent17">
 						<p class="Xcontent18">售价</p>
-						<p class="Xcontent19">￥<span>69.00</span></p>
+						<p class="Xcontent19">￥<span>${product.price}</span></p>
 						<div class="Xcontent20">
 							<p class="Xcontent21">促销</p>
 							<img src="/resources/front/images/shangpinxiangqing/X12.png">
@@ -96,18 +95,22 @@ $(document).ready(function(){
 					<div class="Xcontent26">
 						<p class="Xcontent27">颜色</p>
 						<div class="Xcontent28"><img  src="/resources/front/images/shangpinxiangqing/X14.png"></div>
-							<div class="Xcontent29"><img  src="/resources/front/images/shangpinxiangqing/X1.png"></div>
+							<div class="Xcontent29"><img  src=""></div>
 					</div>
+					<!-- <div class="Xcontentsize"></div> -->
 					<div class="Xcontent30">
 						<p class="Xcontent31">数量</p>
 						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
-						<form>	
-            <input class="input" value="1"></form>
+						<form id="fromSubmin">	
+                        <input name="num" class="input" value="1">
+                        <input name="pid" type="hidden" value="${product.id}">
+                        <input name="uid" type="hidden" value="wbq123">
+                        </form>
 						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
 
 					</div>
-					<div class="Xcontent34"><a href="#"><img src="/resources/front/images/shangpinxiangqing/X17.png"></a></div>
-					<div class="Xcontent35"><a href="#"><img src="/resources/front/images/shangpinxiangqing/X18.png"></a></div>
+					<div class="Xcontent34"><a class="cart_btn" id="addGoods">加入购物车</a></div>    <!-- 添加商品至购物车 -->
+					<div class="Xcontent35"><a href="#" class="primary_btn" id="pays">立即购买</a></div>
 				    <div class="share_collect">
 				    <div class="share_kits">
 				    <span class="share_title">分享到</span>
@@ -115,7 +118,6 @@ $(document).ready(function(){
 				    <a class="bds_tqq icon icon_qq" target="_blank" href=""></a>
 				    <a id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
 				    </div>
-             
 				    </div>
 				     <div class="collect_wrap">
 				    <i id="btnCollect" class="icon icon_collect" ></i>
@@ -573,6 +575,8 @@ $(document).ready(function(){
  }
 </script>
 
+
+</div>
 <!-- 右下角漂浮栏 -->
 <div id="detail_floating">
 <div class="item">
@@ -608,6 +612,75 @@ $(document).ready(function(){
      }   
 </script>
 </div>
+<!-- 加入购物车提示栏 -->
+<div id="confirmDouble" class="mod_lary" style="margin-top:-99px; margin-left:-180px;">
+<div class="mod_layer_hd">
+<i class="close_ico" data-mpopup-close=""></i>
 </div>
+<div class="mod_layer_bd">
+<i class="js_hinter_ico suc_ico"></i>
+<p class="prompt_txt J_get_status">添加成功</p>
+</div>
+<div class="mod_layer_ft">
+<a class="layer_btn J_close_text">继续购物</a>
+<a id="gotoshoppay" class="layer_btn J_get_href" href="/gotoFront/Shopping_cart">去结算</a>
+</div>
+</div>
+
+<!-- 添加失败提示栏 -->
+<div id="confirmBuy" class="mod_lary" style="margin-top:-99px; margin-left:-180px;">
+<div class="mod_layer_hd">
+<i class="close_ico" data-mpopup-close=""></i>
+</div>
+<div class="mod_layer_bd">
+<i class="suc_ico js_hinter_ico fail_ico"></i>
+<p class="prompt_txt J_get_status">添加失败!<br></p>
+</div>
+<div class="mod_layer_ft">
+<a class="layer_btn" href="/gotoFront/Shopping_cart">整理购物车</a>
+<a id="btnCartBuy" class="layer_btn" href="">立即购买</a>
+</div>
+</div>
+
+  <script type="text/javascript">
+  /* $(document).on('click',"#addGoods",function(){
+	  
+  }) */
+  var c=$("#confirmDouble");
+  var g=$("#confirmBuy");
+  $("#addGoods").click(function(){
+	  var f=$("#fromSubmin");
+	  $.ajax({
+		  type:'post',
+		  url:"/front/Shoppingcart/insertBycart.action",
+		  data:f.serialize(),
+		  success:function(data){
+			  if(data=="ture"){
+				  c.removeClass("mod_lary").addClass('mod_lary show');
+			  }else if(data=="false"){
+				  g.removeClass("mod_lary").addClass('mod_lary show');
+			  }
+		  },
+		  error:function(){
+			  g.removeClass("mod_lary").addClass('mod_lary show');
+		  }  
+	  })
+  })
+  $(".J_close_text").click(function(){
+	  c.removeClass("mod_lary show").addClass('mod_lary');
+  })
+  $(".close_ico").click(function(){
+    	 c.removeClass("mod_lary show").addClass('mod_lary');
+    	 g.removeClass("mod_lary show").addClass('mod_lary');
+  })
+  $("#pays").click(function(){
+	  var f=$("#fromSubmin");
+	  $.ajax({
+		  type:'post',
+		  url:"/front/orders/addOneOrder",
+		  data:f.serialize()
+	  })
+  }) 
+ </script>
 </body>
 </html>

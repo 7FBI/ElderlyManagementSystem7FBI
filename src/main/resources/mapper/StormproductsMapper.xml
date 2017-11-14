@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.Stormproducts">
+ <resultMap id="BaseResultMap" type="com.bean.Stormproducts">
+		
+		<constructor>
+			<idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+			<arg column="pname" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="size" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="productscolor" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="productstype1" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="productstype2" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="price" javaType="java.lang.Double" jdbcType="DOUBLE" />
+			<arg column="pdescription" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="count" javaType="java.lang.Integer" jdbcType="INTEGER" />
+			<arg column="tid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+			<arg column="extended1" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended2" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended3" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended4" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended5" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended6" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended7" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended8" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended9" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended10" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended11" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended12" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended13" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended14" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended15" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended16" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended17" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended18" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended19" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="extended20" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="producturl" javaType="java.lang.String" jdbcType="VARCHAR" />
+			<arg column="cartcount" javaType="java.lang.Integer" jdbcType="INTEGER" />
+			<arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+		</constructor>
+	</resultMap>
+  <select id="selectStormproducts" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     select products.*,
+            shoppingcart.cartcount,
+            old_users.id user_id
+            From products,shoppingcart,old_users where products.id=shoppingcart.pid and shoppingcart.uid=old_users.uid 
+            and old_users.id=#{value}
+  </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

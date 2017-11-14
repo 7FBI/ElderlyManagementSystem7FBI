@@ -136,7 +136,7 @@
 													<td>&nbsp;</td>
 													<td>产品分类：</td>
 													<td><select name="tid">
-															<option selected="true" name="tid">请选择...</option>
+															<option selected="true" name="tid" value>请选择...</option>
 															<c:forEach items="${calssification }" var="Invlist">
 															<option value="${Invlist.id}" name="tid">${Invlist.classname}</option>
 															</c:forEach> 

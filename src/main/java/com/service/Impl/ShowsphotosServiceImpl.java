@@ -9,7 +9,7 @@ import com.bean.Showsphotos;
 import com.dao.ShowsphotosMapper;
 import com.service.ShowsphotosService;
 
-@Service("ShowsphotosService")
+@Service("showsphotosService")
 public class ShowsphotosServiceImpl implements ShowsphotosService {
 	
 	@Autowired
@@ -60,7 +60,7 @@ public class ShowsphotosServiceImpl implements ShowsphotosService {
 	}
 
 	@Override
-	public List<Showsphotos> selectBypid(int pid) {
+	public List<Showsphotos> selectBypid(int pid) {     //根据pid(即是商品id)获得该商品的所有对象
 		// TODO Auto-generated method stub
 		return showsphotosMapper.selectBypid(pid);
 	}

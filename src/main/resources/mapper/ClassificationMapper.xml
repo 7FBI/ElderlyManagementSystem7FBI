@@ -47,8 +47,8 @@
     -->
     select 
     <include refid="Base_Column_List" />
-    from classification
-    where id = #{id,jdbcType=INTEGER}
+     from classification  
+     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
@@ -328,5 +328,8 @@
   <select id="selectClassifiaction" resultType="com.bean.Classification">
     select * from classification
   </select>
-
+ <!-- 根据用户类别id查询出商品类别名称 -->
+  <select id="selectBypidtoClassname">
+     
+  </select>
 </mapper>

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Backinformation;
 
-@Service
 public interface BackinformationService {
 	 int deleteByPrimaryKey(Integer id);
 
