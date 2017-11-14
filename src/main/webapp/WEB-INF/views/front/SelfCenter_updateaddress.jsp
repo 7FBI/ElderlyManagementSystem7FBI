@@ -13,22 +13,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/resources/front/css/style.css"
-	type="text/css" media="all" />
+<title>地址管理</title>
 
-<script type="text/javascript"
-	src="../../../resources/unity/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript"
-	src="../../../resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link
-	href="../../../resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+<link href="/resources/front/css/self_exchange/admin.css"
+	rel="stylesheet" type="text/css">
+<link href="/resources/front/css/self_exchange/amazeui.css"
 	rel="stylesheet" type="text/css">
 
-<script type="text/javascript"
-	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+<link href="/resources/front/css/self_exchange/personal.css"
+	rel="stylesheet" type="text/css">
+<link href="/resources/front/css/self_exchange/addstyle.css"
+	rel="stylesheet" type="text/css">
+<script src="/resources/front/js/self_exchange/js/jquery.min.js"
+	type="text/javascript"></script>
+<script src="/resources/front/js/self_exchange/amazeui.js"></script>
 
 </head>
+
 <c:choose>
 	<c:when test="${empty profile}">
 		<%
@@ -44,155 +45,264 @@
 </c:choose>
 
 <body>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$(".new-option-r").click(
+							function() {
+								$(this).parent('.user-addresslist').addClass(
+										"defaultAddr").siblings().removeClass(
+										"defaultAddr");
+							});
 
+					var $ww = $(window).width();
+					if ($ww > 640) {
+						$("#doc-modal-1").removeClass(
+								"am-modal am-modal-no-btn")
+					}
 
+				})
+	</script>
+	<!--头 -->
+	<jsp:include page="Self_header.jsp"></jsp:include>
 
-	<jsp:include page="header.jsp"></jsp:include>
-
-
-	<section id="single">
-		<div class="cat_title" style=" /*  background:yellow;  */  height:168px;width:100%;position:relative;">
-    <div class="wrapper" style=" /*  background:green; */    height:168px;width:50%;position:absolute;top:75px;left:0;"><br><br>
-      <h2><strong>SelfCenter</strong>个人中心</h2>
-      <p>我们的作品，他们的故事<br/>
-        Our work, their stories </p>
-    
+	<div class="nav-table">
+		<div class="long-title">
+			<span class="all-goods">全部分类</span>
 		</div>
-  </div>
-	<div class="category" >
-		<div class="wrapper" >
-			<h1>我的资料</h1>
-
+		<div class="nav-cont">
+			<ul>
+				<li class="index"><a href="#">首页</a></li>
+				<li class="qc"><a href="#">闪购</a></li>
+				<li class="qc"><a href="#">限时抢</a></li>
+				<li class="qc"><a href="#">团购</a></li>
+				<li class="qc last"><a href="#">大包装</a></li>
+			</ul>
+			<div class="nav-extra">
+				<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利 <i
+					class="am-icon-angle-right" style="padding-left: 10px;"></i>
+			</div>
 		</div>
 	</div>
-	<article class="serv_detailed" >
-	<div class="selfcenter_detailed" >
-		<div class="selfcenter_left">
-			<ul>
-				<li><a href="/front/oldUsers/selectByUid">个人资料</a></li>
-				<br>
-				<li><a href="/gotoFront/SelfCenter_updatepassword">修改密码</a></li>
-				<br>
-				<li><a
-					href="/front/oldUsers/selectProfileByUid">地址管理</a></li>
-				<br>
-				<li><a href="####">个人交易信息</a></li>
-			</ul>
-		</div>
-		<div class="selfcenter_cont">
-			<div class="add_address">
-				<form id="itemForm" action=<%=url%> method="post">
-					<div class="oldUsers_property_dear"></div>
-					<!-- 收货人姓名 -->
-					<div class="oldUsers_property">
-						<label for="username" class="oldUsers_lable">收货人</label>
-						<div class="oldUsers_value">
-							<input type="hidden" name="uid" value="${uid}"> <input
-								type="hidden" name="sid" value="${profile.uid}"> <input
-								type="hidden" name="id" value="${profile.id}"> <input
-								type="text" class="form-control" name="signname"
-								value="${ profile.signname}" id="signname"
-								placeholder="长度不超过25个字符" onblur="checkAddress()">
+	<b class="line"></b>
 
+	<div class="center">
+		<div class="col-main">
+			<div class="main-wrap">
 
+				<div class="user-address">
+					<!--标题 -->
+					<div class="am-cf am-padding">
+						<div class="am-fl am-cf">
+							<strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small>
+						</div>
+					</div>
+					<hr />
+					<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
+
+						<li class="user-addresslist defaultAddr"><span
+							class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
+							<p class="new-tit new-p-re">
+								<span class="new-txt">小叮当</span> <span class="new-txt-rd2">159****1622</span>
+							</p>
+							<div class="new-mu_l2a new-p-re">
+								<p class="new-mu_l2cw">
+									<span class="title">地址：</span> <span class="province">湖北</span>省
+									<span class="city">武汉</span>市 <span class="dist">洪山</span>区 <span
+										class="street">雄楚大道666号(中南财经政法大学)</span>
+								</p>
+							</div>
+							<div class="new-addr-btn">
+								<a href="#"><i class="am-icon-edit"></i>编辑</a> <span
+									class="new-addr-bar">|</span> <a href="javascript:void(0);"
+									onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
+							</div></li>
+
+						<li class="user-addresslist"><span class="new-option-r"><i
+								class="am-icon-check-circle"></i>设为默认</span>
+							<p class="new-tit new-p-re">
+								<span class="new-txt">小叮当</span> <span class="new-txt-rd2">159****1622</span>
+							</p>
+							<div class="new-mu_l2a new-p-re">
+								<p class="new-mu_l2cw">
+									<span class="title">地址：</span> <span class="province">湖北</span>省
+									<span class="city">武汉</span>市 <span class="dist">洪山</span>区 <span
+										class="street">雄楚大道666号(中南财经政法大学)</span>
+								</p>
+							</div>
+							<div class="new-addr-btn">
+								<a href="#"><i class="am-icon-edit"></i>编辑</a> <span
+									class="new-addr-bar">|</span> <a href="javascript:void(0);"
+									onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
+							</div></li>
+						<li class="user-addresslist"><span class="new-option-r"><i
+								class="am-icon-check-circle"></i>设为默认</span>
+							<p class="new-tit new-p-re">
+								<span class="new-txt">小叮当</span> <span class="new-txt-rd2">159****1622</span>
+							</p>
+							<div class="new-mu_l2a new-p-re">
+								<p class="new-mu_l2cw">
+									<span class="title">地址：</span> <span class="province">湖北</span>省
+									<span class="city">武汉</span>市 <span class="dist">洪山</span>区 <span
+										class="street">雄楚大道666号(中南财经政法大学)</span>
+								</p>
+							</div>
+							<div class="new-addr-btn">
+								<a href="#"><i class="am-icon-edit"></i>编辑</a> <span
+									class="new-addr-bar">|</span> <a href="javascript:void(0);"
+									onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
+							</div></li>
+					</ul>
+					<div class="add-dress">
+
+						标题
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf">
+								<strong class="am-text-danger am-text-lg">新增地址</strong> / <small>Add&nbsp;address</small>
+							</div>
+						</div>
+						<hr />
+
+						<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
+							<form class="am-form am-form-horizontal" >
+
+								<div class="am-form-group">
+									<label for="user-name" class="am-form-label">收货人</label>
+									<div class="am-form-content">
+										<input type="text" id="user-name" placeholder="收货人">
+									</div>
+								</div>
+
+								<div class="am-form-group">
+									<label for="user-phone" class="am-form-label">手机号码</label>
+									<div class="am-form-content">
+										<input id="user-phone" placeholder="手机号必填" type="email">
+									</div>
+								</div>
+								<div class="am-form-group">
+									<label for="user-address" class="am-form-label">所在地</label>
+									<div class="am-form-content address">
+										<select data-am-selected>
+											<option value="a">浙江省</option>
+											<option value="b" selected>湖北省</option>
+										</select> <select data-am-selected>
+											<option value="a">温州市</option>
+											<option value="b" selected>武汉市</option>
+										</select> <select data-am-selected>
+											<option value="a">瑞安区</option>
+											<option value="b" selected>洪山区</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="am-form-group">
+									<label for="user-intro" class="am-form-label">详细地址</label>
+									<div class="am-form-content">
+										<textarea class="" rows="3" id="user-intro"
+											placeholder="输入详细地址"></textarea>
+										<small>100字以内写出你的详细地址...</small>
+									</div>
+								</div>
+
+								<div class="am-form-group">
+									<div class="am-u-sm-9 am-u-sm-push-3">
+										<a class="am-btn am-btn-danger">保存</a> <a
+											href="javascript: void(0)"
+											class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
+									</div>
+								</div>
+							</form>
 						</div>
 
-
-						<!-- <div class="oldUsers_warning">
-							<font color="red"><p id="error1"></p></font> <font color="green"><p
-									id="success1"></p></font>
-						</div> -->
 					</div>
 
-					<!-- 收货人地址 -->
-					<div class="oldUsers_property">
-						<label for="address" class="oldUsers_lable">收货地址</label>
-						<div class="oldUsers_value">
-							<input type="text" class="form-control" name="signaddress"
-								value="${ profile.signaddress}" id="signaddress"
-								onblur="checkAddress()">
-						</div>
-						<!-- <div class="oldUsers_warning">
-							<font color="red"><p id="error4"></p></font> <font color="green"><p
-									id="success4"></p></font>
-						</div> -->
-					</div>
-					<!--电话号码  -->
-					<div class="oldUsers_property">
-						<label for="tell" class="oldUsers_lable">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</label>
-						<div class="oldUsers_value">
-							<input type="hidden" name="id" value="" /> <input type="text"
-								class="form-control" name="signtell"
-								value="${ profile.signtell}" id="signtell" onblur="checkTell()">
-						</div>
-						<!-- <div class="oldUsers_warning">
-							<font color="red"><p id="error3"></p></font> <font color="green"><p
-									id="success3"></p></font>
-						</div> -->
-					</div>
-
-
-					<!-- 按钮 -->
-					<div class="oldUsers_property_submit">
-						<br>
-						<button type="submit">保存</button>
-					</div>
-				</form>
-
-
-			</div>
-
-			<br> <br> <br>
-			<div class="show_address">
-
-				<h4>已保存的地址：</h4>
-
-				<div style="width: 90%; margin: 0 auto;">
-					<table class="table table-hover table-bordered">
-						<tr class="success">
-							<!--  <th>收货人ID</th> -->
-							<th>收货人</th>
-							<th>收货地址</th>
-							<th>电话号码</th>
-							<th>用户UID</th>
-							<th>操作</th>
-						</tr>
-						<c:forEach items="${profiles}" var="profiles">
-							<tr>
-
-								<td>${ profiles.signname}</td>
-								<td>${ profiles.signaddress}</td>
-								<td>${ profiles.signtell}</td>
-								<td>${ profiles.uid}</td>
-								<td><a
-									href="/front/oldUsers/updateAddressjsp?id=${profiles.id}&&uid=${profiles.uid}">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
-									href="/front/oldUsers/deleteAddressByPrimarykey?id=${profiles.id}&&uid=${profiles.uid}">删除</a></td>
-							</tr>
-						</c:forEach>
-					</table>
 				</div>
 
+				<script type="text/javascript">
+					$(document).ready(
+							function() {
+								$(".new-option-r").click(
+										function() {
+											$(this).parent('.user-addresslist')
+													.addClass("defaultAddr")
+													.siblings().removeClass(
+															"defaultAddr");
+										});
 
+								var $ww = $(window).width();
+								if ($ww > 640) {
+									$("#doc-modal-1").removeClass(
+											"am-modal am-modal-no-btn")
+								}
+
+							})
+				</script>
+
+				<div class="clear"></div>
 
 			</div>
-
+			<!--底部-->
+			<div class="footer">
+				<div class="footer-hd">
+					<p>
+						<a href="#">恒望科技</a> <b>|</b> <a href="#">商城首页</a> <b>|</b> <a
+							href="#">支付宝</a> <b>|</b> <a href="#">物流</a>
+					</p>
+				</div>
+				<div class="footer-bd">
+					<p>
+						<a href="#">关于恒望</a> <a href="#">合作伙伴</a> <a href="#">联系我们</a> <a
+							href="#">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a
+							href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
+							- Collect from <a href="http://www.cssmoban.com/" title="网页模板"
+							target="_blank">网页模板</a></em>
+					</p>
+				</div>
+			</div>
 		</div>
-		<div class="selfcenter_right" style="float: left;">
 
-			<!-- <h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5> -->
+		<aside class="menu">
+				<ul>
+					<li class="person">
+						<a href="index.html">个人中心</a>
+					</li>
+					<li class="person">
+						<a href="#">个人资料</a>
+						<ul>
+							<li class="active"> <a href="/front/oldUsers/selectByUid">个人信息</a></li>
+							<li> <a href="/gotoFront/SelfCenter_updatepassword">安全设置</a></li>
+							<li> <a href="/front/oldUsers/selectProfileByUid">收货地址</a></li>
+						</ul>
+					</li>
+					<li class="person">
+						<a href="#">我的交易</a>
+						<ul>
+							<li><a href="/gotoFront/SelfCenter_Exchange">订单管理</a></li>
+							<li> <a href="/gotoFront/SelfCenter_RefundAndAfterSale">退款售后</a></li>
+						</ul>
+					</li>
+					<li class="person">
+						<a href="#">我的资产</a>
+						<ul>
+							<li> <a href="/gotoFront/SelfCenter_Coupon">优惠券 </a></li>
+							<li> <a href="/gotoFront/SelfCenter_CreditDetail">红包</a></li>
+							<li> <a href="bill.html">账单明细</a></li>
+						</ul>
+					</li>
 
-		</div>
-		</div>
+					<li class="person">
+						<a href="#">我的小窝</a>
+						<ul>
+							<li> <a href="/gotoFront/SelfCenter_Collection">收藏</a></li>
+							<li> <a href="/gotoFront/SelfCenter_BrowserHistory">足迹</a></li>
+							<li> <a href="/gotoFront/SelfCenter_Comment">评价</a></lSi>
+							
+						</ul>
+					</li>
 
-		
-	
+				</ul>
 
-	</article> </section>
-
-	<jsp:include page="footer.jsp"></jsp:include>
+			</aside>
+	</div>
 </body>
 </html>

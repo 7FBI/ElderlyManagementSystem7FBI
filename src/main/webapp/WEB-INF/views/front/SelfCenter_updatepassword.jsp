@@ -10,129 +10,98 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/resources/front/css/style.css"
-	type="text/css" media="all" />
+<title>修改密码</title>
 
-<script type="text/javascript"
-	src="../../../resources/unity/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript"
-	src="../../../resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link
-	href="../../../resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css">
+		<link href="/resources/front/css/self_exchange/admin.css" rel="stylesheet" type="text/css">
+		<link href="/resources/front/css/self_exchange/amazeui.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript"
-	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+		<link href="/resources/front/css/self_exchange/personal.css" rel="stylesheet" type="text/css">
+		<link href="/resources/front/css/self_exchange/stepstyle.css" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="/resources/front/js/self_exchange/jquery-1.7.2.min.js"></script>
+		<script src="/resources/front/js/self_exchange/amazeui.js"></script>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
-	<section id="single">
-		<div class="cat_title" style=" /*  background:yellow;  */  height:168px;width:100%;position:relative;">
-    <div class="wrapper" style=" /*  background:green; */    height:168px;width:50%;position:absolute;top:75px;left:0;"><br><br>
-      <h2><strong>SelfCenter</strong>个人中心</h2>
-      <p>我们的作品，他们的故事<br/>
-        Our work, their stories </p>
-    
-		</div>
-  </div>
-	<div class="category" >
-		<div class="wrapper" >
-			<h1>我的资料</h1>
 
-		</div>
-	</div>
-	<article class="serv_detailed">
-	<div class="selfcenter_detailed">
-		<div class="selfcenter_left">
-			<ul>
-				<li><a href="/front/oldUsers/selectByUid">个人资料</a></li>
-				<br>
-				<li><a href="/gotoFront/SelfCenter_updatepassword">修改密码</a></li>
-				<br>
-				<li><a
-					href="/front/oldUsers/insertProfileByUid">地址管理</a></li>
-				<br>
-				<li><a href="####">个人交易信息</a></li>
-			</ul>
-		</div>
-		<div class="selfcenter_cont">
-			<div class="add_address">
-			<div class="oldUsers_property_submit">
-						<br>
-					
-					</div>
-					
-			<%
-			OldUsers oldUsers = (OldUsers)session.getAttribute("oldUsers");
-			String uid = oldUsers.getUid();
-			%>
-				<form id="itemForm" action="/front/oldUsers/updatePasswordByUid.action" method="post">
-					<div class="oldUsers_property_dear"></div>
-					<!-- 收货人姓名 -->
-					<div class="oldUsers_property">
-						<label for="password" class="oldUsers_lable">新&nbsp;&nbsp;密&nbsp;&nbsp;码</label>
-						<div class="oldUsers_value">
-							<input type="hidden" name="sid" value=<%=uid%>> 
-							 
-								<input type="text" class="form-control" name="password"
-								value="${password}" id="password"
-								onblur="checkAddress()">
+
+		<jsp:include page="Self_header.jsp"></jsp:include>
+            <div class="nav-table">
+					   <div class="long-title"><span class="all-goods">全部分类</span></div>
+					   <div class="nav-cont">
+							<ul>
+								<li class="index"><a href="#">首页</a></li>
+                                <li class="qc"><a href="#">闪购</a></li>
+                                <li class="qc"><a href="#">限时抢</a></li>
+                                <li class="qc"><a href="#">团购</a></li>
+                                <li class="qc last"><a href="#">大包装</a></li>
+							</ul>
+						    <div class="nav-extra">
+						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
+						    </div>
 						</div>
-
-
-						<!-- <div class="oldUsers_warning">
-							<font color="red"><p id="error1"></p></font> <font color="green"><p
-									id="success1"></p></font>
-						</div> -->
-					</div>
-
-					<!--电话号码  -->
-					<div class="oldUsers_property">
-						<label for="tell" class="oldUsers_lable">确认密码</label>
-						<div class="oldUsers_value">
-							 <input type="text"
-								class="form-control" name="confirmPassword"
-								value="${confirmPassword}" id="password" onblur="checkTell()">
-						</div>
-						<!-- <div class="oldUsers_warning">
-							<font color="red"><p id="error3"></p></font> <font color="green"><p
-									id="success3"></p></font>
-						</div> -->
-					</div>
-
-
-					<!-- 按钮 -->
-					<div class="oldUsers_property_submit">
-						<br>
-						<button type="submit" style="width:200px;height:30px;margin:30px -30px 600px;">保存</button>
-					</div>
-				</form>
-
-
 			</div>
+			<b class="line"></b> 
+		<div class="center">
+			<div class="col-main">
+				<div class="main-wrap">
 
-			<br> <br> <br>
-			<!-- <div class="show_address">
+					<div class="am-cf am-padding">
+						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">修改密码</strong> / <small>Password</small></div>
+					</div>
+					<hr/>
+<!--进度条-->
+					<div class="m-progress">
+						<div class="m-progress-list">
+							<span class="step-1 step">
+                                <em class="u-progress-stage-bg"></em>
+                                <i class="u-stage-icon-inner">1<em class="bg"></em></i>
+                                <p class="stage-name">重置密码</p>
+                            </span>
+							<span class="step-2 step">
+                                <em class="u-progress-stage-bg"></em>
+                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <p class="stage-name">完成</p>
+                            </span>
+							<span class="u-progress-placeholder"></span>
+						</div>
+						<div class="u-progress-bar total-steps-2">
+							<div class="u-progress-bar-inner"></div>
+						</div>
+					</div>
+					<form class="am-form am-form-horizontal">
+						<div class="am-form-group">
+							<label for="user-old-password" class="am-form-label">原密码</label>
+							<div class="am-form-content">
+								<input type="password" id="user-old-password" placeholder="请输入原登录密码">
+							</div>
+						</div>
+						<div class="am-form-group">
+							<label for="user-new-password" class="am-form-label">新密码</label>
+							<div class="am-form-content">
+								<input type="password" id="user-new-password" placeholder="由数字、字母组合">
+							</div>
+						</div>
+						<div class="am-form-group">
+							<label for="user-confirm-password" class="am-form-label">确认密码</label>
+							<div class="am-form-content">
+								<input type="password" id="user-confirm-password" placeholder="请再次输入上面的密码">
+							</div>
+						</div>
+						<div class="info-btn">
+							<div class="am-btn am-btn-danger">保存修改</div>
+						</div>
 
-				
+					</form>
 
-
-			</div> -->
-
+				</div>
+				<!--底部-->
+				<%-- <div class="footer">
+					<jsp:include page="footer.jsp"></jsp:include>
+				</div> --%>
+			</div>
+<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>
+			
 		</div>
-		<div class="selfcenter_right" style="float: left;">
-<!-- 
-			<h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5>
-			<h5>大家好</h5> -->
-
-		</div>
-	</div>
-
-	</article> </section>
-	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
