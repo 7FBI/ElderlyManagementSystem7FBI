@@ -67,116 +67,13 @@
         <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
       </p>
     </li>
-<li><img src="/resources/front/images/05.png"   width="240" height="152" alt="成都朗鲲商务服务顾问有"/>
-      <p> <strong>成都朗鲲商务服务顾问有</strong>朗鲲作为MICE的专门服务机构，自创立以来凭借专业的技能、丰富的经验、对市场敏锐的触觉及....<br/>
-        <a href="case/shangwu/18.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/06.png"   width="240" height="152" alt="雷迪波尔"/>
-      <p> <strong>雷迪波尔</strong>雷迪波尔企业,作为具有国际化运营与全球市场的时尚多品牌运营商，致力于向由消费者、合作....<br/>
-        <a href="case/qiye/17.html" class="btn_blue">查看品牌故事</a>
+    <li><img src="/resources/front/images/04.png"   width="240" height="152" alt="新象集团官方网站"/>
+      <p> <strong>新象集团官方网站</strong>新象建材有限公司是一家集木地板、室内装饰木门等系列装饰材料的研发设计、物流营销、售....<br/>
+        <a href="case/shangwu/19.html"  class="btn_blue">查看品牌故事</a>
         <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
       </p>
     </li>
-<li><img src="/resources/front/images/07.pngg" width="240" height="152" alt="龙城国际"/>
-      <p> <strong>龙城国际</strong>龙城国际项目位于郫县红光新城红光广场斜对面，紧邻成青快铁红光站口，今日润园别墅的北....<br/>
-        <a href="case/qiye/16.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com'))window.location='http://www.njro168.com/'" tppabs="http://www.njro168.com/" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/08.png" width="240" height="152" alt="建筑电气30周年"/>
-      <p> <strong>建筑电气30周年</strong>建筑电气杂志是经中华人民共和国新闻出版总署和中华人民共和国科学技术部（原国家科委）....<br/>
-        <a href="case/qiye/15.html" class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com'))window.location='http://www.njro168.com'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/09.png"  width="240" height="152" alt="SK中铁"/>
-      <p> <strong>SK中铁</strong>SK中铁（空间）智能化管理有限公司成立于2010年9月1日，是由韩国SK电讯与中铁二局共同投资....<br/>
-        <a href="case/gov/14.html" tppabs="http://mc18.eatdou.com/case/gov/14.html" class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/10.png"   width="240" height="152" alt="华商暖通"/>
-      <p> <strong>华商暖通</strong>成都华商暖通设备工程有限公司成立于1998年，是西南地区最早进入暖通行业的公司之一，专业....<br/>
-        <a href="case/qiye/13.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/11.png"  width="240" height="152" alt="西南财经大学"/>
-      <p> <strong>西南财经大学</strong>西南财经大学是教育部直属的国家“211工程”和“985工程”优势学科创新平台建设的全国重点....<br/>
-        <a href="case/gov/10.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="/resources/front/images/12.png"  width="240" height="152" alt="翡翠国际社区"/>
-      <p> <strong>翡翠国际社区</strong>劲力置业隶属于中国企业500强之一的川威集团，具有二级开发资质。 作为城市生活的建设者，....<br/>
-        <a href="case/qita/11.html" tppabs="http://mc18.eatdou.com/case/qita/11.html" class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'" target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="uploads/131102/1-1311021TZ9347.png"   width="240" height="152" alt="三盛·都会城"/>
-      <p> <strong>三盛·都会城</strong>三盛地产挟强大资金实力与多年开发经验，入主龙泉经开区，全力打造三盛·都会城项目。
-作....<br/>
-        <a href="case/qiye/12.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li><img src="uploads/131030/1-13103023093A15.png"   width="240" height="152" alt="通威食品"/>
-      <p> <strong>通威食品</strong>通威食品是大型科技型上市公司通威股份重点打造的食品产业。企业网站由四川锐狐网络建设....<br/>
-        <a href="case/qita/6.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.cn/'))window.location='http://www.njro168.cn/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-    </li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-<li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
-    <li>
-	<img src="uploads/131029/1-13102922154B20.png"  width="240" height="152" alt="金沙源"/>
-      <p> <strong>金沙源</strong>金沙源公司拥有20多年食品饮料研发、生产经验，一流的自动化生产线以及先进的食品饮料研发....<br/>
-        <a href="case/qiye/1.html"  class="btn_blue">查看品牌故事</a>
-        <a href="javascript:if(confirm('http://www.njro168.com/'))window.location='http://www.njro168.com/'"  target="_blank" class="openurl">访问品牌网站</a>
-      </p>
-</li>
+
   </ul>
 </section>
 
@@ -198,8 +95,7 @@
 			data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0"
-					class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
@@ -257,8 +153,6 @@
 
 <script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 <script src="/resources/unity/jquery/jquery-3.2.0.js" type="text/javascript"></script>
-<script type="text/javascript" src="/resources/front/js/jquery.1.8.2.min.js" ></script>
-<script type="text/javascript" src="/resources/front/js/jquery.plugin.min.js"></script>
 <script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 
 <script type="text/javascript">
@@ -339,16 +233,7 @@ layui.use('layer',function() { //独立版的layer无需执行这一句
 <script type="text/javascript">
 //<![CDATA[
 	//Nav Start
-	$("header>div>nav>ul>li>a").hover(function(){
-		$(this).parent().stop(false,true).animate({"background-position-x":"6px",opacity:"0.7"},{duration:"normal", easing: "easeOutElastic"});
-	},function(){
-		$(this).parent().stop(false,true).animate({"background-position-x":"10px",opacity:"1"},{duration:"normal", easing: "easeOutElastic"});
-	});
-	<!--- 首页 ---->
-	$('.ad_img,#banner_ctr,#client').pngFix();
-	$(window).scroll(function(){
-		$(this).scrollTop()>80?$("#navbg").stop(false,true).animate({opacity:"1"},"normal"):$("#navbg").stop(false,true).animate({opacity:"0.8"},"normal");
-	});
+	
 	//Banner Start
 	
 	//Banner End

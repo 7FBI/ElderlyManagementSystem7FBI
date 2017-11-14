@@ -485,20 +485,28 @@
 	<select id="selectFrontOrderstatus" parameterType="hashMap"
 		resultMap="OrdersAndDetailProdout">
 		select * from orders o,orderDetails od,products p
-		where
+		<where>
+		<if test="orders.orderstatus!=null"> and o.orderstatus=#{orders.orderstatus}</if>
+		<if test="orders.uid!=null"> and o.uid=#{orders.uid}</if>
+		and o.id=od.oid and od.pid=p.id
+		</where>
+		order by ordertime DESC
+		limit #{page},#{max}
+	</select>
+	<!-- where
 		o.orderstatus=#{orders.orderstatus}
 		and o.uid=#{orders.uid}
 		and o.id=od.oid and od.pid=p.id
 		order by ordertime DESC limit
-		#{page},#{max}
-	</select>
+		#{page},#{max} -->
 
 	<select id="selectByorderstatusCount" parameterType="hashMap"
 		resultType="java.lang.Integer">
 		select count(*) from orders o,orderDetails od,products p
-		where
-		o.orderstatus=#{orders.orderstatus}
-		and o.uid=#{orders.uid}
+		<where>
+		<if test="orders.orderstatus!=null"> and o.orderstatus=#{orders.orderstatus}</if>
+		<if test="orders.uid!=null"> and o.uid=#{orders.uid}</if>
 		and o.id=od.oid and od.pid=p.id
+		</where>
 	</select>
 </mapper>

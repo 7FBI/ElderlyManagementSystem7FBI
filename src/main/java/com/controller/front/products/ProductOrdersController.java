@@ -118,7 +118,7 @@ public class ProductOrdersController {
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/oldUser/ordersInfo");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
-		if (orders.getMoney() <= 0.0) {
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(oid, productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
 			ordersService.updateByPrimaryKeySelective(orders);
@@ -142,7 +142,7 @@ public class ProductOrdersController {
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/oldUser/ordersOverInfo");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
-		if (orders.getMoney() <= 0.0) {
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(oid, productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
 			ordersService.updateByPrimaryKeySelective(orders);
@@ -163,11 +163,12 @@ public class ProductOrdersController {
 			view.setViewName("/front/login");
 			return view;
 		}
-		view.setViewName("/front/oldUser/orderList");
-		Integer status = 0;
+		
+		Integer status = null;
 		if (request.getParameter("status") != null) {
 			status = Integer.valueOf(request.getParameter("status"));
 		}
+		view.setViewName(getStatusJsp(status));
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Map<String, Object> map = new HashMap<String, Object>();
 		Orders ord = new Orders();
@@ -195,7 +196,7 @@ public class ProductOrdersController {
 		map.put("max", max);
 		List<Orders> orders = ordersService.selectFrontOrderstatus(map);
 		for (Orders orders2 : orders) {
-			if (orders2.getMoney() <= 0.0) {
+			if (orders2.getMoney()==null || orders2.getMoney() <= 0.0 ) {
 				orders2.setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService,
 						discountService, ordersService, orderdetailsService));
 				ordersService.updateByPrimaryKeySelective(orders2);
@@ -246,6 +247,25 @@ public class ProductOrdersController {
 		return "true";
 	}
 
+	private String getStatusJsp(Integer status) {
+		if (status==null) {
+			return "/front/oldUser/ordersAllList";
+		}
+		String s = "";
+		switch (status) {
+		case 1:
+			s="/front/oldUser/ordersAllList1";
+			break;
+		case 2:
+			s="/front/oldUser/ordersAllList2";
+			break;
+		default:
+			s="/front/oldUser/ordersAllList0";
+			break;
+		}
+		return s;
+	}
+
 	// 生成新订单
 	private Orders getNewOrders(OldUsers oldUsers) {
 		Orders orders = new Orders();
@@ -266,5 +286,5 @@ public class ProductOrdersController {
 		ordersService.insertSelective(orders);
 		return orders;
 	}
-	
+
 }

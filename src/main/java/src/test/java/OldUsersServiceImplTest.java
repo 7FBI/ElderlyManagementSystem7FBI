@@ -52,5 +52,29 @@ public class OldUsersServiceImplTest {
 		}
 		System.out.println("---------------------------------------------------------");
 	}
+	
+	@Test
+	public void ddddd(){
+		String string=getStatusJsp(null);
+		System.out.println("----------------->>>>"+string);
+	}
+	public static String getStatusJsp(Integer status) {
+		if (status==null) {
+			return "/front/oldUser/ordersAllList";
+		}
+		String s = "";
+		switch (status) {
+		case 1:
+			s="/front/oldUser/ordersAllList1";
+			break;
+		case 2:
+			s="/front/oldUser/ordersAllList2";
+			break;
+		default:
+			s="/front/oldUser/ordersAllList0";
+			break;
+		}
+		return s;
+	}
 
 }

@@ -87,6 +87,7 @@
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/front/oldUsers/**" />
+			<mvc:mapping path="/front/orders/**" />
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/front/oldUsers/login" />
 			<mvc:exclude-mapping path="/front/oldUsers/register" />

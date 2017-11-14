@@ -23,7 +23,8 @@ public class MainController {
 	@Qualifier("edunewsService")
 	private EdunewsService edunewsService;
     @RequestMapping("/")
-    public String homes(Model model){
+    public ModelAndView homes(){
+    	ModelAndView model=new ModelAndView();
     	List<Edunews> hotfivenews=edunewsService.findHotNews();
     	List<Edunews> hotnews=new ArrayList<Edunews>();
     	for(Edunews edunews:hotfivenews){
@@ -31,11 +32,15 @@ public class MainController {
     		edunews.setEducontent(newcontent.substring(0, 5));
     		hotnews.add(edunews);
     	}
-    	Edunews leftpicture=hotnews.get(0);
+    	Edunews leftpicture=null;
+    	if (hotnews.size()>0) {
+    		leftpicture=hotnews.get(0);
+		}
     	//hotNews.remove(0);
-    	model.addAttribute("hotnews", hotnews);
-    	model.addAttribute("leftpicture", leftpicture);
-        return "front/index";
+    	model.addObject("hotnews", hotnews);
+    	model.addObject("leftpicture", leftpicture);
+    	model.setViewName("front/index");
+        return model;
     }
     @RequestMapping("/backhome")
     public String backend(){

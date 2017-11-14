@@ -44,7 +44,7 @@
 	<section id="news">
 	<div class="cat_title wrapper">
 		<h2>
-			待付款订单详情<strong>order</strong>
+			已付款订单详情<strong>order</strong>
 		</h2>
 		<p>
 			感谢您的支持<br /> thank you for your support
@@ -53,7 +53,7 @@
 	</div>
 	<div class="newsdata">
 		<ul style="width: 90%; float: left;">
-			<li style="height: 60px; width: 100%;">
+			<li style="height: 90px; width: 100%;">
 				<div class="layui-row layui-col-space1">
 					<div class="layui-col-md1"></div>
 					<div class="layui-col-md8">
@@ -73,7 +73,7 @@
 							<div class="layui-input-item" style="float: left; width: 230px;">
 
 								<label class="lables_d">收货地址:</label>
-								<label style="height: 20px; width: 150px; border: none;" class="layui-input">${orders.orderaddress}</label>
+								<label style="height: 20px; width: 150px; border: none;f" class="lables_v">${orders.orderaddress}</label>
 							</div>
 							<div style="float: left; width: 200px;">
 								<label class="lables_d">下单时间:</label> <label class="lables_v"><fmt:formatDate
@@ -88,8 +88,8 @@
 
 						<div style="width: 100%; float: left;">
 							<div style="float: left; width: 800px">
-								<label class="lables_d">用户备注:</label> <label
-									style="height: 20px; width: 450px;" class="layui-input" >${orders.remarks}</label>
+								<label class="lables_d">用户备注:</label> <span
+									style="height: 20px; width: 450px;border: none;" class="layui-input" >${orders.remarks}</span>
 							</div>
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 							<div style="float: left; width: 200px;">
 								<label class="lables_d">下单人:</label> <input class="lables_v"
 									style="border: none;" id="signname" name="signname"
-									readonly="readonly" value="${orders.username }" />
+									readonly="readonly" value="${oldUsers.username }" />
 							</div>
 							<div style="float: left; width: 200px;">
 								<label class="lables_d">预留电话:</label> <input class="lables_v"
@@ -140,7 +140,9 @@
 									href="/front/products/selectAllProductsByType?tid=${ord.products.tid}">${ord.products.tid}</a></label>
 							</div>
 						</div>
-						<div class="layui-col-md2"></div>
+						<div class="layui-col-md2">
+						<a href="#" class="layui-btn layui-btn-small layui-btn-normal">商品评价</a>
+						</div>
 					</div>
 				</li>
 			</c:forEach>
