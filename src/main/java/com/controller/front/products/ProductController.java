@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Classification;
+import com.bean.Credit;
 import com.bean.OldDiseaselibrary;
 import com.bean.OldUsers;
 import com.bean.Products;
 import com.bean.Showsphotos;
 import com.service.ClassificationService;
+import com.service.CreditshopService;
 import com.service.ProductsService;
 import com.service.ShowsphotosService;
 /**   
@@ -47,13 +49,19 @@ public class ProductController {
 	@Autowired
 	@Qualifier("showsphotosService")          //商品其余图片
 	private ShowsphotosService showsphotosService;
+	
+	@Autowired
+	@Qualifier("creditShopService")
+	private CreditshopService creditShopService;
     
 	@RequestMapping("/selectAllProducts")
 	public ModelAndView selectAllProducts(){
 	  List<Products> products = productsService.selectAllProducts();
+	  List<Products> product = creditShopService.SelectAllCreditShop();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
-		modelAndView.setViewName("front/ElectronicCommerce");
+		modelAndView.addObject("product", product);
+		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
 	}
 

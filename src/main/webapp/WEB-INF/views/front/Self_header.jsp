@@ -38,12 +38,19 @@
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/gotoFront/index" target="_top" class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
+						<a href="/gotoFront/index" target="_top" class="h"><i class="am-icon-home am-icon-fw"></i>系统首页</a>
+					</div>
+				</div>
+				<div class="topMessage home">
+					<div class="menu-hd">
+						<a href="/front/products/selectAllProducts" target="_top" class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
 					</div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng">
-						<a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+					
+						<a href="/front/oldUsers/selectByUid" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+				
 					</div>
 				</div>
 				<div class="topMessage mini-cart">
@@ -97,9 +104,10 @@
 
 			<div class="search-bar pr">
 				<a name="index_none_header_sysc" href="#"></a>
-				<form>
-					<input id="searchInput" name="index_none_header_sysc" type="text"
-						placeholder="搜索" autocomplete="off"> <input
+				<form action="/front/products/selectProductsByLikeName" method="post">
+					<input id="searchInput" name="pname" type="text"
+						placeholder="搜索" autocomplete="off"> 
+						<input
 						id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
 						type="submit">
 				</form>
