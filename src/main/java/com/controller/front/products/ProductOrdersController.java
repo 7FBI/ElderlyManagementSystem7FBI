@@ -22,18 +22,29 @@ import com.bean.Orderdetails;
 import com.bean.Orders;
 import com.bean.Products;
 import com.bean.Profile;
+import com.bean.shoppingCart;
 import com.controller.front.oldusers.OldUsersController;
 import com.controller.util.shop.ShopPrices;
+import com.service.CreditService;
 import com.service.DiscountService;
 import com.service.GroupbuyingService;
 import com.service.OrderdetailsService;
 import com.service.OrdersService;
 import com.service.ProductsService;
 import com.service.ProfileService;
+import com.service.shoppingCartService;
 
 @Controller
 @RequestMapping("/front/orders")
 public class ProductOrdersController {
+	@Autowired
+	@Qualifier("shoppingCartService")
+	private shoppingCartService shoppingCartService;
+	
+	@Autowired
+	@Qualifier("creditService")
+	private CreditService creditService;
+	
 	@Autowired
 	@Qualifier("profileService")
 	private ProfileService profileService;
@@ -72,14 +83,26 @@ public class ProductOrdersController {
 		Orders orders = getNewOrders(oldUsers);
 		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
 		List<Orderdetails> list = new ArrayList<Orderdetails>();
+		List<Integer> pids=new ArrayList<Integer>();
 		for (int i = 0; i < num.length; i++) {
 			Orderdetails orderdetails = new Orderdetails();
 			orderdetails.setPid(Integer.valueOf(pid[i]));
 			orderdetails.setOrdercount(Integer.valueOf(num[i]));
 			orderdetails.setOid(orders.getId());
 			list.add(orderdetails);
+			pids.add(Integer.valueOf(pid[i]));
 		}
 		orderdetailsService.insertSelectiveList(list);
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("list", pids);
+		map.put("uid", oldUsers.getUid());
+		List<shoppingCart> sList=shoppingCartService.selectByaproduvtsList(map);
+		List<Integer> integers=new ArrayList<Integer>();
+		for (shoppingCart shoppingCart : sList) {
+			integers.add(shoppingCart.getId());
+		}
+		map.put("list", integers);
+		shoppingCartService.deleteByPrimaryKeyList(map);
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
@@ -107,7 +130,12 @@ public class ProductOrdersController {
 		orderdetails.setPid(pid);
 		orderdetails.setOrdercount(num);
 		orderdetails.setOid(orders.getId());
+		shoppingCart scart=new shoppingCart();
+		scart.setPid(pid);
+		scart.setUid(oldUsers.getUid());
+		shoppingCart shoppingCart=shoppingCartService.selectByaproduvts(scart);
 		orderdetailsService.insertSelective(orderdetails);
+		shoppingCartService.deleteByPrimaryKey(shoppingCart.getId());
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
@@ -249,6 +277,8 @@ public class ProductOrdersController {
 			if (oldUsers.getBalance() > orders.getMoney()) {
 				orders.setOrderstatus(1);
 				ordersService.updateByPrimaryKeySelective(orders);
+				//增加积分
+				ShopPrices.addCredit(oldUsers, orders.getMoney(), creditService);
 			} else {
 				return "balance";
 			}

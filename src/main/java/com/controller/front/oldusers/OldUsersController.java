@@ -48,7 +48,7 @@ public class OldUsersController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldUsers", oldUsers);
 		modelAndView.addObject("uid", oldUser.getUid());
-		modelAndView.setViewName("front/SelfCenter");
+		modelAndView.setViewName("front/Self");
 		return modelAndView;
 	}
 
