@@ -16,4 +16,6 @@ public interface VideoService {
     public int videoCount();
     public List<Video> freePrice(Map map);
     public int freeCount();
+    public List<Video> allFreePrice();
+    public List<Video> findSameVideo(String videotitle);
 }

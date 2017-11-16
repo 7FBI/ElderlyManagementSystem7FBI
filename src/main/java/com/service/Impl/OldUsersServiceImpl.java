@@ -143,6 +143,12 @@ public class OldUsersServiceImpl implements OldUsersService {
 		return oldUsersMapper.findUserMap(map);
 	}
 
+	@Override
+	public void watchVideo(Map map) {
+		// TODO Auto-generated method stub
+		oldUsersMapper.watchVideo(map);
+	}
+
 	
 
 	

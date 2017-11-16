@@ -18,6 +18,7 @@ public interface OldUsersMapper {
      *
      * @mbggenerated
      */
+	 public void watchVideo(Map map);
 	public OldUsers queryByUid(String uid);
     int deleteByPrimaryKey(Integer id);
     public List<OldUsers>findAllUserByManager(Integer locaid);

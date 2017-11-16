@@ -7,8 +7,8 @@ html, body {
 	padding: 0px; 
 	background-color: #f3f8f8;
 	font-size: 14px;
-	图片不重复，并铺满整个屏幕
-	background-repeat: no-repeat;
+	/* 图片不重复，并铺满整个屏幕 */
+	 background-repeat: no-repeat;
 	no-repeat: center fixed;
 	background-size: contain;
 	background-size: 100% 100%;

@@ -34,58 +34,84 @@ html, body {
     padding-top: 10px;
 }
 .videolisttitle hr{
-	background-color:white; 
+	background-color:orange; 
 	SIZE:3;
-	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:white,direction:145,strength:15);
+	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:orange,direction:145,strength:15);
     width:95%; 
 }
 /* 视频详情 */
 .videodetail{
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	padding: 10px 0;
+	background-color: #555c52;
 }
 .videocontment{
-	width:20%;
+	width:17%;
 	float: left;
 	text-align: left;
+	background-color: #555c52;
 	
 }
 .videocontment ul li{
 	list-style-type: none;
-	line-height: 40px;
-	font-size: 20px;
-	color:#96c2da;
+	/* line-height: 40px; */
+	/* font-size: 20px; */
+	color:white;
 	list-style-type:none; border-bottom:1px dashed orange;
+	
 }
 .myvideos{
-	width: 79%;
-	padding-right: 2px;
+	width: 82%;
+	margin-right: 3px;
+	/* padding-left: 20px; */
 	float: left;
-	background-color: #8cdcea;
-	height: 300px;
+ 	background-color: #555c52;
+	height: 700px;
+}
+ /*内容简介  */
+.contentdetail{
+	 margin-top:20px; 
+	background-color: #555c52;
+	float: left;
+	width: 100%;"
+	}
+.contentdetail ul li{
+	margin-left:50px;
+	list-style-type: none;
+	/* line-height: 40px; */
+	 font-size: 16px; 
+	color:white;
+	list-style-type:none; /* border-bottom:1px dashed orange; */
 }
 .videodetail_title{
 	border-bottom: 2px solid d;
 	border-bottom-color: orange;
 	
 }
+/*视频部分图片轮播  */
+#lunbo ul li{width:100%;
+list-style: none;/* width:640px; */
+ height:460px;
+ background-color: #f1fbfc;
+ text-align: center;
+ }
+#lunbo ul li:not(:first-child){display: none;}
 .contentstyle{
        line-height:35px;
-		text-decoration:underline dashed orange;
+	/* 	text-decoration:underline dashed orange; */
 		margin-left: 42px;
-		color:#81727a;
+		/* color:#81727a; */
 }
 
 
-@import url("reset.css");
 /*public*/
-a {
+a{
 	color: #39f;
 	text-decoration: none;
 }
 
-a:hover {
+a:hover{
 	text-decoration: none;
 }
 /* .wrapper {width:986px;margin:0 auto;position:relative;} */

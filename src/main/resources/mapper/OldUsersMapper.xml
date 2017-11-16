@@ -975,4 +975,9 @@
 			<if test="idcard !=null "> or idcard=#{idcard}</if>
 		</where>
 	</select>
+	
+	<!--观看收费视频  -->
+	<select id="watchVideo" parameterType="hashMap">
+	   UPDATE old_users SET balance=balance-#{videoPrice} WHERE uid=#{userUid}
+	</select>
 </mapper>
