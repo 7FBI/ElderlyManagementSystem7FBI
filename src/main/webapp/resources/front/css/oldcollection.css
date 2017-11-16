@@ -1,0 +1,68 @@
+@charset "utf-8";
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			list-style:none;
+		}
+		
+		#page_buttom{
+			height:100%;
+			background:#f6f6f6;
+			margin:5px 80px;
+		}
+		
+		.clear{
+			clear:both;
+		}
+		.pos{
+			width:200px;
+			height:200px;
+			padding:10px;
+			margin-left:14px;
+			float:left;	
+		}
+		.img{
+		     width:150px;
+			height:150px;
+			}
+		.l_div{
+			width:200px;
+			height:200px;
+			margin:0 auto;
+		}
+		.l_div_top{
+			margin-left:10%;
+		}
+		.delete{
+			margin-left:10%;
+		}
+		.delete{
+			width:20px;
+			height:20px;
+		}
+		.context{
+			 margin-left:20%;
+		}
+		.price{
+			 margin-left:30%;
+		}
+		a:link{
+			color:#000;
+			text-decoration:none;
+		}
+		a:visited{
+			color:#00FF00;
+			text-decoration:none;
+		}
+		a:hover{
+			color:#FF00FF;
+			text-decoration:none;
+		}
+		a:active{
+			color:#0000FF;
+			
+		
+		}
+	

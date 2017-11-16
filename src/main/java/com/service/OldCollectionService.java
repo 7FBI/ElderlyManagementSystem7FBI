@@ -1,7 +1,10 @@
 package com.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.bean.Oldcollection;
+import com.bean.Products;
 
 public interface OldCollectionService {
 	int insert(Oldcollection record);
@@ -17,4 +20,6 @@ public interface OldCollectionService {
     int delete(Oldcollection record);
     
     Oldcollection select(Oldcollection record);
+    
+    List<Products> selectList(String uid);
 }

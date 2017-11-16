@@ -1,8 +1,11 @@
 package com.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.bean.Oldcollection;
+import com.bean.Products;
 @Repository("oldcollectionMapper")
 public interface OldcollectionMapper {
 	/**
@@ -28,4 +31,6 @@ public interface OldcollectionMapper {
 	Oldcollection select(Oldcollection record);
 
 	Oldcollection selectCeoinfoByName(String name);
+	
+	List<Products> selectList(String uid);
 }

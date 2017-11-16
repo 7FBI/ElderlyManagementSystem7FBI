@@ -1,9 +1,12 @@
 package com.service.Impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import com.bean.Oldcollection;
+import com.bean.Products;
 import com.dao.OldcollectionMapper;
 import com.service.OldCollectionService;
 @Service("oldCollectionService")
@@ -36,6 +39,11 @@ public class OldCollectionServiceImpl implements OldCollectionService{
 		return oldcollectionMapper.select(record);
 	}
 
-	
+	@Override
+	public List<Products> selectList(String uid) {
+		// TODO Auto-generated method stub
+		return oldcollectionMapper.selectList(uid);
+	}
+
 
 }
