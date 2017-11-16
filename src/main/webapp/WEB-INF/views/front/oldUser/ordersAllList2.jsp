@@ -20,7 +20,6 @@
 
 	<jsp:include page="../header.jsp" flush="true" />
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 	<!-- E 头部 -->
 	<!-- E 头部 -->
 	<input id="themeName" value="我的订单" type="hidden" />
@@ -95,7 +94,8 @@
 												</thead>
 												<tbody>
 													<tr class="js_cmdty_item" data-skuid="151598">
-														<td class="goods_pic" style="width: 210px;"><c:forEach
+														<td class="goods_pic" style="width: 210px;">
+														<c:forEach
 																items="${ord.orderdetails}" var="odt" begin="0" end="2">
 																<a
 																	href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
@@ -125,9 +125,10 @@
 																<p style="line-height: 50px;">
 																	<a href="/front/orders/ordersOverInfo?id=${ord.id }" attr-tag="detail"
 																		data-enablepay="1" data-mtag="">订单详情</a>
+																	
 																</p>
+																
 															</c:if>
-															
 													</tr>
 												</tbody>
 											</table>

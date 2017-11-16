@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,15 +12,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/resources/unity/layer/css/layui.css" />
 <link rel="stylesheet" href="/resources/front/css/style.css"
 	type="text/css" media="all" />
 
 </head>
-<body id="ruifoxHome">
+<body >
 	<header>
 	<div id="navbg"></div>
-	<div class="wrapper">
+	<div class="wrapper" style="height:80px;">
 		<h1 class="logo">
 			<a href="#" title="宜嘉FBI老人管理系统"> <img
 				src="/resources/front/images/logo.png" width="213" height="36"
@@ -28,22 +28,18 @@
 		</h1>
 		<nav>
 		<ul>
-			<li class="home"><a href="/gotoFront/index">首页<span>网站首页！</span></a></li>
-			<li class="about"><a href="/gotoFront/HealthSystem">健康系统<span>关于健康？</span></a></li>
-			<li class="service"><a href="${pageContext.request.contextPath}/front/videos/allvideo">教育系统</a></li>
-			<li class="cases"><a href="/front/products/selectAllProducts">电子商务<span>我们能卖什么？</span></a></li>
-			<li class="client">
-				<c:if test="${oldUsers==null }">
-					<a href="/front/oldUsers/selectByUid" id="sumbit">个人中心<span>我的资料？</span></a>
-				</c:if>
-				<c:if test="${oldUsers!=null }">
-					<a href="/front/oldUsers/selectByUid">${oldUsers.username}<span>我的首页！</span></a>
-				</c:if>
-			</li>
+			<li class="home"><a href="/gotoFront/index">首页</a></li>
+			<li class="about"><a href="/gotoFront/HealthSystem">健康系统</a></li>
+			<li class="service"><a href="/gotoFront/EducationSystem">教育系统</a></li>
+			<li class="cases"><a href="/front/products/selectAllProducts">电子商务</a></li>
+			<li class="client"><c:if test="${oldUsers==null }">
+					<a href="#" id="sumbit">个人中心</a>
+				</c:if> <c:if test="${oldUsers!=null }">
+					<a href="/front/oldUsers/selectByUid">${oldUsers.username}</a>
+				</c:if></li>				
 		</ul>
-
 		</nav>
-	</div>
+		</div>
 
 	</header>
 </body>

@@ -18,7 +18,6 @@
 <body style="background: url('/resources/front/images/timg.jpg');">
 	<jsp:include page="../header.jsp" flush="true" />
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 	<center>
 		<section id="cases">
 		<div class="cat_title wrapper" style="margin-left: 450px">

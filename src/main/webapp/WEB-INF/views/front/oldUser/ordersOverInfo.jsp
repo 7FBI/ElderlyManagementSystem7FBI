@@ -39,7 +39,6 @@
 <body>
 	<%@ include file="../header.jsp"%>
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 
 	<section id="news">
 	<div class="cat_title wrapper">
@@ -141,7 +140,7 @@
 							</div>
 						</div>
 						<div class="layui-col-md2">
-						<a href="#" class="layui-btn layui-btn-small layui-btn-normal">商品评价</a>
+							<a href="/front/opinions/addOpinionsView?pid=${ord.pid }" class="layui-btn layui-btn-small layui-btn-normal">商品评价</a>
 						</div>
 					</div>
 				</li>

@@ -39,7 +39,6 @@
 <body>
 	<%@ include file="../header.jsp"%>
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 
 	<section id="news">
 	<div class="cat_title wrapper">

@@ -20,7 +20,6 @@
 
 	<jsp:include page="../header.jsp" flush="true" />
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 	<!-- E 头部 -->
 	<!-- E 头部 -->
 	<input id="themeName" value="我的订单" type="hidden" />

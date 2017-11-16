@@ -596,7 +596,7 @@
 			var f = $("#fromSubmin");
 			$.ajax({
 				type : 'post',
-				url : "/front/Shoppingcart/insertBycart.action",
+				url : "/front/shoppingCart/insertBycart.action",
 				data : f.serialize(),
 				success : function(data) {
 					if (data == "ture") {

@@ -22,7 +22,6 @@
 
 	<jsp:include page="../header.jsp" flush="true" />
 	<!-- 查找最顶级栏目  -->
-	<div style="height: 80px"></div>
 	<!-- E 头部 -->
 	<!-- E 头部 -->
 	<input id="themeName" value="我的订单" type="hidden" />
@@ -123,6 +122,7 @@
 																<p style="line-height: 50px;">
 																	<a href="/front/orders/ordersOverInfo?id=${ord.id }" attr-tag="detail"
 																		data-enablepay="1" data-mtag="">订单详情</a>
+																
 																</p>
 															</c:if>
 															

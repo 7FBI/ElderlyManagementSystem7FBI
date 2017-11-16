@@ -1,20 +1,23 @@
 @CHARSET "UTF-8";
 /*footer*/
 footer{clear:both;}
-#white{background:white;height:60px;}
-#footerlink{background:white;height:46px;line-height:46px;border-bottom:1px solid #000;position:relative;}
-#footerlink a{color:black;margin-right:20px;}
+#footerlink{background:#111;height:46px;line-height:46px;border-bottom:1px solid #000;position:relative;}
+#footerlink a{color:#999;margin-right:20px;}
 #footerlink a.lab{display:inline-block;zoom:1;*display:inline;padding-left:18px;background:url("images/lab.png") left center no-repeat;}
 #gotop {display:block;width:41px;height:35px;position:absolute;right:0;top:0;overflow:hidden;background:url("images/top.png") no-repeat;text-indent:-9999px;}
-#footerinfo{padding-bottom:20px;background:gray;border-top:1px solid #292929;}
-#footerinfo .wrapper{height:190px;border-bottom:1px dotted black;}
+#footerinfo{padding-bottom:20px;background:#181818;border-top:1px solid #292929;}
+#footerinfo .wrapper{height:190px;border-bottom:1px dotted #333;}
 #footerinfo h2{width:112px;position:absolute;top:20px;left:0;font-size:28px;text-align:right;}
-#footerinfo h2 strong{display:block;font-size:28px;color:black;}
+#footerinfo h2 strong{display:block;font-size:28px;color:#333;}
 #footerinfo .wrapper p{position:absolute;width:520px;top:30px;left:128px;line-height:1.5;}
 #footerinfo #qq{display:block;width:92px;height:22px;margin-bottom:8px;overflow:hidden;background:url("images/qq.png") no-repeat;text-indent:-9999px;background-position:0 -22px;}
 #footerinfo #qq:hover{background-position:0 -22px;}
 #footerinfo #homemap{position:absolute;top:0;right:10px;}
 #footerinfo .links{width:986px;min-height:120px;_height:120px;margin:0 auto;position:relative;}
 #footerinfo .links p{position:absolute;width:850px;bottom:25px;left:128px;line-height:1.8;}
-#footerinfo .links p a{color:black;}
-#footerinfo .links em{display:block;color:black;line-height:2.8;}
+#footerinfo .links p a{color:#444;}
+#footerinfo .links em{display:block;color:#333;line-height:2.8;}
+
+.links ul{ overflow:hidden;position:absolute;width:850px;top:25px;left:128px;line-height:1.8;}
+.links ul li{ float:left; margin-right:10px}
+.links ul li a{ color:#444444}
