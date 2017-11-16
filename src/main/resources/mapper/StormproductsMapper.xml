@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dao.Stormproducts">
+<mapper namespace="com.dao.StormproductsMapper">
  <resultMap id="BaseResultMap" type="com.bean.Stormproducts">
 		
 		<constructor>
@@ -39,15 +39,17 @@
 			<arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
 		</constructor>
 	</resultMap>
-  <select id="selectStormproducts" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectStormproducts" parameterType="java.lang.Integer" resultType="com.bean.Stormproducts">
      select products.*,
             shoppingcart.cartcount,
             old_users.id user_id
             From products,shoppingcart,old_users where products.id=shoppingcart.pid and shoppingcart.uid=old_users.uid 
-            and old_users.id=#{value}
+            and old_users.id=#{id}
   </select>
-
-
+  <!-- 根据用户uid删除用户购物车记录 -->
+  <delete id="delectByuid" parameterType="java.lang.String">
+    delete from shoppingcart where uid=#{uid}
+  </delete>
 
 
 

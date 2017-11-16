@@ -23,4 +23,10 @@ public class StormproductsServiceImpl implements StormproductsService{
 		return  stormproductsMapper.selectStormproducts(uid);
 	}
 
+	@Override
+	public void delectByuid(String uid) {
+		// TODO Auto-generated method stub
+		stormproductsMapper.delectByuid(uid);
+	}
+
 }

@@ -53,7 +53,7 @@ public class shoppingCartController {
 		}
 		return "false";
 	} 
-	
+	/*进入购物车页面方法*/
 	@RequestMapping(value="/selectproducts.action")
 	@ResponseBody
 	public String SelectByproducts(HttpServletRequest request,int uid){
