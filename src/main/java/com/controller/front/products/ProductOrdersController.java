@@ -80,6 +80,11 @@ public class ProductOrdersController {
 			list.add(orderdetails);
 		}
 		orderdetailsService.insertSelectiveList(list);
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
+			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
+					ordersService, orderdetailsService));
+			ordersService.updateByPrimaryKeySelective(orders);
+		}
 		// view.addObject("products", products);
 		view.addObject("orderdetails", list);
 		view.addObject("orders", orders);
@@ -103,6 +108,11 @@ public class ProductOrdersController {
 		orderdetails.setOrdercount(num);
 		orderdetails.setOid(orders.getId());
 		orderdetailsService.insertSelective(orderdetails);
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
+			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
+					ordersService, orderdetailsService));
+			ordersService.updateByPrimaryKeySelective(orders);
+		}
 		request.setAttribute("id", orders.getId());
 		return ordersInfo(request);
 	}

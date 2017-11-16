@@ -24,6 +24,17 @@
 					</list>
 				</property>
 			</bean>
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
+               <property name="objectMapper">  
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">  
+                        <property name="dateFormat">  
+                            <bean class="java.text.SimpleDateFormat">  
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />  
+                            </bean>  
+                        </property>  
+                    </bean>  
+                </property>  
+            </bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<!-- 扫描基本包，来确定控制器中的注解 -->
@@ -41,6 +52,7 @@
 			<list>
 				<bean
 					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+					
 			</list>
 		</property>
 	</bean>
@@ -57,6 +69,8 @@
 		<!-- 使用转换器 -->
 		<property name="conversionService" ref="conversionService"></property>
 	</bean>
+	
+    <bean id="customObjectMapper" class="com.custom.CustomObjectMapper"></bean>  
 
 	<!-- 注册转换器 -->
 	<bean id="conversionService"
