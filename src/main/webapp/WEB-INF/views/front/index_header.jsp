@@ -47,7 +47,7 @@
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/gotoFront/ElectronicCommerce_secondary" target="_top"
+						<a href="/front/products/selectProductsByLikeName" target="_top"
 							class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
 					</div>
 				</div>

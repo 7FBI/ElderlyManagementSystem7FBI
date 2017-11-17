@@ -20,10 +20,10 @@
 <script src="/resources/front/js/self_exchange/amazeui.js"></script>
 </head>
 <body>
-	<%
+	<%-- <%
 		OldUsers oldUsers = (OldUsers) session.getAttribute("oldUsers");
 		String username = oldUsers.getUsername();
-	%>
+	%> --%>
 	<header> <article>
 	<div class="mt-logo">
 		<!--顶部导航条 -->
