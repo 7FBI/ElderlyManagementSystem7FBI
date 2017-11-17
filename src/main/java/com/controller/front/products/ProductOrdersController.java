@@ -206,8 +206,8 @@ public class ProductOrdersController {
 		if (request.getParameter("status") != null) {
 			status = Integer.valueOf(request.getParameter("status"));
 		}
-		view.setViewName(getStatusJsp(status));
-		//view.setViewName("front/SelfCenter_Exchange");
+		//view.setViewName(getStatusJsp(status));
+		view.setViewName("front/SelfCenter_Exchange");
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Map<String, Object> map = new HashMap<String, Object>();
 		Orders ord = new Orders();

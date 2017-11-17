@@ -1,6 +1,7 @@
 package com.controller.front.products;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,7 +69,7 @@ public class ProductOpinions {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Opinions> list = null;
 		Integer pid = 0;
-		Integer max = 10;
+		Integer max = 2;
 		Integer page = 0;
 		Integer counts = 0;
 		Double avg=0.0;
@@ -84,7 +85,9 @@ public class ProductOpinions {
 		if (page < 0) {
 			page = 0;
 		}
-		counts = opinionsService.selectByPidOpinionsCount(map) / max;
+		counts = opinionsService.selectByPidOpinionsCount(map);
+		map.put("counts", counts);
+		counts=counts / max;
 		if (counts <= 0) {
 			counts = 0;
 		}
@@ -95,8 +98,8 @@ public class ProductOpinions {
 		map.put("max", max);
 		list=opinionsService.selectByPidOpinions(map);
 		map.put("page", page);
-		map.put("counts", counts);
 		map.put("opinions", list);
+		map.put("count", counts);
 		map.put("avg", avg);
 		return map;
 	}
@@ -144,6 +147,10 @@ public class ProductOpinions {
 		if (request.getSession().getAttribute("oldUsers") == null) {
 			return "/front/login";
 		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		opinions.setUid(oldUsers.getUid());
+		opinions.setOpinionstime(new Date());
+		opinionsService.insertSelective(opinions);
 		List<String> urList=null;
 		if (files.length>0) {
 			if (files[0]!=null) {
@@ -156,13 +163,11 @@ public class ProductOpinions {
 					remarkpicture.setRemarkurl(urls);
 					list.add(remarkpicture);
 				}
+				map.put("list", list);
 				remarkpictureService.insertRemarkpictureList(map);
 			}
 		}
-		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
-		opinions.setUid(oldUsers.getUid());
-		opinionsService.insertSelective(opinions);
-		
+		request.setAttribute("id", opinions.getPid());
 		return "redirect:/front/products/selectProductDetailByPrimaryKey";
 	}
 

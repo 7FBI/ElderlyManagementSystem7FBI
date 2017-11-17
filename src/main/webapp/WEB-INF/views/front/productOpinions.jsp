@@ -142,7 +142,7 @@
 							<textarea name="content" style="width: 320px;height: 80px;float: left;" class="layui-input"></textarea>
 						</div>
 						<div style="margin-top: 5px;">
-							<a href="javascript:;" class="file">选择图片
+							<a href="javascript:;" style="margin-left: 30px;" class="file">选择图片
 								<input type="file" id="addImagesOp" name="files"/>
 							</a>
 						</div>
@@ -188,7 +188,7 @@
 	})
 	
 	$("#buttonOp").click(function() {
-		if (getStarNum()) {
+		if (getStarNum() && textNulls()) {
 			$("#formOp").submit();
 		}else {
 			remErr();
@@ -201,14 +201,17 @@
 		if (x.val()==-1) {
 			alert("请先打赏星级");
 			return false;
+		}
+		return true;
+	}
+	
+	function textNulls() {
+		if ($("textarea[name='content']").val() != undefined && $("textarea[name='content']").val() !='') {
+			return true;
 		}else {
-			if ($("textarea[naem='content']").val() != undefined ) {
-				return true;
-			}else {
-				$("textarea[naem='content']").focus();
-				$("textarea[naem='content']").after('<lable id="textErr" style="color:red;">必填项</lable>');
-				return false;
-			}
+			$("textarea[naem='content']").focus();
+			alert('吐槽内容不能为空哦');
+			return false;
 		}
 	}
 	

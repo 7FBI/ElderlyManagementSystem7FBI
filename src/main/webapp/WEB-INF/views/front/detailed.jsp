@@ -412,7 +412,9 @@
 							</div>
 						</div>
 
-						<div class="comment_tip">以下评价均来自于官方直营渠道的真实用户评价</div>
+						<div class="comment_tip">总评价量:<input id="countOp" style="border: none;" value="0" />
+						|总页数:<input id="pageCountOp" style="border: none;" value="0" />
+						</div>
 					</div>
 					<div id="commentList" class="evaluate_list_box">
 
@@ -428,10 +430,8 @@
 						<div class="pagination">
 							<div class="pagination_inner">
 								<div class="paginator">
-									<span class="page-start"><</span> <span class="page-this">1</span>
-									<a href="#nolike" pagetag="go" pageid="2">2</a> <a
-										href="#nolike" pagetag="go" pageid="3">3</a> <a
-										class="page-next" href="#nolink" pagetag="go" pageid>></a>
+									<button id="addOpinoinsBtn" value="0" class="page-start" style="width: 480px">获取更多评论 </button> 
+									
 								</div>
 							</div>
 						</div>
@@ -626,39 +626,86 @@
 			})
 		})
 
-		/* 评论 */
+		/* 评论addOpinoinsBtn */
 
-		$(document)
-				.ready(
-						function() {
-							var x = $("#scoreBox");
-							var p = $("#nowpids").val();
-							var st = $("#stars");
-							$
-									.ajax({
-										type : 'get',
-										url : '/front/opinions/opinionsList?pid='
-												+ p,
-										success : function(data) {
-											var avgs = data.avg;
-											x.css("width", avgs * 23.2 + "px");
-											st.text(avgs);
-											if (data.opinions != null) {
-												var opdiv=$("#opinionsDiv");
-												var dop=data.opinions;
-												for ( var k in dop) {
-													var opids=dop[k].id;
-													var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
-													opdiv.append(ophtmls);
-													imagesOP(dop[k].id);
-												}
-											}
-										},
-										error : function() {
-											alert("网络错误");
-										}
-									})
-						})
+		$(document).ready(function() {
+			getOpinionsAjax();
+		})
+		
+		$("#addOpinoinsBtn").mouseenter(function () {
+			var v=$("#addOpinoinsBtn");
+			//alert(parseInt(v.val())+1);
+			var pag=$("#pageCountOp").val();
+			if (v.val()<pag) {
+				getOpinionsAjaxPage(parseInt(v.val())+1);
+				v.val(parseInt(v.val())+1);
+			}else {
+				v.text("已经没有跟多了");
+			}
+		})
+		
+		//有page
+		function getOpinionsAjaxPage(page) {
+			var x = $("#scoreBox");
+			var p = $("#nowpids").val();
+			var st = $("#stars");
+			$.ajax({
+						type : 'get',
+						url : '/front/opinions/opinionsList?pid='+ p+'&page='+page,
+						success : function(data) {
+							var avgs = data.avg;
+							x.css("width", avgs * 23.2 + "px");
+							st.text(avgs);
+							
+							if (data.opinions != null) {
+								var opdiv=$("#opinionsDiv");
+								var dop=data.opinions;
+								for ( var k in dop) {
+									var opids=dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
+									opdiv.append(ophtmls);
+									imagesOP(dop[k].id);
+								}
+							}
+						},
+						error : function() {
+							alert("网络错误");
+						}
+					})
+			}
+		
+		//无page
+		function getOpinionsAjax() {
+			var x = $("#scoreBox");
+			var p = $("#nowpids").val();
+			var st = $("#stars");
+			$.ajax({
+						type : 'get',
+						url : '/front/opinions/opinionsList?pid='+ p,
+						success : function(data) {
+							var avgs = data.avg;
+							x.css("width", avgs * 23.2 + "px");
+							st.text(avgs);
+							$("#countOp").val(data.counts);
+							$("#pageCountOp").val(data.count);
+							if (data.opinions != null) {
+								var opdiv=$("#opinionsDiv");
+								var dop=data.opinions;
+								for ( var k in dop) {
+									var opids=dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
+									opdiv.append(ophtmls);
+									imagesOP(dop[k].id);
+								}
+							}
+						},
+						error : function() {
+							alert("网络错误");
+						}
+					})
+			}
+						
+						
 						function imagesOP(opids) {
 							$.ajax({
 								url:'/front/opinions/remarkList?opid='+opids,
