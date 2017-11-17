@@ -92,20 +92,18 @@
 												</thead>
 												<tbody>
 													<tr class="js_cmdty_item" data-skuid="151598">
-														<td class="goods_pic" style="width: 210px;"><c:forEach
-																items="${ord.orderdetails}" var="odt" begin="0" end="2">
-																<a
-																	href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
-																	target="_blank"> <img
-																	src="${odt.products.producturl }"
+														<td class="goods_pic" style="width: 210px;">
+														<c:forEach items="${ord.orderdetails}" var="odt">
+																<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
+																	target="_blank"> 
+																	<img src="${odt.products.producturl }"
 																	onerror="this.src='//img.mdcdn.cn/h5/img/detail/replace_120.png'"
 																	width="80" height="80" />
 																</a>
-															</c:forEach></td>
-
-
-														<td class="total_price" style="line-height: 50px;"><span
-															style="color: red;">&yen;</span>&nbsp;${ord.money}</td>
+															</c:forEach>
+															</td>
+														<td class="total_price" style="line-height: 50px;">
+														<span style="color: red;">&yen;</span>&nbsp;${ord.money}</td>
 														<td class="order_detail">
 														<c:if test="${ord.orderstatus==0}">
 																<p style="line-height: 50px;">

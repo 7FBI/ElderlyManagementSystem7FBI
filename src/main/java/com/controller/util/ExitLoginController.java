@@ -27,4 +27,14 @@ public class ExitLoginController {
 		}
 		return "redirect:/gotoBackstage/index";
 	}
+	
+	
+	@RequestMapping("/front/clearUser")
+	public String clearOldUser(HttpServletRequest request){
+		HttpSession session=request.getSession();
+		if (session.getAttribute("oldUsers")!=null) {
+			session.removeAttribute("oldUsers");
+		}
+		return "redirect:/gotoFront/login";
+	}
 }

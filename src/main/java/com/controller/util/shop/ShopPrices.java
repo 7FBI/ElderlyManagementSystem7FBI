@@ -11,6 +11,7 @@ import com.bean.Discount;
 import com.bean.Groupbuying;
 import com.bean.OldUsers;
 import com.bean.Orderdetails;
+import com.bean.Orders;
 import com.bean.Products;
 import com.service.CreditService;
 import com.service.DiscountService;
@@ -43,6 +44,23 @@ public class ShopPrices {
 		return d;
 	}
 	
+	public static List<Orders> getAllShowPrices(List<Orders> orders){
+		List<Orders> list=new ArrayList<Orders>();
+		for (int i = 0; i < orders.size(); i++) {
+			orders.get(i).setMoney(getNewMoneys(orders.get(i).getOrderdetails()));
+			list.add(orders.get(i));
+		}
+		return list;
+	}
+	
+	public static Double getNewMoneys(List<Orderdetails> orderdetails){
+		Double d=0.0;
+		for (Orderdetails orderdetails2 : orderdetails) {
+			double d2=orderdetails2.getOrdercount()*orderdetails2.getProducts().getPrice();
+			d+=d2;
+		}
+		return d;
+	}
 	
 	
 	public static List<Orderdetails> getAllOrderdetailsPrices(String oid, ProductsService productsService, GroupbuyingService groupbuyingService,
@@ -55,7 +73,7 @@ public class ShopPrices {
 			g.setPid(orderdetails.getPid());
 			Groupbuying groupbuying = groupbuyingService.selectByGroupBuyPid(g);
 			Discount discount = discountService.selectByProductPid(orderdetails.getPid());
-			double d2 = orderdetails.getOrdercount() * orderdetails.getProducts().getPrice();
+			double d2 = orderdetails.getProducts().getPrice();
 			if (groupbuying != null) {
 				d2 = d2 * groupbuying.getGroupprice();
 			}

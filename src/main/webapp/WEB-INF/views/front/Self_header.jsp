@@ -20,10 +20,10 @@
 <script src="/resources/front/js/self_exchange/amazeui.js"></script>
 </head>
 <body>
-	<%
+	<%-- <%
 		OldUsers oldUsers = (OldUsers) session.getAttribute("oldUsers");
 		String username = oldUsers.getUsername();
-	%>
+	%> --%>
 	<header> <article>
 	<div class="mt-logo">
 		<!--顶部导航条 -->
@@ -84,7 +84,7 @@
 				
 				<div class="topMessage loginout">
 					<div class="menu-hd">
-						<a href="#" target="_top"><i class="am-icon-off am-icon-fw"></i><span>退出
+						<a href="/exit/front/clearUser" target="_top"><i class="am-icon-off am-icon-fw"></i><span>退出
 						</span> </a>
 						<!-- <div class="secondary">
 							<a>收藏的宝贝</a>

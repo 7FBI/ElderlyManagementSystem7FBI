@@ -39,7 +39,7 @@
 					<li class="person">
 						<a href="#">我的交易</a>
 						<ul>
-							<li><a href="/gotoFront/SelfCenter_Exchange">订单管理</a></li>
+							<li><a href="/front/orders/allOrdersList">订单管理</a></li>
 							<li> <a href="/gotoFront/SelfCenter_RefundAndAfterSale">退款售后</a></li>
 						</ul>
 					</li>
