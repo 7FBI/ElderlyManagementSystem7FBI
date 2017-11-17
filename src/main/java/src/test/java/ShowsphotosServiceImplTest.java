@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bean.Shoppingcart;
+import com.bean.ShoppingCart;
 import com.bean.Showsphotos;
 import com.bean.Stormproducts;
 import com.service.ClassificationService;
-import com.service.ShoppingcartService;
+import com.service.ShoppingCartService;
 import com.service.ShowsphotosService;
 import com.service.StormproductsService;
 
@@ -32,8 +32,8 @@ public class ShowsphotosServiceImplTest {
 	private StormproductsService stormproductsService;
 	
 	@Autowired
-	@Qualifier("ShoppingcartService")
-	private ShoppingcartService shoppingcartService;
+	@Qualifier("shoppingCartService")
+	private ShoppingCartService shoppingCartService;
 	
 	@Test
 	public void Bypid(){
@@ -46,19 +46,19 @@ public class ShowsphotosServiceImplTest {
 	
 	@Test
 	public void insert(){
-		Shoppingcart shop=null;
+		ShoppingCart shop=null;
 		shop.setPid(5);
 		shop.setUid("pxj123");
 		shop.setCartcount(2);
-		shoppingcartService.insertSelective(shop);
+		shoppingCartService.insertSelective(shop);
 	}
 	
 	@Test
 	public void selectsStorm(){
-		 Shoppingcart shtorm=null;
+		 ShoppingCart shtorm=null;
 		 shtorm.setPid(8);
 		 shtorm.setUid("wbq123");
-		 int fv=shoppingcartService.insertByaproduvts(shtorm);
+		 int fv=shoppingCartService.insertByaproduvts(shtorm);
 		 System.out.println(fv);
 		}
 }

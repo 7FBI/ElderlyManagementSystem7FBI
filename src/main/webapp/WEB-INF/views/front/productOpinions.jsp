@@ -65,6 +65,36 @@
 	font-style: normal;
 }
 
+
+.file {
+    position: relative;
+    display: inline-block;
+    background: #00bbff;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #fff;
+    border-color: #78C3F3;
+    color: #000;
+    text-decoration: none;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -88,7 +118,7 @@
 										height="90px;" />
 								</div>
 								<div class="layui-col-md12" style="padding: 5px;text-align: center;"><a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id}">${products.pname}</a></div>
-								<div class="layui-col-md12" style="padding: 5px;text-align: center;"><label style="color: red;">￥</label><label style="color: #00bbff;">${nowMoney}</label></div>
+								<div class="layui-col-md12" style="padding: 5px;text-align: center;"><label style="color: red;">￥</label><label style="color: #00bbff;">${newMoney}</label></div>
 							</div>
 						</div>
 					</div>
@@ -105,13 +135,21 @@
 							<span></span>
 							<p></p>
 						</div>
-						<form id="formOp" action="/front/opinions/addProductOpinions?pid=${products.id }" method="post">
+						<form id="formOp" action="/front/opinions/addProductOpinions?pid=${products.id }" method="post" enctype="multipart/form-data">
 						<div style="margin-left: 10px;">
 						<label style="float: left;">吐槽内容:</label>
 							<input type="hidden" name="star" id="starNum" value="-1" />
 							<textarea name="content" style="width: 320px;height: 80px;float: left;" class="layui-input"></textarea>
 						</div>
+						<div style="margin-top: 5px;">
+							<a href="javascript:;" class="file">选择图片
+								<input type="file" id="addImagesOp" name="files"/>
+							</a>
+						</div>
 						</form>
+					</div>
+					<div class="layui-col-md12" style="margin-top: 10px;" id="imagesDiv">
+					
 					</div>
 				</div>
 			</div>
@@ -130,8 +168,27 @@
 	
 	<script type="text/javascript">
 	
+	$(document).on('change',"input[name='files']",function () {
+		var h='<input type="file" name="files" />';
+		var imagefile = $(this);
+		var imageDivs=$("#imagesDiv");
+		if (imagefile.length>=1 && imagefile!='') {
+			if (/.(gif|jpg|jpeg|png|gif|jpg|png)$/.test(imagefile.val())) {
+		        var fileObj = imagefile[0];
+		        var windowURL = window.URL || window.webkitURL;
+		        var dataURL=windowURL.createObjectURL(fileObj.files[0]);
+		        var imageHtml='<img style="margin: 8px;" width="90px;" height="90px;" src="'+dataURL+'" />';
+		        imagefile.after(h);
+		        imageDivs.append(imageHtml);
+			}else {
+				alert("图片类型必须是.gif,jpeg,jpg,png中的一种>>>>"+imagefile.val())
+			}
+		}
+        
+	})
+	
 	$("#buttonOp").click(function() {
-		if (getStarNuum()) {
+		if (getStarNum()) {
 			$("#formOp").submit();
 		}else {
 			remErr();

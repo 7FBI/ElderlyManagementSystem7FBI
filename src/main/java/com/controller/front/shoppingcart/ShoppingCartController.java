@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bean.shoppingCart;
+import com.bean.ShoppingCart;
 import com.bean.Stormproducts;
-import com.service.shoppingCartService;
+import com.service.ShoppingCartService;
 import com.service.StormproductsService;
 
 @Controller
 @RequestMapping("/front/shoppingCart")
-public class shoppingCartController {
+public class ShoppingCartController {
 	
 	@Autowired
-	private shoppingCartService shoppingCartService;
+	private ShoppingCartService shoppingCartService;
 	
 	@Autowired
 	private StormproductsService stormproductsService;
@@ -32,7 +32,7 @@ public class shoppingCartController {
 	@ResponseBody
 	public String InsertByshoppingCart(HttpServletRequest request,int num,int pid,String uid){
 		int count; //购物车记录数量
-		shoppingCart shoppingrt=new shoppingCart();
+		ShoppingCart shoppingrt=new ShoppingCart();
 		shoppingrt.setPid(pid);
 		shoppingrt.setUid(uid);
 		//获取与商品 用户匹配的的购物车对象数量

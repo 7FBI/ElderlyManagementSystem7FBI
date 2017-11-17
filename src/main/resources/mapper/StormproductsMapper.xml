@@ -41,14 +41,14 @@
 	</resultMap>
   <select id="selectStormproducts" parameterType="java.lang.Integer" resultType="com.bean.Stormproducts">
      select products.*,
-            shoppingcart.cartcount,
+            shoppingCart.cartcount,
             old_users.id user_id
-            From products,shoppingcart,old_users where products.id=shoppingcart.pid and shoppingcart.uid=old_users.uid 
+            From products,shoppingCart,old_users where products.id=shoppingCart.pid and shoppingCart.uid=old_users.uid 
             and old_users.id=#{id}
   </select>
   <!-- 根据用户uid删除用户购物车记录 -->
   <delete id="delectByuid" parameterType="java.lang.String">
-    delete from shoppingcart where uid=#{uid}
+    delete from shoppingCart where uid=#{uid}
   </delete>
 
 

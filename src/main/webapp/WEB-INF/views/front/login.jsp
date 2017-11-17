@@ -53,7 +53,7 @@
 				</div>
 				<div class="layui-form-item">
 					<a
-						style="font-size: 10px; float: right; margin-right: 45px; margin-top: -5px"
+						style="font-size: 10px; float: right; margin-top: -5px"
 						href="/gotoFront/register">未有帐号?</a>
 				</div>
 				<div class="layui-form-item" style="margin-top: -10px">

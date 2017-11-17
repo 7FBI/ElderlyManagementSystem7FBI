@@ -380,5 +380,7 @@
 		<include refid="Base_Column_List" />
 		from remarkpicture where opinionid=#{opinionid}
 	</select>
+	
+	
 
 </mapper>

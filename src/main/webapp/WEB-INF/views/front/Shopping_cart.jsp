@@ -252,7 +252,7 @@
 <section class="my_model">
     <p class="title">删除宝贝<span class="closeModel">X</span></p>
     <p>您确认要删除该宝贝吗？</p>
-    <div class="opBtn"><a href="/front/Shoppingcart/delectStormproducts.action?id=${product.id}&user_id=${product.user_id}" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
+    <div class="opBtn"><a href="/front/shoppingCart/delectStormproducts.action?id=${product.id}&user_id=${product.user_id}" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
 </section>
 <script type="text/javascript" src="/resources/front/oldman/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/front/js/carts.js"></script>

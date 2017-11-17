@@ -22,7 +22,7 @@ import com.bean.Orderdetails;
 import com.bean.Orders;
 import com.bean.Products;
 import com.bean.Profile;
-import com.bean.shoppingCart;
+import com.bean.ShoppingCart;
 import com.controller.front.oldusers.OldUsersController;
 import com.controller.util.shop.ShopPrices;
 import com.service.CreditService;
@@ -32,14 +32,14 @@ import com.service.OrderdetailsService;
 import com.service.OrdersService;
 import com.service.ProductsService;
 import com.service.ProfileService;
-import com.service.shoppingCartService;
+import com.service.ShoppingCartService;
 
 @Controller
 @RequestMapping("/front/orders")
 public class ProductOrdersController {
 	@Autowired
 	@Qualifier("shoppingCartService")
-	private shoppingCartService shoppingCartService;
+	private ShoppingCartService shoppingCartService;
 	
 	@Autowired
 	@Qualifier("creditService")
@@ -96,10 +96,10 @@ public class ProductOrdersController {
 		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("list", pids);
 		map.put("uid", oldUsers.getUid());
-		List<shoppingCart> sList=shoppingCartService.selectByaproduvtsList(map);
+		List<ShoppingCart> sList=shoppingCartService.selectByaproduvtsList(map);
 		List<Integer> integers=new ArrayList<Integer>();
-		for (shoppingCart shoppingCart : sList) {
-			integers.add(shoppingCart.getId());
+		for (ShoppingCart ShoppingCart : sList) {
+			integers.add(ShoppingCart.getId());
 		}
 		map.put("list", integers);
 		shoppingCartService.deleteByPrimaryKeyList(map);
@@ -130,12 +130,12 @@ public class ProductOrdersController {
 		orderdetails.setPid(pid);
 		orderdetails.setOrdercount(num);
 		orderdetails.setOid(orders.getId());
-		shoppingCart scart=new shoppingCart();
+		ShoppingCart scart=new ShoppingCart();
 		scart.setPid(pid);
 		scart.setUid(oldUsers.getUid());
-		shoppingCart shoppingCart=shoppingCartService.selectByaproduvts(scart);
+		ShoppingCart ShoppingCart=shoppingCartService.selectByaproduvts(scart);
 		orderdetailsService.insertSelective(orderdetails);
-		shoppingCartService.deleteByPrimaryKey(shoppingCart.getId());
+		shoppingCartService.deleteByPrimaryKey(ShoppingCart.getId());
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
@@ -207,12 +207,13 @@ public class ProductOrdersController {
 			status = Integer.valueOf(request.getParameter("status"));
 		}
 		view.setViewName(getStatusJsp(status));
+		//view.setViewName("front/SelfCenter_Exchange");
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Map<String, Object> map = new HashMap<String, Object>();
 		Orders ord = new Orders();
 		ord.setOrderstatus(status);
 		ord.setUid(oldUsers.getUid());
-		Integer max = 10;
+		Integer max = 5;
 		Integer page = 0;
 		Integer counts = 0;
 		map.put("orders", ord);
@@ -233,11 +234,14 @@ public class ProductOrdersController {
 		map.put("page", page * max);
 		map.put("max", max);
 		List<Orders> orders = ordersService.selectFrontOrderstatus(map);
+		int i=0;
 		for (Orders orders2 : orders) {
 			if (orders2.getMoney()==null || orders2.getMoney() <= 0.0 ) {
 				orders2.setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService,
 						discountService, ordersService, orderdetailsService));
 				ordersService.updateByPrimaryKeySelective(orders2);
+				orders.get(i).setOrderdetails(ShopPrices.getAllOrderdetailsPrices(orders2.getId(), productsService, groupbuyingService, discountService, ordersService, orderdetailsService));
+				i++;
 			}
 		}
 		view.addObject("orders", orders);
@@ -264,7 +268,7 @@ public class ProductOrdersController {
 		return "redirect:/";
 	}
 
-	@RequestMapping("overOrders")
+	@RequestMapping("/overOrders")
 	@ResponseBody
 	public String overOrders(HttpServletRequest request) {
 		if (request.getSession().getAttribute("oldUsers") == null) {
@@ -284,6 +288,26 @@ public class ProductOrdersController {
 			}
 		}
 
+		return "true";
+	}
+	
+	@RequestMapping("/overProducts")
+	@ResponseBody
+	public String overProducts(HttpServletRequest request) {
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			return "login";
+		}
+		String id = request.getParameter("id");
+		Orders orders = ordersService.selectByPrimaryKey(id);
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		if (orders != null) {
+			if (oldUsers.getBalance() > orders.getMoney()) {
+				orders.setOrderstatus(2);
+				ordersService.updateByPrimaryKeySelective(orders);
+			} else {
+				return "balance";
+			}
+		}
 		return "true";
 	}
 

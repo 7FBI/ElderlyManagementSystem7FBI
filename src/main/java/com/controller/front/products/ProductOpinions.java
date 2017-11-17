@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.OldUsers;
@@ -20,6 +22,7 @@ import com.bean.Orderdetails;
 import com.bean.Products;
 import com.bean.Remarkpicture;
 import com.controller.util.shop.ShopPrices;
+import com.others.file.UploadImage;
 import com.service.DiscountService;
 import com.service.GroupbuyingService;
 import com.service.OpinionsService;
@@ -137,9 +140,24 @@ public class ProductOpinions {
 	}
 	
 	@RequestMapping("/addProductOpinions")
-	public String addProductOpinions(HttpServletRequest request,Opinions opinions){
+	public String addProductOpinions(HttpServletRequest request,Opinions opinions,@RequestParam("files") MultipartFile[] files){
 		if (request.getSession().getAttribute("oldUsers") == null) {
 			return "/front/login";
+		}
+		List<String> urList=null;
+		if (files.length>0) {
+			if (files[0]!=null) {
+				urList=UploadImage.addImages(files, "/opinions/image", request);
+				Map<String, List<Remarkpicture>> map=new HashMap<String, List<Remarkpicture>>();
+				List<Remarkpicture> list=new ArrayList<Remarkpicture>();
+				for (String urls : urList) {
+					Remarkpicture remarkpicture=new Remarkpicture();
+					remarkpicture.setOpinionid(opinions.getId());
+					remarkpicture.setRemarkurl(urls);
+					list.add(remarkpicture);
+				}
+				remarkpictureService.insertRemarkpictureList(map);
+			}
 		}
 		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
 		opinions.setUid(oldUsers.getUid());
