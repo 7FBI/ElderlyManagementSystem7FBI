@@ -135,9 +135,11 @@
 							<span></span>
 							<p></p>
 						</div>
-						<form id="formOp" action="/front/opinions/addProductOpinions?pid=${products.id }" method="post" enctype="multipart/form-data">
+						<!-- action="/front/opinions/addProductOpinions?pid=${products.id }" -->
+						<form id="formOp" action="/front/opinions/addProductOpinions" method="post" enctype="multipart/form-data">
 						<div style="margin-left: 10px;">
 						<label style="float: left;">吐槽内容:</label>
+							<input type="hidden" name="pid" value="${products.id }" />
 							<input type="hidden" name="star" id="starNum" value="-1" />
 							<textarea name="content" style="width: 320px;height: 80px;float: left;" class="layui-input"></textarea>
 						</div>
@@ -189,7 +191,14 @@
 	
 	$("#buttonOp").click(function() {
 		if (getStarNum() && textNulls()) {
-			$("#formOp").submit();
+			/* $("#formOp").submit(); */
+			var ggg=$("#formOp");
+			var data=ggg.submit();
+			if (data=="login") {
+				window.location.href="/gotoFront/login";
+			}else {
+				window.location.href="/front/products/selectProductDetailByPrimaryKey?id="+$("input[name='pid']").val();
+			}
 		}else {
 			remErr();
 		}
@@ -225,5 +234,21 @@
 		}, 1000)
 	}
 	</script>
+	
+	<!-- $.ajax({
+				type : 'post',
+				url :'/front/opinions/addProductOpinions',
+				data:ggg.serialize(),
+				success : function(data) {
+					if (data=="login") {
+						window.location.href="/gotoFront/login";
+					}else {
+						window.location.href="/front/products/selectProductDetailByPrimaryKey?id="+$("input[name='pid']");
+					}
+				},
+				error:function(){
+					alert("网络错误");
+				}
+			}); -->
 	
 <jsp:include page="footer.jsp" flush="true" />

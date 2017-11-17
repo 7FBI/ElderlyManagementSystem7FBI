@@ -140,7 +140,7 @@
 							</div>
 						</div>
 						<div class="layui-col-md2">
-							<a href="/front/opinions/addOpinionsView?pid=${ord.pid }" class="layui-btn layui-btn-small layui-btn-normal">商品评价</a>
+							<a href="/front/opinions/addOpinionsView?pid=${ord.pid }&oid=${ord.id}" class="layui-btn layui-btn-small layui-btn-normal">商品评价</a>
 						</div>
 					</div>
 				</li>

@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.httpclient.methods.PostMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -143,9 +144,10 @@ public class ProductOpinions {
 	}
 	
 	@RequestMapping("/addProductOpinions")
+	@ResponseBody
 	public String addProductOpinions(HttpServletRequest request,Opinions opinions,@RequestParam("files") MultipartFile[] files){
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			return "/front/login";
+			return "login";
 		}
 		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
 		opinions.setUid(oldUsers.getUid());
@@ -154,7 +156,11 @@ public class ProductOpinions {
 		List<String> urList=null;
 		if (files.length>0) {
 			if (files[0]!=null) {
-				urList=UploadImage.addImages(files, "/opinions/image", request);
+				MultipartFile[] file=new MultipartFile[files.length-1];
+				for (int i = 0; i < file.length; i++) {
+					file[i]=files[i];
+				}
+				urList=UploadImage.addImages(file, "/opinions/image", request);
 				Map<String, List<Remarkpicture>> map=new HashMap<String, List<Remarkpicture>>();
 				List<Remarkpicture> list=new ArrayList<Remarkpicture>();
 				for (String urls : urList) {
@@ -167,8 +173,7 @@ public class ProductOpinions {
 				remarkpictureService.insertRemarkpictureList(map);
 			}
 		}
-		request.setAttribute("id", opinions.getPid());
-		return "redirect:/front/products/selectProductDetailByPrimaryKey";
+		return "true";
 	}
 
 }
