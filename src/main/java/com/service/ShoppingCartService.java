@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bean.ShoppingCart;
-
+//修改
 public interface ShoppingCartService {
 	
     public void deleteByPrimaryKey(Integer id); //根据id删除购物车对象

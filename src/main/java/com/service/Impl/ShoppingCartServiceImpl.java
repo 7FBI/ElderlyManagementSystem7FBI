@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.bean.ShoppingCart;
 import com.dao.ShoppingCartMapper;
 import com.service.ShoppingCartService;
-
+//修改
 @Service("shoppingCartService")
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 	
