@@ -105,6 +105,7 @@
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/front/oldUsers/login" />
 			<mvc:exclude-mapping path="/front/oldUsers/register" />
+			<mvc:exclude-mapping path="/front/products/**" />
 			<bean class="com.interceptor.FrontUserLoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
