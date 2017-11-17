@@ -70,147 +70,118 @@
 	<!-- 商品展示部分 -->
 	<div class="Xcontent">
 		<ul class="Xcontent01">
-
-			<div class="Xcontent06">
-				<img src="D:\javawenjian\41824602289ffe8aA23827_120 120.jpg">
-			</div>
-			<ol class="Xcontent08">
-				<div class="Xcontent07">
-					<img src="${product.producturl}">
-				</div>
-				<c:forEach items="${photosUrl }" var="url">
-					<div class="Xcontent09">
-						<img src="${url}">
-					</div>
-				</c:forEach>
-			</ol>
-			<ol class="Xcontent13">
-				<div class="Xcontent14">
-					<a href="#"><p>${product.pname}</p></a>
-				</div>
-				<div class="Xcontent15">
-					<img src="/resources/front/images/shangpinxiangqing/X11.png">
-				</div>
-				<div class="Xcontent16">
-					<p>${product.pdescription}</p>
-				</div>
-				<div class="Xcontent17">
-					<p class="Xcontent18">售价</p>
-					<p class="Xcontent19">
-						￥<span>${product.price}</span>
-					</p>
-					<div class="Xcontent20">
-						<p class="Xcontent21">促销</p>
-						<img src="/resources/front/images/shangpinxiangqing/X12.png">
-						<p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
-					</div>
-					<div class="Xcontent23">
-						<p class="Xcontent24">服务</p>
-						<p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp; 48小时快速退款
-							&nbsp;&nbsp;&nbsp;&nbsp; 满88元免邮</p>
-					</div>
-
-				</div>
-				<div class="Xcontent26">
-					<p class="Xcontent27">颜色</p>
-					<div class="Xcontent28">
-						<img src="/resources/front/images/shangpinxiangqing/X14.png">
-					</div>
-					<div class="Xcontent29">
-						<img src="">
-					</div>
-				</div>
-				<!-- <div class="Xcontentsize"></div> -->
-				<div class="Xcontent30">
-					<p class="Xcontent31">数量</p>
-					<div class="Xcontent32">
-						<img src="/resources/front/images/shangpinxiangqing/X15.png">
-					</div>
-					<form id="fromSubmin" action="/front/orders/addOneOrder" method="post">
-						<input name="num" class="input" value="1"> <input
-							name="pid" id="nowpids" type="hidden" value="${product.id}">
-						<input name="uid" type="hidden" value="wbq123">
-					</form>
-					<div class="Xcontent33">
-						<img src="/resources/front/images/shangpinxiangqing/16.png">
-					</div>
-
-				</div>
-				<div class="Xcontent34">
-					<a class="cart_btn" id="addGoods">加入购物车</a>
-				</div>
-				<!-- 添加商品至购物车 -->
-				<div class="Xcontent35">
-					<a href="#" class="primary_btn" id="pays">立即购买</a>
-				</div>
-				<div class="share_collect">
-					<div class="share_kits">
-						<span class="share_title">分享到</span>
-						<div id="share_1" class="bdsharebuttonbox share_wrap">
-							<a class="bds_tqq icon icon_qq" target="_blank" href=""></a> <a
-								id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
+			
+				<div class="Xcontent06"><img src="${product.producturl}"></div>
+				<ol class="Xcontent08">
+					<div class="Xcontent07"><img src="${product.producturl}"></div>
+					<c:forEach items="${photosUrl }" var="url">
+					<div class="Xcontent09"><img src="${url}"></div>
+					</c:forEach>
+				</ol>
+				<ol class="Xcontent13">
+					<div class="Xcontent14"><a href="#"><p>${product.pname}</p></a></div>
+					<div class="Xcontent15"><img src="/resources/front/images/shangpinxiangqing/X11.png"></div>
+					<div class="Xcontent16"><p>${product.pdescription}</p></div>
+					<div class="Xcontent17">
+						<p class="Xcontent18">售价</p>
+						<p class="Xcontent19">￥<span>${product.price}</span></p>
+						<div class="Xcontent20">
+							<p class="Xcontent21">促销</p>
+							<img src="/resources/front/images/shangpinxiangqing/X12.png">
+							<p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
 						</div>
+						<div class="Xcontent23">
+							<p class="Xcontent24">服务</p>
+							<p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp;       48小时快速退款 &nbsp;&nbsp;&nbsp;&nbsp;        满88元免邮</p>
+						</div>
+						
 					</div>
-					<div class="collect_wrap">
-						<i id="btnCollect" class="icon icon_collect"></i> <span
-							id="textCollect" class="collect_text">收藏</span> <span
-							class="js_toggle_contrast" data-cate-id="66"> <i id=""
-							class="icon icon_contrast"></i> <span id="" class="collect_text">对比</span>
-						</span>
+					<div class="Xcontent26">
+						<p class="Xcontent27">颜色</p>
+						<div class="Xcontent28">${product.productscolor}</div>
 					</div>
-				</div>
+					<!-- <div class="Xcontentsize"></div> -->
+					<div class="Xcontent30">
+						<p class="Xcontent31">数量</p>
+						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
+						<form id="fromSubmin">	
+                        <input name="num" class="input" value="1">
+                        <input name="pid" type="hidden" value="${product.id}">
+                        <input name="uid" type="hidden" value="wbq123">
+                        </form>
+						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
+
+					</div>
+					<div class="Xcontent34"><a class="cart_btn" id="addGoods">加入购物车</a></div>    <!-- 添加商品至购物车 -->
+					<div class="Xcontent35"><a href="#" class="primary_btn" id="pays">立即购买</a></div>
+				    <div class="share_collect">
+				    <div class="share_kits">
+				    <span class="share_title">分享到</span>
+				    <div id="share_1" class="bdsharebuttonbox share_wrap">
+				    <a class="bds_tqq icon icon_qq" target="_blank" href=""></a>
+				    <a id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
+				    </div>
+				    </div>
+				     <div class="collect_wrap">
+				    <i id="btnCollect" class="icon icon_collect" ></i>
+				    <span id="textCollect" class="collect_text">收藏</span>
+				    <span class="js_toggle_contrast" data-cate-id="66">
+				    <i id="" class="icon icon_contrast" ></i>
+				    <span id="" class="collect_text">对比</span>
+				    </span>
+				    </div>
+				    </div>
 			</ol>
 		</ul>
 	</div>
-	<!-- 猜你喜欢部分 -->
-	<div class="recommend_package_wrap recommend_only">
-		<div class="recommend_nav">
-			<div class="nav_item nav_item_recommend js_nav">猜你喜欢</div>
-		</div>
-		<div class="recommend_list js_recommend_list">
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-		</div>
-	</div>
-
+<!-- 猜你喜欢部分 -->
+<div class="recommend_package_wrap recommend_only">
+<div class="recommend_nav">
+<div class="nav_item nav_item_recommend js_nav" >猜你喜欢</div>
+</div>
+<div class="recommend_list js_recommend_list">
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+ <a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+</div>
+</div>
 	<!-- 商品详细情况介绍 -->
 	<div class="tabs_nav_wrap">
 		<div class="tabs_nav_inner_wrap">
@@ -617,6 +588,27 @@
 			c.removeClass("mod_lary show").addClass('mod_lary');
 			g.removeClass("mod_lary show").addClass('mod_lary');
 		})
+		/* 收藏功能 */
+		$("#btnCollect").click(function(){
+	    var btn=$("#btnCollect")
+	   var tg=${product.id};
+	   $.ajax({
+		 type:'post', 
+		 url:"/front/collection/insert_or_delete?pid="+tg,
+		 data:f.serialize(),
+		 success:function(data){
+			 if(data=="ture"){
+				 btn.removeClass().addClass("icon icon_collectse")
+			 }else if(date=="false"){
+				 btn.removeClass().addClass("icon icon_collect")
+			 }
+		 },
+	     error:function(){
+		   alert("收藏失败")
+	    }
+	    
+	  })
+   })
 		$("#pays").click(function() {
 			var f = $("#fromSubmin");
 			f.submit();
