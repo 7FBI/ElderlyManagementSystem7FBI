@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
+import com.bean.productCustom;
 
 public interface ProductsMapper {
 	List<Products> selectProductList(Map list);
@@ -83,4 +84,6 @@ public interface ProductsMapper {
 	 public Products selectProductDetailByPrimaryKey(Integer id);
 	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
       List<Products> selectProductsByTid();
+      
+      public List<productCustom> productDiscount();
 }

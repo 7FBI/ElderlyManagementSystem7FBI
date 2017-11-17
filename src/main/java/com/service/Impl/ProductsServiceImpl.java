@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
+import com.bean.productCustom;
 import com.dao.ProductsMapper;
 
 import com.service.ProductsService;
@@ -136,5 +137,10 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<Products> selectProductsByTid() {
 		// TODO Auto-generated method stub
 		return productsMapper.selectProductsByTid();
+	}
+	@Override
+	public List<productCustom> productDiscount() {//查询所有打折商品
+		// TODO Auto-generated method stub
+		return productsMapper.productDiscount();
 	}
 }

@@ -625,5 +625,9 @@ SELECT diseasename,description,alias FROM old_Diseaselibrary odl,products p,matc
 </select>
 <!-- 以上罗双专属 -->	
 
-
+<!-- 打折商品展示，使用了扩展类productCustom -->
+<select id="productDiscount" resultType="productCustom">
+select p.*,d.discountprice discountprice,d.discountstoptime discountstoptime from products p,discount d
+where p.id = d.pid
+</select>
 </mapper>

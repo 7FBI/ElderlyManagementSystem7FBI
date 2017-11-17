@@ -6,6 +6,7 @@ import java.util.Map;
 import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
+import com.bean.productCustom;
 
 public interface ProductsService {
 	List<Products> selectProductList(Map list);
@@ -45,5 +46,7 @@ public interface ProductsService {
 	 public Products selectProductDetailByPrimaryKey(Integer id);
 	 public List<OldDiseaselibrary> selectOldDiseaselibraryByProducts(Integer pid);
 	 public List<Products> selectProductsByTid();
+	 
+	 public List<productCustom> productDiscount();//用于查询所有打折商品的,使用到扩展类productCustom
 
 }
