@@ -126,7 +126,7 @@
 					<div class="Xcontent32">
 						<img src="/resources/front/images/shangpinxiangqing/X15.png">
 					</div>
-					<form id="fromSubmin">
+					<form id="fromSubmin" action="/front/orders/addOneOrder" method="post">
 						<input name="num" class="input" value="1"> <input
 							name="pid" id="nowpids" type="hidden" value="${product.id}">
 						<input name="uid" type="hidden" value="wbq123">
@@ -619,11 +619,12 @@
 		})
 		$("#pays").click(function() {
 			var f = $("#fromSubmin");
-			$.ajax({
+			f.submit();
+			/* $.ajax({
 				type : 'post',
 				url : "/front/orders/addOneOrder",
 				data : f.serialize()
-			})
+			}) */
 		})
 
 		/* 评论addOpinoinsBtn */

@@ -78,8 +78,8 @@ public class ProductOrdersController {
 		}
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/oldUser/ordersInfo");
-		String[] pid = request.getParameterValues("pid");
-		String[] num = request.getParameterValues("num");
+		String[] pid = (request.getParameter("pid").toString().split(","));
+		String[] num = (request.getParameter("num").toString().split(","));
 		Orders orders = getNewOrders(oldUsers);
 		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
 		List<Orderdetails> list = new ArrayList<Orderdetails>();
@@ -133,26 +133,29 @@ public class ProductOrdersController {
 		ShoppingCart scart=new ShoppingCart();
 		scart.setPid(pid);
 		scart.setUid(oldUsers.getUid());
-		ShoppingCart ShoppingCart=shoppingCartService.selectByaproduvts(scart);
+		ShoppingCart sCart=shoppingCartService.selectByaproduvts(scart);
 		orderdetailsService.insertSelective(orderdetails);
-		shoppingCartService.deleteByPrimaryKey(ShoppingCart.getId());
+		if (sCart!=null) {
+			shoppingCartService.deleteByPrimaryKey(sCart.getId());
+		}
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		request.setAttribute("id", orders.getId());
-		return ordersInfo(request);
+		return ordersInfo(request,orders.getId());
 	}
 
 	@RequestMapping("/ordersInfo")
-	public ModelAndView ordersInfo(HttpServletRequest request) {
+	public ModelAndView ordersInfo(HttpServletRequest request,String id) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
 			view.setViewName("/front/login");
 			return view;
 		}
-		String oid = request.getParameter("id");
+		//String oid = request.getParameter("id");
+		String oid=id;
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/oldUser/ordersInfo");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
@@ -265,7 +268,7 @@ public class ProductOrdersController {
 		}
 		String id = request.getParameter("id");
 		ordersService.deleteByPrimaryKey(id);
-		return "redirect:/";
+		return "redirect:/front/oldUsers/selectByUid";
 	}
 
 	@RequestMapping("/overOrders")
