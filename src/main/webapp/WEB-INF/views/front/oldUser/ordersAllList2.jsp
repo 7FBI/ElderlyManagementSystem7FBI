@@ -95,12 +95,9 @@
 												<tbody>
 													<tr class="js_cmdty_item" data-skuid="151598">
 														<td class="goods_pic" style="width: 210px;">
-														<c:forEach
-																items="${ord.orderdetails}" var="odt" begin="0" end="2">
-																<a
-																	href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
-																	target="_blank"> <img
-																	src="${odt.products.producturl }"
+														<c:forEach items="${ord.orderdetails}" var="odt" begin="0" end="2">
+																<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}"
+																	target="_blank"> <img src="${odt.products.producturl }"
 																	onerror="this.src='//img.mdcdn.cn/h5/img/detail/replace_120.png'"
 																	width="80" height="80" />
 																</a>

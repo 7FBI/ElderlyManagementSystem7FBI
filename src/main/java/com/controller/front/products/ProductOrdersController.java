@@ -197,7 +197,6 @@ public class ProductOrdersController {
 	}
 
 	@RequestMapping("/allOrdersList")
-	@ResponseBody
 	public ModelAndView allOrdersInfo(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
@@ -216,7 +215,7 @@ public class ProductOrdersController {
 		Orders ord = new Orders();
 		ord.setOrderstatus(status);
 		ord.setUid(oldUsers.getUid());
-		Integer max = 5;
+		Integer max = 15;
 		Integer page = 0;
 		Integer counts = 0;
 		map.put("orders", ord);
@@ -239,15 +238,17 @@ public class ProductOrdersController {
 		List<Orders> orders = ordersService.selectFrontOrderstatus(map);
 		int i=0;
 		for (Orders orders2 : orders) {
-			if (orders2.getMoney()==null || orders2.getMoney() <= 0.0 ) {
-				orders2.setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService,
+			// ||orders2.getMoney()!=ShopPrices.
+			if (orders2.getMoney()==null || orders2.getMoney() <= 0.0 ||orders.get(i).getMoney()!=ShopPrices.getAllShowPrices(orders.get(i).getId(), productsService, groupbuyingService, discountService, ordersService, orderdetailsService)) {
+				orders.get(i).setMoney(ShopPrices.getAllShowPrices(orders2.getId(), productsService, groupbuyingService,
 						discountService, ordersService, orderdetailsService));
-				ordersService.updateByPrimaryKeySelective(orders2);
-				orders.get(i).setOrderdetails(ShopPrices.getAllOrderdetailsPrices(orders2.getId(), productsService, groupbuyingService, discountService, ordersService, orderdetailsService));
-				i++;
+				ordersService.updateByPrimaryKeySelective(orders.get(i));
 			}
+			orders.get(i).setOrderdetails(ShopPrices.getAllOrderdetailsPrices(orders2.getId(), productsService, groupbuyingService, discountService, ordersService, orderdetailsService));
+			i++;
 		}
-		view.addObject("orders", orders);
+		List<Orders> orders2= ShopPrices.getAllShowPrices(orders);
+		view.addObject("orders",orders2);
 		return view;
 	}
 
@@ -283,6 +284,7 @@ public class ProductOrdersController {
 		if (orders != null) {
 			if (oldUsers.getBalance() > orders.getMoney()) {
 				orders.setOrderstatus(1);
+				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
 				//增加积分
 				ShopPrices.addCredit(oldUsers, orders.getMoney(), creditService);
@@ -312,6 +314,24 @@ public class ProductOrdersController {
 			}
 		}
 		return "true";
+	}
+	
+	
+	@RequestMapping("/overProductsMod")
+	public ModelAndView overProductsMod(HttpServletRequest request) {
+		ModelAndView view=new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("login");
+			return view;
+		}
+		String id = request.getParameter("id");
+		Orders orders = ordersService.selectByPrimaryKey(id);
+		if (orders != null) {
+				orders.setOrderstatus(2);
+				orders.setOrdertime(new Date());
+				ordersService.updateByPrimaryKeySelective(orders);
+		}
+		return allOrdersInfo(request);
 	}
 
 	private String getStatusJsp(Integer status) {

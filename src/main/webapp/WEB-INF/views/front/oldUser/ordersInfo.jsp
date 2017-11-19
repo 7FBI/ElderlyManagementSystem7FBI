@@ -86,8 +86,8 @@
 								</select>
 							</div>
 							<div style="float: left; width: 200px;">
-								<label class="lables_d">下单时间:</label> <label class="lables_v"><fmt:formatDate
-										value="${orders.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
+								<label class="lables_d">下单时间:</label> <label class="lables_v">
+								<fmt:formatDate value="${orders.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
 							</div>
 							<div style="float: left; width: 150px">
 								<label class="lables_d">订单总价:</label> <label class="lables_v">
@@ -170,7 +170,7 @@
 
 					</div>
 					<div class="layui-col-md3">
-						<button type="button" id="deletOrderBtn" value="${orders.id }"
+						<button type="button" id="deleteOrderBtn" value="${orders.id }"
 							class="layui-btn layui-btn-small layui-btn-danger"
 							style="font-size: 15px">
 							去意已决<i class="layui-icon"
@@ -355,12 +355,9 @@
 												}
 											});
 
-							$("#overOrderBtn")
-									.click(
-											function() {
+							$("#overOrderBtn").click(function() {
 												var o = $(this);
-												$
-														.ajax({
+												$.ajax({
 															type : 'post',
 															url : '/front/orders/overOrders?id='
 																	+ o.val(),
@@ -391,13 +388,10 @@
 															}
 														})
 											})
-							$("#deleteOrderBtn")
-									.click(
-											function() {
-												var o = $(this);
-												window.location.href = "/front/orders/deleteOrders?id="
-														+ o.val();
-											})
+							$("#deleteOrderBtn").click(function() {
+									var o = $(this);
+									window.location.href = "/front/orders/deleteOrders?id="+ o.val();
+							})
 
 						});
 	</script>
