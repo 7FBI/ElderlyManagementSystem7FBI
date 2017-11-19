@@ -29,7 +29,7 @@ public class MainController {
     	List<Edunews> hotnews=new ArrayList<Edunews>();
     	for(Edunews edunews:hotfivenews){
     		String newcontent=edunews.getEducontent();
-    		edunews.setEducontent(newcontent.substring(0, 5));
+    		edunews.setEducontent(newcontent.substring(0, 50));
     		hotnews.add(edunews);
     	}
     	Edunews leftpicture=null;

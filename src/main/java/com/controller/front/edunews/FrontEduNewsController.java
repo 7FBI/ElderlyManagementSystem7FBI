@@ -56,7 +56,7 @@ public class FrontEduNewsController {
 		List <Edunews> newedunews=new ArrayList<Edunews>();
 		for(Edunews edunews:alledunews){
 			String neweduContent=edunews.getEducontent();
-			edunews.setEducontent(neweduContent.substring(0,5));
+			edunews.setEducontent(neweduContent.substring(0,50));
 			newedunews.add(edunews);
 		}
 		modelAndView.addObject("newedunews", newedunews);

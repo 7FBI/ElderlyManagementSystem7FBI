@@ -30,7 +30,7 @@
 
 </head>
 <body>
-	<div style="padding-bottom: 80px;">
+	
 		<jsp:include page="header.jsp"></jsp:include></div>
 	<!-- 查找最顶级栏目  -->
 	<%-- <section id="single">

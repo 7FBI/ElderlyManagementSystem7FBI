@@ -58,7 +58,7 @@ public class FrontVideoController {
 			    	//内容截取
 			    	Video myvideo=videos.getVideo();
 			    	String newvcontent=myvideo.getVcontent();
-			    	myvideo.setVcontent(newvcontent.substring(0, 4));
+			    	myvideo.setVcontent(newvcontent.substring(0, 20));
 			    	matchpeoplebyvideolist.add(videos);
 			    }
 			modelAndView.addObject("matchpeoplebyvideolist", matchpeoplebyvideolist);
@@ -71,7 +71,7 @@ public class FrontVideoController {
 	        	  Video myvideo=watchedvideo.getVideo();
 	        	    
 			    	   String newvcontent=myvideo.getVcontent();
-			    	   myvideo.setVcontent(newvcontent.substring(0, 4));
+			    	   myvideo.setVcontent(newvcontent.substring(0, 20));
 			    	  
 	        	     allMySeenVideo.add(watchedvideo);
 	         }
@@ -105,7 +105,7 @@ public class FrontVideoController {
 	    for(Video videos:oldallVideos){
 	    	//内容截取
 	    	String newvcontent=videos.getVcontent();
-	    	videos.setVcontent(newvcontent.substring(0, 4));
+	    	videos.setVcontent(newvcontent.substring(0, 20));
 	    	allVideos.add(videos);
 	    }
 	   //免费视频
@@ -113,7 +113,7 @@ public class FrontVideoController {
 		List <Video> freevideo=new ArrayList<Video>();
 		for(Video video:allvideos){
 			String newvideoContent=video.getVcontent();
-			video.setVcontent(newvideoContent.substring(0,5));
+			video.setVcontent(newvideoContent.substring(0,20));
 			freevideo.add(video);
 		}
 	    
@@ -144,7 +144,7 @@ public class FrontVideoController {
 				List<Video> sameVideo=new ArrayList<Video>();
 				for(Video video:theSameVideo){
 					String newvideoContent=video.getVcontent();
-					video.setVcontent(newvideoContent.substring(0,5));
+					video.setVcontent(newvideoContent.substring(0,20));
 					sameVideo.add(video);
 				}
 				 modelAndView.addObject("sameVideo", sameVideo);
@@ -156,7 +156,7 @@ public class FrontVideoController {
 				List<Video> sameVideo=new ArrayList<Video>();
 				for(Video video:theSameVideo){
 					String newvideoContent=video.getVcontent();
-					video.setVcontent(newvideoContent.substring(0,5));
+					video.setVcontent(newvideoContent.substring(0,20));
 					sameVideo.add(video);
 				}
 				 modelAndView.addObject("sameVideo", sameVideo);
@@ -170,7 +170,7 @@ public class FrontVideoController {
 				List<Video> sameVideo=new ArrayList<Video>();
 				for(Video video:theSameVideo){
 					String newvideoContent=video.getVcontent();
-					video.setVcontent(newvideoContent.substring(0,5));
+					video.setVcontent(newvideoContent.substring(0,20));
 					sameVideo.add(video);
 				}
 			    System.out.println(sameVideo.size());
