@@ -9,9 +9,18 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link type="text/css" rel="stylesheet" href="/resources/front/css/reset.css">
 <link type="text/css" rel="stylesheet" href="/resources/front/css/carts.css">
+
+<link href="/resources/front/css/self_exchange/amazeui.css"
+	rel="stylesheet" type="text/css" />
+<link href="/resources/front/css/self_exchange/demo.css"
+	rel="stylesheet" type="text/css" />
+
+<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
+<script src="/resources/front/js/self_exchange/amazeui.min.js"></script>
 </head>
 <body>
-<jsp:include page="Storedetailedheader.jsp" />
+<%-- <jsp:include page="Storedetailedheader.jsp" /> --%>
+<jsp:include page="Self_header.jsp" />
 <!-- 购物车头部 -->
 <div class="cart_top">
 <div class="cart_top_inner">

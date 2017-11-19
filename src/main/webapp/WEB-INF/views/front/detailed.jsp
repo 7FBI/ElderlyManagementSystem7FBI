@@ -5,6 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>商品详细信息</title>
+
+<link href="/resources/front/css/self_exchange/amazeui.css"
+	rel="stylesheet" type="text/css" />
+<link href="/resources/front/css/self_exchange/demo.css"
+	rel="stylesheet" type="text/css" />
+
+<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
+<script src="/resources/front/js/self_exchange/amazeui.min.js"></script>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" href="/resources/front/css/shouye.css">
 <link rel="stylesheet"
@@ -60,7 +70,7 @@
 </script>
 </head>
 <body>
-	<jsp:include page="Storedetailedheader.jsp" />
+	<jsp:include page="Self_header.jsp" />
 	<div class="crumb_wrap">
 		<div class="crumb">
 			<a class="home_page" href="">首页</a> <label></label> <a href="">${classifiCationName}</a>

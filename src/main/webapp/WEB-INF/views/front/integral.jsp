@@ -12,27 +12,31 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/resources/front/css/integralStore.css">
+
+<link href="/resources/front/css/self_exchange/amazeui.css"
+	rel="stylesheet" type="text/css" />
+<link href="/resources/front/css/self_exchange/demo.css"
+	rel="stylesheet" type="text/css" />
+<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
+<script src="/resources/front/js/self_exchange/amazeui.min.js"></script>
+
 <title>积分商城</title>
 </head>
 <body>
-	<jsp:include page="Storedetailedheader.jsp" />
+	<jsp:include page="Self_header.jsp" />
 	<!-- 积分抽大奖 -->
-	<div class="top_bar">
-		<div class="wrapper">
-			<h1 class="banner_title">积分商城</h1>
-			<a href="###" style="float:right;font-size:14px;">积分明细</a>
-		</div>
+	<div class="top_bar" ">
 		<div class="banner_bar" style="background: red;">
 			<a class="banner_wrapper" href="" title="积分抽大奖" target="_blank">
 				<img class="banner_img" alt="积分商城"
 				src="/resources/front/images/969211d12f73.png">
 			</a>
-			<div class="basic_bar login_ed">
+			<div class="basic_bar login_ed" >
 				<!-- 头像部分 -->
 				<div class="head_bar">
 					<div class="head">
 						<img class="img" alt="用户头像"
-							src="/resources/front/images/default_head.png">
+							src="/resources/front/images/self_img/getAvatar.do.jpg">
 					</div>
 					<div class="head_text">
 						<div class="head_name"></div>
@@ -53,7 +57,7 @@
 					</div>
 				</div>
 				<div class="href_bar">
-					<a class="href_item first" href="" target="_blank">积分不够？去赚积分</a> <a
+					<a class="href_item first" href="/front/products/selectAllProducts" target="_blank">积分不够？去赚积分</a> <a
 						class="href_item" href="" target="_blank">查看积分明细</a> <a
 						class="href_item" href="" target="_blank">查看积分规则</a>
 				</div>
@@ -71,16 +75,18 @@
 				</a>
 				<!-- 积分兑换商品区 -->
 				<div class="integral_buy_wrap" name="integral_buy"
-					style="background: red;">
+					>
 					<ul class="coupon_list mc_pre_2cols clearfix"
-						style="background: yellow;">
+						>
 						<c:forEach items="${products}" var="products">
 							<li class="coupon_item mc_product_box over_box">
+							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
 								<div class="mc_product_img">
 									<img alt="国标排插 两位总控 一位小五孔 A1C02L1.2-A5"
 										src="/resources/front/image/ecaa0768c96b12feA32206_280 280.jpg">
 								</div>
 								<div class="mc_product_detail">${products.pname }</div>
+								</a>
 								<div class="mc_product_sale_point">商品积分抢购截止时间:2017-11-30</div>
 								<div class="mc_product_price">
 									<div class="mc_product_price_area">

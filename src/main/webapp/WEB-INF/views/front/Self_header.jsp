@@ -11,13 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-<!-- <link href="/resources/front/css/self_exchange/admin.css"
-	rel="stylesheet" type="text/css"> -->
-
-<script type="text/javascript"
+<link href="/resources/front/css/self_exchange/amazeui.css"
+	rel="stylesheet" type="text/css" />
+<link href="/resources/front/css/self_exchange/personal.css"
+	rel="stylesheet" type="text/css">
+<!-- <script type="text/javascript"
 	src="/resources/front/js/self_exchange/jquery-1.7.2.min.js"></script>
-<script src="/resources/front/js/self_exchange/amazeui.js"></script>
+<script src="/resources/front/js/self_exchange/amazeui.js"></script> -->
 </head>
 <body>
 	<%-- <%
@@ -27,7 +27,7 @@
 	<header> <article>
 	<div class="mt-logo">
 		<!--顶部导航条 -->
-		<div class="am-container header" >
+		<div class="am-container header">
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
@@ -38,19 +38,22 @@
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/gotoFront/index" target="_top" class="h"><i class="am-icon-home am-icon-fw"></i>系统首页</a>
+						<a href="/gotoFront/index" target="_top" class="h"><i
+							class="am-icon-home am-icon-fw"></i>系统首页</a>
 					</div>
 				</div>
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/front/products/selectAllProducts" target="_top" class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
+						<a href="/front/products/selectAllProducts" target="_top"
+							class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
 					</div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng">
-					
-						<a href="/front/oldUsers/selectByUid" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
-				
+
+						<a href="/front/oldUsers/selectByUid" target="_top"><i
+							class="am-icon-user am-icon-fw"></i>个人中心</a>
+
 					</div>
 				</div>
 				<div class="topMessage mini-cart">
@@ -70,7 +73,7 @@
 						</div> -->
 					</div>
 				</div>
-				
+
 				<div class="topMessage customer">
 					<div class="menu-hd">
 						<a href="#" target="_top"><i class="am-icon-phone am-icon-fw"></i><span>客服
@@ -81,11 +84,11 @@
 						</div> -->
 					</div>
 				</div>
-				
+
 				<div class="topMessage loginout">
 					<div class="menu-hd">
-						<a href="/exit/front/clearUser" target="_top"><i class="am-icon-off am-icon-fw"></i><span>退出
-						</span> </a>
+						<a href="/exit/front/clearUser" target="_top"><i
+							class="am-icon-off am-icon-fw"></i><span>退出 </span> </a>
 						<!-- <div class="secondary">
 							<a>收藏的宝贝</a>
 							<a>收藏的店铺</a>
@@ -99,17 +102,18 @@
 
 		<div class="nav white">
 			<div class="logoBig">
-				<li><img src="/resources/front/images/self_img/logobig.png" /></li>
+				<li><img
+					src="/resources/front/images/self_img/yijia_bg_logo.png"
+					style="width: 380px; height: 70px;" /></li>
 			</div>
 
 			<div class="search-bar pr">
 				<a name="index_none_header_sysc" href="#"></a>
-				<form action="/front/products/selectProductsByLikeName" method="post">
-					<input id="searchInput" name="pname" type="text"
-						placeholder="搜索" autocomplete="off"> 
-						<input
-						id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-						type="submit">
+				<form action="/front/products/selectProductsByLikeName"
+					method="post">
+					<input id="searchInput" name="pname" type="text" placeholder="搜索"
+						autocomplete="off"> <input id="ai-topsearch"
+						class="submit am-btn" value="搜索" index="1" type="submit">
 				</form>
 			</div>
 		</div>
