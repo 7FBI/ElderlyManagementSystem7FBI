@@ -58,26 +58,27 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"> 
-			<c:if test="${empty allmatch}">
+			<c:if test="${empty videoMatchalldisease}">
 					<a
-						href="${pageContext.request.contextPath}/backstage/video/allvideo.action"><font
+						href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?"><font
 						size="2px" color="blue"> <span
 							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 					</font></a>
 					<br>
 					<br>
 					<div style="margin-left:100px; height: 260px;">
-						<font color="lilac">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;您可以点击右的按钮添加哦！<br>&nbsp;&nbsp;&nbsp;&nbsp;祝您生活愉快
+						<font color="lilac">sorry:<br>&nbsp;&nbsp;&nbsp;&nbsp;亲爱的客官，目前还没有该内容！<br>&nbsp;&nbsp;&nbsp;&nbsp;您可以点击下方的按钮添加哦！<br>&nbsp;&nbsp;&nbsp;&nbsp;祝您生活愉快
 						</font>
-					<%-- <a
+						<br><br><br>
+					    <div > &nbsp;&nbsp;&nbsp;&nbsp;<a
 								href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/queryvideotitle.actino?id=${vid}"
 								class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
 								<span class="glyphicon glyphicon-plus" aria-hidden="true">添加适用疾病</span>
-							</a> --%>
+							</a> </div>
 					</div>
 					
 				</c:if>
-	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+	      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 					
 					<!-- 空白行-->
               	   <!-- 一条线 -->
@@ -91,17 +92,17 @@
 							</table>
 						</td>
 					</tr>
-					<c:if test="${!empty allmatch}">
-						<%-- <a
-				          href="${pageContext.request.contextPath}/backstage/video/allvideo.action?"><font
+					<c:if test="${!empty videoMatchalldisease}">
+						 <a
+				          href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?"><font
 					        size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
-				</font></a> <br> --%>
+				      </font></a>  
 				    <!--收索添加  -->
-				<%-- 		<div class="row">
+					<div class="row">
 				
-							 <form action="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/findmatchbyconditions.action" method="post">
-				<div class="col-md-offset-1 col-md-4 addstyle">
+				<%-- <form action="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/findmatchbyconditions.action" method="post">
+				   <div class="col-md-offset-1 col-md-4 addstyle">
 						<div class="input-group">
 							<input type="text" class="form-control" name="queryVideomatchdisease" 
 								placeholder="Search for..."> <span
@@ -115,7 +116,7 @@
 									
 							</span>
 						</div>
-				</form>
+				</form> --%>
 						</div>
 
 						<div class="col-md-3 col-sm-offset-1 addstyle">
@@ -127,7 +128,7 @@
 
 							<!-- /input-group -->
 						</div>
-						</div> --%><br>
+						</div><br>
 						<!-- 商品分类开始 -->
 						<tr>
 							<td width="4%">&nbsp;&nbsp;&nbsp;</td>
@@ -150,16 +151,16 @@
 
 														<td>操作</td>
 													</tr>
-													<c:forEach items="${allmatch }" var="allmatch"
+													<c:forEach items="${videoMatchalldisease }" var="videoMatchalldisease"
 														varStatus="var">
 														<tr align="center" class="d">
 
 															<td>${var.count}</td>
-															<td>${allmatch.video.vtitle}</td>
-															<td>${allmatch.video.oldDiseaselibrary.diseasename}</td>
+															<td>${videoMatchalldisease.video.vtitle}</td>
+															<td>${videoMatchalldisease.video.oldDiseaselibrary.diseasename}</td>
 
 															<td><a
-																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/deletevideomatch.action?id=${allmatch.id}"
+																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo//deletevideomatchdisease.action?id=${videoMatchalldisease.id}"
 																onclick="return confirm('确定要删除吗')" role="button"
 																class="btn btn-danger btn-sm">删除</a> <%-- <a
 															href="${pageContext.request.contextPath}/backstage/video/selectvideobyid.action?id=${allVideos.id}" role="button" class="btn btn-warning btn-sm">修改</a>--%>
@@ -174,24 +175,29 @@
 										</td>
 									</tr>
 								</table>
-								<table class="table">
+<%-- <form action="${pageContext.request.contextPath }/backstage/matchpeoplbyevideo/videoanddisease.action" method="post">
+	<input type="hidden" value="${videoMatchalldisease.video.id}" name="oldvid" id="oldvid" />
+ --%>
+	<!--分页  -->
+	<%--  <table class="table">
 		<tr>
 			<td class="form-inline">
-				<button page="page" value="0" class="btn btn-default">首页</button>&nbsp;
-				<button page="page" class="btn btn-default" value="${page-1}">上一页</button>&nbsp;
-				<button page="page" class="btn btn-default" value="${page}">${page+1}</button>&nbsp;
-				<button page="page" class="btn btn-default" value="${page+1}">下一页</button>&nbsp;
-				<button page="page" class="btn btn-default" value="${counts}">尾页(${counts+1})</button>
+			
+				<button page="page" value="0" class="btn btn-default" type="submit">首页</button>&nbsp;
+				<button page="page" class="btn btn-default" value="${page-1}" type="submit">上一页</button>&nbsp;
+				<button page="page" class="btn btn-default" value="${page}" >${page+1}</button>&nbsp;
+				<button page="page" class="btn btn-default" value="${page+1}" type="submit">下一页</button>&nbsp;
+				<button page="page" class="btn btn-default" value="${counts}" type="submit">尾页(${counts+1})</button>
 				<div class="form-group">
 					<label for="exampleInputName2">跳到:</label><input page="page"
-						style="width: 60px" type="text" class="form-control"><label
+						style="width: 60px" type="text" class="form-control" ><label
 						for="exampleInputName2">&nbsp;页</label>
 				</div>
-				<button id="jumpBtn" class="btn btn-default">跳转</button>&nbsp;
+				<button id="jumpBtn" class="btn btn-default" type="submit">跳转</button>&nbsp;
 			</td>
 		</tr>
-	</table>
-					</c:if>
+	</table> --%>
+				</c:if>
 					</td>
 					<td width="2%">&nbsp;</td>
 					</tr>
@@ -241,12 +247,15 @@
 	<script type="text/javascript">
 		$("#jumpBtn").click(function() {
 			var b = $("input[page='page']").val();
-			window.location.href = "/backstage/matchpeoplbyevideo/queryallmatch.action?page=" + b;
+
+			window.location.href = "/backstage/matchpeoplbyevideo/videoanddisease.action?page=" + b;
+		    
 		})
 	
 		$("button[page='page']").click(function() {
 			var b = $(this).val();
-			window.location.href = "/backstage/matchpeoplbyevideo/queryallmatch.action?page=" + b;
+			window.location.href = "${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?page=" + b;
+			
 		})
 	</script>
 </body>

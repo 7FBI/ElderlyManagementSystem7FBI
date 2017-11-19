@@ -44,14 +44,14 @@ html, body {
 	width: 100%;
 	margin: 0 auto;
 	padding: 10px 0;
-	background-color: #555c52;
+	/* background-color: #555c52; */
 }
 .videocontment{
 	width:17%;
 	float: left;
 	text-align: left;
 	background-color: #555c52;
-	
+	height: 880px;
 }
 .videocontment ul li{
 	list-style-type: none;

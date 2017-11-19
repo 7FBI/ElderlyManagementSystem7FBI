@@ -34,6 +34,14 @@
 	<resultMap type="com.bean.Matchpeoplevideo" id="findUsersByVideo">
 		<id column="id" property="id" />
 		<result column="did" property="did" />
+		<association property="video" javaType="com.bean.Video">
+		<id column="videoid" property="id"/>
+		<result column="vtitle" property="vtitle" />
+			<result column="vcontent" property="vcontent" />
+			<result column="vteacher" property="vteacher" />
+			<result column="vprice" property="vprice" />
+			<result column="vurl" property="vurl" />
+		
 		<collection property="oldDiseaselibrary" ofType="com.bean.OldDiseaselibrary">
 			<id column="diseaselibraryid" property="id" />
 			<result column="diseasename" property="diseasename" />
@@ -53,6 +61,7 @@
 				</collection>
 			</collection>
 		</collection>
+		</association>
 	</resultMap>
 	<!--前台 更据人找 视频 -->
 	<resultMap type="com.bean.Matchpeoplevideo" id="findVideoToUser">
@@ -152,7 +161,8 @@
 		username,old_users.address
 		address,old_users.tell tell,
 		matchpeopleVideo.id id,matchpeopleVideo.did,v.id
-		videoid,v.vtitle,v.vcontent,v.vteacher,v.vprice,v.vurl,old_DiseaseDetails.id
+		videoid,v.vtitle vtitle,v.vcontent vcontent,v.vteacher vteacher,v.vprice vprice,
+		v.vurl vurl,old_DiseaseDetails.id
 		diseaseid,old_sickness.id sicknessid,
 		old_DiseaseDetails.uid uid,
 		old_Diseaselibrary.diseasename diseasename,old_Diseaselibrary.id
@@ -208,7 +218,7 @@
 
 	<!--查找全部 -->
 	<select id="queryAllVideoMatchdisease" resultMap="queryVidoeAndDiseaseName">
-		select
+		<!-- select
 		matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did
 		did,
 		video.id vid,video.vtitle vtitle, old_diseaselibrary.id
@@ -218,10 +228,27 @@
 		where
 		matchpeoplevideo.vid=video.id
 		and
+		matchpeoplevideo.did=old_diseaselibrary.id -->
+		CREATE OR REPLACE VIEW matchpeoplevideoview
+         AS
+        select
+		matchpeoplevideo.id id,matchpeoplevideo.vid vid,matchpeoplevideo.did
+		did,
+		video.id videoid,video.vtitle vtitle, old_diseaselibrary.id
+		diseaseid,old_diseaselibrary.diseasename diseasename
+		from
+		matchpeoplevideo,video,old_diseaselibrary
+		where
+		matchpeoplevideo.vid=video.id
+		and
 		matchpeoplevideo.did=old_diseaselibrary.id
 	</select>
+	<!--某一视频适用的疾病的数  -->
+	<select id="oneVideoMatchDiseaseCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	select COUNT(*) from matchpeoplevideo WHERE vid=#{videoid}
+	</select>
 	<!--根据视频找出适合的病 -->
-	<select id="queryVideoMatchdisease" parameterType="java.lang.Integer"
+	<select id="queryVideoMatchdisease" parameterType="hashMap"
 		resultMap="queryVidoedisease">
 		select matchpeoplevideo.id id,matchpeoplevideo.vid
 		vid,matchpeoplevideo.did did,
@@ -234,7 +261,33 @@
 		and
 		matchpeoplevideo.did=old_diseaselibrary.id
 		and
-		video.id=#{id,jdbcType=INTEGER}
+		video.id=#{vid,jdbcType=INTEGER}
+		ORDER BY matchpeoplevideo.id LIMIT #{page},#{max}
+	</select>
+	<!--视频适用人群分页  -->
+	<select id="matchVideoCutPage" parameterType="hashMap" resultMap="queryVidoeAndDiseaseName">
+	select * from matchpeoplevideoview ORDER BY id LIMIT #{page},#{max}
+	</select>
+	<!--查询出总的记录数  -->
+	<select id="matchVideoCount" resultType="java.lang.Integer">
+	select COUNT(*) from matchpeoplevideoview 
+	</select>
+	<!--根据视频找出适合的病 -->
+	<select id="queryMatchdiseaseByVideo" parameterType="java.lang.Integer"
+		resultMap="queryVidoedisease">
+		select matchpeoplevideo.id id,matchpeoplevideo.vid
+		vid,matchpeoplevideo.did did,
+		video.id vid,video.vtitle vtitle,
+		old_diseaselibrary.id
+		did,old_diseaselibrary.diseasename diseasename
+		from matchpeoplevideo,video,old_diseaselibrary
+		where
+		matchpeoplevideo.vid=video.id
+		and
+		matchpeoplevideo.did=old_diseaselibrary.id
+		and
+		video.id=#{vid,jdbcType=INTEGER}
+		
 	</select>
 	<!--视频标题 -->
 	<select id="queryVideotitle" parameterType="java.lang.Integer"

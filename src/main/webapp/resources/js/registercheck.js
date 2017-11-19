@@ -201,6 +201,31 @@ if (birthday.length == 0) {
 	document.getElementById("success9").innerHTML = "√";
 	return true;
 }
+
+//为用户充值
+function balanceCheck(){
+	var reg = /[0-9]+(\.[0-9]+)?/;
+	var balance = document.getElementById("balance").value;
+	if (balance.length == 0) {
+		var str = "× 金额不能为空";
+		document.getElementById("error10").innerHTML = str;
+		return false;
+	} else if (reg.test(balance)) {
+		document.getElementById("error10").innerHTML = "";
+		document.getElementById("success10").innerHTML = "√";
+		return true;
+	} else {
+		var str = "× 输入格式错误"
+		document.getElementById("balance").value = "";
+		document.getElementById("balance").focus();
+		document.getElementById("success10").innerHTML = "";
+		document.getElementById("error10").innerHTML = str;
+		return false;
+
+	}
+
+}
+
 function userscheck(){
 	if(usenameCheck() && checkCard() && checkTell() && checkAddress()
 			&& uidCheck() && passwordCheck() &&pass_wdCheck() && checkUrl() &&checkBirthday()){
@@ -209,6 +234,16 @@ function userscheck(){
 		return false;
 	}
 }
+
+
+function checkbalance(){
+	if(balanceCheck()){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 /*function useidCheck(){
 	
 	var userid = document.getElementById("userid").value;

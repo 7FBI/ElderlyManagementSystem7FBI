@@ -1,3 +1,4 @@
+
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
@@ -26,18 +27,15 @@
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<link href="/resources/css/register.css" rel="stylesheet"
-	type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/backstage/Style/skin.css" />
 
 <!-- 验证 -->
 
-<script type="text/javascript" language="javascript"
-	src="/resources/js/videoandeducheck.js"></script>
-
+<script type="text/javascript" language="javascript" src="../../../resources/js/registercheck.js"></script>
 </head>
 
 <body>
-
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -68,10 +66,10 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/backstage/video/allvideo.action"><font
+				href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManagerPage.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
-				</font></a> <br>
+				</font></a> <br><br><br>
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
@@ -91,27 +89,41 @@
 					</tr>
 					<!-- 商品分类开始 -->
 					<tr>
-						<td align="center">
-							<div class="register_title">
-								<strong>视频适用病 </strong>
+						<td>
+							<div class="col-md-offset-2"
+								style="font-size: 26px;color: #9fdfdc;font-family: "楷体";text-align:left;width:80%; margin: 0 auto;">
+								<span class="glyphicon glyphicon-user" aria-hidden="true">
+								</span>&nbsp;用户充值
+
+								<HR
+									style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)"
+									width="80%" color=#987cb9 SIZE=3>
 							</div>
-							<HR
-								style="FILTER: progid:DXImageTransform.Microsoft.Shadow(color:#987cb9,direction:145,strength:15)"
-								width="80%" color=#987cb9 SIZE=3>
-							<form class="form-horizontal col-sm-offset-1"
-								action="/backstage/matchpeoplbyevideo/addvideoanddisease.action"
-								method="post" enctype="multipart/form-data"
-								onsubmit="return edunewscheck()">
 
-								<div class="form-group col-md-offset-2">
-									<label for="edutitle" class="col-sm-2 control-label">视频名称</label>
 
-									<div class="col-sm-6">
-										<input type="text" class="form-control"
-											value="${video.vtitle}" readonly>
-											 <input type="hidden"
-											class="form-control" name="vid" value="${video.id}"
-											>
+							<form class="form-horizontal col-md-offset-2"
+								action="/backstage/oldusers/upmoney.action" method="Post"
+								enctype="multipart/form-data" onsubmit="return checkbalance()">
+
+								<%-- <div class="form-group col-md-offset-3">
+									<label for="userurl" class="col-sm-2 control-label">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像</label>
+									<div class="col-sm-3">
+										<input type="file" name="file" multiple="multiple"
+											id="userurl" onblur="checkUrl()" value="${userbyid.userurl}"/>
+											<img alt="" src="/files${userbyid.userurl}" width="295" height="413">
+									</div>
+
+									<div class="pleft">
+										<font color="red"><p id="error8"></p></font> <font
+											color="green"><p id="success8"></p></font>
+									</div>
+								</div> --%>
+
+								<div class="form-group col-md-offset-3">
+									<label for="username" class="col-sm-2 control-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" 
+											value="${addusermoneybyid.username}" id="username" onblur="usenameCheck()"  readonly>
 
 									</div>
 									<div class="pleft">
@@ -119,49 +131,56 @@
 											color="green"><p id="success1"></p></font>
 									</div>
 									<!--  -->
-									<!-- <div class="pleft"><p class="msg"><i class="ati"></i></p></div>
-			<div class="pleft"><label><span></span><b id="count"></b></label></div>	 -->
+									
 								</div>
-
-								<div class="form-group col-md-offset-2">
-									<label for="educontent" class="col-sm-2 control-label">适用疾病</label>
-									<div class="col-sm-6">
-										<!-- <textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()"></textarea> -->
-										<select type="text" class="form-control" name="did" id="select" onfocus="selectFocus()">
-											<c:forEach items="${alloldDiseaselibrary}" var="alloldDiseaselibrary">
-											   
-												<option onclick="selectClick()" value="${alloldDiseaselibrary.id}">${alloldDiseaselibrary.diseasename}</option>
-											</c:forEach>
-											
-										</select>
+								<div class="form-group col-md-offset-3">
+									<label for="uid" class="col-sm-2 control-label">登录账号</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control"  id="uid"
+											onblur="uidCheck()" value="${addusermoneybyid.uid}"  readonly>
 									</div>
 									<div class="pleft">
-										<font color="red"><p id="error6"></p></font> <font
-											color="green"><p id="success6"></p></font>
+										<font color="red"><p id="error5"></p></font> <font
+											color="green"><p id="success5"></p></font>
 									</div>
-
+									<c:if test="${!empty error}">
+										<div>
+											<span style="color: red">${err}</span>
+										</div>
+									</c:if>
 								</div>
+								<%-- <div class="form-group col-md-offset-3">
+									<label for="area" class="col-sm-2 control-label">所属地域</label>
+									<div class="col-sm-3">
 
-
-								<!-- <div class="form-group col-md-offset-2">
-			<label for="eduurl" class="col-sm-2 control-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
-			<div class="col-sm-3">
-				<input type="file" name="file" multiple="multiple" id="eduurl" onblur="checkUrl()"/>
-			</div>
-			<div class="pleft">
-	  			 <font color="red"><p id="error4"></p></font>
-		         <font color="green"><p id="success4"></p></font>
-		         </div>
-		</div> -->
+										<input type="hidden" class="form-control" name="area"
+											value="${manager.locaid}" readonly> <input
+											type="text" class="form-control"
+											value="${mangerArea.localarea.provincename}" readonly>
+									</div>
+								</div> --%>
+                           <div class="form-group col-md-offset-3">
+									<label for="area" class="col-sm-2 control-label">充值</label>
+									<div class="col-sm-3">
+                                      <input type="hidden"  value="${addusermoneybyid.id}" name="id">
+										<input type="text" class="form-control" name="balance" id="balance" onblur="balanceCheck()"> 
+											
+									</div>
+									<div class="pleft">
+										<font color="red"><p id="error10"></p></font> <font
+											color="green"><p id="success10"></p></font>
+									</div>
+								</div>
 								<!-- 按钮 -->
 								<div class="row">
 									<div class="col-sm-offset-3 col-md-3">
 										<br>
-										<button type="submit" class="btn btn-success">添加</button>
+										<button type="submit" class="btn btn-success">充值</button>
 										<button type="reset" class="btn btn-warning">重置</button>
 									</div>
 								</div>
 							</form>
+							<br><br>
 						</td>
 					</tr>
 
@@ -177,16 +196,7 @@
 						</td>
 					</tr>
 					<tr>
-						<!--底部信息  -->
-						<!-- <td width="2%">&nbsp;</td>
-						<td width="51%" class="left_txt"><img
-							src="/resources/backstage/Images/icon_mail.gif" width="16"
-							height="11"> 客户服务邮箱：rainman@foxmail.com<br /> <img
-							src="/resources/backstage/Images/icon_phone.gif" width="17"
-							height="14"> 官方网站：<a href="http://h2design.taobao.com/"
-							target="_blank">氢设计</a></td>
-						<td>&nbsp;</td>
-						<td>&nbsp;</td> -->
+						
 					</tr>
 				</table></td>
 			<td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>

@@ -22,7 +22,7 @@ html,body{
 	background-size: contain;
 	background-size: 100% 100%;
 	background-size: cover;
-	-webkit-background-size: cover;
+	-webkit-background-size: cover; 
  }
  .nomoney{
  text-align: center;

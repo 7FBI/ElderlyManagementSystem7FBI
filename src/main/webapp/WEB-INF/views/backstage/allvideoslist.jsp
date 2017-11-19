@@ -175,7 +175,7 @@
 														${allVideos.vurl}
 														</td> --%>
 															<td><a
-																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/videoanddisease.action?vid=${allVideos.id}">适用疾病</a></td>
+																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/matchdiseaseByVideo.action?oldvid=${allVideos.id}">适用疾病</a></td>
 															<td><a
 																href="${pageContext.request.contextPath}/backstage/matchpeoplbyevideo/finduserbyvideo.action?id=${allVideos.id}">推荐用户</a>
 															</td>

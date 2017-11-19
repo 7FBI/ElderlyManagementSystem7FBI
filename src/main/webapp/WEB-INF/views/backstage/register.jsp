@@ -31,7 +31,7 @@
 
 <!-- 验证 -->
 
-<script type="text/javascript" language="javascript" src="/resources/js/registercheck.js"></script>
+<script type="text/javascript" language="javascript" src="../../../resources/js/registercheck.js"></script>
 
 </head>
 
@@ -163,6 +163,7 @@
 			<label for="tell" class="col-sm-2 control-label">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</label>
 			<div class="col-sm-3">
 				<input type="text" class="form-control" name="tell" id="tell" onblur="checkTell()" placeholder="电话">
+				<input type="hidden" class="form-control" name="balance" id="balance" value="0.00" onblur="checkTell()" placeholder="余额">
 			</div>
 			<div class="pleft">
 	  			 <font color="red"><p id="error3"></p></font>

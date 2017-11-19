@@ -149,6 +149,12 @@ public class OldUsersServiceImpl implements OldUsersService {
 		oldUsersMapper.watchVideo(map);
 	}
 
+	@Override
+	public void addUserMoney(OldUsers oldUsers) {
+		// TODO Auto-generated method stub
+		oldUsersMapper.addUserMoney(oldUsers);
+	}
+
 	
 
 	

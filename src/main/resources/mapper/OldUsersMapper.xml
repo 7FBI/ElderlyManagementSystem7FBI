@@ -112,7 +112,7 @@
 	<select id="queryByUid" parameterType="com.bean.OldUsers"
 		resultMap="alluserdetail">
 		select old_Users.id
-		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename
+		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
 		myarea, localarea.id from localarea,old_Users where
 		localarea.id=old_Users.area and uid=#{uid}
 	</select>
@@ -121,7 +121,7 @@
 	<select id="queryByConditions" parameterType="java.lang.String"
 		resultMap="alluserdetail">
 		select old_Users.id
-		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename
+		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
 		myarea, localarea.id lid from localarea,old_Users
 		<where>
 			localarea.id=old_Users.area
@@ -144,16 +144,26 @@
 		where localarea.id=manager.locaid
 		and old_Users.area=manager.locaid
 		and manager.locaid=#{locaid,jdbcType=INTEGER} -->
-		CREATE OR REPLACE view localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,myarea,lid)
+		CREATE OR REPLACE view localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,myarea,lid)
            AS
         select old_Users.id id,username,sex,
 		idcard,birthday,tell,address,uid,password,
-		userurl,localarea.provincename myarea,
+		userurl,balance,localarea.provincename myarea,
 		localarea.id lid from localarea,old_Users,manager
 		where localarea.id=manager.locaid
 		and old_Users.area=manager.locaid
 		and manager.locaid=#{locaid,jdbcType=INTEGER}
 	</select>
+	<!--为用户充钱  -->
+	<update id="addUserMoney" parameterType="com.bean.OldUsers">
+	update old_Users
+	<set>
+	<if test="balance != null">
+		balance =balance + #{balance,jdbcType=DOUBLE},
+	</if>
+	</set>
+		where id = #{id}
+	</update>
 	<!-- 修改用户信息 -->
 	<update id="modifyById" parameterType="com.bean.OldUsers">
 		update old_Users
@@ -201,7 +211,7 @@
 	<select id="queryById" parameterType="java.lang.Integer"
 		resultMap="alluserdetail">
 		select old_Users.id
-		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename
+		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
 		myarea, localarea.id from localarea,old_Users where
 		localarea.id=old_Users.area and old_Users.id=#{id}
 	</select>
@@ -706,7 +716,7 @@
 			<if test="userurl != null">
 				userurl = #{userurl,jdbcType=VARCHAR},
 			</if>
-			balance
+			
 			<if test="balance != null">
 				balance = #{balance,jdbcType=DOUBLE},
 			</if>

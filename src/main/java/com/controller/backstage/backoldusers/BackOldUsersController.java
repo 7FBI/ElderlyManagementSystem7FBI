@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bean.Localarea;
 import com.bean.Manager;
@@ -146,7 +148,7 @@ public class BackOldUsersController {
 		return modelAndView;
 	}
 //	根据管理员的所属地找出该地的所有用户
-	@RequestMapping("findUserByManager")
+	@RequestMapping("/findUserByManager")
 	public ModelAndView selectAllUserByManager(HttpServletRequest request){
 		ModelAndView modelAndView=new ModelAndView();
 		if(request.getSession().getAttribute("manager")!=null){
@@ -210,6 +212,16 @@ public class BackOldUsersController {
 		modelAndView.setViewName("backstage/updateuser");
 		return modelAndView;
 	}
+	//根据id查找用户信息
+		@RequestMapping("/queryUserByIdaddMoney")
+		public ModelAndView queryUserAddMoney(Integer id){
+			ModelAndView modelAndView=new ModelAndView();
+			OldUsers addusermoneybyid=oldUsersService.queryById(id);
+			System.out.println(addusermoneybyid.getUid());
+			modelAndView.addObject("addusermoneybyid", addusermoneybyid);
+			modelAndView.setViewName("backstage/addusermoney");
+			return modelAndView;
+		}
 //根据id修改用户信息
 	@RequestMapping(value="/modifyUserById")
 	@ResponseBody
@@ -270,8 +282,9 @@ public class BackOldUsersController {
 	//用户详情信息
 		@RequestMapping(value="/queryUserdetail")
 		@ResponseBody
-		public ModelAndView queryUserDetail(Integer id){
-			OldUsers userdetail=oldUsersService.queryById(id);
+		public ModelAndView queryUserDetail(@ModelAttribute("id") String id){
+			Integer userid=Integer.parseInt(id);
+			OldUsers userdetail=oldUsersService.queryById(userid);
 			ModelAndView modelAndView=new ModelAndView();
 			modelAndView.addObject("userdetail", userdetail);
 			modelAndView.setViewName("backstage/olduserdetail");
@@ -291,6 +304,14 @@ public class BackOldUsersController {
 			return modelAndView;
 		}
 		
- 
+// 充值
+		@RequestMapping("/upmoney")
+		public String upUserMoney(OldUsers oldUsers,RedirectAttributes  model){
+			
+			oldUsersService.addUserMoney(oldUsers);
+			model.addFlashAttribute("id", oldUsers.getId());
+			System.out.println(oldUsers.getId());
+			return "redirect:/backstage/oldusers/queryUserdetail.action";
+		}
 	
 }

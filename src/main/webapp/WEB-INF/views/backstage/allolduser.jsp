@@ -195,7 +195,7 @@
 			                                           <td width="600px" nowrap>照片</td> -->
 														<th width="100px">回访情况</th>
 														<th width="100px">病例情况</th>
-
+                                                        <th width="100px">余额</th>
 														<th width="200px">操作</th>
 													</tr>
 													<c:forEach items="${olduser }" var="olduser" varStatus="var">
@@ -217,7 +217,10 @@
 															    uid=${olduser.uid}">病例详情</a>
  
 						                            	</td>
-
+                                                      <td><a
+								                        href="${pageContext.request.contextPath}/backstage/oldusers//queryUserByIdaddMoney.action?id=${olduser.id}"
+								                        role="button" class="btn btn-success btn-xs">充值</a>
+						                             </td>
 							                         <td width="200px"><a
 							                        	href="${pageContext.request.contextPath}/backstage/oldusers/deleteUserById.action?id=${olduser.id}"
 								                        onclick="return confirm('确定要删除吗')" role="button"

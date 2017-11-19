@@ -96,7 +96,7 @@
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="vtitle"
-					placeholder="视频名称" id="vtitle" onblur="titleCheck()">
+					placeholder="请输入长度为2~20的视频名称" id="vtitle" onblur="titleCheck()">
 			
 			</div>
 				<div class="pleft">
@@ -110,7 +110,7 @@
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="vteacher"
-					placeholder="主讲老师" id="vteacher" onblur="teacherCheck()">
+					placeholder="姓名长度2~10" id="vteacher" onblur="teacherCheck()">
 			
 			</div>
 				<div class="pleft">
@@ -125,7 +125,7 @@
 		<div class="form-group col-md-offset-2">
 			<label for="vcontent" class="col-sm-2 control-label">内容描述</label>
 			<div class="col-sm-6">
-				<textarea rows="3" cols="70" class="form-control" name="vcontent" id="vcontent" onblur="contentCheck()"></textarea>
+				<textarea rows="3" cols="70" class="form-control" name="vcontent" id="vcontent" onblur="contentCheck()" placeholder="请输入50~200字的描述"></textarea>
 			</div>
 			<div class="pleft">
 	  			 <font color="red"><p id="error3"></p></font>

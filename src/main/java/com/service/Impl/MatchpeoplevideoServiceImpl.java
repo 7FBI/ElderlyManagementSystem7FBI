@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -40,9 +41,9 @@ public class MatchpeoplevideoServiceImpl implements MatchpeoplevideoService{
 			matchpeoplevideoMapper.deleteMatchvideo(id);
 		}
 		@Override
-		public List<Matchpeoplevideo> queryVideoMatchdisease(Integer id) {
+		public List<Matchpeoplevideo> queryVideoMatchdisease(Map map) {
 			// TODO Auto-generated method stub
-			return matchpeoplevideoMapper.queryVideoMatchdisease(id);
+			return matchpeoplevideoMapper.queryVideoMatchdisease(map);
 		}
 		@Override
 		public List<Matchpeoplevideo> queryAllVideoMatchdisease() {
@@ -58,6 +59,31 @@ public class MatchpeoplevideoServiceImpl implements MatchpeoplevideoService{
 		public Matchpeoplevideo queryVideotitle(Integer id) {
 			// TODO Auto-generated method stub
 			return matchpeoplevideoMapper.queryVideotitle(id);
+		}
+		@Override
+		public List<Matchpeoplevideo> matchVideoCutPage(Map map) {
+			// TODO Auto-generated method stub
+			return matchpeoplevideoMapper.matchVideoCutPage(map);
+		}
+		@Override
+		public int matchVideoCount() {
+			// TODO Auto-generated method stub
+			return matchpeoplevideoMapper.matchVideoCount();
+		}
+		@Override
+		public int oneVideoMatchDiseaseCount(Integer videoid) {
+			// TODO Auto-generated method stub
+			return matchpeoplevideoMapper.oneVideoMatchDiseaseCount(videoid);
+		}
+		@Override
+		public List<Matchpeoplevideo> queryMatchdiseaseByVideo(Integer vid) {
+			// TODO Auto-generated method stub
+			return matchpeoplevideoMapper.queryMatchdiseaseByVideo(vid);
+		}
+		@Override
+		public Matchpeoplevideo selectByPrimaryKey(Integer id) {
+			// TODO Auto-generated method stub
+			return matchpeoplevideoMapper.selectByPrimaryKey(id);
 		}
 		
 

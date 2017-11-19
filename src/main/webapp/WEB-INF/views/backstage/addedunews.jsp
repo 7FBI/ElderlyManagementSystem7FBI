@@ -97,7 +97,7 @@
 			
 			<div class="col-sm-6">
 				<input type="text" class="form-control" name="edutitle"
-					placeholder="新闻标题 " id="vtitle" onblur="titleCheck()">
+					placeholder="请输入长度为2~20的中文新闻标题 " id="vtitle" onblur="titleCheck()">
 			
 			</div>
 				<div class="pleft">
@@ -112,7 +112,7 @@
 		<div class="form-group col-md-offset-2">
 			<label for="educontent" class="col-sm-2 control-label">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容</label>
 			<div class="col-sm-6">
-				<textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()"></textarea>
+				<textarea rows="10" cols="70" class="form-control" name="educontent" id="educontent" onblur="educontentCheck()" placeholder="请输入200~2500字的描述"></textarea>
 			</div>
 			<div class="pleft">
 	  			 <font color="red"><p id="error6"></p></font>

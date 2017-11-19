@@ -1,11 +1,21 @@
+//下拉框滚动条
+function selectFocus(){  
+        document.getElementById("select").setAttribute("size","6");  
+    }  
+    function selectClick(){  
+        document.getElementById("select").removeAttribute("size");  
+        document.getElementById("select").blur();  
+        this.setAttribute("selected","");  
+    } 
+
 function titleCheck(){
-	var reg = /^[\u4e00-\u9fa5]{2,40}$|^[\dA-Za-z_]{2,40}$/;
+	var reg = /^[\u4e00-\u9fa5]{2,20}$|^[\dA-Za-z_]{2,20}$/;
 	var vtitle = document.getElementById("vtitle").value;
 	if (vtitle.length == 0) {
 		var str = "× 标题不能为空";
 		document.getElementById("error1").innerHTML = str;
 		return false;
-	}  else if (vtitle.length <2||vtitle.length >40){
+	}  else if (vtitle.length <2||vtitle.length >20){
 		var str = "× 标题长度在2-20"
 			document.getElementById("vtitle").value = "";
 			document.getElementById("vtitle").focus();
@@ -81,7 +91,7 @@ function priceCheck() {
 
 }
 function contentCheck() {
-	var reg = /^.{6,512}$/;
+	var reg = /^.{50,200}$/;
 	var vcontent = document.getElementById("vcontent").value;
 	if (vcontent.length == 0) {
 		var str = "× 内容不能为空";
@@ -103,7 +113,7 @@ function contentCheck() {
 
 }
 function educontentCheck() {
-	var reg = /^.{6,1024}$/;
+	var reg = /^.{200,5000}$/;
 	var educontent = document.getElementById("educontent").value;
 	if (educontent.length == 0) {
 		var str = "× 内容不能为空";
