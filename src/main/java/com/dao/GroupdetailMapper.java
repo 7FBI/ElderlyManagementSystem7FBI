@@ -52,4 +52,7 @@ public interface GroupdetailMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Groupdetail record);
+    
+    Groupdetail selectByUidAndGid(Groupdetail record);
+    
 }

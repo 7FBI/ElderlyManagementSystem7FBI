@@ -420,7 +420,7 @@
 	</select>
 	<select id="selectByPidOpinionsAvg" parameterType="java.lang.Integer"
 		resultType="java.lang.Double">
-		select avg(star) from opinions where pid=#{pid}
+		select COALESCE(avg(star),0) from opinions where pid=#{pid}
 	</select>
 	
 	

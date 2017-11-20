@@ -18,6 +18,7 @@
 			<result column="pdescription" property="pdescription" />
 			<result column="count" property="count" />
 			<result column="tid" property="tid" />
+			<result column="producturl" property="producturl" />
 		</association>
 	</resultMap>
 

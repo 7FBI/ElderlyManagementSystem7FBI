@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.bean.OldUsers;
 import com.bean.Oldcollection;
 import com.bean.Products;
@@ -36,9 +38,10 @@ public class OldCollectionController {
 	}
 	
 	@RequestMapping("/insert_or_delete")
-	public boolean collection(Integer pid,HttpServletRequest request) {
+	@ResponseBody
+	public String collection(Integer pid,HttpServletRequest request) {
 		if(request.getSession().getAttribute("oldUsers")==null){
-			return false;
+			return "login";
 		}
 		OldUsers oldUsers =(OldUsers) request.getSession().getAttribute("oldUsers");
 		Oldcollection collection =new Oldcollection();
@@ -46,10 +49,10 @@ public class OldCollectionController {
 		collection.setPid(pid);
 		if(oldcollectionService.select(collection)==null){
 			oldcollectionService.insertSelective(collection);
-			return true;
+			return "true";
 		}else {
 			oldcollectionService.delete(collection);
-			return false;
+			return "false";
 		}
 		
 	}

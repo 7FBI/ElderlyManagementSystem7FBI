@@ -1321,7 +1321,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 							<div class="am-u-sm-4 text-four">
 								<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-									src="/resources/front/images/self_img/6.jpg" /></a>
+									src="/files${products.producturl }" /></a>
 									<div class="outer-con ">
 										<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1383,7 +1383,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"><img
-								src="/resources/front/images/self_img/6.jpg" /></a>
+								src="/files${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1442,7 +1442,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/resources/front/images/self_img/6.jpg" /></a>
+								src="/files${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1501,7 +1501,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/resources/front/images/self_img/6.jpg" /></a>
+								src="/files${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
                <a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname} </a>

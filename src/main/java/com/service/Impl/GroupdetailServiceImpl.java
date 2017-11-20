@@ -49,4 +49,10 @@ public class GroupdetailServiceImpl implements GroupdetailService {
 		return groupdetailMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Groupdetail selectByUidAndGid(Groupdetail record) {
+		// TODO Auto-generated method stub
+		return groupdetailMapper.selectByUidAndGid(record);
+	}
+
 }

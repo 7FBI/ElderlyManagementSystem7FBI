@@ -127,9 +127,8 @@
 					<div class="layui-row layui-col-space1">
 						<div class="layui-col-md1"></div>
 						<div class="layui-col-md2">
-							<img style="margin-left: 28px; border: 2px lime;" alt="花果山"
-								src="/files${ord.products.producturl}" width="90px"
-								height="90px">
+							<img style="margin-left: 28px; border: 2px lime;width: 90px;height: 90px;" 
+							src="/files${ord.products.producturl }"/>
 						</div>
 						<div class="layui-col-md1"></div>
 						<div class="layui-col-md6">
