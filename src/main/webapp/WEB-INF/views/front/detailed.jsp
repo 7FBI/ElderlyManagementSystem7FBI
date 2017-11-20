@@ -157,10 +157,19 @@
 						</div>
 					</div>
 					<div class="collect_wrap">
-						<i id="btnCollect" class="icon icon_collect"></i> <span
-							id="textCollect" class="collect_text">收藏</span> <span
-							class="js_toggle_contrast" data-cate-id="66"> <i id=""
-							class="icon icon_contrast"></i> <span id="" class="collect_text">对比</span>
+					<c:choose>
+					<c:when test="${collections }">
+						<i id="btnCollect" class="icon icon_collectse"></i> 
+						<span id="textCollect" class="collect_text">收藏</span>
+					</c:when>
+					<c:otherwise>
+					<i id="btnCollect" class="icon icon_collect"></i> 
+						<span id="textCollect" class="collect_text">收藏</span>
+   			 		</c:otherwise>
+					</c:choose>
+						 
+						<span class="js_toggle_contrast" data-cate-id="66"> 
+						<i id="" class="icon icon_contrast"></i> <span id="" class="collect_text">对比</span>
 						</span>
 					</div>
 				</div>

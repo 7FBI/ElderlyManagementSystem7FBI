@@ -17,8 +17,10 @@ import com.bean.OldDiseaselibrary;
 import com.bean.OldUsers;
 import com.bean.Products;
 import com.bean.Showsphotos;
+import com.controller.util.shop.OldCollectionBoolean;
 import com.service.ClassificationService;
 import com.service.CreditshopService;
+import com.service.OldCollectionService;
 import com.service.ProductsService;
 import com.service.ShowsphotosService;
 /**   
@@ -37,6 +39,10 @@ import com.service.ShowsphotosService;
 @Controller
 @RequestMapping("/front/products")
 public class ProductController {
+	@Autowired
+	@Qualifier("oldcollectionService")
+	private OldCollectionService oldcollectionService;
+	
 	@Autowired
 	@Qualifier("productsService")
 	private ProductsService productsService;
@@ -107,8 +113,8 @@ public class ProductController {
 		/*List<OldDiseaselibrary> oldDiseaselibraries = productsService.selectOldDiseaselibraryByProducts(id);  //根据商品匹配疾病，获得疾病对象
 		modelAndView.addObject("oldDiseaselibraries", oldDiseaselibraries);*/
 		modelAndView.setViewName("front/detailed");
+		modelAndView.addObject("collections", OldCollectionBoolean.collection2(id, request, oldcollectionService));
 		return modelAndView;
-		
 	}
 	
 	

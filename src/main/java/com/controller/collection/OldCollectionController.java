@@ -20,23 +20,6 @@ public class OldCollectionController {
 	@Autowired
 	private OldCollectionService oldcollectionService;
 	
-	@RequestMapping("/select")
-	public boolean collection2(int pid,HttpServletRequest request) {
-		if(request.getSession().getAttribute("oldUsers")==null){
-			return false;
-		}
-		OldUsers oldUsers =(OldUsers) request.getSession().getAttribute("oldUsers");
-		Oldcollection collection =new Oldcollection();
-		collection.setUid(oldUsers.getUid());
-		collection.setPid(pid);
-		if(oldcollectionService.select(collection)==null){
-			return false;
-		}else {
-			return true;
-		}
-		
-	}
-	
 	@RequestMapping("/insert_or_delete")
 	@ResponseBody
 	public String collection(Integer pid,HttpServletRequest request) {
