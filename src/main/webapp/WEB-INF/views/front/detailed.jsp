@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -109,8 +118,9 @@
 				    <div class="inner_floor">
 				     <h3>优惠</h3>
 				     <div class="floor_list">
-				     <span class="icon_act">送积分</span>
-				     <span class="text_act">最高送169积分</span>
+				     <span class="icon_act">积分</span>
+				     <span class="text_act">购买可得<a href="/front/creditshop/SelectAllCreditShop" style="color:red;"> <fmt:formatNumber
+						value="${product.price/5}" maxFractionDigits="0"></fmt:formatNumber></a>&nbsp;&nbsp;积分</span>
 				     </div>
 				    </div>
 					<div class="Xcontent26">
