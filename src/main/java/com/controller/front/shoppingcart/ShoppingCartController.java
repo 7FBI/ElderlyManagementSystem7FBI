@@ -1,9 +1,13 @@
 package com.controller.front.shoppingcart;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bean.OldUsers;
 import com.bean.ShoppingCart;
 import com.bean.Stormproducts;
 import com.service.ShoppingCartService;
@@ -53,14 +58,47 @@ public class ShoppingCartController {
 		}
 		return "false";
 	} 
+	
+	//商城首页将商品添加至购物车
+	@RequestMapping(value="/insertUi.action")
+	@ResponseBody
+	public String InsertByShopping(HttpServletRequest request,HttpServletResponse response,int pid){
+		    if(request.getSession().getAttribute("oldUsers")!=null){
+		    	int count; //购物车记录数量
+		    	OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers");
+				ShoppingCart shoppingrt=new ShoppingCart();
+				shoppingrt.setPid(pid);
+				shoppingrt.setUid(user.getUid());
+				count=shoppingCartService.insertByaproduvts(shoppingrt);
+				//获得了购物车中是否存在该商品
+				if(count<=1){
+					if(count==1){
+						shoppingrt.setCartcount(1);
+						shoppingCartService.updateAddproducts(shoppingrt);
+					}
+					if(count==0){
+						shoppingrt.setCartcount(1);
+						shoppingCartService.insertSelective(shoppingrt);
+					}
+				}
+				   return "ture";	
+		    }else{
+		    	return "flase";
+		    }    
+	}
+	
+	
 	/*进入购物车页面方法*/
 	@RequestMapping(value="/selectproducts.action")
-	@ResponseBody
 	public String SelectByproducts(HttpServletRequest request,int uid){
-		List<Stormproducts> list=new ArrayList<Stormproducts>();
-		list=stormproductsService.selectStormproducts(uid);
-		request.setAttribute("products", list);
-		return "front/Shopping_cart";	
+		if(uid>0){
+			List<Stormproducts> list=new ArrayList<Stormproducts>();
+			list=stormproductsService.selectStormproducts(uid);
+			request.setAttribute("products", list);
+			return "front/ThisTest";	
+		}
+		return "front/login";
+		
 	}
 	
 	

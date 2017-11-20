@@ -10,7 +10,39 @@
 <link type="text/css" rel="stylesheet" href="/resources/front/css/mystyle.css">
 <script type="text/javascript" src="/resources/front/js/demo.js"></script>
 </head>
+ <style type="text/css">
+body{
+   color: #333;
+   font: 12px/1.5 微软雅黑, tahoma,arial,'Hiragino Sans GB',宋体,sans-serif;
+  }
+.cat_top{
+	 background-color: #fff;
+	 border-bottom: 1px solid #e9e9e9;
+     margin-bottom: 20px;
+     
+}
+ .cat_top .cart_top_inner{
+  width:1200px;
+  margin:0 auto;
+  font-weight:normal;
+ }
+ .cat_top .cart_title{
+  float:left;
+  font-size:32px;
+  line-height: 80px;
+  color: #333;
+  font-weight: normal;
+ }
+</style>
 <body>
+<jsp:include page="Storedetailedheader.jsp" />
+<div class="cat_top">
+ <div class="cart_top_inner">
+ <h2 class="cart_title"> 购物车</h2>
+ <div></div>
+ </div>
+</div>
+<div style="clear:both"></div>
 <div class="catbox">
 	<table id="cartTable">
 		<thead>
@@ -24,11 +56,10 @@
 			</tr>
 		</thead>
 		<tbody>
-		 <c:forEach items="${products }" var="product">
+		<c:forEach items="${products }" var="product">
 			<tr>
 				<td class="checkbox"><input class="check-one check" type="checkbox"/></td>
-				<td class="goods"><img src="/resources/front/images/mfrr.gif" alt=""/><span>Casio/卡西欧 EX-TR350</span>
-				</td>
+				<td class="goods"><img src="images/1.jpg" alt=""/><span>Casio/卡西欧 EX-TR350</span></td>
 				<td class="price">5999.88</td>
 				<td class="count"><span class="reduce"></span><input class="count-input" type="text" value="1"/><span class="add">+</span></td>
 				<td class="subtotal">5999.88</td>
@@ -36,31 +67,7 @@
 				<input class="pid" type="hidden" type="hidden" value="1">
 				</td>
 			</tr>
-		 </c:forEach>
-			<!-- <tr>
-				<td class="checkbox"><input class="check-one check" type="checkbox"/></td>
-				<td class="goods"><img src="images/2.jpg" alt=""/><span>Canon/佳能 PowerShot SX50 HS</span></td>
-				<td class="price">3888.50</td>
-				<td class="count"><span class="reduce"></span><input class="count-input" type="text" value="1"/><span class="add">+</span></td>
-				<td class="subtotal">3888.50</td>
-				<td class="operation"><span class="delete">删除</span></td>
-			</tr>
-			<tr>
-				<td class="checkbox"><input class="check-one check" type="checkbox"/></td>
-				<td class="goods"><img src="images/3.jpg" alt=""/><span>Sony/索尼 DSC-WX300</span></td>
-				<td class="price">1428.50</td>
-				<td class="count"><span class="reduce"></span><input class="count-input" type="text" value="1"/><span class="add">+</span></td>
-				<td class="subtotal">1428.50</td>
-				<td class="operation"><span class="delete">删除</span></td>
-			</tr>
-			<tr>
-				<td class="checkbox"><input class="check-one check" type="checkbox"/></td>
-				<td class="goods"><img src="images/4.jpg" alt=""/><span>Fujifilm/富士 instax mini 25</span></td>
-				<td class="price">640.60</td>
-				<td class="count"><span class="reduce"></span><input class="count-input" type="text" value="1"/><span class="add">+</span></td>
-				<td class="subtotal">640.60</td>
-				<td class="operation"><span class="delete">删除</span></td>
-			</tr> -->
+		</c:forEach>
 		</tbody>
 	</table>
 	
@@ -78,7 +85,7 @@
 		</div>
 	</div>
 
- </div> 
+</div>
 </body>
 <script type="text/javascript" src="/resources/front/oldman/jquery.min.js"></script>
 <script type="text/javascript">
