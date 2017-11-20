@@ -12,13 +12,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>订单管理</title>
-<link href="/resources/front/css/self_exchange/admin.css"
+<!-- <link href="/resources/front/css/self_exchange/admin.css"
 	rel="stylesheet" type="text/css">
 <link href="/resources/front/css/self_exchange/amazeui.css"
 	rel="stylesheet" type="text/css">
 
 <link href="/resources/front/css/self_exchange/personal.css"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css"> -->
 <link href="/resources/front/css/self_exchange/orstyle.css"
 	rel="stylesheet" type="text/css">
 

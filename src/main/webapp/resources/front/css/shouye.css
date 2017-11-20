@@ -4373,8 +4373,8 @@ area{outline: none;}
 	font-family: "微软雅黑";
 	font-size: 14px;
 	color: #605f5f;
-	margin-top: 34px;
-	margin-left: 16px;
+	margin-top: 10px;
+	margin-left: 10px;
 	float: left;
 }
 .Xcontent28{
@@ -4384,7 +4384,7 @@ area{outline: none;}
 	line-height:26px;
 	text-align:center;
 	float: left;
-	margin-top: 32px;
+	margin-top: 8px;
 	margin-left: 30px;
 }
  
@@ -4411,19 +4411,19 @@ area{outline: none;}
 	font-size: 14px;
 	color: #605f5f;
 	line-height: 100px;
-	margin-left: 16px;
+	margin-left: 10px;
 	float: left;
 }
 .Xcontent32{
 	float: left;
-	margin-top: 34px;
+	margin-top: 30px;
 	margin-left: 30px;
 }
 	
 .input{
-	height: 28px;
+	height: 32px;
 	width: 60px;
-	margin-top: 34px;
+	margin-top: 30px;
 	border: 1px solid #dddddd;
 	line-height: 30px;
 	text-align: center;
@@ -4431,7 +4431,7 @@ area{outline: none;}
 }
 .Xcontent33>img{
 	float: left;
-	margin-top: 34px;
+	margin-top: 30px;
 }
 .Xagain{
 	width: 1198px;
@@ -5819,3 +5819,47 @@ margin-bottom: 16px;
     background:url(/resources/front/images/detail_reminder.png) no-repeat;
     background-position: 0 0;
 }
+ .inner_floor{
+  height:40px;
+  width:300px;
+  margin-left:10px;
+  
+ }
+ .inner_floor h3{
+   display:block;
+   height:40px;
+   padding:auto 0;
+   line-height:20px;
+   padding-top:10px;
+   float:left;
+ }
+ .inner_floor .floor_list{
+    width:240px;
+    height:40px;
+    float:left;
+    
+ }
+  .inner_floor .floor_list .icon_act{
+   color: #fff;
+   background-color: #f60;
+   display: inline-block;
+   font-size: 12px;
+   height:18px;
+   line-height: 18px;
+   width: 54px;
+   text-align: center;
+   float: left;
+   margin-top:10px;
+   margin-left:20px;
+  }
+ .inner_floor .floor_list .text_act{
+   color: #333;
+   display: inline-block;
+   font-size: 12px;
+   height:18px;
+   line-height: 18px;
+   text-align: center;
+   float: left;
+   margin-top:10px;
+   margin-left:10px;
+ }

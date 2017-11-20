@@ -9,7 +9,8 @@ import com.bean.Oldcollection;
 import com.bean.Products;
 import com.dao.OldcollectionMapper;
 import com.service.OldCollectionService;
-@Service("oldCollectionService")
+
+@Service("OldCollectionService")
 public class OldCollectionServiceImpl implements OldCollectionService{
 
 	@Resource

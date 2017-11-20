@@ -71,7 +71,7 @@
 			MyBatis Generator, do not modify. -->
 		select
 		*
-		from friend f join old_Users u on f.uidhead=#{uidhead} and f.uidfoot=u.uid
+		from friend f join old_users u on f.uidhead=#{uidhead} and f.uidfoot=u.uid
 	</select>
 	
 	<!-- 查询是否存在好友关系 -->

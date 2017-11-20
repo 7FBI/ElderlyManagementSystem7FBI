@@ -78,7 +78,7 @@
 			MyBatis Generator, do not modify. -->
 		select
 		<include refid="Base_Column_List" />
-		from old_Users
+		from old_users
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 
@@ -88,7 +88,7 @@
 			MyBatis Generator, do not modify. -->
 		select
 		<include refid="Base_Column_List" />
-		from old_Users
+		from old_users
 		<where>
 			<if test="username!=null"> and (username like '%${username}%' or uid=#{username} )
 			</if>
@@ -98,38 +98,38 @@
 
 	<!-- 查询所有用户 -->
 	<select id="queryUsers" resultMap="alluserdetail">
-		<!-- select * from old_Users -->
+		<!-- select * from old_users -->
 		<!-- select @row := @row +1 AS row, username,sex,localarea.provincename 
-			area,uid from localarea,old_Users, ( SELECT @row :=0 )r ; -->
-		<!-- select old_Users.id oid,username,sex,uid,localarea.provincename myarea, 
-			localarea.id lid from localarea,old_Users where localarea.id=old_Users.area -->
-		select old_Users.id
+			area,uid from localarea,old_users, ( SELECT @row :=0 )r ; -->
+		<!-- select old_users.id oid,username,sex,uid,localarea.provincename myarea, 
+			localarea.id lid from localarea,old_users where localarea.id=old_users.area -->
+		select old_users.id
 		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,localarea.provincename
-		myarea, localarea.id lid from localarea,old_Users where
-		localarea.id=old_Users.area
+		myarea, localarea.id lid from localarea,old_users where
+		localarea.id=old_users.area
 	</select>
 	<!--根据uid查询 -->
 	<select id="queryByUid" parameterType="com.bean.OldUsers"
 		resultMap="alluserdetail">
-		select old_Users.id
+		select old_users.id
 		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
-		myarea, localarea.id from localarea,old_Users where
-		localarea.id=old_Users.area and uid=#{uid}
+		myarea, localarea.id from localarea,old_users where
+		localarea.id=old_users.area and uid=#{uid}
 	</select>
 
 	<!-- 根据条件查询用户 -->
 	<select id="queryByConditions" parameterType="java.lang.String"
 		resultMap="alluserdetail">
-		select old_Users.id
+		select old_users.id
 		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
-		myarea, localarea.id lid from localarea,old_Users
+		myarea, localarea.id lid from localarea,old_users
 		<where>
-			localarea.id=old_Users.area
+			localarea.id=old_users.area
 			<if test="value!= null and value!=''">
 
 				and (localarea.provincename=#{value} or
-				old_Users.username=#{value} or
-				old_Users.uid=#{value} )
+				old_users.username=#{value} or
+				old_users.uid=#{value} )
 
 			</if>
 		</where>
@@ -137,26 +137,26 @@
 	<!--根据管理员的地址信息查找出该地所有的用户 -->
 	<select id="findAllUserByManager" parameterType="java.lang.Integer"
 		resultMap="alluserdetail">
-		<!-- select old_Users.id id,username,sex,
+		<!-- select old_users.id id,username,sex,
 		idcard,birthday,tell,address,uid,password,
 		userurl,localarea.provincename myarea,
-		localarea.id lid from localarea,old_Users,manager
+		localarea.id lid from localarea,old_users,manager
 		where localarea.id=manager.locaid
-		and old_Users.area=manager.locaid
+		and old_users.area=manager.locaid
 		and manager.locaid=#{locaid,jdbcType=INTEGER} -->
 		CREATE OR REPLACE view localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,myarea,lid)
            AS
-        select old_Users.id id,username,sex,
+        select old_users.id id,username,sex,
 		idcard,birthday,tell,address,uid,password,
 		userurl,balance,localarea.provincename myarea,
-		localarea.id lid from localarea,old_Users,manager
+		localarea.id lid from localarea,old_users,manager
 		where localarea.id=manager.locaid
-		and old_Users.area=manager.locaid
+		and old_users.area=manager.locaid
 		and manager.locaid=#{locaid,jdbcType=INTEGER}
 	</select>
 	<!--为用户充钱  -->
 	<update id="addUserMoney" parameterType="com.bean.OldUsers">
-	update old_Users
+	update old_users
 	<set>
 	<if test="balance != null">
 		balance =balance + #{balance,jdbcType=DOUBLE},
@@ -166,7 +166,7 @@
 	</update>
 	<!-- 修改用户信息 -->
 	<update id="modifyById" parameterType="com.bean.OldUsers">
-		update old_Users
+		update old_users
 		<set>
 			<if test="username != null">
 				username = #{username,jdbcType=VARCHAR},
@@ -210,27 +210,27 @@
 	</update>
 	<select id="queryById" parameterType="java.lang.Integer"
 		resultMap="alluserdetail">
-		select old_Users.id
+		select old_users.id
 		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
-		myarea, localarea.id from localarea,old_Users where
-		localarea.id=old_Users.area and old_Users.id=#{id}
+		myarea, localarea.id from localarea,old_users where
+		localarea.id=old_users.area and old_users.id=#{id}
 	</select>
 	<!-- 根据用户id删除用基本信息及消费记录 -->
 	<delete id="deleteUserById" parameterType="com.bean.OldUsers">
-		delete from old_Users
+		delete from old_users
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
-		delete from old_Users
+		delete from old_users
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.bean.OldUsers">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
-		insert into old_Users (id, username, sex,
+		insert into old_users (id, username, sex,
 		idcard, birthday, tell,
 		address, area, uid,
 		password, userurl,balance,type, extended1,
@@ -270,7 +270,7 @@
 	<insert id="insertOldUsers" parameterType="com.bean.OldUsers">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
-		insert into old_Users
+		insert into old_users
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -476,7 +476,7 @@
 	</insert>
 	<insert id="insertSelective" useGeneratedKeys="true"
 		keyProperty="id" parameterType="com.bean.OldUsers">
-		insert into old_Users
+		insert into old_users
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -684,7 +684,7 @@
 	<update id="updateByPrimaryKeySelective" parameterType="com.bean.OldUsers">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
-		update old_Users
+		update old_users
 		<set>
 			<if test="username != null">
 				username = #{username,jdbcType=VARCHAR},
@@ -789,7 +789,7 @@
 	<update id="updateByPrimaryKey" parameterType="com.bean.OldUsers">
 		<!-- WARNING - @mbggenerated This element is automatically generated by 
 			MyBatis Generator, do not modify. -->
-		update old_Users
+		update old_users
 		set username = #{username,jdbcType=VARCHAR},
 		sex =
 		#{sex,jdbcType=INTEGER},
@@ -851,14 +851,14 @@
 	</update>
 
 	<select id="selectByUid" resultType="OldUsers" parameterType="java.lang.String">
-		select * from old_Users where uid = #{uid}
+		select * from old_users where uid = #{uid}
 	</select>
 
 
 
 	<update id="updateByUidSelective" parameterType="oldUsers">
 
-		update old_Users
+		update old_users
 		<set>
 			<if test="username != null">
 				username = #{username,jdbcType=VARCHAR},
@@ -957,14 +957,14 @@
 	
 	<!-- 用户前台修改密码 -->
 	<update id="updatePasswordByUid" parameterType="OldUsers">
-	update old_Users set password=#{password} where uid=#{uid}
+	update old_users set password=#{password} where uid=#{uid}
 	</update>
 	
 	
 	
 	<select id="findUserNameById" resultType="com.bean.OldUsers">
 		select uid from
-		old_Users
+		old_users
 	</select>
 
 	<!--分页-->
@@ -978,7 +978,7 @@
 	</select>
 	<!-- 查询出是否存在 -->
 	<select id="selectByTellOrUidOrIdcard" parameterType="hashMap" resultMap="BaseResultMap">
-		select * from old_Users
+		select * from old_users
 		<where>
 			<if test="tell !=null "> or tell=#{tell}</if>
 			<if test="uid !=null "> or uid=#{uid}</if>

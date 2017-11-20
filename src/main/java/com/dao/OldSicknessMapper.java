@@ -57,4 +57,8 @@ public interface OldSicknessMapper {
 
     void deleteOldSicknessByoldDiseasedetailId(Integer detailid);
     
+    public List<OldSickness> selectDiseaseAndDiseaseDetailsByDetailid(Integer id);
+
+	
+    
 }

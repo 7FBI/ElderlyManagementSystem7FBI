@@ -1,5 +1,6 @@
 package com.controller.front.oldusers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +17,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bean.Matchdisease;
+import com.bean.OldDiseasedetails;
+import com.bean.OldDiseaselibrary;
+import com.bean.OldSickness;
 import com.bean.OldUsers;
 import com.bean.Oldlogin;
 import com.bean.Profile;
 import com.others.md5.Encryption;
+import com.service.OldDiseasedetailsService;
+import com.service.OldSicknessService;
 import com.service.OldUsersService;
 import com.service.OldloginService;
 import com.service.ProfileService;
@@ -39,7 +46,14 @@ public class OldUsersController {
 	@Qualifier("profileService")
 	private ProfileService profileService;	
 
+	@Autowired
+	@Qualifier("oldSicknessService")
+	private OldSicknessService oldSicknessService;
 	
+	
+	@Autowired
+	@Qualifier("oldDiseasedetailsService")
+	private OldDiseasedetailsService oldDiseasedetailsService;
 
 	@RequestMapping("/selectByUid")
 	public ModelAndView selectByUid(HttpServletRequest request) {
@@ -136,6 +150,24 @@ public class OldUsersController {
 		mAttributes.addFlashAttribute("uid", profile.getUid());
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 	}
+	
+	@RequestMapping("/selectDiseaseAndDiseaseDetailsByUid")
+	public ModelAndView selectDiseaseAndDiseaseDetailsByUid(HttpServletRequest request,Integer id){
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		List<OldDiseasedetails> oldDiseasedetails=oldDiseasedetailsService.selectOldDiseasedetailsByUid(oldUsers.getUid());	
+		List<OldSickness> oldOldSickness = oldSicknessService.selectDiseaseAndDiseaseDetailsByDetailid(1);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("oldDiseasedetails",oldDiseasedetails);
+		modelAndView.addObject("oldOldSickness",oldOldSickness); 
+		
+		
+		
+		
+		
+		modelAndView.setViewName("front/SelfCenter_Heath");
+		return modelAndView;
+	}
+	
 
 
 	@RequestMapping("/login")

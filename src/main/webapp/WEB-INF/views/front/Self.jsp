@@ -12,10 +12,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>个人资料</title>
 
-		<link href="/resources/front/css/self_exchange/admin.css" rel="stylesheet" type="text/css">
+		<!-- <link href="/resources/front/css/self_exchange/admin.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="/resources/front/css/self_exchange/personal.css" rel="stylesheet" type="text/css">
+		<link href="/resources/front/css/self_exchange/personal.css" rel="stylesheet" type="text/css"> -->
 		<link href="/resources/front/css/self_exchange/infstyle.css" rel="stylesheet" type="text/css">
 		
 <script src="/resources/front/js/self_exchange/jquery.min.js" type="text/javascript"></script>

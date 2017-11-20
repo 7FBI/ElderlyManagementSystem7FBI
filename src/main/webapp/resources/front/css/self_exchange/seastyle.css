@@ -141,6 +141,11 @@ span.am-icon-th-list{color:orangered;margin-right:1px ;}
 /*文字布局*/
 .limit p.title,.i-pic.check p.title{padding:0px 10px;overflow:hidden;height:36px;line-height:18px ;}
 .i-pic .price.fl{font-size:16px ;}
+.title{font-size: 14px;font-weight: 400;}
+.title a:hover{color:red;text-decoration:underline;}
+.price b{font-size:12px ;color:#666 ;}
+.price strong{font-size:20px ;color:#ff0000 ;}
+
 }
 
 @media only screen and (min-width:1025px) {

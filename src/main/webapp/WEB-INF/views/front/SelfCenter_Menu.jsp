@@ -14,7 +14,6 @@
 
 		<link href="/resources/front/css/self_exchange/admin.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/amazeui.css" rel="stylesheet" type="text/css">
-
 		<link href="/resources/front/css/self_exchange/personal.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/infstyle.css" rel="stylesheet" type="text/css">
 		
@@ -47,7 +46,7 @@
 						<a href="#">我的资产</a>
 						<ul>
 							<li> <a href="/gotoFront/SelfCenter_Coupon">优惠券 </a></li>
-							<li> <a href="/gotoFront/SelfCenter_CreditDetail">红包</a></li>
+							<li> <a href="/gotoFront/SelfCenter_CreditDetail">积分</a></li>
 							<li> <a href="bill.html">账单明细</a></li>
 						</ul>
 					</li>
@@ -58,6 +57,16 @@
 							<li> <a href="/gotoFront/SelfCenter_Collection">收藏</a></li>
 							<li> <a href="/gotoFront/SelfCenter_BrowserHistory">足迹</a></li>
 							<li> <a href="/gotoFront/SelfCenter_Comment">评价</a></lSi>
+							
+						</ul>
+					</li>
+					
+					<li class="person">
+						<a href="#">我的健康</a>
+						<ul>
+							<li> <a href="/front/oldUsers/selectDiseaseAndDiseaseDetailsByUid">病例管理</a></li>
+							<li> <a href="/gotoFront/SelfCenter_Heath">活动记录</a></li>
+							<li> <a href="/gotoFront/SelfCenter_Comment">评价</a></li>
 							
 						</ul>
 					</li>

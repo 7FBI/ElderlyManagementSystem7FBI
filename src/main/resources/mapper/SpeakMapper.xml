@@ -86,7 +86,7 @@
   <select id="selectByUidFoot" resultMap="SpeakAndOldUsers" parameterType="java.lang.String" >
     select 
     *
-    from speak s join old_Users u on s.uidfoot = #{uidfoot} and s.type=0 and s.uidhead=u.uid ORDER BY s.id
+    from speak s join old_users u on s.uidfoot = #{uidfoot} and s.type=0 and s.uidhead=u.uid ORDER BY s.id
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

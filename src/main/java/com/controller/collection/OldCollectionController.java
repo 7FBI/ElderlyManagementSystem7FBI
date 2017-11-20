@@ -14,11 +14,12 @@ import com.bean.Oldcollection;
 import com.bean.Products;
 import com.service.OldCollectionService;
 
+
 @Controller
 @RequestMapping("/front/collection")
 public class OldCollectionController {
 	@Autowired
-	private OldCollectionService oldcollectionService;
+	private OldCollectionService oldCollectionService;
 	
 	@RequestMapping("/insert_or_delete")
 	@ResponseBody
@@ -30,11 +31,11 @@ public class OldCollectionController {
 		Oldcollection collection =new Oldcollection();
 		collection.setUid(oldUsers.getUid());
 		collection.setPid(pid);
-		if(oldcollectionService.select(collection)==null){
-			oldcollectionService.insertSelective(collection);
+		if(oldCollectionService.select(collection)==null){
+			oldCollectionService.insertSelective(collection);
 			return "true";
 		}else {
-			oldcollectionService.delete(collection);
+			oldCollectionService.delete(collection);
 			return "false";
 		}
 		
@@ -48,11 +49,11 @@ public class OldCollectionController {
 		Oldcollection collection =new Oldcollection();
 		collection.setUid(oldUsers.getUid());
 		collection.setPid(pid);
-		if(oldcollectionService.select(collection)==null){
-			oldcollectionService.insertSelective(collection);
+		if(oldCollectionService.select(collection)==null){
+			oldCollectionService.insertSelective(collection);
 			return "";
 		}else {
-			oldcollectionService.delete(collection);
+			oldCollectionService.delete(collection);
 			return "redirect:/front/collection/select_list";
 		}
 		
@@ -64,7 +65,7 @@ public class OldCollectionController {
 			return "front/login";
 		}
 		else {
-			List<Products> list = oldcollectionService.selectList(((OldUsers)request.getSession().getAttribute("oldUsers")).getUid());
+			List<Products> list = oldCollectionService.selectList(((OldUsers)request.getSession().getAttribute("oldUsers")).getUid());
 			for(int i=0;i<list.size();i++){
 				System.out.println("______________________"+list.get(i).getPname()+","+list.get(i).getId());
 			}

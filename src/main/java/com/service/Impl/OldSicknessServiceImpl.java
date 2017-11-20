@@ -11,6 +11,7 @@ import com.service.OldSicknessService;
 
 @Service("oldSicknessService")
 public class OldSicknessServiceImpl implements OldSicknessService{
+	
     @Autowired
     @Qualifier("oldSicknessMapper")
     private OldSicknessMapper oldSicknessMapper;
@@ -28,6 +29,11 @@ public class OldSicknessServiceImpl implements OldSicknessService{
 	public void deleteOldSicknessByoldDiseasedetailId(Integer detailid) {
 		// TODO Auto-generated method stub
 		oldSicknessMapper.deleteOldSicknessByoldDiseasedetailId(detailid);
+	}
+	@Override
+	 public List<OldSickness> selectDiseaseAndDiseaseDetailsByDetailid(Integer id) {
+		// TODO Auto-generated method stub
+		return oldSicknessMapper.selectDiseaseAndDiseaseDetailsByDetailid(id);
 	}
 	
 }

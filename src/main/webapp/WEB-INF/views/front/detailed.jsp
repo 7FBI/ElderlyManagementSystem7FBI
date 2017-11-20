@@ -80,150 +80,124 @@
 	<!-- 商品展示部分 -->
 	<div class="Xcontent">
 		<ul class="Xcontent01">
-
-			<div class="Xcontent06">
-				<img src="/files${product.producturl}">
-			</div>
-			<ol class="Xcontent08">
-				<div class="Xcontent07">
-					<img src="/files${product.producturl}">
-				</div>
-				<c:forEach items="${photosUrl }" var="url">
-					<div class="Xcontent09">
-						<img src="${url}">
-					</div>
-				</c:forEach>
-			</ol>
-			<ol class="Xcontent13">
-				<div class="Xcontent14">
-					<a href="#"><p>${product.pname}</p></a>
-				</div>
-				<div class="Xcontent15">
-					<img src="/resources/front/images/shangpinxiangqing/X11.png">
-				</div>
-				<div class="Xcontent16">
-					<p>${product.pdescription}</p>
-				</div>
-				<div class="Xcontent17">
-					<p class="Xcontent18">售价</p>
-					<p class="Xcontent19">
-						￥<span>${product.price}</span>
-					</p>
-					<div class="Xcontent20">
-						<p class="Xcontent21">促销</p>
-						<img src="/resources/front/images/shangpinxiangqing/X12.png">
-						<p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
-					</div>
-					<div class="Xcontent23">
-						<p class="Xcontent24">服务</p>
-						<p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp; 48小时快速退款
-							&nbsp;&nbsp;&nbsp;&nbsp; 满88元免邮</p>
-					</div>
-
-				</div>
-				<div class="Xcontent26">
-					<p class="Xcontent27">颜色</p>
-					<div class="Xcontent28">${product.productscolor}</div>
-				</div>
-				<!-- <div class="Xcontentsize"></div> -->
-				<div class="Xcontent30">
-					<p class="Xcontent31">数量</p>
-					<div class="Xcontent32">
-						<img src="/resources/front/images/shangpinxiangqing/X15.png">
-					</div>
-					<form action="/front/orders/addOneOrder" id="fromSubmin">
-						<input name="num" class="input" value="1"> <input
-							name="pid" id="nowpids" type="hidden" value="${product.id}">
-						<input name="uid" type="hidden" value="wbq123">
-					</form>
-					<div class="Xcontent33">
-						<img src="/resources/front/images/shangpinxiangqing/16.png">
-					</div>
-
-				</div>
-				<div class="Xcontent34">
-					<a class="cart_btn" id="addGoods">加入购物车</a>
-				</div>
-				<!-- 添加商品至购物车 -->
-				<div class="Xcontent35">
-					<a href="#" class="primary_btn" id="pays">立即购买</a>
-				</div>
-				<div class="share_collect">
-					<div class="share_kits">
-						<span class="share_title">分享到</span>
-						<div id="share_1" class="bdsharebuttonbox share_wrap">
-							<a class="bds_tqq icon icon_qq" target="_blank" href=""></a> <a
-								id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
+			
+				<div class="Xcontent06"><img src="${product.producturl}"></div>
+				<ol class="Xcontent08">
+					<div class="Xcontent07"><img src="${product.producturl}"></div>
+					<c:forEach items="${photosUrl }" var="url">
+					<div class="Xcontent09"><img src="${url}"></div>
+					</c:forEach>
+				</ol>
+				<ol class="Xcontent13">
+					<div class="Xcontent14"><a href="#"><p>${product.pname}</p></a></div>
+					<div class="Xcontent15"><img src="/resources/front/images/shangpinxiangqing/X11.png"></div>
+					<div class="Xcontent16"><p>${product.pdescription}</p></div>
+					<div class="Xcontent17">
+						<p class="Xcontent18">售价</p>
+						<p class="Xcontent19">￥<span>${product.price}</span></p>
+						<div class="Xcontent20">
+							<p class="Xcontent21">促销</p>
+							<img src="/resources/front/images/shangpinxiangqing/X12.png">
+							<p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
 						</div>
+						<div class="Xcontent23">
+							<p class="Xcontent24">服务</p>
+							<p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp;       48小时快速退款 &nbsp;&nbsp;&nbsp;&nbsp;        满88元免邮</p>
+						</div>
+						
 					</div>
-					<div class="collect_wrap">
-					<c:choose>
-					<c:when test="${collections }">
-						<i id="btnCollect" class="icon icon_collectse"></i> 
-						<span id="textCollect" class="collect_text">收藏</span>
-					</c:when>
-					<c:otherwise>
-					<i id="btnCollect" class="icon icon_collect"></i> 
-						<span id="textCollect" class="collect_text">收藏</span>
-   			 		</c:otherwise>
-					</c:choose>
-						 
-						<span class="js_toggle_contrast" data-cate-id="66"> 
-						<i id="" class="icon icon_contrast"></i> <span id="" class="collect_text">对比</span>
-						</span>
+				    <div class="inner_floor">
+				     <h3>优惠</h3>
+				     <div class="floor_list">
+				     <span class="icon_act">送积分</span>
+				     <span class="text_act">最高送169积分</span>
+				     </div>
+				    </div>
+					<div class="Xcontent26">
+						<p class="Xcontent27">颜色</p>
+						<div class="Xcontent28">${product.productscolor}</div>
 					</div>
-				</div>
+					<!-- <div class="Xcontentsize"></div> -->
+					<div class="Xcontent30">
+						<p class="Xcontent31">数量</p>
+						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
+						<form id="fromSubmin">	
+                        <input name="num" class="input" value="1">
+                        <input name="pid" type="hidden" value="${product.id}">
+                        <input name="uid" type="hidden" value="wbq123">
+                        </form>
+						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
+					</div>
+					<div class="Xcontent34"><a class="cart_btn" id="addGoods">加入购物车</a></div>    <!-- 添加商品至购物车 -->
+					<div class="Xcontent35"><a href="#" class="primary_btn" id="pays">立即购买</a></div>
+				    <div class="share_collect">
+				    <div class="share_kits">
+				    <span class="share_title">分享到</span>
+				    <div id="share_1" class="bdsharebuttonbox share_wrap">
+				    <a class="bds_tqq icon icon_qq" target="_blank" href=""></a>
+				    <a id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
+				    </div>
+				    </div>
+				     <div class="collect_wrap">
+				    <i id="btnCollect" class="icon icon_collect" ></i>
+				    <span id="textCollect" class="collect_text">收藏</span>
+				    <span class="js_toggle_contrast" data-cate-id="66">
+				    <i id="" class="icon icon_contrast" ></i>
+				    <span id="" class="collect_text">对比</span>
+				    </span>
+				    </div>
+				    </div>
 			</ol>
 		</ul>
 	</div>
-	<!-- 猜你喜欢部分 -->
-	<div class="recommend_package_wrap recommend_only">
-		<div class="recommend_nav">
-			<div class="nav_item nav_item_recommend js_nav">猜你喜欢</div>
-		</div>
-		<div class="recommend_list js_recommend_list">
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-			<div class="recommend_item sku_tag_wrap">
-				<a class="pro_href" target="_blank" href=""> <img alt=""
-					src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg"
-					class="pro_img"> <span class="pro_name"></span> <span
-					class="pro_price">¥99.00</span>
-					<div class="sku_tag sku_tag_important">11.11抢先购</div>
-				</a>
-			</div>
-		</div>
-	</div>
+<!-- 猜你喜欢部分 -->
+<div class="recommend_package_wrap recommend_only">
+<div class="recommend_nav">
+<div class="nav_item nav_item_recommend js_nav" >猜你喜欢</div>
+</div>
+<div class="recommend_list js_recommend_list">
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+ <a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+<div class="recommend_item sku_tag_wrap">
+<a class="pro_href" target="_blank" href="">
+<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<span class="pro_name"></span>
+<span class="pro_price">¥99.00</span>
+<div class="sku_tag sku_tag_important">11.11抢先购</div>
+</a>
+</div>
+</div>
+</div>
 	<!-- 商品详细情况介绍 -->
 	<div class="tabs_nav_wrap">
 		<div class="tabs_nav_inner_wrap">
@@ -232,7 +206,7 @@
 					<li class="cur" id="product_intro" onclick="anniu(this)">产品介绍</li>
 					<li id="nav_user_evaluation" class="" onclick="anniu(this)"
 						data-tab="#user_evaluation" mtag="30007.1.3">评价 <span
-						class="evaluation_num"><input id="countOp" style="border: none;width: 45px;background: none;font-size: 16px;" value="0" /></span>
+						class="evaluation_num">(24)</span>
 					</li>
 					<li id="product_spec" class="" onclick="anniu(this)"
 						data-tab="#product_spec">规格参数</li>
@@ -425,15 +399,14 @@
 							</div>
 						</div>
 
-						<div class="comment_tip">
-							<!-- 总评价量:<input id="countOp" style="border: none;" value="0" /> -->
-							|总页数:<input id="pageCountOp" style="border: none;" value="0" />
+						<div class="comment_tip">总评价量:<input id="countOp" style="border: none;" value="0" />
+						|总页数:<input id="pageCountOp" style="border: none;" value="0" />
 						</div>
 					</div>
 					<div id="commentList" class="evaluate_list_box">
 
 						<div class="list_box" style="background: #F2F2F2" id="opinionsDiv">
-
+							
 						</div>
 
 
@@ -444,9 +417,8 @@
 						<div class="pagination">
 							<div class="pagination_inner">
 								<div class="paginator">
-									<button id="addOpinoinsBtn" value="0" class="page-start"
-										style="width: 480px">获取更多评论</button>
-
+									<button id="addOpinoinsBtn" value="0" class="page-start" style="width: 480px">获取更多评论 </button> 
+									
 								</div>
 							</div>
 						</div>
@@ -579,7 +551,7 @@
 		</div>
 		<div class="mod_layer_ft">
 			<a class="layer_btn J_close_text">继续购物</a> <a id="gotoshoppay"
-				class="layer_btn J_get_href" href="/gotoFront/Shopping_cart">去结算</a>
+				class="layer_btn J_get_href" href="/front/shoppingCart/selectproducts.action">去结算</a>
 		</div>
 	</div>
 
@@ -633,31 +605,26 @@
 			g.removeClass("mod_lary show").addClass('mod_lary');
 		})
 		/* 收藏功能 */
-		$("#btnCollect").click(function() {
-			var btn = $("#btnCollect")
-			var tg = ${product.id};
-			$.ajax({
-				type : 'post',
-				url : "/front/collection/insert_or_delete?pid=" + tg,
-				success : function(data) {
-					switch (data) {
-						case "login":
-							window.location.href = "/gotoFront/login";
-							break;
-						case "false":
-							btn.removeClass().addClass("icon icon_collect")
-							break;
-						default:
-							btn.removeClass().addClass("icon icon_collectse")
-							break;
-					}
-				},
-				error : function() {
-					alert("网络错误")
-				}
-
-			})
-		})
+		$("#btnCollect").click(function(){
+	    var btn=$("#btnCollect")
+	   var tg=${product.id};
+	   $.ajax({
+		 type:'post', 
+		 url:"/front/collection/insert_or_delete?pid="+tg,
+		 data:f.serialize(),
+		 success:function(data){
+			 if(data=="ture"){
+				 btn.removeClass().addClass("icon icon_collectse")
+			 }else if(date=="false"){
+				 btn.removeClass().addClass("icon icon_collect")
+			 }
+		 },
+	     error:function(){
+		   alert("收藏失败")
+	    }
+	    
+	  })
+   })
 		$("#pays").click(function() {
 			var f = $("#fromSubmin");
 			f.submit();
@@ -673,46 +640,38 @@
 		$(document).ready(function() {
 			getOpinionsAjax();
 		})
-
-		$("#addOpinoinsBtn").mouseenter(function() {
-			var v = $("#addOpinoinsBtn");
+		
+		$("#addOpinoinsBtn").mouseenter(function () {
+			var v=$("#addOpinoinsBtn");
 			//alert(parseInt(v.val())+1);
-			var pag = $("#pageCountOp").val();
-			if (v.val() < pag) {
-				getOpinionsAjaxPage(parseInt(v.val()) + 1);
-				v.val(parseInt(v.val()) + 1);
-			} else {
+			var pag=$("#pageCountOp").val();
+			if (v.val()<pag) {
+				getOpinionsAjaxPage(parseInt(v.val())+1);
+				v.val(parseInt(v.val())+1);
+			}else {
 				v.text("已经没有跟多了");
 			}
 		})
-
+		
 		//有page
 		function getOpinionsAjaxPage(page) {
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$
-					.ajax({
+			$.ajax({
 						type : 'get',
-						url : '/front/opinions/opinionsList?pid=' + p
-								+ '&page=' + page,
+						url : '/front/opinions/opinionsList?pid='+ p+'&page='+page,
 						success : function(data) {
 							var avgs = data.avg;
 							x.css("width", avgs * 23.2 + "px");
 							st.text(avgs);
-
+							
 							if (data.opinions != null) {
-								var opdiv = $("#opinionsDiv");
-								var dop = data.opinions;
+								var opdiv=$("#opinionsDiv");
+								var dop=data.opinions;
 								for ( var k in dop) {
-									var opids = dop[k].id;
-									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'
-											+ dop[k].content
-											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
-											+ dop[k].oldUsers.uid
-											+ '</div><div class="comment_time">'
-											+ dop[k].opinionstime
-											+ '</div></div>';
+									var opids=dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
 									opdiv.append(ophtmls);
 									imagesOP(dop[k].id);
 								}
@@ -722,17 +681,16 @@
 							alert("网络错误");
 						}
 					})
-		}
-
+			}
+		
 		//无page
 		function getOpinionsAjax() {
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$
-					.ajax({
+			$.ajax({
 						type : 'get',
-						url : '/front/opinions/opinionsList?pid=' + p,
+						url : '/front/opinions/opinionsList?pid='+ p,
 						success : function(data) {
 							var avgs = data.avg;
 							x.css("width", avgs * 23.2 + "px");
@@ -740,17 +698,11 @@
 							$("#countOp").val(data.counts);
 							$("#pageCountOp").val(data.count);
 							if (data.opinions != null) {
-								var opdiv = $("#opinionsDiv");
-								var dop = data.opinions;
+								var opdiv=$("#opinionsDiv");
+								var dop=data.opinions;
 								for ( var k in dop) {
-									var opids = dop[k].id;
-									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'
-											+ dop[k].content
-											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
-											+ dop[k].oldUsers.uid
-											+ '</div><div class="comment_time">'
-											+ dop[k].opinionstime
-											+ '</div></div>';
+									var opids=dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
 									opdiv.append(ophtmls);
 									imagesOP(dop[k].id);
 								}
@@ -760,24 +712,22 @@
 							alert("网络错误");
 						}
 					})
-		}
-
-		function imagesOP(opids) {
-			$
-					.ajax({
-						url : '/front/opinions/remarkList?opid=' + opids,
-						success : function(rms) {
-							if (rms != null) {
-								for ( var i in rms) {
-									$('#op' + opids)
-											.append(
-													'&nbsp;<img width="90px;" height="90px;" src="/files'+rms[i].remarkurl+'"/>');
+			}
+						
+						
+						function imagesOP(opids) {
+							$.ajax({
+								url:'/front/opinions/remarkList?opid='+opids,
+								success:function(rms){
+									if (rms!=null) {
+										for ( var i in rms) {
+											$('#op'+opids).append('&nbsp;<img width="90px;" height="90px;" src="/files'+rms[i].remarkurl+'"/>');
+										}
+									}
 								}
-							}
+								
+							});
 						}
-
-					});
-		}
 	</script>
 </body>
 </html>

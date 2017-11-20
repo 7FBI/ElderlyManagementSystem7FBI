@@ -13,7 +13,18 @@ public class OldSickness {
     private List<OldDiseaselibrary> listOldDiseaselibraries;
     private List<Matchdisease> listMatchdiseases;
     private OldDiseasedetails oldDiseasedetails;
-    public List<Matchdisease> getListMatchdiseases() {
+    private List<OldDiseasedetails> listOldDiseasedetails;
+    
+    
+    public List<OldDiseasedetails> getListOldDiseasedetails() {
+		return listOldDiseasedetails;
+	}
+
+	public void setListOldDiseasedetails(List<OldDiseasedetails> listOldDiseasedetails) {
+		this.listOldDiseasedetails = listOldDiseasedetails;
+	}
+
+	public List<Matchdisease> getListMatchdiseases() {
 		return listMatchdiseases;
 	}
 

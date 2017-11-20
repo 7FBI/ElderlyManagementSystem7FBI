@@ -45,6 +45,9 @@
  <result column="odlalias" property="alias"/>
  </collection>
   </resultMap>
+  
+ 
+  
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbggenerated
@@ -360,4 +363,17 @@
       extended20 = #{extended20,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+ 
+
+
+
+  <select id="selectDiseaseAndDiseaseDetailsByDetailid" parameterType="java.lang.Integer" resultType="com.bean.OldDiseaselibrary">
+select os.id,odd.id,odd.treat_tiem treat_tiem,odd.history,odd.suggest,odd.uid,odl.id,odl.diseasename,odl.description from old_sickness os,old_diseasedetails odd,old_diseaselibrary odl where os.did=odl.id and os.detailid=odd.id and odd.id=#{id}  
+  </select>
+  
+  
+  
+  
+  
 </mapper>

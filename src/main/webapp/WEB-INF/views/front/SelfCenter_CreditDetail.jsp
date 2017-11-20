@@ -224,47 +224,6 @@
 											</li>
 										</ul>
 
-										<!--已过期-->
-										<ul class="item-list">
-
-											<li class="td td-from">
-												<div class="item-img">
-													<img src="/resources/front/images/self_img/566fda5cN4b8a1675.gif">
-												</div>
-
-												<div class="item-info">
-
-													<a href="# ">
-														<p>蓝胖子赠与</p>
-														<p class="info-little ">
-															<span>红包初始面额：</span>¥50.00<span>元</span>
-														</p>
-													</a>
-
-												</div>
-											</li>
-											<li class="td td-remainderprice">
-												<div class="item-remainderprice">
-													<span>还剩</span>50.00<span>元</span>
-												</div>
-											</li>
-
-											<li class="td td-term ">
-												<div class="item-term">
-													<span>有效期</span> 2015.12.26-2016.2.1
-												</div>
-											</li>
-
-											<li class="td td-usestatus ">
-												<div class="item-usestatus ">
-													<p>已过期</p>
-													<span><img
-														src="/resources/front/images/self_img/gift_stamp_3.png"></span>
-												</div>
-											</li>
-										</ul>
-
-
 
 									</div>
 

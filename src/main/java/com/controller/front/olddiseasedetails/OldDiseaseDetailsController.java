@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.OldDiseasedetails;
+import com.bean.OldUsers;
 import com.service.OldDiseasedetailsService;
 
 @Controller
@@ -33,10 +34,11 @@ public class OldDiseaseDetailsController {
 	//查询UID账号的所有病例记录
 	public ModelAndView getOldDiseasedetails(HttpServletRequest request){
 	  //  String uid=(String) request.getSession().getAttribute("uid");	
-		List<OldDiseasedetails> oldDiseasedetails=oldDiseasedetailsService.selectOldDiseasedetailsByUid("123456");
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		List<OldDiseasedetails> oldDiseasedetails=oldDiseasedetailsService.selectOldDiseasedetailsByUid(oldUsers.getUid());
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("oldDiseasedetails",oldDiseasedetails);
-		modelAndView.setViewName("front/getoldDiseasedetails");
+		modelAndView.setViewName("front/SelfCenter_Heath");
 		return modelAndView;
 	}
 	

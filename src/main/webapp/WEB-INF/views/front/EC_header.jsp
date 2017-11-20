@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.bean.OldUsers"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -10,46 +11,109 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" />
 
+<link href="/resources/front/css/self_exchange/demo.css"
+	rel="stylesheet" type="text/css" />
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
-<!-- 查找最顶级栏目  -->
-<section id="show_cases">
-	<div class="cat_title">
-		<div class="wrapper"><br><br>
-			<h2><strong>CASES</strong>案例</h2>
-			<p>我们的作品，他们的故事<br/>Our work, their stories </p>
-		</div>
-	</div>
-	<article>
-		<div class="wrapper">
-			<div id="overview">
-				<div class="overview_bg"></div>
-				<div id="case_info">
-																																							<h1><img src="./resources/./resources/uploads/131102/1-1311021SZNS.png" tppabs="http://mc18.eatdou.com/uploads/131102/1-1311021SZNS.png" width="180" height="120" alt="西南财经大学" /></h1>
-					<ul>
-						<li>名称：西南财经大学</li>
-						<li>分类：学校政府</li>
-						<li>TAG：食品优品道新象</li>
-					</ul>
-					<a href="javascript:if(confirm('http://oiec.swufe.edu.cn/  点击这里给我发送临时消息'))window.location='http://oiec.swufe.edu.cn/'" tppabs="http://oiec.swufe.edu.cn/" class="btn_blue" target="_blank" rel="external nofollow">VISIT SITE 访问该网站</a>
-					<div class="brief">西南财经大学是教育部直属的国家“211工程”和“985工程”优势学科创新平台建设的全国重点大学，也是国家教育体制改革试点高校。学校始于1925年创建的上海光华大学，至今有近90年的办学历史。1925年6月3日，在“五卅”反帝爱国怒潮中，爱国师生从圣约翰大学脱离，拥戴张寿镛先生创办光华大学，校名取自“日月光华，旦复旦兮”（《卿云歌》），象征着复兴中华，反抗帝国主义割宰和奴役的革命精神。1938年，光华大学在抗战烽火中由上海内迁成都办学，后定名为光华大学成都分部。1946年更名为私立成华大学。1952年私立成</div>
+	
+	<header> <article>
+	<div class="mt-logo">
+		<!--顶部导航条 -->
+		<div class="am-container header">
+			<ul class="message-l">
+				<div class="topMessage">
+					<div class="menu-hd">
+						<a href="#" target="_top" class="h">${oldUsers.username}，欢迎登录</a>
+					</div>
 				</div>
+			</ul>
+			<ul class="message-r">
+				<div class="topMessage home">
+					<div class="menu-hd">
+						<a href="/gotoFront/index" target="_top" class="h"><i
+							class="am-icon-home am-icon-fw"></i>系统首页</a>
+					</div>
+				</div>
+				<div class="topMessage home">
+					<div class="menu-hd">
+						<a href="/front/products/selectAllProducts" target="_top"
+							class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
+					</div>
+				</div>
+				<div class="topMessage my-shangcheng">
+					<div class="menu-hd MyShangcheng">
+
+						<a href="/front/oldUsers/selectByUid" target="_top"><i
+							class="am-icon-user am-icon-fw"></i>个人中心</a>
+
+					</div>
+				</div>
+				<div class="topMessage mini-cart">
+					<div class="menu-hd">
+						<a id="mc-menu-hd" href="#" target="_top"><i
+							class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
+							id="J_MiniCartNum" class="h">0</strong></a>
+					</div>
+				</div>
+				<div class="topMessage favorite">
+					<div class="menu-hd">
+						<a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹
+						</span><i class="am-icon-down am-icon-fw"></i> </a>
+						<!-- <div class="secondary">
+							<a>收藏的宝贝</a>
+							<a>收藏的店铺</a>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="topMessage customer">
+					<div class="menu-hd">
+						<a href="#" target="_top"><i class="am-icon-phone am-icon-fw"></i><span>客服
+						</span> </a>
+						<!-- <div class="secondary">
+							<a>收藏的宝贝</a>
+							<a>收藏的店铺</a>
+						</div> -->
+					</div>
+				</div>
+
+				<div class="topMessage loginout">
+					<div class="menu-hd">
+						<a href="/exit/front/clearUser" target="_top"><i
+							class="am-icon-off am-icon-fw"></i><span>退出 </span> </a>
+						<!-- <div class="secondary">
+							<a>收藏的宝贝</a>
+							<a>收藏的店铺</a>
+						</div> -->
+					</div>
+				</div>
+			</ul>
+		</div>
+
+		<!--悬浮搜索框-->
+
+		<div class="nav white">
+			<div class="logoBig">
+				<li><img
+					src="/resources/front/images/self_img/yijia_bg_logo.png"
+					style="width: 380px; height: 70px;" /></li>
 			</div>
-			<div id="detailed">
-				<img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T226.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T226.png" style="height: 499px; width: 700px;" /><img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T227-50.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227-50.png" /><img alt="" src="./resources/./resources/uploads/allimg/131102/1-1311021T227.png" tppabs="http://mc18.eatdou.com/uploads/allimg/131102/1-1311021T227.png" />					
+
+			<div class="search-bar pr">
+				<a name="index_none_header_sysc" href="#"></a>
+				<form action="/front/products/selectProductsByLikeName"
+					method="post">
+					<input id="searchInput" name="pname" type="text" placeholder="搜索"
+						autocomplete="off"> <input id="ai-topsearch"
+						class="submit am-btn" value="搜索" index="1" type="submit">
+				</form>
 			</div>
 		</div>
-	</article>
-	<div id="case_footer">
-		<div class="wrapper showother">
-						<a class="backlist" href="index.htm" tppabs="http://mc18.eatdou.com/case/gov/">返回案例列表</a>
-						
-		</div>
+
+		<div class="clear"></div>
 	</div>
-</section>
-<jsp:include page="footer.jsp"></jsp:include>
+
+	</article> </header>
 </body>
 </html>
