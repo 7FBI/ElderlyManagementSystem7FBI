@@ -59,4 +59,10 @@ public interface FrontinformationMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Frontinformation record);
+    
+    //首页用于轮播的方法，返回最新的4条新闻
+    List<Frontinformation> selectFour();
+    
+    //信息页面的所有列表信息，按照时间顺序
+    List<Frontinformation> selectAll();
 }

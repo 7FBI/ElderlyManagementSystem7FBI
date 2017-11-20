@@ -57,4 +57,10 @@ public interface FrontinformationService {
      * @mbggenerated
      */
     int updateByPrimaryKey(Frontinformation record);
+  
+    //首页信息轮播方法
+    List<Frontinformation> selectFour();
+    
+    //信息列表页方法
+    List<Frontinformation> selectAll();
 }

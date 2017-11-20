@@ -76,4 +76,16 @@ public class FrontinformationServiceImpl implements FrontinformationService {
 		return frontinformationMapper.selectAllKinds(map);
 	}
 
+	@Override
+	public List<Frontinformation> selectAll() {
+		// 返回信息表中所有的信息
+		return frontinformationMapper.selectAll();
+	}
+
+	@Override
+	public List<Frontinformation> selectFour() {
+		// 返回信息表中最新的4条信息，用于轮播展示
+		return frontinformationMapper.selectFour();
+	}
+
 }
