@@ -84,7 +84,18 @@
 	<script type="text/javascript">
 		$("#sbmit").click(function() {
 			if (formInputNoNull() & formTextNoNull()) {
-				$("#f").submit();
+				var datas=$("#f").submit();
+				switch (datas) {
+				case "errorNotNull":
+					alert("该登录账号已经存在，无法添加");
+					break;
+				case "login":
+					top.location.href="/gotoBackstage/loginWTF";
+					break;
+				default:
+					window.location.href="/backstage/user/selectAlls";
+					break;
+				}
 			} else {
 				rmvErr();
 			}

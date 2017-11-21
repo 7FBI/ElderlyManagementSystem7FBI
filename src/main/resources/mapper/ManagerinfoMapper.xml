@@ -499,7 +499,7 @@
 	</select>
 	
 	<select id="selectHaveManagerInfo" parameterType="java.lang.String"
-		resultMap="com.bean.Managerinfo">
+		resultMap="BaseResultMap">
 		select * from managerinfo where name=#{name}
 	</select>
 	
