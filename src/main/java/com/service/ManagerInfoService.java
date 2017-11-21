@@ -6,6 +6,7 @@ import java.util.Map;
 import com.bean.Managerinfo;
 
 public interface ManagerInfoService {
+	List<Managerinfo> selectHaveManagerInfo(String name);
 	int selectAllManagersCounts(Managerinfo managerinfo);
 	List<Managerinfo> selectAllManagers(Map map);
 	Managerinfo findManagerBynametype(Managerinfo managerInfo);

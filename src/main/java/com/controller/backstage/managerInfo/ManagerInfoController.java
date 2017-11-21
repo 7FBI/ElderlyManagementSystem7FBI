@@ -120,15 +120,16 @@ public class ManagerInfoController {
 	}
 	
 	@RequestMapping("/addManagerInfo")
-	public ModelAndView addManagerInfo(Managerinfo managerinfo,HttpServletRequest request){
-		if (managerinfo==null) {
-			return selectAlls(request);
+	@ResponseBody
+	public String addManagerInfo(Managerinfo managerinfo,HttpServletRequest request){
+		if (managerInfoService.selectHaveManagerInfo(managerinfo.getName()).size()>0) {
+			return "errorNotNull";
 		}
 		managerinfo.setPassword(Encryption.encrypation(managerinfo.getPassword()));
 		if (request.getSession().getAttribute("ceoinfo")==null) {
-			return selectAlls(request);
+			return "login";
 		}
 		managerInfoService.insertSelective(managerinfo);
-		return selectAlls(request);
+		return "true";
 	}
 }

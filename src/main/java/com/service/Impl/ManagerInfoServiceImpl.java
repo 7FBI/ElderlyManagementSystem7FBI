@@ -60,5 +60,10 @@ public class ManagerInfoServiceImpl implements ManagerInfoService{
 		// TODO Auto-generated method stub
 		return managerInfoMapper.selectAllManagersCounts(managerinfo);
 	}
+	@Override
+	public List<Managerinfo> selectHaveManagerInfo(String name) {
+		// TODO Auto-generated method stub
+		return managerInfoMapper.selectHaveManagerInfo(name);
+	}
 
 }

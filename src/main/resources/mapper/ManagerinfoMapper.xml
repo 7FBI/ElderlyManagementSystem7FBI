@@ -497,4 +497,11 @@
 		</where>
 		limit #{page},#{max}
 	</select>
+	
+	<select id="selectHaveManagerInfo" parameterType="java.lang.String"
+		resultMap="com.bean.Managerinfo">
+		select * from managerinfo where name=#{name}
+	</select>
+	
+	
 </mapper>

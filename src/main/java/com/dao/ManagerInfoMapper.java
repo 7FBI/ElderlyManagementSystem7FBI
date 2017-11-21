@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.bean.Managerinfo;
 @Repository("managerInfoMapper")
 public interface ManagerInfoMapper {
+	List<Managerinfo> selectHaveManagerInfo(String name);
 	int selectAllManagersCounts(Managerinfo managerinfo);
 	List<Managerinfo> selectAllManagers(Map map);
 	Managerinfo findManagerBynametype(Managerinfo managerInfo);
