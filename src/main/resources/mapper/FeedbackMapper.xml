@@ -372,7 +372,7 @@
   update feedback set status=1 where id=#{id,jdbcType=INTEGER}
 </update>
 <!-- 根据用户uid查找用户所有反馈信息 -->
-<select id="selectByuid" parameterType="java.lang.String" resultMap="com.bean.Feedback">
+<select id="selectByuid" parameterType="java.lang.String" resultMap="BaseResultMap">
   select * from feedback where uid=#{uid,jdbcType=VARCHAR}
 </select>
 <!-- 根据uid删除所有该用户的反馈信息 -->
