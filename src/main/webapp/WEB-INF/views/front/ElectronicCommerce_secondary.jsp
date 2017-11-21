@@ -57,7 +57,7 @@ et=UTF-8">
 					<li class="index"><a href="/front/products/selectAllProducts">首页</a></li>
 					<li class="qc"><a href="#">打折区</a></li>
 					<li class="qc"><a href="#">限时抢</a></li>
-					<li class="qc"><a href="#">团购</a></li>
+					<li class="qc"><a href="/front/groupbuying/Lookto.action">团购</a></li>
 					<li class="qc last"><a href="/front/creditshop/SelectAllCreditShop">积分兑换区</a></li>
 				</ul>
 				<div class="nav-extra">
@@ -1321,7 +1321,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 							<div class="am-u-sm-4 text-four">
 								<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-									src="/files${products.producturl }" /></a>
+									src="/resources/front/images/self_img/6.jpg" /></a>
 									<div class="outer-con ">
 										<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1331,7 +1331,9 @@ response.setContentType("UTF-8");
 												<em>￥</em><strong> ${products.price}</strong>
 											</p>
 										</div>
+										<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 										<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+										</a>
 									</div>
 								
 							</div>
@@ -1383,18 +1385,19 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"><img
-								src="/files${products.producturl }" /></a>
+								src="/resources/front/images/self_img/6.jpg" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
-									
 									</div>
 									<div class="sub-title ">
 										<p>
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1442,7 +1445,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/files${products.producturl }" /></a>
+								src="/resources/front/images/self_img/6.jpg" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1452,7 +1455,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1501,7 +1506,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/files${products.producturl }" /></a>
+								src="/resources/front/images/self_img/6.jpg" /></a>
 								<div class="outer-con ">
 									<div class="title ">
                <a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname} </a>
@@ -1511,9 +1516,11 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
-									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
+									<i class="am-icon-shopping-basket am-icon-md  seprate">
+									</i>
+									</a>
 								</div>
-							
 						</div>
 </c:if>
 					</c:forEach>
@@ -1570,7 +1577,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1631,7 +1640,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${product.price}</strong>
 										</p>
 									</div>
+								    <a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1700,10 +1711,9 @@ response.setContentType("UTF-8");
 
 				</div>
 				<div id="shopCart " class="item ">
-					<a href="/front/shoppingCart/selectproducts?id=${oldUsers.id }"> <span class="message "></span>
-					</a>
+					<a href="/front/shoppingCart/selectproducts.action?uid=${oldUsers.id}"> <span class="message "></span></a>
 					<p>购物车</p>
-					<p class="cart_num ">0</p>
+					<p class="cart_num ">0</p> 
 				</div>
 				<div id="asset " class="item ">
 					<a href="# "> <span class="view "></span>
@@ -1812,6 +1822,31 @@ response.setContentType("UTF-8");
 			<div>充值</div>
 		</div>
 	</div>
+	<script type="text/javascript"> 
+	$(document).on('click',"[pppgg]",function(){
+	    var ddd=$(this);
+	    var d=ddd.attr('pppgg');
+	    $.ajax({
+	    	type : 'post',
+	    	url : d,
+	    	success : function(data){
+	    		if(data=="ture"){
+	    		  var rt=$(".cart_num");
+	    		  var trt=rt.text();
+	    		  rt.text(Number(1)+Number(trt));
+	    		  $(this).focus();
+	    		}else if(data="flase"){
+	    			window.location.href="/gotoFront/login";
+	    		}
+	    		return false;
+	    	},
+	        error:function(){
+	        	alert("添加失败");
+	        },
+	    })  
+	    return false;
+	  });
+	</script>
 	<script>
 		window.jQuery
 				|| document

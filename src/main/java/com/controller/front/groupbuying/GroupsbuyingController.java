@@ -60,5 +60,4 @@ public class GroupsbuyingController {
 		}
 		return "front/login";
 	}
-	
 }
