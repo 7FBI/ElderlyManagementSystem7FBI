@@ -379,4 +379,20 @@
 <delete id="delectByuid"  parameterType="java.lang.String">
  DELETE from feedback where uid=#{uid,jdbcType=VARCHAR} 
 </delete>
+ <!-- 未读信息数量 -->
+<select id="selectcountstatus" resultType="java.lang.Integer">
+ select count(*) from feedback where status=0
+</select>
+<!-- 未回复信息 -->
+<select id="selectBystatus" resultType="com.bean.FeedbackUser">
+ select feedback.*,
+ old_users.username,old_users.tell,old_users.address 
+ from feedback,old_users where status=0 and old_users.uid=feedback.uid
+</select>
+<!-- 已回复信息 -->
+<select id="selectBystatustoone" resultType="com.bean.FeedbackUser">
+ select feedback.*,
+ old_users.username,old_users.tell,old_users.address 
+ from feedback,old_users where status=1 and old_users.uid=feedback.uid
+</select>
 </mapper>

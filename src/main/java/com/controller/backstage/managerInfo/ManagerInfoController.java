@@ -18,6 +18,7 @@ import com.bean.Ceoinfo;
 import com.bean.Frontinformation;
 import com.bean.Managerinfo;
 import com.others.md5.Encryption;
+import com.service.FeedbackService;
 import com.service.ManagerInfoService;
 
 @Controller
@@ -26,10 +27,18 @@ public class ManagerInfoController {
 
 	@Autowired
 	private ManagerInfoService managerInfoService;
+	
+	@Autowired
+	private FeedbackService feedbackService;
 
 	@RequestMapping(value = "/login.action")
 	public String ManagerInfo(Managerinfo managerInfo, HttpServletRequest request) throws UnsupportedEncodingException {
 		String pwd = Encryption.encrypation(managerInfo.getPassword());
+		/*信息管理员*/
+		if(managerInfo.getType()==1){
+			int count=feedbackService.selectcountstatus();
+			request.getSession().setAttribute("count", count);
+		}
 		Managerinfo mangerIndo = null;
 		mangerIndo = managerInfoService.findManagerBynametype(managerInfo);
 		if (mangerIndo == null) {

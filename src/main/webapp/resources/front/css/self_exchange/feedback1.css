@@ -1,0 +1,189 @@
+@CHARSET "UTF-8";
+ 
+.innerframe{
+	 min-width:1000px;
+	 width:1000px;
+	 margin:0 auto; 
+}
+ .innerframe table{
+   border-collapse: separate;
+   border-spacing: 1px;
+   margin:0 auto 20px auto;
+   width:100%;
+ } 
+ .welcome-table{
+  margin:0 auto;
+  width:100%;
+  padding-top:1px;
+ }
+ .welcome-table .survey-welcome{
+  dispaly:inline-block;
+  text-align:left;
+  padding:0 35px 20px 0;
+  font-size: 12px;
+  color: #1d2d45;
+ }
+ .group-0{
+   width:100%;
+   margin:0 auto 10px auto;
+   background-color:#fff;
+   border: 1px solid #cce8ff;
+   padding: 1px;
+ }
+ .questiontext{
+   font-family: verdana;
+   font-size: 12px;
+   font-weight: bold;
+   background-color: #EEF6FF;
+   text-align: left;
+   padding: 6px 10px;
+   line-height: 120%;
+   color: #1d2d45;
+ }
+ .group-0  .answer{
+     margin-top:10px;
+     margin-bottom: 10px;
+     margin-left:20px;
+  }
+  .group-0  .answer .textarea{
+   border:1px solid #333;
+   width:600px;
+   height:120px;
+   padding:10px;
+  }
+ .group-0  .answer .buttonio{
+    display:inline-block;
+    text-align:center;
+    padding:10px;
+ }
+ .survey-question-help{
+  font-size:10px;
+  width:600px;
+  overflow:hidden;
+  background-color:#FFFDEE;
+  padding-left:1em;
+  line-height:24px;
+  color: #999999;
+  text-align: left;
+  margin:20px 0 20px 20px;
+ }
+ .tryop{
+   margin:10px;
+   width:100%;
+   padding: 11px 24px 16px 37px;
+   height:100px;
+ }
+  .tryop p{
+   text-align:left;
+   margin: 0% 0% 0.5em 0.5em;
+  }
+  .tryop p label{
+    width:50px;
+  }
+ .tryop input{vertical-align: middle;}
+ .navigator-table{
+  width:100%;
+  margin: 0;
+  padding: 1px;
+  border: 1px solid #cde7ff;
+  text-align: center;
+  background-color: #EEF6FF;
+ }
+ .navigator-table .submit-buttons{
+   display: inline-block;
+   position: relative;
+   padding:.4em 1em;
+   margin:0 auto;
+   text-decoration: none !important;
+   cursor: pointer;
+   text-align: center;
+   overflow: visible;
+   border: 1px solid #aed0ea;
+   display: block;
+   line-height: 1.4;
+   font-weight: bold;
+   color: #0070a3;
+   background-color: #d7ebf9;
+ }
+ .jianyi{
+    width:100%;
+    margin:10px 0 10px 0;
+ }
+.jianyi .becauser{
+    display:inline-block;
+    text-align:left;
+    color:#333;
+    height:30px;
+    line-height:30px;
+    font-size:18px;
+    float:left;
+ }
+ .jianyi .textrt{
+  width:340px;
+  height:120px;
+  backgroun-color:red;
+  float:left;
+  margin-left:30px;
+  padding:10px;
+ }
+.jianyi .f-imgshow {
+    float: left;
+    width: 100%;
+    margin-top:10px;
+}
+.m-imgshow .thumbnail-list{
+	width:100%;
+	overflow:hidden;
+	margin-bottom:-10px;
+	font-family:verdana,'5b8b/4f53;';
+}
+.m-imgshow .btn-upload{
+	float:left;
+	width:50px;
+	height:50px;
+	margin-left:110px;
+	background-color:red;
+	margin-right: 10px;
+	margin-bottom:10px;
+	background:url(/resources/front/images/bg-upload.png)no-repeat 0 top;
+	cursor:pointer;
+}
+.m-imgshow .upload-num{
+	float: left;
+height: 50px;
+margin-bottom: 10px;
+font-family: SimSun;
+line-height: 50px;
+color: #999;
+}
+.m-imgshow .upload-num em {
+    color: #e4393c;
+    margin: 0 2px;
+}
+.bacayt{
+	width:100%;
+	margin-top:10px;
+}
+.bacayt .bacat_yui{
+	font-size:10px;
+	width:500px;
+	overflow:hidden;
+	background-color:#FFFDEE;
+    padding-left:1em;
+    line-height:24px;
+    color: #999999;
+    text-align: left;
+    margin:20px 0 20px 20px;
+}
+.bacatrt_1{
+	width:100%;
+	margin:10px 0 10px 0;
+}
+.bacatrt_1 .buttons{
+	margin-left:60px;
+	display:inline-block;
+	padding:4px;
+	color:#333;
+	font-size:14px;
+	background-color:#D3D3D3;
+}

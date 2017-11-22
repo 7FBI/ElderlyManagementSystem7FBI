@@ -121,6 +121,10 @@
 						<ul class="RM">
 						    <li><a href="/backstage/info/allInfo" target="main">信息列表</a></li>
 						    <li><a href="/gotoBackstage/frontinformation_add" target="main">发布信息</a></li>
+						    <li><a href="/backstage/feedbackreply/selectfeedbackreply.action" target="main">用户反馈 
+						    <span>(<strong style="color:red;">${count}</strong>)</span>
+						    </a>
+						    </li>
 						</ul>
 					</div>
 				</c:if>

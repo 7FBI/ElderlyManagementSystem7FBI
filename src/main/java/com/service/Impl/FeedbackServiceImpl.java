@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bean.Feedback;
+import com.bean.FeedbackUser;
 import com.dao.FeedbackMapper;
 import com.service.FeedbackService;
 
@@ -63,6 +64,24 @@ public class FeedbackServiceImpl implements FeedbackService{
 	public void delectByuid(String uid) {
 		// TODO Auto-generated method stub
 		feedbackMapper.delectByuid(uid);
+	}
+
+	@Override
+	public int selectcountstatus() {
+		// TODO Auto-generated method stub
+		return feedbackMapper.selectcountstatus();
+	}
+
+	@Override
+	public List<FeedbackUser> selectBystatus() {
+		// TODO Auto-generated method stub
+		return  feedbackMapper.selectBystatus();
+	}
+
+	@Override
+	public List<FeedbackUser> selectBystatustoone() {
+		// TODO Auto-generated method stub
+		return  feedbackMapper.selectBystatustoone();
 	}
 
 }
