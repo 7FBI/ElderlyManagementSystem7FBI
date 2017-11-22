@@ -1,7 +1,11 @@
 package com.controller.backstage.feedbackreply;
 
+ 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Feedback;
 import com.bean.FeedbackUser;
+import com.bean.Feedbackreply;
 import com.service.FeedbackService;
 import com.service.FeedbackreplyService;
 
@@ -37,4 +42,29 @@ public class FeedbackreplyController {
 		modelAndView.setViewName("backstage/feedbackprocessing");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/updateto.action")
+	public ModelAndView Tofeedbackreply(HttpServletRequest request,int fid,String username,String tell){
+		Feedback feedbck=new Feedback();
+		feedbck=feedbackService.selectByPrimaryKey(fid);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("feedbck",feedbck);
+		modelAndView.addObject("username",username);
+		modelAndView.addObject("tell",tell);
+		modelAndView.setViewName("backstage/replyfeedback");
+		return modelAndView;
+	}
+	@RequestMapping(value="/replytoUser.action")
+	public String ReplyUsers(HttpServletRequest request,Feedbackreply feedbackreply){
+		if(feedbackreply.getContent()!=null){
+			int fid=feedbackreply.getFid();
+			Date speaktime=new Date();
+			feedbackreply.setSpeaktime(speaktime);
+			feedbackService.updateByidtochangstatus(fid);
+			feedbackreplyService.insertSelective(feedbackreply);
+			return "ture";
+		}
+		return "false";	
+	}
+	
 }

@@ -395,4 +395,18 @@
  old_users.username,old_users.tell,old_users.address 
  from feedback,old_users where status=1 and old_users.uid=feedback.uid
 </select>
+<!-- 查询用户反馈记录 根据uid查看用户已经回复的反馈 -->
+<select id="selectBystatus1"  parameterType="java.lang.String" resultType="com.bean.Feedback">
+  select * from feedback where status=1 and uid=#{uid}
+</select>
+<!-- 查询用户反馈记录 根据uid查看用户没有回复的反馈 -->
+<select id="selectBystatu0"  parameterType="java.lang.String" resultType="com.bean.Feedback">
+  select * from feedback where status=0 and uid=#{uid}
+</select>
+<!-- 用户已经回复反馈 反馈信息以及内容 -->
+<!-- <select id="selectByreplyfeedback" parameterType="java.lang.String" resultType="">
+   feedback.*,feedbackreply.content,feedbackreply.speaktime 
+   from feedback,feedbackreply 
+   where feedbackreply.fid=feedback.id and feedback.uid=#{uid}
+</select> -->
 </mapper>

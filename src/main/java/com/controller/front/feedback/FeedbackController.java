@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Feedback;
+import com.bean.OldUsers;
 import com.service.FeedbackService;
 
 @Controller
@@ -52,5 +53,16 @@ public class FeedbackController {
 			  return "ture";
 		 }	
 		return "false";	
+	}
+	
+	/*用户进入我的反馈*/
+	@RequestMapping("/selecttofeedbackreply.action")
+	public String selectTofeedbackreply(HttpServletRequest request){
+		OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers");
+		if(user!=null){
+			
+		}
+		return "front/Wefeedbackreply";
+		
 	}
 }

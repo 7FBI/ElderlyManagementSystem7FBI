@@ -60,7 +60,6 @@
 							
 						</ul>
 					</li>
-					
 					<li class="person">
 						<a href="#">我的健康</a>
 						<ul>
@@ -70,7 +69,13 @@
 							
 						</ul>
 					</li>
-
+					<li class="person">
+						<a href="#">意见反馈</a>
+						<ul>
+							<li><a href="/gotoFront/Feedbackpage">反馈</a></li>
+							<li><a href="/front/feedback/selecttofeedbackreply.action">我的反馈</a></li>
+						</ul>
+					</li>
 				</ul>
 
 			</aside>

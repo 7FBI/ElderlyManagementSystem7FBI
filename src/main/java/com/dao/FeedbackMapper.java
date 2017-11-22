@@ -27,4 +27,11 @@ public interface FeedbackMapper {
     List<FeedbackUser> selectBystatus();
     /* 已回复信息*/
     List<FeedbackUser> selectBystatustoone();
+    
+   /* 用户已回复反馈*/
+   List<Feedback> selectBystatus1(String uid);
+   
+   /* 用户未回复反馈*/
+   List<Feedback> selectBystatu0(String uid);
+    
 }

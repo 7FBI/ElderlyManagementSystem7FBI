@@ -7,6 +7,7 @@
 <link href="/resources/backstage/Style/skin.css" rel="stylesheet" type="text/css">
 <title>反馈处理</title>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style type="text/css">
 a{text-decoration:none;color:black;}
 a:visited{
@@ -114,9 +115,9 @@ a:active{color:red;font-size:14px;}
                                                         <td>${feedback1.uid}</td>
                                                         <td>${feedback1.username}</td>
                                                         <td>${feedback1.tell}</td>
-                                                        <td>${feedback1.speaktime}</td>
+                                                        <td><fmt:formatDate value="${feedback1.speaktime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                                         <td>${feedback1.content}</td>
-                                                        <td>删除 权限</td>
+                                                        <td><a href="${pageContext.request.contextPath}/backstage/feedbackreply/updateto.action?fid=${feedback1.id}&username=${feedback1.username}&tell=${feedback1.tell}" >立即处理</a></td>
                                                     </tr> 
                                                     </c:forEach>
                                                 </table>
@@ -186,93 +187,25 @@ a:active{color:red;font-size:14px;}
                                                     <tr>
                                                         <th>选中</th>
                                                         <th>排序</th>
-                                                        <th>用户名</th>
-                                                        <th>真实姓名</th>
-                                                        <th>上次登陆 IP</th>
-                                                        <th>上次登陆时间</th>
-                                                        <th>添加时间</th>
+                                                        <th>用户账号</th>
+                                                        <th>用户姓名</th>
+                                                        <th>联系方式</th>
+                                                        <th>反馈时间</th>
+                                                        <th>反馈内容</th>
                                                         <th>操作</th>
                                                     </tr>
+                                                    <c:forEach items="${feedback2 }" var="feedback2">
                                                     <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
+                                                        <td><input type="checkbox" value="1" /></td>
                                                         <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td><input type="checkbox" value="" /></td>
-                                                        <td>1</td>
-                                                        <td>Admin</td>
-                                                        <td>瑞曼</td>
-                                                        <td>127.0.0.1</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>2013-01-22</td>
-                                                        <td>删除 权限</td>
-                                                    </tr>
+                                                        <td>${feedback2.uid}</td>
+                                                        <td>${feedback2.username}</td>
+                                                        <td>${feedback2.tell}</td>
+                                                        <td><fmt:formatDate value="${feedback2.speaktime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                                                        <td>${feedback2.content}</td>
+                                                        <td>查看反馈详情</td>
+                                                    </tr> 
+                                                    </c:forEach>
                                                 </table>
                                             </form>
                                         </td>
