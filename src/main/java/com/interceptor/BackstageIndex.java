@@ -33,7 +33,7 @@ public class BackstageIndex implements HandlerInterceptor {
 		if (request.getSession().getAttribute("ManagerIndo")!=null) {
 			return true;
 		}
-		response.sendRedirect("loginWTF");
+		response.sendRedirect("/gotoBackstage/loginWTF");
 		//request.getRequestDispatcher("/WEB-INF/backstage/login_manager.jsp").forward(request, response);
 		return false;
 	}

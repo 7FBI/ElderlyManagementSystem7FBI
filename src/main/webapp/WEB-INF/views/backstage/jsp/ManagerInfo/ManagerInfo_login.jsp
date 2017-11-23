@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <span class="us_user"></span>
         <input type="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false">
         </div>
-        <input type="radio" name="type" value="0" class="input_radio">商城管理 
+        <input type="radio" name="type" value="0" checked="checked" class="input_radio">商城管理 
         <input type="radio" name="type" value="1" class="input_radio">信息发布
         <input type="radio" name="type" value="2" class="input_radio">教育平台
         <input type="submit" id="submit" value="登录" class="input_submit"> 

@@ -208,7 +208,25 @@
 					</div>
 					</c:if>
 					<!-- *********** -->
-					
+					<h1 class="type">
+						<a href="javascript:void(0)">统计模块</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu_top_line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+						<c:if test="${ceoinfo!=null or (ManagerIndo!=null and ManagerIndo.type==0) }">
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/statistics/productType" target="main">排行榜与本季报表</a></li>
+						</c:if>
+							<li><a href="${pageContext.request.contextPath}/backstage/Orders/SelectTOsend.action" target="main">已发货订单XXX</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单XXX</a></li>
+						</ul>
+					</div>
 					<!-- *********** -->
 				</div>
 			</td>

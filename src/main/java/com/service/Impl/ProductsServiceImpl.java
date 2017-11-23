@@ -143,4 +143,49 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.productDiscount();
 	}
+	@Override
+	public List<Products> productTypeSumCount() {
+		// TODO Auto-generated method stub
+		return productsMapper.productTypeSumCount();
+	}
+	@Override
+	public List<Products> productCollectionOne(Map map) {
+		// TODO Auto-generated method stub
+		return productsMapper.productCollectionOne(map);
+	}
+	@Override
+	public List<Products> productSalesOne(Map map) {
+		// TODO Auto-generated method stub
+		return productsMapper.productSalesOne(map);
+	}
+	@Override
+	public List<Products> productSeasonGroupbuy(Map map) {
+		// TODO Auto-generated method stub
+		return productsMapper.productSeasonGroupbuy(map);
+	}
+	@Override
+	public List<Products> productSeasonNot(Map map) {
+		// TODO Auto-generated method stub
+		return productsMapper.productSeasonNot(map);
+	}
+	@Override
+	public List<Products> productSeasonDiscount(Map map) {
+		// TODO Auto-generated method stub
+		return productsMapper.productSeasonDiscount(map);
+	}
+	@Override
+	public List<Products> productByidDateFormat(Integer id) {
+		// TODO Auto-generated method stub
+		return productsMapper.productByidDateFormat(id);
+	}
+	@Override
+	public List<Products> productTypeGroupByQuarter() {
+		// TODO Auto-generated method stub
+		return productsMapper.productTypeGroupByQuarter();
+	}
+	@Override
+	public List<Products> productTypeGroupByWeek() {
+		// TODO Auto-generated method stub
+		return productsMapper.productTypeGroupByWeek();
+	}
 }

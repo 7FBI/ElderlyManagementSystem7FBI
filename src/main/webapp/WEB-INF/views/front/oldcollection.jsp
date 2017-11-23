@@ -20,7 +20,7 @@
 						<div class="l_div_top">
 							<a href="${pageContext.request.contextPath }/front/products/selectProductDetailByPrimaryKey?id=${list.id }" target="_blank" title="${list.pname }">
 							<%-- 	<img class="img" src="${list.producturl }" alt="${list.pdescription }" /> --%>
-								<img class="img" src="${list.producturl }" alt="${list.pdescription }" />
+								<img class="img" src="/files${list.producturl }" alt="${list.pdescription }" />
 							</a>
 						</div>
 					
