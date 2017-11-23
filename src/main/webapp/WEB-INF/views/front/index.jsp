@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -19,11 +21,17 @@
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
+	
+	
+ <link rel="stylesheet" href="/resources/front/css/active/style.css"/>	
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <style type="text/css">
+
+
+
 html ,body{
 background-color: #dbdbdb;
 }
@@ -42,6 +50,65 @@ background-color: #dbdbdb;
 			<div style="background:url(/resources/front/images/banner_bg7.jpg)">aaa3</div>
 		</div>
 	</div>
+	
+	
+<!-- 活动部分 -->
+<!-- <div class=" news-all">
+ -->
+ <div class="news-all part-all">
+		<div class="part-title">
+			<div class="col-xs-3"><font size="12px">信息 Message</font></div>
+		</div>
+		<div class="news-content ">
+				<ul class="news-content-ul">
+				<c:forEach items="${lists }" var="lists">
+					<li class="news-content-li">
+						<a href="#">
+						    <div class=" news-content-imag">
+						    	
+						    	<img src="/resources/front/images/img/news.png"></img>
+						    	
+						    </div>
+						    <div  class="news-content-cont">
+										<span>${lists.newstitle }</span>
+										<p >${lists. sendtiem}</p>
+										<p >${lists.newscontent}</p>
+										<a href="/front/frontinformation/selectall"> 查看更多</a>
+								 </div>	
+						</a>
+					</li>
+					
+					</c:forEach>
+					
+				</ul>
+			
+		</div> 
+		
+		<div class="info_content ">
+		<div class="look_more">
+		<span><a href="/front/frontinformation/selectall">更多公告></a></span>
+		</div>
+				<ul class="info_content_ul">
+				<c:forEach items="${list }" var="list">
+					<li class="info_content_li">
+						<a href="/front/frontinformation/selectByKey?id=${list.id}">
+						    <div class=" info_content_li_title">
+						    	<span class="news-right-title">&nbsp;&nbsp;<em>.</em>&nbsp;&nbsp;${list.newstitle }</span>
+						    </div>
+						    <div  class=" info_content_li_time">
+										<p class="news-right-time"><fmt:formatDate value="${list.sendtiem}" pattern="yyyy-MM-dd" /></p>
+								 </div>	
+						
+						</a>
+					</li>
+					</c:forEach>
+				</ul>
+			
+		</div> 
+	
+</div>
+
+
 
 <!--新闻部分  -->
 
@@ -55,7 +122,7 @@ background-color: #dbdbdb;
  <!--  <div class="cat_title wrapper">
    </div> -->
   <div class="newsdata">
-    <div class="newsad"> 
+    <div class="newsad" style="background:red;"> 
     
     <!--图片轮播  -->
 		<div id="carousel-example-generic" class="carousel slide"
@@ -77,7 +144,7 @@ background-color: #dbdbdb;
 					<!-- <div class="carousel-caption">...</div> -->
 				</div>	
 				<c:forEach items="${hotnews }" var="hotnews">
-				<div class="item">
+				<div class="item" >
 						
 						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="100%" />     
 					
@@ -99,7 +166,7 @@ background-color: #dbdbdb;
 		</div>
 	
     </div>
-    <ul>
+    <ul style="background:yellow;">
       <c:forEach items="${hotnews }" var="hotnews">
       <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
           <img src="/files${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>
@@ -114,8 +181,36 @@ background-color: #dbdbdb;
     </ul>
   </div>
 </div>
-<br><br><br><br>
-	<jsp:include page="footer.jsp" flush="true" />
+
+  <div id="footerlink" style="position:absolute;top:1800px;">
+			<nav class="wrapper">
+				<a href="index.htm" >首页</a>
+				<a href="about/index.htm">关于</a>
+				<a href="service/index.htm">服务</a>
+				<a href="case/index.htm" >案例</a>
+				<a href="fangan/index.htm">方案</a>
+				<a href="contact/index.htm">联系</a>
+				<a href="news/index.htm">新闻</a>
+				<a id="gotop" href="javascript:void(0)">top</a>
+			</nav>
+		</div>
+  <div id="footerinfo" style="position:absolute;top:1860px;">
+    <div class="wrapper">
+				<h2>联系我们<strong>Contact</strong></h2>
+<p>
+                                        <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
+					电话：400 8888 8888<br/>
+                                        传真：400 8888 8888<br/>                                       
+                                        电子邮件：admin@unn114.com<br/>
+					公司地址：重庆市某某某某某某某某某<br/>
+					备案编号：蜀ICP备000000001<br/>
+					Copyright © 2013 - 2014 luidea.com All rights reserved. 
+				</p>
+				
+			</div>
+    
+  </div>
+
 
 	<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 	<script src="/resources/unity/jquery/jquery-3.2.0.js"
