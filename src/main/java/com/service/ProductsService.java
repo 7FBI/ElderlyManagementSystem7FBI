@@ -70,5 +70,7 @@ public interface ProductsService {
 	public List<Products> selectProductsByTid();
 
 	public List<productCustom> productDiscount();// 用于查询所有打折商品的,使用到扩展类productCustom
-
+//  销量
+  public List<Products> querySaleProductCountByTid(Integer tid);
+  public List<Products> querySomeProductByTid(Integer tid);
 }

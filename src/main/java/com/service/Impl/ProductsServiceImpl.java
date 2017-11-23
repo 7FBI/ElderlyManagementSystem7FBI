@@ -188,4 +188,14 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.productTypeGroupByWeek();
 	}
+	@Override
+	public List<Products> querySaleProductCountByTid(Integer tid) {
+		// TODO Auto-generated method stub
+		return productsMapper.querySaleProductCountByTid(tid);
+	}
+	@Override
+	public List<Products> querySomeProductByTid(Integer tid) {
+		// TODO Auto-generated method stub
+		return productsMapper.querySomeProductByTid(tid);
+	}
 }

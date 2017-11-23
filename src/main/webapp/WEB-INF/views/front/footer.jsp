@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" /> -->
+ <link rel="stylesheet" href="/resources/front/css/style.css"  type="text/css" media="all" /> 
 </head>
 <body>
 <footer>

@@ -428,4 +428,8 @@
 		#{extended20,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	<!--销售量  -->
+	<select id="querySalePrountCount" parameterType="java.lang.Integer" resultType="com.bean.Orderdetails">
+	SELECT COALESCE(SUM(ordercount),0) from orderdetails WHERE pid=#{pid,jdbcType=INTEGER}
+	</select>
 </mapper>

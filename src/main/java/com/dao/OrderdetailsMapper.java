@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -56,4 +57,5 @@ public interface OrderdetailsMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Orderdetails record);
+    public 	List<Orderdetails> querySalePrountCount(Integer pid);
 }

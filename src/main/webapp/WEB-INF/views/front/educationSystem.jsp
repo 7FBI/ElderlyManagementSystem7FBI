@@ -150,15 +150,7 @@
 								<!-- <video width="210" height="152" controls> --> <video
 									width="210px" height="152" preload="metadata"> <source
 									src="/files${allVideos.vurl}" type="video/mp4">
-						</a><br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br>
-						<br> <strong><a
+						</a> <strong><a
 								href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${allVideos.id}">
 									<font color="blue" size="3px">${allVideos.vtitle }</font>
 							</a> <font color="red">${allVideos.vprice}</font> </strong>
@@ -215,8 +207,8 @@
 									width="240" height="152" preload="metadata"> <source
 									src="/files${matchpeoplebyvideolist.video.vurl}"
 									type="video/mp4"></video>
-						</a> <br>
-						<br><br><br><br><br><br><br><br>
+						</a> <!-- <br>
+						<br><br><br><br><br><br><br><br> -->
 						
 						 <strong><a
 								href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${matchpeoplebyvideolist.video.id}">
@@ -255,8 +247,8 @@
 									width="240" height="152" preload="metadata"> <source
 									src="/files${allMySeenVideo.video.vurl}"
 									type="video/mp4"></video>
-						</a> <br>
-						<br><br><br><br><br><br><br><br>
+						</a> <!-- <br>
+						<br><br><br><br><br><br><br><br> -->
 					     <strong>  
 							<a href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${allMySeenVideo.video.id}">
 									<font color="blue" size="3px">${allMySeenVideo.video.vtitle }</font>
@@ -294,8 +286,8 @@
 									width="240" height="152" preload="metadata"> <source
 									src="/files${freevideo.vurl}"
 									type="video/mp4"></video>
-						</a> <br>
-						<br><br><br><br><br><br><br><br>
+						</a> <!-- <br>
+						<br><br><br><br><br><br><br><br> -->
 					     <strong>  
 							<a href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${freevideo.id}">
 									<font color="blue" size="3px">${freevideo.vtitle }</font>
@@ -313,7 +305,7 @@
 
 </div>
 	
-	<br><br><br><br><br><br><br>
+	<!-- <br><br><br><br><br><br><br> -->
 	
 	<jsp:include page="footer.jsp"></jsp:include>
 	<script type="text/javascript">

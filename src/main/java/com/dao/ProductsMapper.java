@@ -95,4 +95,8 @@ public interface ProductsMapper {
       List<Products> selectProductsByTid();
       
       public List<productCustom> productDiscount();
+      
+//    销量排序
+    public List<Products> querySaleProductCountByTid(Integer tid);
+    public List<Products> querySomeProductByTid(Integer tid);
 }

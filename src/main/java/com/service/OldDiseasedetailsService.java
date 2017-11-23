@@ -4,6 +4,7 @@ package com.service;
 import java.util.List;
 
 import com.bean.OldDiseasedetails;
+import com.bean.OldSickness;
 
 public interface OldDiseasedetailsService {	
    public OldDiseasedetails selectByPrimaryKey(Integer id);
@@ -13,4 +14,5 @@ public interface OldDiseasedetailsService {
   public void deleteByPrimaryKey(Integer id);
 
 public void updateByPrimaryKeySelective(OldDiseasedetails oldDiseasedetail);
+
 }

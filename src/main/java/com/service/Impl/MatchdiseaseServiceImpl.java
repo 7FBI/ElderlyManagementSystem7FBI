@@ -22,4 +22,16 @@ public class MatchdiseaseServiceImpl implements MatchdiseaseService{
 		return matchdiseaseMapper.selectProductByDiseasesId(did);
 	}
 
+	@Override
+	public List<Matchdisease> queryProductByUid(String uid) {
+		// TODO Auto-generated method stub
+		return matchdiseaseMapper.queryProductByUid(uid);
+	}
+
+	@Override
+	public List<Matchdisease> queryOldUserDiseaseDetails(String uid) {
+		// TODO Auto-generated method stub
+		return matchdiseaseMapper.queryOldUserDiseaseDetails(uid);
+	}
+
 }

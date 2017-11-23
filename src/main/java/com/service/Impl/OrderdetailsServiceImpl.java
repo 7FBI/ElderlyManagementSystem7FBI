@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -62,5 +63,13 @@ public class OrderdetailsServiceImpl implements OrderdetailsService {
 		// TODO Auto-generated method stub
 		return orderdetailsMapper.insertSelectiveList(list);
 	}
+
+	@Override
+	 public List<Orderdetails> querySalePrountCount(Integer pid) {
+		// TODO Auto-generated method stub
+		return orderdetailsMapper.querySalePrountCount(pid);
+	}
+
+	
 	
 }

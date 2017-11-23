@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bean.Orderdetails;
 
@@ -54,4 +55,6 @@ public interface OrderdetailsService {
      * @mbggenerated
      */
     int updateByPrimaryKey(Orderdetails record);
+    public 	List<Orderdetails> querySalePrountCount(Integer pid);
+    
 }

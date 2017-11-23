@@ -31,6 +31,7 @@
 						<a href="#">个人资料</a>
 						<ul>
 							<li class="active"> <a href="/front/oldUsers/selectByUid">个人信息</a></li>
+							<li> <a href="/front/matchdisease/diseasedetails">我的病历</a></li>
 							<li> <a href="/gotoFront/SelfCenter_updatepassword">安全设置</a></li>
 							<li> <a href="/front/oldUsers/selectProfileByUid">收货地址</a></li>
 						</ul>

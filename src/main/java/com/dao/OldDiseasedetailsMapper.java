@@ -58,4 +58,5 @@ public interface OldDiseasedetailsMapper {
 	List<OldDiseasedetails> selectOldDiseasedetailsByUid(String uid);
 
 	void addOldDiseasedetail(OldDiseasedetails oldDiseasedetail);
+	
 }

@@ -20,13 +20,13 @@ import com.bean.Matchdisease;
 import com.bean.OldDiseasedetails;
 import com.bean.OldDiseaselibrary;
 import com.bean.OldSickness;
+import com.bean.OldUsers;
 import com.service.MatchdiseaseService;
 import com.service.OldDiseasedetailsService;
 import com.service.OldSicknessService;
 
-
 @Controller
-@RequestMapping("/oldSickness")
+@RequestMapping("/front/oldSickness")
 public class OldSicknessController {
 	@Autowired
 	@Qualifier("oldSicknessService")
@@ -34,29 +34,30 @@ public class OldSicknessController {
 	@Autowired
 	@Qualifier("matchdiseaseService")
 	private MatchdiseaseService matchdiseaseService;
-	
-	  @RequestMapping("/querys")
-	  //查询每次的病例的详情
-	public ModelAndView getOldDiseasedetails(HttpServletRequest request,Integer oldDiseasedetail_id){
-	  //  String uid=(String) request.getSession().getAttribute("uid");	
-		List<OldSickness> oldSicknesss=oldSicknessService.selectOldSicknesses(oldDiseasedetail_id);
+
+	@RequestMapping("/querys")
+	// 查询每次的病例的详情
+	public ModelAndView getOldDiseasedetails(HttpServletRequest request, Integer oldDiseasedetail_id) {
+		// String uid=(String) request.getSession().getAttribute("uid");
+		List<OldSickness> oldSicknesss = oldSicknessService.selectOldSicknesses(oldDiseasedetail_id);
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("oldSickness",oldSicknesss);
-		   //根据疾病id查询对应的
-         Map<String, List<Matchdisease>> listMatchdiseaseMap=new HashMap<String, List<Matchdisease>>();
-		
+		modelAndView.addObject("oldSickness", oldSicknesss);
+		// 根据疾病id查询对应的
+		Map<String, List<Matchdisease>> listMatchdiseaseMap = new HashMap<String, List<Matchdisease>>();
+
 		for (OldSickness oldSickness : oldSicknesss) {
-			//did==did--->pid
-			List<Matchdisease> listMatchdiseases=new ArrayList<Matchdisease>();
-			listMatchdiseases=matchdiseaseService.selectProductByDiseasesId(oldSickness.getDid());
-	  for (OldDiseaselibrary oldDiseaselibrary :oldSickness.getListOldDiseaselibraries() ) {
-		      
-		  listMatchdiseaseMap.put(oldDiseaselibrary.getDiseasename(),listMatchdiseases);
-	}
+			// did==did--->pid
+			List<Matchdisease> listMatchdiseases = new ArrayList<Matchdisease>();
+			listMatchdiseases = matchdiseaseService.selectProductByDiseasesId(oldSickness.getDid());
+			for (OldDiseaselibrary oldDiseaselibrary : oldSickness.getListOldDiseaselibraries()) {
+
+				listMatchdiseaseMap.put(oldDiseaselibrary.getDiseasename(), listMatchdiseases);
+			}
 		}
-	   modelAndView.addObject("listMatchdiseaseMap",listMatchdiseaseMap);
-	modelAndView.setViewName("front/ProductImage");
+		modelAndView.addObject("listMatchdiseaseMap", listMatchdiseaseMap);
+		modelAndView.setViewName("front/ProductImage");
 		return modelAndView;
 	}
-	
+
+
 }

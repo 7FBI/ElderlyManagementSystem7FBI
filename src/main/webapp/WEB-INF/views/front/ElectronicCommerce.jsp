@@ -191,7 +191,7 @@
 
 						<div class="side-title">经典搭配</div>
 
-						<li>
+						<!-- <li>
 							<div class="i-pic check">
 								<img src="/resources/front/images/self_img/cp.jpg" />
 								<p class="check-title">萨拉米 1+1小鸡腿</p>
@@ -202,31 +202,109 @@
 									销量<span>1110</span>
 								</p>
 							</div>
-						</li>
+						</li> -->
+					  <!--  -->
+						<c:if test="${!empty matchMedicationProducts }">
+						<c:forEach items="${matchMedicationProducts}" var="matchMedicationProducts">
 						<li>
 							<div class="i-pic check">
-								<img src="/resources/front/images/self_img/cp2.jpg" />
-								<p class="check-title">ZEK 原味海苔</p>
+							 <a href="/front/products/selectProductDetailByPrimaryKey?id=${matchMedicationProducts.pid}">
+								<img src="/files${matchMedicationProducts.product.producturl}" /></a>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${matchMedicationProducts.pid}">
+								    <p class="check-title">${matchMedicationProducts.product.pname}</p></a>
 								<p class="price fl">
-									<b>¥</b> <strong>8.90</strong>
+									<b>¥</b> <strong>${matchMedicationProducts.product.price}</strong>
+								</p>
+								<%-- <p class="number fl">
+								<c:if test="${!empty orderDetails}">
+								<c:forEach items="${orderDetails}" var="orderDetails">
+									销量<span>${orderDetails.mysaleCount}</span>
+								</c:forEach>
+								</c:if>
+								</p> --%>
+							</div>
+						</li>
+						</c:forEach>
+                   </c:if>
+                   <!--  -->
+						<c:if test="${!empty hotMedicationProducts }">
+						<c:forEach items="${hotMedicationProducts}" var="hotMedicationProducts">
+						<li>
+							<div class="i-pic check">
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${hotMedicationProducts.id}">
+								<img src="/files${hotMedicationProducts.producturl}" /></a>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${hotMedicationProducts.id}">
+								<p class="check-title">${hotMedicationProducts.pname }</p></a>
+								<p class="price fl">
+									<b>¥</b> <strong>${hotMedicationProducts.price }</strong>
 								</p>
 								<p class="number fl">
-									销量<span>1110</span>
+								<c:forEach items="matchProductCount" var="matchProductCount">
+									销量<span>${hotMedicationProducts.saleProductCount}</span>
+								</c:forEach>
 								</p>
 							</div>
 						</li>
+						</c:forEach>
+                   </c:if>
+                    <!--  -->
+						<c:if test="${empty hotMedicationProducts }">
+						<c:forEach items="${someProducts}" var="someProducts">
 						<li>
 							<div class="i-pic check">
-								<img src="/resources/front/images/self_img/cp.jpg" />
-								<p class="check-title">萨拉米 1+1小鸡腿</p>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${someProducts.id}">
+								   <img src="/files${someProducts.producturl}" /></a>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${someProducts.id}">
+								    <p class="check-title">${someProducts.pname }</p>
+								 </a>
 								<p class="price fl">
-									<b>¥</b> <strong>29.90</strong>
+									<b>¥</b> <strong>${someProducts.price }</strong>
+								</p>
+								
+							</div>
+						</li>
+						</c:forEach>
+                   </c:if>
+                   <!--  -->
+						<c:if test="${!empty hotProducts }">
+						<c:forEach items="${hotProducts}" var="hotProducts">
+						<li>
+							<div class="i-pic check">
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${hotProducts.id}">
+								   <img src="/files${hotProducts.producturl}" /></a>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${hotProducts.id}">
+								    <p class="check-title">${hotProducts.pname }</p>
+								 </a>
+								<p class="price fl">
+									<b>¥</b> <strong>${hotProducts.price }</strong>
 								</p>
 								<p class="number fl">
-									销量<span>1110</span>
+								<c:forEach items="matchProductCount" var="matchProductCount">
+									销量<span>${hotProducts.saleProductCount}</span>
+								</c:forEach>
 								</p>
 							</div>
 						</li>
+						</c:forEach>
+                   </c:if>
+                   <!--  -->
+						<c:if test="${empty hotProducts }">
+						<c:forEach items="${someProducts}" var="someProducts">
+						<li>
+							<div class="i-pic check">
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${someProducts.id}">
+								   <img src="/files${someProducts.producturl}" /></a>
+								 <a href="/front/products/selectProductDetailByPrimaryKey?id=${someProducts.id}">
+								    <p class="check-title">${someProducts.pname }</p>
+								 </a>
+								<p class="price fl">
+									<b>¥</b> <strong>${someProducts.price }</strong>
+								</p>
+								
+							</div>
+						</li>
+						</c:forEach>
+                   </c:if>
 
 					</div>
 					<div class="clear"></div>

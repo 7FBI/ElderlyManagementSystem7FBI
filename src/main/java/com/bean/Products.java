@@ -173,6 +173,28 @@ public class Products {
 	 *
 	 * @mbggenerated
 	 */
+	//销量
+		private Integer saleProductCount;
+		
+	    public Integer getSaleProductCount() {
+			return saleProductCount;
+		}
+
+		public void setSaleProductCount(Integer saleProductCount) {
+			this.saleProductCount = saleProductCount;
+		}
+
+	//
+		private List<OldSickness> oldSickness;
+		
+		public List<OldSickness> getOldSickness() {
+			return oldSickness;
+		}
+
+		public void setOldSickness(List<OldSickness> oldSickness) {
+			this.oldSickness = oldSickness;
+		}
+
 	private String extended1;
 
 	/**

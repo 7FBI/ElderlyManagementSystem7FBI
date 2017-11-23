@@ -40,5 +40,6 @@ public class OldDiseasedetailsServiceImpl implements OldDiseasedetailsService {
 		oldDiseasedetailsMapper.updateByPrimaryKeySelective(oldDiseasedetail);
 		
 	}
+	
 
 }
