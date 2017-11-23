@@ -23,7 +23,7 @@
 </head>
 <body>	
 <jsp:include page="index_header.jsp" flush="true" />
-<jsp:include page="header.jsp" flush="true" />	
+	<jsp:include page="header.jsp" flush="true" />
 
 <div class="infomation">
 <div class="infomation_img">

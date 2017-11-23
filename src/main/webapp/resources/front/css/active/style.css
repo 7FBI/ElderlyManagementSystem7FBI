@@ -6,7 +6,7 @@
 	width:100%;
 	height:500px;
 	position:absolute;
-	top:580px;
+	top:620px;
 	bottom:80px;
 }
 
@@ -179,6 +179,9 @@ text-decoration:underline;
 	width:68%;
 	left:1%;
 	float:left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 	
 }
 
@@ -188,17 +191,17 @@ text-decoration:underline;
 	position:absolute;
 	height:100%;
 	width:29%;
-	left:71%
+	left:78%
 	
 	
 }
 
-
+/*所有的通告  */
 .infomation{
 	position:absolute;
 	width:100%;
 	height:100%;
-	top:12%;
+	top:20%;
 	
 }
 .infomation_img{
@@ -281,16 +284,20 @@ text-decoration:underline;
 	margin:0 15%;
 }
 
+/* 没通告的详细信息 */
+
 .infomation_detail{
 	position:absolute;
+	background:#e4e4e4;
 	width:100%;
 	height:100%;
-	top:15%;
+	top:20%;
 	
 }
 .detail_title{
 	position:absolute;
-	/* background:red; */
+/* 	background:red; */
+	background:#ffffff;
 	width:60%;
 	height:100px;
 	top:1%;
@@ -306,7 +313,7 @@ text-decoration:underline;
 
  .detail_time{
 	position:relative;
-	/* background:#ff0080; */
+	background:#ffffff;
 	width:60%;
 	height:100px;
 	top:11%;
@@ -317,7 +324,7 @@ text-decoration:underline;
 }
 .detail_time span{
 	position:absolute;
-/* 	background:#ff80c0; */
+	/* background:#ff80c0; */
 	width:60%;
 	height:50px;
 	text-align:center;
@@ -334,7 +341,7 @@ text-decoration:underline;
 
 .detail_content{
 	position:absolute;
-	/* background:#ff80ff; */
+	background:#ffffff;
 	width:60%;
 	top:21%;
 	height:70%;

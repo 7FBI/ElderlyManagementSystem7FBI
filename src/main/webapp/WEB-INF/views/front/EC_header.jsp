@@ -35,12 +35,12 @@
 							class="am-icon-home am-icon-fw"></i>系统首页</a>
 					</div>
 				</div>
-				<div class="topMessage home">
+				<!-- <div class="topMessage home">
 					<div class="menu-hd">
 						<a href="/front/products/selectAllProducts" target="_top"
 							class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
 					</div>
-				</div>
+				</div> -->
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng">
 

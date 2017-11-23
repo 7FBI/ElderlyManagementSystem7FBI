@@ -138,13 +138,14 @@ font-size:14px ;
 	
 /*头*/
 header { display:block;}
-header article{max-width: 1200px;margin:0px auto;}
+header article{max-width: 100%;margin:0px auto;background:#f9f9f9;}
 .mt-logo .mt-tblogo {width:20%;display: inline-block;vertical-align: middle;}
 .message-l{ float:left;}
-.message-l .topMessage{padding: 0px 6px;height: 35px;line-height: 35px;}
+.message-l .topMessage{padding: 0px 6px;height: 35px;line-height: 35px;margin-left:-100px;}
 .message-r {float: right;}
 .message-r .topMessage {float: left;padding: 0px 6px;height: 35px;line-height: 35px;}
-
+.mt-logo a{text-decoration:none;color:black;}
+.mt-logo a:hover{text-decoration:none;color:black;}
 
 /*浮动框*/
 .nav.white{width:100%;margin:0px auto;}

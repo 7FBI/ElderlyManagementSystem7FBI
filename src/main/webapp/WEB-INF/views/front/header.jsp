@@ -19,16 +19,16 @@
 <body >
 	<header>
 	<div id="navbg"></div>
-	<div class="wrapper" style="height:80px;">
+	<div class="wrapper" style="height:140px;">
 		<h1 class="logo">
 			<a href="#" title="宜嘉FBI老人管理系统"> <img
-				src="/resources/front/images/logo.png" width="213" height="36"
+				src="/resources/front/images/self_img/yijia_bg_logo.png" style="width:380px;height:70px;"
 				alt="宜嘉FBI老人管理系统" />
 			</a>
 		</h1>
 		<nav>
 		<ul>
-			<li class="home"><a href="${pageContext.request.contextPath}/">首页</a></li>
+			<li class="home"><a href="${pageContext.request.contextPath}//front/frontinformation/selectFour">首页</a></li>
 			<li class="about"><a href="/gotoFront/HealthSystem">健康系统</a></li>
 			<li class="service"><a href="${pageContext.request.contextPath}/front/videos/allvideo">教育系统</a></li>
 			<li class="cases"><a href="/front/products/selectAllProducts">电子商务</a></li>
