@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bean.Feedback;
 import com.bean.FeedbackUser;
+import com.bean.Feedbackreplycount;
 
 public interface FeedbackMapper {
     
@@ -33,5 +34,8 @@ public interface FeedbackMapper {
    
    /* 用户未回复反馈*/
    List<Feedback> selectBystatu0(String uid);
+   
+  /* 用户已回复反馈以及回复内容*/
+   List<Feedbackreplycount> selectByreplyfeedback(String uid);
     
 }

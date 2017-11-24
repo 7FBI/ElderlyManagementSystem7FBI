@@ -19,9 +19,7 @@
 		<link href="/resources/front/css/self_exchange/infstyle.css" rel="stylesheet" type="text/css">
 		
 <script src="/resources/front/js/self_exchange/jquery.min.js" type="text/javascript"></script>
-		<script src="/resources/front/js/self_exchange/amazeui.js" type="text/javascript"></script>
-
-
+<script src="/resources/front/js/self_exchange/amazeui.js" type="text/javascript"></script>
 </head>
 <body>
 <!--头 -->
@@ -190,8 +188,7 @@
 					</div>
 				</div>
 			</div>
-<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>
-			
+<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
 
 

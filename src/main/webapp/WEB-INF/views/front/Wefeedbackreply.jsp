@@ -1,23 +1,274 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<title>我的反馈</title>
-<link href="/resources/front/css/self_exchange/newstyle.css" rel="stylesheet" type="text/css">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<!--  修改-->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+		<title>我的消息</title>
+		<link href="/resources/front/css/self_exchange/newstyle.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/admin.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/amazeui.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/personal.css" rel="stylesheet" type="text/css">
 		<link href="/resources/front/css/self_exchange/infstyle.css" rel="stylesheet" type="text/css">
-		<link href="/resources/front/css/self_exchange/feedback1.css" rel="stylesheet" type="text/css">
 		<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
 		<script src="/resources/front/js/self_exchange/amazeui.js"></script>
-</head>
-<body>
-<!--头 -->
-<jsp:include page="Self_header.jsp"></jsp:include>
+<style type="text/css">
+.clearfix::after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.container{
+ width:100%;
+ margin:0 auto 0;
+ background-color:#FFF;
+ overflow:hidden;
+}
+.comments{
+font: 12px/1.5 "Hiragino Sans GB","Microsoft YaHei",simsun;
+font-size: 13px;
+color: #211922;
+margin-left:20px;
+}
+.comments .title{
+  font-family: "Microsoft YaHei";
+  font-size: 18px;
+  font-weight: normal;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+.comments .num_area{
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+}
+em {
+    font-style: normal;
+}
+.comment_send{
+ font-size:12px;
+ position: relative;
+ padding: 20px 0;
+ border-top: 1px solid #dcdcdc;
+}
+.comment_avatar{
+ float:left;
+ width: 60px;
+ text-align: center;
+}
+.comments .comment_send .userPic{
+ height: 60px;
+ margin-right: 20px;
+ width: 60px;
+}
+.userPic img{
+  border-radius: 100%;
+}
+.userPic {
+    display: block;
+}
+img {
+    border: 0;
+}
+.comments .comment_sendPart {
+    padding-left: 80px;
+
+}
+.comments .btn_p {
+    position: relative;
+    height:40px;
+}
+.comments span.emotion{
+ background:url(/resources/front/images/emot.gif) no-repeat scroll 2px 2px;
+ cursor: pointer;
+ height: 20px;
+ padding-left: 40px;
+ width:42px;
+}
+.btn_p .reply{
+  height:100%;
+  width:500px;
+  font-family: "Microsoft YaHei";
+  font-size: 16px;
+  color:red;
+  width:500px;
+  inline-height:30px;
+  overflow:hidden;
+  border:none;  
+}
+.textarea_comment{
+ width:1000px;
+ height:40px;
+ margin-left:40px;
+}
+.textarea_comment .textr{
+  width:860px;
+  height:100%;
+}
+.spans{
+ display:inline-block;
+ height:30px;
+ line-height:30px;
+ margin:auto 0;
+ text-align:center;
+ color:#999;
+ font-size:12px;
+ border:none;
+}
+.gui{width:600px;text-align:left;overflow:hidden;}
+.huij{margin-left:10px; border:none;}
+.comment_wrap{width:100%;height:280px;overflow-y:scroll;overflow-x:hidden;}
+.comment_list{border-left:1px solid gray;margin-bottom: 10px;
+padding-bottom: 20px;}
+.comment_list .comment_avatar{
+  font-size:12px;
+  padding-right:16px;
+  position: relative;
+  text-align: center;
+  width: 60px;
+  float: left;
+  margin-left:10px;
+}
+.comment_list .userPic{
+  height: 36px;
+  margin-bottom: 4px;
+  width: 36px;  
+}
+.grey{color:#999;width:100px; dispaly:inline-block;}
+.comment_conBox{
+  color:#666;
+  float: left;
+}
+.comment_avatar_time{
+ overflow:hidden;
+ height:30px;
+ width:840px;
+}
+.comment_avatar_time .textreply{
+ width:600px;
+ height:30px;
+ line-height:30px;
+ font-size:14px;
+ color:#333;
+  
+ float:left;
+ overflow-x:hidden;
+}
+.comment_avatar_time .time{
+ float:right;
+ margin-right:20px;
+ display:inline-block;
+ color:#999;
+ font-size:14px;
+  height:30px;
+ line-height:30px;
+}
+.comment_conBox .comment_conWrap{
+  width:840px;
+  height:30px;
+  overflow:hidden;
+ 
+}
+.comment_conWrap .dty{
+ display:block;
+ float:left;
+ width:600px;
+ height:30px;
+ line-height:30px;
+ font-size:12px;
+ color:#333;
+ font-family:"Microsoft YaHei";
+ 
+ margin-left:40px;
+ overflow-x:hidden;
+}
+.comment_conWrap .times{
+ display:block;
+ float:left;
+ width:120px;
+ height:30px;
+ line-height:30px;
+ font-size:12px;
+ color:#333;
+ font-family:"Microsoft YaHei";
+ 
+}
+.comment_conWrap .again{
+ display:block;
+ width:80px;
+ height:30px;
+ line-height:30px;
+ text-align:right;
+ float:left;
+ font-family:"Microsoft YaHei";
+}
+.tabtwo{
+ width:1000px;
+ margin:0 auto;
+ overflow-y:scroll;
+}
+.tabtwo li{
+ width:980px;
+ height:80px;
+ margin:10px auto;
+}
+.tab_div{
+ width:700px;
+ float:left;
+ height:100%;
+}
+.tab_div .div_1{
+   height:30px;
+    
+}
+.div_1 span{
+  height:30px;
+  line-height:30px;
+  margin-left:10px;
+}
+.div_1 .smarit{
+ font-size:12px;
+ float:right;
+ margin-right:30px;
+ width:120px;
+ text-align:right;
+ overfloe:hidden;
+ font-family:"Microsoft YaHei";
+}
+.div_2 span{
+  height:25px;
+  line-height:20px;
+  width:100%;
+  font-size:12px;
+  padding-right:20px;
+  padding-left:10px;
+}
+.tab_2{
+  width:200px;
+  height:100%;
+  float:left;
+}
+.tab_2 span{
+ width:100px;
+ height:30px;
+ line-height:30px;
+ float:right;
+ margin-right:10px;
+ margin-top:40px;
+}
+</style>
+	</head>
+	<body>
+		<!--头 -->
+		<jsp:include page="Self_header.jsp"></jsp:include>
             <div class="nav-table">
 					   <div class="long-title"><span class="all-goods">全部分类</span></div>
 					   <div class="nav-cont">
@@ -49,111 +300,92 @@
 
 						<div class="am-tabs am-tabs-d2" data-am-tabs>
 							<ul class="am-avg-sm-3 am-tabs-nav am-nav am-nav-tabs">
-								<li class="am-active"><a href="#tab1">系统反馈</a></li>
-								<li><a href="#tab2">商城反馈</a></li>
+								<li class="am-active"><a href="#tab1">已回复</a></li>
+								<li><a href="#tab2">未回复</a></li>
 							</ul>
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
-									<!-- 你的内容 -->
-		                       <div class="innerframe">
-		                       <table class="innerthui">
-		                       <tbody>
-		                       <tr>
-		                       <td>
-		                       <form id="limesurvey" action="">
-		                       <div class="welcome-table">
-		                       <span class="survey-welcome">
-		                                              尊敬的用户：<br>                 
-	                                                      您好！为了给您提供更好的服务，我们希望收集您使用
-	                           <strong><span style="color:rgb(255, 0, 0);">宜嘉老年管理系统</span></strong>
-	                                                     时的看法或建议。对您的配合和支持表示衷心感谢！
-		                       </span> 
-		                       </div>
-		                       </form>
-		                       </td>
-		                       </tr>
-		                       </tbody>
-		                       </table>
-		                       <form class="group-0" id="group-0" action="">
-		                       <div class="questiontext">
-		                       <strong>如果您在使用
-		                        <span style="color: rgb(255, 0, 0);">宜嘉老年管理系统</span>
-		                                                时，有什么好或不好的地方，请大声说出来！我们会关注您的反馈，不断优化产品，为您提供更好的服务！
-		                       </strong>
-		                       </div>
-		                       <div class="answer">
-		                       <textarea name="content" class="textarea"></textarea>
-		                       </div>
-		                       <input name="uid" type="hidden" value="${oldUsers.uid}">
-		                       <input name="status" type="hidden" value="0">
-		                       <div class="survey-question-help">
-		                       <img src="">
-		                                              请留下你的联系信息，我们会即时对你的反馈进行处理，我们会对你的信息进行保密
-		                       </div>
-		                       <div class="tryop">
-		                        <p>
-		                        <label>姓名</label>
-		                        <input class="" name="username" >
-		                        </p>
-		                        <p>
-		                        <label>手机号</label>
-		                        <input class="" name="telephone" >
-		                        </p>
-		                       </div>
-		                       <div class="navigator-table">
-		                       <button type="button" class="submit-buttons">提交反馈</button>
-		                       </div>
-		                       </form>
-		                       </div>
-								</div>
-
-								<div class="am-tab-panel am-fade" id="tab2">
-								  <div class="welcome-table">
-		                       <span class="survey-welcome">
-		                                              尊敬的用户：<br>                 
-	                                                      您好！你对收到
-	                           <strong><span style="color:rgb(255, 0, 0);">宜嘉官网商城</span></strong>
-	                                                       的商品有什么问题或者对商城有什么建议，请在下方填写                       
-		                       </span> 
-		                       </div>
-								  <div class="jianyi">
-								  <form action="" id="producby">
-								  <p class="becauser">反馈描述:</p>
-								  <textarea name="content" class="textrt" placeholder="请尽情的吐槽吧 "></textarea>
-								  <input name="uid" type="hidden" value="${oldUsers.uid}">
-								  <input name="status" type="hidden" value="0">
-								  <div class="m-imgshow f-imgshow">
-								  <div class="thumbnail-list" style="position: relative;">
-								  <span class="btn-upload" style="position:relative;z-index:0;"></span>
-								  <span class="upload-num">
-								   共<em>0</em>张
-								  还能上传<em>9</em>张
+								<div class="container clearfix">
+								 <div class="comments">
+								  <div class="title">
+								    已处理
+								  <span class="num_area">(<em id="comments_num" class="comments_num">874</em>)</span>
+								  </div>
+								  <div class="comment_send clearfix">
+								  <div class="comment_avatar">
+								  <span class="userPic">
+								  <img class="userPic avatar user_my_avatar" src="/resources/front/images/avatar.jpg" alt="" width="60" height="60"></span>
+								  <font class="username">test</font>
+								  </div>
+								  <div id="reply_0" class="comment_sendPart">
+								  <div class="btn_p clearfix">
+								  <span class="emotion" tabindex="1" data-id="0"></span>
+								  <textarea rows="" cols="2" class="reply">${endtime.replyinformation}</textarea>
+								  <span style="font-size:12px;color:#999;width:100px;margin-left:100px;">三小时前</span>
+								  <span style="font-size:14px;color:#333;width:200px;margin-left:30px;text-align:left; "><fmt:formatDate value="${endtime.time}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+								  </div>
+								  <div class="textarea_comment">
+								  <div class="textr">
+								  <span class="spans">我的反馈：</span>
+								   <textarea rows="" cols="" class="spans gui">${endtime.content}</textarea>
+								  <span class="spans huij"><fmt:formatDate value="${endtime.speaktime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+								  </div>
+								  </div>
+								  </div>
+								  </div>
+								  <div id="comment_wrap" class="comment_wrap">
+								  <ul class="comment_listBox">
+								  <c:forEach items="${replys}" var="reply">
+								  <li class="comment_list clearfix">
+								  <div class="comment_avatar">
+								  <span class="userPic"><img alt="" src="/resources/front/images/avatar.jpg" width="36" height="36"></span>
+								  <span class="grey">dpeng123</span>
+								  </div>
+								  <div class="comment_conBox">
+								  <div class="comment_avatar_time">
+								  <span class="textreply">
+								   管理员回复:<font>${reply.replyinformation}</font>
 								  </span>
-								  <div class="plupload html5" style="position: absolute; background: transparent none repeat scroll 0% 0%; width: 50px; height: 50px; overflow: hidden; z-index: 2; opacity: 0; top: 0px; left: 110px;">
-								  <input name="graphTheorise" style="font-size:999px;position:absolute;width:100%;height:100%;" accept="image/jpeg,image/gif,image/png,image/bmp" type="file"  multiple="multiple">
+								  <span class="time"><fmt:formatDate value="${reply.time}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+								  </div>
+								  <div class="comment_conWrap clearfix">
+								  <span class="dty">
+								  <em>我的反馈：</em>
+								    ${reply.content}
+								  </span>
+								  <span class="times"><fmt:formatDate value="${reply.speaktime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+								  <span class="again"><a style="color:#333;font-size:12px;" href="#">再次反馈>></a></span>
 								  </div>
 								  </div>
-								  <div class="bacayt">
-								  <div class="bacat_yui">
-								   请留下你的联系信息，我们会即时对你的反馈进行处理，我们会对你的信息进行保密
+                                  </li>
+							      </c:forEach>
+								  </ul>
 								  </div>
-								<div class="tryop">
-		                        <p>
-		                        <label>姓名</label>
-		                        <input class="" name="username" >
-		                        </p>
-		                        <p>
-		                        <label>手机号</label>
-		                        <input class="" name="telephone" >
-		                        </p>
-		                         </div>
-								  </div>
-								  <div class="bacatrt_1">
-								  <button type="button" class="buttons" >提交反馈</button>
-								  </div>
-								  </div>
-								  </form>
-								  </div>
+								 </div>
+								</div>
+								</div>
+								<div class="am-tab-panel am-fade" id="tab2">
+                                <div class="tabtwo">
+                                <ul>
+                                <c:forEach items="${replynone}" var="replynone">
+                                <li>
+                                <div class="tab_div">
+                                <div class="div_1">
+                                <span><em>时间:</em><fmt:formatDate value="${replynone.speaktime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
+                                <span class="smarit">三天以前</span>
+                                </div>
+                                <div class="div_2">
+                                <span><em>未回复:</em>${replynone.content}</span>
+                                
+                                </div>
+                                </div>
+                                <div class="tab_2">
+                                <span>再次反馈>></span>
+                                </div>
+                                </li>
+                                </c:forEach>
+                                </ul>
+                                </div>
 								</div>
 							</div>
 						</div>
@@ -187,42 +419,4 @@
   <jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
 	</body>
-<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).on('click',".submit-buttons",function(){
-	var froms=$("#group-0");
-	$.ajax({
-		type : 'post',
-		url:"/front/feedback/insertoutfeedback.action",
-		data : froms.serialize(),
-		success :function(data){
-			if(data=="ture"){alert("你对反馈已经提交 我们会尽快回复");}
-			else if(data=="false"){
-		    alert("你对反馈提交出现了问题！")
-	    }
-		},
-		error : function() {
-			alert("网络错误");
-		}
-	})
-})
-$(document).on('click',".buttons",function(){
-	 var froms=$("#producby");
-	 $.ajax({
-		 type:'post',
-		 url:"/front/feedback/insertfeedproducts.action",
-		 data:froms.serialize(),
-		 success:function(data){
-			 if(data=="ture"){
-				 alert("你的反馈提交成功！")
-			 }else if(data=="false"){
-				 alert("你的提交失败")
-			 }
-		 },
-		 error:function(){
-			 
-		 }
-	 })
-})
-</script>
 </html>

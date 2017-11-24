@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bean.Feedback;
 import com.bean.FeedbackUser;
+import com.bean.Feedbackreplycount;
 
 public interface FeedbackService {
     /*根据id删除反馈信息*/
@@ -30,5 +31,14 @@ public interface FeedbackService {
    public List<FeedbackUser> selectBystatus();
    /* 已回复信息*/
    public List<FeedbackUser> selectBystatustoone();
+   
+   /* 用户已回复反馈*/
+   public List<Feedback> selectBystatus1(String uid);
+   
+   /* 用户未回复反馈*/
+   public List<Feedback> selectBystatu0(String uid);
+   
+   /* 用户已回复反馈以及回复内容*/
+   public List<Feedbackreplycount> selectByreplyfeedback(String uid);
    
 }

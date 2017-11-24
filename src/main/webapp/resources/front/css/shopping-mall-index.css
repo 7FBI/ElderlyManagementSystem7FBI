@@ -91,22 +91,7 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .sp-con-info .m-act li .li-top .jiage{ padding:5px 20px 0;}
 
 
-/***********美容美发摄影首页***********/
-.beaut-lg{margin-top:20px;}
-.beaut-lg .beaut-left{ width:277px; height:335px; border:1px solid #f1f1f1;}
-.beaut-left dl{}
-.beaut-left dt{ width:242px; height:44px; line-height:44px; border-bottom:1px solid #f1f1f1; font-size:14px; color:#000; padding-left:35px; background:#f7f7f7 url(../images/home-b-m-dtbg.gif) no-repeat 10px center;}
-.beaut-left dd{ padding:5px 0;}
-.beaut-left dd a{display:inline-block;height:25px;line-height:25px;margin:0 10px;font-size:14px;color:#000;}
-.beaut-left dd a:hover{ color:#F09E0B;}
-.beaut-lg ul{border:1px solid #f1f1f1; border-bottom:none;}
-.beaut-lg li{ width:148px; height:83px; border-right:1px solid #f1f1f1; border-bottom:1px solid #f1f1f1; float:left;}
-.beaut-lg li a{ display:block; height:83px;}
-.beaut-lg li img{ margin:22px auto;}
-
-.sp-con-info .beaut{ height:auto;}
-.sp-con-info .beaut li{ height:320px;}
-.sp-con-info .beaut li .li-top .li-top-tu{ height:140px; display:block; overflow:hidden;}
+ 
 
 
 /**********商家店铺页面************/
@@ -184,7 +169,8 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .shop-right-con .shop-ul-tu li .pingjia{line-height:22px; margin:15px 8px 0; padding-left:21px; background:url(../images/sp-con-r-md-pj.gif) no-repeat left center; color:#9D9D9D;}
 .shop-right-con .shop-ul-tu li .weike{ color:#444; font-size:14px; margin:0 11px;}
 
-/*留言板块*/
+  /*留言板块*/
+ /*
 .message-board{ margin-top:20px;}
 .message-board .mb-tit{ height:50px; border:1px solid #DBDBDB; background:#f7f7f7;}
 .message-board .mb-tit p{ line-height:50px; padding-left:20px; font-size:14px; color:#2A2A2A;}
@@ -199,8 +185,16 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .message-board .mb-info .mb-info-time{ text-align:right; font-size:14px; color:#767676; margin-right:20px;}
 .message-board .message{ width:1178px; height:220px; padding:5px 10px; font-size:14px; color:#979797; border:1px solid #DBDBDB; margin-top:20px;}
 .message-board .mb-btn{ width:147px; height:47px; background:#F09E0B; border:none; margin-top:10px; font-size:16px; color:#fff; cursor:pointer;}
+ */
 
-
+.int-con-ul1 li .sitetpy{
+	margin: 0 7px 0;
+	width:200px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	overflow: hidden;	
+}
 /***********关于我们 内容***********/
 .about-us-con{ margin-top:50px;}
 .us-if1-left{ margin-right:45px;}
@@ -219,27 +213,6 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .us-info3 .ue3-top .us-right .us3-font p{ text-indent:2em; font-size:14px; color:#5D5D5D; line-height:30px;}
 .us-info3 .us3-bt{  text-indent:2em; font-size:14px; color:#5D5D5D; line-height:30px; }
 
-
- 
-
-
- 
-  
-
- 
-
- 
-
- 
-
-
- 
- 
-
-
- 
- 
- 
 /*个人资料*/
 .data-con{ margin:20px;}
 .data-con .dt1{ margin-bottom:10px;}
@@ -316,15 +289,6 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .md-ft a{ margin-right:15px; line-height:44px}
 .md-ft button{ width:77px; height:44px;border:none;float:right; cursor:pointer;font-size:14px; color:#fff; background:#F19F0B;}
  
-
-
- 
-
-
- 
-
- 
- 
 /*会员积分*/
 .member{ width:963px;}
 .member .mem-info1{ width:961px; border:1px solid #E0E0E0; margin-bottom:20px;}
@@ -387,8 +351,90 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 .int-r-con .int-con-ul1{ display:none;}
 .int-r-con .int-con-ul1 li{ float:left; width:218px; height:291px; border:1px solid #F1F1F1; text-align:center; margin:0 0 8px 8px;}
 .int-r-con .int-con-ul1 li img{ margin:18px auto;width:120;height:90px;}
-.int-r-con .int-con-ul1 li h3{ line-height:27px;}
-.int-r-con .int-con-ul1 li h3 a{ font-size:14px; color:#212121;}
+/* .int-r-con .int-con-ul1 li h3{ line-height:27px;}
+.int-r-con .int-con-ul1 li h3 a{ font-size:14px; color:#212121;} */
+.int-r-con .int-con-ul1 li .sitetpy{
+	margin: 0 7px 0;
+	width:204px;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+.sitetpy .balnk{
+	text-align:right;
+}
+.int-r-con .int-con-ul1 li .info{
+	width:204px;
+	margin: 0 7px;
+	line-height: 18px;
+	height: 36px;
+	overflow: hidden;
+	font-size: 12px;
+    color: #999;
+    text-decoration: none;
+}
+.info h4{
+display: inline;
+margin: 0;
+padding: 0;
+font-size: 12px;
+font-weight: normal;
+}
+.info a{
+color: #333;
+text-decoration: none;
+line-height: 18px;
+text-align: left;
+font-size: 12px;
+font-weight: normal;
+}
+.int-r-con .int-con-ul1 li h5{
+	text-align: left;
+	color: #999;
+	height: 30px;
+	margin: 4px 7px 0;
+	width: 204px;
+	overflow: hidden;
+	font: 12px/30px "";
+	padding:0;
+}
+.int-r-con .int-con-ul1 li h5 span{
+	float: left;
+	color: #e20000;
+	padding-right: 5px;
+	font: 14px/30px "微软雅黑";
+	margin: 0;
+}
+.int-r-con .int-con-ul1 li h5 em{
+	text-decoration: line-through;
+}
+.int-r-con .int-con-ul1 li h5 .total{
+	display:inline-block;
+	float:right;
+}
+.int-r-con .int-con-ul1 li h2{
+	width: 204px;
+	margin: 6px 7px 0;
+	line-height: 20px;
+	text-align: right;
+	padding: 0;
+font-size: 12px;
+font-weight: normal;
+}
+.int-r-con .int-con-ul1 li h2 span{
+	color: #999;
+font-weight: normal;
+float: left;
+font-size:12px;
+}
+.int-r-con .int-con-ul1 li h2 a{
+	background:url(/resources/front/images/dealicon.png) 0 -25px no-repeat;
+	width:60px;
+    height: 23px;
+display: inline-block;
+line-height: 500px;
+overflow: hidden;
+}
 .int-r-con .int-con-ul1 li .p1{ font-size:14px; color:#212121;line-height:27px;}
 .int-r-con .int-con-ul1 li .p2{ font-size:14px; color:#DF3332;line-height:37px;}
 .int-r-con .int-con-ul1 li .p2 span{ font-size:24px;}

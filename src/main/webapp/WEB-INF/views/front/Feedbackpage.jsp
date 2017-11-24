@@ -16,9 +16,7 @@
 		<link href="/resources/front/css/self_exchange/feedback1.css" rel="stylesheet" type="text/css">
 		<script src="/resources/front/js/self_exchange/jquery.min.js"></script>
 		<script src="/resources/front/js/self_exchange/amazeui.js"></script>
-
 	</head>
-
 	<body>
 		<!--头 -->
 		<jsp:include page="Self_header.jsp"></jsp:include>

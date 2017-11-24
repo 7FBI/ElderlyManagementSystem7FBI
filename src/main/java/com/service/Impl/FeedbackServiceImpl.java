@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bean.Feedback;
 import com.bean.FeedbackUser;
+import com.bean.Feedbackreplycount;
 import com.dao.FeedbackMapper;
 import com.service.FeedbackService;
 
@@ -84,4 +85,21 @@ public class FeedbackServiceImpl implements FeedbackService{
 		return  feedbackMapper.selectBystatustoone();
 	}
 
+	@Override
+	public List<Feedback> selectBystatus1(String uid) {
+		// TODO Auto-generated method stub
+		return  feedbackMapper.selectBystatus1(uid);
+	}
+
+	@Override
+	public List<Feedback> selectBystatu0(String uid) {
+		// TODO Auto-generated method stub
+		return feedbackMapper.selectBystatu0(uid);
+	}
+
+	@Override
+	public List<Feedbackreplycount> selectByreplyfeedback(String uid) {
+		// TODO Auto-generated method stub
+		return feedbackMapper.selectByreplyfeedback(uid);
+	}
 }

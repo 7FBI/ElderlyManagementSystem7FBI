@@ -194,6 +194,11 @@ background-color: #dbdbdb;
 				<a id="gotop" href="javascript:void(0)">top</a>
 			</nav>
 		</div>
+		<!-- 漂浮意见反馈 返回顶部 -->
+<div class="tooubar">
+<a href="/front/feedback/topfeedbackOiduser.action" class="toolbar-item toolbar-item-feedback"></a>
+<a href="javascript:scroll(0,0)" id="top" class="toolbar-item toolbar-item-top"></a>
+</div>
   <div id="footerinfo" style="position:absolute;top:1860px;">
     <div class="wrapper">
 				<h2>联系我们<strong>Contact</strong></h2>

@@ -404,9 +404,9 @@
   select * from feedback where status=0 and uid=#{uid}
 </select>
 <!-- 用户已经回复反馈 反馈信息以及内容 -->
-<!-- <select id="selectByreplyfeedback" parameterType="java.lang.String" resultType="">
-   feedback.*,feedbackreply.content,feedbackreply.speaktime 
+<select id="selectByreplyfeedback" parameterType="java.lang.String" resultType="com.bean.Feedbackreplycount">
+   select feedback.*,feedbackreply.content replyinformation,feedbackreply.speaktime time
    from feedback,feedbackreply 
    where feedbackreply.fid=feedback.id and feedback.uid=#{uid}
-</select> -->
+</select>
 </mapper>

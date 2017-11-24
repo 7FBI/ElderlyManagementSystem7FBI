@@ -95,7 +95,6 @@ public class ProductsController {
 		    modelAndView.addObject("uid",uid);
 		    modelAndView.setViewName("backstage/oldusersicknessproductdetail");
 		    return modelAndView;
-	
 	}
 	@RequestMapping(value="/Uploadfiles.action")   //上传商品其余图片方法
 	public String UploadFilestest(HttpServletRequest request,MultipartFile[] graphTheorise,int id){
