@@ -43,7 +43,7 @@ background-color: #dbdbdb;
 
 
 	<!-- 查找最顶级栏目  -->
-	<div class="layui-carousel" id="test1">
+	<div class="layui-carousel" id="test1" >
 		<div carousel-item>
 			<div style="background:url(/resources/front/images/banner_bg3.jpg)">aaa1</div>
 			<div style="background:url(/resources/front/images/banner_bg4.jpg)">aaa2</div>
@@ -93,7 +93,7 @@ background-color: #dbdbdb;
 					<li class="info_content_li">
 						<a href="/front/frontinformation/selectByKey?id=${list.id}">
 						    <div class=" info_content_li_title">
-						    	<span class="news-right-title">&nbsp;&nbsp;<em>.</em>&nbsp;&nbsp;${list.newstitle }</span>
+						    	<span class="news-right-title">&nbsp;&nbsp;<em>.</em>&nbsp;&nbsp;<nobr>${list.newstitle }</nobr></span>
 						    </div>
 						    <div  class=" info_content_li_time">
 										<p class="news-right-time"><fmt:formatDate value="${list.sendtiem}" pattern="yyyy-MM-dd" /></p>
@@ -122,7 +122,7 @@ background-color: #dbdbdb;
  <!--  <div class="cat_title wrapper">
    </div> -->
   <div class="newsdata">
-    <div class="newsad" style="background:red;"> 
+    <div class="newsad" > 
     
     <!--图片轮播  -->
 		<div id="carousel-example-generic" class="carousel slide"
@@ -166,7 +166,7 @@ background-color: #dbdbdb;
 		</div>
 	
     </div>
-    <ul style="background:yellow;">
+    <ul>
       <c:forEach items="${hotnews }" var="hotnews">
       <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
           <img src="/files${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>

@@ -199,6 +199,7 @@ text-decoration:underline;
 /*所有的通告  */
 .infomation{
 	position:absolute;
+	background:#e7e6e4;
 	width:100%;
 	height:100%;
 	top:20%;
@@ -237,8 +238,8 @@ text-decoration:underline;
 .infomation_list{
 	position:absolute;
 	width:70%;
-	height:98%;
-	/* background:#ff80c0; */
+	height:58%;
+	background:#ffffff;
 	top:42%;
 	margin:0 15%;
 	clear:both;
@@ -248,9 +249,12 @@ text-decoration:underline;
 .list
 {
 	position:relative;
-	width:100%;
+	width:90%;
 	height:5%;
-	/* background:#0000ff; */
+	top:5%;
+	padding:2%;
+	margin:0 5%;
+/* 	background:#0000ff; */
 }
 
 .list_title{
@@ -263,7 +267,7 @@ text-decoration:underline;
 	
 }
 .list_title a{
-	font-size:18px;
+	font-size:15px;
 	color:black;
 	
 }
