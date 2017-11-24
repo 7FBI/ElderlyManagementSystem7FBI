@@ -9,6 +9,7 @@ import com.bean.Products;
 import com.bean.productCustom;
 
 public interface ProductsService {
+	List<Products> productTypeTidByQuarter(Integer tid);
 	List<Products> productTypeGroupByQuarter();
 
 	List<Products> productTypeGroupByWeek();

@@ -75,7 +75,7 @@ public class ProductsStatisticeController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/typeDateView")
+	@RequestMapping("/typeView")
 	@ResponseBody
 	public Map<String, Object> typeDateView(HttpServletRequest request){
 		Map<String, Object> returnMap=new HashMap<String, Object>();
@@ -86,5 +86,19 @@ public class ProductsStatisticeController {
 		return returnMap;
 	}
 	
+	//bytypeView
+	@RequestMapping("/bytypeView")
+	@ResponseBody
+	public Map<String, Object> bytypeView(HttpServletRequest request){
+		Map<String, Object> returnMap=new HashMap<String, Object>();
+		Integer tid=0;
+		if (request.getParameter("tid")==null|"".equals(request.getParameter("tid"))) {
+			return null;
+		}
+		tid=Integer.valueOf(request.getParameter("tid"));
+		List<Products> quarterList=productsService.productTypeTidByQuarter(tid);
+		returnMap.put("quarter", quarterList);
+		return returnMap;
+	}
 
 }

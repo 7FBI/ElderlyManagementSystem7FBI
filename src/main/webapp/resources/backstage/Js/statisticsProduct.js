@@ -2,6 +2,44 @@
  * 
  */
 
+function getValuesNameSumNum(data) {
+			var mapdata=new Array();
+			for ( var k in data) {
+				var items={name:data[k].pname.toString(),value:parseInt(data[k].sumNum)};
+				mapdata[k]=items;
+			}
+			return mapdata;
+		}
+
+function getValuesNameSumMoney(data) {
+	var mapdata=new Array();
+	for ( var k in data) {
+		var items={name:data[k].pname.toString(),value:parseInt(data[k].sumMoney)};
+		mapdata[k]=items;
+	}
+	return mapdata;
+}
+
+function getValuesNameSumNum2(xnames,data) {
+	var mapdata=new Array();
+	for ( var k in data) {
+		var items={name:xnames[k].toString(),value:parseInt(data[k])};
+		mapdata[k]=items;
+	}
+	return mapdata;
+}
+
+function getValuesNameSumMoney2(xnames,data) {
+var mapdata=new Array();
+for ( var k in data) {
+var items={name:xnames[k].toString(),value:parseInt(data[k])};
+mapdata[k]=items;
+}
+return mapdata;
+}
+
+
+
 function getPanmes(collections) {
 			var pnames = new Array();
 			for ( var k in collections) {
@@ -14,6 +52,13 @@ function getTids(collections) {
 	var pnames = new Array();
 	for ( var k in collections) {
 		pnames[k] = collections[k].tid;
+	}
+	return pnames;
+}
+function getIds(collections) {
+	var pnames = new Array();
+	for ( var k in collections) {
+		pnames[k] = collections[k].id;
 	}
 	return pnames;
 }

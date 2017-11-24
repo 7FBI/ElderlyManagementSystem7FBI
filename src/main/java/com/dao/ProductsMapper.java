@@ -4,13 +4,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import com.bean.OldDiseaselibrary;
 import com.bean.Page;
 import com.bean.Products;
 import com.bean.productCustom;
-
+@Repository("productsMapper")
 public interface ProductsMapper {
+	List<Products> productTypeTidByQuarter(Integer tid);
 	List<Products> productTypeGroupByQuarter();
 	List<Products> productTypeGroupByWeek();
 	List<Products> productByidDateFormat(Integer id);
@@ -69,19 +71,19 @@ public interface ProductsMapper {
      */
     int updateByPrimaryKey(Products record);
 
-    List<Products> selectProductsByPage();      //查询所有商品
+    List<Products> selectProductsByPage();      //鏌ヨ鎵�鏈夊晢鍝�
 
 	List<Products> QueryProductsBypname(String pname);
 	
 	int selectId();
 	
-	long getProductsCount();     //获取商品总数量
+	long getProductsCount();     //鑾峰彇鍟嗗搧鎬绘暟閲�
 	
-	List<Products> fenye(Page page);        //分页方法 Page是分页公共类 根据page查询到该页面的商品
+	List<Products> fenye(Page page);        //鍒嗛〉鏂规硶 Page鏄垎椤靛叕鍏辩被 鏍规嵁page鏌ヨ鍒拌椤甸潰鐨勫晢鍝�
 	
-    public List<Products> getInvBycondtion(Page page); //根据条件查询帖子 模糊查询
+    public List<Products> getInvBycondtion(Page page); //鏍规嵁鏉′欢鏌ヨ甯栧瓙 妯＄硦鏌ヨ
     
-    public Integer searchTotalCount(Page page);// 根据描述 搜索商品数量
+    public Integer searchTotalCount(Page page);// 鏍规嵁鎻忚堪 鎼滅储鍟嗗搧鏁伴噺
 
 	List<Products> selectProductUrlByPid(Integer pid);
 
@@ -96,7 +98,7 @@ public interface ProductsMapper {
       
       public List<productCustom> productDiscount();
       
-//    销量排序
+//    閿�閲忔帓搴�
     public List<Products> querySaleProductCountByTid(Integer tid);
     public List<Products> querySomeProductByTid(Integer tid);
 }

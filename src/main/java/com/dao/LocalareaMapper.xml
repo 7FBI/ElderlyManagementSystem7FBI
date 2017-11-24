@@ -445,7 +445,7 @@
 	<!-- 查询分店用户今年消费情况 -->
 	<select id="getOurMeritUsersMoneyViews" resultMap="OurMeritSumMoneyPname" parameterType="java.lang.Integer">
 		SELECT COALESCE(sum(o.money),0) sumMoney,l.provincename
-		pname,DATE_FORMAT(o.ordertime,'%Y-%m-%d') dates
+		pname,DATE_FORMAT(o.ordertime,'%Y-%m') dates
 		FROM old_users ol,orders o,localarea l
 		WHERE ol.area=#{area} and o.uid=ol.uid and l.id=ol.area and
 		YEAR(o.ordertime)=YEAR(NOW()) GROUP BY

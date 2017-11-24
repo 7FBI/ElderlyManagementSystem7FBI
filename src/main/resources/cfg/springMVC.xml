@@ -97,6 +97,7 @@
 			<mvc:exclude-mapping path="/backstage/ceoinfo/login" />
 			<mvc:exclude-mapping path="/backstage/manager/login" />
 			<mvc:exclude-mapping path="/backstage/user/login.action" />
+			<mvc:exclude-mapping path="/backstage/statistics/products/**"/>
 			<bean class="com.interceptor.BackstageIndex"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>

@@ -6,6 +6,8 @@ import java.util.Map;
 import com.bean.Localarea;
 
 public interface LocalAreaService {
+	List<Localarea> getOurMeritMapViews();
+	List<Localarea> getOurMeritUsersMoneyViews(Integer area);
 	Localarea findTheName(String provincename);
 	List<Localarea> findAllLocalAreaMap(Map map);
 	int findAllCounts();

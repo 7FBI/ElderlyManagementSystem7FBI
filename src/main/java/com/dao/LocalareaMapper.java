@@ -9,6 +9,8 @@ import com.bean.Localarea;
 
 @Repository("localareaMapper")
 public interface LocalareaMapper {
+	List<Localarea> getOurMeritMapViews();
+	List<Localarea> getOurMeritUsersMoneyViews(Integer area);
 	Localarea findTheName(String provincename);
 	List<Localarea> findAllLocalAreaMap(Map map);
 	int findAllCounts();

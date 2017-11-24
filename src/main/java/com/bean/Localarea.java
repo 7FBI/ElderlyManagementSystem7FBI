@@ -1,11 +1,52 @@
 package com.bean;
 
+import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Localarea {
+	@JsonFormat(pattern = "yyyy-MM", timezone = "GMT+8")
+	private Date dates;
+	private Double sumMoney;
+	public Double getSumMoney() {
+		return sumMoney;
+	}
+
+	public void setSumMoney(Double sumMoney) {
+		this.sumMoney = sumMoney;
+	}
+
+	private Integer sumNum;
+	private String pname;
+	
+	public Date getDates() {
+		return dates;
+	}
+
+	public void setDates(Date dates) {
+		this.dates = dates;
+	}
+
 	List<Manager> managers;
 	public List<Manager> getManagers() {
 		return managers;
+	}
+
+	public Integer getSumNum() {
+		return sumNum;
+	}
+
+	public void setSumNum(Integer sumNum) {
+		this.sumNum = sumNum;
+	}
+
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 
 	public void setManagers(List<Manager> managers) {

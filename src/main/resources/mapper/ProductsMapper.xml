@@ -98,6 +98,8 @@
 		<result column="sumNum" property="sumNum" />
 		<result column="tid" property="tid" />
 	</resultMap>
+	
+	
 
 
 	<sql id="Base_Column_List">
@@ -858,6 +860,14 @@
 		WHERE
 		products.tid=#{tid,jdbcType=INTEGER}
 		ORDER BY RAND() LIMIT 6
+	</select>
+	
+	<select id="productTypeTidByQuarter" resultMap="ProductStatisticsTypeNumTid" parameterType="java.lang.Integer">
+		SELECT COALESCE(SUM(DISTINCT od.ordercount),0)
+		sumNum,DATE_FORMAT(o.ordertime,'%Y-%m-%d') datesDay FROM products
+		p,orderdetails od,orders o,classification c
+		WHERE p.id=od.pid and o.id=od.oid and p.tid=#{tid} and QUARTER(o.ordertime) =
+		QUARTER(now()) GROUP BY DATE_FORMAT(o.ordertime,'%Y-%m-%d')
 	</select>
 
 </mapper>

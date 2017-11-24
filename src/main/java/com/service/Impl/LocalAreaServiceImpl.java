@@ -90,4 +90,16 @@ private LocalareaMapper localareaMapper;
 		return localareaMapper.findTheName(provincename);
 	}
 
+	@Override
+	public List<Localarea> getOurMeritMapViews() {
+		// TODO Auto-generated method stub
+		return localareaMapper.getOurMeritMapViews();
+	}
+
+	@Override
+	public List<Localarea> getOurMeritUsersMoneyViews(Integer area) {
+		// TODO Auto-generated method stub
+		return localareaMapper.getOurMeritUsersMoneyViews(area);
+	}
+
 }

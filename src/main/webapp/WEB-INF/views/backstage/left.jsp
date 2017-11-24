@@ -222,6 +222,7 @@
 						<ul class="RM">
 						<c:if test="${ceoinfo!=null or (ManagerIndo!=null and ManagerIndo.type==0) }">
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/statistics/productType" target="main">排行榜与本季报表</a></li>
+							<li><a href="${pageContext.request.contextPath}/gotoBackstage/statistics/productTypeDate" target="main">分类销售报表</a></li>
 						</c:if>
 							<li><a href="${pageContext.request.contextPath}/backstage/Orders/SelectTOsend.action" target="main">已发货订单XXX</a></li>
 							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单XXX</a></li>
