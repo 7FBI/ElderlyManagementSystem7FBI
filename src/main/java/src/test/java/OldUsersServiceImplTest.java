@@ -1,7 +1,9 @@
 package src.test.java;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,13 +12,22 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.bean.OldUsers;
 import com.bean.Orderdetails;
+import com.bean.Remarkpicture;
+import com.bean.ShoppingCart;
 import com.service.OldUsersService;
 import com.service.OrderdetailsService;
+import com.service.RemarkpictureService;
+import com.service.ShoppingCartService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:cfg/applicationContext.xml")
 public class OldUsersServiceImplTest {
+	@Autowired
+	@Qualifier("shoppingCartService")
+	private ShoppingCartService shoppingCartService;
+	
 	@Autowired
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
@@ -24,6 +35,10 @@ public class OldUsersServiceImplTest {
 	@Autowired
 	@Qualifier("orderdetailsService")
 	private OrderdetailsService orderdetailsService;
+	
+	@Autowired
+	@Qualifier("remarkpictureService")
+	private RemarkpictureService remarkpictureService;
 
 	@Test
 	public void testQueryUsers() {
@@ -54,27 +69,50 @@ public class OldUsersServiceImplTest {
 	}
 	
 	@Test
-	public void ddddd(){
-		String string=getStatusJsp(null);
-		System.out.println("----------------->>>>"+string);
+	public void insertRemark(){
+		Map<String, List<Remarkpicture>> map=new HashMap<String, List<Remarkpicture>>();
+		List<Remarkpicture> list=new ArrayList<Remarkpicture>();
+		for (int i = 0; i < 2; i++) {
+			Remarkpicture remarkpicture=new Remarkpicture();
+			remarkpicture.setOpinionid(1);
+			remarkpicture.setRemarkurl("/front/oldUsers/image/oldusers.jpg");
+			list.add(remarkpicture);
+		}
+		map.put("list", list);
+		remarkpictureService.insertRemarkpictureList(map);
+		for (Remarkpicture remarkpicture : list) {
+			System.out.println("-------------------->>id:"+remarkpicture.getId());
+		}
 	}
-	public static String getStatusJsp(Integer status) {
-		if (status==null) {
-			return "/front/oldUser/ordersAllList";
+	
+	
+	@Test
+	public void ShopTest(){
+		List<Integer> pids=new ArrayList<Integer>();
+		for (int i = 1; i <= 2; i++) {
+			pids.add(i);
 		}
-		String s = "";
-		switch (status) {
-		case 1:
-			s="/front/oldUser/ordersAllList1";
-			break;
-		case 2:
-			s="/front/oldUser/ordersAllList2";
-			break;
-		default:
-			s="/front/oldUser/ordersAllList0";
-			break;
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("list", pids);
+		map.put("uid", "clong123");
+		List<ShoppingCart> sList=shoppingCartService.selectByaproduvtsList(map);
+		List<Integer> integers=new ArrayList<Integer>();
+		System.out.println("--------->>><<<----------");
+		for (ShoppingCart ShoppingCart : sList) {
+			System.out.println("----------------->商品id:"+ShoppingCart.getPid());
+			System.out.println("----------------->商品数量:"+ShoppingCart.getCartcount());
+			integers.add(ShoppingCart.getId());
 		}
-		return s;
+		System.out.println("--------->>><<<----------");
+		map.put("list", integers);
+		shoppingCartService.deleteByPrimaryKeyList(map);
+		List<ShoppingCart> sList2=shoppingCartService.selectByaproduvtsList(map);
+		System.out.println("--------->>><<<----------");
+		for (ShoppingCart ShoppingCart : sList2) {
+			System.out.println("----------------->商品id:"+ShoppingCart.getPid());
+			System.out.println("----------------->商品数量:"+ShoppingCart.getCartcount());
+		}
+		System.out.println("--------->>><<<----------");
 	}
 
 }
