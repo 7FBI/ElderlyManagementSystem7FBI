@@ -15,13 +15,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>地址管理</title>
 
-<link href="/resources/front/css/self_exchange/admin.css"
+<!-- <link href="/resources/front/css/self_exchange/admin.css"
 	rel="stylesheet" type="text/css">
 <link href="/resources/front/css/self_exchange/amazeui.css"
-	rel="stylesheet" type="text/css">
+	rel="stylesheet" type="text/css">-->
 
-<link href="/resources/front/css/self_exchange/personal.css"
-	rel="stylesheet" type="text/css">
+<link href="/resources/front/css/self_exchange/personal.css" 
+	rel="stylesheet" type="text/css"> 
+	
+	
 <link href="/resources/front/css/self_exchange/addstyle.css"
 	rel="stylesheet" type="text/css">
 <script src="/resources/front/js/self_exchange/js/jquery.min.js"
@@ -200,15 +202,16 @@
 									<div class="am-form-content">
 										<textarea class="" rows="3" id="user-intro"
 											placeholder="输入详细地址"></textarea>
-										<small>100字以内写出你的详细地址...</small>
+									<!-- 	<small>100字以内写出你的详细地址...</small> -->
 									</div>
 								</div>
 
 								<div class="am-form-group">
 									<div class="am-u-sm-9 am-u-sm-push-3">
-										<a class="am-btn am-btn-danger">保存</a> <a
+										<a class="am-btn am-btn-danger">保存</a> 
+										<!-- <a
 											href="javascript: void(0)"
-											class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
+											class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a> -->
 									</div>
 								</div>
 							</form>
@@ -241,68 +244,9 @@
 				<div class="clear"></div>
 
 			</div>
-			<!--底部-->
-			<div class="footer">
-				<div class="footer-hd">
-					<p>
-						<a href="#">恒望科技</a> <b>|</b> <a href="#">商城首页</a> <b>|</b> <a
-							href="#">支付宝</a> <b>|</b> <a href="#">物流</a>
-					</p>
-				</div>
-				<div class="footer-bd">
-					<p>
-						<a href="#">关于恒望</a> <a href="#">合作伙伴</a> <a href="#">联系我们</a> <a
-							href="#">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a
-							href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-							- Collect from <a href="http://www.cssmoban.com/" title="网页模板"
-							target="_blank">网页模板</a></em>
-					</p>
-				</div>
-			</div>
 		</div>
 
-		<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li class="active"> <a href="/front/oldUsers/selectByUid">个人信息</a></li>
-							<li> <a href="/gotoFront/SelfCenter_updatepassword">安全设置</a></li>
-							<li> <a href="/front/oldUsers/selectProfileByUid">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="/gotoFront/SelfCenter_Exchange">订单管理</a></li>
-							<li> <a href="/gotoFront/SelfCenter_RefundAndAfterSale">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="/gotoFront/SelfCenter_Coupon">优惠券 </a></li>
-							<li> <a href="/gotoFront/SelfCenter_CreditDetail">红包</a></li>
-							<li> <a href="bill.html">账单明细</a></li>
-						</ul>
-					</li>
-
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="/gotoFront/SelfCenter_Collection">收藏</a></li>
-							<li> <a href="/gotoFront/SelfCenter_BrowserHistory">足迹</a></li>
-							<li> <a href="/gotoFront/SelfCenter_Comment">评价</a></lSi>
-							
-						</ul>
-					</li>
-
-				</ul>
-
-			</aside>
+		<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>
 	</div>
 </body>
 </html>

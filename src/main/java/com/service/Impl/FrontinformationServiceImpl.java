@@ -88,4 +88,10 @@ public class FrontinformationServiceImpl implements FrontinformationService {
 		return frontinformationMapper.selectFour();
 	}
 
+	@Override
+	public List<Frontinformation> selectAllFrontinformation() {
+		// TODO Auto-generated method stub
+		return frontinformationMapper.selectAllFrontinformation();
+	}
+
 }

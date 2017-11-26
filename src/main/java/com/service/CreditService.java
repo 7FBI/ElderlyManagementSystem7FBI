@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bean.Credit;
 
@@ -23,4 +24,9 @@ public interface CreditService {
     
     //查询所有用户的积分表详情
     public List<Credit> selectCredit();
+    
+    
+    public Credit selectCreditByUid(String uid);  //查看当前登录用户的积分
+    public void updateCreditByBuy(Map<String, Object> map);  //用户买产品后积分增加
+    public void updateCreditByExchange(Map<String, Object> map);  //用户通过积分兑换商品后积分减少
 }

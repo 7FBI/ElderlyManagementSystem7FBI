@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Frontinformation;
 import com.service.FrontinformationService;
@@ -20,21 +21,45 @@ public class FrontinformationController {
 	private FrontinformationService frontinformationService;
 	
 	@RequestMapping("/selectall")
-	public String selectAll(HttpServletRequest request) {
-		List<Frontinformation> list=frontinformationService.selectAll();
-		for(int i = 0; i<list.size();i ++){
-			System.out.println("----------------------"+list.get(i).getNewstitle());
+	public ModelAndView selectAll(HttpServletRequest request) {
+		List<Frontinformation> lists=frontinformationService.selectAll();
+		List<Frontinformation> frontinformations = frontinformationService.selectAllFrontinformation();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("lists", lists);
+		modelAndView.addObject("frontinformations", frontinformations);
+		for(int i = 0; i<lists.size();i ++){
+			System.out.println("----------------------"+lists.get(i).getNewstitle());
 		}
-		request.setAttribute("list", list);
-		return "";
+		request.setAttribute("lists", lists);
+		
+	
+		
+		modelAndView.setViewName("front/Front_Infomation");
+		return modelAndView;
 	}
 	
 	//这是用来 在首页下方轮播新闻信息使用的方法
 	@RequestMapping("/selectFour")
-	public void selectFour(){
-		List<Frontinformation> list=frontinformationService.selectFour();
-		for(int i = 0; i<list.size();i ++){
+	public ModelAndView selectFour(){
+	List<Frontinformation> list=frontinformationService.selectFour();
+	ModelAndView modelAndView = new ModelAndView();
+	modelAndView.addObject("list", list);
+		/*for(int i = 0; i<list.size();i ++){
 			System.out.println("----------------------"+list.get(i).getNewstitle());
-		}
+		}*/
+	modelAndView.setViewName("/");
+	return modelAndView;
+	}
+	
+	//这是用来查询通告详情的
+	@RequestMapping("/selectByKey")
+	public ModelAndView selectByKey(Integer id){
+		Frontinformation frontinformation = frontinformationService.selectByKey(id);
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("frontinformation", frontinformation);
+		modelAndView.setViewName("front/Front_Infomation_Detail");
+		return modelAndView;
+		
 	}
 }

@@ -477,13 +477,19 @@
 	<!-- 首页信息板块的信息显示查询最新四条 -->
 	<select	id="selectFour" resultMap="BaseResultMap">
 		SELECT * from frontinformation 
-		ORDER BY  sendtiem DESC LIMIT 0,4 
+		ORDER BY  sendtiem DESC LIMIT 0,8 
 	</select>
 	<!-- 信息列表页 -->
 	<select id="selectAll" resultMap="FrontinformationAndInfopicture">
 		SELECT *
 		from frontinformation f, infopicture i
 		where i.infoid=f.id
+		ORDER BY sendtiem DESC
+	</select>
+	
+	<select id="selectAllFrontinformation" resultType="com.bean.Frontinformation">
+		SELECT *
+		from frontinformation f
 		ORDER BY sendtiem DESC
 	</select>
 	

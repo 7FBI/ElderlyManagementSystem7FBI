@@ -28,7 +28,7 @@
 		</h1>
 		<nav>
 		<ul>
-			<li class="home"><a href="${pageContext.request.contextPath}//front/frontinformation/selectFour">首页</a></li>
+			<li class="home"><a href="${pageContext.request.contextPath}/">首页</a></li>
 			<li class="about"><a href="/gotoFront/HealthSystem">健康系统</a></li>
 			<li class="service"><a href="${pageContext.request.contextPath}/front/videos/allvideo">教育系统</a></li>
 			<li class="cases"><a href="/front/products/selectAllProducts">电子商务</a></li>

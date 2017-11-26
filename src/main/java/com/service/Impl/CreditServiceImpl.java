@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,24 @@ public class CreditServiceImpl implements CreditService {
 	public List<Credit> selectCredit() {            //查看所有用户的积分表详情
 		// TODO Auto-generated method stub
 		return creditMapper.selectCredit();
+	}
+
+	@Override
+	public Credit selectCreditByUid(String uid) {
+		// TODO Auto-generated method stub
+		return creditMapper.selectCreditByUid(uid);
+	}
+
+	@Override
+	public void updateCreditByBuy(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateCreditByExchange(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
