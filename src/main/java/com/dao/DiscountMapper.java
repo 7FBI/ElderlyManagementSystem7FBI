@@ -64,4 +64,6 @@ public interface DiscountMapper {
 	Discount selectByPid(int pid);
 
 	List<Discount> selectListDiscount(Map map);
+	
+	 
 }

@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bean.Discount;
+import com.bean.Discouothers;
 import com.bean.OldUsers;
 import com.bean.ShoppingCart;
 import com.bean.Stormproducts;
+import com.service.DiscountService;
 import com.service.ShoppingCartService;
 import com.service.StormproductsService;
 
@@ -30,6 +33,9 @@ public class ShoppingCartController {
 	
 	@Autowired
 	private StormproductsService stormproductsService;
+	
+	@Autowired
+	private DiscountService discountService;
 	
 	
 	//将商品添加至购物车
@@ -91,21 +97,52 @@ public class ShoppingCartController {
 	@RequestMapping(value="/selectproducts.action")
 	public String SelectByproducts(HttpServletRequest request,int uid){
 		if(uid>0){
-			List<Stormproducts> list=new ArrayList<Stormproducts>();
+			/*普通商品*/
+			List<Stormproducts> list=new ArrayList<Stormproducts>(); 
+			/*打折商品*/
+			List<Stormproducts> tist=new ArrayList<Stormproducts>();
+			Discount sfrt=new Discount();
+			
 			list=stormproductsService.selectStormproducts(uid);
+			for(int i=0;i<list.size();i++){
+				sfrt=discountService.selectByPid(list.get(i).getId());
+				if(sfrt!=null){
+					 Discouothers others=new Discouothers();
+					 others.setDiscountprice(sfrt.getDiscountprice());
+					 others.setDiscountstoptime(sfrt.getDiscountstoptime());
+					 list.get(i).setDiscouothers(others);
+					 tist.add(list.get(i));
+					 list.remove(i);
+				}
+			}
 			request.setAttribute("products", list);
-			return "front/ThisTest";	
+			request.setAttribute("produties",tist);
+			return "front/Shopping_cart";	
 		}
 		return "front/login";
-		
 	}
 	
 	
-	/*商品生成订单 结算功能*/
-	public String OrdersBy(HttpServletRequest request){
-		
-		
-		return null;
-		
+ /* 删除购物车商品*/
+	@RequestMapping(value="/delectUi.action")
+	@ResponseBody
+    public String DelectproductsBycarts(HttpServletRequest request,int pid){
+	OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers");
+	ShoppingCart cart=new ShoppingCart();
+	if(user!=null&&pid!=0){
+	cart.setPid(pid);
+	cart.setUid(user.getUid());
+	cart=shoppingCartService.selectByaproduvts(cart);
+	shoppingCartService.deleteByPrimaryKey(cart.getId());
+	ShoppingCart rt=new ShoppingCart();
+	rt=shoppingCartService.selectByPrimaryKey(cart.getId());
+	 
+		return "false"; 
 	}
+	return "false"; 
+ }
+	
+	
+	
+	 
 }

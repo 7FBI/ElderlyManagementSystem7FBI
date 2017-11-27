@@ -7,298 +7,276 @@
 <link rel="stylesheet" href="/resources/front/css/Cart.css">
 <title>购物车</title>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link type="text/css" rel="stylesheet" href="/resources/front/css/reset.css">
-<link type="text/css" rel="stylesheet" href="/resources/front/css/carts.css">
-
-<link href="/resources/front/css/self_exchange/amazeui.css"
-	rel="stylesheet" type="text/css" />
-<link href="/resources/front/css/self_exchange/demo.css"
-	rel="stylesheet" type="text/css" />
-
 <script src="/resources/front/js/self_exchange/jquery.min.js"></script>
-<script src="/resources/front/js/self_exchange/amazeui.min.js"></script>
+<link rel="stylesheet" href="/resources/front/css/global.css" /> 
+
 </head>
 <body>
 <%-- <jsp:include page="Storedetailedheader.jsp" /> --%>
 <jsp:include page="Self_header.jsp" />
 <!-- 购物车头部 -->
-<div class="cart_top">
-<div class="cart_top_inner">
-<h2 class="cart_title">购物车</h2>
+ <div class="cart_wrap"> 
+   <!-- S 购物车页面--> 
+   <!-- S 购物车头部：地址--> 
+   <div class="cart_top"> 
+    <div class="cart_top_inner"> 
+     <h2 class="cart_title"> 购物车 </h2> 
+     <div class="cart_address">
+     <div class="address_wrap">
+     <span class="address_hinter">配送至：</span>
+     <div class="address_selected">
+      <div class="outer">
+	 <select name="province" id="province">
+		<option value="请选择">请选择</option>
+	</select>
+	<select name="city" id="city">
+		<option value="请选择">请选择</option>
+	</select>
+	<select name="town" id="town">
+		<option value="请选择">请选择</option>
+	</select> 
+    </div>  
+    </div>
+     </div>
+     </div>
+    </div> 
+   </div> 
+<!-- 购物车主要部分 -->
+<div class="cart_body">
+<div class="cart_detail">
+ <ul class="cart_title_wrap"> 
+   <li class="cart_choose"> 
+    <div class="js_all_choose item_choose_wrap"> 
+    <div class="item_choose js_sum_choose item_choose_checked "></div> 
+    </div>全选 </li> 
+      <li class="cart_product">商品信息</li> 
+      <li class="cart_sku">规格</li> 
+      <li class="cart_price">单价(元)</li> 
+      <li class="cart_num">数量</li> 
+      <li class="cart_total">小计(元)</li> 
+      <li class="cart_operation">操作</li> 
+     </ul> 
+     <!-- 购物车主要内容 -->
+   <div class="cart_list js_cart_list">
+   <div class="cart_item">
+   <div class="item_title"> 
+        <div class="item_choose_wrap"> 
+        <div class="item_choose item_choose_checked js_shop_choose"></div> 
+        </div> 
+        <div class="shop_detail"> 
+         <!-- 官微官网图标--> 
+         <i class="icon_shop icon_mall"></i> 美的官网商城 
+        </div> 
+     </div> 
+   <!-- 购物车商品处 -->
+   <c:forEach items="${products}" var="product">
+   <div class="item_detail">
+   <div class="item_sub">
+   <!-- 选择框 -->
+   <div class="cart_choose">
+   <div class="item_choose_wrap">
+   <div class="item_choose  js_item_choose"></div>
+   </div>
+   <div class="line_top"></div>
+   </div>
+   <div class="item_sub_detail">
+   <!-- 商品图片 -->
+   <div class="cart_img">
+   <img src="${product.producturl}">
+   </div>
+   <!-- 商品描述 -->
+   <div class="cart_product">
+    <span>${product.pdescription}</span>
+   </div>
+   <!-- 商品规格 -->
+   <div class="cart_sku">
+   <span>${product.productscolor}</span>
+   </div>
+   <!-- 单价 -->
+   <div class="cart_price">
+   <span class="price_new">${product.price}</span>
+   </div>
+   <!-- 数量 -->
+   <div class="cart_num">
+   <div id="divEditNum_168357" class="num_wrap num_wrap_inline  js_num">
+   <span class="reduce">-</span>
+   <input class="num" pattern="\d{0,3}" value="1" type="text">
+   <span class="add">+</span>
+   </div>
+   </div>
+   <!-- 小计 -->
+   <div class="cart_total">399.00</div>
+   <!-- 操作 -->
+   <div class="cart_operation">
+   <span class="operation_delete js_item_delete">删除</span>
+   </div>
+   <!-- 商品id -->
+   <input class="productid" type="hidden" value="${product.id}">
+   </div>
+   </div>
+   </div>
+   </c:forEach>
+   <!-- 打折商品处 --> 
+   <div class="item_detail item_detail_activity">
+   <div class="activity_top">
+   <i class="activity_icon ">打折</i>
+   <p class="activity_desc">商品已优惠</p>
+   <div class="activity_handle">
+   <a class="handle_2" target="_blank">
+   <span class="text">更多活动商品</span>
+   <i class="icon"></i>
+   </a>
+   </div>
+   <div class="line_bottom"></div>
+   </div>
+   <c:forEach items="${produties}" var="products">
+   <div class="item_sub item_sub_selected">
+   <!-- 选择框 -->
+   <div class="cart_choose">
+   <div class="item_choose_wrap">
+   <div class="item_choose  js_item_choose"></div>
+   </div>
+   <div class="line_top"></div>
+   </div>
+   <div class="item_sub_detail">
+   <!-- 商品图片 -->
+   <div class="cart_img">
+   <img src="${products.producturl}">
+   </div>
+   <!-- 商品描述 -->
+   <div class="cart_product">
+    <span>${products.pdescription}</span>
+   </div>
+   <!-- 商品规格 -->
+   <div class="cart_sku">
+   <span>${products.productscolor}</span>
+   </div>
+   <!-- 单价 -->
+   <div class="cart_price">
+   <span class="price_old">${products.price}</span>
+   <span class="price_new">${products.discouothers.discountprice}</span>
+   <div class="active_wrap">
+   <div class="tag_active js_show_act" >更多打折
+   <i class="tag_arrow"></i>
+   </div>
+   </div>
+   <div class="tag_reduce js_tag_reduce">已降价¥${products.price-products.discouothers.discountprice}</div>
+   </div>
+   <!-- 数量 -->
+   <div class="cart_num">
+   <div id="divEditNum_168357" class="num_wrap num_wrap_inline  js_num">
+   <span class="reduce">-</span>
+   <input class="num" pattern="\d{0,3}" value="1" type="text">
+   <span class="add">+</span>
+   </div>
+   </div>
+   <!-- 小计 -->
+   <div class="cart_total">399.00</div>
+   <!-- 操作 -->
+   <div class="cart_operation">
+   <span class="operation_delete js_item_delete">删除</span>
+   </div>
+   </div>
+     </div>
+     </c:forEach>
+   </div>
+   
+   </div>
+    </div>
+   <!-- 底部结算栏 -->
+   
 </div>
+
+<!-- 底部结算栏 -->
+ <div class="cart_bottom_wrap cart_bottom_fixed"> 
+     <div class="cart_bottom"> 
+      <div class="cart_sum_left"> 
+       <div class="cart_sum_choose"> 
+        <div class="js_all_choose item_choose_wrap"> 
+         <div class="item_choose js_sum_choose item_choose_checked"></div> 
+        </div> 全选 
+       </div> 
+       <div class="cart_sum_delete js_sum_delete" data-type="delete">
+              删除
+       </div> 
+      </div> 
+      <div class="cart_sum_right"> 
+       <div class="cart_sum_num">
+        已选商品
+        <span class="color_f60 js_total_check">2</span>件
+       </div> 
+       <div class="cart_sum_price"> 
+        <div class="total_price">
+          合计：
+         <span class="total_price_inner"> <span class="js_total_price"> &yen;7298.00 </span> </span> 
+        </div> 
+        <div class="cut_price">
+          (不含运费) 
+         <!--              优惠： -￥<span class="js_total_discount">-->
+         <!--</span>--> 
+        </div> 
+       </div> 
+       <div class="cart_sum_to_order js_to_order">
+             去结算</div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
 </div>
-<!-- 购物车部分 -->
-<section class="cartMain">
-    <div class="cartMain_hd">
-        <ul class="order_lists cartTop">
-            <li class="list_chk">
-                <!--所有商品全选-->
-                <input type="checkbox" id="all" class="whole_check">
-                <label for="all"></label>
-                全选
-            </li>
-            <li class="list_con">商品信息</li>
-            <li class="list_info">商品参数</li>
-            <li class="list_price">单价</li>
-            <li class="list_amount">数量</li>
-            <li class="list_sum">金额</li>
-            <li class="list_op">操作</li>
-        </ul>
-    </div>
 
-    <div class="cartBox">
-        <div class="shop_info">
-            <div class="all_check">
-                <!--店铺全选-->
-                <input type="checkbox" id="shop_a" class="shopChoice">
-                <label for="shop_a" class="shop"></label>
-            </div>
-            <div class="shop_name">
-               <i class="icon_shop icon_mall"></i>
-                             宜家官网商城
-            </div>
-        </div>
-        <div class="order_content">
-        <c:forEach items="${products }" var="product">
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_2" class="son_check">
-                    <label for="checkbox_2"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="${product.producturl}" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">${product.pname}<br>${product.pdescription}</a></div>
-                </li>
-                <li class="list_info">
-                    <input id="inputyu" type="hidden" value="${product.id}">
-                    <p>规格：${product.productstype2}</p>
-                    <p>尺寸：${product.size}</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥${product.price}</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="${product.cartcount}" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥${product.price*product.cartcount}</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"> 
-                     <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                    </p>
-                </li>
-            </ul> 
-            </c:forEach>
-        </div>
-    </div>
-
-    <div class="cartBox">
-        <div class="shop_info">
-            <div class="all_check">
-                <!--店铺全选-->
-                <input type="checkbox" id="shop_b" class="shopChoice">
-                <label for="shop_b" class="shop"></label>
-            </div>
-            <div class="shop_name">
-               <i class="activity_icon">团购</i>
-               <p class="activity_desc">商品已经达到团购人数 下单后发货</p>
-            </div>
-        </div>
-        <div class="order_content">
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_4" class="son_check">
-                    <label for="checkbox_4"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="./images/4.png" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
-                </li>
-                <li class="list_info">
-                    <p>规格：默认</p>
-                    <p>尺寸：16*16*3(cm)</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥1980</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥1980</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                </li>
-            </ul>
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_5" class="son_check">
-                    <label for="checkbox_5"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="./images/5.png" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
-                </li>
-                <li class="list_info">
-                    <input id="inputyu" type="hidden" value="5555">
-                    <p>规格：默认</p>
-                    <p>尺寸：16*16*3(cm)</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥480</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥480</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- <div class="cartBox">
-        <div class="shop_info">
-            <div class="all_check">
-                店铺全选
-                <input type="checkbox" id="shop_c" class="shopChoice">
-                <label for="shop_c" class="shop"></label>
-            </div>
-            <div class="shop_name">
-                店铺：<a href="javascript:;">卷卷旗舰店</a>
-            </div>
-        </div>
-        <div class="order_content">
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_8" class="son_check">
-                    <label for="checkbox_8"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="./images/1.png" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
-                </li>
-                <li class="list_info">
-                    <p>规格：默认</p>
-                    <p>尺寸：16*16*3(cm)</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥1980</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥1980</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                </li>
-            </ul>
-            <ul class="order_lists">
-                <li class="list_chk">
-                    <input type="checkbox" id="checkbox_9" class="son_check">
-                    <label for="checkbox_9"></label>
-                </li>
-                <li class="list_con">
-                    <div class="list_img"><a href="javascript:;"><img src="./images/1.png" alt=""></a></div>
-                    <div class="list_text"><a href="javascript:;">夏季男士迷彩无袖T恤圆领潮流韩版修身男装背心青年时尚打底衫男</a></div>
-                </li>
-                <li class="list_info">
-                    <p>规格：默认</p>
-                    <p>尺寸：16*16*3(cm)</p>
-                </li>
-                <li class="list_price">
-                    <p class="price">￥480</p>
-                </li>
-                <li class="list_amount">
-                    <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
-                    </div>
-                </li>
-                <li class="list_sum">
-                    <p class="sum_price">￥480</p>
-                </li>
-                <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
-                </li>
-            </ul>
-        </div>
-    </div> -->
-    <!--底部-->
-    <div class="bar-wrapper">
-        <div class="bar-right">
-            <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
-            <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-            <div class="calBtn"><a href="javascript:;">结算</a></div>
-        </div>
-    </div>
-</section>
-<section class="model_bg"></section>
-<section class="my_model">
-    <p class="title">删除宝贝<span class="closeModel">X</span></p>
-    <p>您确认要删除该宝贝吗？</p>
-    <div class="opBtn"><a href="/front/shoppingCart/delectStormproducts.action?id=${product.id}&user_id=${product.user_id}" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
-</section>
-<script type="text/javascript" src="/resources/front/oldman/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/front/js/carts.js"></script>
+  <!-- 删除购物车 -->
+  <div id="confirmDelete" class="mod_layer" style="margin-top:-100px; margin-left:-180px;">
+  <div class="mod_layer_hd">
+  <i class="close_ico" data-mpopup-close=""></i>
+  </div>
+  <div class="mod_layer_bd">
+  <p class="prompt_txt">确认要删除？</p>
+  </div>
+  <div class="mod_layer_ft">
+  <a class="layer_btn js_confirm_delete" href="">确  认</a>
+  <a class="layer_btn js_cojy">取消</a>
+  </div>
+  </div>
+</body>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="/resources/unity/address/js/area.js"></script>
+<script src="/resources/unity/address/js/select.js"></script>
+<!-- 购物车商品删除 -->
 <script type="text/javascript">
- $(".calBtn").click(function(){
-     var products_id;
-	 var products_num;
-	 /*获取总价 toprice*/
-	 var gt=$(".total_text");
-	 var toprice=gt.text();
-	 var sub=$("label")
-	 
-	 for(var i=0;i<sub.length;i++){
-		 var pre=sub.eq(i).parent();
-		 if(sub.eq(i).attr('class')=="mark"&&pre.attr('class')=="list_chk"){
-			 var hung=pre.parent();
-			 var poi=hung.find(".list_info").children("#inputyu").val(); /* 这里取到商品ID */
-			/*  var priceto=hung.find(".list_price").children().text();  /* 拿到价格 */  
-			 var numtoal=hung.find(".list_amount").find(".sum").val();  /*拿到个数*/
-			 alert(poi)
-			 alert(numtoal)
-			 var yyyy={num:total}
-			 var xxxx={id:poi}
-			 products_id.push(xxxx);    
-			 products_num.push(yyyy);    
-		 } 
-	 }
-	 if(products_id.length>1){
-		 window.location.href="/front/orders/addOrder?pid="+products_id+"&num="+products_num+"&price"+toprice;
-	 }
-	 else if(products_id.length==1){
-		 window.location.href="/front/orders/addOneOrder?pid="+products_id+"&num="+products_num+"&price"+toprice;
-	 }
-	 else{
-		 alert("你没有选择你想购买的商品!")
-	 }     
- })
+$(document).on('click','.operation_delete',function(){
+	 var confirmDelete=$("#confirmDelete");
+	 confirmDelete.addClass('show');
+	 var gtop=$(this);
+	 var terx=gtop.parent().next();
+	 alert(terx.val())
+	 $(document).on('click','.js_confirm_delete',function(){    
+	      	var f=$(".js_confirm_delete");
+	      	$.ajax({
+	      		type :'post',
+	      		url : "/front/shoppingCart/delectUi.action?pid="+terx.val(),
+	      		data : f.serialize(),
+	      		success : function(data) {
+	      			if(data=="ture"){
+	      			  confirmDelete.removeClass('show');
+	      			  alert("成功了");
+	      			}	
+	      		},
+	      	    error : function() {
+	      	    	alert("失败了")
+	      	    }
+	      	})
+	})
+})
+$(document).on('click','.close_ico',function(){
+	 var confirmDelete=$("#confirmDelete");
+	 confirmDelete.removeClass('show');
+})
+$(document).on('click','.js_cojy',function(){
+	 var confirmDelete=$("#confirmDelete");
+	 confirmDelete.removeClass('show');
+})
+
+
+
 </script>
- </body>
  </html>

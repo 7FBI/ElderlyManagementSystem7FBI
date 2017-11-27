@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.ShoppingcCartMapper" >
+<mapper namespace="com.dao.ShoppingCartMapper" >
   <resultMap id="BaseResultMap" type="com.bean.ShoppingCart" >
     <!--
       WARNING - @mbggenerated
@@ -374,7 +374,7 @@
   
   <!-- 根据用户uid和商品pid查询购物车是否已经在购物车里面存在 -->
   <select id="selectByaproduvts" parameterType="com.bean.ShoppingCart" resultType="com.bean.ShoppingCart">
-     select * from shoppingcart where uid=#{uid,jdbcType=VARCHAR} and pid=#{pid,jdbcType=INTEGER}
+     select * from shoppingcart where uid=#{uid} and pid=#{pid}
   </select>
   
   <!-- 根据用户uid和商品pid批量查询 -->

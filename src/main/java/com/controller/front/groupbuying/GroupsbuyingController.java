@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Classification;
 import com.bean.GroupProducts;
@@ -60,4 +61,12 @@ public class GroupsbuyingController {
 		}
 		return "front/login";
 	}
+	
+	/*团购商城商品详情页*/
+	@RequestMapping("/toxiangqing.action")
+	public ModelAndView GroupLook(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView();
+		return modelAndView;
+	}
+	
 }
