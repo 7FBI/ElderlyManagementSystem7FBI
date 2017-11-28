@@ -100,7 +100,7 @@
 				<ol class="Xcontent13">
 					<div class="Xcontent14"><a href="#"><p>${product.pname}</p></a></div>
 					<div class="Xcontent15"><img src="/resources/front/images/shangpinxiangqing/X11.png"></div>
-					<div class="Xcontent16"><p>${product.pdescription}</p></div>
+					<div class="Xcontent16"><p></p></div>
 					<div class="Xcontent17">
 						<p class="Xcontent18">售价</p>
 						<p class="Xcontent19">￥<span>${product.price}</span></p>
@@ -131,10 +131,10 @@
 					<div class="Xcontent30">
 						<p class="Xcontent31">数量</p>
 						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
-						<form id="fromSubmin">	
+						<form id="fromSubmin" >	
                         <input name="num" class="input" value="1">
                         <input name="pid" type="hidden" value="${product.id}">
-                        <input name="uid" type="hidden" value="wbq123">
+                        <input name="uid" type="hidden" value="${oldUsers.uid}">
                         </form>
 						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
 					</div>

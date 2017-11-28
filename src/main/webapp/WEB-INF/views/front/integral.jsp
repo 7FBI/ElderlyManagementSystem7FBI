@@ -80,6 +80,7 @@
 						>
 						<c:forEach items="${products}" var="products">
 							<li class="coupon_item mc_product_box over_box">
+							
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
 								<div class="mc_product_img">
 									<img alt="国标排插 两位总控 一位小五孔 A1C02L1.2-A5"
@@ -95,11 +96,6 @@
 											<span class="mc_des">商城价</span> <em class="mc_c_price"><i>¥</i>${products.price }</em>
 
 										</div>
-										<%-- <div class="mc_ori_price">
-										<span class="mc_des"></span> <span class="mc_o_price">
-											<i>¥</i> ${products.price }
-										</span>
-									</div> --%>
 									</div>
 								</div>
 								<div class="mc_btn_area">
@@ -108,12 +104,20 @@
 											maxFractionDigits="0"></fmt:formatNumber>
 
 										<div class="mc_btn_left MC_BTN_LEFT_ABLE">${i }&nbsp;&nbsp;积分兑换</div>
-										<div class="mc_btn_right mc_btn_right_able">立&nbsp;&nbsp;即&nbsp;&nbsp;兑&nbsp;&nbsp;换</div>
-									</a>
+										
+										<form  action="/front/orders/addOneOrderByExchange" method="post">
+										<input type="hidden" name="flag" value="1">
+							<input type="hidden" name="pid" value="${products.id }">
+							<input type="hidden" name="uid" value="${oldUsers.uid}">
+							<input type="hidden" name="num" value="1">
+								
+										<div class="mc_btn_right mc_btn_right_able" ><input type="submit" value="立即兑换"> <!-- 立&nbsp;&nbsp;即&nbsp;&nbsp;兑&nbsp;&nbsp;换 --></div>
+								</form>
 								</div> <i class="mc_icon_tag"> <span class="middle_center">
 										<span class="mc_tag_top">每日</span> <span class="mc_tag_bottom">50份</span>
 								</span>
 							</i>
+						
 							</li>
 						</c:forEach>
 					</ul>
@@ -126,7 +130,9 @@
 				</ul>
 			</div>
 
-			<!-- 新品试用 -->
+
+
+	<!-- 新品试用 -->
 			<div class="new_try">
 				<h2 class="main_title">新品试用全新升级</h2>
 				<a class="look_for" href="" title="" target="_blank"> 查看我的试用 <span

@@ -35,7 +35,6 @@ a.new-abtn-type{display: block;padding: 8px; overflow:hidden; border-radius: 2px
 .new-tit {border:none;}
 a.new-abtn-type{display: none;}
 .user-address li{width:100%;}
-
 .new-txt-rd2{background: url(../../images/self_img/addicon2.png) 1px 10px no-repeat;padding-left:15px;padding-top: 8px;}
 .am-form-content {margin-left: 105px;}
 .new-option-r {position: absolute; top: 7px;right:10px;bottom: auto;}
@@ -65,6 +64,7 @@ a.new-abtn-type{display: none;}
 .user-addresslist:hover .new-option-r,.user-addresslist.active .new-option-r  {position: absolute;top: 0px;}
 
 }
+
 
 
 

@@ -146,7 +146,8 @@ public class ProductOrdersController {
 		request.setAttribute("id", orders.getId());
 		return ordersInfo(request,orders.getId());
 	}
-
+	
+	
 	@RequestMapping("/ordersInfo")
 	public ModelAndView ordersInfo(HttpServletRequest request,String id) {
 		ModelAndView view = new ModelAndView();
@@ -159,6 +160,7 @@ public class ProductOrdersController {
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/oldUser/ordersInfo");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
+		
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(oid, productsService, groupbuyingService, discountService,
 					ordersService, orderdetailsService));
@@ -171,7 +173,7 @@ public class ProductOrdersController {
 		view.addObject("profile", profiles);
 		return view;
 	}
-
+	
 	@RequestMapping("/ordersOverInfo")
 	public ModelAndView ordersOverInfo(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
@@ -181,7 +183,7 @@ public class ProductOrdersController {
 		}
 		String oid = request.getParameter("id");
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/oldUser/ordersOverInfo");
+		view.setViewName("/front/oldUser/Order_Detail");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
 		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
 			orders.setMoney(ShopPrices.getAllShowPrices(oid, productsService, groupbuyingService, discountService,
@@ -195,6 +197,108 @@ public class ProductOrdersController {
 		view.addObject("profile", profiles);
 		return view;
 	}
+	
+	//兑换商品时增加一个订单
+	@RequestMapping("/addOneOrderByExchange")
+	public ModelAndView addOneOrderByExchange(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("/front/login");
+			return view;
+		}
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		Integer pid = Integer.valueOf(request.getParameter("pid"));
+		Integer num = Integer.valueOf(request.getParameter("num"));
+		Orders orders = getNewOrders(oldUsers);
+		Orderdetails orderdetails = new Orderdetails();
+		orderdetails.setPid(pid);
+		orderdetails.setOrdercount(num);
+		orderdetails.setOid(orders.getId());
+		orderdetailsService.insertSelective(orderdetails);
+		request.setAttribute("id", orders.getId());
+		return ordersInfoByExchange(request,orders.getId());
+	}
+	
+	
+	//积分商城兑换物品-》支付详情页
+	@RequestMapping("/ordersInfoByExchange")
+	public ModelAndView ordersInfoByExchange(HttpServletRequest request,String id) {
+		ModelAndView view = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("/front/login");
+			return view;
+		}
+		//String oid = request.getParameter("id");
+		String oid=id;
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		view.setViewName("/front/Pay");
+		Orders orders = ordersService.selectByPrimaryKey(oid);
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
+			orders.setMoney(0.0);
+			ordersService.updateByPrimaryKeySelective(orders);
+		}
+		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
+		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		view.addObject("orderdetails", list);
+		view.addObject("orders", orders);
+		view.addObject("profile", profiles);
+		return view;
+	}
+	
+	//订单管理-》订单详情页
+	@RequestMapping("/ordersOverInfoByExchange")
+	public ModelAndView ordersOverInfoByExchange(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("/front/login");
+			return view;
+		}
+		String oid = request.getParameter("id");
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		view.setViewName("/front/Order_Detail");
+		Orders orders = ordersService.selectByPrimaryKey(oid);
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
+			orders.setMoney(0.0);
+			ordersService.updateByPrimaryKeySelective(orders);
+		}
+		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
+		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		view.addObject("orderdetails", list);
+		view.addObject("orders", orders);
+		view.addObject("profile", profiles);
+		return view;
+	}
+	
+	//订单详情页的确认收货按钮跳转到确认收货页
+	@RequestMapping("/ordersOverInfoByExchangeConfirmReceipt")
+	public ModelAndView ordersOverInfoByExchangeConfirmReceipt(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("/front/login");
+			return view;
+		}
+		String oid = request.getParameter("id");
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		view.setViewName("/front/Confirm_Receipt");
+		Orders orders = ordersService.selectByPrimaryKey(oid);
+		if (orders.getMoney()==null || orders.getMoney() <= 0.0 ) {
+			orders.setMoney(0.0);
+			ordersService.updateByPrimaryKeySelective(orders);
+		}
+		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
+		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		view.addObject("orderdetails", list);
+		view.addObject("orders", orders);
+		view.addObject("profile", profiles);
+		return view;
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	@RequestMapping("/allOrdersList")
 	public ModelAndView allOrdersInfo(HttpServletRequest request) {
@@ -284,6 +388,7 @@ public class ProductOrdersController {
 		if (orders != null) {
 			if (oldUsers.getBalance() > orders.getMoney()) {
 				orders.setOrderstatus(1);
+				
 				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
 				//增加积分
