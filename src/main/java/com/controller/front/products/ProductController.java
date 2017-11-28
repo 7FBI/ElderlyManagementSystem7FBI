@@ -162,7 +162,6 @@ public class ProductController {
 			photoUrl.add(photo.getImage());
 		}                                                                             //获取其余图片的路径
 		Products product = productsService.selectByPrimaryKey(id);                    //根据商品id 查找商品
-		System.out.println(product.getProducturl());
 		Classification classifications=classificationService.selectByPrimaryKey(product.getTid());  //获取商品类别对象
 		String classifiCation=classifications.getClassname();           //获取商品类别名称
 		

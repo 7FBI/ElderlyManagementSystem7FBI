@@ -112,7 +112,7 @@
 										</p> <span class="p10"><a>去团购</a></span> --%>
 										<h2>
 										<span>2人正在拼团</span>
-										<a class="h3-1" target="_blank" rel="nofollow" href="">去看看</a>
+										<a class="h3-1" target="_blank" rel="nofollow" href="/front/groupbuying/toxiangqing.action?pid=${Groupbuyings.getProducts().id}">去看看</a>
 										</h2>
 										</li>
 								</c:if>

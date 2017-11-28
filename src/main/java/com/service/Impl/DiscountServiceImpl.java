@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.bean.Discount;
+import com.bean.Discountproducts;
 import com.dao.DiscountMapper;
 import com.service.DiscountService;
 
@@ -76,6 +77,12 @@ public class DiscountServiceImpl implements DiscountService {
 	public Discount selectByPid(int pid) {
 		// TODO Auto-generated method stub
 		return discountMapper.selectByPid(pid);
+	}
+   /* 团购商品打折推荐*/
+	@Override
+	public List<Discountproducts> selectDiscountproducts() {
+		// TODO Auto-generated method stub
+		return  discountMapper.selectDiscountproducts();
 	}
 
 }

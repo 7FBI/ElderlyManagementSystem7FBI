@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bean.Discount;
+import com.bean.Discountproducts;
 
 public interface DiscountService {
 	Discount selectByProductPid(Integer pid);
@@ -61,4 +62,6 @@ public interface DiscountService {
 	Discount selectByPid(int pid);
 
 	List<Discount> selectListDiscount(Map map);
+	
+	List<Discountproducts> selectDiscountproducts();
 }

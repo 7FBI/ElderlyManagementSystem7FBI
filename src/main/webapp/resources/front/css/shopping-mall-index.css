@@ -349,7 +349,7 @@ a:focus{outline:none; -moz-outline:none;}		/*解决  去除 a 链接点击后有
 }
 .integral-right .int-r-con{margin-top:10px;}
 .int-r-con .int-con-ul1{ display:none;}
-.int-r-con .int-con-ul1 li{ float:left; width:218px; height:291px; border:1px solid #F1F1F1; text-align:center; margin:0 0 8px 8px;}
+.int-r-con .int-con-ul1 li{ float:left; width:218px; height:270px; border:1px solid #F1F1F1; text-align:center; margin:0 0 8px 8px;}
 .int-r-con .int-con-ul1 li img{ margin:18px auto;width:120;height:90px;}
 /* .int-r-con .int-con-ul1 li h3{ line-height:27px;}
 .int-r-con .int-con-ul1 li h3 a{ font-size:14px; color:#212121;} */
