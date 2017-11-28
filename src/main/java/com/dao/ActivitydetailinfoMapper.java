@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bean.Activitydetailinfo;
 
@@ -54,10 +55,15 @@ public interface ActivitydetailinfoMapper {
     int updateByPrimaryKey(Activitydetailinfo record);
     
     List<Activitydetailinfo> selectByMid(Integer mid);
-    
-    
-    
-    
+    /*---------前台-------*/
+	//所有的活动
+	public List<Activitydetailinfo> findAllActiveInfo(Map map);
+	//活动详情
+	public Activitydetailinfo findactiveDetailById(Integer id);
+	//最新活动
+	public List<Activitydetailinfo> findNewActiveInfo();
+	//活动条数
+	public int getActivityCount();
     
     
 }

@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.bean.Activitydetailinfo;
 import com.dao.ActivitydetailinfoMapper;
 import com.service.ActivitydetailinfoService;
-@Service("ActivitydetailinfoService")
+@Service("activitydetailinfoService")
 public class ActivitydetailinfoServiceImpl implements ActivitydetailinfoService{
 	
 	@Autowired
@@ -41,6 +42,30 @@ public class ActivitydetailinfoServiceImpl implements ActivitydetailinfoService{
 	@Override
 	public Activitydetailinfo selectByPrimaryKey(Integer id) {
 		return activitydetailinfoMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public List<Activitydetailinfo> findAllActiveInfo(Map map) {
+		// TODO Auto-generated method stub
+		return activitydetailinfoMapper.findAllActiveInfo(map);
+	}
+
+	@Override
+	public Activitydetailinfo findactiveDetailById(Integer id) {
+		// TODO Auto-generated method stub
+		return activitydetailinfoMapper.findactiveDetailById(id);
+	}
+
+	@Override
+	public List<Activitydetailinfo> findNewActiveInfo() {
+		// TODO Auto-generated method stub
+		return activitydetailinfoMapper.findNewActiveInfo();
+	}
+
+	@Override
+	public int getActivityCount() {
+		// TODO Auto-generated method stub
+		return activitydetailinfoMapper.getActivityCount();
 	}
 
 }

@@ -426,5 +426,25 @@
   <select id="selectByMid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
   select * from activitydetailinfo where mid =#{mid}
 </select>
-
+<!--前台活动浏览  -->
+<!--//所有的活动  -->
+<select id="findAllActiveInfo" parameterType="hashMap" resultType="com.bean.Activitydetailinfo">
+     <!--  select * from activitydetailinfo order by actitvityendtime DESC -->
+     select * from activitydetailinfo ORDER BY id LIMIT #{page},#{max}
+</select>
+<!-- //活动详情  -->
+<select id="findactiveDetailById" parameterType="java.lang.Integer" resultType="com.bean.Activitydetailinfo">
+       select id,activitytitle,activitycontent,
+		activityteacher,activitystarttime,actitvityendtime,COALESCE(activityprice,0),activitylocation,
+		activitystoptime,mid 
+		from activitydetailinfo where id=#{id,jdbcType=INTEGER}
+</select>
+<!--//最新活动  -->
+<select id="findNewActiveInfo" resultType="com.bean.Activitydetailinfo">
+      select * from activitydetailinfo order by activitystoptime DESC limit 5
+</select>
+<!--活动记录数  -->
+<select id="getActivityCount" resultType="java.lang.Integer">
+select count(*) from activitydetailinfo
+</select>
 </mapper>

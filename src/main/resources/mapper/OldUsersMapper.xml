@@ -999,14 +999,23 @@
 	</select>
 
 	<!--观看收费视频 -->
-	<select id="watchVideo" parameterType="hashMap">
+	<update id="watchVideo" parameterType="hashMap">
 		UPDATE old_users SET
 		balance=balance-#{videoPrice} WHERE uid=#{userUid}
-	</select>
+	</update>
+
+<!--参与付费活动  -->
+	<update id="joinActivity" parameterType="hashMap">
+	   UPDATE old_users SET balance=balance-#{activityPrice} WHERE uid=#{userUid}
+	</update>
+	<!-- 取消活动退费 -->
+	<update id="turnBackMyBalance" parameterType="hashMap">
+	 UPDATE old_users SET balance=balance+#{price} WHERE uid=#{userUid}
+	</update>
 
 
-
-	<resultMap type="com.bean.OldUsers" id="alluserdetail">
+	<!-- 此处的id与最上面的map的id重复 -->
+		<!-- <resultMap type="com.bean.OldUsers" id="alluserdetail">
 		<id column="id" property="id" />
 		<result column="username" property="username" />
 		<result column="sex" property="sex" />
@@ -1019,7 +1028,7 @@
 		<result column="balance" property="balance" />
 		<result column="type" property="type" />
 	</resultMap>
-
+ -->
 
 	<!-- 查询今年某用户消费情况 -->
 	<select id="seleteOldUsersOrdersMoneysAndDate" parameterType="hashMap"

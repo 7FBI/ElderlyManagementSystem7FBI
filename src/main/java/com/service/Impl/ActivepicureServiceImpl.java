@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bean.Activepicutre;
 import com.dao.ActivepicutreMapper;
 import com.service.ActivepicutreService;
-@Service("ActivepicutreService")
+@Service("activepicutreService")
 public class ActivepicureServiceImpl implements ActivepicutreService{
 	@Autowired
 	private ActivepicutreMapper activepicutreMapper;
@@ -58,6 +58,12 @@ public class ActivepicureServiceImpl implements ActivepicutreService{
 	public int deleteByActivityid(Integer activityid) {
 		
 		return activepicutreMapper.deleteByActivityid(activityid);
+	}
+
+	@Override
+	public List<Activepicutre> selectPictureByActivityId(Integer activityid) {
+		// TODO Auto-generated method stub
+		return activepicutreMapper.selectPictureByActivityId(activityid);
 	}
 
 }

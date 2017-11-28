@@ -46,7 +46,7 @@ public class BackOldUsersController {
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
 	@Autowired
-	@Qualifier("ManagerService")
+	@Qualifier("managerService")
 	private ManagerService managerService;
 	private DateConverter dateConverter;
 	@RequestMapping("/gotoregister")

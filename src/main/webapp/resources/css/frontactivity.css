@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+/*活动详情*/
+/*活动图片轮播  */
+#lunbo ul li{width:100%;
+list-style: none;/* width:640px; */
+ height:460px;
+ background-color: #f1fbfc;
+ text-align: center;
+ }
+#lunbo ul li:not(:first-child){display: none;}
+.hrstyle{
+	background-color:orange; 
+	SIZE:3;
+	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:orange,direction:145,strength:15);
+    width:95%; 
+}
+/*活动列表*/
+.activitylist{
+	width:100%;
+/* 	background-color: #e6e6e8; */
+}
+.imgs{
+	width:100%;
+	height:450px;
+}
+.activitycontent{
+	width:90%;
+	margin: 0 auto;
+	 
+}
+
+.activitycontent ul,li{
+	list-style: none;
+	background-color: white;
+	width:auto;float:left;margin:20px 20px;
+	padding:20px 20px;
+} 
+.activitycontent ul,li a:HOVER {
+text-decoration: none;
+color: red;
+}

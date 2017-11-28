@@ -347,5 +347,8 @@
     delete from activepicutre
     where activityid = #{activityid,jdbcType=INTEGER}
   </delete>
-
+<!--根据活动ID查出该活动的图片  -->
+<select id="selectPictureByActivityId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+select * from activepicutre where activityid=#{activityid,jdbcType=INTEGER}
+</select>
 </mapper>

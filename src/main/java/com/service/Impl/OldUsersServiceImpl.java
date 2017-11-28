@@ -155,6 +155,12 @@ public class OldUsersServiceImpl implements OldUsersService {
 		oldUsersMapper.addUserMoney(oldUsers);
 	}
 
+	@Override
+	public void turnBackMyBalance(Map map) {
+		// TODO Auto-generated method stub
+		oldUsersMapper.turnBackMyBalance(map);
+	}
+
 	
 
 	

@@ -56,4 +56,6 @@ public interface ActivepicutreMapper {
     List<Activepicutre> selectByActivityid(Integer activityid);
     
     int deleteByActivityid(Integer activityid);
+//    根据活动Id查询出活动图片
+   public List<Activepicutre> selectPictureByActivityId(Integer activityid);
 }

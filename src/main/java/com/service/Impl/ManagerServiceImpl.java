@@ -9,7 +9,7 @@ import com.bean.Manager;
 import com.dao.ManagerMapper;
 import com.service.ManagerService;
 
-@Service("ManagerService")
+@Service("managerService")
 public class ManagerServiceImpl implements ManagerService{
 	@Autowired
 	private ManagerMapper managerMapper;

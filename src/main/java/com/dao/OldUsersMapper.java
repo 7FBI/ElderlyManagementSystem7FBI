@@ -87,5 +87,6 @@ public interface OldUsersMapper {
 //  获得用户总数
     public int getOldUsersCount();
     public List<OldUsers> findUserMap(Map map);
-    
+    //退费
+    public void turnBackMyBalance(Map map);
 }
