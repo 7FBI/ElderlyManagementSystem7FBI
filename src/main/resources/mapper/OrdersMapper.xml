@@ -509,4 +509,12 @@
 		and o.id=od.oid and od.pid=p.id
 		</where>
 	</select>
+	
+	
+	<!-- 查询今年销售总额 -->
+	<select id="selectOrdersAllMoneysYear" resultType="java.lang.Double">
+		SELECT COALESCE(sum(o.money),0) sumMoney from orders o
+		where YEAR(o.ordertime)=YEAR(NOW())
+	</select>
+	
 </mapper>

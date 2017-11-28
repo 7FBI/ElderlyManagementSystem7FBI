@@ -87,7 +87,8 @@
 						success : function(data) {
 							layer.close(layer.index);
 							if (data=="true") {
-								window.location.href="/";
+								//window.location.href="/";
+								location.href=document.referrer;
 							} else {
 								layer.msg(data,{time:2000})
 							}

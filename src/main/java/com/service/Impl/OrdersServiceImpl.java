@@ -79,4 +79,10 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersMapper.selectByorderstatusCount(map);
 	}
 
+	@Override
+	public Double selectOrdersAllMoneysYear() {
+		// TODO Auto-generated method stub
+		return ordersMapper.selectOrdersAllMoneysYear();
+	}
+
 }

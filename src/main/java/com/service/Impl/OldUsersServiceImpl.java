@@ -161,6 +161,48 @@ public class OldUsersServiceImpl implements OldUsersService {
 		oldUsersMapper.turnBackMyBalance(map);
 	}
 
+	@Override
+	public Double selectOrdersAllMoneysYear() {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.selectOrdersAllMoneysYear();
+	}
+
+	@Override
+	public List<OldUsers> seleteOldUsersOrdersMoneysAndDate(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.seleteOldUsersOrdersMoneysAndDate(map);
+	}
+
+	@Override
+	public List<OldUsers> seleteOldUsersOrdersMoneysAndDateYearAll(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.seleteOldUsersOrdersMoneysAndDateYearAll(map);
+	}
+
+	@Override
+	public List<OldUsers> seleteOldUsersLoginNumber(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.seleteOldUsersLoginNumber(map);
+	}
+
+	@Override
+	public List<OldUsers> seleteOldUsersTypesAll(Map map) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.seleteOldUsersTypesAll(map);
+	}
+
+	@Override
+	public List<OldUsers> selectCountAreaNumbers() {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.selectCountAreaNumbers();
+	}
+
+	@Override
+	public List<OldUsers> selectCountProductCounts() {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.selectCountProductCounts();
+	}
+
 	
 
 	

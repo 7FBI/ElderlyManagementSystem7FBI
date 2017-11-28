@@ -22,20 +22,14 @@ import com.service.ProductsService;
 
 public class ShopPrices {
 	
-	//这个订单的商品存在团购价与打折价
-	public static Double getAllShowPrices(String oid, ProductsService productsService, GroupbuyingService groupbuyingService,
+	//这个订单的商品存在打折价
+	public static Double getAllShowPrices(String oid, ProductsService productsService,
 			DiscountService discountService, OrdersService ordersService, OrderdetailsService orderdetailsService) {
 		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
 		double d = 0.0;
-		Groupbuying g = new Groupbuying();
 		for (Orderdetails orderdetails : list) {
-			g.setPid(orderdetails.getPid());
-			Groupbuying groupbuying = groupbuyingService.selectByGroupBuyPid(g);
 			Discount discount = discountService.selectByProductPid(orderdetails.getPid());
 			double d2 = orderdetails.getOrdercount() * orderdetails.getProducts().getPrice();
-			if (groupbuying != null) {
-				d2 = d2 * groupbuying.getGroupprice();
-			}
 			if (discount != null) {
 				d2 = d2 * discount.getDiscountprice();
 			}
@@ -43,6 +37,27 @@ public class ShopPrices {
 		}
 		return d;
 	}
+	
+	
+	
+	//这个订单的商品存在团购价
+		public static Double getAllShowPrices(String oid, ProductsService productsService, GroupbuyingService groupbuyingService,
+				OrdersService ordersService, OrderdetailsService orderdetailsService) {
+			List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+			double d = 0.0;
+			Groupbuying g = new Groupbuying();
+			for (Orderdetails orderdetails : list) {
+				g.setPid(orderdetails.getPid());
+				Groupbuying groupbuying = groupbuyingService.selectByGroupBuyPid(g);
+				double d2 = orderdetails.getOrdercount() * orderdetails.getProducts().getPrice();
+				if (groupbuying != null) {
+					d2 = d2 * groupbuying.getGroupprice();
+				}
+				d += d2;
+			}
+			return d;
+		}
+	
 	
 	public static List<Orders> getAllShowPrices(List<Orders> orders){
 		List<Orders> list=new ArrayList<Orders>();
@@ -151,6 +166,30 @@ public class ShopPrices {
 			creditService.insertSelective(credit2);
 		}
 		return intMoney/10;
+	}
+	
+	//仅仅获取数据
+	public static Double getAllShowPrices(String oid,OrdersService ordersService, OrderdetailsService orderdetailsService) {
+		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		double d = 0.0;
+		Groupbuying g = new Groupbuying();
+		for (Orderdetails orderdetails : list) {
+			g.setPid(orderdetails.getPid());
+			double d2 = orderdetails.getOrdercount() * orderdetails.getProducts().getPrice();
+			d += d2;
+		}
+		return d;
+	}
+	
+	//仅仅获取数据
+	public static Double getProductPrice(Integer pid,Integer num,ProductsService productsService){
+		return productsService.selectByPrimaryKey(pid).getPrice()*num;
+	}
+	
+	
+	//无打折，团购
+	public static List<Orderdetails> getAllOrderdetailsPrices(String oid,  OrderdetailsService orderdetailsService) {
+		return orderdetailsService.selectByOrdersId(oid);
 	}
 
 }

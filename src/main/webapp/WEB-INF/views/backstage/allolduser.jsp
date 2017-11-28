@@ -201,7 +201,7 @@
 													<c:forEach items="${olduser }" var="olduser" varStatus="var">
 														
 														<%-- <c:forEach items="${requestScope.olduser.lists}" var="olduser" varStatus="var"> --%>
-						                                 <tr align="left" class="d">
+						                                 <tr align="left" class="d" p="${olduser.uid }" n="${olduser.username }">
 
 							                             <td>${var.count}</td>
 							                             <td>${olduser.username}</td>
@@ -301,7 +301,100 @@
 			height="17" /></td>
 	</tr>
 	</table>
+	
+	<center>
+		<div style="width: 32%; height: 280px;float: left;" id="pviews1"></div>
+		<div style="width: 32%; height: 280px;float: left;" id="pviews2"></div>
+		<div style="width: 32%; height: 280px;float: left;" id="pviews3"></div>
+	</center>
+	
+	<script type="text/javascript" src="/resources/unity/js/echarts.min.js"></script>
+	<script type="text/javascript" src="/resources/backstage/Js/statisticsProduct.js"></script>
 	<script type="text/javascript">
+	
+	$(document).on('click',".d",function(){
+   	 	var trId=$(this);
+   	 	loginsNum(trId);
+   	 	xiaofeis(trId);
+   	 	yearXiaoFei(trId);
+    })
+    
+    function loginsNum(trId) {
+		var trHtmls='';
+   	 	var titles = '用户每月登录情况';
+			var legends = "销售量";
+			var documentsId = 'pviews1';
+			var col='#0E4ACC';
+			$.ajax({
+				type:"get",
+				url:'/statistics/backStageOluser/loginCount?uid='+trId.attr("p"),
+				success:function(data){
+					//返回数据
+					var xnames = getDates(data.usersLogins);
+					var numbers = getSumNum(data.usersLogins);
+					setTypeOptionX('件',titles, legends, xnames, numbers,documentsId,col);
+				},
+				error : function() {
+					alert("网络错误无法获取数据");
+				}
+			});
+	}
+    
+    
+    function  xiaofeis(trId) {
+   	 	var trHtmls='';
+   	 	var titles = '用户每季消费情况';
+			var legends = "销售量";
+			var documentsId = 'pviews2';
+			var col='#0E4ACC';
+			$.ajax({
+				type:"get",
+				url:'/statistics/backStageOluser/usersGoodsMoneysNow?uid='+trId.attr("p"),
+				success:function(data){
+					//返回数据
+					var xnames = getDates(data.usersLogins);
+					var numbers = getSumMoney(data.usersLogins);
+					setTypeOptionX('元',titles, legends, xnames, numbers,documentsId,col);
+				},
+				error : function() {
+					alert("网络错误无法获取数据");
+				}
+			});
+	}
+    
+    function  yearXiaoFei(trId) {
+   	 	var trHtmls='';
+   	 	var titles = '用户每年消费情况';
+			var legends = "销售量";
+			var documentsId = 'pviews3';
+			var col='#0E4ACC';
+			$.ajax({
+				type:"get",
+				url:'/statistics/backStageOluser/usersGoodsMoneysYear?uid='+trId.attr("p"),
+				success:function(data){
+					//返回数据
+					var xnames = getDatesYear(data.usersLogins);
+					var numbers = getSumMoney(data.usersLogins);
+					setTypeOptionX('元',titles, legends, xnames, numbers,documentsId,col);
+				},
+				error : function() {
+					alert("网络错误无法获取数据");
+				}
+			});
+	}
+    
+    
+    
+    function getDatesYear(collections) {
+    	var pnames = new Array();
+    	for ( var k in collections) {
+    		pnames[k] = collections[k].dateYear;
+    	}
+    	return pnames;
+    }
+	
+	
+	
 		$("#jumpBtn").click(function() {
 			var b = $("input[page='page']").val();
 			window.location.href = "/backstage/oldusers/findUserByManagerPage.action?page=" + b;

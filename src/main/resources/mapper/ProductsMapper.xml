@@ -869,5 +869,8 @@
 		WHERE p.id=od.pid and o.id=od.oid and p.tid=#{tid} and QUARTER(o.ordertime) =
 		QUARTER(now()) GROUP BY DATE_FORMAT(o.ordertime,'%Y-%m-%d')
 	</select>
+	
+	
+	
 
 </mapper>

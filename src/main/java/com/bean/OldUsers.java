@@ -3,7 +3,48 @@ package com.bean;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class OldUsers {
+	public Double getSumMoney() {
+		return sumMoney;
+	}
+
+	public void setSumMoney(Double sumMoney) {
+		this.sumMoney = sumMoney;
+	}
+
+	public Integer getSumNum() {
+		return sumNum;
+	}
+
+	public void setSumNum(Integer sumNum) {
+		this.sumNum = sumNum;
+	}
+
+	public Date getDates() {
+		return dates;
+	}
+
+	public void setDates(Date dates) {
+		this.dates = dates;
+	}
+
+	public Date getDateYear() {
+		return dateYear;
+	}
+
+	public void setDateYear(Date dateYear) {
+		this.dateYear = dateYear;
+	}
+
+	private Double sumMoney;
+	private Integer sumNum;
+	
+	@JsonFormat(pattern = "yyyy-MM", timezone = "GMT+8")
+	private Date dates;
+	@JsonFormat(pattern = "yyyy", timezone = "GMT+8")
+	private Date dateYear;
 
 	private Double balance;
 	private Integer type;

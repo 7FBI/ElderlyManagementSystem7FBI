@@ -1030,11 +1030,33 @@
 	</resultMap>
  -->
 
+
+	<resultMap type="com.bean.OldUsers" id="oldUsersSumNumAndDates">
+		<result column="sumNum" property="sumNum" />
+		<result column="dates" property="dates" />
+	</resultMap>
+	
+	<resultMap type="com.bean.OldUsers" id="oldUsersSumNumAndType">
+		<result column="sumNum" property="sumNum" />
+		<result column="type" property="type" />
+	</resultMap>
+	
+	<resultMap type="com.bean.OldUsers" id="oldUsersSumMoneyAndDates">
+		<result column="sumMoney" property="sumMoney" />
+		<result column="dates" property="dates" />
+	</resultMap>
+	
+	<resultMap type="com.bean.OldUsers" id="oldUsersSumMoneyAndDatesYearAndSumNum">
+		<result column="sumMoney" property="sumMoney" />
+		<result column="dateYear" property="dateYear" />
+		<result column="sumNum" property="sumNum" />
+	</resultMap>
+
 	<!-- 查询今年某用户消费情况 -->
 	<select id="seleteOldUsersOrdersMoneysAndDate" parameterType="hashMap"
-		resultMap="BaseResultMap">
+		resultMap="oldUsersSumMoneyAndDates">
 		SELECT COALESCE(SUM(o.money),0) sumMoney
-		,DATE_FORMAT(o.ordertime,'%Y-%m') dates
+		,DATE_FORMAT(o.ordertime,'%Y-%m-%d') dates
 		from
 		old_users u,orders o
 		where
@@ -1047,9 +1069,9 @@
 
 	<!-- 查询某用户每年点消费情况 -->
 	<select id="seleteOldUsersOrdersMoneysAndDateYearAll"
-		parameterType="hashMap" resultMap="BaseResultMap">
+		parameterType="hashMap" resultMap="oldUsersSumMoneyAndDatesYearAndSumNum">
 		SELECT COALESCE(SUM(o.money),0)
-		sumMoney ,DATE_FORMAT(o.ordertime,'%Y') dateYear,
+		sumMoney ,DATE_FORMAT(o.ordertime,'%Y-%m-%d') dateYear,
 		COALESCE(count(o.id),0) sumNum
 		from old_users u,orders o
 		where
@@ -1059,11 +1081,28 @@
 	
 	<!-- 查询某用户每月登录情况 -->
 	<select id="seleteOldUsersLoginNumber"
-		parameterType="hashMap" resultMap="BaseResultMap">
-		SELECT COUNT(ol.loadtime) sumNum,DATE_FORMAT(ol.loadtime,'%Y-%m') dates
+		parameterType="hashMap" resultMap="oldUsersSumNumAndDates">
+		SELECT COALESCE(COUNT(ol.loadtime),0) sumNum,DATE_FORMAT(ol.loadtime,'%Y-%m-%d') dates
 		FROM old_users u,oldlogin ol
 		WHERE u.uid=ol.uid and u.uid=#{uid} GROUP BY
 		DATE_FORMAT(ol.loadtime,'%Y-%m')
+	</select>
+	
+	<!-- 查询总用户量(分类) -->
+	<select id="seleteOldUsersTypesAll" parameterType="hashMap" resultMap="oldUsersSumNumAndType">
+		SELECT DISTINCT COALESCE(COUNT(*),0) sumNum,u.type
+		FROM old_users u
+		GROUP BY u.type ORDER BY u.type
+	</select>
+	
+	<!-- 查询总分店量(还有店长) -->
+	<select id="selectCountAreaNumbers" resultMap="oldUsersSumNumAndType">
+		SELECT COALESCE((SELECT COUNT(*) FROM manager m),0) type,COALESCE((SELECT COUNT(*)FROM localarea l),0) sumNum
+	</select>
+	
+	<!-- 查询总商品量(还有存货) -->
+	<select id="selectCountProductCounts" resultMap="oldUsersSumNumAndType">
+		SELECT COALESCE(COUNT(*),0) sumNum, COALESCE(SUM(p.count),0) type from products p 
 	</select>
 
 </mapper>
