@@ -84,6 +84,7 @@ public class ShoppingCartController {
 						}
 						if(count==0){
 							shoppingrt.setCartcount(1);
+							
 							shoppingCartService.insertSelective(shoppingrt);
 						}
 					}
@@ -95,15 +96,16 @@ public class ShoppingCartController {
 	
 	/*进入购物车页面方法*/
 	@RequestMapping(value="/selectproducts.action")
-	public String SelectByproducts(HttpServletRequest request,int uid){
-		if(uid>0){
-			/*普通商品*/
+	public String SelectByproducts(HttpServletRequest request){
+		 OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers");
+		 Integer id = user.getId();
+			/* 普通商品*/
 			List<Stormproducts> list=new ArrayList<Stormproducts>(); 
 			/*打折商品*/
 			List<Stormproducts> tist=new ArrayList<Stormproducts>();
 			Discount sfrt=new Discount();
-			
-			list=stormproductsService.selectStormproducts(uid);
+	
+			list=stormproductsService.selectStormproducts(id);
 			for(int i=0;i<list.size();i++){
 				sfrt=discountService.selectByPid(list.get(i).getId());
 				if(sfrt!=null){
@@ -116,12 +118,20 @@ public class ShoppingCartController {
 				}
 			}
 			request.setAttribute("products", list);
-			request.setAttribute("produties",tist);
-			return "front/Shopping_cart";	
-		}
-		return "front/login";
+			request.setAttribute("produties",tist); 
+			return "front/Shopping_cart";		 		 
 	}
 	
+ /*商城首页点击购物车方法*/
+	@RequestMapping(value="/intoshoppingCart.action")
+	@ResponseBody
+	public String intoShoppingcart(HttpServletRequest request){
+		if(request.getSession().getAttribute("oldUsers")!=null){
+			return "ture";
+		}
+		return "false";
+		
+	}
 	
  /* 删除购物车商品*/
 	@RequestMapping(value="/delectUi.action")

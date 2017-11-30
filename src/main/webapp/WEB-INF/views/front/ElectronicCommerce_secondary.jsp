@@ -1268,15 +1268,15 @@ et=UTF-8">
 			</div>
 			<div class="clear "></div>
 			
-			<script type="text/javascript" >
+		  <script type="text/javascript" >
 			$(function(){
 				
 				var name = "zhangsan";
-				document.getElementById("n").href="ElectronicCommerce.jsp?name="+name"";
-			})
+				document.getElementById("n").href="ElectronicCommerce.jsp?name="+"name";
+			}) 
 			
 			
-			</script>
+			</script>- 
 
 <!--服装城  -->
 <%-- <%
@@ -1331,7 +1331,9 @@ response.setContentType("UTF-8");
 												<em>￥</em><strong> ${products.price}</strong>
 											</p>
 										</div>
+										<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 										<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+										</a>
 									</div>
 								
 							</div>
@@ -1394,7 +1396,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1452,7 +1456,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1511,7 +1517,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1570,7 +1578,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${products.price}</strong>
 										</p>
 									</div>
+									<a pppgg="/front/shoppingCart/insertUi.action?pid=${products.id}" href="#">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1631,7 +1641,9 @@ response.setContentType("UTF-8");
 											<em>￥</em><strong> ${product.price}</strong>
 										</p>
 									</div>
+									<a href="#" id="creditproducts">
 									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									</a>
 								</div>
 							
 						</div>
@@ -1663,17 +1675,6 @@ response.setContentType("UTF-8");
 
 		</div>
 	</div>
-	<!--引导 -->
-	<!--<div class="navCir" style="background:red;">
-		<li class="active"><a href="home.html"><i
-				class="am-icon-home "></i>首页</a></li>
-		<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-		<li><a href="shopcart.html"><i
-				class="am-icon-shopping-basket"></i>购物车</a></li>
-		<li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>
-	</div> -->
-
-
 	<!--菜单 -->
 	<div class=tip>
 		<div id="sidebar">
@@ -1700,8 +1701,8 @@ response.setContentType("UTF-8");
 
 				</div>
 				<div id="shopCart " class="item ">
-					<a href="/front/shoppingCart/selectproducts?id=${oldUsers.id }"> <span class="message "></span>
-					</a>
+					 <a class="cddd"><span class="message"></span>
+					 </a>
 					<p>购物车</p>
 					<p class="cart_num ">0</p>
 				</div>
@@ -1821,4 +1822,51 @@ response.setContentType("UTF-8");
 		src="/resources/front/js/self_exchange/quick_links.js "></script>
 
 </body>
+<script type="text/javascript"> 
+	$(document).on('click',"[pppgg]",function(){
+	    var ddd=$(this);
+	    var d=ddd.attr('pppgg');
+	    $.ajax({
+	    	type : 'post',
+	    	url : d,
+	    	success : function(data){
+	    		if(data=="ture"){
+	    		  var rt=$(".cart_num");
+	    		  var trt=rt.text();
+	    		  rt.text(Number(1)+Number(trt));
+	    		  $(this).focus();
+	    		}else if(data="flase"){
+	    			window.location.href="/gotoFront/login";
+	    		} 
+	    		return false;
+	    	},
+	        error:function(){
+	        	alert("添加失败");
+	        },
+	    })  
+	    return false;
+	  });
+	$('.item').on('click',function(){
+			 var f=$(this);
+			 $.ajax({
+				 type:'post',
+				 url:'/front/shoppingCart/intoshoppingCart.action',
+				 success:function(data){
+					 if(data=="ture"){
+						 var into=f.find('a');
+						 window.location.href="/front/shoppingCart/selectproducts.action";
+					 }else if(data=="false"){
+						 alert("你还没有登录呢 亲！")
+						 
+					 }
+				 },
+				 erroe:function(){
+					 alert("网络错误!")
+				 }
+			 })	  
+		})
+	 
+	/*商城首页进入购物车js*/
+	
+</script>  
 </html>

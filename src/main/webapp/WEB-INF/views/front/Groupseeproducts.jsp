@@ -128,6 +128,31 @@
                  </div>
                  </div>
  </div>
+ <!-- 参加团购提示 -->
+ <div id="confirmDouble" class="mod_layer showtime" style="margin-top:-99px; margin-left:-180px;">
+ <div class="mod_layer_hd">
+ <i class="close_ico" data-mpopup-close=""></i>
+ </div>
+ <div class="mod_layer_bd">
+ <i class="js_hinter_ico suc_ico"></i>
+ <div class="prompt_txt J_get_status">参与成功</div>
+ </div>
+ <div class="mod_layer_ft">
+ <a class="layer_btn J_close_text">继续浏览</a>
+ </div>
+ </div>
+ <div id="confirmBuy" class="mod_layer" style="margin-top:-99px; margin-left:-180px;">
+ <div class="mod_layer_hd">
+ <i class="close_ico" data-mpopup-close=""></i>
+ </div>
+ <div class="mod_layer_bd">
+ <i class="fail_ico js_hinter_ico "></i>
+ <div class="prompt_txt J_get_status">参与失败</div>
+ </div>
+ <div class="mod_layer_ft">
+ <a class="layer_btn J_close_text">继续浏览</a>
+ </div>
+ </div>
  <!-- 推荐搭配 -->
   <div class="gdetail">
                 	<div class="dp_wrap_title">
@@ -349,6 +374,18 @@ $(document).on('click','.chexkbox',function(){
 		 numprice.text("￥"+gui.toFixed(2));
 	 }	 
 })
+$(document).on('click','.close_ico',function(){
+	var ico=$(this);
+	var prent=ico.parent().parent();
+	prent.removeClass('showtime');
+})
+$(document).on('click','.layer_btn',function(){
+	var ico=$(this);
+	var prent=ico.parent().parent();
+	alert(prent.attr('class'))
+	prent.removeClass('showtime');
+})  
+
 </script>
 </body>
 </html>

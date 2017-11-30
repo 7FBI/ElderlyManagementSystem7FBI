@@ -100,7 +100,7 @@
    <div class="cart_num">
    <div id="divEditNum_168357" class="num_wrap num_wrap_inline  js_num">
    <span class="reduce">-</span>
-   <input class="num" pattern="\d{0,3}" value="1" type="text">
+   <input class="num" pattern="\d{0,3}" value="${product.cartcount}" type="text">
    <span class="add">+</span>
    </div>
    </div>
@@ -166,7 +166,7 @@
    <div class="cart_num">
    <div id="divEditNum_168357" class="num_wrap num_wrap_inline  js_num">
    <span class="reduce">-</span>
-   <input class="num" pattern="\d{0,3}" value="1" type="text">
+   <input class="num" pattern="\d{0,3}" value="${products.cartcount}" type="text">
    <span class="add">+</span>
    </div>
    </div>
