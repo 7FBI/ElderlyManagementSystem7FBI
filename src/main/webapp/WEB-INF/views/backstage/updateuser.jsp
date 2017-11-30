@@ -142,7 +142,7 @@
 								<div class="form-group col-md-offset-3">
 									<label for="idcard" class="col-sm-2 control-label">身份证号</label>
 									<div class="col-sm-3">
-										<input type="text" class="form-control" name="idcard"
+										<input type="text" class="form-control" name="idcard" readonly="readonly"
 											value="${userbyid.idcard}" id="idcard" onblur="checkCard()">
 									</div>
 									<div class="pleft">

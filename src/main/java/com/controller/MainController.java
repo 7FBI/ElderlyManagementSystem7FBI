@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bean.Activepicutre;
+import com.bean.Activitydetailinfo;
 import com.bean.Edunews;
 import com.bean.Frontinformation;
+import com.service.ActivepicutreService;
+import com.service.ActivitydetailinfoService;
 import com.service.EdunewsService;
 import com.service.FrontinformationService;
 
@@ -31,17 +35,27 @@ public class MainController {
 	@Resource
 	private FrontinformationService frontinformationService;
 	
+	@Autowired
+	@Qualifier("activitydetailinfoService")
+	private ActivitydetailinfoService activitydetailinfoService;
+	@Autowired
+	@Qualifier("activepicutreService")
+	private ActivepicutreService activepicutreService;
+
     @RequestMapping("/")
     public ModelAndView homes(){
     	ModelAndView model=new ModelAndView();
+//    	新闻
     	List<Edunews> hotfivenews=edunewsService.findHotNews();
     	List<Edunews> hotnews=new ArrayList<Edunews>();
     	List<Frontinformation> list=frontinformationService.selectFour();
+//    	新闻内容截取
     	for(Edunews edunews:hotfivenews){
     		String newcontent=edunews.getEducontent();
     		edunews.setEducontent(newcontent.substring(0, 50));
     		hotnews.add(edunews);
     	}
+//    	获得第一条
     	Edunews leftpicture=null;
     	if (hotnews.size()>0) {
     		leftpicture=hotnews.get(0);
@@ -50,6 +64,20 @@ public class MainController {
     	model.addObject("hotnews", hotnews);
     	model.addObject("leftpicture", leftpicture);
     	model.addObject("list", list);
+//    	活动
+    	List<Activitydetailinfo> allNewActivities=activitydetailinfoService.findNewActiveInfo();
+    	List<Activitydetailinfo> allActivitiyAndPicture=new ArrayList<Activitydetailinfo>();
+    	for(Activitydetailinfo activitydetailinfo:allNewActivities){
+    		Integer activityId=activitydetailinfo.getId();
+    		List<Activepicutre> activepicutre=activepicutreService.selectPictureByActivityId(activityId);
+    		if(activepicutre.size()>0){
+    			model.addObject("onePicture", activepicutre.get(0));
+    			 activitydetailinfo.setActiveimageurl(activepicutre.get(0).getActiveimageurl());
+
+    			 allActivitiyAndPicture.add(activitydetailinfo);
+             }
+    	 }
+    	model.addObject("allActivitiyAndPicture", allActivitiyAndPicture);
     	model.setViewName("front/index");
         return model;
     }

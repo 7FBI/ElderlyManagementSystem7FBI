@@ -35,13 +35,22 @@ public class Activitydetailoldusers {
 	 */
 	private Integer activityid;
 	private Activitydetailinfo activitydetailinfo;
-
+//某条活动的参与人数
+	private Integer joinCount;
 	public Activitydetailinfo getActivitydetailinfo() {
 		return activitydetailinfo;
 	}
 
 	public void setActivitydetailinfo(Activitydetailinfo activitydetailinfo) {
 		this.activitydetailinfo = activitydetailinfo;
+	}
+
+	public Integer getJoinCount() {
+		return joinCount;
+	}
+
+	public void setJoinCount(Integer joinCount) {
+		this.joinCount = joinCount;
 	}
 
 	/**

@@ -78,6 +78,7 @@
 						<ul class="RM">
 						    <li><a href="/backstage/manager/showactivitydetailinfo.action" target="main">活动列表</a></li>
 						    <li><a href="/gotoBackstage/activity_add" target="main">添加活动</a></li>
+						    <li><a href="${pageContext.request.contextPath}/backstage/userjoinactivity/queryjoinactiviyusers.action" target="main">用户参与情况</a></li>
 						</ul>
 					</div>
 					</c:if>

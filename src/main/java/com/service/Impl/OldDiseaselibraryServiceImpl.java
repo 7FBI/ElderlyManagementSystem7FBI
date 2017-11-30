@@ -1,6 +1,7 @@
 package com.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,9 +16,9 @@ public class OldDiseaselibraryServiceImpl implements OldDiseaselibraryService{
     @Qualifier("oldDiseaselibraryMapper")
     private OldDiseaselibraryMapper oldDiseaselibraryMapper;
 	@Override
-	public List<OldDiseaselibrary> selectAllDiseaselibrary() {
+	public List<OldDiseaselibrary> selectAllDiseaselibrary(Map map) {
 		// TODO Auto-generated method stub
-		return oldDiseaselibraryMapper.selectAllDiseaselibrary();
+		return oldDiseaselibraryMapper.selectAllDiseaselibrary(map);
 	}
 	@Override
 	public void addDiseaselibrary(OldDiseaselibrary oldDiseaselibrary) {
@@ -49,6 +50,16 @@ public class OldDiseaselibraryServiceImpl implements OldDiseaselibraryService{
 	public OldDiseaselibrary selectByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
 		return oldDiseaselibraryMapper.selectByPrimaryKey(id);
+	}
+	@Override
+	public int selectDiseaselibraryCount() {
+		// TODO Auto-generated method stub
+		return oldDiseaselibraryMapper.selectDiseaselibraryCount();
+	}
+	@Override
+	public List<OldDiseaselibrary> findAllDiseaselibrary() {
+		// TODO Auto-generated method stub
+		return oldDiseaselibraryMapper.findAllDiseaselibrary();
 	}
 
 }

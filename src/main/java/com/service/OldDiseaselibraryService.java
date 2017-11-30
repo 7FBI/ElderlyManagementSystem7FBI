@@ -1,13 +1,16 @@
 package com.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bean.OldDiseaselibrary;
 
+
 public interface OldDiseaselibraryService {
 
-	List<OldDiseaselibrary> selectAllDiseaselibrary();
-
+	List<OldDiseaselibrary> selectAllDiseaselibrary(Map map);
+    public int selectDiseaselibraryCount();
+    public List<OldDiseaselibrary> findAllDiseaselibrary();
 	void addDiseaselibrary(OldDiseaselibrary oldDiseaselibrary);
 
 	void deleteDiseaselibraryById(Integer id);

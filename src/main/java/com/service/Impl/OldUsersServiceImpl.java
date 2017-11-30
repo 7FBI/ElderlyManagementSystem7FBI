@@ -203,6 +203,18 @@ public class OldUsersServiceImpl implements OldUsersService {
 		return oldUsersMapper.selectCountProductCounts();
 	}
 
+	@Override
+	public OldUsers queryByIdCard(String idcard) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.queryByIdCard(idcard);
+	}
+
+	@Override
+	public OldUsers queryByTell(String tell) {
+		// TODO Auto-generated method stub
+		return oldUsersMapper.queryByTell(tell);
+	}
+
 	
 
 	

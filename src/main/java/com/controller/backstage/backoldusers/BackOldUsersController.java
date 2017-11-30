@@ -68,9 +68,13 @@ public class BackOldUsersController {
 		// 日期格式转换
 		// 进行数据验证
 		ModelAndView modelAndView = new ModelAndView();
+		OldUsers usertell = oldUsersService.queryByTell(oldUsers.getTell());
+		OldUsers userIdCard = oldUsersService.queryByIdCard(oldUsers.getIdcard());
 		OldUsers users = oldUsersService.queryByUid(oldUsers.getUid());
 		  System.out.println(users);
-		if (users == null ) {
+		if(userIdCard==null){	
+		 if(usertell==null){
+		  if (users == null ) {
 			String newuserUrl = UploadImage.addImage(file, "/backstage/oldusers", request);
 			System.out.println(newuserUrl);
 			oldUsers.setUserurl(newuserUrl);
@@ -130,6 +134,14 @@ public class BackOldUsersController {
 		else{
 		
 			String err = "该用户名已被使用";
+			modelAndView.addObject("err", err);
+			modelAndView.setViewName("backstage/register");
+		}}else{
+			String err = "该号码已被绑定";
+			modelAndView.addObject("err", err);
+			modelAndView.setViewName("backstage/register");
+		}}else{
+			String err = "该身份证号已被使用";
 			modelAndView.addObject("err", err);
 			modelAndView.setViewName("backstage/register");
 		}

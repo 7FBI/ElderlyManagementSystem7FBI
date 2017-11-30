@@ -141,7 +141,7 @@ public ModelAndView selectVideoMatchDisease(HttpServletRequest request,@ModelAtt
 public ModelAndView selectVideotile(Integer id){
 	Video video=videoService.queryOneVideo(id);
 	System.out.println(video);
-	 List<OldDiseaselibrary> alloldDiseaselibrary=oldDiseaselibraryService.selectAllDiseaselibrary();
+	 List<OldDiseaselibrary> alloldDiseaselibrary=oldDiseaselibraryService.findAllDiseaselibrary();
 	System.out.println(alloldDiseaselibrary.size());
 	 ModelAndView modelAndView=new ModelAndView();
 	modelAndView.addObject("alloldDiseaselibrary", alloldDiseaselibrary);

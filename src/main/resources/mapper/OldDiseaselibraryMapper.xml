@@ -53,6 +53,9 @@
     from old_diseaselibrary
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectDiseaselibraryCount" resultType="java.lang.Integer">
+  select count(*) from old_diseaselibrary
+  </select>
    <select id="selectDiseaselibrary" resultMap="BaseResultMap" parameterType="java.lang.String" >
     <!--
       WARNING - @mbggenerated
@@ -68,8 +71,12 @@
     from old_diseaselibrary odl
     where diseasename=#{value}
   </select>
-  <select id="selectAllDiseaselibrary" resultType="com.bean.OldDiseaselibrary">
-  select * from old_diseaselibrary
+  <select id="selectAllDiseaselibrary" parameterType="hashMap" resultType="com.bean.OldDiseaselibrary">
+  select * from old_diseaselibrary order by id limit #{page},#{max}
+  </select>
+  <!--查询所有  -->
+  <select id="findAllDiseaselibrary" resultType="com.bean.OldDiseaselibrary">
+   select * from old_diseaselibrary
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--

@@ -1,6 +1,10 @@
 package com.controller.backstage.olddiseaselibrary;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,13 +23,45 @@ public class OldDiseaselibraryBackStageController {
    @Qualifier("oldDiseaselibraryService")
    private OldDiseaselibraryService oldDiseaselibraryService;
    @RequestMapping("/querys")
-   public ModelAndView getOldDiseaselibrary(){
+//   public ModelAndView getOldDiseaselibrary(){
+//	   ModelAndView modelAndView=new ModelAndView();
+//	   List<OldDiseaselibrary> listOldDiseaselibraries=oldDiseaselibraryService.selectAllDiseaselibrary();
+//	   modelAndView.addObject("listOldDiseaselibraries",listOldDiseaselibraries);
+//	   modelAndView.setViewName("/backstage/olduserdiseaselibary");
+//	   return modelAndView;
+//   }
+   public ModelAndView getOldDiseaselibrary(HttpServletRequest request){
 	   ModelAndView modelAndView=new ModelAndView();
-	   List<OldDiseaselibrary> listOldDiseaselibraries=oldDiseaselibraryService.selectAllDiseaselibrary();
+	   Map<String, Object> map = new HashMap<String, Object>();
+		Integer max = 2;
+		Integer page = 0;
+		Integer counts = 0;
+		if (request.getParameter("page") != null) {
+			page = Integer.valueOf(request.getParameter("page"));
+		}
+		if (page <= 0) {
+			page = 0;
+		}
+		counts = oldDiseaselibraryService.selectDiseaselibraryCount() / max;
+		System.out.println(counts);
+		if (counts <= 0) {
+			counts = 0;
+		}
+		if (page >= counts) {
+			page = counts;
+		}
+		map.put("page", page * max);
+		map.put("max", max);
+	   List<OldDiseaselibrary> listOldDiseaselibraries=oldDiseaselibraryService.selectAllDiseaselibrary(map);
 	   modelAndView.addObject("listOldDiseaselibraries",listOldDiseaselibraries);
+	   modelAndView.addObject("page", page);
+	   modelAndView.addObject("counts", counts);	
 	   modelAndView.setViewName("/backstage/olduserdiseaselibary");
 	   return modelAndView;
    }
+   
+   
+   
    
    @RequestMapping("/addjsp")
    public ModelAndView addOldDiseaselibraryJsp(Integer id){

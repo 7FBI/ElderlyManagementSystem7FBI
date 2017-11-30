@@ -21,27 +21,26 @@
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
-	
-	
+<!--公告  -->	
+<script type="text/javascript"
+	src="/resources/js/indexactivities.js"></script>
  <link rel="stylesheet" href="/resources/front/css/active/style.css"/>	
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <style type="text/css">
-
-
-
 html ,body{
 background-color: #dbdbdb;
 }
 </style>
+<!--  -->
+
+<!--  -->
 </head>
 <body id="ruifoxHome">
 	<jsp:include page="index_header.jsp" flush="true" />
 	<jsp:include page="header.jsp" flush="true" />
-
-
 	<!-- 查找最顶级栏目  -->
 	<div class="layui-carousel" id="test1" >
 		<div carousel-item>
@@ -53,39 +52,48 @@ background-color: #dbdbdb;
 	
 	
 <!-- 活动部分 -->
-<!-- <div class=" news-all">
- -->
  <div class="news-all part-all">
 		<div class="part-title">
 			<div class="col-xs-3"><font size="12px">信息 Message</font></div>
 		</div>
 		<div class="news-content ">
-				<ul class="news-content-ul">
-				<c:forEach items="${lists }" var="lists">
-					<li class="news-content-li">
-						<a href="#">
-						    <div class=" news-content-imag">
-						    	
-						    	<img src="/resources/front/images/img/news.png"></img>
-						    	
-						    </div>
-						    <div  class="news-content-cont">
-										<span>${lists.newstitle }</span>
-										<p >${lists. sendtiem}</p>
-										<p >${lists.newscontent}</p>
-										<a href="/front/frontinformation/selectall"> 查看更多</a>
-								 </div>	
-						</a>
-					</li>
-					
+<!--图片  -->	
+<div id="photo-list"> 
+	 <ul id="scroll">  
+			<!-- <li><a href="#"><img
+					src="../../../resources/upload/front/ad5.jpg" width="100px"
+					height="100px" alt="" /></a></li> -->
+			<c:forEach items="${allActivitiyAndPicture}" var="allActivitiyAndPicture">
+			<li>
+			  <a href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
+		        <img src="${allActivitiyAndPicture.activeimageurl}" width="200px" height="150px"/></a>
+			</li>
+			</c:forEach>
+		</ul>
+	</div>
+	<!-- 	<a href="/gotoFront/indexactivity">详情</a> -->
+<!--  -->
+<div class="activitycontent">	
+        <ul>
+				<c:forEach items="${allActivitiyAndPicture }" var="allActivitiyAndPicture">
+					<li>
+					  <div class="news-content-cont">
+							<a href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
+								<font size="4px" color="#14a8e7">${allActivitiyAndPicture.activitytitle}</font>
+							</a>
+							<p style="float: right;"><fmt:formatDate value="${allActivitiyAndPicture.activitystarttime}" pattern="yyyy-MM-dd"/>  ~ <fmt:formatDate value="${allActivitiyAndPicture.actitvityendtime}" pattern="yyyy-MM-dd"/></p> 
+						</div>							 
+					  </li>					
 					</c:forEach>
-					
 				</ul>
-			
-		</div> 
+		 </div>
+		 <div class="moreactivity">
+		   <a href="${pageContext.request.contextPath}/front/activity/allActive?">更多</a>
+		 </div>		
+	</div> 
 		
+	<!--公告  -->
 		<div class="info_content ">
-		<div class="look_more">
 		<span><a href="/front/frontinformation/selectall">更多公告></a></span>
 		</div>
 				<ul class="info_content_ul">
@@ -106,7 +114,7 @@ background-color: #dbdbdb;
 			
 		</div> 
 	
-</div>
+
 
 
 

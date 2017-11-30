@@ -111,4 +111,6 @@ public interface OldUsersService {
 
 	// 退费
 	public void turnBackMyBalance(Map map);
+	public OldUsers queryByIdCard(String idcard);
+    public OldUsers queryByTell(String tell);
 }

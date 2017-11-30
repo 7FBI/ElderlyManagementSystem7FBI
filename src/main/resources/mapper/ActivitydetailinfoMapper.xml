@@ -426,6 +426,16 @@
   <select id="selectByMid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
   select * from activitydetailinfo where mid =#{mid}
 </select>
+
+<!--//根据名称查询某一活动  -->
+<select id="findOneActivityJoinInfo" parameterType="hashMap" resultType="com.bean.Activitydetailinfo">
+SELECT * from activitydetailinfo,manager 
+WHERE activitydetailinfo.mid=manager.id
+AND manager.id=#{managerId,jdbcType=INTEGER}
+<if test="value != null">
+ AND activitytitle LIKE '%${value}%' 
+</if>
+</select>
 <!--前台活动浏览  -->
 <!--//所有的活动  -->
 <select id="findAllActiveInfo" parameterType="hashMap" resultType="com.bean.Activitydetailinfo">

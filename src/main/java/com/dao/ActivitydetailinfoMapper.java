@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bean.Activitydetailinfo;
+import com.bean.Activitydetailoldusers;
 
 public interface ActivitydetailinfoMapper {
     /**
@@ -55,6 +56,8 @@ public interface ActivitydetailinfoMapper {
     int updateByPrimaryKey(Activitydetailinfo record);
     
     List<Activitydetailinfo> selectByMid(Integer mid);
+	//根据名称查询某一活动 
+ 	public List<Activitydetailinfo> findOneActivityJoinInfo(Map map);
     /*---------前台-------*/
 	//所有的活动
 	public List<Activitydetailinfo> findAllActiveInfo(Map map);

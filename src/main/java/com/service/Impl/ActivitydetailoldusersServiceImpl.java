@@ -41,16 +41,47 @@ public void deleteMyJoninActivies(String uid) {
 	activitydetailoldusersMapper.deleteMyJoninActivies(uid);
 }
 
-@Override
-public int getMyJoinActivityCount() {
-	// TODO Auto-generated method stub
-	return activitydetailoldusersMapper.getMyJoinActivityCount();
-}
 
 @Override
 public List<Activitydetailoldusers> queryWhetherJoinActivity(Map map) {
 	// TODO Auto-generated method stub
 	return activitydetailoldusersMapper.queryWhetherJoinActivity(map);
+}
+
+@Override
+public List<Activitydetailoldusers> findJoinActiviyUsers(Map map) {
+	// TODO Auto-generated method stub
+	return activitydetailoldusersMapper.findJoinActiviyUsers(map);
+}
+
+@Override
+public int getMyJoinActivityCount(String uid) {
+	// TODO Auto-generated method stub
+	return activitydetailoldusersMapper.getMyJoinActivityCount(uid);
+}
+
+@Override
+public int getAllJoinActivityCount() {
+	// TODO Auto-generated method stub
+	return activitydetailoldusersMapper.getAllJoinActivityCount();
+}
+
+@Override
+public int oneActivityJoinUserCount(Integer activityid) {
+	// TODO Auto-generated method stub
+	return activitydetailoldusersMapper.oneActivityJoinUserCount(activityid);
+}
+
+@Override
+public List<Activitydetailoldusers> findOneActivityJoinUserDetails(Map map) {
+	// TODO Auto-generated method stub
+	return activitydetailoldusersMapper.findOneActivityJoinUserDetails(map);
+}
+
+@Override
+public void deleteByActiviyId(Integer activityid) {
+	// TODO Auto-generated method stub
+	activitydetailoldusersMapper.deleteByActiviyId(activityid);
 }
 
 

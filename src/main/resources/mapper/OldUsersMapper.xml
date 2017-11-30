@@ -104,6 +104,14 @@
 			<if test="sex!=null"> and sex=#{sex}</if>
 		</where>
 	</select>
+<!--更据电话查  -->
+<select id="queryByTell" parameterType="java.lang.String" resultMap="BaseResultMap">
+select * from old_users where tell=#{tell}
+</select>
+<!--更据身份证查  -->
+<select id="queryByIdCard" parameterType="java.lang.String" resultMap="BaseResultMap">
+select * from old_users where queryByIdCard=#{queryByIdCard}
+</select>
 
 	<!-- 查询所有用户 -->
 	<select id="queryUsers" resultMap="alluserdetail">

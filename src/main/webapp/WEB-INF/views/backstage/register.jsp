@@ -134,6 +134,9 @@
 	  			 <font color="red"><p id="error2"></p></font>
 		         <font color="green"><p id="success2"></p></font>
 		         </div>
+		         <c:if test="${!empty error}">
+                <div><span style="color: red">${err}</span></div>
+            </c:if>
 			<!-- <div class="pleft"><p class="msg"><i class="ati"></i></p></div> -->
 			<!-- <div class="float_left st-error" id="err3"></div> -->
 		</div>
@@ -169,6 +172,9 @@
 	  			 <font color="red"><p id="error3"></p></font>
 		         <font color="green"><p id="success3"></p></font>
 		         </div>
+		         <c:if test="${!empty error}">
+                <div><span style="color: red">${err}</span></div>
+            </c:if>
 		</div>
 		<div class="form-group col-md-offset-3">
 			<label for="area" class="col-sm-2 control-label">所属地域</label>

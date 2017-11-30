@@ -65,7 +65,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				<a  href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action" ><font size="2px" color="blue"> 
+				<a  href="${pageContext.request.contextPath}/backstage/oldusers//findUserByManagerPage.action" ><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;用户列表</font></a>
               <a  href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?

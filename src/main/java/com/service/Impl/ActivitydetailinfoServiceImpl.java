@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bean.Activitydetailinfo;
+import com.bean.Activitydetailoldusers;
 import com.dao.ActivitydetailinfoMapper;
 import com.service.ActivitydetailinfoService;
 @Service("activitydetailinfoService")
@@ -66,6 +67,12 @@ public class ActivitydetailinfoServiceImpl implements ActivitydetailinfoService{
 	public int getActivityCount() {
 		// TODO Auto-generated method stub
 		return activitydetailinfoMapper.getActivityCount();
+	}
+
+	@Override
+	public List<Activitydetailinfo> findOneActivityJoinInfo(Map map) {
+		// TODO Auto-generated method stub
+		return activitydetailinfoMapper.findOneActivityJoinInfo(map);
 	}
 
 }

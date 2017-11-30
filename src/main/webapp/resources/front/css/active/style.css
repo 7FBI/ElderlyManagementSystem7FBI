@@ -1,20 +1,18 @@
-
-
 .news-all {
 	/* margin-top: 50px 0 10; */
-	background:#DBDBDB;
+	background:#dbdbdb;
 	width:100%;
 	height:500px;
 	position:absolute;
 	top:620px;
-	bottom:80px;
+	bottom:100px;
 }
 
 .news-all .part-title {
 	position:absolute;
 	top:1%;
 	/* background:red; */
-	border-bottom:1px solid black; 
+	/* border-bottom:1px solid black;  */
 	height:10%;
 	width: 100%;
 	margin: 0 auto;
@@ -23,30 +21,44 @@
 }
 
 .news-all .news-content{
-	
 	position:absolute;
 	top:15%;
-	/* background:yellow;  */
-border:1px solid black;
-    height:62%;
-	width: 60%;
+	background:white; 
+/* border:1px solid black; */  
+	width: 75%;
+	height:100%;
 	margin: 0 auto;
-	left:2%;
+	left:1%;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	margin-right: 50px;
 }
-
-
-
-.news-all .news-content .news-content-ul{
+.activitycontent{
+	padding-top:4px;
+	width: 60%;
+	margin-left: 70px;
+}
+.activitycontent ul,li{
+	list-style: none;
+	font-size: 20px;
+}
+.activitycontent a:hover{
+	text-decoration: none;
+	color: red;
+}
+.moreactivity{
+	margin-right: 30px;
+	font-size: 16px;
+}
+/* .news-all .news-content .news-content-ul{
 	position:absolute;
-/* 	background:yellow;  */
+	background:yellow; 
 border:1px solid black;
     height:92%;
 	width: 96%;
 	margin: 1% 1%;
 	clear:both;
-
+list-style-type: none;
 }
 
 .news-content-ul .news-content-li{
@@ -56,15 +68,15 @@ border:1px solid black;
 	height:50%;
 	width:50%;
 	float:left;
-	
-	
+	list-style: none;
+	list-style-type: none;
 }
 
 
 
 .news-content-imag{
 position:absolute;
-/* background:#00ffff; */
+background:#00ffff;
 border:1px solid red;
 height:50%;
 width: 15%;	
@@ -81,7 +93,7 @@ width: 15%;
 position:absolute;
 
 height:49%;
-/* background:#ff0080; */
+background:#ff0080;
 width: 30%;	
 left:16%;
 }
@@ -91,9 +103,23 @@ left:16%;
 }
 .news-content-cont p{
 	font-size:8px;
-}
+} */
 
-
+#photo-list {
+/* 6张图片的宽度（包含宽度、padding、border、图片间的留白）
+计算：6*(100+2*2+1*2+9) - 9 
+之所以减去9是第6张图片的右边留白 */
+   width:1281px;  
+/* 图片的宽度（包含高度、padding、border）
+   计算：100+2*2+1*2  */ 
+    height:156px;  
+    margin:0px auto; 
+ overflow:hidden;     /*溢出部份将被隐藏*/ 
+    border:1px dashed #ccc;  
+}  
+#photo-list ul { list-style:none;}  
+#photo-list li { float:left; padding-right:5px;}  
+#photo-list img { border:1px solid #ddd; background:#fff; padding:2px;}
 
 
 
@@ -107,9 +133,10 @@ left:16%;
 /* 	background:yellow;  */
 border:1px solid black;
     height:62%;
-	width: 25%;
+	width: 21%;
 	margin: 0 auto;
-	left:70%;
+	left:77%;
+	float:right;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
@@ -122,7 +149,9 @@ border:1px solid black;
 	width: 100%;
 	
 }
-
+.moreactivity{
+	float: right;
+}
 .look_more span{
 	float:right;
 	color:white;

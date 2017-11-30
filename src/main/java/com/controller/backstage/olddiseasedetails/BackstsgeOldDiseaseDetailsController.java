@@ -58,7 +58,7 @@ public class BackstsgeOldDiseaseDetailsController {
 	@RequestMapping("/addjsp")
 	// 添加病例
 	public ModelAndView addOldDiseasedetailsjsp(String uid) {
-		List<OldDiseaselibrary> listOldDiseaselibraries = oldDiseaselibraryService.selectAllDiseaselibrary();
+		List<OldDiseaselibrary> listOldDiseaselibraries = oldDiseaselibraryService.findAllDiseaselibrary();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("listOldlib", listOldDiseaselibraries);
 		modelAndView.addObject("uid", uid);

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import com.bean.Activitydetailinfo;
+import com.bean.Activitydetailoldusers;
 
 @Service
 public interface ActivitydetailinfoService {
@@ -18,7 +19,9 @@ public interface ActivitydetailinfoService {
 	int insertSelective(Activitydetailinfo record);
 	
 	int updateByPrimaryKeySelective(Activitydetailinfo record);
-/*---------前台-------*/
+	//根据名称查询某一活动 
+ 	public List<Activitydetailinfo> findOneActivityJoinInfo(Map map);
+	/*---------前台-------*/
 	//所有的活动
 	public List<Activitydetailinfo> findAllActiveInfo(Map map);
 	//活动详情

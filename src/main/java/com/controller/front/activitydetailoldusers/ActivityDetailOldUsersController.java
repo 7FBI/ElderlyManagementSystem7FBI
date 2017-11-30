@@ -214,7 +214,7 @@ public class ActivityDetailOldUsersController {
 			if (page <= 0) {
 				page = 0;
 			}
-			counts = activitydetailOldUsersService.getMyJoinActivityCount() / max;
+			counts = activitydetailOldUsersService.getMyJoinActivityCount(olduser.getUid()) / max;
 			System.out.println(counts);
 			if (counts <= 0) {
 				counts = 0;
