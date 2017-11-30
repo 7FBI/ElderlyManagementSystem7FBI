@@ -122,7 +122,7 @@ background-color: #dbdbdb;
 
 <div id="mynews">
 <div class="indexnews">
-  <div class="col-xs-3"><font size="12px">新闻  News</font></div>
+  <div class="col-xs-3"><font size="12px">新闻  News</font></div><br>
     <!-- <div style="float: left;margin-top: 25px;"><p>关注我们、关注前沿<br/>
       Recently is to do ...</p></div> -->
   <div class="col-md-offset-6 col-md-1" style="margin-top: 25px;font-size: 18px;"> <a href="${pageContext.request.contextPath}/front/edu/alledunews.action?"  class="more">MORE+</a> </div>  

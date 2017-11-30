@@ -161,7 +161,7 @@ a:hover{
 #mynews{height:675px;background:#DBDBDB;position:absolute;top:1030px;width:100%;} 
 /* #mynews{height:100%;background:#DBDBDB;padding-bottom: 50px;} */
 /* #news .newsdata{background:#fff;width:986px;height:520px;margin:0 auto;position:relative;} */
-#mynews .newsdata{background:#fff;width:80%; margin:0 auto;height:100%;margin:0 auto;position:relative;margin-top: 60px;}
+#mynews .newsdata{background:#fff;width:90%; margin:0 auto;height:100%;margin:0 auto;position:relative;margin-top: 60px;}
 #mynews .newsad{position:absolute;top:30px;left:15px;}
 #mynews ul{position:absolute;width:70%;top:15px;right:10px;}
 #mynews ul li{position:relative;border-bottom:1px dotted #ccc;padding:15px 0;}

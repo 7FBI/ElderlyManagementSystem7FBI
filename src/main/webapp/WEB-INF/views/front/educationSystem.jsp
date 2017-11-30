@@ -27,11 +27,15 @@
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- 验证 -->
+
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 <body>
 	
-		<jsp:include page="header.jsp"></jsp:include></div>
+<jsp:include page="index_header.jsp" flush="true" />
+<jsp:include page="header.jsp" flush="true" />	
 	<!-- 查找最顶级栏目  -->
 	<%-- <section id="single">
 	<div class="cat_title">
@@ -84,12 +88,12 @@
 		<!--搜索  -->
 		<form
 			action="${pageContext.request.contextPath}/front/videos/findvideos.action"
-			method="post">
+			method="post" onsubmit="return searchCheck()">
 			<div class="col-md-offset-6 col-md-4 addstyle"
 				style="margin-top: 6px;">
 				<div class="input-group">
 					<input type="text" class="form-control"
-						name="queryVideoByConditions" placeholder="Search for...">
+						name="queryVideoByConditions" placeholder="Search for..." id="mysearch" onblur="searchContent()">
 					<span class="input-group-btn">
 						<button class="btn btn-info" type="submit">
 							<!-- <a href="#">   </a> -->
@@ -99,8 +103,12 @@
 						</button>
 
 					</span>
-
+              
 				</div>
+				 <div>
+	  			   <font color="red"><p id="error1"></p></font>
+		           <font color="green"><p id="success1"></p></font>
+		         </div>
 			</div>
 			<div style="margin-top: 8px;float: left; font-size: 20px;">
 				<a

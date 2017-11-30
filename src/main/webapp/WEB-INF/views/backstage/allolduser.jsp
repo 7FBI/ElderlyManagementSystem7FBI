@@ -25,6 +25,9 @@
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- 验证 -->
+
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="/resources/backstage/Style/skin.css" />
@@ -73,8 +76,7 @@
 						     
 							
 						</div> --> <c:if test="${empty olduser}">
-					<a
-						href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManager.action"><font
+					<a href="#" onclick="javascript:history.go(-1);"><font
 						size="2px" color="blue"> <span
 							class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 					</font></a>
@@ -127,11 +129,11 @@
 						<div class="row">
 							<form
 								action="${pageContext.request.contextPath}/backstage/oldusers/selectuserbyconditions.action"
-								method="post">
+								method="post" onsubmit="return searchCheck()">
 								<div class="col-md-offset-1 col-md-4 addstyle">
 									   <div class="input-group">
 										   <input type="text" class="form-control" name="findbycondition"
-											  placeholder="Search for..."> <span
+											  placeholder="Search for..." id="mysearch" onblur="searchContent()"> <span
 											   class="input-group-btn">
 											  <button class="btn btn-info" type="submit">
 												<!-- <a href="#">   </a> -->
@@ -141,7 +143,12 @@
 											</button>
 
 										</span>
+										
 									</div>
+									<div>
+	  			                        <font color="red"><p id="error1"></p></font>
+		                                <font color="green"><p id="success1"></p></font>
+		                               </div>
 							</form>
 
 							<%-- <div class="col-md-offset-1 col-md-4 addstyle">
@@ -183,7 +190,7 @@
 												<table width="100%" class="cont tr_color">
 
 													<tr align="center" height="50px">
-														<td colspan="7"><font size="5px">用户列表</font></td>
+														<td colspan="8"><font size="5px">用户列表</font></td>
 													</tr>
 													<tr align="center" height="40px" class="td_title_color">
 														<th width="100px">序号</th>
@@ -193,8 +200,8 @@
 														<th width="150px">登录账号</th>
 														<!--  <td width="300px" nowrap>密码</td>
 			                                           <td width="600px" nowrap>照片</td> -->
-														<th width="100px">回访情况</th>
-														<th width="100px">病例情况</th>
+														<th width="120px">回访情况</th>
+														<th width="120px">病例情况</th>
                                                         <th width="100px">余额</th>
 														<th width="200px">操作</th>
 													</tr>
@@ -211,10 +218,10 @@
 
 							                             <td><a
 								                            href="${pageContext.request.contextPath}/returninfo/querys.action?
-															uid=${olduser.uid}">回访记录</a></td>
+															uid=${olduser.uid}" role="button" class="btn btn-success btn-xs">回访记录</a></td>
 							                            <td><a
 								                             href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
-															    uid=${olduser.uid}">病例详情</a>
+															    uid=${olduser.uid}" role="button" class="btn btn-success btn-xs">病例详情</a>
  
 						                            	</td>
                                                       <td><a

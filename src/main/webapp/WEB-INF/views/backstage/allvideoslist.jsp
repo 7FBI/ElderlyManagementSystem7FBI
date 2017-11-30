@@ -25,6 +25,9 @@
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- 验证 -->
+
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="/resources/backstage/Style/skin.css" />
@@ -95,11 +98,11 @@
 						<div class="row">
 							<form
 								action="${pageContext.request.contextPath}/backstage/video/findvideos.action"
-								method="post">
+								method="post" onsubmit="return searchCheck()">
 								<div class="col-md-offset-1 col-md-4 addstyle">
 									<div class="input-group">
 										<input type="text" class="form-control"
-											name="queryVideoByConditions" placeholder="Search for...">
+											name="queryVideoByConditions" placeholder="Search for..." id="mysearch" onblur="searchContent()">
 										<span class="input-group-btn">
 											<button class="btn btn-info" type="submit">
 												<!-- <a href="#">   </a> -->
@@ -109,7 +112,12 @@
 											</button>
 
 										</span>
+										
 									</div>
+									<div>
+	  			                     <font color="red"><p id="error1"></p></font>
+		                             <font color="green"><p id="success1"></p></font>
+		                           </div>
 							</form>
 
 

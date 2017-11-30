@@ -176,3 +176,31 @@ function edunewscheck() {
     	return false;
     }
 }
+//搜索框的验证
+function searchContent() {  
+	var reg = /^[\u4e00-\u9fa5]{2,16}$/;
+	var mysearch = document.getElementById("mysearch").value;
+	if (mysearch.length == 0) {
+		var str = "× 请输入需要查询的内容";
+		document.getElementById("error1").innerHTML = str;
+		return false;
+	} else if (reg.test(mysearch)) {
+		document.getElementById("error1").innerHTML = "";
+		document.getElementById("success1").innerHTML = "";
+		return true;
+	} else {
+		var str = "× 输入不规范"
+		document.getElementById("mysearch").value = "";
+		document.getElementById("mysearch").focus();
+		document.getElementById("success1").innerHTML = "";
+		document.getElementById("error1").innerHTML = str;
+		return false;
+	}
+}
+function searchCheck() {  
+    if(searchContent()){ 
+    return true;  
+    }else{
+    	return false;
+    }
+}

@@ -33,6 +33,8 @@
 </head>
 
 <body>
+	<jsp:include page="../index_header.jsp" flush="true" />
+<jsp:include page="../header.jsp" flush="true" />	
 	<div class="videodetail">
 		<!--标题  -->
 		 <div style="padding-left: 50px;">
@@ -111,5 +113,6 @@
          ${oneVideoById.vprice}<br>
     <p >${oneVideoById.vcontent}</p>
     </div> --%>
+    <jsp:include page="../footer.jsp" flush="true" />
 </body>
 </html>

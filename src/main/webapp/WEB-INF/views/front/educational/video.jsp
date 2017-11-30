@@ -28,6 +28,9 @@
 	src="../../../../resources/front/js/jquery.1.8.2.min.js"></script>
 <script type="text/javascript"
 	src="../../../../resources/front/js/jquery.plugin.min.js"></script>
+<!-- 验证 -->
+
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 

@@ -174,10 +174,10 @@
 														<td>${listOldDiseaselibrary.alias}</td>
 														<td>
 															 <a
-															href="${pageContext.request.contextPath}/oldDiseaselibrary/updatejsp.action?id=${listOldDiseaselibrary.id}">修改</a>
+															href="${pageContext.request.contextPath}/oldDiseaselibrary/updatejsp.action?id=${listOldDiseaselibrary.id}" role="button" class="btn btn-warning btn-xs">修改</a>
 
 															<a
-															href="${pageContext.request.contextPath}/oldDiseaselibrary/remove.action?id=${listOldDiseaselibrary.id}">删除</a>
+															href="${pageContext.request.contextPath}/oldDiseaselibrary/remove.action?id=${listOldDiseaselibrary.id}" role="button" class="btn btn-danger btn-xs">删除</a>
                                                               
 														</td>
 

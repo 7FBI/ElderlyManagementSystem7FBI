@@ -31,7 +31,8 @@
 </head>
 
 <body>
-	
+<jsp:include page="../index_header.jsp" flush="true" />
+<jsp:include page="../header.jsp" flush="true" />		
 <div id="shownews">
   <div class="cat_title">
     <div class="wrapper">
@@ -58,6 +59,6 @@
   </div>
   
 </div>
-
+<jsp:include page="../footer.jsp" flush="true" />
    </body>
   </html>

@@ -33,7 +33,7 @@ public class OldDiseaselibraryBackStageController {
    public ModelAndView getOldDiseaselibrary(HttpServletRequest request){
 	   ModelAndView modelAndView=new ModelAndView();
 	   Map<String, Object> map = new HashMap<String, Object>();
-		Integer max = 2;
+		Integer max = 6;
 		Integer page = 0;
 		Integer counts = 0;
 		if (request.getParameter("page") != null) {

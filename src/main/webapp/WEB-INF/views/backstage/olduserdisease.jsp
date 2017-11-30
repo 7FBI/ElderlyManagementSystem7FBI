@@ -182,12 +182,12 @@
 														<td>${oldDiseasedetails.history}</td>
 
 														<td><a
-															href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">详情</a>
+															href="${pageContext.request.contextPath}/backoldSickness/querys.action?oldDiseasedetail_id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}" role="button" class="btn btn-info btn-xs">详情</a>
 															 <a
-															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/updatejsp.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">修改</a>
+															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/updatejsp.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}" role="button" class="btn btn-warning btn-xs">修改</a>
 
 															<a
-															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/remove.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}">删除</a>
+															href="${pageContext.request.contextPath}/backstageOldDiseasedetails/remove.action?id=${oldDiseasedetails.id}&&uid=${oldDiseasedetails.uid}" role="button" class="btn btn-danger btn-xs">删除</a>
                                                               
 														</td>
 

@@ -38,10 +38,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	rel="stylesheet" type="text/css">
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+<!-- 验证 -->
+
+<script type="text/javascript" language="javascript" src="/resources/js/videoandeducheck.js"></script>
 
 </head>
 
 <body>
+<jsp:include page="../index_header.jsp" flush="true" />
+<jsp:include page="../header.jsp" flush="true" />	
 	<section id="newslist">
 	<div class="cat_title edutitle">
 		<div class="wrapper">
@@ -66,15 +71,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div> -->
 	<div style="width: 76% ;margin: 0 auto;">
-		<form action="${pageContext.request.contextPath}/front/edu/queryEduByConditions.action" method="post">	
+		<form action="${pageContext.request.contextPath}/front/edu/queryEduByConditions.action" method="post" onsubmit="return searchCheck()">	
 		  	 <div class="col-md-offset-8 col-md-4 frontedusearch">
 					<div class="input-group">
 						<input type="text" class="form-control"
-							 name="findEduByConditions" placeholder="Search for...">
+							 name="findEduByConditions" placeholder="Search for..." id="mysearch" onblur="searchContent()">
 								<span class="input-group-btn">
 									<button class="btn btn-info" type="submit">Search</button>										
 								</span>
+					 
 					 </div>
+					 <div>
+	  			      <font color="red"><p id="error1"></p></font>
+		              <font color="green"><p id="success1"></p></font>
+		         </div>
 			 </div>
           </form>
     <br>
@@ -137,6 +147,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </section>
 <br>
 <br>
+<jsp:include page="../footer.jsp" flush="true" />
 <!--分页js  -->	
 <script type="text/javascript">
 		
