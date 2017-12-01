@@ -66,7 +66,7 @@
 										</h3>
 										<p class="p1">${Groupbuyings.getProducts().productstype1}</p>
 										<p class="p3">
-											团购价：<span>${Groupbuyings.getGroupbuying().groupprice}</span>
+											团购价：<span>${Groupbuyings.getGroupbuying().groupprice*Groupbuyings.getGroupbuying().grouppeople}</span>
 										</p>
 										<p class="p4">商城价：¥ ${Groupbuyings.getProducts().price}</p>
 										<p class="p11">
