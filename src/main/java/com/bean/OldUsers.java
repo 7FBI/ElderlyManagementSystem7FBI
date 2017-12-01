@@ -358,9 +358,21 @@ public class OldUsers {
 	 *
 	 * @mbggenerated
 	 */
-	public OldUsers(Integer id, String username, Integer sex, String idcard, Date birthday, String tell, String address,
-			Integer area, Localarea localarea, String uid, String password, String userurl, Double balance,
-			Integer type, String extended1, String extended2, String extended3, String extended4, String extended5,
+	public OldUsers(Integer id,
+			String username,
+			Integer sex, 
+			String idcard,
+			Date birthday,
+			String tell,
+			String address,
+			Integer area,
+			String uid, 
+			String password,
+			String userurl,
+			Double balance,
+			Integer type, 
+			String extended1,
+			String extended2, String extended3, String extended4, String extended5,
 			String extended6, String extended7, String extended8, String extended9, String extended10,
 			String extended11, String extended12, String extended13, String extended14, String extended15,
 			String extended16, String extended17, String extended18, String extended19, String extended20) {
@@ -372,7 +384,6 @@ public class OldUsers {
 		this.tell = tell;
 		this.address = address;
 		this.area = area;
-		this.localarea = localarea;
 		this.uid = uid;
 		this.password = password;
 		this.userurl = userurl;

@@ -52,6 +52,9 @@
 					</div>
 				</div>
 				<div class="layui-form-item">
+				<a
+						style="font-size: 10px; float: right; margin-top: -5px"
+						href="/gotoFront/oldUser/Find_Password">忘记密码?</a>&nbsp;&nbsp;
 					<a
 						style="font-size: 10px; float: right; margin-top: -5px"
 						href="/gotoFront/register">未有帐号?</a>

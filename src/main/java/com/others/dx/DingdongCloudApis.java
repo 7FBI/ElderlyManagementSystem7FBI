@@ -57,13 +57,12 @@ public class DingdongCloudApis {
 	public static String sendMessage(String to,String yzm){
 		String url = BASE_URL + operation;
 		smsContent=new String(smsContent+yzm);
-		String body = "accountSid=" + ACCOUNT_SID + "&to=" + to + "&smsContent=" + smsContent
-				+ createCommonParam();
+		String body = "accountSid=" + ACCOUNT_SID + "&to=" + to + "&smsContent=" + smsContent + createCommonParam();
 
 		// 提交请求
 		String result = post(url, body);
 		//System.out.println("result:" + System.lineSeparator() + result);
-		System.out.println("result:" + result);
+		System.out.println("------------------------------>result:" + result);
 		return result;
 	}
 	
