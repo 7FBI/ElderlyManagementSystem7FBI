@@ -69,4 +69,6 @@ public interface OrdersMapper {
 	public List<Orders> selectByorderstatus(int orderstatus);
 	List<Orders> selectFrontOrderstatus(Map map);
 	Integer selectByorderstatusCount(Map map);
+	
+	int selectBypidandOrderstatus(int pid);
 }

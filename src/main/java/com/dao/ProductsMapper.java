@@ -101,4 +101,6 @@ public interface ProductsMapper {
 //    閿�閲忔帓搴�
     public List<Products> querySaleProductCountByTid(Integer tid);
     public List<Products> querySomeProductByTid(Integer tid);
+    
+    List<Products> selectRecommend(int tid);
 }

@@ -203,4 +203,9 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.productTypeTidByQuarter(tid);
 	}
+	@Override
+	public List<Products> selectRecommend(int tid) {
+		// TODO Auto-generated method stub
+		return  productsMapper.selectRecommend(tid);
+	}
 }

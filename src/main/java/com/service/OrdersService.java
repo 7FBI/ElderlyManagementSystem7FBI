@@ -59,5 +59,7 @@ public interface OrdersService {
 	public List<Orders> selectByorderstatus(int orderstatus);   //查询各种类型 待发 待收 接收
 	List<Orders> selectFrontOrderstatus(Map map);
 	Integer selectByorderstatusCount(Map map);
+	
+	int selectBypidandOrderstatus(int pid);
 
 }

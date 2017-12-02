@@ -85,4 +85,10 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersMapper.selectOrdersAllMoneysYear();
 	}
 
+	@Override
+	public int selectBypidandOrderstatus(int pid) {
+		// TODO Auto-generated method stub
+		return  ordersMapper.selectBypidandOrderstatus(pid);
+	}
+
 }

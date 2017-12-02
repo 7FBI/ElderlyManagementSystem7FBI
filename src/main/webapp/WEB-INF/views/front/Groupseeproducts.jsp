@@ -60,7 +60,7 @@
                         		<div class="txt">
                         			<span class="nowprice">￥<a href="">${groupbuying.groupprice}</a></span>
                         			<div class="cumulative">
-                        				<span class="number ty1">累计售出<br /><em id="add_sell_num_363">370</em></span>
+                        				<span class="number ty1">累计售出<br /><em id="add_sell_num_363">${shoppingcart}</em></span>
                         				<span class="number tyu">累计评价<br /><em id="add_sell_num_363">25</em></span>
                         			</div>
                         		</div>
@@ -87,7 +87,6 @@
                                 	}
       
                            	 }) 
-                            	//�������ٲ���
                             	$("#min").click(function(){
                                 	t.val(parseInt(t.val())-1);
                                 	if (parseInt(t.val())==1){
@@ -106,10 +105,10 @@
                         	</div>
                         	<div class="nobdr-btns">
                         		<button class="addcart hu"><img src="/resources/front/images/ht.png" width="25" height="25"/>参与团购</button>
-                        		<c:if test="${groupbuying.grouppeople>=10}">
-                        		<button class="addcart .yh">立即购买</button>
+                        		<c:if test="${groupbuying.grouppeople<=total}">
+                        		<button class="addcart yhtyu">立即购买</button>
                         		</c:if>
-                        		<c:if test="${groupbuying.grouppeople<10}">
+                        		<c:if test="${groupbuying.grouppeople>total}">
                         		<button class="addcart hui">立即购买</button>
                         		</c:if>
                         	</div>
@@ -120,7 +119,7 @@
                  <!-- right -->
                  <div class="extInfo">
                  <div class="baty_logo">
-                 <p>有<font style="color:red;">25</font>位用户正在团购该商品</p>
+                 <p>有<font style="color:red;">${total}</font>位用户正在团购该商品</p>
                  <div class="butt">
                  <p>商品团截止时间</p>
                  <span><fmt:formatDate value="${groupbuying.groupstoptime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
@@ -129,7 +128,7 @@
                  </div>
  </div>
  <!-- 参加团购提示 -->
- <div id="confirmDouble" class="mod_layer showtime" style="margin-top:-99px; margin-left:-180px;">
+ <div id="confirmDouble" class="mod_layer" style="margin-top:-99px; margin-left:-180px;">
  <div class="mod_layer_hd">
  <i class="close_ico" data-mpopup-close=""></i>
  </div>
@@ -138,7 +137,7 @@
  <div class="prompt_txt J_get_status">参与成功</div>
  </div>
  <div class="mod_layer_ft">
- <a class="layer_btn J_close_text">继续浏览</a>
+ <a class="layer_btn J_close_text" href="#">继续浏览</a>
  </div>
  </div>
  <div id="confirmBuy" class="mod_layer" style="margin-top:-99px; margin-left:-180px;">
@@ -148,9 +147,10 @@
  <div class="mod_layer_bd">
  <i class="fail_ico js_hinter_ico "></i>
  <div class="prompt_txt J_get_status">参与失败</div>
+ <div class="" style="text-align:center;margin-left:30px;color:red;margin-top:20px;">你可能已经参与了该商品的团购</div>
  </div>
  <div class="mod_layer_ft">
- <a class="layer_btn J_close_text">继续浏览</a>
+ <a class="layer_btn J_close_text" href="#">继续浏览</a>
  </div>
  </div>
  <!-- 推荐搭配 -->
@@ -193,34 +193,6 @@
                 				</div>
                 			</div>
                 			</c:forEach>
-                			<!--搭配3
-                			<div class="dp_prd">
-                				<div class="icon_plus">+</div>
-                				<div class="dp_p_wrap">
-                					<a class="dp_wrap_pimg" href="" target="_blank"><img src="images/hdy_09.png"/></a>
-                					<a class="dp_wrap_pname" href="" target="_blank">亿连方控-智能安全驾驶控制器 时尚版</a>
-                					<p class="dp_wrap_pprice">
-                					<label>
-                					<input type="checkbox" data-price="199" data-item="570b1b2f5efb114c378b4575">
-                					￥199
-                					</label>
-                					</p>
-                				</div>
-                			</div>
-                			搭配4
-                			<div class="dp_prd">
-                				<div class="icon_plus">+</div>
-                				<div class="dp_p_wrap">
-                					<a class="dp_wrap_pimg" href="" target="_blank"><img src="images/list_03.jpg"/></a>
-                					<a class="dp_wrap_pname" href="" target="_blank">O2+车载空气净化器DM2</a>
-                					<p class="dp_wrap_pprice">
-                					<label>
-                					<input type="checkbox" data-price="199" data-item="570b1b2f5efb114c378b4575">
-                					￥365
-                					</label>
-                					</p>
-                				</div>
-                			</div> -->
                 			<!-- 产品结束 -->
                 		</div>
                 	</div>
@@ -231,14 +203,16 @@
                 	<!-- left -->
                 	<div class="aside">
                 		  <h3>看了还看<span></span></h3>
+                		   <c:forEach items="${commoditys}" var="commoditys">
                 		  <dl class="ac-mod-list">
-                		  	<dt><a href=""><img src="images/hdy_09.png"/></a></dt>
+                		  	<dt><a href="/front/products/selectProductDetailByPrimaryKey?id=${commoditys.id}"><img src="${commoditys.producturl}"/></a></dt>
                 		  	<dd>
-                		  		  O2+车载空气净化器DM2
-                		  		  <span>￥99</span>
+                		  		  ${commoditys.productstype2}+${commoditys.pname}
+                		  		  <span>￥${commoditys.price}</span>
                 		  	</dd>
                 		  </dl>
-                		  <dl class="ac-mod-list">
+                		  </c:forEach>
+                		 <!--  <dl class="ac-mod-list">
                 		  	<dt><a href=""><img src="images/hdy_07.png"/></a></dt>
                 		  	<dd>
                 		  		  O2+车载空气净化器DM2
@@ -251,7 +225,7 @@
                 		  		  O2+车载空气净化器DM2
                 		  		  <span>￥99</span>
                 		  	</dd>
-                		  </dl>
+                		  </dl> -->
                 	</div>
                 	<!-- right -->
                 	<script>
@@ -318,11 +292,34 @@ document.addEventListener('scroll', onScroll);
 												       </div>
 												       
 												 <!--商品评价-->      
-												   
 												    <div id="ui-c" class="ui-c">
-												         <ul style="display:none;">
-												         	
-												         </ul>
+												        <ul class="evaluate_tab_content" style="display:none;">
+												        <h2>用户评价</h2>
+												        <div class="evaluate_inner">
+												        <div class="J_comment_main">
+												        <div class="evaluate_score_box">
+												        <h4>总体评分</h4>
+												        <div class="score_box">
+												        <div class="star_box" style="margin-top:12px;">
+												        <div id="scoreBox" class="star_box_light" style="width:23.2px;"></div>
+												        </div>
+												        <div class="comment_tip" style="margin-top:10px;">
+												              评分:
+												             <label id="stars" style="color:red;display:inline-block;">3</label>
+												              分
+												        </div>
+												        </div>
+												        </div>
+												        <div class="comment_tip">
+												        总评价量:
+												        <input id="countOp" style="border: none;" value="0">
+												        |总页数:
+												        <input id="pageCountOp" style="border: none;" value="0">
+												        </div>
+												        </div>
+												        </div>
+												        </ul>
+												   
 												    </div>
 												 <!--售后保障-->
 												 <div id="uic" class="uic">
@@ -382,10 +379,49 @@ $(document).on('click','.close_ico',function(){
 $(document).on('click','.layer_btn',function(){
 	var ico=$(this);
 	var prent=ico.parent().parent();
-	alert(prent.attr('class'))
 	prent.removeClass('showtime');
-})  
-
+}) 
+$(document).on('click','.hui',function(){
+	alert("亲 团购人数不足 无法购买")
+})
+/*  参与团购 */
+$('.hu').on('click',function(){
+	 $.ajax({
+		 type:'post',
+		 url:'/front/groupbuying/insertGroupbuyings.action?gid=${groupbuying.id}',
+		 success:function(data){
+			 if(data=="ture"){
+				 var sucess=$('#confirmDouble');
+				 var conutIt=$(".baty_logo").find("font");
+				 conutIt.text(Number(conutIt.text())+1);
+				 sucess.addClass('showtime'); 
+			 }else if(data=="false"){
+				alert("亲 没有登录不了参与团购！") 
+			 }else if(data=="again"){
+				 var hsiba=$('#confirmBuy')
+				 hsiba.addClass("showtime");  
+			 }
+		 },
+		 error:function(){
+			 alert("网络错误")
+		 }
+		 
+	 })
+	 
+})
+/*立即购买 */
+$(document).on('click','.yhtyu',function(){
+	 var hui='${oldUsers.uid}';
+	 var mun=$('#text_box').val();
+	 var product='${product.id}';
+	 var price='${groupbuying.groupprice}';
+	 if(hui!=null){
+		 window.location.href="/front/orders/addOneOrder?pid="+product+"&num="+mun+"&price"+price;
+	 }
+	 else if(hui==null){
+		 alert("亲 还没有登录呢？")
+	 }
+})
 </script>
 </body>
 </html>

@@ -55,4 +55,16 @@ public class GroupdetailServiceImpl implements GroupdetailService {
 		return groupdetailMapper.selectByUidAndGid(record);
 	}
 
+	@Override
+	public int selectBygid(int pid) {
+		// TODO Auto-generated method stub
+		return  groupdetailMapper.selectBygid(pid);
+	}
+
+	@Override
+	public int selectcountByolduser(Groupdetail record) {
+		// TODO Auto-generated method stub
+		return groupdetailMapper.selectcountByolduser(record);
+	}
+
 }

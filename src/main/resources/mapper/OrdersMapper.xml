@@ -517,4 +517,10 @@
 		where YEAR(o.ordertime)=YEAR(NOW())
 	</select>
 	
+	<!-- 查修商品累计销售数量 -->
+	<select id="selectBypidandOrderstatus" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	select count(orderdetails.id) from orderdetails,orders 
+	where orderdetails.oid=orders.id and orders.orderstatus>=2 and orderdetails.pid=#{pid,jdbcType=INTEGER}
+	</select>
+	
 </mapper>

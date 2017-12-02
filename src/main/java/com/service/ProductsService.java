@@ -74,4 +74,6 @@ public interface ProductsService {
 //  销量
   public List<Products> querySaleProductCountByTid(Integer tid);
   public List<Products> querySomeProductByTid(Integer tid);
+  
+  public List<Products> selectRecommend(int tid);
 }

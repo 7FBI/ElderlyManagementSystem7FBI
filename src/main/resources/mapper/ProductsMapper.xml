@@ -869,7 +869,10 @@
 		WHERE p.id=od.pid and o.id=od.oid and p.tid=#{tid} and QUARTER(o.ordertime) =
 		QUARTER(now()) GROUP BY DATE_FORMAT(o.ordertime,'%Y-%m-%d')
 	</select>
-	
+  <!-- 团购商品推荐 -->
+  <select id="selectRecommend" parameterType="java.lang.Integer" resultType="com.bean.Products">
+      SELECT * from products where tid=#{tid,jdbcType=INTEGER} LIMIT 3
+  </select>
 	
 	
 

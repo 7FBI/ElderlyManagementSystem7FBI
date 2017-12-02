@@ -51,4 +51,9 @@ public interface GroupdetailService {
      */
     int updateByPrimaryKey(Groupdetail record);
     Groupdetail selectByUidAndGid(Groupdetail record);
+    
+    /*商品团购人数*/
+    int selectBygid(int pid);
+    
+    int selectcountByolduser(Groupdetail record);
 }
