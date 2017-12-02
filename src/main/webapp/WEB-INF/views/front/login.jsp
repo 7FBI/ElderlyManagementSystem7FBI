@@ -101,6 +101,7 @@
 						}
 					})
 				}else{
+					layer.close(layer.index);
 					rmvErr()
 				}
 			})

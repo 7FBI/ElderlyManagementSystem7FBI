@@ -74,4 +74,9 @@ public class VideoServiceImpl implements VideoService{
 		// TODO Auto-generated method stub
 		return videoMapper.findSameVideo(videotitle);
 	}
+	@Override
+	public Video selectVideoByIdFX(Integer id) {
+		// TODO Auto-generated method stub
+		return videoMapper.selectVideoByIdFX(id);
+	}
 }

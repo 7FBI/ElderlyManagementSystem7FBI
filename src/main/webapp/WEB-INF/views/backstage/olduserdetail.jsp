@@ -124,7 +124,7 @@
                                                              </c:if> <c:if test="${userdetail.sex==0}">
                                                                                                                                                                                                 男
                                                                </c:if>
-															<th width=130 rowspan=2><img src="/files${userdetail.userurl}" width="122px"  />
+															<th width=130 rowspan=2><img src="/fbiImage${userdetail.userurl}" width="122px"  />
 																
 														<tr>
 															<td colspan=1 height=5 align=center bgcolor=#D4D4D4>账号

@@ -729,7 +729,7 @@
 		select
 		p.*,d.discountprice discountprice,d.discountstoptime discountstoptime
 		from products p,discount d
-		where p.id = d.pid
+		where p.id = d.pid and TO_DAYS(discountstoptime)>=TO_DAYS(now())
 	</select>
 
 	<!-- 统计不同类型商品的销售量 -->
@@ -843,11 +843,11 @@
 		
 		SELECT products.id, products.pname
 		,products.price,products.producturl,SUM(ordercount) saleProductCount
-		FROM orderDetails,orders,products
+		FROM orderdetails,orders,products
 		WHERE
-		orderDetails.pid=products.id
+		orderdetails.pid=products.id
 		AND
-		orderDetails.oid=orders.id
+		orderdetails.oid=orders.id
 		AND products.tid=#{tid,jdbcType=INTEGER}
 		GROUP BY pid ORDER BY SUM(ordercount) DESC
 		LIMIT 10 

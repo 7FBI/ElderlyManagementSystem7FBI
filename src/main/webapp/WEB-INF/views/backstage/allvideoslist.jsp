@@ -23,6 +23,8 @@
 	type="text/css">
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+	
+<script type="text/javascript" src="/resources/unity/js/echarts.min.js"></script>
 <script type="text/javascript"
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <!-- 验证 -->
@@ -163,8 +165,7 @@
 													</tr>
 													<c:forEach items="${allVideos}" var="allVideos"
 														varStatus="var">
-														<tr align="left" class="d">
-
+														<tr align="left" class="d" v="${allVideos.id }">
 															<td>${var.count}</td>
 															<td>${allVideos.vtitle}</td>
 															<%-- <td>${allVideos.vteacher}</td>
@@ -268,7 +269,43 @@
 				height="17" /></td>
 		</tr>
 	</table>
+	
+	
+	
+	<center>
+		<div style="width: 90%; height: 280px;float: left;" id="pviews"></div>
+	</center>
+	
+	
+	
+	<script type="text/javascript" src="/resources/backstage/Js/statisticsProduct.js"></script>
 	<script type="text/javascript">
+     
+     $(document).on('click',".d",function(){
+    	 var trId=$(this);
+    	 var trHtmls='';
+    	 var titles = '视频编号为:'+trId.attr("p")+'的购买情况';
+			var legends = "购买量";
+			var documentsId = 'pviews';
+			var col='#0E4ACC';
+			$.ajax({
+				type:"get",
+				url:'/backstage/statistics/video/videoYearInfo?id='+trId.attr("v"),
+				success:function(data){
+					//返回数据
+					var xnames = getDatesYear(data.pViewInfo);
+					var numbers = getSumNum(data.pViewInfo);
+					setTypeOptionX('次',titles, legends, xnames, numbers,documentsId,col);
+				},
+				error : function() {
+					alert("网络错误无法获取数据");
+				}
+			})
+     })
+     
+     
+     
+     
 		$("#deleteBtn").click(function() {
 							var b = $(this).val();
 							

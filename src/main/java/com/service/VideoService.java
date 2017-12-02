@@ -6,6 +6,7 @@ import java.util.Map;
 import com.bean.Video;
 
 public interface VideoService {
+	Video selectVideoByIdFX(Integer id);
 	public void addVideo(Video video);
 	public List<Video> queryAllVideo();
 	public void deleteById(Integer id);

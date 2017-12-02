@@ -377,7 +377,20 @@ public class UploadImage {
         }  
         if(".xml".equalsIgnoreCase(fileExtension)) {  
             return "text/xml";  
-        }  
+        }
+        if(".mp4".equalsIgnoreCase(fileExtension)) {  
+            return "video/mp4";
+        }
+        if(".avi ".equalsIgnoreCase(fileExtension)) {  
+            return "video/avi ";
+        }
+        if(".rmvb".equalsIgnoreCase(fileExtension)) {  
+            return "video/rmvb";
+        }
+        if(".mpg".equalsIgnoreCase(fileExtension)||".mpeg".equalsIgnoreCase(fileExtension)) {  
+            return "video/mpg";
+        }
+        //"mp4":contentType = "video/mp4";
         //默认返回类型  
         return "image/jpeg";  
     }  
