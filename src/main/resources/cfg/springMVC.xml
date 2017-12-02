@@ -8,11 +8,12 @@
 	<mvc:default-servlet-handler />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/files/**" location="/files/" />
+	<mvc:resources mapping="/fbiImage/**" location="http://tzwfbi.oss-cn-shanghai.aliyuncs.com/fbiImage/" />
 	<!--开启注解 -->
 	<!-- 设置对字符串的消息转换器 -->
 	<!-- text/plain;charset=UTF-8 -->
 
-	<mvc:annotation-driven  conversion-service="conversionService" >
+	<mvc:annotation-driven conversion-service="conversionService">
 		<mvc:message-converters>
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
@@ -24,17 +25,18 @@
 					</list>
 				</property>
 			</bean>
-			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">  
-               <property name="objectMapper">  
-                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">  
-                        <property name="dateFormat">  
-                            <bean class="java.text.SimpleDateFormat">  
-                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />  
-                            </bean>  
-                        </property>  
-                    </bean>  
-                </property>  
-            </bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+							</bean>
+						</property>
+					</bean>
+				</property>
+			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<!-- 扫描基本包，来确定控制器中的注解 -->
@@ -52,7 +54,7 @@
 			<list>
 				<bean
 					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
-					
+
 			</list>
 		</property>
 	</bean>
@@ -69,8 +71,8 @@
 		<!-- 使用转换器 -->
 		<property name="conversionService" ref="conversionService"></property>
 	</bean>
-	
-    <bean id="customObjectMapper" class="com.custom.CustomObjectMapper"></bean>  
+
+	<bean id="customObjectMapper" class="com.custom.CustomObjectMapper"></bean>
 
 	<!-- 注册转换器 -->
 	<bean id="conversionService"
@@ -88,6 +90,7 @@
 		<property name="maxUploadSize">
 			<value>5000000000</value>
 		</property>
+		<property name="maxInMemorySize" value="4096"/>
 	</bean>
 	<!-- springmvc 拦截器的配置 -->
 	<mvc:interceptors>
@@ -97,7 +100,7 @@
 			<mvc:exclude-mapping path="/backstage/ceoinfo/login" />
 			<mvc:exclude-mapping path="/backstage/manager/login" />
 			<mvc:exclude-mapping path="/backstage/user/login.action" />
-			<mvc:exclude-mapping path="/backstage/statistics/products/**"/>
+			<mvc:exclude-mapping path="/backstage/statistics/products/**" />
 			<bean class="com.interceptor.BackstageIndex"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>
@@ -106,9 +109,21 @@
 			<mvc:exclude-mapping path="/" />
 			<mvc:exclude-mapping path="/front/oldUsers/login" />
 			<mvc:exclude-mapping path="/front/oldUsers/register" />
+			<mvc:exclude-mapping path="/front/oldUsers/getNowOldUsers" />
+			<mvc:exclude-mapping path="/front/oldUsers/getPaswdCode" />
+			<mvc:exclude-mapping path="/front/oldUsers/findPassword" />
+			<mvc:exclude-mapping path="/front/oldUsers/setNewPassword" />
 			<mvc:exclude-mapping path="/front/products/**" />
 			<bean class="com.interceptor.FrontUserLoginInterceptor"></bean>
 		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/front/oldUsers/setNewPassword" />
+			<mvc:exclude-mapping path="/front/oldUsers/getPaswdCode" />
+			<mvc:exclude-mapping path="/front/oldUsers/findPassword" />
+			<bean class="com.interceptor.FrontUserLoginInterceptor"></bean>
+		</mvc:interceptor>
+		
 	</mvc:interceptors>
 
 </beans>
