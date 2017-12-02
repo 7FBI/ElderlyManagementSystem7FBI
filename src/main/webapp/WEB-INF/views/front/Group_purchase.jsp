@@ -21,11 +21,16 @@
 			<!-- 用户信息及积分 -->
 			<dl>
 				<dt>
-					<a href=""><img src="${user.userurl}" /></a>
+				   <c:if test="${user.userurl!=null}">
+					<a href=""><img src="${user.userurl}" style="width:100%;height:100%;"/></a>
+				   </c:if>
+				   <c:if test="${user.userurl==null}">
+					<a href=""><img src="/resources/front/images/default_head.png" style="width:100%;height:100%;"/></a>
+				   </c:if>
 				</dt>
 				<dd>
 					<h3 style="color: red; font-size: 16px;">我的团购</h3>
-					<p style="font-size: 12px;">团购记录:</p>
+					<p style="font-size: 12px;">${user.username}</p>
 				</dd>
 				<div style="clear: both;"></div>
 			</dl>
@@ -47,7 +52,7 @@
 					排序：<span>默认</span>
 				</p>
 				<p class="p2">
-					积分<span>↓</span>
+					价格<span>↓</span>
 				</p>
 				<p class="p2">
 					优惠力度<span>↓</span>
@@ -121,9 +126,124 @@
 						</ul>
 					</c:if>
 				</c:forEach>
+				<!-- 分页 -->
+				<div class="paging" style="margin-top:0;">
+				<div class="pag-left f-l">
+				<a href="#" class="about left-r f-l"><</a>
+				<ul class="left-m f-l">
+				<li><a href="#">1</a></li>
+				<li class="current"><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<div style="clear:both;"></div>
+				</ul>
+				<a href="#" class="about left-r f-l">></a>
+				<div style="clear:both;"></div>
+				</div>
+				<div class="pag-right f-l">
+				<div class="jump-page f-l">
+				到第
+				<input type="text">
+				页
+				</div>
+				<button class="f-1">确定</button>
+				</div>
+				<div style="clear: both;"></div>
+				</div>
 				<div style="clear: both;"></div>
 			</div>
-			
+			</div>
+   </div>
+<!-- 底部服务 -->
+<div class="ft-service">
+<div class="w1200">
+<div class="sv-con-l2 f-l">
+<dl>
+<dt>
+<a href="#">新手上路</a>
+</dt>
+<dd>
+<a href="#">购物流程</a>
+<a href="#">在线支付</a>
+</dd>
+</dl>
+<dl>
+<dt>
+<a href="#">配送方式</a>
+</dt>
+<dd>
+<a href="#">免配送费</a>
+<a href="#">无特定快递</a>
+</dd>
+</dl>
+<dl>
+<dt>
+<a href="#">购物指南</a>
+</dt>
+<dd>
+<a href="#">常见问题</a>
+<a href="#">订购流程</a>
+</dd>
+</dl>
+<dl>
+<dt>
+<a href="#">售后服务</a>
+</dt>
+<dd>
+<a href="#">售后服务保障</a>
+<a href="#">退款说明</a>
+<a href="#">新手选购商品总则</a>
+</dd>
+</dl>
+<dl>
+<dt>
+<a href="#">关于我们</a>
+</dt>
+<dd>
+<a href="#">投诉与建议</a>
+</dd>
+</dl>
+</div>
+<div class="sv-con-r2 f-r">
+<p class="sv-r-tle">151-8655-0425</p>
+<p>周一至周五9:00-17:30</p>
+<p>（仅收市话费）</p>
+<a href="#" class="zxkf">24小时在线客服</a>
+</div>
+<div style="clear:both;"></div>
+</div>
+</div>
+<!--底部 版权 -->
+<div class="footersrt w1290">
+<p>
+<a href="#">关于我们</a>
+<span>|</span>
+<a href="#">友情链接</a>
+<span>|</span>
+<a href="#">宜嘉老年中心</a>
+<span>|</span>
+<a href="#">热门活动</a>
+<span>|</span>
+<a href="#">超级折扣</a>
+<span>|</span>
+<a href="#">健康中心</a>
+<span>|</span>
+<a href="#">定制化健康中心</a>
+<span>|</span>
+<a href="#">开放平台</a>
+</p>
+<p>
+<a href="#">黔ICP备14007890号</a>
+<span>|</span>
+<a href="#">营业执照</a>
+<span>|</span>
+<a href="#">营业执照</a>
+<span>|</span>
+<a href="#">贵州大学FBI七人组</a>
+</p>
+</div>
+</body>	
 			<script type="text/javascript">
 				var aftUlDisplay;
 				var aftLiClass;

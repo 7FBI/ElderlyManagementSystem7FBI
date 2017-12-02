@@ -1704,7 +1704,7 @@ response.setContentType("UTF-8");
 					 <a class="cddd"><span class="message"></span>
 					 </a>
 					<p>购物车</p>
-					<p class="cart_num ">0</p>
+					<p class="cart_num ">${muns}</p>
 				</div>
 				<div id="asset " class="item ">
 					<a href="# "> <span class="view "></span>

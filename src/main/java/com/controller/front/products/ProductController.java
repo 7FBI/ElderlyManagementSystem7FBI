@@ -19,6 +19,7 @@ import com.bean.OldDiseaselibrary;
 import com.bean.OldUsers;
 import com.bean.Products;
 import com.bean.Showsphotos;
+import com.bean.Stormproducts;
 import com.controller.util.shop.OldCollectionBoolean;
 import com.service.ClassificationService;
 import com.service.CreditshopService;
@@ -27,6 +28,7 @@ import com.service.OldCollectionService;
 
 import com.service.ProductsService;
 import com.service.ShowsphotosService;
+import com.service.StormproductsService;
 /**   
 *    
 * 项目名称：ElderlyManagementSystem7FBI   
@@ -67,14 +69,28 @@ public class ProductController {
 	@Autowired
 	@Qualifier("matchdiseaseService")
 	private MatchdiseaseService matchdiseaseService;
+	
+	@Autowired
+	@Qualifier("stormproductsService")
+	private StormproductsService stormproductsService;
 
 	@RequestMapping("/selectAllProducts")
-	public ModelAndView selectAllProducts(){
+	public ModelAndView selectAllProducts(HttpServletRequest request){
+	int num=0;
+	if(request.getSession().getAttribute("oldUsers")!=null){
+	      OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers");
+	      List<Stormproducts> list=new ArrayList<Stormproducts>(); 
+	      list=stormproductsService.selectStormproducts(user.getId()); 
+	      for(int i=0;i<list.size();i++){
+	    	num=num+list.get(i).getCartcount();  
+	      }
+	  }
 	  List<Products> products = productsService.selectAllProducts();
 	  List<Products> product = creditShopService.SelectAllCreditShop();
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
 		modelAndView.addObject("product", product);
+		modelAndView.addObject("muns",num);
 		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
 	}

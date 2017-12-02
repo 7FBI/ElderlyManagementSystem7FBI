@@ -73,7 +73,6 @@ public class GroupsbuyingController {
 	/*获得团购商城商品*/
 	@RequestMapping("/Lookto.action")
 	public String selectGroupbuying(HttpServletRequest request){
-		if(request.getSession().getAttribute("oldUsers")!=null){
 		OldUsers user=(OldUsers) request.getSession().getAttribute("oldUsers"); 
 		List<Classification> lebie=new ArrayList<Classification>();   /*类别*/
 		lebie=classification.selectClassifiaction();
@@ -94,8 +93,8 @@ public class GroupsbuyingController {
 		request.setAttribute("Groupbuyings", zhuij);
 		request.setAttribute("user",user);
 		return "front/Group_purchase";
-		}
-		return "front/login";
+		 
+	 
 	}
 	
 	/*团购商城商品详情页*/
