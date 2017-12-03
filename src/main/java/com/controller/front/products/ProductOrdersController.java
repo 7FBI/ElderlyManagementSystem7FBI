@@ -403,7 +403,9 @@ public class ProductOrdersController {
 		Orders orders = ordersService.selectByPrimaryKey(id);
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		if (orders != null) {
-			if (oldUsers.getBalance() > orders.getMoney()) {
+			if (oldUsers.getBalance() >= orders.getMoney()) {
+				oldUsers.setBalance(oldUsers.getBalance()-orders.getMoney());
+				oldUsersService.updateByPrimaryKeySelective(oldUsers);
 				orders.setOrderstatus(2);
 				ordersService.updateByPrimaryKeySelective(orders);
 			} else {

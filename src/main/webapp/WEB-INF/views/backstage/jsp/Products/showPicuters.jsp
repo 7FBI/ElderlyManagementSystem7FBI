@@ -94,7 +94,7 @@
 													<td>&nbsp;</td>
 													<td colspan="3">
 													<input class="btn" type="submit"
-														value="提交" /></td>
+														id="submitBtn" value="提交" /></td>
 													<td>&nbsp;</td>
 												</tr>
 											</table>
@@ -175,6 +175,17 @@
 				height="17" /></td>
 		</tr>
 	</table>
+			
+			<script src="/resources/unity/layer/layui.js" type="text/javascript"></script>
+	<script>
+	layui.use('layer', function() {
+			var $ = layui.jquery, layer = layui.layer;
+			$("#submitBtn").on('click',function(){
+				layer.msg("若文件较大，上传时间可能比较长，请耐心等待",{time:5000});
+				layer.load(0);
+			})
+	})
+	</script>
 					
 </body>
 </html>

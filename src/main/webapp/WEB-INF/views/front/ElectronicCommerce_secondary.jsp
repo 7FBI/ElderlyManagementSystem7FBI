@@ -1320,7 +1320,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 							<div class="am-u-sm-4 text-four">
 								<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-									src="/files${products.producturl }" /></a>
+									src="/fbiImage${products.producturl }" /></a>
 									<div class="outer-con ">
 										<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1384,7 +1384,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"><img
-								src="/files${products.producturl }" /></a>
+								src="/fbiImage${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1445,7 +1445,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/files${products.producturl }" /></a>
+								src="/fbiImage${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
 											<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>
@@ -1506,7 +1506,7 @@ response.setContentType("UTF-8");
 						<c:set var="i5" value="${i5+1}"></c:set>
 						<div class="am-u-sm-4 text-four">
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"> <img
-								src="/files${products.producturl }" /></a>
+								src="/fbiImage${products.producturl }" /></a>
 								<div class="outer-con ">
 									<div class="title ">
                <a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname} </a>

@@ -100,7 +100,7 @@ public class ProductOpinions {
 		list=opinionsService.selectByPidOpinions(map);
 		map.put("page", page);
 		map.put("opinions", list);
-		map.put("count", counts);
+		map.put("count", counts+1);
 		map.put("avg", avg);
 		return map;
 	}

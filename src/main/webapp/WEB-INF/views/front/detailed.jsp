@@ -92,9 +92,9 @@
 			
 				<div class="Xcontent06"><img src="${product.producturl}"></div>
 				<ol class="Xcontent08">
-					<div class="Xcontent07"><img src="${product.producturl}"></div>
+					<div class="Xcontent07"><img src="/fbiImage${product.producturl}"></div>
 					<c:forEach items="${photosUrl }" var="url">
-					<div class="Xcontent09"><img src="${url}"></div>
+					<div class="Xcontent09"><img src="/fbiImage${url}"></div>
 					</c:forEach>
 				</ol>
 				<ol class="Xcontent13">
@@ -131,9 +131,9 @@
 					<div class="Xcontent30">
 						<p class="Xcontent31">数量</p>
 						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
-						<form id="fromSubmin" >	
-                        <input name="num" class="input" value="1">
-                        <input name="pid" type="hidden" value="${product.id}">
+						<form action="/front/orders/addOneOrder" id="fromSubmin" >	
+                        <input name="num" class="input" value="1"> <input
+							name="pid" id="nowpids" type="hidden" value="${product.id}">
                         <input name="uid" type="hidden" value="${oldUsers.uid}">
                         </form>
 						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
@@ -149,8 +149,19 @@
 				    </div>
 				    </div>
 				     <div class="collect_wrap">
-				    <i id="btnCollect" class="icon icon_collect" ></i>
-				    <span id="textCollect" class="collect_text">收藏</span>
+				    <c:choose>
+					<c:when test="${collections }">
+						<i id="btnCollect" class="icon icon_collectse"></i> 
+						<span id="textCollect" class="collect_text">收藏</span>
+					</c:when>
+					<c:otherwise>
+					<i id="btnCollect" class="icon icon_collect"></i> 
+						<span id="textCollect" class="collect_text">收藏</span>
+   			 		</c:otherwise>
+					</c:choose>
+				    
+				    
+				    
 				    <span class="js_toggle_contrast" data-cate-id="66">
 				    <i id="" class="icon icon_contrast" ></i>
 				    <span id="" class="collect_text">对比</span>
@@ -216,7 +227,7 @@
 					<li class="cur" id="product_intro" onclick="anniu(this)">产品介绍</li>
 					<li id="nav_user_evaluation" class="" onclick="anniu(this)"
 						data-tab="#user_evaluation" mtag="30007.1.3">评价 <span
-						class="evaluation_num">(24)</span>
+						class="evaluation_num"><input id="countOp" disabled="disabled" style="border: none;width: 45px;background: none;font-size: 16px;" value="0" /></span>
 					</li>
 					<li id="product_spec" class="" onclick="anniu(this)"
 						data-tab="#product_spec">规格参数</li>
@@ -409,26 +420,25 @@
 							</div>
 						</div>
 
-						<div class="comment_tip">总评价量:<input id="countOp" style="border: none;" value="0" />
-						|总页数:<input id="pageCountOp" style="border: none;" value="0" />
+						<div class="comment_tip">
+							<!-- 总评价量:<input id="countOp" style="border: none;" value="0" /> -->
+							|总页数:<input id="pageCountOp" style="border: none;" value="0" />
 						</div>
 					</div>
 					<div id="commentList" class="evaluate_list_box">
 
 						<div class="list_box" style="background: #F2F2F2" id="opinionsDiv">
-							
+
 						</div>
-
-
 					</div>
 					<!-- 评论分页 -->
-					<div class="rate_page">
+					<div class="rate_page" style="margin-bottom: 40px;">
 						<!-- 翻页功能 -->
 						<div class="pagination">
 							<div class="pagination_inner">
 								<div class="paginator">
-									<button id="addOpinoinsBtn" value="0" class="page-start" style="width: 480px">获取更多评论 </button> 
-									
+									<button id="addOpinoinsBtn" value="0" class="page-start"
+										style="width: 480px">获取更多评论</button>
 								</div>
 							</div>
 						</div>
@@ -615,26 +625,31 @@
 			g.removeClass("mod_lary show").addClass('mod_lary');
 		})
 		/* 收藏功能 */
-		$("#btnCollect").click(function(){
-	    var btn=$("#btnCollect")
-	   var tg=${product.id};
-	   $.ajax({
-		 type:'post', 
-		 url:"/front/collection/insert_or_delete?pid="+tg,
-		 data:f.serialize(),
-		 success:function(data){
-			 if(data=="ture"){
-				 btn.removeClass().addClass("icon icon_collectse")
-			 }else if(date=="false"){
-				 btn.removeClass().addClass("icon icon_collect")
-			 }
-		 },
-	     error:function(){
-		   alert("收藏失败")
-	    }
-	    
-	  })
-   })
+		$("#btnCollect").click(function() {
+			var btn = $("#btnCollect")
+			var tg = ${product.id};
+			$.ajax({
+				type : 'post',
+				url : "/front/collection/insert_or_delete?pid=" + tg,
+				success : function(data) {
+					switch (data) {
+						case "login":
+							window.location.href = "/gotoFront/login";
+							break;
+						case "false":
+							btn.removeClass().addClass("icon icon_collect")
+							break;
+						default:
+							btn.removeClass().addClass("icon icon_collectse")
+							break;
+					}
+				},
+				error : function() {
+					alert("网络错误")
+				}
+
+			})
+		})
 		$("#pays").click(function() {
 			var f = $("#fromSubmin");
 			f.submit();
@@ -650,49 +665,57 @@
 		$(document).ready(function() {
 			getOpinionsAjax();
 		})
-		
-		$("#addOpinoinsBtn").mouseenter(function () {
-			var v=$("#addOpinoinsBtn");
+
+		$("#addOpinoinsBtn").mouseenter(function() {
+			var v = $("#addOpinoinsBtn");
 			//alert(parseInt(v.val())+1);
-			var pag=$("#pageCountOp").val();
-			if (v.val()<pag) {
-				getOpinionsAjaxPage(parseInt(v.val())+1);
-				v.val(parseInt(v.val())+1);
-			}else {
+			var pag = $("#pageCountOp").val();
+			if (v.val() < pag) {
+				getOpinionsAjaxPage(parseInt(v.val()) + 1);
+				v.val(parseInt(v.val()) + 1);
+			} else {
 				v.text("已经没有跟多了");
 			}
 		})
-		
+
 		//有page
 		function getOpinionsAjaxPage(page) {
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$.ajax({
+			$
+					.ajax({
 						type : 'get',
-						url : '/front/opinions/opinionsList?pid='+ p+'&page='+page,
+						url : '/front/opinions/opinionsList?pid=' + p
+								+ '&page=' + page,
 						success : function(data) {
 							var avgs = data.avg;
 							x.css("width", avgs * 23.2 + "px");
 							st.text(avgs);
-							
+
 							if (data.opinions != null) {
-								var opdiv=$("#opinionsDiv");
-								var dop=data.opinions;
+								var opdiv = $("#opinionsDiv");
+								var dop = data.opinions;
 								for ( var k in dop) {
-									var opids=dop[k].id;
-									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
+									var opids = dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'
+											+ dop[k].content
+											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
+											+ dop[k].oldUsers.uid
+											+ '</div><div class="comment_time">'
+											+ dop[k].opinionstime
+											+ '</div></div>';
 									opdiv.append(ophtmls);
 									imagesOP(dop[k].id);
 								}
 							}
 						},
 						error : function() {
-							alert("网络错误");
+							alert("网络错误,无法获取评论信息");
 						}
 					})
-			}
-		
+		}
+
 		//无page
 		function getOpinionsAjax() {
 			var x = $("#scoreBox");
@@ -700,7 +723,7 @@
 			var st = $("#stars");
 			$.ajax({
 						type : 'get',
-						url : '/front/opinions/opinionsList?pid='+ p,
+						url : '/front/opinions/opinionsList?pid=' + p,
 						success : function(data) {
 							var avgs = data.avg;
 							x.css("width", avgs * 23.2 + "px");
@@ -708,36 +731,40 @@
 							$("#countOp").val(data.counts);
 							$("#pageCountOp").val(data.count);
 							if (data.opinions != null) {
-								var opdiv=$("#opinionsDiv");
-								var dop=data.opinions;
+								var opdiv = $("#opinionsDiv");
+								var dop = data.opinions;
 								for ( var k in dop) {
-									var opids=dop[k].id;
-									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'+dop[k].content+'</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'+dop[k].oldUsers.uid+'</div><div class="comment_time">'+dop[k].opinionstime+'</div></div>';
+									var opids = dop[k].id;
+									var ophtmls = '<div class="list_box_center"><div class="comment_wrap"><p name="opinionsCount" style="margin-left: 5PX;font-size:18px;" class="list_comment">'
+											+ dop[k].content
+											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
+											+ dop[k].oldUsers.uid
+											+ '评星:'+dop[k].star+'星</div><div class="comment_time">'
+											+ dop[k].opinionstime
+											+ '</div></div>';
 									opdiv.append(ophtmls);
 									imagesOP(dop[k].id);
 								}
 							}
 						},
 						error : function() {
-							alert("网络错误");
+							alert("网络错误,无法获取评论信息");
 						}
 					})
-			}
-						
-						
-						function imagesOP(opids) {
-							$.ajax({
-								url:'/front/opinions/remarkList?opid='+opids,
-								success:function(rms){
-									if (rms!=null) {
-										for ( var i in rms) {
-											$('#op'+opids).append('&nbsp;<img width="90px;" height="90px;" src="/files'+rms[i].remarkurl+'"/>');
-										}
-									}
-								}
-								
-							});
+		}
+
+		function imagesOP(opids) {
+			$.ajax({
+						url : '/front/opinions/remarkList?opid=' + opids,
+						success : function(rms) {
+							if (rms != null) {
+								for ( var i in rms) {
+									$('#op' + opids).append('&nbsp;<img width="90px;" height="90px;" src="/fbiImage'+rms[i].remarkurl+'"/>');
+							}
 						}
+					}
+			});
+		}
 	</script>
 </body>
 </html>
