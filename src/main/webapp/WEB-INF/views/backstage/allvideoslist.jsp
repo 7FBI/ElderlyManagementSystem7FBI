@@ -284,7 +284,7 @@
      $(document).on('click',".d",function(){
     	 var trId=$(this);
     	 var trHtmls='';
-    	 var titles = '视频编号为:'+trId.attr("p")+'的购买情况';
+    	 var titles = '视频编号为:'+trId.attr("v")+'的购买情况';
 			var legends = "购买量";
 			var documentsId = 'pviews';
 			var col='#0E4ACC';
@@ -293,9 +293,11 @@
 				url:'/backstage/statistics/video/videoYearInfo?id='+trId.attr("v"),
 				success:function(data){
 					//返回数据
-					var xnames = getDatesYear(data.pViewInfo);
-					var numbers = getSumNum(data.pViewInfo);
-					setTypeOptionX('次',titles, legends, xnames, numbers,documentsId,col);
+					if (data!=null & data.length>0) {
+						var xnames = data.videos.datesYear;
+						var numbers = data.videos.sumNum;
+						setTypeOptionX('次',titles, legends, xnames, numbers,documentsId,col);
+					}
 				},
 				error : function() {
 					alert("网络错误无法获取数据");

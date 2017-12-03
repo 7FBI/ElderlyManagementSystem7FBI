@@ -128,7 +128,7 @@ img {
 														<button upImage="up" class="btn">修改图片</button>
 													</td>
 													<td><button class="btn" type="submit">确认修改图片</button></td>
-													<td><img src="/files${frontinformation.frontpicture}" /></td>
+													<td><img src="/fbiImage${frontinformation.frontpicture}" /></td>
 													<td width="2%">&nbsp;</td>
 												</tr>
 											</table>
@@ -154,7 +154,7 @@ img {
 														<td><button upImage="up" class="btn">修改图片</button></td>
 														<td><input class="btn" type="submit" value="修改" /></td>
 														<td><img width="60px" height="90px"
-															src="/files${imgs.imagepath}"></td>
+															src="/fbiImage${imgs.imagepath}"></td>
 													</tr>
 												</table>
 											</form>

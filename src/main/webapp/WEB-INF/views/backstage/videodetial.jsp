@@ -175,11 +175,11 @@
 															<tr >
 																<td width="20%">视频</td>
 																<td width="80%" align="center"><video width="200" height="160" controls>
-																	<source src="/files${oneVideoById.vurl}"
+																	<source src="/fbiImage${oneVideoById.vurl}"
 																		type="video/mp4"> <source
-																		src="/files${oneVideoById.vurl}" type="video/ogg">
+																		src="/fbiImage${oneVideoById.vurl}" type="video/ogg">
 																	<!-- 如果浏览器不支持video标签，则使用flash --> <embed
-																		src="/files${oneVideoById.vurl}"
+																		src="/fbiImage${oneVideoById.vurl}"
 																		type="application/x-shockwave-flash" width="240"
 																		height="160" allowscriptaccess="always"
 																		allowfullscreen="true"></embed> 您的浏览器不支持视频播放 </video> <%-- ${allVideos.vurl} --%>

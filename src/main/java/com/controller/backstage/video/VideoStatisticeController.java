@@ -30,9 +30,12 @@ public class VideoStatisticeController {
 		if (request.getParameter("id")==null || "".equals(request.getParameter("id"))) {
 			return null;
 		}
+		id=Integer.valueOf(request.getParameter("id"));
 		Video video=videoService.selectVideoByIdFX(id);
 		if (video==null) {
-			video.setDatesYear(new Date());
+			video=new Video();
+			Date date=new Date();
+			video.setDatesYear(date);
 		}
 		map.put("videos", video);
 		return map;

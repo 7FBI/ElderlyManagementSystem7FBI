@@ -84,7 +84,7 @@ function getDates(collections) {
 function getDateYear(collections) {
 	var pnames = new Array();
 	for ( var k in collections) {
-		pnames[k] = collections[k].dateYear;
+		pnames[k] = collections[k].datesYear;
 	}
 	return pnames;
 }
@@ -92,7 +92,7 @@ function getDateYear(collections) {
 function getDatesYear(collections) {
 	var pnames = new Array();
 	for ( var k in collections) {
-		pnames[k] = collections[k].datesYear;
+		pnames[k] = collections[k].dateYear;
 	}
 	return pnames;
 }

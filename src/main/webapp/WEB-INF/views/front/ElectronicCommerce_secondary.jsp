@@ -77,9 +77,8 @@ et=UTF-8">
 								<li class="appliance js_toggle relative first">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/cake.png"></i><a
-												class="ml-22" title="男装"
-												href="/front/products/selectProductsByLikeName">男装</a>
+											<i><img src="/resources/front/images/self_img/cake.png"></i>
+											<a class="ml-22" title="男装" href="/front/products/selectProductsByLikeName">男装</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -93,22 +92,22 @@ et=UTF-8">
 																<span title="上衣">上衣</span>
 															</dt>
 															<dd>
-																<a title="羽绒服" href="#"><span>羽绒服</span></a>
+																<a pnames="羽绒服" title="羽绒服" href="#"><span>羽绒服</span></a>
 															</dd>
 															<dd>
-																<a title="羊绒衫" href="#"><span>羊绒衫</span></a>
+																<a pnames="羊绒衫" title="羊绒衫" href="#"><span>羊绒衫</span></a>
 															</dd>
 															<dd>
-																<a title="男士衬衫" href="#"><span>男士衬衫</span></a>
+																<a pnames="男士衬衫" title="男士衬衫" href="#"><span>男士衬衫</span></a>
 															</dd>
 															<dd>
-																<a title="打底衫" href="#"><span>打底衫</span></a>
+																<a  pnames="打底衫" title="打底衫" href="#"><span>打底衫</span></a>
 															</dd>
 															<dd>
-																<a title="背心男" href="#"><span>背心男</span></a>
+																<a pnames="背心男" title="背心男" href="#"><span>背心男</span></a>
 															</dd>
 															<dd>
-																<a title="潮男外套" href="#"><span>潮男外套</span></a>
+																<a pnames="潮男外套" title="潮男外套" href="#"><span>潮男外套</span></a>
 															</dd>
 
 														</dl>
@@ -117,22 +116,22 @@ et=UTF-8">
 																<span title="下装">下装</span>
 															</dt>
 															<dd>
-																<a title="睡衣男" href="#"><span>睡衣男</span></a>
+																<a pnames="睡衣男" title="睡衣男" href="#"><span>睡衣男</span></a>
 															</dd>
 															<dd>
-																<a title="男裤" href="#"><span>男裤</span></a>
+																<a pnames="男裤" title="男裤" href="#"><span>男裤</span></a>
 															</dd>
 															<dd>
-																<a title="男士内裤" href="#"><span>男士内裤</span></a>
+																<a pnames="男士内裤" title="男士内裤" href="#"><span>男士内裤</span></a>
 															</dd>
 															<dd>
-																<a title="保暖裤" href="#"><span>保暖裤</span></a>
+																<a pnames="保暖裤" title="保暖裤" href="#"><span>保暖裤</span></a>
 															</dd>
 															<dd>
-																<a title="男长裤" href="#"><span>男长裤</span></a>
+																<a pnames="男长裤" title="男长裤" href="#"><span>男长裤</span></a>
 															</dd>
 															<dd>
-																<a title="休闲裤" href="#"><span>休闲裤</span></a>
+																<a pnames="休闲裤" title="休闲裤" href="#"><span>休闲裤</span></a>
 															</dd>
 
 														</dl>
@@ -141,22 +140,22 @@ et=UTF-8">
 																<span title="鞋子">鞋子</span>
 															</dt>
 															<dd>
-																<a title="拖鞋" href="#"><span>拖鞋</span></a>
+																<a pnames="拖鞋" title="拖鞋" href="#"><span>拖鞋</span></a>
 															</dd>
 															<dd>
-																<a title="男靴" href="#"><span>男靴</span></a>
+																<a pnames="男靴" title="男靴" href="#"><span>男靴</span></a>
 															</dd>
 															<dd>
-																<a title="运动鞋" href="#"><span>运动鞋</span></a>
+																<a pnames="运动鞋" title="运动鞋" href="#"><span>运动鞋</span></a>
 															</dd>
 															<dd>
-																<a title="布鞋男" href="#"><span>布鞋男</span></a>
+																<a pnames="布鞋男" title="布鞋男" href="#"><span>布鞋男</span></a>
 															</dd>
 															<dd>
-																<a title="皮鞋" href="#"><span>皮鞋</span></a>
+																<a pnames="皮鞋" title="皮鞋" href="#"><span>皮鞋</span></a>
 															</dd>
 															<dd>
-																<a title="雪地靴" href="#"><span>雪地靴</span></a>
+																<a pnames="雪地靴" title="雪地靴" href="#"><span>雪地靴</span></a>
 															</dd>
 															
 
@@ -166,22 +165,22 @@ et=UTF-8">
 																<span title="配饰">配饰</span>
 															</dt>
 															<dd>
-																<a title="男帽" href="#"><span>男帽</span></a>
+																<a pnames="男帽" title="男帽" href="#"><span>男帽</span></a>
 															</dd>
 															<dd>
-																<a title="男皮带" href="#"><span>男皮带</span></a>
+																<a pnames="男皮带" title="男皮带" href="#"><span>男皮带</span></a>
 															</dd>
 															<dd>
-																<a title="手套男" href="#"><span>手套男</span></a>
+																<a pnames="手套男" title="手套男" href="#"><span>手套男</span></a>
 															</dd>
 															<dd>
-																<a title="项链" href="#"><span>项链</span></a>
+																<a pnames="项链" title="项链" href="#"><span>项链</span></a>
 															</dd>
 															<dd>
-																<a title="男士手表" href="#"><span>男士手表</span></a>
+																<a pnames="男士手表" title="男士手表" href="#"><span>男士手表</span></a>
 															</dd>
 															<dd>
-																<a title="眼镜" href="#"><span>眼镜</span></a>
+																<a pnames="眼镜" title="眼镜" href="#"><span>眼镜</span></a>
 															</dd>
 															
 
@@ -214,22 +213,22 @@ et=UTF-8">
 																<span title="裙子">裙子</span>
 															</dt>
 															<dd>
-																<a title="连衣裙冬" href="#"><span>连衣裙冬</span></a>
+																<a pnames="连衣裙冬" title="连衣裙冬" href="#"><span>连衣裙冬</span></a>
 															</dd>
 															<dd>
-																<a title="旗袍" href="#"><span>旗袍</span></a>
+																<a pnames="旗袍" title="旗袍" href="#"><span>旗袍</span></a>
 															</dd>
 															<dd>
-																<a title="半身裙" href="#"><span>半身裙</span></a>
+																<a pnames="半身裙" title="半身裙" href="#"><span>半身裙</span></a>
 															</dd>
 															<dd>
-																<a title="A字裙" href="#"><span>A字裙</span></a>
+																<a pnames="A字裙" title="A字裙" href="#"><span>A字裙</span></a>
 															</dd>
 															<dd>
-																<a title="晚礼服" href="#"><span>晚礼服</span></a>
+																<a pnames="晚礼服" title="晚礼服" href="#"><span>晚礼服</span></a>
 															</dd>
 															<dd>
-																<a title="秀禾服" href="#"><span>秀禾服</span></a>
+																<a pnames="秀禾服" title="秀禾服" href="#"><span>秀禾服</span></a>
 															</dd>
 
 														</dl>
@@ -238,28 +237,28 @@ et=UTF-8">
 																<span title="上衣">上衣</span>
 															</dt>
 															<dd>
-																<a title="女针织衫" href="#"><span>女针织衫</span></a>
+																<a pnames="女针织衫" title="女针织衫" href="#"><span>女针织衫</span></a>
 															</dd>
 															<dd>
-																<a title="毛呢外套" href="#"><span>毛呢外套</span></a>
+																<a pnames="毛呢外套" title="毛呢外套" href="#"><span>毛呢外套</span></a>
 															</dd>
 															<dd>
-																<a title="羊绒大衣" href="#"><span>羊绒大衣</span></a>
+																<a pnames="羊绒大衣" title="羊绒大衣" href="#"><span>羊绒大衣</span></a>
 															</dd>
 															<dd>
-																<a title="情侣卫衣" href="#"><span>情侣卫衣</span></a>
+																<a pnames="情侣卫衣" title="情侣卫衣" href="#"><span>情侣卫衣</span></a>
 															</dd>
 															<dd>
-																<a title="中老年女装" href="#"><span>中老年女装</span></a>
+																<a pnames="中老年女装" title="中老年女装" href="#"><span>中老年女装</span></a>
 															</dd>
 															<dd>
-																<a title="中年女装" href="#"><span>中年女装</span></a>
+																<a pnames="中年女装" title="中年女装" href="#"><span>中年女装</span></a>
 															</dd>
 															<dd>
-																<a title="老年女装" href="#"><span>老年女装</span></a>
+																<a pnames="老年女装" title="老年女装" href="#"><span>老年女装</span></a>
 															</dd>
 															<dd>
-																<a title="闺蜜装" href="#"><span>闺蜜装</span></a>
+																<a pnames="闺蜜装" title="闺蜜装" href="#"><span>闺蜜装</span></a>
 															</dd>
 
 														</dl>
@@ -269,25 +268,25 @@ et=UTF-8">
 																<span title="裤子">裤子</span>
 															</dt>
 															<dd>
-																<a title="女裤" href="#"><span>女裤</span></a>
+																<a pnames="女裤" title="女裤" href="#"><span>女裤</span></a>
 															</dd>
 															<dd>
-																<a title="九分裤" href="#"><span>九分裤</span></a>
+																<a pnames="九分裤" title="九分裤" href="#"><span>九分裤</span></a>
 															</dd>
 															<dd>
-																<a title="加绒打底裤" href="#"><span>加绒打底裤</span></a>
+																<a pnames="加绒打底裤" title="加绒打底裤" href="#"><span>加绒打底裤</span></a>
 															</dd>
 															<dd>
-																<a title="秋裤" href="#"><span>秋裤</span></a>
+																<a pnames="秋裤" title="秋裤" href="#"><span>秋裤</span></a>
 															</dd>
 															<dd>
-																<a title="阔腿裤套装" href="#"><span>阔腿裤套装</span></a>
+																<a pnames="阔腿裤套装" title="阔腿裤套装" href="#"><span>阔腿裤套装</span></a>
 															</dd>
 															<dd>
-																<a title="加绒裤" href="#"><span>加绒裤</span></a>
+																<a pnames="加绒裤" title="加绒裤" href="#"><span>加绒裤</span></a>
 															</dd>
 															<dd>
-																<a title="假两件" href="#"><span>假两件</span></a>
+																<a pnames="假两件" title="假两件" href="#"><span>假两件</span></a>
 															</dd>
 
 														</dl>
@@ -296,31 +295,31 @@ et=UTF-8">
 																<span title="内衣">内衣</span>
 															</dt>
 															<dd>
-																<a title="保暖内衣" href="#"><span>保暖内衣</span></a>
+																<a pnames="保暖内衣" title="保暖内衣" href="#"><span>保暖内衣</span></a>
 															</dd>
 															<dd>
-																<a title="情侣睡衣" href="#"><span>情侣睡衣</span></a>
+																<a pnames="情侣睡衣" title="情侣睡衣" href="#"><span>情侣睡衣</span></a>
 															</dd>
 															<dd>
-																<a title="秋衣秋裤" href="#"><span>秋衣秋裤</span></a>
+																<a pnames="秋衣秋裤" title="秋衣秋裤" href="#"><span>秋衣秋裤</span></a>
 															</dd>
 															<dd>
-																<a title="保暖衣" href="#"><span>保暖衣</span></a>
+																<a pnames="保暖衣" title="保暖衣" href="#"><span>保暖衣</span></a>
 															</dd>
 															<dd>
-																<a title="羊绒裤" href="#"><span>羊绒裤</span></a>
+																<a pnames="羊绒裤" title="羊绒裤" href="#"><span>羊绒裤</span></a>
 															</dd>
 															<dd>
-																<a title="文胸" href="#"><span>文胸</span></a>
+																<a pnames="文胸" title="文胸" href="#"><span>文胸</span></a>
 															</dd>
 															<dd>
-																<a title="女士内裤" href="#"><span>女士内裤</span></a>
+																<a pnames="女士内裤" title="女士内裤" href="#"><span>女士内裤</span></a>
 															</dd>
 															<dd>
-																<a title="丝袜" href="#"><span>丝袜</span></a>
+																<a pnames="丝袜" title="丝袜" href="#"><span>丝袜</span></a>
 															</dd>
 															<dd>
-																<a title="女袜" href="#"><span>女袜</span></a>
+																<a pnames="女袜" title="女袜" href="#"><span>女袜</span></a>
 															</dd>
 															
 
@@ -331,40 +330,40 @@ et=UTF-8">
 																<span title="配饰">配饰</span>
 															</dt>
 															<dd>
-																<a title="手表" href="#"><span>手表</span></a>
+																<a pnames="手表" title="手表" href="#"><span>手表</span></a>
 															</dd>
 															<dd>
-																<a title="帽子" href="#"><span>帽子</span></a>
+																<a pnames="帽子" title="帽子" href="#"><span>帽子</span></a>
 															</dd>
 															<dd>
-																<a title="发箍" href="#"><span>发箍</span></a>
+																<a pnames="发箍" title="发箍" href="#"><span>发箍</span></a>
 															</dd>
 															<dd>
-																<a title="头绳" href="#"><span>头绳</span></a>
+																<a pnames="头绳" title="头绳" href="#"><span>头绳</span></a>
 															</dd>
 															<dd>
-																<a title="围巾羊绒" href="#"><span>围巾羊绒</span></a>
+																<a pnames="围巾羊绒" title="围巾羊绒" href="#"><span>围巾羊绒</span></a>
 															</dd>
 															<dd>
-																<a title="女士手链" href="#"><span>女士手链</span></a>
+																<a pnames="女士手链" title="女士手链" href="#"><span>女士手链</span></a>
 															</dd>
 															<dd>
-																<a title="披肩" href="#"><span>披肩</span></a>
+																<a pnames="披肩" title="披肩" href="#"><span>披肩</span></a>
 															</dd>
 															<dd>
-																<a title="发簪" href="#"><span>发簪</span></a>
+																<a pnames="发簪" title="发簪" href="#"><span>发簪</span></a>
 															</dd>
 															<dd>
-																<a title="毛领子" href="#"><span>毛领子</span></a>
+																<a pnames="毛领子" title="毛领子" href="#"><span>毛领子</span></a>
 															</dd>
 															<dd>
-																<a title="毛衣链" href="#"><span>毛衣链</span></a>
+																<a pnames="毛衣链" title="毛衣链" href="#"><span>毛衣链</span></a>
 															</dd>
 															<dd>
-																<a title="项链" href="#"><span>项链</span></a>
+																<a pnames="项链" title="项链" href="#"><span>项链</span></a>
 															</dd>
 															<dd>
-																<a title="耳钉" href="#"><span>耳钉</span></a>
+																<a pnames="耳钉" title="耳钉" href="#"><span>耳钉</span></a>
 															</dd>
 															
 
@@ -375,34 +374,34 @@ et=UTF-8">
 																<span title="鞋子">鞋子</span>
 															</dt>
 															<dd>
-																<a title="女靴" href="#"><span>女靴</span></a>
+																<a pnames="女靴" title="女靴" href="#"><span>女靴</span></a>
 															</dd>
 															<dd>
-																<a title="女运动鞋" href="#"><span>女运动鞋</span></a>
+																<a pnames="女运动鞋" title="女运动鞋" href="#"><span>女运动鞋</span></a>
 															</dd>
 															<dd>
-																<a title="高跟鞋" href="#"><span>高跟鞋</span></a>
+																<a pnames="高跟鞋" title="高跟鞋" href="#"><span>高跟鞋</span></a>
 															</dd>
 															<dd>
-																<a title="雪地靴" href="#"><span>雪地靴</span></a>
+																<a pnames="雪地靴" title="雪地靴" href="#"><span>雪地靴</span></a>
 															</dd>
 															<dd>
-																<a title="女皮鞋" href="#"><span>女皮鞋</span></a>
+																<a pnames="女皮鞋" title="女皮鞋" href="#"><span>女皮鞋</span></a>
 															</dd>
 															<dd>
-																<a title="单鞋" href="#"><span>单鞋</span></a>
+																<a pnames="单鞋" title="单鞋" href="#"><span>单鞋</span></a>
 															</dd>
 															<dd>
-																<a title="妈妈鞋" href="#"><span>妈妈鞋</span></a>
+																<a pnames="妈妈鞋" title="妈妈鞋" href="#"><span>妈妈鞋</span></a>
 															</dd>
 															<dd>
-																<a title="女凉鞋" href="#"><span>女凉鞋</span></a>
+																<a pnames="女凉鞋" title="女凉鞋" href="#"><span>女凉鞋</span></a>
 															</dd>
 															<dd>
-																<a title="女式豆豆鞋" href="#"><span>女式豆豆鞋</span></a>
+																<a pnames="女式豆豆鞋" title="女式豆豆鞋" href="#"><span>女式豆豆鞋</span></a>
 															</dd>
 															<dd>
-																<a title="秋冬女鞋" href="#"><span>秋冬女鞋</span></a>
+																<a pnames="秋冬女鞋" title="秋冬女鞋" href="#"><span>秋冬女鞋</span></a>
 															</dd>
 															
 
@@ -1818,11 +1817,32 @@ response.setContentType("UTF-8");
 				|| document
 						.write('<script src="/resources/front/js/self_exchange/jquery.min.js "><\/script>');
 	</script>
+	<script src="/resources/unity/layer/layui.js" type="text/javascript"></script>
 	<script type="text/javascript "
 		src="/resources/front/js/self_exchange/quick_links.js "></script>
 
 </body>
-<script type="text/javascript"> 
+<script type="text/javascript">
+
+layui.use('layer', function() {
+	var $ = layui.jquery, layer = layui.layer;
+
+	$(document).on('click',"a[title]",function(){
+		var aPnames=$(this);
+		if (aPnames.attr("class")=="ml-22") {
+			return true;
+		} else {
+			var pnamesValues=$(this).attr("title");
+			var tidDoc=$(this).parent().parent().parent().parent().parent().parent().parent().prev().find("a");
+			alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
+		}
+	})
+	
+	
+	
+	
+	
+	
 	$(document).on('click',"[pppgg]",function(){
 	    var ddd=$(this);
 	    var d=ddd.attr('pppgg');
@@ -1865,6 +1885,8 @@ response.setContentType("UTF-8");
 				 }
 			 })	  
 		})
+		
+})
 	 
 	/*商城首页进入购物车js*/
 	

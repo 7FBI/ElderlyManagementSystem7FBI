@@ -175,7 +175,7 @@
 		<div class="row">
 			<div class="col-sm-offset-3 col-md-3">
 				<br>
-				<button type="submit" class="btn btn-success">发布</button>
+				<button type="submit" id="submitBtn" class="btn btn-success">发布</button>
 				<button type="reset" class="btn btn-warning">重置</button>
 			</div>
 		</div>
@@ -223,5 +223,15 @@
 				height="17" /></td>
 		</tr>
 	</table>
+	<script src="/resources/unity/layer/layui.js" type="text/javascript"></script>
+	<script>
+	layui.use('layer', function() {
+			var $ = layui.jquery, layer = layui.layer;
+			$("#submitBtn").on('click',function(){
+				layer.msg("若文件较大，上传时间可能比较长，请耐心等待",{time:5000});
+				layer.load(0);
+			})
+	})
+	</script>
 </body>
 </html>

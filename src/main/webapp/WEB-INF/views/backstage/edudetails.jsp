@@ -138,7 +138,7 @@
 														       
 														       <div style="width:60% ;margin: 0 auto; text-align: left;padding-bottom: 60px">
 														       <div align="center">
-														        <img alt="" src="/files${oneEduDetail.eduurl}" max-width="500px" height="300px"> 
+														        <img alt="" src="/fbiImage${oneEduDetail.eduurl}" max-width="500px" height="300px"> 
 														        
 														           <br></div>  
 														          &nbsp;&nbsp; &nbsp;&nbsp;

@@ -298,6 +298,10 @@ function ourMeritMapViews(titles, legends, data, documentsId, col, ids) {
 		if (moneydivs.css("display")=='none') {
 			moneydivs.css("display", "block");
 		}
+		var lmaps=$("#lmaps");
+		lmaps.css("float", "left");
+		lmaps.css("width", "48%");
+		moneydivs.css("float", "left");
 		userMoneysViewsBar(params.name,ids[params.dataIndex]);
 		//alert(params.dataIndex+"-----"+params.value[2]+"----"+ids[params.dataIndex])
 		

@@ -749,7 +749,7 @@
 		SELECT COALESCE(v.vprice*COUNT(w.id),0)
 		sumNum,DATE_FORMAT(w.firstwatchtime,'%Y-%m-%d') dateYear 
 		from video v,watchhistory w
-		where v.id=w.videoId and v=id=#{id} GROUP BY DATE_FORMAT(w.firstwatchtime,'%Y')
+		where v.id=w.videoId and v.id=#{id} GROUP BY DATE_FORMAT(w.firstwatchtime,'%Y')
 	</select>
 
 
