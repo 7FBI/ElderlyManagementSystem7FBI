@@ -380,7 +380,8 @@ public class ProductOrdersController {
 		if (orders != null) {
 			if (oldUsers.getBalance() > orders.getMoney()) {
 				orders.setOrderstatus(1);
-
+				oldUsers.setBalance(oldUsers.getBalance()-orders.getMoney());
+				oldUsersService.updateByPrimaryKeySelective(oldUsers);
 				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
 				// 增加积分
@@ -401,16 +402,9 @@ public class ProductOrdersController {
 		}
 		String id = request.getParameter("id");
 		Orders orders = ordersService.selectByPrimaryKey(id);
-		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		if (orders != null) {
-			if (oldUsers.getBalance() >= orders.getMoney()) {
-				oldUsers.setBalance(oldUsers.getBalance()-orders.getMoney());
-				oldUsersService.updateByPrimaryKeySelective(oldUsers);
 				orders.setOrderstatus(2);
 				ordersService.updateByPrimaryKeySelective(orders);
-			} else {
-				return "balance";
-			}
 		}
 		return "true";
 	}
