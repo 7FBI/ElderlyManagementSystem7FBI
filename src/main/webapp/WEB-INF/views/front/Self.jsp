@@ -81,7 +81,7 @@
 <!--个人信息 -->
 						<div class="info-main">
 							<form class="am-form am-form-horizontal" action="/front/oldUsers/updateByUidSelective"
-				method="post">
+				id="self_form" method="post">
 
 								<div class="am-form-group">
 									<label for="user-name2" class="am-form-label">姓名</label>
@@ -155,7 +155,7 @@
 								</div>
 <!-- 保存修改按钮 -->						
 								<div class="info-btn">
-									<div class="am-btn am-btn-danger">保存修改</div>
+									<div class="am-btn am-btn-danger" id="save_modify">保存修改</div>
 								</div>
 
 							</form>
@@ -164,33 +164,29 @@
 					</div>
 
 				</div>
-				<!--底部-->
-				<div class="footer">
-					<div class="footer-hd">
-						<p>
-							<a href="#">恒望科技</a>
-							<b>|</b>
-							<a href="#">商城首页</a>
-							<b>|</b>
-							<a href="#">支付宝</a>
-							<b>|</b>
-							<a href="#">物流</a>
-						</p>
-					</div>
-					<div class="footer-bd">
-						<p>
-							<a href="#">关于恒望</a>
-							<a href="#">合作伙伴</a>
-							<a href="#">联系我们</a>
-							<a href="#">网站地图</a>
-							<em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></em>
-						</p>
-					</div>
-				</div>
+<!--底部-->
+		
 			</div>
-<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
+<!--菜单栏-->
+     <jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
 
+	
+	<script>
+	
+	/* 个人信息修改保存 */
+		$('#save_modify').click(function(){
+			$('#self_form').submit();
+		})
+		
+		
+		
+		
+		
+		
+	
 
+		
+	</script>
 </body>
 </html>

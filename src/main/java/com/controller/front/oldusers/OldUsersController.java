@@ -71,7 +71,6 @@ public class OldUsersController {
 
 	@RequestMapping("/updateByUidSelective")
 	public String updateByUidSelective(OldUsers oldUsers) {
-		System.out.println(oldUsers.getUsername());
 		oldUsersService.updateByUidSelective(oldUsers);
 		return "redirect:/front/oldUsers/selectByUid.action";
 
@@ -107,9 +106,12 @@ public class OldUsersController {
 	}
 
 	@RequestMapping("/insertProfileByUid")
-	public String insertProfileByUid(Profile profile, RedirectAttributes mAttributes) {
+
+	public String insertProfileByUid(Profile profile,HttpServletRequest request) {
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			return "/front/login";
+		}
 		profileService.insertProfileByUid(profile);
-		mAttributes.addFlashAttribute("uid", profile.getUid());
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 
 	}
@@ -135,17 +137,15 @@ public class OldUsersController {
 	}
 
 	@RequestMapping("/updateAddressByPrimarykey")
-	public String updateAddressByPrimarykey(Profile profile, String sid, RedirectAttributes mAttributes) {
-		profile.setUid(sid);
+	public String updateAddressByPrimarykey(Profile profile) {
+
 		profileService.updateAddressByPrimarykey(profile);
-		mAttributes.addFlashAttribute("uid", profile.getUid());
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 	}
 
 	@RequestMapping("/deleteAddressByPrimarykey")
-	public String deleteAddressByPrimarykey(Profile profile, Integer id, RedirectAttributes mAttributes) {
+	public String deleteAddressByPrimarykey(Profile profile, Integer id) {
 		profileService.deleteAddressByPrimarykey(id);
-		mAttributes.addFlashAttribute("uid", profile.getUid());
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 	}
 
