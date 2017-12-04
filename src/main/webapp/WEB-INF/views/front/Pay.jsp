@@ -346,9 +346,6 @@
 	<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 	
 	<!-- <script src="/resources/unity/address/js/select.js"></script> -->
-	
-	
-	<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 	<script type="text/javascript">
 
 	
@@ -376,7 +373,7 @@
 									+'<strong class="am-text-danger am-text-lg">新增地址</strong> / <small>Add address</small>'
 									+'</div></div><hr />'
 									+'<div class="am-u-md-12" >'
-									+'<form class="am-form am-form-horizontal" action="" method="post" id="addBtn" >'
+									+'<form class="am-form am-form-horizontal" id="f" >'
 									+'<input type="hidden" name="uid" value="${oldUsers.uid}">'
 									+'<div class="am-form-group">'
 									+'<label for="user-name" class="am-form-label">收货人</label>'
@@ -401,14 +398,14 @@
 									+'<small>100字以内写出你的详细地址...</small> </div></div>'
 									+'<div class="am-form-group theme-poptit">'
 									+'<div class="am-u-sm-9 am-u-sm-push-3">'
-									+'<input type="submit" class="am-btn am-btn-danger" id="savess" value="保存">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+									+'<input type="button" class="am-btn am-btn-danger" id="savess" value="保存">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 									+'<input type="button" class="am-btn am-btn-danger close" id="closess" value="取消"></div></div> </form></div></div>',
 								success : function(layero) {
 									//var btn = layero.find('.layui-layer-btn');
 									$(document).on("click","#savess",function(){
-										var f=$("#addBtn");
+										var f=$("#f");
 											 $.ajax({
-												type:'get',
+												type:'post',
 												url:'/front/oldUsers/insertProfileOrders',
 												data:f.serialize(),
 												success:function(data){
