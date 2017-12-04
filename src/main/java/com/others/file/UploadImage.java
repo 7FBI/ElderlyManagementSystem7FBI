@@ -77,7 +77,7 @@ public class UploadImage {
 				String md5key=uploadObject2OSS(ossclient, image, BACKET_NAME,alyPath );
 				System.out.println("--------------------------->>>>new Files:"+newFileName);
 				System.out.println("--------------------------->>>>md5key:"+md5key);
-				if (md5key!=null||"".equals(md5key)) {
+				if (md5key!=null || !"".equals(md5key)) {
 					webDeleteWebFile(request,path);
 				}
 				destory(ossclient);
@@ -115,7 +115,7 @@ public class UploadImage {
 				list.add(new String(imagePath + "/" + newFileName));
 				System.out.println("--------------------------->>>>new Files:"+newFileName);
 				System.out.println("--------------------------->>>>md5key:"+md5key);
-				if (md5key!=null||"".equals(md5key)) {
+				if (md5key!=null || !"".equals(md5key)) {
 					webDeleteWebFile(request,path);
 				}
 			} catch (Exception e) {
