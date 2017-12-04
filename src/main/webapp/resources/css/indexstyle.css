@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+/*活动详情*/
+/*活动图片轮播  */
+/* #lunbo ul li{width:100%;
+list-style: none;width:640px;
+ height:460px;
+ background-color: #f1fbfc;
+ text-align: center;
+ }
+#lunbo ul li:not(:first-child){display: none;}
+.hrstyle{
+	background-color:orange; 
+	SIZE:3;
+	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:orange,direction:145,strength:15);
+    width:95%; 
+}
+活动列表
+.activitylist{
+	width:100%;
+	background-color: #e6e6e8;
+}
+.imgs{
+	width:100%;
+	height:450px;
+}
+.activitycontent{
+	width:90%;
+	margin: 0 auto;
+	 
+}
+
+.activitycontent ul,li{
+	list-style: none;
+	background-color: white;
+	width:auto;float:left;margin:20px 20px;
+	padding:20px 20px;
+} 
+.activitycontent ul,li a:HOVER {
+text-decoration: none;
+color: red;
+} */
+/*  index */
+.all{
+	width: 80%;
+	margin: 0 auto;
+	/* background-color:#f1fbfc; */
+	margin-top: 20px;
+}
+/*活动和通知  */
+.all_center{
+	width: 100%;
+	height: 300px;
+	
+}
+/*活动  */
+.all_center_left{
+	width: 66%;
+	float: left;
+	margin-right: 20px;
+	/* background-color: red; */
+	height: 300px;
+	border: solid 1px orange;
+}
+.imgs{
+	width: 100%;
+	height: 100px;
+	margin-bottom: 2px;
+}
+.activieimgs{
+	
+}
+.activietitle{
+	width:20%;
+	height:32px; 
+	background-color: red;
+	font-size: 20px;
+	font-weight:bold;
+	font-family:微软雅黑，宋体;
+	color: white;
+	text-align: center;
+	border-radius: 0.5em;
+}
+
+/*通知  */
+.all_center_right{
+	width: 32%;
+	float: left;
+	/* background-color: green; */
+	height: 300px;
+	border: solid 1px orange;
+}
+.infotitle{
+	width:100%;
+	height:36px; 
+	background-color: red;
+	font-size: 20px;
+	font-weight:bold;
+	font-family:微软雅黑，宋体;
+	color: white;
+	text-align: center;
+	
+}
+.info{
+	width:100%;
+}
+/*新闻  */
+.all_bottom{
+	width: 100%;
+	padding-top: 20px;
+
+}
+.all_bottom hr{
+	background-color:red; 
+	SIZE:3;
+	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:red,direction:145,strength:15);
+    width:100%; 
+}
+.all_bottom_left{
+	width: 32%;
+	float: left;
+	margin-right: 20px;
+	/* background-color: red; */
+	/* height: 300px; */
+}
+.all_bottom_right{
+	width: 66%;
+	float: left;
+	/* background-color: green; */
+	/* height: 300px; */
+	
+	
+}
+.all_bottom_right ul,li{
+	list-style: none;
+}

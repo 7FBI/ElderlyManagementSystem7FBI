@@ -60,7 +60,7 @@ public class ActivityDetailOldUsersController {
 	// 活动报名
 	@RequestMapping("/takeUpInActive")
 	@ResponseBody
-	public ModelAndView querytakeUpInActive(HttpServletRequest request, Integer id, Integer mid, String activitystoptime,
+	public String querytakeUpInActive(HttpServletRequest request, Integer id, Integer mid, String activitystoptime,
 			Double activityprice) {
 		if (activityprice == null) {
 			activityprice = 0.0;
@@ -74,10 +74,14 @@ public class ActivityDetailOldUsersController {
 		System.out.println("活动ID" + id);
 		System.out.println("**********************");
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			modelAndView.setViewName("front/login");
+//			modelAndView.setViewName("front/login");
+			return "login";
 		}else{
 			OldUsers oldusers = (OldUsers) request.getSession().getAttribute("oldUsers");
 			Double userBalance = oldusers.getBalance();
+			if (userBalance == null) {
+				userBalance = 0.0;
+			}
 			Map<String, Object> maps = new HashMap<String, Object>();
 			maps.put("id", id);
 			maps.put("userid", oldusers.getUid());
@@ -90,21 +94,21 @@ public class ActivityDetailOldUsersController {
 				System.out.println("管理员所在地" + manager.getLocaid());
 				if (oldusers.getType() == 0) {
 					if (oldusers.getArea() != manager.getLocaid()) {
-						String err="Sorry,您不在该活动所涉及的范围内，你可以参加您所在地的活动哦！";
-						 System.out.println(err);
+						return "Sorry,您不在该活动所涉及的范围内，你可以参加您所在地的活动哦！";
+						 /*System.out.println(err);
 						 modelAndView.addObject("err", err);
 						 modelAndView.setViewName("front/activity/activitydetail");
-					} else {
+					*/} else {
 						if(compareResult == 0) {
-							String err= "Sorry,已过报名截止日期，您不能进行活动预约！";
-							 System.out.println(err);
-							 modelAndView.setViewName("front/activity/activitydetail");
+							return "Sorry,已过报名截止日期，您不能进行活动预约！";
+							 /*System.out.println(err);
+							 modelAndView.setViewName("front/activity/activitydetail");*/
 						} else {
 							if (userBalance < activityprice) {
-								String err= "Sorry,您的余额不足";
-								 System.out.println(err);
+								return "Sorry,您的余额不足!";
+								 /*System.out.println(err);
 								 modelAndView.addObject("err", err);
-								 modelAndView.setViewName("front/activity/activitydetail");
+								 modelAndView.setViewName("front/activity/activitydetail");*/
 							} else {
 								// 付费
 								Map<String, Object> map = new HashMap<String, Object>();
@@ -118,28 +122,29 @@ public class ActivityDetailOldUsersController {
 								activitydetailoldusers.setActivityid(id);
 								activitydetailoldusers.setSingtime(new Date());
 								activitydetailOldUsersService.insertSelective(activitydetailoldusers);
-								String info= "恭喜您报名成功！";
-								 System.out.println(info);
+								/*return "恭喜您报名成功！";*/
+								return "true";
+								/*System.out.println(info);
 								 modelAndView.addObject("info", info);
-								 modelAndView.setViewName("front/activity/activitydetail");
+								 modelAndView.setViewName("front/activity/activitydetail");*/
 							}
 						}
 					}
 				} else {
 					// 游客
 					if (compareResult == 0) {
-						String err= "Sorry,已过报名截止日期，您不能进行活动预约！";
-						 System.out.println(err);
-						 modelAndView.setViewName("front/activity/activitydetail");
+						return "Sorry,已过报名截止日期，您不能进行活动预约！";
+						 /*System.out.println(err);
+						 modelAndView.setViewName("front/activity/activitydetail");*/
 					}else{
 						System.out.println("用户余额" + oldusers.getBalance());
 						System.out.println("活动费用" + activityprice);
 
 						if (userBalance < activityprice) {
-							String err= "Sorry,您的余额不足";
-							 System.out.println(err);
+							return "Sorry,您的余额不足";
+							 /*System.out.println(err);
 							 modelAndView.addObject("err", err);
-							 modelAndView.setViewName("front/activity/activitydetail");
+							 modelAndView.setViewName("front/activity/activitydetail");*/
 						} else {
 							// 付费
 							Map<String, Object> map = new HashMap<String, Object>();
@@ -152,26 +157,27 @@ public class ActivityDetailOldUsersController {
 							activitydetailoldusers.setActivityid(id);
 							activitydetailoldusers.setSingtime(new Date());
 							activitydetailOldUsersService.insertSelective(activitydetailoldusers);
-							String info="恭喜您报名成功！";
-							 System.out.println(info);
+							/*return "恭喜您报名成功！";*/
+							return "true";
+							/* System.out.println(info);
 							 modelAndView.addObject("info", info);
-							 modelAndView.setViewName("front/activity/activitydetail");
+							 modelAndView.setViewName("front/activity/activitydetail");*/
 						}
 					}
 				}
 			}else{
-				String err="您已经报名参加该活动！";
-				System.out.println(err);
+				return "您已经报名参加该活动！";
+				/*System.out.println(err);
 				 modelAndView.addObject("err", err);
-				 modelAndView.setViewName("front/activity/activitydetail");
+				 modelAndView.setViewName("front/activity/activitydetail");*/
 			}
 		}
-		// return "redirect:/front/joinActive/selectMyJoinActive";
-		return modelAndView;
+		/*return null;*/
 	}
 
 	// 取消报名
 	@RequestMapping("/cancelJoinActive")
+	@ResponseBody
 	public String cancelActive(HttpServletRequest request, String activitystoptime, Double activityprice, Integer id) {
 		ModelAndView modelAndView = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
@@ -190,9 +196,9 @@ public class ActivityDetailOldUsersController {
 			oldUsersService.turnBackMyBalance(map);
 			// 删除记录
 			activitydetailOldUsersService.deleteByPrimaryKey(id);
-//			return "您已成功取消活动预约！";
+			return "true";
 		}
-		return "redirect:/front/joinActive/selectMyJoinActive";
+		
 	}
 
 	// 用户查看报名记录
@@ -236,7 +242,6 @@ public class ActivityDetailOldUsersController {
 
 	// 用户删除报名记录
 	@RequestMapping("/deleteMyJoinActive")
-	@ResponseBody
 	public String deleteMyActivity(HttpServletRequest request, Integer id) {
 		ModelAndView modelAndView = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
@@ -246,7 +251,7 @@ public class ActivityDetailOldUsersController {
 			// OldUsers olduser=(OldUsers)
 			// request.getSession().getAttribute("oldUsers");
 			activitydetailOldUsersService.deleteByPrimaryKey(id);
-			return "删除成功";
+			//return "删除成功";
 			// String info="删除成功";
 			// modelAndView.addObject("info", info);
 			// List<Activitydetailoldusers>

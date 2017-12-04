@@ -40,7 +40,9 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
+					<c:if test="${!empty oldUsers.username}">
 						<a href="#" target="_top" class="h">${oldUsers.username}，欢迎登录</a>
+					</c:if>
 					</div>
 				</div>
 			</ul>
@@ -87,6 +89,8 @@
 
 				<div class="topMessage loginout">
 					<div class="menu-hd">
+					  <a href="/gotoFront/login" target="_top"><i class="am-icon-upon am-icon-fw"></i><span>登陆 &nbsp;
+						</span> </a>
 						<a href="#" target="_top"><i class="am-icon-off am-icon-fw"></i><span>退出
 						</span> </a>
 						<!-- <div class="secondary">

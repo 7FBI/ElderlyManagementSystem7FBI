@@ -80,8 +80,19 @@
 			</div><br>
 			<hr>
 			<div style="float: right;margin-right: 200px;">
-			<a role="button" class="btn btn-info"
-			    href="${pageContext.request.contextPath}/front/joinActive/takeUpInActive?id=${activiteDetail.id}&mid=${activiteDetail.mid}&activitystoptime=${activiteDetail.activitystoptime}&activityprice=${activiteDetail.activityprice }">我要报名</a>								
+			<form id="f">
+			<input value="${activiteDetail.id}" name="id" type="hidden">
+			<input value="${activiteDetail.mid}" name="mid" type="hidden">
+			<input value="${activiteDetail.activitystoptime}" name="activitystoptime" type="hidden">
+			<input value="${activiteDetail.activityprice}" name="activityprice" type="hidden">
+			<button type="button" id="sbmit" class="btn btn-info">我要报名</button>
+			<%-- <a role="button" class="btn btn-info"
+			    href="${pageContext.request.contextPath}/front/joinActive/takeUpInActive?
+			    id=${activiteDetail.id}
+			    &mid=${activiteDetail.mid}
+			    &activitystoptime=${activiteDetail.activitystoptime}
+			    &activityprice=${activiteDetail.activityprice }">我要报名</a>	 --%>							
+			</form>
 			</div>
 			<br><br>
 			
@@ -102,6 +113,30 @@
 			li[num].style.display = "inline-block";
 	
 		}, 2000); //切换时间
+	</script>
+	
+	<script type="text/javascript">
+		$("#sbmit").click(
+				function() {	
+						var f = $("#f");
+						$.ajax({
+							type : 'post',
+							url : '/front/joinActive/takeUpInActive',
+							data : f.serialize(),
+							success : function(data) {
+								if(data=="login"){
+								window.location.href="/gotoFront/login";
+								}else if (data == "true") {
+									window.location.href="/front/joinActive/selectMyJoinActive";
+								} else {
+									alert(data);
+								}
+							},
+							error : function() {
+								alert("网络错误!!");
+							}
+						})					
+				})
 	</script>			
 </body>
 </html>

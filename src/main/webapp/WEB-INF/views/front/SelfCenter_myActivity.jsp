@@ -82,12 +82,19 @@
 										<td>${c.count }</td>
 										<td>${myJoinActivies.activitydetailinfo.activitytitle }</td>
 										<td><fmt:formatDate value="${myJoinActivies.singtime }" pattern="yyyy-MM-dd hh:mm:ss"/> </td>
-										
+										<form action="" id="f">
+										    <input value="${myJoinActivies.id}" name="id" type="hidden">			        
+			                                <input value="${myJoinActivies.activitydetailinfo.activitystoptime}" name="activitystoptime" type="hidden">
+			                                <input value="${myJoinActivies.activitydetailinfo.activityprice}" name="activitypri ce" type="hidden">
+			                             
 										<td>
 										   <a role="button" class="btn btn-xs btn-info" href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${myJoinActivies.activityid}">详情</a> 
-										   <a role="button" class="btn btn-xs btn-warning" href="${pageContext.request.contextPath}/front/joinActive/cancelJoinActive?activitystoptime=${myJoinActivies.activitydetailinfo.activitystoptime}&activityprice=${myJoinActivies.activitydetailinfo.activityprice}&id=${myJoinActivies.id}">取消</a> 
+										    <button type="button" id="sbmit" class="btn btn-xs btn-warning" onclick="return confirm('您真的要取消吗')">取消</button>		
+										   <%--  <a id="sbmit" role="button" class="btn btn-xs btn-warning" href="${pageContext.request.contextPath}/front/joinActive/cancelJoinActive?activitystoptime=${myJoinActivies.activitydetailinfo.activitystoptime}&activityprice=${myJoinActivies.activitydetailinfo.activityprice}&id=${myJoinActivies.id}">取消</a>  --%>
+										
 										   <a role="button" class="btn btn-xs btn-danger" href="${pageContext.request.contextPath}/front/joinActive/deleteMyJoinActive?id=${myJoinActivies.id}" onclick="return confirm('确定要删除吗')">删除</a> 
 										</td>
+										   </form>
 									</tr> 
 							     </c:forEach>
 							</table>
@@ -151,5 +158,27 @@
 			window.location.href = "/front/joinActive/selectMyJoinActive?page=" + b;
 		})
 	</script>
+	
+	<script type="text/javascript">
+		$("#sbmit").click(
+				function() {	
+						var f = $("#f");
+						$.ajax({
+							type : 'post',
+							url : '/front/joinActive/cancelJoinActive',
+							data : f.serialize(),
+							success : function(data) {
+								if (data == "true") {
+									window.location.href='/front/joinActive/selectMyJoinActive';
+								} else {
+									alert(data);
+								}
+							},
+							error : function() {
+								alert("网络错误!!");
+							}
+						})					
+				})
+	</script>		
 </body>
 </html>

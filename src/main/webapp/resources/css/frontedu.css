@@ -142,7 +142,7 @@ a:hover{
 }
 /*首页新闻部分  */
 .indexnews{
-	padding-top: 30px;
+	/* padding-top: 30px; */
 	width: 85%;
 	margin: 0 auto;
 	
@@ -158,12 +158,12 @@ a:hover{
 #cases ul li p a.openurl:hover{background-position:0 -23px} */
 /*news*/
 /* 修改前： */
-#mynews{height:675px;background:#DBDBDB;position:absolute;top:1030px;width:100%;} 
+/* #mynews{width:100%;}  */
 /* #mynews{height:100%;background:#DBDBDB;padding-bottom: 50px;} */
 /* #news .newsdata{background:#fff;width:986px;height:520px;margin:0 auto;position:relative;} */
-#mynews .newsdata{background:#fff;width:90%; margin:0 auto;height:100%;margin:0 auto;position:relative;margin-top: 60px;}
-#mynews .newsad{position:absolute;top:30px;left:15px;}
-#mynews ul{position:absolute;width:70%;top:15px;right:10px;}
+#mynews .newsdata{background:#fff;width:100%; margin:0 auto;height:100%;margin:0 auto;position:relative;}
+#mynews .newsad{position:absolute;top:33px;}
+#mynews ul{position:absolute;width:66%;top:15px;right:5px;}
 #mynews ul li{position:relative;border-bottom:1px dotted #ccc;padding:15px 0;}
 #mynews ul li .newslist{position:absolute;width:85%;right:0;top:10px;}
 #mynews ul li .newslist a{font:bold 16px/30px Microsoft YaHei;color:#444;}
@@ -194,3 +194,33 @@ a:hover{
 #newslist .news li .newslist{position:absolute;width:876px;right:0;top:10px;}
 #newslist .news li .newslist a{font:bold 16px/30px Microsoft YaHei;color:#444;}
 #newslist .news li .newslist span{display:block;line-height:20px;color:#999;}
+
+
+/*   */
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #div1{
+      width: 640px;
+      height: 120px;
+      margin: 100px auto;
+      background-color: #646464;
+      position: relative;
+      overflow: hidden;
+    }
+    #div1 ul{
+      position:absolute;
+      left:0;
+      top:0;
+      overflow: hidden;
+      background-color: #3b7796;
+    }
+ 
+    #div1 ul li{
+      float: left;
+      width: 160px;
+      height: 120px;
+      list-style: none;
+    }
+  

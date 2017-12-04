@@ -14,11 +14,23 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/front/css/style.css"
 	type="text/css" media="all" />
-
+<style type="text/css">
+.navstyle ul li{
+line-height: 56px; 
+text-align: left;
+font-family:  微软雅黑,宋体;
+font-weight: bold;
+color:red;
+}
+.navstyle a:HOVER{
+  color:orange;
+  text-decoration: none;
+}
+</style>
 </head>
-<body >
+<body>
 	<header>
-	<div id="navbg"></div>
+	<%-- <div id="navbg"></div>
 	<div class="wrapper" style="height:140px;">
 		<h1 class="logo">
 			<a href="#" title="宜嘉FBI老人管理系统"> <img
@@ -39,8 +51,25 @@
 				</c:if></li>				
 		</ul>
 		</nav>
-		</div>
-
+		</div> --%>
+		<div class="navstyle">
+<!-- <ul class="nav nav-pills" > -->
+<ul class="nav nav-pills">
+  <li><img 
+				src="/resources/front/images/self_img/yijia_bg_logo.png" style="width:280px;height:70px;margin-left: 120px; "
+				alt="宜嘉FBI老人管理系统" /></li>
+  <li role="presentation"><a href="${pageContext.request.contextPath}/"><font size="5px" >&nbsp;首   页&nbsp;</font></a></li>
+			
+			<li ><a href="/front/products/selectAllProducts"><font size="5px" >电子商务</font></a></li>
+			<li ><a href="${pageContext.request.contextPath}/front/activity/allActive"><font size="5px" >活动中心</font></a></li>
+			<li ><a href="${pageContext.request.contextPath}/front/videos/allvideo"><font size="5px" >教育系统</font></a></li>
+			<li ><a href="${pageContext.request.contextPath}/front/edu/alledunews.action"><font size="5px" >新闻中心</font></a></li>
+			<li ><c:if test="${oldUsers==null }">
+					<a href="#" id="sumbit"><font size="5px" >个人中心</font></a>
+				</c:if> <%-- <c:if test="${oldUsers!=null }">
+					<a href="/front/oldUsers/selectByUid">${oldUsers.username}</a>
+				</c:if> --%></li>
+</ul></div>
 	</header>
 </body>
 </html>

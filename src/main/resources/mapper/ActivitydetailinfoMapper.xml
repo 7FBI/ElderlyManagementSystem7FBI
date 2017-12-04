@@ -445,7 +445,7 @@ AND manager.id=#{managerId,jdbcType=INTEGER}
 <!-- //活动详情  -->
 <select id="findactiveDetailById" parameterType="java.lang.Integer" resultType="com.bean.Activitydetailinfo">
        select id,activitytitle,activitycontent,
-		activityteacher,activitystarttime,actitvityendtime,COALESCE(activityprice,0),activitylocation,
+		activityteacher,activitystarttime,actitvityendtime,COALESCE(activityprice,0) activityprice,activitylocation,
 		activitystoptime,mid 
 		from activitydetailinfo where id=#{id,jdbcType=INTEGER}
 </select>
