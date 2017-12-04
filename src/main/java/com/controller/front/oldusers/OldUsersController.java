@@ -115,6 +115,32 @@ public class OldUsersController {
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 
 	}
+	
+	//添加新地址
+	@RequestMapping("/insertProfileOrders")
+	@ResponseBody
+	public Profile insertProfileOrders(Profile profile,HttpServletRequest request) {
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			return null;
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		String province=request.getParameter("province");
+		String city=request.getParameter("city");
+		String town=request.getParameter("town");
+		StringBuffer sBuffer=new StringBuffer();
+		sBuffer.append(province);
+		if (!"县".equals(city) && !"市辖区".equals(city)) {
+			sBuffer.append(city);
+		}
+		sBuffer.append(town);
+		if (profile.getSignaddress()!=null && !"".equals(profile.getSignaddress())) {
+			sBuffer.append(profile.getSignaddress());
+		}
+		profile.setSignaddress(sBuffer.toString());
+		profile.setUid(oldUsers.getUid());
+		profileService.insertSelective(profile);
+		return profile;
+	}
 
 	@RequestMapping("/selectByPrimaryKey")
 	public ModelAndView selectByPrimaryKey(@ModelAttribute Integer id) {

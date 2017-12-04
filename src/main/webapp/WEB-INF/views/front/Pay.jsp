@@ -23,6 +23,18 @@
 	media="all">
 <!-- <script type="text/javascript"
 	src="/resources/front/js/self_exchange/address.js"></script> -->
+	
+	
+	<style>
+		select{
+			padding:5px 0;
+			}
+		.outer{
+			width:400px;
+			margin:20px auto;
+			}
+	</style>
+	
 </head>
 <body>
 	<!--顶部导航条 -->
@@ -35,7 +47,7 @@
 			<div class="address">
 				<h3>确认收货地址</h3>
 				<div class="control">
-					<input type="button" id="secondsBtn" class="tc-btn createAddr theme-login am-btn am-btn-danger" id="seconds" value="使用新地址">
+					<input type="button" id="secondsBtn" class="tc-btn createAddr theme-login am-btn am-btn-danger" value="使用新地址">
 				</div>
 				<div class="clear"></div>
 				<ul id="profiles">
@@ -52,10 +64,7 @@
 								</div>
 								<div class="default-address DefaultAddr">
 									<span class="buy-line-title buy-line-title-type">收货地址：</span> <span
-										class="buy--address-detail"> <!-- <span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span> -->
+										class="buy--address-detail">
 										${profiles.signaddress}
 									</span> </span>
 								</div>
@@ -66,7 +75,6 @@
 									class="am-icon-angle-right am-icon-lg"></span></a>
 							</div>
 							<div class="clear"></div>
-
 							<div class="new-addr-btn">
 								<a href="#" class="hidden">设为默认</a> <span
 									class="new-addr-bar hidden">|</span> <a href="#">编辑</a> <span
@@ -331,18 +339,25 @@
 	</div>
 	
 	
+	
+	<script src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+	<script src="/resources/unity/address/js/area.js"></script>
+	
 	<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 	
-	<script src="/resources/unity/jquery/jquery-3.2.0.js"
-		type="text/javascript"></script>
+	<!-- <script src="/resources/unity/address/js/select.js"></script> -->
+	
 	
 	<script type="text/javascript" src="/resources/unity/js/formNonull.js"></script>
 	<script type="text/javascript">
 
+	
+	
+	
 	layui.use('layer', function() {
 				var $ = layui.jquery, layer = layui.layer;
 
-	$("#secondsBtn").click(function() {
+	$(document).on('click',"#secondsBtn",function() {
 					layer.open({
 								type : 1,
 								title : false //不显示标题栏
@@ -361,7 +376,7 @@
 									+'<strong class="am-text-danger am-text-lg">新增地址</strong> / <small>Add address</small>'
 									+'</div></div><hr />'
 									+'<div class="am-u-md-12" >'
-									+'<form class="am-form am-form-horizontal" action="/front/oldUsers/insertProfileByUid.action" method="post" id="addBtn" >'
+									+'<form class="am-form am-form-horizontal" action="" method="post" id="addBtn" >'
 									+'<input type="hidden" name="uid" value="${oldUsers.uid}">'
 									+'<div class="am-form-group">'
 									+'<label for="user-name" class="am-form-label">收货人</label>'
@@ -375,16 +390,10 @@
 									+'<div class="am-form-group">'
 									+'<label for="user-phone" class="am-form-label">所在地</label>'
 									+'<div class="am-form-content address">'
-									+'<select data-am-selected>'
-									+'<option value="a">浙江省</option>'
-									+'<option value="b">湖北省</option>'
-									+'</select> <select data-am-selected>'
-									+'<option value="a">温州市</option>'
-									+'<option value="b">武汉市</option>'
-									+'</select> <select data-am-selected>'
-									+'<option value="a">瑞安区</option>'
-									+'<option value="b">洪山区</option>'
-									+'</select> </div></div>'
+									+'<div class="outer"><select name="province" id="province"> <option value="请选择">请选择</option> </select>' 
+									+'<select name="city" id="city"> <option value="请选择">请选择</option> </select>' 
+									+'<select name="town" id="town"> <option value="请选择">请选择</option> </select>'
+									+'</div> </div></div>'
 									+'<div class="am-form-group">'
 									+'<label for="user-intro" class="am-form-label">详细地址</label>'
 									+'<div class="am-form-content">'
@@ -396,39 +405,87 @@
 									+'<input type="button" class="am-btn am-btn-danger close" id="closess" value="取消"></div></div> </form></div></div>',
 								success : function(layero) {
 									//var btn = layero.find('.layui-layer-btn');
-									$(document).on("click","#PageRefresh",function(){
-									layer.close(layer.index);
-											/* $.ajax({
-												type:'post',
-												url:'#',
-												data:$("#f").serialize(),
+									$(document).on("click","#savess",function(){
+										var f=$("#addBtn");
+											 $.ajax({
+												type:'get',
+												url:'/front/oldUsers/insertProfileOrders',
+												data:f.serialize(),
 												success:function(data){
-													
+													layer.close(layer.index);
+													 if (data==null) {
+														window.location.href="/gotoFront/login";
+													} else {
+														addAddressHtml(data);
+													}
 												},error:function(){
-												alert("网络错误");
+												alert("网络错误,无法添加新地址");
 												}
-											}) */
+											}) 
 									});
 									 $(document).on("click","#closess",function(){
 										layer.close(layer.index);
-										}) 
-									
+										});
+									 
+									 
+									 var province=$("#province"),city=$("#city"),town=$("#town");
+										for(var i=0;i<provinceList.length;i++){
+										    addEle(province,provinceList[i].name);
+										}
+										function addEle(ele,value){
+										    var optionStr="";
+										    optionStr="<option value="+value+">"+value+"</option>";
+										    ele.append(optionStr);
+										}
+										function removeEle(ele){
+										    ele.find("option").remove();
+										    var optionStar="<option value="+"请选择"+">"+"请选择"+"</option>";
+										    ele.append(optionStar);
+										}
+										var provinceText,cityText,cityItem;
+										province.on("change",function(){
+										    provinceText=$(this).val();
+										    $.each(provinceList,function(i,item){
+										        if(provinceText == item.name){
+										            cityItem=i;
+										            return cityItem
+										        }
+										    });
+										    removeEle(city);
+										    removeEle(town);
+										    $.each(provinceList[cityItem].cityList,function(i,item){
+										        addEle(city,item.name)
+										    })
+										});
+										city.on("change",function(){
+										    cityText=$(this).val();
+										    removeEle(town);
+										    $.each(provinceList,function(i,item){
+										        if(provinceText == item.name){
+										            cityItem=i;
+										            return cityItem
+										        }
+										    });
+										    $.each(provinceList[cityItem].cityList,function(i,item){
+										        if(cityText == item.name){
+										            for(var n=0;n<item.areaList.length;n++){
+										                addEle(town,item.areaList[n])
+										            }
+										        }
+										    });
+										});
 								}
 							});
 				})
 				
-				
-				
-				
-				
-				})
+			})
 	
 	
-	  $('#delBtn').click(function() {
+	 /*  $('#delBtn').click(function() {
 
            location.reload();
 
-    });
+    }); */
 	
 	$("#overOrderBtn").click(function() {
 			var o = $(this);
@@ -456,7 +513,11 @@
 					alert("网络错误");
 				}
 			})
-		})
+		});
+	
+	
+	
+	
 		
 
 /* $(function(){ 
@@ -474,6 +535,31 @@
 }); */
 	
 
+
+function addAddressHtml(profiles) {
+	var uls=$("#profiles");
+	var ahtmls='<div class="per-border"></div>'
+		+'<li class="user-addresslist defaultAddr">'
+		+'<div class="address-left">'
+		+'<div class="user DefaultAddr">'
+		+'<span class="buy-address-detail"> <span class="buy-user">'+profiles.signname
+		+'</span> <span class="buy-phone">'+profiles.signtell +'</span></span></div>'
+		+'<div class="default-address DefaultAddr">'
+		+'<span class="buy-line-title buy-line-title-type">收货地址：</span> <span'
+		+'class="buy--address-detail">'+profiles.signaddress+'</span> </span></div>'
+		+'<ins class="deftip">默认地址</ins></div>'
+		+'<div class="address-right">'
+		+'<a href="../person/address.html"> <span'
+		+'class="am-icon-angle-right am-icon-lg"></span></a></div>'
+		+'<div class="clear"></div>'
+		+'<div class="new-addr-btn">'
+		+'<a href="#" class="hidden">设为默认</a> <span'
+		+'class="new-addr-bar hidden">|</span> <a href="#">编辑</a> <span'
+		+'class="new-addr-bar">|</span> '
+		+'<a href="/front/orders/deleteAddressByPrimarykeyAndByExchange?id=${profiles.id }" id="delBtn">删除</a>'
+		+'</div></li>';
+	uls.append(ahtmls);
+}
 
  
        

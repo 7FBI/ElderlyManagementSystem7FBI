@@ -58,7 +58,7 @@
 		<td>活动图片</td>
 		<td>
 			<c:forEach  items="${list}" var="item">
-				<img src="/files${item.activeimageurl}"  height="100" width="100" />
+				<img src="/fbiImage${item.activeimageurl}"  height="100" width="100" />
 			</c:forEach>
 		</td>
 	</tr>

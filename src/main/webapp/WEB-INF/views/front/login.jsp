@@ -97,6 +97,7 @@
 							}
 						},
 						error : function() {
+							layer.close(layer.index);
 							layer.msg("网络错误)_)",{time:2000});
 						}
 					})
