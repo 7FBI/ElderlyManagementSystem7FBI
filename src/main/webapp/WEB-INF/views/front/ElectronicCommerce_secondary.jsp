@@ -1834,7 +1834,9 @@ layui.use('layer', function() {
 		} else {
 			var pnamesValues=$(this).attr("title");
 			var tidDoc=$(this).parent().parent().parent().parent().parent().parent().parent().prev().find("a");
-			alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
+			//alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
+			hrs="/front/products/selectProductsByTypeAndLikeName?pname="+pnamesValues+"&classname="+tidDoc.attr("title");
+			window.location.href=hrs;
 		}
 	})
 	
