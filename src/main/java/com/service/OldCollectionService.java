@@ -21,5 +21,5 @@ public interface OldCollectionService {
     
     Oldcollection select(Oldcollection record);
     
-    List<Products> selectList(String uid);
+    List<Oldcollection> selectList(String uid);
 }

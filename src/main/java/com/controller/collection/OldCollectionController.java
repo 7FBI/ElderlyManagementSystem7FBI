@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.OldUsers;
 import com.bean.Oldcollection;
@@ -60,17 +61,21 @@ public class OldCollectionController {
 	}
 	
 	@RequestMapping("/select_list")
-	public String selectList(HttpServletRequest request){
+	public ModelAndView selectList(HttpServletRequest request){
+		ModelAndView view=new ModelAndView();
 		if(request.getSession().getAttribute("oldUsers")==null){
-			return "front/login";
+			view.setViewName("front/login");
+			return view;
 		}
 		else {
-			List<Products> list = oldCollectionService.selectList(((OldUsers)request.getSession().getAttribute("oldUsers")).getUid());
-			for(int i=0;i<list.size();i++){
+			List<Oldcollection> list = oldCollectionService.selectList(((OldUsers)request.getSession().getAttribute("oldUsers")).getUid());
+			/*for(int i=0;i<list.size();i++){
 				System.out.println("______________________"+list.get(i).getPname()+","+list.get(i).getId());
-			}
-			request.setAttribute("list", list);
-			return "front/oldcollection";
+			}*/
+			//request.setAttribute("list", list);
+			view.addObject("list", list);
+			view.setViewName("front/SelfCenter_Collection");
+			return view;
 		}
 	
 	}

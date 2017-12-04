@@ -41,10 +41,12 @@ public class OldCollectionServiceImpl implements OldCollectionService{
 	}
 
 	@Override
-	public List<Products> selectList(String uid) {
+	public List<Oldcollection> selectList(String uid) {
 		// TODO Auto-generated method stub
 		return oldcollectionMapper.selectList(uid);
 	}
+
+	
 
 
 }

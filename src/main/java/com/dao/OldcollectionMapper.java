@@ -32,5 +32,5 @@ public interface OldcollectionMapper {
 
 	Oldcollection selectCeoinfoByName(String name);
 	
-	List<Products> selectList(String uid);
+	List<Oldcollection> selectList(String uid);
 }
