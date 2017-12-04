@@ -208,4 +208,9 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return  productsMapper.selectRecommend(tid);
 	}
+	@Override
+	public List<Products> selectProductsByTypeAndLikeName(Map map) { //根据商品类型和商品名字查询出所有商品
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductsByTypeAndLikeName(map);
+	}
 }

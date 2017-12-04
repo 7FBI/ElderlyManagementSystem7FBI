@@ -103,4 +103,7 @@ public interface ProductsMapper {
     public List<Products> querySomeProductByTid(Integer tid);
     
     List<Products> selectRecommend(int tid);
+    
+   
+	List<Products> selectProductsByTypeAndLikeName(Map map);  //根据商品类型和商品名字查询出所有商品
 }

@@ -1,7 +1,11 @@
 package com.controller.front.products;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -105,6 +109,26 @@ public class ProductController {
 		modelAndView.setViewName("front/ElectronicCommerce");
 		return modelAndView;
 	}
+	
+	
+	@RequestMapping("/selectProductsByTypeAndLikeName")
+     public ModelAndView selectProductsByTypeAndLikeName(String pname,String classname ){
+		ModelAndView modelAndView = new ModelAndView();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pname", pname.toString());
+		 map.put("classname", classname.toString());
+		 List<Products> products = productsService.selectProductsByTypeAndLikeName(map);
+		 modelAndView.addObject("products", products);
+		 modelAndView.setViewName("front/ElectronicCommerce");
+		/*System.out.println(pname +"-----"+classname);*/
+    	 return modelAndView;
+     }
+	
+	
+
+	
+
+	
 	
 	@RequestMapping("/selectAllProductsByType") // 根据商品类型得到商品
 	@ResponseBody

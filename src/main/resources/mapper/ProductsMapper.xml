@@ -697,7 +697,7 @@
 	<!--商品根据商品名模糊查询 -->
 	<select id="selectProductsByLikeName" parameterType="java.lang.String"
 		resultType="Products">
-		select * from products where pname like '%${value}%'
+		select * from products where pname like '%${value}%' 
 	</select>
 	<!-- 根据商品类型查询商品 -->
 	<select id="selectAllProductsByType" parameterType="java.lang.Integer"
@@ -722,7 +722,17 @@
 		#{pid}
 
 	</select>
+	
+	
+	<select id="selectProductsByTypeAndLikeName" parameterType="Map"
+		resultType="Products">
+	select p.*,c.* from products p,classification c where p.tid=c.id and p.pname like '%${value}%' and c.classname=#{classname}		
+	</select>
 	<!-- 以上罗双专属 -->
+
+
+
+
 
 	<!-- 打折商品展示，使用了扩展类productCustom -->
 	<select id="productDiscount" resultType="productCustom">
