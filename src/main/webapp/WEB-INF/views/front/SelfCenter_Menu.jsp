@@ -56,7 +56,7 @@
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
-							<li> <a href="/gotoFront/SelfCenter_Collection">收藏</a></li>
+							<li> <a href="/front/collection/select_list">收藏</a></li>
 							<li> <a href="/gotoFront/SelfCenter_BrowserHistory">足迹</a></li>
 							<li> <a href="/gotoFront/SelfCenter_Comment">评价</a></lSi>
 							

@@ -1,11 +1,11 @@
 @CHARSET "UTF-8";
 /*footer*/
-footer{clear:both;}
-#footerlink{background:#111;height:46px;line-height:46px;border-bottom:1px solid #000;position:relative;}
+/* footer{clear:both;} */
+#footerlink{background:#111;height:46px;line-height:46px;border-bottom:1px solid #000;position:absolute;top:2000px;left:50%;}
 #footerlink a{color:#999;margin-right:20px;}
 #footerlink a.lab{display:inline-block;zoom:1;*display:inline;padding-left:18px;background:url("images/lab.png") left center no-repeat;}
 #gotop {display:block;width:41px;height:35px;position:absolute;right:0;top:0;overflow:hidden;background:url("images/top.png") no-repeat;text-indent:-9999px;}
-#footerinfo{padding-bottom:20px;background:#181818;border-top:1px solid #292929;}
+#footerinfo{padding-bottom:20px;background:#181818;border-top:1px solid #292929;position:absolute;top:2000px;}
 #footerinfo .wrapper{height:190px;border-bottom:1px dotted #333;}
 #footerinfo h2{width:112px;position:absolute;top:20px;left:0;font-size:28px;text-align:right;}
 #footerinfo h2 strong{display:block;font-size:28px;color:#333;}
