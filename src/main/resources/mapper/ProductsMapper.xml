@@ -883,7 +883,9 @@
   <select id="selectRecommend" parameterType="java.lang.Integer" resultType="com.bean.Products">
       SELECT * from products where tid=#{tid,jdbcType=INTEGER} LIMIT 3
   </select>
-	
-	
+  <!-- 商品详情页面猜你喜欢 -->
+ <select id="selectrcai" parameterType="java.lang.Integer" resultType="com.bean.Products">
+  select * from products where tid=#{tid,jdbcType=INTEGER} LIMIT 5
+ </select>
 
 </mapper>

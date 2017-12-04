@@ -90,7 +90,7 @@
 	<div class="Xcontent">
 		<ul class="Xcontent01">
 			
-				<div class="Xcontent06"><img src="${product.producturl}"></div>
+				<div class="Xcontent06"><img src="/fbiImage${product.producturl}"></div>
 				<ol class="Xcontent08">
 					<div class="Xcontent07"><img src="/fbiImage${product.producturl}"></div>
 					<c:forEach items="${photosUrl }" var="url">
@@ -159,9 +159,6 @@
 						<span id="textCollect" class="collect_text">收藏</span>
    			 		</c:otherwise>
 					</c:choose>
-				    
-				    
-				    
 				    <span class="js_toggle_contrast" data-cate-id="66">
 				    <i id="" class="icon icon_contrast" ></i>
 				    <span id="" class="collect_text">对比</span>
@@ -177,46 +174,16 @@
 <div class="nav_item nav_item_recommend js_nav" >猜你喜欢</div>
 </div>
 <div class="recommend_list js_recommend_list">
+<c:forEach items="${like}" var="likes">
 <div class="recommend_item sku_tag_wrap">
-<a class="pro_href" target="_blank" href="">
-<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
+<a class="pro_href" target="_blank" href="/front/products/selectProductDetailByPrimaryKey?id=${likes.id}">
+<img alt="" src="/fbiImage${likes.producturl}" class="pro_img">
 <span class="pro_name"></span>
-<span class="pro_price">¥99.00</span>
+<span class="pro_price">¥${likes.price}</span>
 <div class="sku_tag sku_tag_important">11.11抢先购</div>
 </a>
 </div>
-<div class="recommend_item sku_tag_wrap">
- <a class="pro_href" target="_blank" href="">
-<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
-<span class="pro_name"></span>
-<span class="pro_price">¥99.00</span>
-<div class="sku_tag sku_tag_important">11.11抢先购</div>
-</a>
-</div>
-<div class="recommend_item sku_tag_wrap">
-<a class="pro_href" target="_blank" href="">
-<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
-<span class="pro_name"></span>
-<span class="pro_price">¥99.00</span>
-<div class="sku_tag sku_tag_important">11.11抢先购</div>
-</a>
-</div>
-<div class="recommend_item sku_tag_wrap">
-<a class="pro_href" target="_blank" href="">
-<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
-<span class="pro_name"></span>
-<span class="pro_price">¥99.00</span>
-<div class="sku_tag sku_tag_important">11.11抢先购</div>
-</a>
-</div>
-<div class="recommend_item sku_tag_wrap">
-<a class="pro_href" target="_blank" href="">
-<img alt="" src="/resources/front/images/41824602289ffe8aA23827_120 120.jpg" class="pro_img">
-<span class="pro_name"></span>
-<span class="pro_price">¥99.00</span>
-<div class="sku_tag sku_tag_important">11.11抢先购</div>
-</a>
-</div>
+</c:forEach>
 </div>
 </div>
 	<!-- 商品详细情况介绍 -->
@@ -248,7 +215,10 @@
 			<div class="style_wrap_790">
 				<p>
 					<img alt="产品详细介绍"
-						src="/resources/front/images/69c5d4279ea22611A741_790 .jpg">
+						src="/fbiImage${product.producturl}">
+					<c:forEach items="${photosUrl }" var="url">
+					<img alt="产品详细介绍" src="/fbiImage${url}">
+					</c:forEach>
 				</p>
 			</div>
 		</div>
@@ -261,11 +231,15 @@
 					<tbody>
 						<tr>
 							<td>大小</td>
-							<td>美的油烟机</td>
+							<td>${product.size}</td>
 						</tr>
 						<tr>
 							<td>属性1</td>
-							<td>CXW-230-TJ8055-GRW+Q535B（天然气）</td>
+							<td>${product.productstype1}</td>
+						</tr>
+							<tr>
+							<td>属性2</td>
+							<td>${product.productstype2}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -275,33 +249,14 @@
 				<table class="spec_table">
 					<tbody>
 						<tr>
-							<td>燃气灶进风方式</td>
-							<td>全进风</td>
+							<td>颜色</td>
+							<td>${product.productscolor}</td>
 						</tr>
 						<tr>
-							<td>燃气灶适用气源</td>
-							<td>天然气</td>
+							<td>描述</td>
+							<td>${product.pdescription}</td>
 						</tr>
-						<tr>
-							<td>燃气灶点火电源</td>
-							<td>脉冲电子点火</td>
-						</tr>
-						<tr>
-							<td>燃气灶额定热负荷（KW）</td>
-							<td>4.2</td>
-						</tr>
-						<tr>
-							<td>燃气灶灶眼数量（个）</td>
-							<td>2</td>
-						</tr>
-						<tr>
-							<td>燃气灶安装方式</td>
-							<td>嵌入式</td>
-						</tr>
-						<tr>
-							<td>燃气灶面板材质</td>
-							<td>钢化玻璃</td>
-						</tr>
+						 
 					</tbody>
 				</table>
 			</div>
@@ -314,31 +269,26 @@
 						</tr>
 						<tr>
 							<td>产品尺寸(mm)：</td>
-							<td>长796x宽418x高545</td>
+							<td>${product.size}</td>
 						</tr>
 						<tr>
 							<td>产品净重(kg)：</td>
-							<td>29.5</td>
+							<td>${product.productstype1 }</td>
 						</tr>
 						<tr>
 							<td>包装尺寸(mm)：</td>
-							<td>长905x宽680x高600</td>
+							<td>${product.size}</td>
 						</tr>
 						<tr>
 							<td>包装重量(kg)：</td>
-							<td>33.5</td>
+							<td>${product.productstype1}</td>
 						</tr>
 						<tr>
-							<td>包装清单：</td>
-							<td>主机*1、排烟管组件*1、 止回阀组件*1、止回阀密封垫*1、使用说明手册*1、机体挂板*1、油杯*1、
-								塑料膨胀管*4、过滤棉*5、5x50槽沉头木螺钉*4、ST42x16自攻螺钉*4、水杯组件*1、M5x16自攻锁紧螺钉*1、油杯组件*1</td>
-						</tr>
-						<tr>
-							<td>燃气灶：</td>
+							<td>${product.pname}：</td>
 						</tr>
 						<tr>
 							<td>产品尺寸(mm)：</td>
-							<td>长760x宽405x高150</td>
+							<td>${product.size}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -382,7 +332,9 @@
 							<p>添加"商城"或"i_midea"微信号，随时随地预约安装报修，实时跟踪服务进度。</p>
 							<p>扫一扫，立即关注微信号</p>
 						</div>
-						<i class="detail_sprite detail_sprite_weixin"></i>
+						<i class="detail_sprite detail_sprite_weixin">
+						<img alt="" src="/resources/front/images/mmqrcode1512368795205.png" style="width:99px;height:100px;">
+						</i>
 					</div>
 					<div class="service right">
 						<div class="description">
@@ -524,23 +476,22 @@
 	</div>
 	<!-- 右下角漂浮栏 -->
 	<div id="detail_floating">
-		<div class="item">
-			<a id="to_kefu" target="_blank" href=""> <i
-				class="detail_sprite detail_sprite_detail_floating_qq"></i>
+		<div class="items">
+			<a id="to_kefu" target="_blank"> 
+			<i class="detail_sprite detail_sprite_detail_floating_qq"></i>
 			</a>
 		</div>
-		<div class="item">
-			<a target="_blank" href=""> <i
+		<div class="items">
+			<a target="_blank"> <i
 				class="detail_sprite detail_sprite_detail_floating_info"></i>
 			</a>
 		</div>
-		<div id="floating_wxcode" class="item" onmouseover="mOver()"
-			onmouseout="mOut()">
-			<a href=""> <i
+		<div id="floating_wxcode" class="items floating_wxcode" onmouseover="mOver()" onmouseout="mOut()">
+			<a><i
 				class="detail_sprite detail_sprite_detail_floating_wxcode"></i>
 			</a>
 		</div>
-		<div id="scroll_to_top" class="item">
+		<div id="scroll_to_top" class="items">
 			<a href=""><i
 				class="detail_sprite detail_sprite_detail_floating_top"></i></a>
 		</div>
@@ -551,7 +502,7 @@
 		<script type="text/javascript">
 			var trf = document.getElementById("floating_wxcode_content");
 			var kefu = document.getElementById("detail_floating");
-			function mOver() {
+			function mOver() { 
 				trf.style.display = "block";
 			}
 			function mOut() {
@@ -559,6 +510,52 @@
 			}
 		</script>
 	</div>
+	<div style="clear:both"></div>
+	<!-- 底部 -->
+ <div class="footed">
+  <div class="footbox">
+  <div class="about">
+  <div class="font16 abtitle">关于我们</div>
+  <ul class="gray">
+  <li>宜嘉系统简介</li>
+  <li>联系我们</li>
+  <li>加入我们</li>
+  </ul>
+  </div>
+  <div class="cooper">
+  <div class="font16 abtitle">宜嘉商务平台</div>
+   <ul class="gray">
+  <li>宜嘉商务平台简介</li>
+  <li>联系我们</li>
+  <li>加入我们</li>
+  </ul>
+  </div>
+  <div class="weixin">
+  <div class="wxlogo">
+  <img alt="" src="/resources/front/images/self_img/yijia_bg_logo.png">
+  </div>
+  <div class="wxpic"></div>
+  </div>
+  <div class="cooper" style="border-right:1px dotted #CCC;">
+  <div class="font16 abtitle">商务合作</div>
+   <ul class="gray">
+  <li>宜嘉系统简介</li>
+  <li>联系我们</li>
+  <li>加入我们</li>
+  </ul>
+  </div>
+  <div class="about" style="border:none;">
+  <div class="font16 abtitle">帮助中心</div>
+  <ul class="gray">
+  <li>宜嘉系统简介</li>
+  <li>联系我们</li>
+  <li>加入我们</li>
+  </ul>
+  </div>
+  </div>
+  <div class="clear"></div>
+  <div class="copyright gray">Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</div>
+  </div>
 	<!-- 加入购物车提示栏 -->
 	<div id="confirmDouble" class="mod_lary"
 		style="margin-top: -99px; margin-left: -180px;">

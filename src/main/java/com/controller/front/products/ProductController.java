@@ -205,10 +205,14 @@ public class ProductController {
 		Classification classifications=classificationService.selectByPrimaryKey(product.getTid());  //获取商品类别对象
 		String classifiCation=classifications.getClassname();           //获取商品类别名称
 		
+		/*获取猜你喜欢*/
+		List<Products> likes=new ArrayList<Products>();
+		likes=productsService.selectrcai(product.getTid());
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("classifiCationName", classifiCation);    //商品类别名称
 		modelAndView.addObject("product", product);                      //商品对象
 		modelAndView.addObject("photosUrl",photoUrl);                    //商品其余图片地址
+		modelAndView.addObject("like",likes);  
 		/*List<OldDiseaselibrary> oldDiseaselibraries = productsService.selectOldDiseaselibraryByProducts(id);  //根据商品匹配疾病，获得疾病对象
 		modelAndView.addObject("oldDiseaselibraries", oldDiseaselibraries);*/
 		modelAndView.setViewName("front/detailed");
