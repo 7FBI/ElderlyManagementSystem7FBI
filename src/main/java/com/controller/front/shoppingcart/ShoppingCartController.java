@@ -104,22 +104,25 @@ public class ShoppingCartController {
 			/*打折商品*/
 			List<Stormproducts> tist=new ArrayList<Stormproducts>();
 			Discount sfrt=new Discount();
-	
 			list=stormproductsService.selectStormproducts(id);
-			for(int i=0;i<list.size();i++){
-				sfrt=discountService.selectByPid(list.get(i).getId());
-				if(sfrt!=null){
-					 Discouothers others=new Discouothers();
-					 others.setDiscountprice(sfrt.getDiscountprice());
-					 others.setDiscountstoptime(sfrt.getDiscountstoptime());
-					 list.get(i).setDiscouothers(others);
-					 tist.add(list.get(i));
-					 list.remove(i);
+			if(list.size()>0){
+				for(int i=0;i<list.size();i++){
+					sfrt=discountService.selectByPid(list.get(i).getId());
+					if(sfrt!=null){
+						 Discouothers others=new Discouothers();
+						 others.setDiscountprice(sfrt.getDiscountprice());
+						 others.setDiscountstoptime(sfrt.getDiscountstoptime());
+						 list.get(i).setDiscouothers(others);
+						 tist.add(list.get(i));
+						 list.remove(i);
+					}
 				}
-			}
-			request.setAttribute("products", list);
-			request.setAttribute("produties",tist); 
-			return "front/Shopping_cart";		 		 
+				request.setAttribute("products", list);
+				request.setAttribute("produties",tist); 
+				return "front/Shopping_cart";	
+			}else{
+				return "front/Shoppingcart_empty";
+			}	 		 
 	}
 	
  /*商城首页点击购物车方法*/
@@ -150,9 +153,5 @@ public class ShoppingCartController {
 		return "false"; 
 	}
 	return "false"; 
- }
-	
-	
-	
-	 
+ } 
 }

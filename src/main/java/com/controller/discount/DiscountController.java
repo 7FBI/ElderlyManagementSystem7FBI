@@ -21,10 +21,10 @@ public class DiscountController {
 	public String selectAll(HttpServletRequest request) {
 		if(request.getSession().getAttribute("ManagerIndo")==null){
 		return "backstage/jsp/ManagerIngo/ManagerIngo_login";
-		}
+		} 
 		List<Discount> list=discountService.selectAll();
 		request.setAttribute("list", list);
-		return "backstage/discount_index";
+		return "front/discount_index";
 	}
 	
 	@RequestMapping("select_for_update")

@@ -378,4 +378,18 @@
   WHERE DATE_FORMAT(g.discountstoptime,'%Y-%m-%d')>DATE(NOW()) 
   and products.id=g.pid LIMIT 4 
   </select>
+  <!-- 打折商品 -->
+  <select id="selectproductsanddiscount" resultType="com.bean.ProductDiscounts">
+    select products.*,discount.discountprice,discount.discountstoptime 
+    FROM products,discount where discount.pid=products.id ORDER BY products.tid
+  </select>
+  <select id="selectthreeproducts" resultType="com.bean.ProductDiscounts">
+  select products.*,discount.discountprice,discount.discountstoptime 
+  FROM products,discount where discount.pid=products.id ORDER BY discount.discountstoptime DESC LIMIT 3
+  </select>
+
+  <select id="selecttid" resultType="java.lang.Integer">
+  select distinct products.tid
+  FROM products,discount where discount.pid=products.id
+  </select>
 </mapper>

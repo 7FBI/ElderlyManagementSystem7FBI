@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.bean.Discount;
 import com.bean.Discountproducts;
+import com.bean.ProductDiscounts;
 import com.dao.DiscountMapper;
 import com.service.DiscountService;
 
@@ -83,6 +84,24 @@ public class DiscountServiceImpl implements DiscountService {
 	public List<Discountproducts> selectDiscountproducts() {
 		// TODO Auto-generated method stub
 		return  discountMapper.selectDiscountproducts();
+	}
+
+	@Override
+	public List<ProductDiscounts> selectproductsanddiscount() {
+		// TODO Auto-generated method stub
+		return  discountMapper.selectproductsanddiscount();
+	}
+
+	@Override
+	public List<ProductDiscounts> selectthreeproducts() {
+		// TODO Auto-generated method stub
+		return discountMapper.selectthreeproducts();
+	}
+
+	@Override
+	public List<Integer> selecttid() {
+		// TODO Auto-generated method stub
+		return discountMapper.selecttid();
 	}
 
 }

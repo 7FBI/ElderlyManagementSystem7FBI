@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+/*重置默认样式*/
+*{margin:0 auto;padding:0;list-style:none;}
+body{font:12px "微软雅黑" ;text-align:center; }
+a{color:#333;text-decoration:none;}
+img{border:0;}
+ 

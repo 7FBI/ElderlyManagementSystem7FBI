@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bean.Discount;
 import com.bean.Discountproducts;
+import com.bean.ProductDiscounts;
 
 @Repository("discountMapper")
 public interface DiscountMapper {
@@ -67,4 +68,10 @@ public interface DiscountMapper {
 	List<Discount> selectListDiscount(Map map);
 	
 	List<Discountproducts> selectDiscountproducts();
+	
+	List<ProductDiscounts> selectproductsanddiscount();
+	
+	List<ProductDiscounts> selectthreeproducts();
+	
+	List<Integer> selecttid();
 }
