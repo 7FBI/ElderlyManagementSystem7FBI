@@ -55,4 +55,5 @@ public interface ShoppingCartMapper {
     ShoppingCart selectByaproduvts(ShoppingCart record);
     List<ShoppingCart> selectByaproduvtsList(Map map);
     int deleteByPrimaryKeyList(Map map);
+    int delectProductsByuidAndPid(Map map);
 }

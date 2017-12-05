@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -76,51 +78,56 @@ public class ProductOrdersController {
 	private OrdersService ordersService;
 
 	@RequestMapping("/addOrder")
-	public ModelAndView addOrder(HttpServletRequest request) {
+	public ModelAndView addOrder(HttpServletRequest request ,@RequestBody Products[] products) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
 			view.setViewName("/front/login");
 			return view;
 		}
+		
+		for (Products products2 : products) {
+			System.out.println("--------------sumNum:"+products2.getSumNum());
+		}
+		
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/oldUser/ordersInfo");
-		String[] pid = (request.getParameter("pid").toString().split(","));
-		String[] num = (request.getParameter("num").toString().split(","));
 		Orders orders = getNewOrders(oldUsers);
-		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
+		//List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
 		List<Orderdetails> list = new ArrayList<Orderdetails>();
 		List<Integer> pids = new ArrayList<Integer>();
-		for (int i = 0; i < num.length; i++) {
+		for (int i = 0; i < products.length; i++) {
 			Orderdetails orderdetails = new Orderdetails();
-			orderdetails.setPid(Integer.valueOf(pid[i]));
-			orderdetails.setOrdercount(Integer.valueOf(num[i]));
+			orderdetails.setPid(Integer.valueOf(products[i].getId()));
+			orderdetails.setOrdercount(Integer.valueOf(products[i].getSumNum()));
 			orderdetails.setOid(orders.getId());
 			list.add(orderdetails);
-			pids.add(Integer.valueOf(pid[i]));
+			pids.add(products[i].getId());
 		}
 		orderdetailsService.insertSelectiveList(list);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", pids);
 		map.put("uid", oldUsers.getUid());
 		List<ShoppingCart> sList = shoppingCartService.selectByaproduvtsList(map);
+		System.out.println("--------------size:"+sList.size());
 		List<Integer> integers = new ArrayList<Integer>();
 		for (ShoppingCart ShoppingCart : sList) {
 			integers.add(ShoppingCart.getId());
 		}
-		map.put("list", integers);
-		shoppingCartService.deleteByPrimaryKeyList(map);
+		if (integers.size()>0) {
+			map.put("list", integers);
+			shoppingCartService.deleteByPrimaryKeyList(map);
+		}
 		//查看是否存在打折
 		orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), discountService, orderdetailsService));
 		ordersService.updateByPrimaryKeySelective(orders);
 		request.setAttribute("id", orders.getId());
-		return ordersOverInfoByExchange(request);
+		return ordersInfoByExchange(request,orders.getId());
 	}
 
 	@RequestMapping("/addOneOrder")
 	public ModelAndView addOneOrder(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
@@ -144,20 +151,20 @@ public class ProductOrdersController {
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		request.setAttribute("id", orders.getId());
-		return ordersOverInfoByExchange(request);
+		return ordersInfoByExchange(request,orders.getId());
 	}
 
 	@RequestMapping("/ordersInfo")
 	public ModelAndView ordersInfo(HttpServletRequest request, String id) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		// String oid = request.getParameter("id");
 		String oid = id;
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/oldUser/ordersInfo");
+		view.setViewName("front/oldUser/ordersInfo");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
 
 		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
@@ -176,12 +183,12 @@ public class ProductOrdersController {
 	public ModelAndView ordersOverInfo(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		String oid = request.getParameter("id");
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/oldUser/Order_Detail");
+		view.setViewName("front/oldUser/Order_Detail");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
 		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
 			//orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), ordersService, orderdetailsService));
@@ -201,7 +208,7 @@ public class ProductOrdersController {
 	public ModelAndView addOneOrderByExchange(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
@@ -222,13 +229,13 @@ public class ProductOrdersController {
 	public ModelAndView ordersInfoByExchange(HttpServletRequest request, String id) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		// String oid = request.getParameter("id");
 		String oid = id;
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/Pay");
+		view.setViewName("front/Pay");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
 		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
 			orders.setMoney(0.0);
@@ -247,19 +254,20 @@ public class ProductOrdersController {
 	public ModelAndView ordersOverInfoByExchange(HttpServletRequest request) {
 		ModelAndView view = new ModelAndView();
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
+			view.setViewName("front/login");
 			return view;
 		}
 		String oid = request.getParameter("id");
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
-		view.setViewName("/front/Order_Detail");
+		view.setViewName("front/Order_Detail");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
 		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
 			orders.setMoney(0.0);
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
-		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		//List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		List<Orderdetails> list=ShopPrices.getAllOrderdetailsPrices(oid, discountService,orderdetailsService);
 		view.addObject("orderdetails", list);
 		view.addObject("orders", orders);
 		view.addObject("profile", profiles);
@@ -284,7 +292,8 @@ public class ProductOrdersController {
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
-		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		//List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
+		List<Orderdetails> list=ShopPrices.getAllOrderdetailsPrices(oid, discountService,orderdetailsService);
 		view.addObject("orderdetails", list);
 		view.addObject("orders", orders);
 		view.addObject("profile", profiles);

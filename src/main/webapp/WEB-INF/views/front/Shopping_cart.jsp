@@ -21,7 +21,7 @@
 		<div class="cart_top">
 			<div class="cart_top_inner">
 				<h2 class="cart_title">购物车</h2>
-				<div class="cart_address">
+				<!-- <div class="cart_address">
 					<div class="address_wrap">
 						<span class="address_hinter">配送至：</span>
 						<div class="address_selected">
@@ -36,7 +36,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<!-- 购物车主要部分 -->
@@ -63,8 +63,10 @@
 							</div>
 						</div>
 						<c:set var="allMoneys" value="0.0" ></c:set>
+						<c:set var="allcount" value="0" ></c:set>
 						<!-- 购物车商品处 -->
 						<c:forEach items="${products}" var="product">
+						<c:set var="allcount" value="${allcount+1 }" ></c:set>
 							<div class="item_detail">
 								<div class="item_sub">
 									<!-- 选择框 -->
@@ -124,7 +126,9 @@
 								</div>
 								<div class="line_bottom"></div>
 							</div>
+							
 							<c:forEach items="${produties}" var="products">
+								<c:set var="allcount" value="${allcount+1 }" ></c:set>
 								<div class="item_sub item_sub_selected">
 									<!-- 选择框 -->
 									<div class="cart_choose">
@@ -158,7 +162,7 @@
 											<div id="divEditNum_168357"
 												class="num_wrap num_wrap_inline  js_num">
 												<button class="reduce" value="${products.count }" pri="${products.price*products.discouothers.discountprice}">-</button> 
-												<input class="num" pattern="\d{0,3}" value="${products.cartcount}" type="text">
+													<input class="num" pattern="\d{0,3}" value="${products.cartcount}" type="text">
 												<button class="add" value="${products.count }" pri="${products.price*products.discouothers.discountprice}">+</button>
 											</div>
 										</div>
@@ -188,7 +192,7 @@
 					
 					<div class="cart_sum_right">
 						<div class="cart_sum_num">
-							已选商品 <span class="color_f60 js_total_check">2</span>件
+							已选商品 <span class="color_f60 js_total_check" id="ckProducts">${allcount }</span>件
 						</div>
 						<div class="cart_sum_price">
 							<div class="total_price">
@@ -196,13 +200,13 @@
 									class="js_total_price"> &yen;<label id="allMoneysID">${allMoneys}</label> </span>
 								</span>
 							</div>
-							<div class="cut_price">
+							<!-- <div class="cut_price">
 								(不含运费)
-								<!--              优惠： -￥<span class="js_total_discount">-->
-								<!--</span>-->
-							</div>
+								             优惠： -￥<span class="js_total_discount">
+								</span>
+							</div> -->
 						</div>
-						<div class="cart_sum_to_order js_to_order">去结算</div>
+						<div class="cart_sum_to_order js_to_order" id="addProd">去结算</div>
 					</div>
 				</div>
 			</div>
@@ -232,13 +236,12 @@
 <script type="text/javascript">
 
 
-
+/* operation_delete */
 	$(document).on('click', '.operation_delete', function() {
 		var confirmDelete = $("#confirmDelete");
 		confirmDelete.addClass('show');
 		var gtop = $(this);
 		var terx = gtop.parent().next();
-		alert(terx.val())
 		$(document).on('click', '.js_confirm_delete', function() {
 			var f = $(".js_confirm_delete");
 			$.ajax({
@@ -249,10 +252,13 @@
 					if (data == "ture") {
 						confirmDelete.removeClass('show');
 						alert("成功了");
+						var prod=$(this).parent().parent().parent();
+						alert(prod.attr("class"));
+						prod.remove();
 					}
 				},
 				error : function() {
-					alert("失败了")
+					alert("网络出现问题")
 				}
 			})
 		})
@@ -272,7 +278,6 @@
 		var num=jbt.next();
 		var allMoneysID=$("#allMoneysID");
 		var moneys=jbt.parent().parent().next();
-		//alert("------------->"+num.val());
 		if (num.val()<=1) {
 			return false;
 		} else if(ischecked(jbt)){
@@ -296,7 +301,6 @@
 		var num=jbt.prev();
 		var allMoneysID=$("#allMoneysID");
 		var moneys=jbt.parent().parent().next();
-		//alert("------------->"+num.val());
 		if (num.val()>=parseInt(jbt.val())) {
 			return false;
 		} else if(ischecked(jbt)) {
@@ -321,41 +325,68 @@
 		var alls=allMoneysID.text();
 		//class="num"
 		var numdoc=ckdoc.parent().next().find("div[pprices='p']");
+		var cknum=$("#ckProducts");
 		if(ckdoc.is(':checked')){
-			//alert(ckdoc.val()+"-------------"+numdoc.text());
+			var cknums=cknum.text();
 			allMoneysID.text(parseFloat(numdoc.text())+parseFloat(alls));
+			cknum.text(parseInt(cknums)+1);
 		}else{
-			//alert("--------------");
+			var cknums=cknum.text();
 			allMoneysID.text(parseFloat(alls)-parseFloat(numdoc.text()));
+			cknum.text(parseInt(cknums)-1);
 		}
 	})
 	
 	
-	//cbox="all"
+	/* cbox="all" */
 	$(document).on('change',"input[cbox='all']",function(){
 		var cbox=$(this);
 		var cboxs=$("input[name='pid']");
 		var allMoneysID=$("#allMoneysID");
+		var cknum=$("#ckProducts");
+		var x=cknum.text();
 		if(cbox.is(':checked')){
 			cboxs.each(function (i,e) {
 				if ($(e).is(':checked')) {
 				}else{
-					$(e).attr("checked",true);
+					x=parseInt(x)+1;
+					$(e).prop("checked",true);
 					var m=$(e).attr("pmoney");
 					var c=$(e).attr("pcount");
 					var alls=allMoneysID.text();
 					allMoneysID.text(parseFloat(m*c)+parseFloat(alls));
 				}
-			})
+			});
+			cknum.text(x);
 		}else{
 			cboxs.each(function (i,e) {
 				if ($(e).is(':checked')) {
-					$(e).attr("checked",false);
+					$(e).prop("checked",false);
 				}
 			})
 			allMoneysID.text(parseFloat(0.0));
+			cknum.text(0);
 		}
+	});
+	
+	
+	$(document).on('click',"#addProd",function(){
+		var products=getProductAndCount();
+		if (products.length<=0) {
+			alert("还没有选择任何商品,请至少选择一件商品");
+		}else{
+			 $.ajax({
+				type:'post',
+				url:'/front/orders/addOrder',
+				dataType:"json",
+				contentType : "application/json;charset=UTF-8",
+				data:JSON.stringify(products)
+			}) 
+			//$.post('/front/orders/addOrder',JSON.stringify(products),"json");
+		}
+		
 	})
+	
 	
 	function ischecked(doc) {
 		var ckdoc=doc.parent().parent().parent().prev().find("input[type='checkbox']");
@@ -365,6 +396,20 @@
 			return false;
 		}
 	}
+	
+	function getProductAndCount() {
+		var pdoc=$("input[name='pid']");
+		var products=new Array();
+		pdoc.each(function (i,e) {
+			if ($(e).is(':checked')) {
+					var m=$(e).val();
+					var c=$(e).attr("pcount");
+					products[i]={id:m,sumNum:c};
+			}
+		});
+		return products;
+	}
+	
 	
 	
 	

@@ -124,14 +124,14 @@
 								<label class="lables_d">订单编号:${orders.id}</label> <label
 									class="lables_v" id="oids"></label>
 							</div>
-
+							<c:forEach items="${orderdetails}" var="ord">
 							<ul class="item-content clearfix">
-								<c:forEach items="${orderdetails}" var="ord">
+								
 									<div class="pay-phone">
 										<li class="td td-item">
 											<div class="item-pic">
-												<a href="#" class="J_MakePoint"> <img
-													src="/files${ord.products.producturl }"
+												<a href="/front/products/selectProductDetailByPrimaryKey?id=${ord.pid}" class="J_MakePoint"> <img
+													src="/fbiImage${ord.products.producturl }"
 													class="itempic J_ItemImg"></a>
 											</div>
 											<div class="item-info">
@@ -143,7 +143,7 @@
 										</li>
 										<li class="td td-info">
 											<div class="item-props">
-												<span class="sku-line">商品类型：${ord.products.tid}</span>
+												<span class="sku-line">商品类型：${ord.products.classification.classname}</span>
 											</div>
 										</li>
 										<li class="td td-price">
@@ -179,8 +179,9 @@
 											<div class="pay-logis">${orders.orderstatus==0?"代付款":orders.orderstatus==1?"待收货":"已完成" }</div>
 										</div>
 									</li> --%>
-								</c:forEach>
+								
 							</ul>
+							</c:forEach>
 							<div class="clear"></div>
 
 						</div>

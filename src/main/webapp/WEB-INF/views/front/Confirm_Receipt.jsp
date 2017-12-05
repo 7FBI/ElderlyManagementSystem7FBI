@@ -74,26 +74,26 @@
 								<label class="lables_d">订单编号:${orders.id}</label> <label
 									class="lables_v" id="oids"></label>
 							</div>
-
+						<c:forEach items="${orderdetails}" var="ord">
 							<ul class="item-content clearfix">
-								<c:forEach items="${orderdetails}" var="ord">
+								
 									<div class="pay-phone">
 										<li class="td td-item">
 											<div class="item-pic">
-												<a href="#" class="J_MakePoint"> <img
-													src="/files${ord.products.producturl }"
+												<a href="/front/products/selectProductDetailByPrimaryKey?id=${ord.pid}" class="J_MakePoint"> 
+												<img src="/fbiImage${ord.products.producturl }"
 													class="itempic J_ItemImg"></a>
 											</div>
 											<div class="item-info">
 												<div class="item-basic-info">
-													<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色"
+													<a href="/front/products/selectProductDetailByPrimaryKey?id=${ord.pid}" target="_blank" title="${ord.products.pname}"
 														class="item-title J_MakePoint" data-point="tbcart.8.11">${ord.products.pname}</a>
 												</div>
 											</div>
 										</li>
 										<li class="td td-info">
 											<div class="item-props">
-												<span class="sku-line">商品类型：${ord.products.tid}</span>
+												<span class="sku-line">商品类型：${ord.products.classification.classname}</span>
 												<!-- <span class="sku-line">包装：两支手袋装（送彩带）</span> -->
 											</div>
 										</li>
@@ -112,7 +112,7 @@
 												<span class="phone-title">购买数量</span>
 												<div class="sl" style="text-align: center;">
 													<input
-														class="text_box" name="" type="text"
+														class="text_box" disabled="disabled" name="" type="text"
 														value="${ord.ordercount}"
 														style="width: 40px; padding: 6px; line-heigt: 40px; border:white;" />
 												</div>
@@ -121,18 +121,19 @@
 									</li>
 									<li class="td td-sum">
 										<div class="td-inner">
-											<em tabindex="0" class="J_ItemSum number"><fmt:formatDate
-													value="${orders.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></em>
+											<em tabindex="0" class="J_ItemSum number">
+											<fmt:formatDate value="${orders.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></em>
 										</div>
 									</li>
-									<li class="td td-oplist">
+									<!-- <li class="td td-oplist">
 										<div class="td-inner">
 											<span class="phone-title">状态</span>
 											<div class="pay-logis">待付款</div>
 										</div>
-									</li>
-								</c:forEach>
+									</li> -->
+								
 							</ul>
+							</c:forEach>
 							<div class="clear"></div>
 
 						</div>

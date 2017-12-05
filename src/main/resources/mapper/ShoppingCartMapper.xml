@@ -362,6 +362,10 @@
   <delete id="delectProductsByuid" parameterType="java.lang.String" >
      delect from shoppingcart where uid=#{uid}
   </delete>
+  <!--  根据用户账号和商品id删除购物车表的对象 -->
+  <delete id="delectProductsByuidAndPid" parameterType="hashMap" >
+     DELETE FROM shoppingcart where shoppingcart.uid=#{uid} and shoppingcart.pid=#{pid}
+  </delete>
   <!-- 根据用户id和商品id 增加购物表商品数量 -->
   <update id="updateAddproducts" parameterType="com.bean.ShoppingCart">
       update shoppingcart set cartcount=cartcount+#{cartcount,jdbcType=INTEGER} where uid=#{uid,jdbcType=VARCHAR} and 

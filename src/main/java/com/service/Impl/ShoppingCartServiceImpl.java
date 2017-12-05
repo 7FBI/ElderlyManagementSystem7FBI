@@ -64,5 +64,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		// TODO Auto-generated method stub
 		return shoppingCartMapper.deleteByPrimaryKeyList(map);
 	}
+
+	@Override
+	public int delectProductsByuidAndPid(Map map) {
+		// TODO Auto-generated method stub
+		return shoppingCartMapper.delectProductsByuidAndPid(map);
+	}
   
 }

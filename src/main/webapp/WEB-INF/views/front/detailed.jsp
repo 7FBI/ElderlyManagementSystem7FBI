@@ -89,103 +89,119 @@
 	<!-- 商品展示部分 -->
 	<div class="Xcontent">
 		<ul class="Xcontent01">
-			
-				<div class="Xcontent06"><img src="/fbiImage${product.producturl}"></div>
-				<ol class="Xcontent08">
-					<div class="Xcontent07"><img src="/fbiImage${product.producturl}"></div>
-					<c:forEach items="${photosUrl }" var="url">
-					<div class="Xcontent09"><img src="/fbiImage${url}"></div>
-					</c:forEach>
-				</ol>
-				<ol class="Xcontent13">
-					<div class="Xcontent14"><a href="#"><p>${product.pname}</p></a></div>
-					<div class="Xcontent15"><img src="/resources/front/images/shangpinxiangqing/X11.png"></div>
-					<div class="Xcontent16"><p></p></div>
-					<div class="Xcontent17">
-						<p class="Xcontent18">售价</p>
-						<p class="Xcontent19">￥<span>${product.price}</span></p>
-						<div class="Xcontent20">
-							<p class="Xcontent21">促销</p>
-							<img src="/resources/front/images/shangpinxiangqing/X12.png">
-							<p class="Xcontent22">领610元新年礼券，满再赠好礼</p>
-						</div>
-						<div class="Xcontent23">
-							<p class="Xcontent24">服务</p>
-							<p class="Xcontent25">30天无忧退货&nbsp;&nbsp;&nbsp;&nbsp;       48小时快速退款 &nbsp;&nbsp;&nbsp;&nbsp;        满88元免邮</p>
-						</div>
-						
+
+			<div class="Xcontent06">
+				<img src="/fbiImage${product.producturl}">
+			</div>
+			<ol class="Xcontent08">
+				<div class="Xcontent07">
+					<img src="/fbiImage${product.producturl}">
+				</div>
+				<c:forEach items="${photosUrl }" var="url">
+					<div class="Xcontent09">
+						<img src="/fbiImage${url}">
 					</div>
-				    <div class="inner_floor">
-				     <h3>优惠</h3>
-				     <div class="floor_list">
-				     <span class="icon_act">积分</span>
-				     <span class="text_act">购买可得<a href="/front/creditshop/SelectAllCreditShop" style="color:red;"> <fmt:formatNumber
-						value="${product.price/5}" maxFractionDigits="0"></fmt:formatNumber></a>&nbsp;&nbsp;积分</span>
-				     </div>
-				    </div>
-					<div class="Xcontent26">
-						<p class="Xcontent27">颜色</p>
-						<div class="Xcontent28">${product.productscolor}</div>
+				</c:forEach>
+			</ol>
+			<ol class="Xcontent13">
+				<div class="Xcontent14">
+					<a href="#"><p>${product.pname}</p></a>
+				</div>
+				<div class="Xcontent15">
+					<img src="/resources/front/images/shangpinxiangqing/X11.png">
+				</div>
+				<div class="Xcontent16">
+					<p></p>
+				</div>
+				<div class="Xcontent17">
+					<p class="Xcontent18">售价</p>
+					<p class="Xcontent19">
+						￥<span>${product.price}</span>
+					</p>
+				</div>
+				<div class="inner_floor">
+					<h3>优惠</h3>
+					<div class="floor_list">
+						<span class="icon_act">积分</span> <span class="text_act">购买可得<a
+							href="/front/creditshop/SelectAllCreditShop" style="color: red;">
+								<fmt:formatNumber value="${product.price/10}"
+									maxFractionDigits="0"></fmt:formatNumber>
+						</a>&nbsp;&nbsp;积分
+						</span>
 					</div>
-					<!-- <div class="Xcontentsize"></div> -->
-					<div class="Xcontent30">
-						<p class="Xcontent31">数量</p>
-						<div class="Xcontent32"><img src="/resources/front/images/shangpinxiangqing/X15.png"></div>
-						<form action="/front/orders/addOneOrder" id="fromSubmin" >	
-                        <input name="num" class="input" value="1"> <input
+				</div>
+				<div class="Xcontent26">
+					<p class="Xcontent27">颜色</p>
+					<div class="Xcontent28">${product.productscolor}</div>
+				</div>
+				<!-- <div class="Xcontentsize"></div> -->
+				<div class="Xcontent30">
+					<p class="Xcontent31">数量</p>
+					<div class="Xcontent32">
+						<img src="/resources/front/images/shangpinxiangqing/X15.png">
+					</div>
+					<form action="/front/orders/addOneOrder" id="fromSubmin">
+						<input name="num" class="input" value="1"> <input
 							name="pid" id="nowpids" type="hidden" value="${product.id}">
-                        <input name="uid" type="hidden" value="${oldUsers.uid}">
-                        </form>
-						<div class="Xcontent33"><img src="/resources/front/images/shangpinxiangqing/16.png"></div>
+						<input name="uid" type="hidden" value="${oldUsers.uid}">
+					</form>
+					<div class="Xcontent33">
+						<img src="/resources/front/images/shangpinxiangqing/16.png">
 					</div>
-					<div class="Xcontent34"><a class="cart_btn" id="addGoods">加入购物车</a></div>    <!-- 添加商品至购物车 -->
-					<div class="Xcontent35"><a href="#" class="primary_btn" id="pays">立即购买</a></div>
-				    <div class="share_collect">
-				    <div class="share_kits">
-				    <span class="share_title">分享到</span>
-				    <div id="share_1" class="bdsharebuttonbox share_wrap">
-				    <a class="bds_tqq icon icon_qq" target="_blank" href=""></a>
-				    <a id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
-				    </div>
-				    </div>
-				     <div class="collect_wrap">
-				    <c:choose>
-					<c:when test="${collections }">
-						<i id="btnCollect" class="icon icon_collectse"></i> 
-						<span id="textCollect" class="collect_text">收藏</span>
-					</c:when>
-					<c:otherwise>
-					<i id="btnCollect" class="icon icon_collect"></i> 
-						<span id="textCollect" class="collect_text">收藏</span>
-   			 		</c:otherwise>
-					</c:choose>
-				    <span class="js_toggle_contrast" data-cate-id="66">
-				    <i id="" class="icon icon_contrast" ></i>
-				    <span id="" class="collect_text">对比</span>
-				    </span>
-				    </div>
-				    </div>
+				</div>
+				<div class="Xcontent34">
+					<a class="cart_btn" id="addGoods">加入购物车</a>
+				</div>
+				<!-- 添加商品至购物车 -->
+				<div class="Xcontent35">
+					<a href="#" class="primary_btn" id="pays">立即购买</a>
+				</div>
+				<div class="share_collect">
+					<div class="share_kits">
+						<span class="share_title">分享到</span>
+						<div id="share_1" class="bdsharebuttonbox share_wrap">
+							<a class="bds_tqq icon icon_qq" target="_blank" href=""></a> <a
+								id="wxShare" class="bds_weixin icon icon_wx" href=""></a>
+						</div>
+					</div>
+					<div class="collect_wrap">
+						<c:choose>
+							<c:when test="${collections }">
+								<i id="btnCollect" class="icon icon_collectse"></i>
+								<span id="textCollect" class="collect_text">收藏</span>
+							</c:when>
+							<c:otherwise>
+								<i id="btnCollect" class="icon icon_collect"></i>
+								<span id="textCollect" class="collect_text">收藏</span>
+							</c:otherwise>
+						</c:choose>
+						<!-- <span class="js_toggle_contrast" data-cate-id="66"> <i
+							id="" class="icon icon_contrast"></i> <span id=""
+							class="collect_text">对比</span>
+						</span> -->
+					</div>
+				</div>
 			</ol>
 		</ul>
 	</div>
-<!-- 猜你喜欢部分 -->
-<div class="recommend_package_wrap recommend_only">
-<div class="recommend_nav">
-<div class="nav_item nav_item_recommend js_nav" >猜你喜欢</div>
-</div>
-<div class="recommend_list js_recommend_list">
-<c:forEach items="${like}" var="likes">
-<div class="recommend_item sku_tag_wrap">
-<a class="pro_href" target="_blank" href="/front/products/selectProductDetailByPrimaryKey?id=${likes.id}">
-<img alt="" src="/fbiImage${likes.producturl}" class="pro_img">
-<span class="pro_name"></span>
-<span class="pro_price">¥${likes.price}</span>
-<div class="sku_tag sku_tag_important">11.11抢先购</div>
-</a>
-</div>
-</c:forEach>
-</div>
-</div>
+	<!-- 猜你喜欢部分 -->
+	<div class="recommend_package_wrap recommend_only">
+		<div class="recommend_nav">
+			<div class="nav_item nav_item_recommend js_nav">猜你喜欢</div>
+		</div>
+		<div class="recommend_list js_recommend_list">
+			<c:forEach items="${like}" var="likes">
+				<div class="recommend_item sku_tag_wrap">
+					<a class="pro_href" target="_blank"
+						href="/front/products/selectProductDetailByPrimaryKey?id=${likes.id}">
+						<img alt="" src="/fbiImage${likes.producturl}" class="pro_img">
+						<span class="pro_name"></span> <span class="pro_price">¥${likes.price}</span>
+						<!-- <div class="sku_tag sku_tag_important">11.11抢先购</div> -->
+					</a>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
 	<!-- 商品详细情况介绍 -->
 	<div class="tabs_nav_wrap">
 		<div class="tabs_nav_inner_wrap">
@@ -194,7 +210,10 @@
 					<li class="cur" id="product_intro" onclick="anniu(this)">产品介绍</li>
 					<li id="nav_user_evaluation" class="" onclick="anniu(this)"
 						data-tab="#user_evaluation" mtag="30007.1.3">评价 <span
-						class="evaluation_num"><input id="countOp" disabled="disabled" style="border: none;width: 45px;background: none;font-size: 16px;" value="0" /></span>
+						class="evaluation_num"><input id="countOp"
+							disabled="disabled"
+							style="border: none; width: 45px; background: none; font-size: 16px;"
+							value="0" /></span>
 					</li>
 					<li id="product_spec" class="" onclick="anniu(this)"
 						data-tab="#product_spec">规格参数</li>
@@ -214,10 +233,9 @@
 			class="tabs_content tabs_content_product cur">
 			<div class="style_wrap_790">
 				<p>
-					<img alt="产品详细介绍"
-						src="/fbiImage${product.producturl}">
+					<img alt="产品详细介绍" src="/fbiImage${product.producturl}">
 					<c:forEach items="${photosUrl }" var="url">
-					<img alt="产品详细介绍" src="/fbiImage${url}">
+						<img alt="产品详细介绍" src="/fbiImage${url}">
 					</c:forEach>
 				</p>
 			</div>
@@ -237,7 +255,7 @@
 							<td>属性1</td>
 							<td>${product.productstype1}</td>
 						</tr>
-							<tr>
+						<tr>
 							<td>属性2</td>
 							<td>${product.productstype2}</td>
 						</tr>
@@ -256,7 +274,7 @@
 							<td>描述</td>
 							<td>${product.pdescription}</td>
 						</tr>
-						 
+
 					</tbody>
 				</table>
 			</div>
@@ -332,8 +350,9 @@
 							<p>添加"商城"或"i_midea"微信号，随时随地预约安装报修，实时跟踪服务进度。</p>
 							<p>扫一扫，立即关注微信号</p>
 						</div>
-						<i class="detail_sprite detail_sprite_weixin">
-						<img alt="" src="/resources/front/images/mmqrcode1512368795205.png" style="width:99px;height:100px;">
+						<i class="detail_sprite detail_sprite_weixin"> <img alt=""
+							src="/resources/front/images/mmqrcode1512368795205.png"
+							style="width: 99px; height: 100px;">
 						</i>
 					</div>
 					<div class="service right">
@@ -477,8 +496,8 @@
 	<!-- 右下角漂浮栏 -->
 	<div id="detail_floating">
 		<div class="items">
-			<a id="to_kefu" target="_blank"> 
-			<i class="detail_sprite detail_sprite_detail_floating_qq"></i>
+			<a id="to_kefu" target="_blank"> <i
+				class="detail_sprite detail_sprite_detail_floating_qq"></i>
 			</a>
 		</div>
 		<div class="items">
@@ -486,9 +505,9 @@
 				class="detail_sprite detail_sprite_detail_floating_info"></i>
 			</a>
 		</div>
-		<div id="floating_wxcode" class="items floating_wxcode" onmouseover="mOver()" onmouseout="mOut()">
-			<a><i
-				class="detail_sprite detail_sprite_detail_floating_wxcode"></i>
+		<div id="floating_wxcode" class="items floating_wxcode"
+			onmouseover="mOver()" onmouseout="mOut()">
+			<a><i class="detail_sprite detail_sprite_detail_floating_wxcode"></i>
 			</a>
 		</div>
 		<div id="scroll_to_top" class="items">
@@ -502,7 +521,7 @@
 		<script type="text/javascript">
 			var trf = document.getElementById("floating_wxcode_content");
 			var kefu = document.getElementById("detail_floating");
-			function mOver() { 
+			function mOver() {
 				trf.style.display = "block";
 			}
 			function mOut() {
@@ -510,52 +529,54 @@
 			}
 		</script>
 	</div>
-	<div style="clear:both"></div>
+	<div style="clear: both"></div>
 	<!-- 底部 -->
- <div class="footed">
-  <div class="footbox">
-  <div class="about">
-  <div class="font16 abtitle">关于我们</div>
-  <ul class="gray">
-  <li>宜嘉系统简介</li>
-  <li>联系我们</li>
-  <li>加入我们</li>
-  </ul>
-  </div>
-  <div class="cooper">
-  <div class="font16 abtitle">宜嘉商务平台</div>
-   <ul class="gray">
-  <li>宜嘉商务平台简介</li>
-  <li>联系我们</li>
-  <li>加入我们</li>
-  </ul>
-  </div>
-  <div class="weixin">
-  <div class="wxlogo">
-  <img alt="" src="/resources/front/images/self_img/yijia_bg_logo.png">
-  </div>
-  <div class="wxpic"></div>
-  </div>
-  <div class="cooper" style="border-right:1px dotted #CCC;">
-  <div class="font16 abtitle">商务合作</div>
-   <ul class="gray">
-  <li>宜嘉系统简介</li>
-  <li>联系我们</li>
-  <li>加入我们</li>
-  </ul>
-  </div>
-  <div class="about" style="border:none;">
-  <div class="font16 abtitle">帮助中心</div>
-  <ul class="gray">
-  <li>宜嘉系统简介</li>
-  <li>联系我们</li>
-  <li>加入我们</li>
-  </ul>
-  </div>
-  </div>
-  <div class="clear"></div>
-  <div class="copyright gray">Copyright © 2013 Phoenix New Media Limited All Rights Reserved.</div>
-  </div>
+	<div class="footed">
+		<div class="footbox">
+			<div class="about">
+				<div class="font16 abtitle">关于我们</div>
+				<ul class="gray">
+					<li>宜嘉系统简介</li>
+					<li>联系我们</li>
+					<li>加入我们</li>
+				</ul>
+			</div>
+			<div class="cooper">
+				<div class="font16 abtitle">宜嘉商务平台</div>
+				<ul class="gray">
+					<li>宜嘉商务平台简介</li>
+					<li>联系我们</li>
+					<li>加入我们</li>
+				</ul>
+			</div>
+			<div class="weixin">
+				<div class="wxlogo">
+					<img alt=""
+						src="/resources/front/images/self_img/yijia_bg_logo.png">
+				</div>
+				<div class="wxpic"></div>
+			</div>
+			<div class="cooper" style="border-right: 1px dotted #CCC;">
+				<div class="font16 abtitle">商务合作</div>
+				<ul class="gray">
+					<li>宜嘉系统简介</li>
+					<li>联系我们</li>
+					<li>加入我们</li>
+				</ul>
+			</div>
+			<div class="about" style="border: none;">
+				<div class="font16 abtitle">帮助中心</div>
+				<ul class="gray">
+					<li>宜嘉系统简介</li>
+					<li>联系我们</li>
+					<li>加入我们</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="copyright gray">Copyright © 2013 Phoenix New Media
+			Limited All Rights Reserved.</div>
+	</div>
 	<!-- 加入购物车提示栏 -->
 	<div id="confirmDouble" class="mod_lary"
 		style="margin-top: -99px; margin-left: -180px;">
@@ -568,7 +589,8 @@
 		</div>
 		<div class="mod_layer_ft">
 			<a class="layer_btn J_close_text">继续购物</a> <a id="gotoshoppay"
-				class="layer_btn J_get_href" href="/front/shoppingCart/selectproducts.action">去结算</a>
+				class="layer_btn J_get_href"
+				href="/front/shoppingCart/selectproducts.action">去结算</a>
 		</div>
 	</div>
 
@@ -586,7 +608,8 @@
 		</div>
 		<div class="mod_layer_ft">
 			<a class="layer_btn" href="/gotoFront/Shopping_cart">整理购物车</a> <a
-				id="btnCartBuy" class="layer_btn" href="">立即购买</a>
+				id="btnCartBuy" class="layer_btn"
+				href="/front/orders/addOneOrder?pid=${product.id }">立即购买</a>
 		</div>
 	</div>
 
@@ -624,21 +647,25 @@
 		/* 收藏功能 */
 		$("#btnCollect").click(function() {
 			var btn = $("#btnCollect")
-			var tg = ${product.id};
+			var tg = $
+			{
+				product.id
+			}
+			;
 			$.ajax({
 				type : 'post',
 				url : "/front/collection/insert_or_delete?pid=" + tg,
 				success : function(data) {
 					switch (data) {
-						case "login":
-							window.location.href = "/gotoFront/login";
-							break;
-						case "false":
-							btn.removeClass().addClass("icon icon_collect")
-							break;
-						default:
-							btn.removeClass().addClass("icon icon_collectse")
-							break;
+					case "login":
+						window.location.href = "/gotoFront/login";
+						break;
+					case "false":
+						btn.removeClass().addClass("icon icon_collect")
+						break;
+					default:
+						btn.removeClass().addClass("icon icon_collectse")
+						break;
 					}
 				},
 				error : function() {
@@ -718,7 +745,8 @@
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$.ajax({
+			$
+					.ajax({
 						type : 'get',
 						url : '/front/opinions/opinionsList?pid=' + p,
 						success : function(data) {
@@ -736,7 +764,9 @@
 											+ dop[k].content
 											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
 											+ dop[k].oldUsers.uid
-											+ '评星:'+dop[k].star+'星</div><div class="comment_time">'
+											+ '评星:'
+											+ dop[k].star
+											+ '星</div><div class="comment_time">'
 											+ dop[k].opinionstime
 											+ '</div></div>';
 									opdiv.append(ophtmls);
@@ -751,16 +781,19 @@
 		}
 
 		function imagesOP(opids) {
-			$.ajax({
+			$
+					.ajax({
 						url : '/front/opinions/remarkList?opid=' + opids,
 						success : function(rms) {
 							if (rms != null) {
 								for ( var i in rms) {
-									$('#op' + opids).append('&nbsp;<img width="90px;" height="90px;" src="/fbiImage'+rms[i].remarkurl+'"/>');
+									$('#op' + opids)
+											.append(
+													'&nbsp;<img width="90px;" height="90px;" src="/fbiImage'+rms[i].remarkurl+'"/>');
+								}
 							}
 						}
-					}
-			});
+					});
 		}
 	</script>
 </body>

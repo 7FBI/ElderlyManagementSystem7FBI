@@ -108,7 +108,7 @@
 																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
 															</c:if> --%>
 													</div>
-													<span>成交时间：${ord.ordertime }</span>
+													<span>成交时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 												<div class="order-content">
@@ -219,7 +219,7 @@
 											<div class="order-status1">
 												<div class="order-title">
 													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a></div>
-													<span>付款时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+													<span>付款时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 												<div class="order-content">
@@ -324,7 +324,7 @@
 											<div class="order-status2">
 												<div class="order-title">
 													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a></div>
-													<span>付款时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+													<span>付款时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 												<div class="order-content">
@@ -427,7 +427,7 @@
 										<div class="order-status4">
 												<div class="order-title">
 													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id}</a></div>
-													<span>成交时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+													<span>成交时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 												</div>
 												<div class="order-content">
 													<div class="order-left">
