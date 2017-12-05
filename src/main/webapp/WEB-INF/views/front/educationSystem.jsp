@@ -15,8 +15,8 @@
 	src="/resources/front/js/jquery.1.8.2.min.js"></script> -->
 <script type="text/javascript"
 	src="/resources/front/js/jquery.plugin.min.js"></script>
-<link rel="stylesheet" href="/resources/css/frontedu.css"
-	type="text/css" media="all" />
+<link rel="stylesheet" href="/resources/css/frontedu.css" type="text/css"/>
+	
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript"
@@ -89,7 +89,7 @@
 		<form
 			action="${pageContext.request.contextPath}/front/videos/findvideos.action"
 			method="post" onsubmit="return searchCheck()">
-			<div class="col-md-offset-6 col-md-4 addstyle"
+			<div class="col-md-offset-7 col-md-4 addstyle"
 				style="margin-top: 6px;">
 				<div class="input-group">
 					<input type="text" class="form-control"
@@ -110,12 +110,12 @@
 		           <font color="green"><p id="success1"></p></font>
 		         </div>
 			</div>
-			<div style="margin-top: 8px;float: left; font-size: 20px;">
+			<%-- <div style="margin-top: 8px;float: left; font-size: 20px;">
 				<a
 					href="${pageContext.request.contextPath }/front/videos/allfreevideo.action?"
 					role="button" class="btn btn-info"><span
 					class="glyphicon glyphicon-plus" aria-hidden="true"></span> 免费视频...</a>
-			</div>
+			</div> --%>
 		</form>
 
 	</div>
@@ -278,6 +278,12 @@
 				<strong> <span class="glyphicon glyphicon-facetime-video"
 					aria-hidden="true"></span> 免费资源
 				</strong>
+				<div style="margin-top: 8px;float: right; font-size: 20px;margin-right: 120px;">
+				<a
+					href="${pageContext.request.contextPath }/front/videos/allfreevideo.action?"
+					><span
+					class="glyphicon glyphicon-plus" aria-hidden="true"></span> 免费视频...</a>
+			</div>
 				<HR>
 			</div>
 			<div>
@@ -308,14 +314,13 @@
 
 				</ul>
 			</div>
-		</div>
-	</c:if>
+			
+		    </div>
+	
+	   </c:if>
 
-</div>
-	
-	<!-- <br><br><br><br><br><br><br> -->
-	
-	<jsp:include page="footer.jsp"></jsp:include>
+</div><br>
+<jsp:include page="footer.jsp"></jsp:include>
 	<script type="text/javascript">
     //因为使用了document，所以js需要放在需要执行的代码下面生效才能生效
     var li=document.getElementById('lunbo').getElementsByTagName("li");
@@ -329,7 +334,21 @@
 
     },9000);//切换时间
 </script>
-	<!--分页js  -->
+	<!--原创分页js  -->
+	<script type="text/javascript">
+	
+		$("#jumpBtn").click(function() {
+			var b = $("input[page='page']").val();
+			window.location.href = "/front/videos/allvideo?page=" + b;
+		})
+	
+		$("button[page='page']").click(function() {
+			var b = $(this).val();
+			window.location.href = "/front/videos/allvideo?page=" + b;
+		})
+		
+	</script>
+	<!--免费分页js  -->
 	<script type="text/javascript">
 	
 		$("#jumpBtn").click(function() {

@@ -135,7 +135,7 @@
 		<div class="form-group col-md-offset-2">
 			<label for="eduurl" class="col-sm-2 control-label">图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片</label>
 			<div class="col-sm-3">
-				<input type="file" name="file" multiple="multiple" id="eduurl" onblur="checkUrl()"/>
+				<input type="file" name="file" multiple="multiple" id="eduurl" onchange="checkUrl()"/>
 			</div>
 			<div class="pleft">
 	  			 <font color="red"><p id="error4"></p></font>

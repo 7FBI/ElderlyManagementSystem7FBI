@@ -138,15 +138,58 @@ function educontentCheck() {
 function checkUrl() {
 	//var reg = /^[0-9a-z|A-Z]{6,12}$/;
 	var eduurl = document.getElementById("eduurl").value;
+	var size=findSize(eduurl);
 	if (eduurl.length == 0) {
 		var str = "× 图片不能为空";
 		document.getElementById("error4").innerHTML = str;
 		return false;
-	} else {
-		document.getElementById("error4").innerHTML = "";
-		document.getElementById("success4").innerHTML = "√";
-		return true;
+	}else if (!checkFileExt(eduurl)) {
+            var str = "× 您上传的不是图片,请重新上传！";
+    		document.getElementById("error4").innerHTML = str;
+    		return false;
+        }
+	else if (size>1024) {
+        var str = "× 您上传的图片大小控制 在1M以内,请重新上传！";
+		document.getElementById("error4").innerHTML = str;
+		return false;
+    }
+       else if (checkFileExt(eduurl)&&(size<1024)) {
+    		       
+            	document.getElementById("error4").innerHTML = "";
+        		document.getElementById("success4").innerHTML = "√";
+        		return true;  	
+    }else {
+    	var str = "× 上传错误,请重新上传！";
+		document.getElementById("error4").innerHTML = str;
+		return false;
 	}
+}
+/*验证图片格式*/
+function checkFileExt(ext) {
+    if (!ext.match(/.jpg|.gif|.png|.bmp/i)) {
+        return false;
+    }
+    return true;
+}
+/*验证图片大小*/
+function findSize(field_id){
+          var fileInput = $("#"+field_id)[0];
+          byteSize  = fileInput.files[0].fileSize;
+       return ( Math.ceil(byteSize / 1024) ); // Size returned in KB.
+}
+/*-=====*/
+/*验证图片格式*/
+function checkFile(ext) {
+    if (!ext.match(/.mp4/i)) {
+        return false;
+    }
+    return true;
+}
+/*验证图片大小*/
+function findSize(field_id){
+          var fileInput = $("#"+field_id)[0];
+          byteSize  = fileInput.files[0].fileSize;
+       return ( Math.ceil(byteSize / 1024) ); // Size returned in KB.
 }
 function checkvideoUrl() {
 	//var reg = /^[0-9a-z|A-Z]{6,12}$/;
@@ -155,11 +198,20 @@ function checkvideoUrl() {
 		var str = "× 视频不能为空";
 		document.getElementById("error7").innerHTML = str;
 		return false;
-	} else {
-		document.getElementById("error7").innerHTML = "";
-		document.getElementById("success7").innerHTML = "√";
-		return true;
-	}
+	} else if (!checkFile(vurl)) {
+        var str = "× 请上传格式为MP4的视频！";
+		document.getElementById("error7").innerHTML = str;
+		return false;
+    }else if (checkFile(vurl)) {
+    
+	document.getElementById("error7").innerHTML = "";
+	document.getElementById("success7").innerHTML = "√";
+	return true;  	
+}else {
+var str = "× 上传错误,请重新上传！";
+document.getElementById("error7").innerHTML = str;
+return false;
+}
 }
 
 function videocheck() {  

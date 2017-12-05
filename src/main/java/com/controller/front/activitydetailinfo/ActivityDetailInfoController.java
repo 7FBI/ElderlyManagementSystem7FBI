@@ -64,7 +64,7 @@ public ModelAndView queryAllActiveInfo(HttpServletRequest request){
 			 activitydetailinfo.setActiveimageurl(activepicutre.get(0).getActiveimageurl());
 			 Date stoptime=activitydetailinfo.getActitvityendtime();
 				Date nowdate=new Date();
-				if(stoptime.getDate()<nowdate.getDate()){
+				if(stoptime.getTime()<nowdate.getTime()){
 					activitydetailinfo.setActivityStatus(0);
 					System.out.println("活动已结束");
 				}else{

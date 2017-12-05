@@ -251,7 +251,7 @@
 		<div class="form-group col-md-offset-3">
 			<label for="userurl" class="col-sm-2 control-label">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像</label>
 			<div class="col-sm-3">
-				<input type="file" name="file" multiple="multiple" id="userurl" onblur="checkUrl()"/>
+				<input type="file" name="file" multiple="multiple" id="userurl" onchange="checkUrl()"/>
 			</div>
 			
 			<div class="pleft">

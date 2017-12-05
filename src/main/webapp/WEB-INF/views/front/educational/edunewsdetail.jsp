@@ -22,6 +22,20 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<link rel="stylesheet" href="/resources/css/frontedu.css"
+	type="text/css" media="all" />
+<link rel="stylesheet" href="/resources/css/fronteducational.css"
+	type="text/css"/>
+	<!--  -->
+	<script type="text/javascript"
+	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
+	
 <link rel="stylesheet" href="/resources/front/css/style.css"
 	type="text/css" media="all" />
 <script type="text/javascript"
@@ -32,15 +46,16 @@
 
 <body>
 <jsp:include page="../index_header.jsp" flush="true" />
-<jsp:include page="../header.jsp" flush="true" />		
+<jsp:include page="../header.jsp" flush="true" />	
+<div style="width: 100%;height: 4px;background-color: orange;"></div>	
 <div id="shownews">
-  <div class="cat_title">
+ <!--  <div class="cat_title">
     <div class="wrapper">
       <h2><strong>NEWS</strong>新闻</h2>
       <p>最近正在折腾...<br/>
         Recently is to do ...</p>
     </div>
-  </div>
+  </div> -->
   <div style="width: 80%;margin: 0 auto;text-align: center;">
   <div style="margin-top: 5px;">
    
@@ -58,7 +73,7 @@
 		</div>
   </div>
   
-</div>
+</div><br><br>
 <jsp:include page="../footer.jsp" flush="true" />
    </body>
   </html>

@@ -35,14 +35,15 @@
 <body>
 	<jsp:include page="../index_header.jsp" flush="true" />
 <jsp:include page="../header.jsp" flush="true" />	
+<div style="width: 100%;height: 4px;background-color: orange;"></div>
 	<div class="videodetail">
 		<!--标题  -->
-		 <div style="padding-left: 50px;">
+		 <!-- <div style="padding-left: 50px;">
 		 <div style="float: left;">
 			<font size="12px" color="orange"><strong>VIDEO</strong>视频</font></div>
 			<div style="float: left; margin-top: 30px;padding-left: 10px;"><font color="#8cdcea" size="1px;">我们的作品,他们的故事<br/> Our &nbsp;work,&nbsp;&nbsp;their stories</font></div>
 			
-		 </div>
+		 </div> -->
 	<!--视频播放  -->
 		<div class="myvideos">
 		  <video height="680" width="100%" controls autoplay>
@@ -113,6 +114,8 @@
          ${oneVideoById.vprice}<br>
     <p >${oneVideoById.vcontent}</p>
     </div> --%>
-    <jsp:include page="../footer.jsp" flush="true" />
+    
+   <%--  <jsp:include page="../footer.jsp" flush="true" /> --%>
+   
 </body>
 </html>

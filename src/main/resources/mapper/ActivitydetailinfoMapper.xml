@@ -423,7 +423,7 @@
   </update>
   
   <!-- 通过管理员的id查询管理员所管理的活动 并返回-->
-  <select id="selectByMid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByMid" parameterType="java.lang.Integer" resultType="com.bean.Activitydetailinfo">
   select * from activitydetailinfo where mid =#{mid}
 </select>
 

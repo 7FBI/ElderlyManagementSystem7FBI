@@ -47,17 +47,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="../index_header.jsp" flush="true" />
 <jsp:include page="../header.jsp" flush="true" />	
+	<div style="width: 100%;height: 4px;background-color: orange;"></div>
 	<section id="newslist">
-	<div class="cat_title edutitle">
-		<div class="wrapper">
-			<h2>
-				<strong>NEWS</strong>新闻
-			</h2>
-			<p>
-				最近正在折腾...<br />Recently is to do ...
-			</p>
-		</div>
-	</div>
+		
 	<!-- <div class="category">
 		<div class="wrapper">
 			<ul>
@@ -70,7 +62,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul>
 		</div>
 	</div> -->
-	<div style="width: 76% ;margin: 0 auto;">
+	<div style="width: 68% ;margin: 0 auto;">
+		
 		<form action="${pageContext.request.contextPath}/front/edu/queryEduByConditions.action" method="post" onsubmit="return searchCheck()">	
 		  	 <div class="col-md-offset-8 col-md-4 frontedusearch">
 					<div class="input-group">
@@ -88,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </div>
           </form>
     <br>
-    <br>  
+    <br>  <hr>
 	<!--  列表  -->						
 	<ul class="news wrapper">
 		<!--示例  -->
@@ -111,7 +104,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <img
 				src="/files${newedunews.eduurl }"	
 				 alt="新闻图片"/></a>
-			<div class="newslist" >
+				
+			<div class="newslist" style="float: left;">
 				<a href="${pageContext.request.contextPath }/front/edu/querydudetailbyid.action?id=${newedunews.id}">${newedunews.edutitle}</a>															
 				<span>UPTATED:<fmt:formatDate value="${newedunews.edutime}" pattern="yyyy-MM-dd"/></span>
 				<p >${newedunews.educontent }....</p>
@@ -123,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!--分页  -->
   <!--分页  -->
-	                         <div class="col-md-offset-6">
+	                         <div class="col-md-offset-5">
 	                         <table>
 									<tr>
 										<td class="form-inline">

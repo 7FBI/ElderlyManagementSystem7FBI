@@ -113,8 +113,12 @@ public class FrontVideoController {
 		List <Video> freevideo=new ArrayList<Video>();
 		for(Video video:allvideos){
 			String newvideoContent=video.getVcontent();
+			if(newvideoContent.length()>20){
 			video.setVcontent(newvideoContent.substring(0,20));
-			freevideo.add(video);
+			freevideo.add(video);}
+			if(newvideoContent.length()<20 && newvideoContent.length()>0){
+				
+				freevideo.add(video);}
 		}
 	    
 		modelAndView.addObject("freevideo", freevideo);
@@ -302,7 +306,7 @@ public class FrontVideoController {
 //				return modelAndView;
 //			}
 			List<Video> allfreeVideo=videoService.allFreePrice();
-			modelAndView.setViewName("/front/educationSystem");
+			modelAndView.setViewName("/front/educational/allfreevideo");
 			Map<String,Object>map=new HashMap<String, Object>();
 			Integer max=30;
 			Integer page=0;

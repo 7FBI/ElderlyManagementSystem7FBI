@@ -67,7 +67,7 @@ function checkTell() {
 
 }
 function checkAddress() {
-	var reg = \u4e00-\u9fa5;
+	var reg = 一 - 龥;
 	var address = document.getElementById("address").value;
 	if (address.length == 0) {
 		var str = "× 地址不能为空";
@@ -125,15 +125,14 @@ function uidCheck() {
 }
 
 
-function passwordCheck(){
+function passwordCheck() {
 	var reg = /^[0-9a-z|A-Z]{6,20}$/;
 	var password = document.getElementById("password").value;
 	if (password.length == 0) {
 		var str = "× 密码不能为空";
 		document.getElementById("error6").innerHTML = str;
 		return false;
-	}
-	else if (reg.test(password)) {
+	} else if (reg.test(password)) {
 		document.getElementById("error6").innerHTML = "";
 		document.getElementById("success6").innerHTML = "√";
 		return true;
@@ -174,7 +173,13 @@ function pass_wdCheck() {
 
 }
 
-
+/*验证图片格式*/
+function checkFile(ext) {
+	if (!ext.match(/.mp4/i)) {
+		return false;
+	}
+	return true;
+}
 function checkUrl() {
 	//var reg = /^[0-9a-z|A-Z]{6,12}$/;
 	var userurl = document.getElementById("userurl").value;
@@ -182,14 +187,27 @@ function checkUrl() {
 		var str = "× 图片不能为空";
 		document.getElementById("error8").innerHTML = str;
 		return false;
-	} else {
+	} else if (!checkFileExt(eduurl)) {
+		var str = "× 您上传的不是图片,请重新上传！";
+		document.getElementById("error8").innerHTML = str;
+		return false;
+	} else if (size > 1024) {
+		var str = "× 您上传的图片大小控制 在1M以内,请重新上传！";
+		document.getElementById("error8").innerHTML = str;
+		return false;
+	} else if (checkFileExt(eduurl) && (size < 1024)) {
+
 		document.getElementById("error8").innerHTML = "";
 		document.getElementById("success8").innerHTML = "√";
 		return true;
+	} else {
+		var str = "× 上传错误,请重新上传！";
+		document.getElementById("error8").innerHTML = str;
+		return false;
 	}
 }
 
-function checkBirthday(){
+function checkBirthday() {
 	var birthday = document.getElementById("birthday").value;
 }
 if (birthday.length == 0) {
@@ -203,7 +221,7 @@ if (birthday.length == 0) {
 }
 
 //为用户充值
-function balanceCheck(){
+function balanceCheck() {
 	var reg = /[0-9]+(\.[0-9]+)?/;
 	var balance = document.getElementById("balance").value;
 	if (balance.length == 0) {
@@ -226,20 +244,20 @@ function balanceCheck(){
 
 }
 
-function userscheck(){
-	if(usenameCheck() && checkCard() && checkTell() && checkAddress()
-			&& uidCheck() && passwordCheck() &&pass_wdCheck() && checkUrl() &&checkBirthday()){
+function userscheck() {
+	if (usenameCheck() && checkCard() && checkTell() && checkAddress()
+		&& uidCheck() && passwordCheck() && pass_wdCheck() && checkUrl() && checkBirthday()) {
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }
 
 
-function checkbalance(){
-	if(balanceCheck()){
+function checkbalance() {
+	if (balanceCheck()) {
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }

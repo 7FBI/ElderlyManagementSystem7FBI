@@ -33,7 +33,7 @@ html, body {
     color: red;
     padding-top: 10px;
 }
-.videolisttitle hr{
+.videolisttitle HR{
 	background-color:orange; 
 	SIZE:3;
 	FILTER: progid:DXImageTransform.Microsoft.Shadow(color:orange,direction:145,strength:15);
@@ -43,7 +43,7 @@ html, body {
 .videodetail{
 	width: 100%;
 	margin: 0 auto;
-	padding: 10px 0;
+	/* padding: 10px 0; */
 	/* background-color: #555c52; */
 }
 .videocontment{
@@ -67,14 +67,15 @@ html, body {
 	/* padding-left: 20px; */
 	float: left;
  	background-color: #555c52;
-	height: 700px;
+	height: 720px;
 }
  /*内容简介  */
 .contentdetail{
 	 margin-top:20px; 
 	background-color: #555c52;
 	float: left;
-	width: 100%;"
+	width: 100%;
+	height: 24%;
 	}
 .contentdetail ul li{
 	margin-left:50px;

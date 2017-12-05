@@ -24,14 +24,16 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
+					<c:if test="${!empty oldUsers.username}">
 						<a href="#" target="_top" class="h">${oldUsers.username}，欢迎登录</a>
+					</c:if>
 					</div>
 				</div>
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/" target="_top" class="h"><i
+						<a href="${pageContext.request.contextPath}/" target="_top" class="h"><i
 							class="am-icon-home am-icon-fw"></i>系统首页</a>
 					</div>
 				</div>

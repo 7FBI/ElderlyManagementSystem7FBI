@@ -56,8 +56,12 @@ public class FrontEduNewsController {
 		List <Edunews> newedunews=new ArrayList<Edunews>();
 		for(Edunews edunews:alledunews){
 			String neweduContent=edunews.getEducontent();
+			if(neweduContent.length()>50){
 			edunews.setEducontent(neweduContent.substring(0,50));
-			newedunews.add(edunews);
+			newedunews.add(edunews);}
+			if(neweduContent.length()<=50 && neweduContent.length()>0){
+				newedunews.add(edunews);
+			}
 		}
 		modelAndView.addObject("newedunews", newedunews);
 		modelAndView.addObject("page", page);
@@ -68,7 +72,17 @@ public class FrontEduNewsController {
 //	按条件查询
 @RequestMapping("/queryEduByConditions")
  public ModelAndView selectEduByConditions(String findEduByConditions){
-	List <Edunews> newedunews=edunewsService.queryEduByConditions(findEduByConditions);
+	List <Edunews> alledunewsByConditions=edunewsService.queryEduByConditions(findEduByConditions);
+	List <Edunews> newedunews=new ArrayList<Edunews>();
+	for(Edunews edunews:alledunewsByConditions){
+		String neweduContent=edunews.getEducontent();
+		if(neweduContent.length()>50){
+		edunews.setEducontent(neweduContent.substring(0,50));
+		newedunews.add(edunews);}
+		if(neweduContent.length()<=50 && neweduContent.length()>0){
+			newedunews.add(edunews);
+		}
+	}
 	ModelAndView modelAndView =new ModelAndView();
 	modelAndView.addObject("newedunews", newedunews);
 	modelAndView.setViewName("/front/educational/edunews");

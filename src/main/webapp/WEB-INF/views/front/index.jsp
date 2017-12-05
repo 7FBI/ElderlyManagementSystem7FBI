@@ -341,14 +341,14 @@
 			<div class="carousel-inner" role="listbox"
 				style=" padding-bottom: 6px;">
 				<div class="item active">	
-						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360" height="100%" />     
+						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360" height="540" />     
 					
 					<!-- <div class="carousel-caption">...</div> -->
 				</div>	
 				<c:forEach items="${hotnews }" var="hotnews">
 				<div class="item" >
 						
-						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="100%" />     
+						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="540" />     
 					
 					<!-- <div class="carousel-caption">...</div> -->
 				</div>
