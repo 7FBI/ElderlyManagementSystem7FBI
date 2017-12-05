@@ -201,29 +201,10 @@
 				<!--含运费小计 -->
 				<div class="buy-point-discharge ">
 					<p class="price g_price ">
-						合计（无运费） <span>¥</span><em class="pay-sum" id="allMonyes">${orders.money }</em>
+						合计: <span>¥</span><em class="pay-sum" id="allMonyes">${orders.money }</em>
 					</p>
 				</div>
 
-				<!--信息 -->
-				<div class="order-go clearfix">
-					<div class="pay-confirm clearfix">
-						<div class="box">
-							<span class="buy-user" style="float: left;">运费： </span> <span
-								class="buy-phone">6</span> <br> <span
-								class="buy-user" style="float: left;"><input type="checkbox" checked="checked" m="23.5" />运费险： </span> 
-								<span class="buy-phone">23.5</span>
-							<div tabindex="0" id="holyshit267" class="realPay">
-								<em class="t">实付款：</em> <span class="price g_price "> <span>¥</span>
-									<em class="style-large-bold-red " id="J_ActualFee">${orders.money+6+23.5 }</em>
-								</span>
-							</div>
-
-						</div>
-
-
-					</div>
-				</div>
 			</div>
 
 			<div class="clear"></div>
