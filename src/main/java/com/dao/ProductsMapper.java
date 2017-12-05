@@ -108,4 +108,8 @@ public interface ProductsMapper {
 	List<Products> selectProductsByTypeAndLikeName(Map map);  //根据商品类型和商品名字查询出所有商品
 	
 	List<Products> selectrcai(int tid);
+	
+	Products selectBypnameui(String pname);
+	
+	Products selectByitoBackstage(int id);
 }

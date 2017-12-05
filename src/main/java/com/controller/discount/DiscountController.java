@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bean.Discount;
 import com.service.DiscountService;
@@ -53,4 +54,21 @@ public class DiscountController {
 		discountService.insertSelective(discount);
 		return "redirect:/backstage/discount/selectall";
 	}
+
+	@RequestMapping("/insertDiscountProduct")
+	@ResponseBody
+	public String insertDiscountproduct(HttpServletRequest request,Discount discount,Double endprice){
+		Discount discou=new Discount();
+		if(discount!=null){
+			discou=discountService.selectByPid(discount.getPid());
+			if(discou!=null){
+				return "again";
+			}
+			discountService.insertSelective(discount);
+			return "ture";
+		}else{
+			return "false";
+		}
+	}
+
 }

@@ -887,5 +887,11 @@
  <select id="selectrcai" parameterType="java.lang.Integer" resultType="com.bean.Products">
   select * from products where tid=#{tid,jdbcType=INTEGER} LIMIT 5
  </select>
-
+ <!-- 后台团购查询商品 商品名称 -->
+ <select id="selectBypnameui" parameterType="java.lang.String" resultType="com.bean.Products">
+ select * from products where pname=#{pname,jdbcType=VARCHAR}
+ </select>
+ <select id="selectByitoBackstage" parameterType="java.lang.Integer" resultType="com.bean.Products">
+  select * from products where id=#{id,jdbcType=INTEGER}
+ </select>
 </mapper>

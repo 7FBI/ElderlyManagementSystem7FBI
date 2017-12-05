@@ -187,6 +187,8 @@
 							<li><a href="${pageContext.request.contextPath}/backstage/Class/select_to.action" target="main">产品分类</a></li>
 							<li><a href="${pageContext.request.contextPath}/backstage/Store/add_Products.action" target="main">添加产品</a></li>
 							<li><a href="${pageContext.request.contextPath}/backstage/Store/init.do" target="main">产品列表</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Store/addGroup.action" target="main">团购</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/Store/discount.action" target="main">商品折扣</a></li>
 						</ul>
 					</div>
 					

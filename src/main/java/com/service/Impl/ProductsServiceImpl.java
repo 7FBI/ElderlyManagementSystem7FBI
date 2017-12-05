@@ -218,4 +218,14 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.selectrcai(tid);
 	}
+	@Override
+	public Products selectBypnameui(String pname) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectBypnameui(pname);
+	}
+	@Override
+	public Products selectByitoBackstage(int id) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectByitoBackstage(id);
+	}
 }

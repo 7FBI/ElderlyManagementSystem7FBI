@@ -292,13 +292,6 @@ public class ProductsController {
 		return InvList;
 	}
 
-	/**
-	 * 根据当前页获取开始行
-	 * 
-	 * @param currentPage
-	 * @param pageSize
-	 * @return
-	 */
 	public int getStartRowBycurrentPage(int currentPage, int pageSize) { // 根据当前页面
 																			// 和页面大小
 		int startRow = 0; // 开始行
@@ -308,4 +301,43 @@ public class ProductsController {
 		startRow = (currentPage - 1) * pageSize; // 开始行数等于当前页面减一，乘与每页的大小
 		return startRow;
 	}
+
+	@RequestMapping(value = "/addGroup.action")
+	public String AddGroupproducts(HttpServletRequest request){
+		return "backstage/jsp/Products/Groupproductsadd";	
+	}
+	
+	@RequestMapping(value = "/discount.action")
+	public String Discountproducts(HttpServletRequest request){
+		return "backstage/jsp/Products/Discountadd";	
+	}
+	
+	/*团购商品查询*/
+	@RequestMapping(value = "/addOnegroup.action")
+	public String AddGroupproductone(HttpServletRequest request,int id,String pname) throws UnsupportedEncodingException{
+		pname=new String(pname.getBytes("ISO-8859-1"),"UTF-8");
+		if(id>0&&pname.equals("null")){
+			Products product=productService.selectByitoBackstage(id);
+			request.setAttribute("product", product);
+		}else if(id==0&&!(pname.equals("null"))){
+			Products product=productService.selectBypnameui(pname);
+			request.setAttribute("product", product);
+		}
+		return "backstage/jsp/Products/Groupproductsadd";	
+	} 
+	
+	/*折扣商品查询*/
+	@RequestMapping(value ="/DiscountSelect.action")
+	public String AddDiscountproductsOne(HttpServletRequest request,int id,String pname) throws UnsupportedEncodingException{
+		pname=new String(pname.getBytes("ISO-8859-1"),"UTF-8");
+		if(id>0&&pname.equals("null")){
+			Products product=productService.selectByitoBackstage(id);
+			request.setAttribute("product", product);
+		}else if(id==0&&!(pname.equals("null"))){
+			Products product=productService.selectBypnameui(pname);
+			request.setAttribute("product", product);
+		}
+		return "backstage/jsp/Products/Discountadd";	
+	} 
+	
 }

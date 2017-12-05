@@ -80,4 +80,8 @@ public interface ProductsService {
  List<Products> selectProductsByTypeAndLikeName(Map map); //根据商品类型和商品名字查询出所有商品
  
   List<Products> selectrcai(int tid);
+  
+  public Products selectBypnameui(String pname);
+  
+  public Products selectByitoBackstage(int id);
 }

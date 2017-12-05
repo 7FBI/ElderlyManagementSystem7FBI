@@ -158,5 +158,20 @@ public class GroupsbuyingController {
 		return "false";	
 	}
 	
-	
+	@RequestMapping("/insertGroupproducts.action")
+	@ResponseBody
+	public String InsertGroupproducts(HttpServletRequest request,Groupbuying groupbuying){
+		Groupbuying groupbuy=new Groupbuying();
+		if(groupbuying!=null){
+			groupbuy=groupbuyingService.selectByPid(groupbuying.getPid());
+			if(groupbuy!=null){
+				return "again";
+			}
+			groupbuyingService.insertSelective(groupbuying);
+			return "ture";
+		}else{
+			return "false";
+		}	
+	}
+		
 }
