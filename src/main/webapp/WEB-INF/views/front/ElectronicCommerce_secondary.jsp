@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -55,7 +56,7 @@ et=UTF-8">
 			<div class="nav-cont">
 				<ul>
 					<li class="index"><a href="/front/products/selectAllProducts">首页</a></li>
-					<li class="qc"><a href="#">打折区</a></li>
+					<li class="qc"><a href="${pageContext.request.contextPath}/front/discount/selectAll">打折区</a></li>
 					<li class="qc"><a href="#">限时抢</a></li>
 					<li class="qc"><a href="/front/groupbuying/Lookto.action">团购</a></li>
 					<li class="qc last"><a href="/front/creditshop/SelectAllCreditShop">积分兑换区</a></li>
@@ -1205,11 +1206,9 @@ et=UTF-8">
 						<img src="/resources/front/images/self_img/tj2.png "></img>
 					</div>
 				</div>
-
 			</div>
 			<div class="clear "></div>
 			<!--热门活动 -->
-
 			<div class="am-container activity ">
 				<div class="shopTitle ">
 					<h4>活动</h4>
@@ -1229,7 +1228,6 @@ et=UTF-8">
 							<h3>春节送礼优选</h3>
 						</div>
 					</div>
-
 					<div class="am-u-sm-3 ">
 						<div class="icon-sale two "></div>
 						<h4>特惠</h4>
@@ -1240,7 +1238,6 @@ et=UTF-8">
 							<h3>春节送礼优选</h3>
 						</div>
 					</div>
-
 					<div class="am-u-sm-3 ">
 						<div class="icon-sale three "></div>
 						<h4>团购</h4>
@@ -1251,7 +1248,6 @@ et=UTF-8">
 							<h3>春节送礼优选</h3>
 						</div>
 					</div>
-
 					<div class="am-u-sm-3 last ">
 						<div class="icon-sale "></div>
 						<h4>超值</h4>
@@ -1262,7 +1258,6 @@ et=UTF-8">
 							<h3>春节送礼优选</h3>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<div class="clear "></div>
@@ -1276,7 +1271,6 @@ et=UTF-8">
 			
 			
 			</script>- 
-
 <!--服装城  -->
 <%-- <%
 request.setCharacterEncoding("utf-8");
@@ -1315,7 +1309,6 @@ response.setContentType("UTF-8");
 					</div>
 					<c:set var="i5" value="0"></c:set>
 					<c:forEach items="${products}" var="products">
-
 						<c:if test="${products.tid==5 && i5<8 }">
 						<c:set var="i5" value="${i5+1}"></c:set>
 							<div class="am-u-sm-4 text-four">
@@ -1337,18 +1330,12 @@ response.setContentType("UTF-8");
 								
 							</div>
 						</c:if>
-
-
-
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
-
 			<!--美食城  -->
 			<div id="f2">
-
 				<div class="am-container ">
 					<div class="shopTitle ">
 						<h4>
@@ -1404,10 +1391,8 @@ response.setContentType("UTF-8");
 						</c:if>
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
-
 			<!--家居电器  -->
 			<div id="f3">
 				<div class="am-container ">
@@ -1464,13 +1449,10 @@ response.setContentType("UTF-8");
 </c:if>
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
-
 			<!-- 运动健身 -->
 			<div id="f4">
-
 				<div class="am-container ">
 					<div class="shopTitle ">
 						<h4>
@@ -1525,12 +1507,10 @@ response.setContentType("UTF-8");
 </c:if>
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
 			<!-- 寻医问药 -->
 			<div id="f5">
-
 				<div class="am-container ">
 					<div class="shopTitle ">
 						<h4>
@@ -1570,7 +1550,6 @@ response.setContentType("UTF-8");
 								<div class="outer-con ">
 									<div class="title ">
                       <a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }" >${products.pname} </a>
-
 									</div>
 									<div class="sub-title ">
 										<p>
@@ -1586,13 +1565,10 @@ response.setContentType("UTF-8");
 </c:if>
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
-
 <!-- 积分商城 -->
 			<div id="f6">
-
 				<div class="am-container ">
 					<div class="shopTitle ">
 						<h4>
@@ -1649,10 +1625,8 @@ response.setContentType("UTF-8");
 </c:if>
 					</c:forEach>
 				</div>
-
 				<div class="clear "></div>
 			</div>
-
 			<div class="footer ">
 				<div class="footer-hd ">
 					<p>
@@ -1671,7 +1645,6 @@ response.setContentType("UTF-8");
 					</p>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<!--菜单 -->
@@ -1697,7 +1670,6 @@ response.setContentType("UTF-8");
 						</div>
 						<i class="icon_arrow_white "></i>
 					</div>
-
 				</div>
 				<div id="shopCart " class="item ">
 					 <a class="cddd"><span class="message"></span>
@@ -1712,7 +1684,6 @@ response.setContentType("UTF-8");
 						我的资产 <i class="icon_arrow_right_black "></i>
 					</div>
 				</div>
-
 				<div id="foot " class="item ">
 					<a href="# "> <span class="zuji "></span>
 					</a>
@@ -1720,7 +1691,6 @@ response.setContentType("UTF-8");
 						我的足迹 <i class="icon_arrow_right_black "></i>
 					</div>
 				</div>
-
 				<div id="brand " class="item ">
 					<a href="#"> <span class="wdsc "><img
 							src="/resources/front/images/self_img/wdsc.png " /></span>
@@ -1729,7 +1699,6 @@ response.setContentType("UTF-8");
 						我的收藏 <i class="icon_arrow_right_black "></i>
 					</div>
 				</div>
-
 				<div id="broadcast " class="item ">
 					<a href="# "> <span class="chongzhi "><img
 							src="/resources/front/images/self_img/chongzhi.png " /></span>
@@ -1738,7 +1707,6 @@ response.setContentType("UTF-8");
 						我要充值 <i class="icon_arrow_right_black "></i>
 					</div>
 				</div>
-
 				<div class="quick_toggle ">
 					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>
 						<div class="mp_tooltip ">
@@ -1754,12 +1722,9 @@ response.setContentType("UTF-8");
 					<li class="qtitem "><a href="#top " class="return_top "><span
 							class="top "></span></a></li>
 				</div>
-
 				<!--回到顶部 -->
 				<div id="quick_links_pop " class="quick_links_pop hide "></div>
-
 			</div>
-
 		</div>
 		<div id="prof-content " class="nav-content ">
 			<div class="nav-con-close ">
@@ -1778,7 +1743,6 @@ response.setContentType("UTF-8");
 				<i class="am-icon-angle-right am-icon-fw "></i>
 			</div>
 			<div>资产</div>
-
 			<div class="ia-head-list ">
 				<a href="# " target="_blank " class="pl ">
 					<div class="num ">0</div>
@@ -1791,7 +1755,6 @@ response.setContentType("UTF-8");
 					<div class="text ">余额</div>
 				</a>
 			</div>
-
 		</div>
 		<div id="foot-content " class="nav-content ">
 			<div class="nav-con-close ">
@@ -1820,13 +1783,10 @@ response.setContentType("UTF-8");
 	<script src="/resources/unity/layer/layui.js" type="text/javascript"></script>
 	<script type="text/javascript "
 		src="/resources/front/js/self_exchange/quick_links.js "></script>
-
 </body>
 <script type="text/javascript">
-
 layui.use('layer', function() {
 	var $ = layui.jquery, layer = layui.layer;
-
 	$(document).on('click',"a[title]",function(){
 		var aPnames=$(this);
 		if (aPnames.attr("class")=="ml-22") {
@@ -1888,8 +1848,7 @@ layui.use('layer', function() {
 			 })	  
 		})
 		
-})
-	 
+}) 
 	/*商城首页进入购物车js*/
 	
 </script>  
