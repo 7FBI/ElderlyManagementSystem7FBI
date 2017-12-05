@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 
 import com.bean.Discount;
+import com.bean.DiscountQueryproducts;
 import com.bean.Discountproducts;
+import com.bean.Page;
 import com.bean.ProductDiscounts;
 
 @Repository("discountMapper")
@@ -74,4 +76,12 @@ public interface DiscountMapper {
 	List<ProductDiscounts> selectthreeproducts();
 	
 	List<Integer> selecttid();
+	
+	List<DiscountQueryproducts> PageDiscount(Page page);
+	
+	List<DiscountQueryproducts> selectDiscountmohu(Page page);
+	
+	public int DiscountCounts();
+	
+	public void deleteBypid(int pid);
 }

@@ -10,6 +10,7 @@
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 <script type="text/javascript" src="/resources/unity/js/echarts.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <title>商品查询</title>
 <style>
 *:focus {
@@ -152,7 +153,7 @@
 										<div id="baidu">
 											<div class="input">
 												<form
-													action="${pageContext.request.contextPath }/backstage/Store/init.do"
+													action="${pageContext.request.contextPath }/front/groupbuying/queryDiscount.do"
 													method="post">
 													<input type="text" class="span2" id="search"
 														name="queryCondition" value="${page.queryCondition}">
@@ -176,41 +177,32 @@
 											<table width="100%" class="cont tr_color">
 												<tr>
 													<th width="10%">商品名</th>
-													<th>大小</th>
 													<th>颜色</th>
 													<th>型号</th>
 													<th>品牌</th>
 													<th>价格</th>
 													<th>余量</th>
 													<th>类别</th>
-													<th width="10%">描述</th>
-													<th width="10%">编辑</th>
-													<th width="10%">商品处理</th>
+													<th>折扣</th>
+													<th>折扣价格</th>
+													<th>折扣截止时间</th>
+													<th>操作</th>
 												</tr>
 												<c:forEach items="${InvList }" var="Invlist">
 													<tr align="center" class="d" p=${Invlist.id }>
 														<td>${Invlist.pname}</td>
-														<td>${Invlist.size}</td>
 														<td>${Invlist.productscolor}</td>
 														<td>${Invlist.productstype1}</td>
 														<td>${Invlist.productstype2}</td>
 														<td>${Invlist.price}</td>
 														<td>${Invlist.count}</td>
 														<td>${Invlist.tid}</td>
-														<td>${Invlist.pdescription}</td>
-														<td><a
-															href="${pageContext.request.contextPath}/backstage/Store/delectByid.action?id=${Invlist.id}">删除</a>
-
-															<a
-															href="${pageContext.request.contextPath}/backstage/Store/update.action?id=${Invlist.id}">修改</a>
-														</td>
-														<td>
-														<a href="${pageContext.request.contextPath}/backstage/Store/addOnegroup.action?id=${Invlist.id}&pname=null">生成团购</a>
-														<a href="${pageContext.request.contextPath}/backstage/Store/DiscountSelect.action?id=${Invlist.id}&pname=null">打折处理</a>
-														</td>
+														<td>${Invlist.discountprice}</td>
+														<td><fmt:formatNumber type="number" value="${Invlist.price*Invlist.discountprice}"  maxFractionDigits="2"/></td>
+														<td><fmt:formatDate value="${Invlist.discountstoptime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+														<td><a href="${pageContext.request.contextPath}/backstage/groupbuying/delectDiscount.action?pid=${Invlist.id}">删除</a></td>
 													</tr>
 												</c:forEach>
-
 											</table>
 										</form>
 									</td>
@@ -229,14 +221,14 @@
 										<td width="25%"></td>
 										<td><label>第${page.currentPage}/${page.totalPage}页
 												共${page.totalRows}条</label></td>
-										<td><a href="/backstage/Store/init.do?currentPage=0">首页</a>
+										<td><a href="/front/groupbuying/queryDiscount.do?currentPage=0">首页</a>
 											<a
-											href="/backstage/Store/init.do?currentPage=${page.currentPage-1}"
+											href="/front/groupbuying/queryDiscount.do?currentPage=${page.currentPage-1}"
 											onclick="return checkFirst()">上一页</a> <a
-											href="/backstage/Store/init.do?currentPage=${page.currentPage+1}"
+											href="/front/groupbuying/queryDiscount.do?currentPage=${page.currentPage+1}"
 											onclick="return checkNext()">下一页</a></td>
 										<td><a
-											href="/backstage/Store/init.do?currentPage=${page.totalPage}">尾页</a>
+											href="/front/groupbuying/queryDiscount.do?currentPage=${page.totalPage}">尾页</a>
 											跳转到: <input type="text" style="width: 30px" id="turnPage" />页
 											<input type="button" onclick="startTurn()" value="跳转" /></td>
 										<td width="25%"></td>
@@ -293,7 +285,7 @@
 	<script type="text/javascript" src="/resources/backstage/Js/statisticsProduct.js"></script>
 	<script type="text/javascript">
      
-     $(document).on('click',".d",function(){
+  /*  $(document).on('click',".d",function(){
     	 var trId=$(this);
     	 var trHtmls='';
     	 var titles = '商品编号为:'+trId.attr("p")+'的商品销售情况';
@@ -313,11 +305,11 @@
 					alert("网络错误无法获取数据");
 				}
 			})
-     })
+     })  
      
      
      
-     
+      */
      
      
     function checkFirst(){
@@ -343,7 +335,7 @@
       alert("对不起已超过最大页数");
       return false;
     }
-    var shref="init.do?currentPage="+turnPage; 
+    var shref="queryDiscount.do?currentPage="+turnPage; 
     window.location.href=shref;
  } 
 </script>

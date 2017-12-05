@@ -5,7 +5,9 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.bean.GroupBackstage;
 import com.bean.Groupbuying;
+import com.bean.Page;
 
 @Repository("groupbuyingMapper")
 public interface GroupbuyingMapper {
@@ -64,4 +66,11 @@ public interface GroupbuyingMapper {
 	Groupbuying selectByPid(int pid);
 
 	List<Groupbuying> selectListGroupbuy(Map map);
+	
+	List<GroupBackstage> gqueryGroupproducts(Page page);
+	List<GroupBackstage> selectGroupBymohu(Page page);
+	
+	public int GroupCounts();
+	
+	public void delectBypidyu(int pid);
 }

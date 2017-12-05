@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.bean.Discount;
+import com.bean.DiscountQueryproducts;
 import com.bean.Discountproducts;
+import com.bean.Page;
 import com.bean.ProductDiscounts;
 
 public interface DiscountService {
@@ -71,4 +73,12 @@ public interface DiscountService {
     List<ProductDiscounts> selectthreeproducts();
 	
 	List<Integer> selecttid();
+	
+    List<DiscountQueryproducts> PageDiscount(Page page);
+	
+	List<DiscountQueryproducts> selectDiscountmohu(Page page);
+	
+	int DiscountCounts();
+	
+	void deleteBypid(int pid);
 }

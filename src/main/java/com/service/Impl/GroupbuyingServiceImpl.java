@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.bean.GroupBackstage;
 import com.bean.Groupbuying;
+import com.bean.Page;
 import com.dao.GroupbuyingMapper;
 import com.service.GroupbuyingService;
 
@@ -75,6 +77,30 @@ public class GroupbuyingServiceImpl implements GroupbuyingService {
 	public Groupbuying selectByPid(int pid) {
 		// TODO Auto-generated method stub
 		return groupbuyingMapper.selectByPid(pid);
+	}
+
+	@Override
+	public List<GroupBackstage> gqueryGroupproducts(Page page) {
+		// TODO Auto-generated method stub
+		return groupbuyingMapper.gqueryGroupproducts(page);
+	}
+
+	@Override
+	public List<GroupBackstage> selectGroupBymohu(Page page) {
+		// TODO Auto-generated method stub
+		return groupbuyingMapper.selectGroupBymohu(page);
+	}
+
+	@Override
+	public int GroupCounts() {
+		// TODO Auto-generated method stub
+		return groupbuyingMapper.GroupCounts();
+	}
+
+	@Override
+	public void delectBypidyu(int pid) {
+		// TODO Auto-generated method stub
+		groupbuyingMapper.delectBypidyu(pid);
 	}
 
 }

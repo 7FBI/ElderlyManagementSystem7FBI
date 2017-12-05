@@ -425,5 +425,31 @@
 			#{item}
 		</foreach>
 	</select>
-
+    <!-- 后台查看团购商品方法 -->
+    <select id="gqueryGroupproducts" parameterType="com.bean.Page" resultType="com.bean.GroupBackstage">
+    SELECT products.*,groupbuying.groupprice,groupbuying.grouppeople,groupbuying.groupstoptime 
+    FROM products,groupbuying 
+    where products.id=groupbuying.pid LIMIT #{startRow},#{pageSize}
+    </select>
+    
+    <!-- 模糊查询方法 -->
+    <select id="selectGroupBymohu" parameterType="com.bean.Page" resultType="com.bean.GroupBackstage">
+     SELECT products.*,groupbuying.groupprice,groupbuying.grouppeople,groupbuying.groupstoptime  
+     FROM products,groupbuying 
+     <where>
+            products.id=groupbuying.pid and
+			<if test="queryCondition!=null">
+				products.pname like CONCAT('%',#{queryCondition},'%')
+			</if>
+		</where>  
+    </select>
+    
+    <!-- 获得团购商品总条数 -->
+    <select id="GroupCounts" resultType="java.lang.Integer">
+    select count(*) from groupbuying
+    </select>
+    
+    <delete id="delectBypidyu" parameterType="java.lang.Integer">
+     delete from groupbuying where pid=#{pid}
+    </delete>
 </mapper>

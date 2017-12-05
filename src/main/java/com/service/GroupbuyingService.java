@@ -3,7 +3,9 @@ package com.service;
 import java.util.List;
 import java.util.Map;
 
+import com.bean.GroupBackstage;
 import com.bean.Groupbuying;
+import com.bean.Page;
 
 public interface GroupbuyingService {
 	Groupbuying selectByGroupBuyPid(Groupbuying groupbuying);
@@ -61,4 +63,11 @@ public interface GroupbuyingService {
 	Groupbuying selectByPid(int pid);
 
 	List<Groupbuying> selectListGroupbuy(Map map);
+	
+	List<GroupBackstage> gqueryGroupproducts(Page page);
+	List<GroupBackstage> selectGroupBymohu(Page page);
+	
+	int GroupCounts();
+	
+	public void delectBypidyu(int pid);
 }

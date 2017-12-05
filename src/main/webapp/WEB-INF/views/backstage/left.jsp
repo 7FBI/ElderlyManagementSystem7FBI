@@ -191,7 +191,22 @@
 							<li><a href="${pageContext.request.contextPath}/backstage/Store/discount.action" target="main">商品折扣</a></li>
 						</ul>
 					</div>
-					
+					<h1 class="type">
+						<a href="javascript:void(0)">商品团购和折扣</a>
+					</h1>
+					<div class="content">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td><img
+									src="/resources/backstage/Images/menu_top_line.gif" width="182"
+									height="5" /></td>
+							</tr>
+						</table>
+						<ul class="RM">
+							<li><a href="${pageContext.request.contextPath}/backstage/groupbuying/queryGroupbuy.do" target="main">团购商品</a></li>
+							<li><a href="${pageContext.request.contextPath}/backstage/groupbuying/queryDiscount.do" target="main">打折商品</a></li>
+						</ul>
+					</div>
 					<h1 class="type">
 						<a href="javascript:void(0)">订单管理</a>
 					</h1>
@@ -208,6 +223,7 @@
 							<li><a href="${pageContext.request.contextPath}/backstage/Orders/SelectTOsend.action" target="main">已发货订单</a></li>
 							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单</a></li>
 						</ul>
+						
 					</div>
 					</c:if>
 					<!-- *********** -->

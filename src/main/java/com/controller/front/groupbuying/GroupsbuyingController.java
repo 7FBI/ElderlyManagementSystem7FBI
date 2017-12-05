@@ -1,5 +1,6 @@
 package com.controller.front.groupbuying;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Classification;
 import com.bean.Discountproducts;
+import com.bean.GroupBackstage;
 import com.bean.GroupProducts;
 import com.bean.Groupbuying;
 import com.bean.Groupdetail;
 import com.bean.OldUsers;
+import com.bean.Page;
 import com.bean.Products;
 import com.bean.Showsphotos;
 import com.controller.util.shop.OldCollectionBoolean;
@@ -173,5 +176,4 @@ public class GroupsbuyingController {
 			return "false";
 		}	
 	}
-		
 }
