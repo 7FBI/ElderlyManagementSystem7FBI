@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!--自动扫描注解 -->
 	<context:component-scan base-package="com" />
+	<!--扫描Controller-->
 	<context:property-placeholder location="classpath:mybatisjdbc.properties" />
 	<!-- spring 集成 c3p0 连接池 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -37,6 +38,10 @@
 	<!-- 使用注解去命名事物 -->
 	<!-- 开启一个注解事物的管理器 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- 5.2 扫描所有的@service组件，多个包之间","分隔 -->
+	<!-- <context:component-scan base-package="com.controller"></context:component-scan> -->
+	
 
 	<!-- 定义代理对象 -->
 	<!-- <bean id="tUserServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">

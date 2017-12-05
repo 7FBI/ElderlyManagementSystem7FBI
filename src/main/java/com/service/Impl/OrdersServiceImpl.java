@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bean.Orders;
 import com.dao.OrdersMapper;
@@ -31,19 +32,19 @@ public class OrdersServiceImpl implements OrdersService {
 		return  ordersMapper.selectByorderstatus(orderstatus);
 	}
 
-	@Override
+	@Transactional
 	public int deleteByPrimaryKey(String id) {
 		// TODO Auto-generated method stub
 		return ordersMapper.deleteByPrimaryKey(id);
 	}
 
-	@Override
+	@Transactional
 	public int insert(Orders record) {
 		// TODO Auto-generated method stub
 		return ordersMapper.insert(record);
 	}
 
-	@Override
+	@Transactional
 	public int insertSelective(Orders record) {
 		// TODO Auto-generated method stub
 		return ordersMapper.insertSelective(record);
@@ -55,13 +56,13 @@ public class OrdersServiceImpl implements OrdersService {
 		return ordersMapper.selectByPrimaryKey(id);
 	}
 
-	@Override
+	@Transactional
 	public int updateByPrimaryKeySelective(Orders record) {
 		// TODO Auto-generated method stub
 		return ordersMapper.updateByPrimaryKeySelective(record);
 	}
 
-	@Override
+	@Transactional
 	public int updateByPrimaryKey(Orders record) {
 		// TODO Auto-generated method stub
 		return ordersMapper.updateByPrimaryKey(record);

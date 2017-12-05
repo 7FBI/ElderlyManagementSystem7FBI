@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -108,15 +109,11 @@ public class ProductOrdersController {
 		}
 		map.put("list", integers);
 		shoppingCartService.deleteByPrimaryKeyList(map);
-		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
-			//orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), ordersService, orderdetailsService));
-			orders.setMoney(0.0);
-			ordersService.updateByPrimaryKeySelective(orders);
-		}
-		view.addObject("orderdetails", list);
-		view.addObject("orders", orders);
-		view.addObject("profile", profiles);
-		return view;
+		//查看是否存在打折
+		orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), discountService, orderdetailsService));
+		ordersService.updateByPrimaryKeySelective(orders);
+		request.setAttribute("id", orders.getId());
+		return ordersOverInfoByExchange(request);
 	}
 
 	@RequestMapping("/addOneOrder")
@@ -147,7 +144,7 @@ public class ProductOrdersController {
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		request.setAttribute("id", orders.getId());
-		return ordersInfo(request, orders.getId());
+		return ordersOverInfoByExchange(request);
 	}
 
 	@RequestMapping("/ordersInfo")
@@ -281,8 +278,9 @@ public class ProductOrdersController {
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		view.setViewName("/front/Confirm_Receipt");
 		Orders orders = ordersService.selectByPrimaryKey(oid);
-		if (orders.getMoney() == null || orders.getMoney() <= 0.0) {
-			orders.setMoney(0.0);
+		if (orders != null) {
+			orders.setOrderstatus(2);
+			orders.setOrdertime(new Date());
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
 		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
@@ -368,6 +366,7 @@ public class ProductOrdersController {
 		return "redirect:/front/oldUsers/selectByUid";
 	}
 
+	//下单
 	@RequestMapping("/overOrders")
 	@ResponseBody
 	public String overOrders(HttpServletRequest request) {
@@ -404,6 +403,7 @@ public class ProductOrdersController {
 		Orders orders = ordersService.selectByPrimaryKey(id);
 		if (orders != null) {
 				orders.setOrderstatus(2);
+				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
 		}
 		return "true";
@@ -526,7 +526,7 @@ public class ProductOrdersController {
 				list.add(orderdetails);
 			}
 			orderdetailsService.insertSelectiveList(list);
-			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, discountService,ordersService, orderdetailsService));
+			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), discountService, orderdetailsService));
 			ordersService.updateByPrimaryKeySelective(orders);
 			request.setAttribute("id", orders.getId());
 			return ordersInfo(request,orders.getId());

@@ -17,13 +17,13 @@ public class CreditServiceImpl implements CreditService {
 	@Autowired
 	private CreditMapper creditMapper;
 	
-	@Override
+	@Transactional
 	public void deleteByPrimaryKey(String uid) {   //根据id 根据用户uid 删除积分对象
 		// TODO Auto-generated method stub
 		creditMapper.deleteByPrimaryKey(uid);
 	}
 
-	@Override
+	@Transactional
 	public void insertSelective(Credit record) {   //插入积分对象
 		// TODO Auto-generated method stub
 		creditMapper.insertSelective(record);
@@ -35,14 +35,14 @@ public class CreditServiceImpl implements CreditService {
 		return creditMapper.selectByPrimaryKey(uid);
 	}
 
-	@Override
+	@Transactional
 	public void updateByPrimaryKeySelective(Credit record) {   //根据uid 修改用户的积分
 		// TODO Auto-generated method stub
 		creditMapper.updateByPrimaryKeySelective(record);
 		
 	}
 
-	@Override
+	@Transactional
 	public void updateByPrimaryKey(Credit record) {     //根据uid 修改用户的积分
 		// TODO Auto-generated method stub
 		creditMapper.updateByPrimaryKey(record);
@@ -60,13 +60,13 @@ public class CreditServiceImpl implements CreditService {
 		return creditMapper.selectCreditByUid(uid);
 	}
 
-	@Override
+	@Transactional
 	public void updateCreditByBuy(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	@Transactional
 	public void updateCreditByExchange(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		

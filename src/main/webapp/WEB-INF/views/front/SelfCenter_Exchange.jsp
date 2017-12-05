@@ -102,14 +102,13 @@
 											<div class="order-status5">
 												<div class="order-title">
 													<div class="dd-num">订单编号：
-													<c:if test="${ord.orderstatus<=0}">
-																<a href="/front/orders/ordersInfo?id=${ord.id }">${ord.id }</a>
-															</c:if> 
-															<c:if test="${ord.orderstatus>=1}">
-																<a href="/front/orders/ordersOverInfo?id=${ord.id }">${ord.id }</a>
-															</c:if>
+																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
+															
+															<%-- <c:if test="${ord.orderstatus>=1}">
+																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
+															</c:if> --%>
 													</div>
-													<span>成交时间：2015-12-20</span>
+													<span>成交时间：${ord.ordertime }</span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
 												<div class="order-content">
@@ -119,7 +118,7 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}" class="J_MakePoint">
-																		<img src="/files${odt.products.producturl }" class="itempic J_ItemImg">
+																		<img src="/fbiImage${odt.products.producturl }" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
@@ -161,8 +160,8 @@
 															<li class="td td-status">
 																<div class="item-status">
 																	<p class="Mystatus">${ord.orderstatus==0?"待付款":ord.orderstatus==1?"待收货":"已完成" }</p>
-																	<p class="order-info"><a href="/front/orders/ordersOverInfo?id=${ord.id }">订单详情</a></p>
-																<c:if test="${ord.orderstatus==1 }"><p class="order-info"><a href="/front/orders/overProducts?id=${ord.id }">确认收货</a></p></c:if>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
+																<c:if test="${ord.orderstatus==1 }"><p class="order-info"><a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">确认收货</a></p></c:if>
 																</div>
 															</li>
 															<c:if test="${ord.orderstatus==0 }">
@@ -219,7 +218,7 @@
 											<c:if test="${ord.orderstatus==0 }">
 											<div class="order-status1">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="/front/orders/ordersInfo?id=${ord.id }">${ord.id }</a></div>
+													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a></div>
 													<span>付款时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
@@ -230,7 +229,7 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}" class="J_MakePoint">
-																		<img src="/files${odt.products.producturl }" class="itempic J_ItemImg">
+																		<img src="/fbiImage${odt.products.producturl }" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
@@ -273,7 +272,7 @@
 																<div class="item-status">
 																	<p class="Mystatus">待付款</p>
 																	<p class="order-info"><a href="/front/orders/deleteOrders?id=${ord.id }">取消订单</a></p>
-																	<p class="order-info"><a href="/front/orders/ordersInfo?id=${ord.id }">订单详情</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
 																</div>
 															</li>
 															<li class="td td-change">
@@ -324,7 +323,7 @@
 											<c:if test="${ord.orderstatus==1 }">
 											<div class="order-status2">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfo?id=${ord.id }">${ord.id }</a></div>
+													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a></div>
 													<span>付款时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
@@ -335,7 +334,7 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}" class="J_MakePoint">
-																		<img src="/files${odt.products.producturl }" class="itempic J_ItemImg">
+																		<img src="/fbiImage${odt.products.producturl }" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
@@ -377,8 +376,8 @@
 															<li class="td td-status">
 																<div class="item-status">
 																	<p class="Mystatus">待收货</p>
-																	<p class="order-info"><a href="/front/orders/ordersOverInfo?id=${ord.id }">订单详情</a></p>
-																	<p class="order-info"><a href="/front/orders/overProducts?id=${ord.id }">确认收货</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">确认收货</a></p>
 																</div>
 															</li>
 														</div>
@@ -427,7 +426,7 @@
 											<!--不同状态的订单	-->
 										<div class="order-status4">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfo?id=${ord.id }">${ord.id}</a></div>
+													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id}</a></div>
 													<span>成交时间：<fmt:formatDate value="${ord.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 												</div>
 												<div class="order-content">
@@ -437,7 +436,7 @@
 															<li class="td td-item">
 																<div class="item-pic">
 																	<a href="/front/products/selectProductDetailByPrimaryKey?id=${odt.pid}" class="J_MakePoint">
-																		<img src="/files${odt.products.producturl }" class="itempic J_ItemImg">
+																		<img src="/fbiImage${odt.products.producturl }" class="itempic J_ItemImg">
 																	</a>
 																</div>
 																<div class="item-info">
@@ -479,7 +478,7 @@
 															<li class="td td-status">
 																<div class="item-status">
 																	<p class="Mystatus">交易成功</p>
-																	<p class="order-info"><a href="/front/orders/ordersOverInfo?id=${ord.id }">订单详情</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
 																</div>
 															</li>
 														</div>
@@ -551,7 +550,9 @@
 								});
 								break;
 							default:
-								location.reload();
+								var zf=$(this).val();
+								//location.reload();
+								window.location.href = "/front/orders/ordersOverInfoByExchange?id="+zf;
 								break;
 							}
 						},

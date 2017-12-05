@@ -22,9 +22,9 @@ import com.service.ProductsService;
 
 public class ShopPrices {
 	
-	//这个订单的商品存在打折价
-	public static Double getAllShowPrices(String oid, ProductsService productsService,
-			DiscountService discountService, OrdersService ordersService, OrderdetailsService orderdetailsService) {
+	//这个订单的商品哪些存在打折价
+	public static Double getAllShowPrices(String oid,
+			DiscountService discountService, OrderdetailsService orderdetailsService) {
 		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
 		double d = 0.0;
 		for (Orderdetails orderdetails : list) {
