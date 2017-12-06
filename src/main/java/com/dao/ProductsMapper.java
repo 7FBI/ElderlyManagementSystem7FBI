@@ -90,6 +90,9 @@ public interface ProductsMapper {
 	List<Products> selectAllProducts();
 	
 	 public List<Products> selectProductsByLikeName(String pName);
+	 
+	 public List<Products> selectProductsByLikeTypeName(String classname);
+	 
 	 public List<Products> selectAllProductsByType(Integer tid);
 	 
 	 public Products selectProductDetailByPrimaryKey(Integer id);

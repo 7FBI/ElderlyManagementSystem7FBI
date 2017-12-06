@@ -84,7 +84,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/cake.png"></i>
 											<a class="ml-22" title="男装"
-												href="/front/products/selectProductsByLikeName">男装</a>
+												href="#">男装</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -224,7 +224,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/cake.png"></i><a
 												class="ml-22" title="女装"
-												href="/front/products/selectProductsByLikeName">女装</a>
+												href="#">女装</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -450,7 +450,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img
 												src="/resources/front/images/self_img/cookies.png"></i><a
-												class="ml-22" title="食品">食品</a>
+												class="ml-22" title="食品" href="#">食品</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -820,7 +820,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="茶饮">茶饮</a>
+												class="ml-22" title="茶饮" href="#">茶饮</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -879,7 +879,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/bamboo.png"></i><a class="ml-22"
-												title="药材">药材</a>
+												title="药材" href="#">药材</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1004,7 +1004,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/candy.png"></i><a class="ml-22"
-												title="运动健身">运动健身</a>
+												title="运动健身" href="#">运动健身</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1139,7 +1139,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="营养保健">营养保健</a>
+												class="ml-22" title="营养保健" href="#">营养保健</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1264,7 +1264,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="医疗器械">医疗器械</a>
+												class="ml-22" title="医疗器械" href="#">医疗器械</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1389,7 +1389,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/nut.png"></i><a class="ml-22"
-												title="生活用品">生活用品</a>
+												title="生活用品" href="#">生活用品</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1524,7 +1524,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/nut.png"></i><a class="ml-22"
-												title="家居电器">家居电器</a>
+												title="家居电器" href="#">家居电器</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1659,7 +1659,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="新鲜水果">新鲜水果</a>
+												class="ml-22" title="新鲜水果" href="#">新鲜水果</a>
 												
 										</h3>
 										
@@ -1920,12 +1920,6 @@ et=UTF-8">
 
 				<div class="sale-mt">
 				<h3 style="font-size:28px;weight:bold;padding:20px;">今日活动</h3>
-					<!-- <span class="sale-title">今日活动</span>
-					<div class="s-time" id="countdown">
-						<span class="hh">今日活动</span> <span class="mm">日</span> <span
-							class="ss">活</span><span
-							class="sss">动</span>
-					</div> -->
 				</div>
 
 
@@ -1985,10 +1979,10 @@ et=UTF-8">
 				<!--甜点-->
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">甜品</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="男装">男装区</a></h4>
+						<div class="floor-subtitle" style="margin-left:30px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>每一道甜品都有一个故事</h3>
+							<h3 style="margin-left:30px;">我要我的品质</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
 							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
@@ -2070,10 +2064,10 @@ et=UTF-8">
 				<!--坚果-->
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">坚果</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="女装">女神区</a></h4>
+						<div class="floor-subtitle" style="margin-left:30px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>酥酥脆脆，回味无穷</h3>
+							<h3 style="margin-left:30px;">败家不是罪，怎么买都不贵</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
 							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
@@ -2153,10 +2147,10 @@ et=UTF-8">
 
 				<div class="am-container ">
 					<div class="shopTitle " >
-						<h4 class="floor-title">甜品</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="食品">美食城</a></h4>
+						<div class="floor-subtitle" style="margin-left:30px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>每一道甜品都有一个故事</h3>
+							<h3 style="margin-left:30px;">每一道食品都有一个故事</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
 							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
@@ -2238,10 +2232,10 @@ et=UTF-8">
 				<!--坚果-->
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">坚果</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="家居电器">家居电器</a></h4>
+						<div class="floor-subtitle" style="margin-left:50px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>酥酥脆脆，回味无穷</h3>
+							<h3 style="margin-left:30px;">你需要的温馨，我来替你营造</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
 							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
@@ -2321,10 +2315,10 @@ et=UTF-8">
 
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">甜品</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="营养保健">营养保健</a></h4>
+						<div class="floor-subtitle" style="margin-left:50px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>每一道甜品都有一个故事</h3>
+							<h3 style="margin-left:30px;">你的健康是我最大的关怀</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
 							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
@@ -2405,10 +2399,10 @@ et=UTF-8">
 				<!--坚果-->
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">坚果</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="医药品">医药馆</a></h4>
+						<div class="floor-subtitle" style="margin-left:30px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>酥酥脆脆，回味无穷</h3>
+							<h3 style="margin-left:30px;">把满意带给你，把健康带回家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
 							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
@@ -2488,10 +2482,10 @@ et=UTF-8">
 
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">甜品</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="运动健身">运动健身</a></h4>
+						<div class="floor-subtitle" style="margin-left:50px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>每一道甜品都有一个故事</h3>
+							<h3 style="margin-left:30px;">让健康谱写生命的乐章</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
 							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
@@ -2576,10 +2570,10 @@ et=UTF-8">
 				<!--坚果-->
 				<div class="am-container ">
 					<div class="shopTitle ">
-						<h4 class="floor-title">坚果</h4>
-						<div class="floor-subtitle">
+						<h4 class="floor-title"><a href="#" style="font-size:20px" class="type" title="新鲜水果">新鲜水果</a></h4>
+						<div class="floor-subtitle" style="margin-left:50px;">
 							<em class="am-icon-caret-left"></em>
-							<h3>酥酥脆脆，回味无穷</h3>
+							<h3 style="margin-left:30px;">健康水果，美味到家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
 							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
@@ -2838,6 +2832,33 @@ et=UTF-8">
 												window.location.href = hrs;
 											}
 										})
+										
+										
+										
+										
+										$(document).on('click',".ml-22",function() {
+											var classname = $(this).text();;
+											
+												//alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
+												hrs = "/front/products/selectProductsByLikeTypeName?classname="
+														+ classname;
+												window.location.href = hrs;
+											
+										})
+										
+										
+										$(document).on('click',".type",function() {
+											var classname = $(this).attr("title")
+											
+												//alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
+												hrs = "/front/products/selectProductsByLikeTypeName?classname="
+														+ classname;
+												window.location.href = hrs;
+											
+										})
+										
+										
+										
 
 						$(document)
 								.on(

@@ -84,4 +84,6 @@ public interface ProductsService {
   public Products selectBypnameui(String pname);
   
   public Products selectByitoBackstage(int id);
+  
+  public List<Products> selectProductsByLikeTypeName(String classname);
 }

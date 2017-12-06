@@ -58,7 +58,7 @@
 					<div class="theme-popover">
 						<div class="searchAbout">
 
-							<span class="font-pale" style="font-size:17px;">搜索条件：<em style="font-size:17px;color:red;">${pnamess }</em></span> 
+							<span class="font-pale" style="font-size:17px;">搜索条件：<em style="font-size:17px;color:red;">${classnamess }&nbsp;&nbsp;${pnamess }</em></span> 
 
 						</div>
 

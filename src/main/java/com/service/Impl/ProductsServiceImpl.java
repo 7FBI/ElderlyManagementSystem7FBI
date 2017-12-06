@@ -228,4 +228,9 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.selectByitoBackstage(id);
 	}
+	@Override
+	public List<Products> selectProductsByLikeTypeName(String classname) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectProductsByLikeTypeName(classname);
+	}
 }

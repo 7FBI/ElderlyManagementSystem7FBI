@@ -699,6 +699,14 @@
 		resultType="Products">
 		select * from products where pname like '%${value}%' 
 	</select>
+	
+	
+	<!--商品根据商品类型模糊查询 -->
+	<select id="selectProductsByLikeTypeName" parameterType="java.lang.String"
+		resultType="Products">
+		select * from products,classification where products.tid = classification.id and classname like '%${value}%'
+	</select>
+	
 	<!-- 根据商品类型查询商品 -->
 	<select id="selectAllProductsByType" parameterType="java.lang.Integer"
 		resultType="Products">
@@ -726,7 +734,7 @@
 	
 	<select id="selectProductsByTypeAndLikeName" parameterType="Map"
 		resultType="Products">
-	select p.*,c.* from products p,classification c where p.tid=c.id and p.pname like '%${value}%' and c.classname=#{classname}		
+	select p.*,c.* from products p,classification c where p.tid=c.id and p.pname like '%${pname}%' and c.classname=#{classname}		
 	</select>
 	<!-- 以上罗双专属 -->
 
