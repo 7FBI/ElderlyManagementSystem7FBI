@@ -38,6 +38,7 @@
 <body id="ruifoxHome">
 	<jsp:include page="index_header.jsp" flush="true" />
 	<jsp:include page="header.jsp" flush="true" />
+	<br><br><br>
 	<!-- 查找最顶级栏目  -->
 	<div class="layui-carousel" id="test1">
 		<div carousel-item>
@@ -50,182 +51,7 @@
 			<!-- <div style="background:url(/resources/front/images/index5.jpg)">aaa3</div> -->
 		</div>
 	</div>
-	<%-- 	
-	
-<!-- 活动部分 -->
- <div class="news-all part-all">
-		<div class="part-title">
-			<div class="col-xs-3"><font size="12px">信息 Message</font></div>
-		</div>
-		<div class="news-content ">
-<!--图片  -->	
-<div id="photo-list"> 
-	 <ul id="scroll">  
-			<!-- <li><a href="#"><img
-					src="../../../resources/upload/front/ad5.jpg" width="100px"
-					height="100px" alt="" /></a></li> -->
-			<c:forEach items="${allActivitiyAndPicture}" var="allActivitiyAndPicture">
-			<li>
-			  <a href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
-		        <img src="${allActivitiyAndPicture.activeimageurl}" width="200px" height="150px"/></a>
-			</li>
-			</c:forEach>
-		</ul>
-	</div>
-	<!-- 	<a href="/gotoFront/indexactivity">详情</a> -->
-<!--  -->
-<div class="activitycontent">	
-        <ul>
-				<c:forEach items="${allActivitiyAndPicture }" var="allActivitiyAndPicture">
-					<li>
-					  <div class="news-content-cont">
-							<a href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
-								<font size="4px" color="#14a8e7">${allActivitiyAndPicture.activitytitle}</font>
-							</a>
-							<p style="float: right;"><fmt:formatDate value="${allActivitiyAndPicture.activitystarttime}" pattern="yyyy-MM-dd"/>  ~ <fmt:formatDate value="${allActivitiyAndPicture.actitvityendtime}" pattern="yyyy-MM-dd"/></p> 
-						</div>							 
-					  </li>					
-					</c:forEach>
-				</ul>
-		 </div>
-		 <div class="moreactivity">
-		   <a href="${pageContext.request.contextPath}/front/activity/allActive?">更多</a>
-		 </div>		
-	</div> 
-		
-	<!--公告  -->
-		<div class="info_content ">
-		<span><a href="/front/frontinformation/selectall">更多公告></a></span>
-		</div>
-				<ul class="info_content_ul">
-				<c:forEach items="${list }" var="list">
-					<li class="info_content_li">
-						<a href="/front/frontinformation/selectByKey?id=${list.id}">
-						    <div class=" info_content_li_title">
-						    	<span class="news-right-title">&nbsp;&nbsp;<em>.</em>&nbsp;&nbsp;<nobr>${list.newstitle }</nobr></span>
-						    </div>
-						    <div  class=" info_content_li_time">
-										<p class="news-right-time"><fmt:formatDate value="${list.sendtiem}" pattern="yyyy-MM-dd" /></p>
-								 </div>	
-						
-						</a>
-					</li>
-					</c:forEach>
-				</ul>
-			
-		</div> 
-	
-
-
-
-
-<!--新闻部分  -->
-
-<div id="mynews">
-<div class="indexnews">
-  <div class="col-xs-3"><font size="12px">新闻  News</font></div><br>
-    <!-- <div style="float: left;margin-top: 25px;"><p>关注我们、关注前沿<br/>
-      Recently is to do ...</p></div> -->
-  <div class="col-md-offset-6 col-md-1" style="margin-top: 25px;font-size: 18px;"> <a href="${pageContext.request.contextPath}/front/edu/alledunews.action?"  class="more">MORE+</a> </div>  
-   </div>
- <!--  <div class="cat_title wrapper">
-   </div> -->
-  <div class="newsdata">
-    <div class="newsad" > 
-    
-    <!--图片轮播  -->
-		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-			</ol>
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox"
-				style=" padding-bottom: 6px;">
-				<div class="item active">	
-						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360" height="100%" />     
-					
-					<!-- <div class="carousel-caption">...</div> -->
-				</div>	
-				<c:forEach items="${hotnews }" var="hotnews">
-				<div class="item" >
-						
-						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="100%" />     
-					
-					<!-- <div class="carousel-caption">...</div> -->
-				</div>
-				 </c:forEach> 			
-			</div>
-			
-			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	
-    </div>
-    <ul>
-      <c:forEach items="${hotnews }" var="hotnews">
-      <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
-          <img src="/files${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>
-        <div class="newslist"> 
-           <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" title="百度免费＂发武器＂ 布局移动互联网">${hotnews.edutitle }</a>
-           <span><fmt:formatDate value="${hotnews.edutime }" pattern="yyyy-MM-dd"/></span>
-           <p>${hotnews.educontent }........</p>
-        </div>
-      </li>
-      </c:forEach>
-
-    </ul>
-  </div>
-</div> --%>
-
-	<!-- <div id="footerlink" style="position:absolute;top:1800px;">
-			<nav class="wrapper">
-				<a href="index.htm" >首页</a>
-				<a href="about/index.htm">关于</a>
-				<a href="service/index.htm">服务</a>
-				<a href="case/index.htm" >案例</a>
-				<a href="fangan/index.htm">方案</a>
-				<a href="contact/index.htm">联系</a>
-				<a href="news/index.htm">新闻</a>
-				<a id="gotop" href="javascript:void(0)">top</a>
-			</nav>
-		</div> -->
-	<!-- 漂浮意见反馈 返回顶部 -->
-	<!-- <div class="tooubar">
-<a href="/front/feedback/topfeedbackOiduser.action" class="toolbar-item toolbar-item-feedback"></a>
-<a href="javascript:scroll(0,0)" id="top" class="toolbar-item toolbar-item-top"></a>
-</div>
-  <div id="footerinfo" style="position:absolute;top:1860px;">
-    <div class="wrapper">
-				<h2>联系我们<strong>Contact</strong></h2>
-<p>
-                                        <a target="_blank" href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'))window.location='http://wpa.qq.com/msgrd?v=3&uin=429592913&site=qq&menu=yes'"><img border="0" src="images/qq.png"  alt="点击这里给我发消息" title="点击这里给我发消息"/></a><br/>
-					电话：400 8888 8888<br/>
-                                        传真：400 8888 8888<br/>                                       
-                                        电子邮件：admin@unn114.com<br/>
-					公司地址：重庆市某某某某某某某某某<br/>
-					备案编号：蜀ICP备000000001<br/>
-					Copyright © 2013 - 2014 luidea.com All rights reserved. 
-				</p>
-				
-			</div>
-    
-  </div> -->
 	<!--  -->
-
 	<!--  -->
 	<div class="all">
 		<div class="all_center">
@@ -244,24 +70,9 @@
 								href="${pageContext.request.contextPath}/front/activity/allActive?">更多</a>
 						</div>
 					</div>
-					<%-- <div id="photo-list">
-						<ul id="scroll">
-							<!-- <li><a href="#"><img
-					src="../../../resources/upload/front/ad5.jpg" width="100px"
-					height="100px" alt="" /></a></li> -->
-							<c:forEach items="${allActivitiyAndPicture}"
-								var="allActivitiyAndPicture">
-								<li><a
-									href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
-										<img src="${allActivitiyAndPicture.activeimageurl}"
-										width="200px" height="150px" />
-								</a></li>
-							</c:forEach>
-						</ul>
-					</div> --%>
 					<!--  -->
-  <div class="activitycontent" id="activieBox">	
-        <ul id="con1">
+  <div class="activitycontent">	
+        <ul>
 				<c:forEach items="${allActivitiyAndPicture }" var="allActivitiyAndPicture">
 					<li>
 					  <div class="news-content-cont">
@@ -272,8 +83,6 @@
 						</div>							 
 					  </li>					
 					</c:forEach>
-				</ul>
-				<ul id="con2">
                </ul>
 		 </div>
 
@@ -284,30 +93,29 @@
 			<div class="all_center_right">
 				<div class="infotitle">消息通知</div>
 				<div class="info">
-
-					<ul class="info_content_ul">
+					<ul>
 						<c:forEach items="${list }" var="list">
-							<li class="info_content_li"><a
+							<li><a
 								href="/front/frontinformation/selectByKey?id=${list.id}">
 									<div class=" info_content_li_title">
 										<span class="news-right-title">&nbsp;&nbsp;<em>.</em>&nbsp;&nbsp;<nobr>${list.newstitle }</nobr></span>
 									</div>
-									<div class=" info_content_li_time">
-										<p class="news-right-time">
+									<div class="info_content_li_time">
+									
 											<fmt:formatDate value="${list.sendtiem}" pattern="yyyy-MM-dd" />
-										</p>
+									
 									</div>
 
 							</a></li>
 						</c:forEach>
-					</ul>
-					<span style="float: right;"><a
+						<span style="float: right;margin-bottom: 4px;margin-right: 4px;"><a
 						href="/front/frontinformation/selectall">更多公告></a></span>
+					</ul>
+					 
 				</div>
 			</div>
 		</div>
 		<!--新闻  -->
-
 		<div class="all_bottom">
 		<br>
 		
@@ -339,45 +147,7 @@
     </ul>
   </div>
     <!--  -->
-		<%-- <div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-				<li data-target="#carousel-example-generic" data-slide-to="4"></li>
-			</ol>
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox"
-				style="padding-bottom: 6px;">
-				<div class="item active"style="width:360px; height:540px;">	
-						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360px" height="540px" />     
-					
-					<!-- <div class="carousel-caption">...</div> -->
-				</div>	
-				<c:forEach items="${hotnews }" var="hotnews">
-				<div class="item" >
-						
-						 <img src="/files${hotnews.eduurl }"  width="360px" height="540px" />     
-					
-					<!-- <div class="carousel-caption">...</div> -->
-				</div>
-				 </c:forEach> 			
-			</div>
-			
-			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>--%>
-	<!-- 	</div>  -->
+		
 	
     </div> 
     <ul>
@@ -390,6 +160,7 @@
            <p>${hotnews.educontent }........</p>
         </div>
       </li>
+      <hr style="margin-top: 80px;">
       </c:forEach>
 
     </ul>

@@ -169,23 +169,24 @@ border:1px solid black;
 	
 }
 .info_content_ul{
-	position:absolute;
-	/* background:#ff00ff;  */
- /*   border:1px solid black; */
+	/* position:absolute;  */
+	 /* background:#ff00ff;  */
+  /*  border:1px solid black;
     height:85%;
-	width: 96%;
-	top:12%;
-	left:2%;
+	width: 96%; */
+	 top:12%;
+	/*left:2%; */
 	clear:both;
+	list-style: none;
 	
 }
 
 .info_content_li{
-	position:relative;
+	/* position:relative; */
 /* 	background:#8000ff; */
-	margin:1%;
+	/* margin:1%; */
 	height:10%;
-	width:100%;
+	/* width:100%; */
 	/* border-bottom:1px solid black; */
 	font-size:25px;
 
@@ -205,24 +206,25 @@ text-decoration:underline;
 	position:absolute;
 	/* background:green; */
 	height:100%;
-	width:68%;
+	/* width:68%;
 	left:1%;
-	float:left;
+	float:left; */
 	overflow:hidden;
 	text-overflow:ellipsis;
 	white-space:nowrap;
-	
+	color:grey;
 }
 
 
 .info_content_li_time{
 	/* background:red; */
-	position:absolute;
-	height:100%;
-	width:29%;
-	left:78%
-	
-	
+/* 	position:absolute; */
+	/* height:100%; */
+	/* width:29%; */
+	/* left:78% */
+	float: right;
+	margin-right: 12px;
+	color:grey;
 }
 
 /*所有的通告  */

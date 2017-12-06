@@ -60,6 +60,7 @@ color: red;
 	/* background-color: red; */
 	height: 300px;
 	border: solid 1px orange;
+	color:grey;
 }
 .imgs{
 	width: 100%;
@@ -88,6 +89,7 @@ color: red;
 	/* background-color: green; */
 	height: 300px;
 	border: solid 1px orange;
+	
 }
 .infotitle{
 	width:100%;
@@ -100,14 +102,26 @@ color: red;
 	text-align: center;
 	
 }
-.info{
-	width:100%;
+ .info ul,li{
+	
+	height:30px;
+	list-style: none;
+	
+	
+} 
+.info a:HOVER{
+	text-decoration: none;
+	color:red;
 }
 /*新闻  */
 .all_bottom{
 	width: 100%;
 	padding-top: 20px;
 
+}
+a:HOVER{
+	text-decoration: none;
+	color:red;
 }
 .all_bottom hr{
 	background-color:red; 

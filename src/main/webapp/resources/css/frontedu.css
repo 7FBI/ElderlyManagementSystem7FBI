@@ -174,7 +174,7 @@ a:hover{
 #mynews .newsdata{background:#fff;width:100%; margin:0 auto;height:100%;margin:0 auto;position:relative;}
 #mynews .newsad{position:absolute;}
 #mynews ul{position:absolute;width:66%;top:15px;right:5px;}
-#mynews ul li{position:relative;border-bottom:1px dotted #ccc;padding:15px 0;}
+#mynews ul li{position:relative;padding:15px 0;}
 #mynews ul li .newslist{position:absolute;width:85%;right:0;top:10px;}
 #mynews ul li .newslist a{font:bold 16px/30px Microsoft YaHei;color:#444;}
 #mynews ul li .newslist span{display:block;line-height:20px;color:#999;}
