@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
@@ -11,9 +11,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>我的收藏</title>
+
 <link href="/resources/front/css/self_exchange/footstyle.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body style="background:#F8F8F8">
 <jsp:include page="Self_header.jsp"></jsp:include>
    <div class="nav-table">
 					   <div class="long-title"><span class="all-goods">全部分类</span></div>
@@ -39,13 +40,13 @@
 					<div class="user-foot">
 						<!--标题 -->
 						<div class="am-cf am-padding">
-							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的足迹</strong> / <small>Browser&nbsp;History</small></div>
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">我的收藏</strong> / <small>My&nbsp;Collection</small></div>
 						</div>
 						<hr/>
 
-						<!--收藏列表 -->
+						<!--足迹列表 -->
 
-             <c:forEach items="${list}" var="list">
+
 						<div class="goods">
 							<div class="goods-box first-box">
 								<div class="goods-pic">
@@ -54,16 +55,16 @@
 											<img src="/resources/front/images/self_img/TB1_pic.jpg_200x200.jpg" class="goods-img"></a>
 									</div>
 									<a class="goods-delete" href="javascript:void(0);"><i class="am-icon-trash"></i></a>
-									<div class="goods-status goods-status-show"><span class="desc"><a href="#" class="match-recom-item" style="background:red;">找相似</a></span></div>
+									<div class="goods-status goods-status-show"><span class="desc"><a href="#" class="match-recom-item" style="">找相似</a></span></div>
 								</div>
 
 								<div class="goods-attr">
 									<div class="good-title">
-										<a class="title" href="#" target="_blank">${list.products.pname}</a>
+										<a class="title" href="#" target="_blank">意大利费列罗进口食品巧克力零食24粒  进口巧克力食品</a>
 									</div>
 									<div class="goods-price">
 										<span class="g_price">                                    
-                                        <span>¥</span><strong>${list.products.price}</strong>
+                                        <span>¥</span><strong>71</strong>
 										</span>
 										<span class="g_price g_price-original">                                    
                                         <span>¥</span><strong>142</strong>
@@ -74,7 +75,7 @@
 							</div>
 						</div>
 
-	</c:forEach>
+	
 			
 						
 					</div>

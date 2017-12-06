@@ -41,7 +41,10 @@
 				<div class="topMessage">
 					<div class="menu-hd">
 					<c:if test="${!empty oldUsers.username}">
-						<a href="#" target="_top" class="h">${oldUsers.username}，欢迎登录</a>
+						<a href="/front/oldUsers/selectByUid" target="_top" class="h">${oldUsers.username}</a>，欢迎登录
+					</c:if>
+					<c:if test="${empty oldUsers.username}">
+						<a href="/gotoFront/login" target="_top" class="h">登录</a>
 					</c:if>
 					</div>
 				</div>
@@ -49,7 +52,7 @@
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/gotoFront/ElectronicCommerce_secondary" target="_top"
+						<a href="/front/products/selectAllProducts" target="_top"
 							class="h"><i class="am-icon-home am-icon-fw"></i>商城首页</a>
 					</div>
 				</div>

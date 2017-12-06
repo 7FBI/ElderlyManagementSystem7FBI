@@ -97,6 +97,7 @@ public class ProductController {
 		modelAndView.addObject("muns",num);
 		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
+		
 	}
 
 	
@@ -112,17 +113,28 @@ public class ProductController {
 	
 	
 	@RequestMapping("/selectProductsByTypeAndLikeName")
-     public ModelAndView selectProductsByTypeAndLikeName(String pname,String classname ){
-		ModelAndView modelAndView = new ModelAndView();
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("pname", pname.toString());
-		 map.put("classname", classname.toString());
+    public ModelAndView selectProductsByTypeAndLikeName(HttpServletRequest request ) throws UnsupportedEncodingException{
+		String pname = request.getParameter("pname");
+	
+			String pnamess = new String(pname.trim().getBytes("ISO-8859-1"), "UTF-8");
+		
+		String classname = request.getParameter("classname");
+		
+			String classnamess = new String(classname.trim().getBytes("ISO-8859-1"), "UTF-8");
+		
+	    ModelAndView modelAndView = new ModelAndView();
+		Map<String, Object> map = new HashMap<String, Object>();
+		 map.put("pname", pnamess);
+		 map.put("classname", classnamess);
+		 System.out.println(pnamess+"vxvcbc"+classnamess);
 		 List<Products> products = productsService.selectProductsByTypeAndLikeName(map);
+		 modelAndView.addObject("pnamess", pnamess);
+		 modelAndView.addObject("classnamess", classnamess);
 		 modelAndView.addObject("products", products);
+		 
 		 modelAndView.setViewName("front/ElectronicCommerce");
-		/*System.out.println(pname +"-----"+classname);*/
-    	 return modelAndView;
-     }
+   	 return modelAndView;
+    }
 	
 	
 

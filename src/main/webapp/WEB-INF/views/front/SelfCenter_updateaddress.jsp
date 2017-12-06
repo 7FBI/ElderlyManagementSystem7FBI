@@ -42,7 +42,7 @@
 	</c:otherwise>
 </c:choose>
 
-<body>
+<body style="background:#F8F8F8"> 
 	<script type="text/javascript">
 		$(document).ready(
 				function() {

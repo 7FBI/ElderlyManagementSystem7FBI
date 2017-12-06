@@ -21,7 +21,7 @@
 <script src="/resources/front/js/self_exchange/jquery.min.js" type="text/javascript"></script>
 <script src="/resources/front/js/self_exchange/amazeui.js" type="text/javascript"></script>
 </head>
-<body>
+<body style="background:#F8F8F8">
 <!--头 -->
 		<jsp:include page="Self_header.jsp"></jsp:include>
             <div class="nav-table" >

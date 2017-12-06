@@ -13,7 +13,7 @@
 		<script src="/resources/front/js/self_exchange/amazeui.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body style="background:#F8F8F8">
 <jsp:include page="Self_header.jsp"></jsp:include>
 <div class="nav-table">
 			<div class="long-title"><span class="all-goods">全部分类</span></div>

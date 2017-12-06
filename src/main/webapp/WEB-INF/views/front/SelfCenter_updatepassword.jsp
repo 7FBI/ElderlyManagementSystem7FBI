@@ -12,14 +12,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>地址管理</title>
 
-<link href="/resources/front/css/self_exchange/addstyle.css"
+<link href="/resources/front/css/self_exchange/stepstyle.css"
 	rel="stylesheet" type="text/css">
 <script src="/resources/front/js/self_exchange/jquery.min.js"
 	type="text/javascript"></script>
 <script src="/resources/front/js/self_exchange/amazeui.js"></script>
 
 </head>
-<body>
+<body style="background:#F8F8F8">
 
 
 	<jsp:include page="Self_header.jsp"></jsp:include>
@@ -31,7 +31,6 @@
 			<ul>
 				<li class="index"><a href="#">首页</a></li>
 				<li class="qc"><a href="#">闪购</a></li>
-				<li class="qc"><a href="#">限时抢</a></li>
 				<li class="qc"><a href="#">团购</a></li>
 				<li class="qc last"><a href="#">大包装</a></li>
 			</ul>
