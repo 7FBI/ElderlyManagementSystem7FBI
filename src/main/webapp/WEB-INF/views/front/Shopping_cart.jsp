@@ -380,7 +380,17 @@
 				url:'/front/orders/addOrder',
 				dataType:"json",
 				contentType : "application/json;charset=UTF-8",
-				data:JSON.stringify(products)
+				data:JSON.stringify(products),
+				success:function(data){
+					if (data=="login") {
+						window.location.href="/gotoFront/login";
+					} else {
+						window.location.href="/front/orders/ordersInfoByExchange?id="+data;
+					}
+				},
+				error:function(){
+					alert("网络中断，无法下单");
+				}
 			}) 
 			//$.post('/front/orders/addOrder',JSON.stringify(products),"json");
 		}

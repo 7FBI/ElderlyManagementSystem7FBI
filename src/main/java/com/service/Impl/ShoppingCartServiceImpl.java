@@ -70,5 +70,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		// TODO Auto-generated method stub
 		return shoppingCartMapper.delectProductsByuidAndPid(map);
 	}
+
+	@Override
+	public int updateByPrimaryKeySelective(ShoppingCart record) {
+		// TODO Auto-generated method stub
+		return shoppingCartMapper.updateByPrimaryKeySelective(record);
+	}
   
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -156,4 +157,26 @@ public class ShoppingCartController {
 		}
 		return "false";
 	}
+	
+	
+	@RequestMapping("/addCart")
+	@ResponseBody
+	public String addCart(HttpServletRequest request,@RequestBody ShoppingCart[] carts){
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			return "login";
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		for (ShoppingCart sCart : carts) {
+			sCart.setUid(oldUsers.getUid());
+			ShoppingCart shoppingCart=shoppingCartService.selectByaproduvts(sCart);
+			if (shoppingCart!=null) {
+				shoppingCart.setCartcount(shoppingCart.getCartcount()+1);
+				shoppingCartService.updateByPrimaryKeySelective(shoppingCart);
+			} else {
+				shoppingCartService.insertSelective(sCart);
+			}
+		}
+		return "true";
+	}
+	
 }
