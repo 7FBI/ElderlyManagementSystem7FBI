@@ -78,15 +78,10 @@ public class ProductOrdersController {
 	private OrdersService ordersService;
 
 	@RequestMapping("/addOrder")
-	public ModelAndView addOrder(HttpServletRequest request ,@RequestBody Products[] products) {
-		ModelAndView view = new ModelAndView();
+	@ResponseBody
+	public String addOrder(HttpServletRequest request ,@RequestBody Products[] products) {
 		if (request.getSession().getAttribute("oldUsers") == null) {
-			view.setViewName("/front/login");
-			return view;
-		}
-		
-		for (Products products2 : products) {
-			System.out.println("--------------sumNum:"+products2.getSumNum());
+			return "login";
 		}
 		
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
@@ -119,8 +114,8 @@ public class ProductOrdersController {
 		//查看是否存在打折
 		orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), discountService, orderdetailsService));
 		ordersService.updateByPrimaryKeySelective(orders);
-		request.setAttribute("id", orders.getId());
-		return ordersInfoByExchange(request,orders.getId());
+		//request.setAttribute("id", orders.getId());
+		return  orders.getId();
 	}
 
 	@RequestMapping("/addOneOrder")
@@ -500,10 +495,10 @@ public class ProductOrdersController {
 				shoppingCartService.deleteByPrimaryKey(sCart.getId());
 			}
 			orderdetailsService.insertSelective(orderdetails);
-			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), productsService, groupbuyingService,ordersService, orderdetailsService));
+			orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(),  groupbuyingService, orderdetailsService));
 			ordersService.updateByPrimaryKeySelective(orders);
 			request.setAttribute("id", orders.getId());
-			return ordersInfo(request,orders.getId());
+			return ordersInfoByExchange(request,orders.getId());
 		}
 		
 		

@@ -39,8 +39,8 @@ public class ShopPrices {
 	}
 
 	// 这个订单的商品存在团购价
-	public static Double getAllShowPrices(String oid, ProductsService productsService,
-			GroupbuyingService groupbuyingService, OrdersService ordersService,
+	public static Double getAllShowPrices(String oid,
+			GroupbuyingService groupbuyingService,
 			OrderdetailsService orderdetailsService) {
 		List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
 		double d = 0.0;

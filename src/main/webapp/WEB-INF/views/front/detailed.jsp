@@ -726,7 +726,9 @@
 											+ dop[k].content
 											+ '</p><div id="op'+dop[k].id+'"  style="padding: 5px" class="service_section" ></div></div></div><div class="list_box_right"><div class="comment_name">'
 											+ dop[k].oldUsers.uid
-											+ '</div><div class="comment_time">'
+											+ '评星:'
+											+ dop[k].star
+											+ '星</div><div class="comment_time">'
 											+ dop[k].opinionstime
 											+ '</div></div>';
 									opdiv.append(ophtmls);

@@ -355,6 +355,6 @@
    </select>
   <!-- 用户参与团购数 -->
   <select id="selectcountByolduser" parameterType="com.bean.Groupdetail" resultType="java.lang.Integer">
-   select count(*) from Groupdetail where uid=#{uid,jdbcType=VARCHAR} and gid=#{gid,jdbcType=INTEGER}
+   select count(*) from groupdetail where uid=#{uid,jdbcType=VARCHAR} and gid=#{gid,jdbcType=INTEGER}
   </select>
 </mapper>
