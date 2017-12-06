@@ -423,6 +423,15 @@
 		select COALESCE(avg(star),0) from opinions where pid=#{pid}
 	</select>
 	
+	<!-- 查询用户评论 -->
+	<select id="selectByUidOpinions" parameterType="hashMap"
+		resultMap="OpinionsOldUserAndProduct">
+		select * from opinions o,products p,old_users u
+		where p.id=o.pid and
+		o.uid=u.uid and o.uid=#{uid}
+		order by opinionstime DESC
+	</select>
+	
 	
 
 </mapper>

@@ -145,32 +145,33 @@ public class ShoppingCartController {
 		OldUsers user = (OldUsers) request.getSession().getAttribute("oldUsers");
 		ShoppingCart cart = new ShoppingCart();
 		if (user != null && pid != 0) {
-			//cart.setPid(pid);
-			//cart.setUid(user.getUid());
-			Map<String, Object> map=new HashMap<String, Object>();
+			// cart.setPid(pid);
+			// cart.setUid(user.getUid());
+			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("uid", user.getUid());
 			map.put("pid", pid);
-			/*cart = shoppingCartService.selectByaproduvts(cart);
-			shoppingCartService.deleteByPrimaryKey(cart.getId());*/
+			/*
+			 * cart = shoppingCartService.selectByaproduvts(cart);
+			 * shoppingCartService.deleteByPrimaryKey(cart.getId());
+			 */
 			shoppingCartService.delectProductsByuidAndPid(map);
 			return "true";
 		}
 		return "false";
 	}
-	
-	
+
 	@RequestMapping("/addCart")
 	@ResponseBody
-	public String addCart(HttpServletRequest request,@RequestBody ShoppingCart[] carts){
-		if (request.getSession().getAttribute("oldUsers")==null) {
+	public String addCart(HttpServletRequest request, @RequestBody ShoppingCart[] carts) {
+		if (request.getSession().getAttribute("oldUsers") == null) {
 			return "login";
 		}
-		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		for (ShoppingCart sCart : carts) {
 			sCart.setUid(oldUsers.getUid());
-			ShoppingCart shoppingCart=shoppingCartService.selectByaproduvts(sCart);
-			if (shoppingCart!=null) {
-				shoppingCart.setCartcount(shoppingCart.getCartcount()+1);
+			ShoppingCart shoppingCart = shoppingCartService.selectByaproduvts(sCart);
+			if (shoppingCart != null) {
+				shoppingCart.setCartcount(shoppingCart.getCartcount() + 1);
 				shoppingCartService.updateByPrimaryKeySelective(shoppingCart);
 			} else {
 				shoppingCartService.insertSelective(sCart);
@@ -178,5 +179,26 @@ public class ShoppingCartController {
 		}
 		return "true";
 	}
-	
+
+	@RequestMapping("/addOneCart")
+	@ResponseBody
+	public String addOneCart(HttpServletRequest request, Integer pid) {
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			return "login";
+		}
+		ShoppingCart carts=new ShoppingCart();
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+		carts.setUid(oldUsers.getUid());
+		carts.setPid(pid);
+		ShoppingCart shoppingCart = shoppingCartService.selectByaproduvts(carts);
+		if (shoppingCart != null) {
+			shoppingCart.setCartcount(shoppingCart.getCartcount() + 1);
+			shoppingCartService.updateByPrimaryKeySelective(shoppingCart);
+		} else {
+			carts.setCartcount(1);
+			shoppingCartService.insertSelective(carts);
+		}
+		return "true";
+	}
+
 }

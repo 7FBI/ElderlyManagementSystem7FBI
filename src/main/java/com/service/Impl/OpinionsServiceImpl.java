@@ -70,4 +70,10 @@ public class OpinionsServiceImpl implements OpinionsService {
 		return opinionsMapper.selectByPidOpinionsAvg(pid);
 	}
 
+	@Override
+	public List<Opinions> selectByUidOpinions(String uid) {
+		// TODO Auto-generated method stub
+		return opinionsMapper.selectByUidOpinions(uid);
+	}
+
 }

@@ -175,5 +175,24 @@ public class ProductOpinions {
 		}
 		return "true";
 	}
+	
+	
+	@RequestMapping("/opinionsMode")
+	public ModelAndView opinionsMode(HttpServletRequest request) {
+		ModelAndView view=new ModelAndView();
+		Map<String, Object> map=new HashMap<String, Object>();
+		List<Opinions> list = null;
+		Integer pid = 0;
+		if (request.getSession().getAttribute("oldUsers")!=null) {
+			view.setViewName("front/login");
+			return view;
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		map.put("uid", oldUsers.getUid());
+		list=opinionsService.selectByPidOpinions(map);
+		view.addObject("opinions",list);
+		view.setViewName("front/SelfCenter_Comment");
+		return view;
+	}
 
 }

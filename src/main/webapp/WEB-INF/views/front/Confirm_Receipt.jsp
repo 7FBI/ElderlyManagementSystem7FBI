@@ -125,12 +125,11 @@
 											<fmt:formatDate value="${orders.ordertime}" pattern="yyyy-MM-dd HH:mm:ss" /></em>
 										</div>
 									</li>
-									<!-- <li class="td td-oplist">
+									 <li class="td td-oplist">
 										<div class="td-inner">
-											<span class="phone-title">状态</span>
-											<div class="pay-logis">待付款</div>
+											<div class="pay-logis">￥<fmt:formatNumber type="number" value="${ord.products.price*ord.ordercount }" maxFractionDigits="2"/></div>
 										</div>
-									</li> -->
+									</li>
 								
 							</ul>
 							</c:forEach>
@@ -145,7 +144,7 @@
 				<div class="order-extra">
 					<div class="order-user-info">
 						<div id="holyshit257" class="memo">
-							<label>获得积分：</label>
+							<label>获得积分：<fmt:formatNumber type="number" value="${orders.money*0.1}" maxFractionDigits="2"/></label>
 						</div>
 					</div>
 
@@ -159,11 +158,8 @@
 						<div class="box" style="border:none;">
 							<div tabindex="0" id="holyshit267" class="realPay" >
 								<em class="t">实付款：</em> <span class="price g_price "> <span style="font-size:15px;">¥</span>
-									<em class="style-large-bold-red " id="J_ActualFee" style="font-size:18px;">244.00</em>
+									<em class="style-large-bold-red " id="J_ActualFee" style="font-size:18px;"><fmt:formatNumber type="number" value="${orders.money}" maxFractionDigits="2"/></em>
 								</span><br>
-								<em class="t">（可获返积分：）</em> 
-									<em class="style-large-bold-red " id="J_ActualFee"><a href="####">点此查看详情</a></em>
-								</span>
 							</div>
 
 						</div>

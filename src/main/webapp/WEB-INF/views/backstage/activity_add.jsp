@@ -182,12 +182,26 @@
     layui.use('laydate', function(){
     	  var laydate = layui.laydate;
     	  
-    	  //执行一个laydate实例
+    	  //执行一个laydate实例"input[date='date']"
     	  laydate.render({
     	   
-    	    elem:"input[date='date']"
+    	    elem:"#starttime"
     	  });
+    	  
+    	  laydate.render({
+    		  elem:"#endtime"
+    	  });
+    	  
+    	  laydate.render({
+    		  elem:"#stoptime"
+    	  })
     	});
+    
+    layui.use('layer', function() {
+		var $ = layui.jquery, layer = layui.layer;
+		layer.msg("若文件较大，上传时间可能比较长，请耐心等待",{time:10000});
+		layer.load(0);
+    })
     </script>
     </body>
 

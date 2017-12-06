@@ -374,6 +374,9 @@
 		var products=getProductAndCount();
 		if (products.length<=0) {
 			alert("还没有选择任何商品,请至少选择一件商品");
+			/* 
+				dataType:"json",
+				contentType : "application/json;charset=UTF-8", */
 		}else{
 			 $.ajax({
 				type:'post',

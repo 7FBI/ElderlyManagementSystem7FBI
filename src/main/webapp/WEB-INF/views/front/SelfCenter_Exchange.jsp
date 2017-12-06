@@ -105,8 +105,11 @@
 															<c:if test="${ord.orderstatus==0}">
 																<a href="/front/orders/ordersInfoByExchange?id=${ord.id }">${ord.id }</a>
 															</c:if>
-															 <c:if test="${ord.orderstatus>=1}">
+															 <c:if test="${ord.orderstatus==1}">
 																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
+															</c:if>
+															<c:if test="${ord.orderstatus>=2}">
+																<a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">${ord.id }</a>
 															</c:if>
 													</div>
 													<span>成交时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
@@ -432,7 +435,7 @@
 											<!--不同状态的订单	-->
 										<div class="order-status4">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id}</a></div>
+													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">${ord.id}</a></div>
 													<span>成交时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 												</div>
 												<div class="order-content">
@@ -484,7 +487,7 @@
 															<li class="td td-status">
 																<div class="item-status">
 																	<p class="Mystatus">交易成功</p>
-																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">订单详情</a></p>
 																</div>
 															</li>
 														</div>
