@@ -51,7 +51,6 @@
 		<collection property="listPhotos" ofType="com.bean.Showsphotos">
 			<id column="sp_id" property="id" />
 			<result column="sp_url" property="showphotosurl" />
-		
 		</collection>
 	</resultMap>
 	<resultMap type="com.bean.Products" id="ProductStatistics">
