@@ -167,11 +167,12 @@
 <!--底部-->
 		
 			</div>
+			
 <!--菜单栏-->
      <jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
 
-	
+	<jsp:include page="EC_footer.jsp"></jsp:include>
 	<script>
 	
 	/* 个人信息修改保存 */

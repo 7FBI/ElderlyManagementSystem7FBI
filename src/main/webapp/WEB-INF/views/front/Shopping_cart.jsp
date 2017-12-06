@@ -210,9 +210,12 @@
 					</div>
 				</div>
 			</div>
+			
+			
 		</div>
+		
 	</div>
-
+	
 	<!-- 删除购物车 -->
 	<div id="confirmDelete" class="mod_layer"
 		style="margin-top: -100px; margin-left: -180px;">
@@ -227,7 +230,10 @@
 				class="layer_btn js_cojy">取消</a>
 		</div>
 	</div>
+	
+<jsp:include page="EC_footer.jsp"></jsp:include>	
 </body>
+
 <script src="/resources/unity/jquery/jquery-3.2.0.js"
 		type="text/javascript"></script>
 <script src="/resources/unity/address/js/area.js"></script>
@@ -376,7 +382,7 @@
 			alert("还没有选择任何商品,请至少选择一件商品");
 		}else{
 			 $.ajax({
-				type:'post',
+				type:'get',
 				url:'/front/orders/addOrder',
 				dataType:"json",
 				contentType : "application/json;charset=UTF-8",

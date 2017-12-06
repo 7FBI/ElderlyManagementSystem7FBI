@@ -168,7 +168,7 @@
   <jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
 	<!-- 底部 -->
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="EC_footer.jsp"></jsp:include>
 	</body>
 <script src="/resources/front/js/self_exchange/jquery.min.js"></script>
 <script type="text/javascript">

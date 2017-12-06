@@ -126,6 +126,7 @@
 
 			<jsp:include page="SelfCenter_Menu.jsp"></jsp:include>
 		</div>
+		<jsp:include page="EC_footer.jsp"></jsp:include>
 		<script type="text/javascript">
 	 $("#jumpBtn").click(function(){
 			var b = $("input[page='page']").val();

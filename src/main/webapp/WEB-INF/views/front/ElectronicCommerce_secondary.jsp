@@ -84,7 +84,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/cake.png"></i>
 											<a class="ml-22" title="男装"
-												href="#">男装</a>
+												href="#">男&nbsp;&nbsp;装</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -112,9 +112,7 @@ et=UTF-8">
 															<dd>
 																<a pnames="打底衫" title="打底衫" href="#"><span>打底衫</span></a>
 															</dd>
-															<dd>
-																<a pnames="背心男" title="背心男" href="#"><span>背心男</span></a>
-															</dd>
+															
 															<dd>
 																<a pnames="潮男外套" title="潮男外套" href="#"><span>潮男外套</span></a>
 															</dd>
@@ -224,7 +222,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/cake.png"></i><a
 												class="ml-22" title="女装"
-												href="#">女装</a>
+												href="#">女&nbsp;&nbsp;装</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -251,15 +249,7 @@ et=UTF-8">
 															<dd>
 																<a pnames="情侣卫衣" title="情侣卫衣" href="#"><span>情侣卫衣</span></a>
 															</dd>
-															<dd>
-																<a pnames="中老年女装" title="中老年女装" href="#"><span>中老年女装</span></a>
-															</dd>
-															<dd>
-																<a pnames="中年女装" title="中年女装" href="#"><span>中年女装</span></a>
-															</dd>
-															<dd>
-																<a pnames="老年女装" title="老年女装" href="#"><span>老年女装</span></a>
-															</dd>
+														
 															<dd>
 																<a pnames="闺蜜装" title="闺蜜装" href="#"><span>闺蜜装</span></a>
 															</dd>
@@ -269,16 +259,9 @@ et=UTF-8">
 															<dd>
 																<a pnames="旗袍" title="旗袍" href="#"><span>旗袍</span></a>
 															</dd>
-															<dd>
-																<a pnames="半身裙" title="半身裙" href="#"><span>半身裙</span></a>
-															</dd>
 															
-															<dd>
-																<a pnames="晚礼服" title="晚礼服" href="#"><span>晚礼服</span></a>
-															</dd>
-															<dd>
-																<a pnames="秀禾服" title="秀禾服" href="#"><span>秀禾服</span></a>
-															</dd>
+															
+															
 															
 
 														</dl>
@@ -409,9 +392,7 @@ et=UTF-8">
 															<dd>
 																<a pnames="女运动鞋" title="女运动鞋" href="#"><span>女运动鞋</span></a>
 															</dd>
-															<dd>
-																<a pnames="高跟鞋" title="高跟鞋" href="#"><span>高跟鞋</span></a>
-															</dd>
+										
 															<dd>
 																<a pnames="雪地靴" title="雪地靴" href="#"><span>雪地靴</span></a>
 															</dd>
@@ -450,7 +431,7 @@ et=UTF-8">
 										<h3 class="category-name b-category-name">
 											<i><img
 												src="/resources/front/images/self_img/cookies.png"></i><a
-												class="ml-22" title="食品" href="#">食品</a>
+												class="ml-22" title="美食" href="#">美&nbsp;&nbsp;食</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -481,6 +462,7 @@ et=UTF-8">
 														</dl>
 													</div>
 
+								
 													<div class="brand-side">
 														<dl class="dl-sort">
 															<dt>
@@ -581,18 +563,56 @@ et=UTF-8">
 
 														</dl>
 													</div>
+													<div class="brand-side">
+
+														<dl class="dl-sort">
+															<dt>
+																<span title="早餐面包">早餐面包</span>
+															</dt>
+
+															<dd>
+																<a title="猕猴桃干" href="#"><span>猕猴桃干</span></a>
+															</dd>
+															<dd>
+																<a title="糖樱桃" href="#"><span>糖樱桃</span></a>
+															</dd>
+															<dd>
+																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
+															</dd>
+															<dd>
+																<a title="软面包" href="#"><span>软面包</span></a>
+															</dd>
+															<dd>
+																<a title="马卡龙" href="#"><span>马卡龙</span></a>
+															</dd>
+															<dd>
+																<a title="千层饼" href="#"><span>千层饼</span></a>
+															</dd>
+															<dd>
+																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
+															</dd>
+															<dd>
+																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
+															</dd>
+															<dd>
+																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
+															</dd>
+														</dl>
+													</div>
 
 												</div>
 											</div>
 										</div>
 									</div> <b class="arrow"></b>
 								</li>
-								<!-- 运动 -->
-								<!-- <li>
+											
+<br>
+								
+								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/bamboo.png"></i><a
-												class="ml-22" title="运动">运动</a>
+											<i><img src="/resources/front/images/self_img/bamboo.png"></i><a class="ml-22"
+												title="医药馆" href="#">医药馆</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -601,8 +621,228 @@ et=UTF-8">
 										<div class="area-in">
 											<div class="area-bg">
 												<div class="menu-srot">
-
 													<div class="brand-side">
+
+														<dl class="dl-sort">
+															<dt>
+																<span title="营养">营养</span>
+															</dt>
+
+															<dd>
+																<a title="猕猴桃干" href="#"><span>猕猴桃干</span></a>
+															</dd>
+															<dd>
+																<a title="糖樱桃" href="#"><span>糖樱桃</span></a>
+															</dd>
+															<dd>
+																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
+															</dd>
+															<dd>
+																<a title="软面包" href="#"><span>软面包</span></a>
+															</dd>
+															<dd>
+																<a title="马卡龙" href="#"><span>马卡龙</span></a>
+															</dd>
+															<dd>
+																<a title="千层饼" href="#"><span>千层饼</span></a>
+															</dd>
+															<dd>
+																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
+															</dd>
+															<dd>
+																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
+															</dd>
+															<dd>
+																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
+															</dd>
+														</dl>
+													</div>
+													<div class="brand-side">
+														<dl class="dl-sort">
+															<dt>
+																<span title="营养">营养</span>
+															</dt>
+															<dd>
+																<a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a>
+															</dd>
+															<dd>
+																<a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a>
+															</dd>
+															<dd>
+																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
+															</dd>
+															<dd>
+																<a title="软面包" href="#"><span>软面包</span></a>
+															</dd>
+															<dd>
+																<a title="马卡龙" href="#"><span>马卡龙</span></a>
+															</dd>
+															<dd>
+																<a title="千层饼" href="#"><span>千层饼</span></a>
+															</dd>
+															<dd>
+																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
+															</dd>
+															<dd>
+																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
+															</dd>
+															<dd>
+																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
+															</dd>
+														</dl>
+													</div>
+													<div class="brand-side">
+														<dl class="dl-sort">
+															<dt>
+																<span title="营养">营养</span>
+															</dt>
+
+															<dd>
+																<a title="猕猴桃干" href="#"><span>猕猴桃干</span></a>
+															</dd>
+															<dd>
+																<a title="糖樱桃" href="#"><span>糖樱桃</span></a>
+															</dd>
+															<dd>
+																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
+															</dd>
+															<dd>
+																<a title="软面包" href="#"><span>软面包</span></a>
+															</dd>
+															<dd>
+																<a title="马卡龙" href="#"><span>马卡龙</span></a>
+															</dd>
+															<dd>
+																<a title="千层饼" href="#"><span>千层饼</span></a>
+															</dd>
+															<dd>
+																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
+															</dd>
+															<dd>
+																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
+															</dd>
+															<dd>
+																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
+															</dd>
+														</dl>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div> <b class="arrow"></b>
+								</li>
+<br>
+<li>
+									<div class="category-info">
+										<h3 class="category-name b-category-name">
+											<i><img src="/resources/front/images/self_img/tea.png"></i><a
+												class="ml-22" title="茶饮" href="#">茗茶冲饮</a>
+										</h3>
+										<em>&gt;</em>
+									</div>
+									<div class="menu-item menu-in top"
+										style="border: 2px solid red;">
+										<div class="area-in">
+											<div class="area-bg">
+												<div class="menu-srot">
+													<div class="brand-side">
+														<dl class="dl-sort">
+															<dt>
+																<span title="饮料冲乳">饮料冲乳</span>
+															</dt>
+
+
+															<dd>
+																<a title="燕麦片" href="#"><span>燕麦片</span></a>
+															</dd>
+
+															<dd>
+																<a title="牛奶" href="#"><span>牛奶</span></a>
+															</dd>
+															<dd>
+																<a title="酸奶" href="#"><span>酸奶</span></a>
+															</dd>
+															<dd>
+																<a title="成人奶粉" href="#"><span>成人奶粉</span></a>
+															</dd>
+															<dd>
+																<a title="雀巢咖啡" href="#"><span>雀巢咖啡</span></a>
+															</dd>
+															<dd>
+																<a title="纯牛奶" href="#"><span>纯牛奶</span></a>
+															</dd>
+															<dd>
+																<a title="早餐奶" href="#"><span>早餐奶</span></a>
+															</dd>
+															<dd>
+																<a title="黑芝麻" href="#"><span>黑芝麻</span></a>
+															</dd>
+
+														</dl>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+								</li>
+
+								<!--比较多的导航	-->
+<br>
+								<li>
+									<div class="category-info">
+										<h3 class="category-name b-category-name">
+											<i><img src="/resources/front/images/self_img/candy.png"></i><a class="ml-22"
+												title="运动健身" href="#">运动健身</a>
+										</h3>
+										<em>&gt;</em>
+									</div>
+									<div class="menu-item menu-in top"
+										style="border: 2px solid red;">
+										<div class="area-in">
+											<div class="area-bg">
+												<div class="menu-srot">
+													<div class="brand-side">
+														<dl class="dl-sort">
+															<dt>
+																<span title="健身训练">健身训练</span>
+															</dt>
+
+															<dd>
+																<a title="跑步机" href="#"><span>跑步机</span></a>
+															</dd>
+															<dd>
+																<a title="健身车" href="#"><span>健身车</span></a>
+															</dd>
+															<dd>
+																<a title="跑步机" href="#"><span>跑步机</span></a>
+															</dd>
+															<dd>
+																<a title="甩脂机" href="#"><span>甩脂机</span></a>
+															</dd>
+															<dd>
+																<a title="仰卧板" href="#"><span>仰卧板</span></a>
+															</dd>
+															<dd>
+																<a title="踏步机" href="#"><span>踏步机</span></a>
+															</dd>
+															<dd>
+																<a title="哑铃" href="#"><span>哑铃</span></a>
+															</dd>
+															<dd>
+																<a title="臂力器" href="#"><span>臂力器</span></a>
+															</dd>
+															<dd>
+																<a title="动感单车" href="#"><span>动感单车</span></a>
+															</dd>
+
+														</dl>
+
+													</div>
+<div class="brand-side">
 														<dl class="dl-sort">
 															<dt>
 																<span title="户外鞋服">户外鞋服</span>
@@ -751,18 +991,44 @@ et=UTF-8">
 														</dl>
 													</div>
 
+													<div class="brand-side">
+														<dl class="dl-sort">
+															<dt>
+																<span title="户外骑行">户外骑行</span>
+															</dt>
+
+															<dd>
+																<a title="自行车" href="#"><span>自行车</span></a>
+															</dd>
+															<dd>
+																<a title="公路车" href="#"><span>公路车</span></a>
+															</dd>
+															<dd>
+																<a title="通勤车" href="#"><span>通勤车</span></a>
+															</dd>
+															<dd>
+																<a title="思维车" href="#"><span>思维车</span></a>
+															</dd>
+															<dd>
+																<a title="电动车" href="#"><span>电动车</span></a>
+															</dd>
+														</dl>
+
+													</div>
+
 												</div>
+
 											</div>
 										</div>
-									</div> <b class="arrow"></b>
-								</li> -->
-								<!-- <!--养生 -->
-								<!-- <br>
+										</div>
+										<b class="arrow"></b>
+								</li>
+								<br>
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/nut.png"></i><a
-												class="ml-22" title="养生">养生</a>
+											<i><img src="/resources/front/images/self_img/tea.png"></i><a
+												class="ml-22" title="营养保健" href="#">营养保健</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -772,6 +1038,7 @@ et=UTF-8">
 											<div class="area-bg">
 												<div class="menu-srot">
 													<div class="brand-side">
+
 														<dl class="dl-sort">
 															<dt>
 																<span title="营养">营养</span>
@@ -808,380 +1075,6 @@ et=UTF-8">
 																<a title="灵芝类" href="#"><span>灵芝类</span></a>
 															</dd>
 
-														</dl>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div> <b class="arrow"></b>
-								</li> --> -->
-<br>
-								<li>
-									<div class="category-info">
-										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="茶饮" href="#">茶饮</a>
-										</h3>
-										<em>&gt;</em>
-									</div>
-									<div class="menu-item menu-in top"
-										style="border: 2px solid red;">
-										<div class="area-in">
-											<div class="area-bg">
-												<div class="menu-srot">
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="饮料冲乳">饮料冲乳</span>
-															</dt>
-
-
-															<dd>
-																<a title="燕麦片" href="#"><span>燕麦片</span></a>
-															</dd>
-
-															<dd>
-																<a title="牛奶" href="#"><span>牛奶</span></a>
-															</dd>
-															<dd>
-																<a title="酸奶" href="#"><span>酸奶</span></a>
-															</dd>
-															<dd>
-																<a title="成人奶粉" href="#"><span>成人奶粉</span></a>
-															</dd>
-															<dd>
-																<a title="雀巢咖啡" href="#"><span>雀巢咖啡</span></a>
-															</dd>
-															<dd>
-																<a title="纯牛奶" href="#"><span>纯牛奶</span></a>
-															</dd>
-															<dd>
-																<a title="早餐奶" href="#"><span>早餐奶</span></a>
-															</dd>
-															<dd>
-																<a title="黑芝麻" href="#"><span>黑芝麻</span></a>
-															</dd>
-
-														</dl>
-
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-								</li>
-
-								<!--比较多的导航	-->
-<br>
-								<li>
-									<div class="category-info">
-										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/bamboo.png"></i><a class="ml-22"
-												title="药材" href="#">药材</a>
-										</h3>
-										<em>&gt;</em>
-									</div>
-									<div class="menu-item menu-in top"
-										style="border: 2px solid red;">
-										<div class="area-in">
-											<div class="area-bg">
-												<div class="menu-srot">
-													<div class="brand-side">
-
-														<dl class="dl-sort">
-															<dt>
-																<span title="营养">营养</span>
-															</dt>
-
-															<dd>
-																<a title="猕猴桃干" href="#"><span>猕猴桃干</span></a>
-															</dd>
-															<dd>
-																<a title="糖樱桃" href="#"><span>糖樱桃</span></a>
-															</dd>
-															<dd>
-																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-															</dd>
-															<dd>
-																<a title="软面包" href="#"><span>软面包</span></a>
-															</dd>
-															<dd>
-																<a title="马卡龙" href="#"><span>马卡龙</span></a>
-															</dd>
-															<dd>
-																<a title="千层饼" href="#"><span>千层饼</span></a>
-															</dd>
-															<dd>
-																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-															</dd>
-															<dd>
-																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-															</dd>
-															<dd>
-																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-															</dd>
-														</dl>
-													</div>
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="营养">营养</span>
-															</dt>
-															<dd>
-																<a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a>
-															</dd>
-															<dd>
-																<a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a>
-															</dd>
-															<dd>
-																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-															</dd>
-															<dd>
-																<a title="软面包" href="#"><span>软面包</span></a>
-															</dd>
-															<dd>
-																<a title="马卡龙" href="#"><span>马卡龙</span></a>
-															</dd>
-															<dd>
-																<a title="千层饼" href="#"><span>千层饼</span></a>
-															</dd>
-															<dd>
-																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-															</dd>
-															<dd>
-																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-															</dd>
-															<dd>
-																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-															</dd>
-														</dl>
-													</div>
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="营养">营养</span>
-															</dt>
-
-															<dd>
-																<a title="猕猴桃干" href="#"><span>猕猴桃干</span></a>
-															</dd>
-															<dd>
-																<a title="糖樱桃" href="#"><span>糖樱桃</span></a>
-															</dd>
-															<dd>
-																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-															</dd>
-															<dd>
-																<a title="软面包" href="#"><span>软面包</span></a>
-															</dd>
-															<dd>
-																<a title="马卡龙" href="#"><span>马卡龙</span></a>
-															</dd>
-															<dd>
-																<a title="千层饼" href="#"><span>千层饼</span></a>
-															</dd>
-															<dd>
-																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-															</dd>
-															<dd>
-																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-															</dd>
-															<dd>
-																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-															</dd>
-														</dl>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div> <b class="arrow"></b>
-								</li>
-<br>
-								<li>
-									<div class="category-info">
-										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/candy.png"></i><a class="ml-22"
-												title="运动健身" href="#">运动健身</a>
-										</h3>
-										<em>&gt;</em>
-									</div>
-									<div class="menu-item menu-in top"
-										style="border: 2px solid red;">
-										<div class="area-in">
-											<div class="area-bg">
-												<div class="menu-srot">
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="健身训练">健身训练</span>
-															</dt>
-
-															<dd>
-																<a title="跑步机" href="#"><span>跑步机</span></a>
-															</dd>
-															<dd>
-																<a title="健身车" href="#"><span>健身车</span></a>
-															</dd>
-															<dd>
-																<a title="跑步机" href="#"><span>跑步机</span></a>
-															</dd>
-															<dd>
-																<a title="甩脂机" href="#"><span>甩脂机</span></a>
-															</dd>
-															<dd>
-																<a title="仰卧板" href="#"><span>仰卧板</span></a>
-															</dd>
-															<dd>
-																<a title="踏步机" href="#"><span>踏步机</span></a>
-															</dd>
-															<dd>
-																<a title="哑铃" href="#"><span>哑铃</span></a>
-															</dd>
-															<dd>
-																<a title="臂力器" href="#"><span>臂力器</span></a>
-															</dd>
-															<dd>
-																<a title="动感单车" href="#"><span>动感单车</span></a>
-															</dd>
-
-														</dl>
-
-													</div>
-
-
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="户外骑行">户外骑行</span>
-															</dt>
-
-															<dd>
-																<a title="自行车" href="#"><span>自行车</span></a>
-															</dd>
-															<dd>
-																<a title="公路车" href="#"><span>公路车</span></a>
-															</dd>
-															<dd>
-																<a title="通勤车" href="#"><span>通勤车</span></a>
-															</dd>
-															<dd>
-																<a title="思维车" href="#"><span>思维车</span></a>
-															</dd>
-															<dd>
-																<a title="电动车" href="#"><span>电动车</span></a>
-															</dd>
-														</dl>
-
-													</div>
-
-												</div>
-
-											</div>
-										</div>
-										</div>
-										<b class="arrow"></b>
-								</li>
-								<!-- <br>
-								<li>
-									<div class="category-info">
-										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/chocolate.png"></i><a
-												class="ml-22" title="酒水">酒水</a>
-										</h3>
-										<em>&gt;</em>
-									</div>
-									<div class="menu-item menu-in top"
-										style="border: 2px solid red;">
-										<div class="area-in">
-											<div class="area-bg">
-												<div class="menu-srot">
-													<div class="brand-side">
-														<dl class="dl-sort">
-															<dt>
-																<span title="饮料冲乳">饮料冲乳</span>
-															</dt>
-															<dd>
-																<a title="燕麦片" href="#"><span>燕麦片</span></a>
-															</dd>
-															<dd>
-																<a title="牛奶" href="#"><span>牛奶</span></a>
-															</dd>
-															<dd>
-																<a title="酸奶" href="#"><span>酸奶</span></a>
-															</dd>
-															<dd>
-																<a title="成人奶粉" href="#"><span>成人奶粉</span></a>
-															</dd>
-															<dd>
-																<a title="雀巢咖啡" href="#"><span>雀巢咖啡</span></a>
-															</dd>
-															<dd>
-																<a title="纯牛奶" href="#"><span>纯牛奶</span></a>
-															</dd>
-															<dd>
-																<a title="早餐奶" href="#"><span>早餐奶</span></a>
-															</dd>
-															<dd>
-																<a title="黑芝麻" href="#"><span>黑芝麻</span></a>
-															</dd>
-														</dl>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div> <b class="arrow"></b>
-								</li> -->
-								<br>
-								<li>
-									<div class="category-info">
-										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/tea.png"></i><a
-												class="ml-22" title="营养保健" href="#">营养保健</a>
-										</h3>
-										<em>&gt;</em>
-									</div>
-									<div class="menu-item menu-in top"
-										style="border: 2px solid red;">
-										<div class="area-in">
-											<div class="area-bg">
-												<div class="menu-srot">
-													<div class="brand-side">
-
-														<dl class="dl-sort">
-															<dt>
-																<span title="营养">营养</span>
-															</dt>
-
-															<dd>
-																<a title="香" href="#"><span>香</span></a>
-															</dd>
-															<dd>
-																<a title="香蕉" href="#"><span>香蕉</span></a>
-															</dd>
-															<dd>
-																<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-															</dd>
-															<dd>
-																<a title="软面包" href="#"><span>软面包</span></a>
-															</dd>
-															<dd>
-																<a title="马卡龙" href="#"><span>马卡龙</span></a>
-															</dd>
-															<dd>
-																<a title="千层饼" href="#"><span>千层饼</span></a>
-															</dd>
-															<dd>
-																<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-															</dd>
-															<dd>
-																<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-															</dd>
-															<dd>
-																<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-															</dd>
 														</dl>
 													</div>
 													<div class="brand-side">
@@ -1985,8 +1878,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">我要我的品质</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
-							</a>| <a href="# ">马卡龙</a>| <a href="# ">铜锣烧</a>| <a href="# ">豌豆黄</a>
+							<a href="# ">羽绒服</a>| <a href="# ">棉衣</a>| <a href="# ">加厚
+							</a>| <a href="# ">打底衫</a>| <a href="# ">衬衫</a>| <a href="# ">短裤</a>
 						</div>
 
 					</div>
@@ -1996,22 +1889,17 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">背心</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">短袖</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">外套</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">长裤</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">袜子</b></span></a> 
 						</div>
 						<a href="# "> <img src="/resources/front/images/self_img/1.jpg" />
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦</div>
-								<div class="sub-title ">当小鱼儿恋上软豆腐</div>
+								<div class="title ">男人的衣柜</div>
+								<div class="sub-title ">衣生衣世，唯爱不变</div>
 							</div>
 						</a>
 						<div class="triangle-topright"></div>
@@ -2070,8 +1958,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">败家不是罪，怎么买都不贵</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
-							<a href="# ">碧根果</a>| <a href="# ">开心果</a>| <a href="# ">核桃仁</a>
+							<a href="# ">打底裤</a>| <a href="# ">保暖内衣</a>| <a href="# ">羊绒大衣 </a>|
+							<a href="# ">棉袄</a>| <a href="# ">打底衫</a>| <a href="# ">针织衫</a>
 						</div>
 					</div>
 				</div>
@@ -2079,22 +1967,20 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-4 text-one list ">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">长袖</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">外套</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">大码</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">针织</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">羊绒</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">打底裤</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">棉鞋</b></span></a> 
 						</div>
 						<a href="# ">
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦！</div>
-								<div class="sub-title ">零食大礼包</div>
+								<div class="title ">高贵典雅！</div>
+								<div class="sub-title ">情如衣，暖如心</div>
 							</div> <img src="/resources/front/images/self_img/11.jpg" />
 						</a>
 						<div class="triangle-topright"></div>
@@ -2153,8 +2039,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">每一道食品都有一个故事</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
-							</a>| <a href="# ">马卡龙</a>| <a href="# ">铜锣烧</a>| <a href="# ">豌豆黄</a>
+							<a href="# ">桂花糕</a>| <a href="# ">鲜花饼</a>| <a href="# ">栗子糕
+							</a>| <a href="# ">凤梨酥</a>| <a href="# ">铜锣烧</a>| <a href="# ">广式月饼</a>
 						</div>
 
 					</div>
@@ -2165,17 +2051,13 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">华夫饼</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">肉松饼</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">黄山烧饼</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">达利园</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">月饼</b></span></a> 
+								
 						</div>
 						<a href="# "> <img src="/resources/front/images/self_img/5.jpg" />
 							<div class="outer-con ">
@@ -2238,8 +2120,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你需要的温馨，我来替你营造</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
-							<a href="# ">碧根果</a>| <a href="# ">开心果</a>| <a href="# ">核桃仁</a>
+							<a href="# ">毛巾</a>| <a href="# ">被子</a>| <a href="# ">枕头 </a>|
+							<a href="# ">牙刷</a>| <a href="# ">热水器</a>| <a href="# ">空调</a>
 						</div>
 					</div>
 				</div>
@@ -2247,22 +2129,17 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-4 text-one list ">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">四件套</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">蚕丝被</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">毛毯</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">记忆枕</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">床褥</b></span></a> 
 						</div>
 						<a href="# ">
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦！</div>
-								<div class="sub-title ">零食大礼包</div>
+								<div class="title ">温暖舒适</div>
+								<div class="sub-title ">美好家居，从这里开始</div>
 							</div> <img src="/resources/front/images/self_img/11.jpg" />
 						</a>
 						<div class="triangle-topright"></div>
@@ -2321,8 +2198,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你的健康是我最大的关怀</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
-							</a>| <a href="# ">马卡龙</a>| <a href="# ">铜锣烧</a>| <a href="# ">豌豆黄</a>
+							<a href="# ">海参</a>| <a href="# ">灵芝</a>| <a href="# ">贵州三宝
+							</a>| <a href="# ">阿胶枣</a>| <a href="# ">西洋参</a>
 						</div>
 
 					</div>
@@ -2333,22 +2210,18 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">蛋白粉</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">脑白金</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">冬虫夏草</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">燕窝</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">蜂蜜</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">壮骨粉</b></span></a> 
 						</div>
 						<a href="# "> <img src="/resources/front/images/self_img/5.jpg" />
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦</div>
-								<div class="sub-title ">当小鱼儿恋上软豆腐</div>
+								<div class="title ">人生自古谁不老</div>
+								<div class="sub-title ">让您度过身心愉快的每一天</div>
 							</div>
 						</a>
 						<div class="triangle-topright"></div>
@@ -2405,31 +2278,29 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">把满意带给你，把健康带回家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
-							<a href="# ">碧根果</a>| <a href="# ">开心果</a>| <a href="# ">核桃仁</a>
+							<a href="# ">维生素</a>| <a href="# ">液体钙</a>| <a href="# ">调节三高 </a>|
+							<a href="# ">肝肾养护</a>| <a href="# ">养颜</a>| <a href="# ">胶原蛋白</a>
 						</div>
 					</div>
 				</div>
 				<div class="am-g am-g-fixed floodSeven">
 					<div class="am-u-sm-5 am-u-md-4 text-one list ">
 						<div class="word">
-							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+							<a class="outer" href="#"><span
+								class="inner"><b class="text">思密达</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">利福平</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">百多邦</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">创可贴</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">红霉素</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">止血</b></span></a>  <a class="outer"
+								href="#"><span class="inner"><b class="text">双黄连</b></span></a>
 						</div>
 						<a href="# ">
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦！</div>
-								<div class="sub-title ">零食大礼包</div>
+								<div class="title ">仁心济世</div>
+								<div class="sub-title ">和谐一生，延年益寿</div>
 							</div> <img src="/resources/front/images/self_img/11.jpg" />
 						</a>
 						<div class="triangle-topright"></div>
@@ -2488,8 +2359,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">让健康谱写生命的乐章</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">桂花糕</a>| <a href="# ">奶皮酥</a>| <a href="# ">栗子糕
-							</a>| <a href="# ">马卡龙</a>| <a href="# ">铜锣烧</a>| <a href="# ">豌豆黄</a>
+							<a href="# ">羽毛球</a>| <a href="# ">腰鼓</a>| <a href="# ">自行车
+							</a>| <a href="# ">象棋</a>| <a href="# "></a>| <a href="# ">棒球</a>
 						</div>
 
 					</div>
@@ -2500,26 +2371,17 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">兵乓球</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">网球</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">跑步机</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
-								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">高尔夫</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">台球</b></span></a> 
 						</div>
 						<a href="# "> <img src="/resources/front/images/self_img/5.jpg" />
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦</div>
-								<div class="sub-title ">当小鱼儿恋上软豆腐</div>
+								<div class="title ">健康与娱乐同</div>
+								<div class="sub-title ">琴棋书画，老有所乐</div>
 							</div>
 						</a>
 						<div class="triangle-topright"></div>
@@ -2576,8 +2438,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">健康水果，美味到家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">腰果</a>| <a href="# ">松子</a>| <a href="# ">夏威夷果 </a>|
-							<a href="# ">碧根果</a>| <a href="# ">开心果</a>| <a href="# ">核桃仁</a>
+							<a href="# ">猕猴桃</a>| <a href="# ">苹果</a>| <a href="# ">香蕉</a>|
+							<a href="# ">火龙果</a>| <a href="# ">草莓</a>| <a href="# ">哈密瓜</a>
 						</div>
 					</div>
 				</div>
@@ -2585,22 +2447,20 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-4 text-one list ">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">李子</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">人参果</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">荔枝</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a> <a
+									class="text">菠萝</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">蓝莓</b></span></a> <a class="outer"
+								href="#"><span class="inner"><b class="text">西瓜</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">核桃</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">核桃</b></span></a> <a class="outer"
-								href="#"><span class="inner"><b class="text">核桃</b></span></a>
+									class="text">海棠果</b></span></a> 
 						</div>
 						<a href="# ">
 							<div class="outer-con ">
-								<div class="title ">零食大礼包开抢啦！</div>
-								<div class="sub-title ">零食大礼包</div>
+								<div class="title ">绿色田园</div>
+								<div class="sub-title ">甜果天仙配，健康每一天</div>
 							</div> <img src="/resources/front/images/self_img/11.jpg" />
 						</a>
 						<div class="triangle-topright"></div>
@@ -2791,6 +2651,7 @@ et=UTF-8">
 			<div>充值</div>
 		</div>
 	</div>
+	<jsp:include page="EC_footer.jsp"></jsp:include>
 	<script>
 		window.jQuery
 				|| document
@@ -2855,10 +2716,7 @@ et=UTF-8">
 														+ classname;
 												window.location.href = hrs;
 											
-										})
-										
-										
-										
+										})	
 
 						$(document)
 								.on(

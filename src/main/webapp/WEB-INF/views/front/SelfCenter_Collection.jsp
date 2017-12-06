@@ -90,7 +90,7 @@
 		</div>
 
 	
-
+<jsp:include page="EC_footer.jsp"></jsp:include>
 
 </body>
 </html>

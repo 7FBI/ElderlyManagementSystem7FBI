@@ -27,6 +27,9 @@
 					<c:if test="${!empty oldUsers.username}">
 						<a href="#" target="_top" class="h">${oldUsers.username}，欢迎登录</a>
 					</c:if>
+					<c:if test="${empty oldUsers.username}">
+						<a href="/gotoFront/login" target="_top" class="h">登录</a>
+					</c:if>
 					</div>
 				</div>
 			</ul>

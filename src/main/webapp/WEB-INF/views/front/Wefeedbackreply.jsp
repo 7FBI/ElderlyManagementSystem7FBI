@@ -396,5 +396,6 @@ padding-bottom: 20px;}
 			</div>
   <jsp:include page="SelfCenter_Menu.jsp"></jsp:include>	
 		</div>
+		<jsp:include page="EC_footer.jsp"></jsp:include>
 	</body>
 </html>
