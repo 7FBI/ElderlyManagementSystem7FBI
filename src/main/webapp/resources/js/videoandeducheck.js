@@ -16,8 +16,8 @@ function titleCheck(){
 		var str = "× 标题不能为空";
 		document.getElementById("error1").innerHTML = str;
 		return false;
-	}  else if (vtitle.length <2||vtitle.length >20){
-		var str = "× 标题长度在2-20"
+	}  else if (vtitle.length <2||vtitle.length >40){
+		var str = "× 标题长度在2-40"
 			document.getElementById("vtitle").value = "";
 			document.getElementById("vtitle").focus();
 			document.getElementById("success1").innerHTML = "";
@@ -114,7 +114,7 @@ function contentCheck() {
 
 }
 function educontentCheck() {
-	var reg = /^.{200,5000}$/;
+	/*var reg = /^.{200,5000}$/;
 	var educontent = document.getElementById("educontent").value;
 	if (educontent.length == 0) {
 		var str = "× 内容不能为空";
@@ -132,7 +132,8 @@ function educontentCheck() {
 		document.getElementById("error6").innerHTML = str;
 		return false;
 
-	}
+	}*/
+	return true;
 
 }
 function checkUrl() {

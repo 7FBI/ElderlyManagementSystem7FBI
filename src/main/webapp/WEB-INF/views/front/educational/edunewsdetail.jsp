@@ -67,8 +67,8 @@
  <br>
     <div> 
       
-       <img alt="新闻图片" src="/files${oneEduDetail.eduurl}"
-				style="max-width:1024px; height: 533px;" /></div><br>
+       <img alt="新闻图片" src="/files${oneEduDetail.eduurl}" style="width:700px; height: 400px;"/></div><br>
+				<!-- style="max-width:1024px; height: 533px;" -->
 			<div style="text-align: left;font-size:22px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${oneEduDetail.educontent}</div>
 		</div>
   </div>
