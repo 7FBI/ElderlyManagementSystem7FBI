@@ -74,13 +74,16 @@
 		resultType="com.bean.Video">
 		select * from video where id=#{id}
 	</select>
+	<select id="someFreePrice" resultMap="BaseResultMap">
+	select * from video where vprice=0 LIMIT 10
+	</select>
 	<!--查询出所有的记录数 -->
 	<select id="videoCount" resultType="java.lang.Integer">
-		select count(*) from video
+		select count(*) from video  
 	</select>
 	<!--分页 -->
 	<select id="findVieoMap" parameterType="hashMap" resultMap="BaseResultMap">
-		select * from video ORDER BY id LIMIT #{page},#{max}
+		select * from video where vprice!=0 ORDER BY id LIMIT #{page},#{max}
 	</select>
 	<!--免费资源 -->
 	<select id="allFreePrice" resultMap="BaseResultMap">

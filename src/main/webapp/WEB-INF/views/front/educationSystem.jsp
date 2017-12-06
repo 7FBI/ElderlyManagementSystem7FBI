@@ -144,10 +144,11 @@
 	<c:if test="${!empty allVideos }">
 		<div id="caseslist">
 			<div class="videolisttitle">
-				<strong> <span class="glyphicon glyphicon-thumbs-up"
-					aria-hidden="true"></span> 原创精选
+				<strong><font size="6px"> <span class="glyphicon glyphicon-thumbs-up"
+					aria-hidden="true"></span> 原创精选</font> 
 				</strong>
-				<HR>
+				<!-- <HR> -->
+				<div style="width: 95%;height: 3px;background-color: orange;"></div>
 			</div>
 			<div>
 				<ul class="cases wrapper"
@@ -160,7 +161,7 @@
 							href="${pageContext.request.contextPath }/front/videos/selectvideobyid.action?id=${allVideos.id}">
 								<!-- <video width="210" height="152" controls> --> <video
 									width="210px" height="152" preload="metadata"> <source
-									src="/files${allVideos.vurl}" type="video/mp4">
+									src="/fbiImage${allVideos.vurl}" type="video/mp4">
 						</a> <strong><a
 								href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${allVideos.id}">
 									<font color="blue" size="3px">${allVideos.vtitle }</font>
@@ -278,8 +279,8 @@
 	<c:if test="${!empty freevideo }">
 		<div id="caseslist">
 			<div class="videolisttitle">
-				<strong> <span class="glyphicon glyphicon-facetime-video"
-					aria-hidden="true"></span> 免费资源
+				<strong><font size="6px"> <span class="glyphicon glyphicon-facetime-video"
+					aria-hidden="true"></span> 免费资源 </font>
 				</strong>
 				<div style="margin-top: 8px;float: right; font-size: 20px;margin-right: 120px;">
 				<a
@@ -287,7 +288,8 @@
 					><span
 					class="glyphicon glyphicon-plus" aria-hidden="true"></span> 免费视频...</a>
 			</div>
-				<HR>
+				<!-- <HR> -->
+				<div style="width: 95%;height: 3px;background-color: orange;"></div>
 			</div>
 			<div>
 				<ul class="cases wrapper"

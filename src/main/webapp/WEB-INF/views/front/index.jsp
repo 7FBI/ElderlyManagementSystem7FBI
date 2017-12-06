@@ -142,7 +142,7 @@
     <div id="newslunbo">
     <ul>
     <c:forEach items="${hotnews }" var="hotnews">
-        <li><img src="/files${hotnews.eduurl }"  width="100%" height="100%"></li>					
+        <li><img src="/fbiImage${hotnews.eduurl }"  width="100%" height="100%"></li>					
         </c:forEach> 	
     </ul>
   </div>
@@ -153,7 +153,7 @@
     <ul>
       <c:forEach items="${hotnews }" var="hotnews">
       <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
-          <img src="/files${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>
+          <img src="/fbiImage${hotnews.eduurl }"  width="90" height="90" alt="新闻图片"/></a>
         <div class="newslist"> 
            <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" title="百度免费＂发武器＂ 布局移动互联网">${hotnews.edutitle }</a>
            <span><fmt:formatDate value="${hotnews.edutime }" pattern="yyyy-MM-dd"/></span>

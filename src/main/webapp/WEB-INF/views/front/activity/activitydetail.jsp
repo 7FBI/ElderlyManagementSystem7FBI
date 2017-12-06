@@ -42,7 +42,11 @@
        <!--  <li><img src="../../../resources/upload/front/ad5.jpg" alt="..." width="100%"
 						height="100%"></li> -->
 		<c:forEach items="${activepicutre }" var="activepicutre">			
-          <li><img src="/files${activepicutre.activeimageurl }" alt="..." width="100%" height="100%"></li>				
+          <li><img src="/fbiImage${activepicutre.activeimageurl }" alt="..." width="100%" height="100%"></li>				
+       <c:if test="${empty activepicutre }">
+			<li><img alt="" src="../../../../resources/upload/front/jianshnegcao2.jpg" width="100%" height="100%"></li>
+			<li><img alt="" src="../../../../resources/upload/front/douniuwu2.jpg" width="100%" height="100%"></li>
+		</c:if>
        </c:forEach>	
     </ul>
 </div>

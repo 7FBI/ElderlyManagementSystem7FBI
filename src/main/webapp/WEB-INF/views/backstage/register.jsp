@@ -30,8 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 
 <!-- 验证 -->
-
-<script type="text/javascript" language="javascript" src="../../../resources/js/registercheck.js"></script>
+<script type="text/javascript" language="javascript" src="/resources/js/registercheck.js"></script>
 
 </head>
 
@@ -60,7 +59,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/backstage/oldusers/queryAllUsers.action"><font
+				href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManagerPage.action"><font
 					size="2px" color="blue"> <span
 						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
 				</font></a> <br> 
@@ -311,5 +310,6 @@
 				height="17" /></td>
 		</tr>
 	</table>
+	
 </body>
 </html>

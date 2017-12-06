@@ -109,7 +109,7 @@ public class FrontVideoController {
 	    	allVideos.add(videos);
 	    }
 	   //免费视频
-	    List <Video> allvideos=videoService.freePrice(map);
+	    List <Video> allvideos=videoService.someFreePrice();
 		List <Video> freevideo=new ArrayList<Video>();
 		for(Video video:allvideos){
 			String newvideoContent=video.getVcontent();
@@ -140,6 +140,7 @@ public class FrontVideoController {
 		int videoId=oneVideoById.getId();
 		String videotitle=oneVideoById.getVtitle();
 		System.out.println(oneVideoById.getVtitle());
+		List<Video> allfreeVideo=videoService.allFreePrice();
 		if(videotitle.length()>0){
 			System.out.println(videotitle.length());
 			if(videotitle.length()>=1&&videotitle.length()<3){

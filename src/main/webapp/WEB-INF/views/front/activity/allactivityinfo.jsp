@@ -65,10 +65,11 @@
 	<div class="activitylist">
 		<div class="imgs">
 		<c:if test="${!empty onePicture }">
-			<img alt="" src="/files${onePicture.activeimageurl }" width="100%" height="100%">
+			<img alt="" src="/fbiImage${onePicture.activeimageurl }" width="100%" height="100%">
 		</c:if>
 		<c:if test="${empty onePicture }">
-			<img alt="" src="../../../resources/upload/front/ad5.jpg" width="100%" height="100%">
+			<img alt="" src="/resources/upload/front/jianshnegcao2.jpg" width="100%" height="100%">
+			<img alt="" src="/resources/upload/front/douniuwu2.jpg" width="100%" height="100%">
 		</c:if>
 		</div>
 		<div class="activitycontent">
@@ -78,9 +79,9 @@
 					<div style="width: 620px;height: 300px;padding: 4px 8px; background-color: white;">
 				       <a href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}">
 							 <c:if test="${empty onePicture }">
-							  <img alt="" src="../../../resources/upload/front/ad5.jpg" width="100%" height="100%"> 
+							  <img alt="" src="/resources/upload/front/douniuwu.jpg" width="100%" height="100%"> 
 						     </c:if>
-							   <img alt="" src="/files${allActivitiyAndPicture.activeimageurl }" width="100%" height="100%">
+							   <img alt="" src="/fbiImage${allActivitiyAndPicture.activeimageurl }" width="100%" height="100%">
 							</a>
 							</div>
 							<div>

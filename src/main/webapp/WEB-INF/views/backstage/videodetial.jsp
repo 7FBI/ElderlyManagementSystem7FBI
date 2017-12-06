@@ -174,7 +174,7 @@
 															</tr>
 															<tr >
 																<td width="20%">视频</td>
-																<td width="80%" align="center"><video width="200" height="160" controls>
+																<td width="80%" align="center"><video width="400" height="260" controls>
 																	<source src="/fbiImage${oneVideoById.vurl}"
 																		type="video/mp4"> <source
 																		src="/fbiImage${oneVideoById.vurl}" type="video/ogg">

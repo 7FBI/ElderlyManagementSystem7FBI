@@ -79,4 +79,9 @@ public class VideoServiceImpl implements VideoService{
 		// TODO Auto-generated method stub
 		return videoMapper.selectVideoByIdFX(id);
 	}
+	@Override
+	public List<Video> someFreePrice() {
+		// TODO Auto-generated method stub
+		return videoMapper.someFreePrice();
+	}
 }

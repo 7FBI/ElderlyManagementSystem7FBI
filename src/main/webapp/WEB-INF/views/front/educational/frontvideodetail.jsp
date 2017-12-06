@@ -47,12 +47,12 @@
 	<!--视频播放  -->
 		<div class="myvideos">
 		  <video height="680" width="100%" controls autoplay>
-		     <source src="/files${oneVideoById.vurl}" type="video/mp4"> 				
+		     <source src="/fbiImage${oneVideoById.vurl}" type="video/mp4"> 				
 			 <source
-				src="/files${oneVideoById.vurl}" type="video/ogg">
+				src="/fbiImage${oneVideoById.vurl}" type="video/ogg">
 				<!-- 如果浏览器不支持video标签，则使用flash --> 
 			  <embed
-				src="/files${oneVideoById.vurl}"
+				src="/fbiImage${oneVideoById.vurl}"
 				type="application/x-shockwave-flash" width="240"
 				height="160" allowscriptaccess="always"
 				allowfullscreen="true">
