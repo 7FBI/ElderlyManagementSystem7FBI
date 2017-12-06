@@ -4236,9 +4236,23 @@ area{outline: none;}
 .Xcontent17{
 	width: 502px;
 	height: 117px;
-	background: #f5f3ef;
+	background:#f2f2f2;
 	margin-top: 30px;
 	overflow: hidden;
+}
+.Xcontent17 .pdescription{
+	margin-top:50px;
+	margin-left:16px;
+	width:400px;
+	height:65px;
+}
+.Xcontent17 .pdescription span{
+	height:21px;
+	line-height:21px;
+	padding:2px 2px;
+	color:red;
+	text-align:left;
+	font-size:12px;
 }
 .Xcontent18{
 	font-family: "微软雅黑";

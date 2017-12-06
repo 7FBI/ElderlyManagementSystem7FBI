@@ -97,7 +97,7 @@
 				<div class="Xcontent07">
 					<img src="/fbiImage${product.producturl}">
 				</div>
-				<c:forEach items="${photosUrl }" var="url">
+				<c:forEach items="${photosUrl}" var="url">
 					<div class="Xcontent09">
 						<img src="/fbiImage${url}">
 					</div>
@@ -118,6 +118,9 @@
 					<p class="Xcontent19">
 						￥<span>${product.price}</span>
 					</p>
+					<div class="pdescription">
+					<span>${product.pdescription}</span>
+					</div>
 				</div>
 				<div class="inner_floor">
 					<h3>优惠</h3>
