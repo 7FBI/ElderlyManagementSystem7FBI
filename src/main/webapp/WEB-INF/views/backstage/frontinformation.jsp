@@ -62,27 +62,7 @@
 							</table>
 						</td>
 					</tr>
-					<tr>
-						<td width="2%">&nbsp;</td>
-						<td width="96%">
-							<form action="" name="sousuo">
-								<table>
-									<tr>
-										<td width="100" align="center"></td>
-										<td>类型:<select name="kinds" style="width: 120px">
-												<option selected="selected" value="null"></option>
-												<c:forEach items="${kinds }" var="k">
-													<option value="${k}">${k }</option>
-												</c:forEach>
-										</select>&nbsp; 搜索(标题): <input class="text" name="likes" />&nbsp;&nbsp;&nbsp;
-											<button type="button" id="likesBtn" class="btn">搜索</button>
-										</td>
-									</tr>
-								</table>
-							</form>
-						</td>
-						<td width="2%">&nbsp;</td>
-					</tr>
+					
 					<!-- 产品列表开始 -->
 					<tr>
 						<td width="2%">&nbsp;</td>

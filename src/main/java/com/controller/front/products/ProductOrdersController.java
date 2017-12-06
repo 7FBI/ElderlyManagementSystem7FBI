@@ -83,10 +83,8 @@ public class ProductOrdersController {
 		if (request.getSession().getAttribute("oldUsers") == null) {
 			return "login";
 		}
-		
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Orders orders = getNewOrders(oldUsers);
-		//List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
 		List<Orderdetails> list = new ArrayList<Orderdetails>();
 		List<Integer> pids = new ArrayList<Integer>();
 		for (int i = 0; i < products.length; i++) {
@@ -102,7 +100,6 @@ public class ProductOrdersController {
 		map.put("list", pids);
 		map.put("uid", oldUsers.getUid());
 		List<ShoppingCart> sList = shoppingCartService.selectByaproduvtsList(map);
-		System.out.println("--------------size:"+sList.size());
 		List<Integer> integers = new ArrayList<Integer>();
 		for (ShoppingCart ShoppingCart : sList) {
 			integers.add(ShoppingCart.getId());
@@ -114,8 +111,8 @@ public class ProductOrdersController {
 		//查看是否存在打折
 		orders.setMoney(ShopPrices.getAllShowPrices(orders.getId(), discountService, orderdetailsService));
 		ordersService.updateByPrimaryKeySelective(orders);
-		//request.setAttribute("id", orders.getId());
-		return  orders.getId();
+		String oid=orders.getId();
+		return  oid;
 	}
 
 	@RequestMapping("/addOneOrder")
@@ -380,7 +377,7 @@ public class ProductOrdersController {
 		Orders orders = ordersService.selectByPrimaryKey(id);
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		if (orders != null) {
-			if (oldUsers.getBalance() > orders.getMoney()) {
+			if (oldUsers.getBalance() >= orders.getMoney()) {
 				orders.setOrderstatus(1);
 				oldUsers.setBalance(oldUsers.getBalance()-orders.getMoney());
 				oldUsersService.updateByPrimaryKeySelective(oldUsers);
@@ -394,6 +391,24 @@ public class ProductOrdersController {
 		}
 
 		return "true";
+	}
+	
+	@RequestMapping("/goOrderOver")
+	public ModelAndView goOrderOver(HttpServletRequest request) {
+		ModelAndView view=new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			view.setViewName("front/login");
+			return view;
+		}
+		String id = request.getParameter("id");
+		Orders orders = ordersService.selectByPrimaryKey(id);
+		if (orders != null) {
+			view.setViewName("front/Pay_Success");
+			view.addObject("orders", orders);
+			return view;
+		}else {
+			return allOrdersInfo(request);
+		}
 	}
 
 	@RequestMapping("/overProducts")

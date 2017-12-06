@@ -210,12 +210,9 @@
 					</div>
 				</div>
 			</div>
-			
-			
 		</div>
-		
 	</div>
-	
+
 	<!-- 删除购物车 -->
 	<div id="confirmDelete" class="mod_layer"
 		style="margin-top: -100px; margin-left: -180px;">
@@ -230,10 +227,7 @@
 				class="layer_btn js_cojy">取消</a>
 		</div>
 	</div>
-	
-<jsp:include page="EC_footer.jsp"></jsp:include>	
 </body>
-
 <script src="/resources/unity/jquery/jquery-3.2.0.js"
 		type="text/javascript"></script>
 <script src="/resources/unity/address/js/area.js"></script>
@@ -382,12 +376,12 @@
 			alert("还没有选择任何商品,请至少选择一件商品");
 		}else{
 			 $.ajax({
-				type:'get',
+				type:'post',
 				url:'/front/orders/addOrder',
 				dataType:"json",
 				contentType : "application/json;charset=UTF-8",
 				data:JSON.stringify(products),
-				success:function(data){
+				success : function(data) {
 					if (data=="login") {
 						window.location.href="/gotoFront/login";
 					} else {
@@ -395,10 +389,9 @@
 					}
 				},
 				error:function(){
-					alert("网络中断，无法下单");
+					window.location.reload();
 				}
-			}) 
-			//$.post('/front/orders/addOrder',JSON.stringify(products),"json");
+			})
 		}
 		
 	})

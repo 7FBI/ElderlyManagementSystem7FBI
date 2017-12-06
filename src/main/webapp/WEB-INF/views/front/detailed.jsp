@@ -197,7 +197,7 @@
 				<div class="recommend_item sku_tag_wrap">
 					<a class="pro_href" target="_blank"
 						href="/front/products/selectProductDetailByPrimaryKey?id=${likes.id}">
-						<img alt="" src="/fbiImage${likes.producturl}" class="pro_img">
+						<img alt="${likes.pname}" src="/fbiImage${likes.producturl}" class="pro_img">
 						<span class="pro_name"></span> <span class="pro_price">¥${likes.price}</span>
 						<!-- <div class="sku_tag sku_tag_important">11.11抢先购</div> -->
 					</a>
@@ -650,13 +650,9 @@
 		/* 收藏功能 */
 		$("#btnCollect").click(function() {
 			var btn = $("#btnCollect")
-			var tg = $
-			{
-				product.id
-			}
-			;
+			var tg = ${product.id};
 			$.ajax({
-				type : 'post',
+				type : 'get',
 				url : "/front/collection/insert_or_delete?pid=" + tg,
 				success : function(data) {
 					switch (data) {
@@ -670,9 +666,6 @@
 						btn.removeClass().addClass("icon icon_collectse")
 						break;
 					}
-				},
-				error : function() {
-					alert("网络错误")
 				}
 
 			})
@@ -710,8 +703,7 @@
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$
-					.ajax({
+			$.ajax({
 						type : 'get',
 						url : '/front/opinions/opinionsList?pid=' + p
 								+ '&page=' + page,
@@ -750,15 +742,14 @@
 			var x = $("#scoreBox");
 			var p = $("#nowpids").val();
 			var st = $("#stars");
-			$
-					.ajax({
+			$.ajax({
 						type : 'get',
 						url : '/front/opinions/opinionsList?pid=' + p,
 						success : function(data) {
 							var avgs = data.avg;
 							x.css("width", avgs * 23.2 + "px");
 							st.text(avgs);
-							$("#countOp").val(data.counts);
+							$("#countOp").val(data.counts+1);
 							$("#pageCountOp").val(data.count);
 							if (data.opinions != null) {
 								var opdiv = $("#opinionsDiv");
