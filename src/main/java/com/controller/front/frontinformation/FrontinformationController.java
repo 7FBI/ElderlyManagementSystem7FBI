@@ -51,6 +51,20 @@ public class FrontinformationController {
 	return modelAndView;
 	}
 	
+	
+	/*@RequestMapping("/selectEight")
+	public ModelAndView selectEight(String newstitle){
+	List<Frontinformation> list=frontinformationService.selectEight(newstitle);
+	ModelAndView modelAndView = new ModelAndView();
+	modelAndView.addObject("list", list);
+		for(int i = 0; i<list.size();i ++){
+			System.out.println("----------------------"+list.get(i).getNewstitle());
+		}
+	modelAndView.setViewName("/");
+	return modelAndView;
+	}*/
+	
+	
 	//这是用来查询通告详情的
 	@RequestMapping("/selectByKey")
 	public ModelAndView selectByKey(Integer id){
