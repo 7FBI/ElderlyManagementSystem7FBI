@@ -74,14 +74,17 @@
 			 
   <div id="lunbo">
     <ul>
-        <li><img src="../../../resources/upload/front/ad5.jpg" alt="..." width="100%"
+        <li><img src="../../../resources/upload/front/video1.jpg" alt="..." width="100%"
 						height="100%"></li>
-        <li><img src="../../../resources/upload/front/ad4.jpg" alt="..." width="100%"
+        <li><img src="../../../resources/upload/front/video4.jpg" alt="..." width="100%"
 						height="100%"></li>
-        <li><img src="../../../resources/upload/front/ad3.jpg" alt="..." width="100%"
+        <li><img src="../../../resources/upload/front/video2.jpg" alt="..." width="100%"
 						height="100%"></li>
-        <li><img src="../../../resources/upload/front/ad2.jpg" alt="..." width="100%"
+        <li><img src="../../../resources/upload/front/video5.jpg" alt="..." width="100%"
 						height="100%"></li>
+        <li><img src="../../../resources/upload/front/video7.jpg" alt="..." width="100%"
+						height="100%"></li>
+		
     </ul>
 </div>
 

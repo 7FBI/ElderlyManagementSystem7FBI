@@ -98,6 +98,15 @@ list-style: none;/* width:640px; */
  text-align: center;
  }
 #lunbo ul li:not(:first-child){display: none;}
+/*新闻部分图片轮播  */
+#newslunbo ul li{width:376px;
+list-style: none;/* width:640px; */
+ height:640px;
+/*  background-color: #f1fbfc; */
+ text-align: center;
+ 
+ }
+#newslunbo ul li:not(:first-child){display: none;}
 .contentstyle{
        line-height:35px;
 	/* 	text-decoration:underline dashed orange; */
@@ -163,7 +172,7 @@ a:hover{
 /* #mynews{height:100%;background:#DBDBDB;padding-bottom: 50px;} */
 /* #news .newsdata{background:#fff;width:986px;height:520px;margin:0 auto;position:relative;} */
 #mynews .newsdata{background:#fff;width:100%; margin:0 auto;height:100%;margin:0 auto;position:relative;}
-#mynews .newsad{position:absolute;top:33px;}
+#mynews .newsad{position:absolute;}
 #mynews ul{position:absolute;width:66%;top:15px;right:5px;}
 #mynews ul li{position:relative;border-bottom:1px dotted #ccc;padding:15px 0;}
 #mynews ul li .newslist{position:absolute;width:85%;right:0;top:10px;}

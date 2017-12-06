@@ -41,9 +41,13 @@
 	<!-- 查找最顶级栏目  -->
 	<div class="layui-carousel" id="test1">
 		<div carousel-item>
-			<div style="background:url(/resources/front/images/banner_bg3.jpg)">aaa1</div>
-			<div style="background:url(/resources/front/images/banner_bg4.jpg)">aaa2</div>
-			<div style="background:url(/resources/front/images/banner_bg7.jpg)">aaa3</div>
+			
+			<div style="background:url(/resources/front/images/index2.jpg)"></div>
+			<div style="background:url(/resources/front/images/index3.jpg); background-repeat: no-repeat;
+	              no-repeat: center fixed;background-size: contain;background-size: 100% 100%;"></div>
+			<div style="background:url(/resources/front/images/index4.jpg);background-repeat: no-repeat;no-repeat: center fixed;
+	              background-size: contain;background-size: 100% 100%;"></div>
+			<!-- <div style="background:url(/resources/front/images/index5.jpg)">aaa3</div> -->
 		</div>
 	</div>
 	<%-- 	
@@ -228,7 +232,7 @@
 			<!--活动  -->
 			<div class="all_center_left">
 				<div class="imgs">
-					<img alt="" src="/resources/upload/front/edu2.jpg" width="100%"
+					<img alt="" src="/resources/upload/front/activity.png" width="100%"
 						height="100%">
 				</div>
 				<div class="activieimgs">
@@ -327,7 +331,15 @@
     <div class="newsad" > 
     
     <!--图片轮播  -->
-		<div id="carousel-example-generic" class="carousel slide"
+    <div id="newslunbo">
+    <ul>
+    <c:forEach items="${hotnews }" var="hotnews">
+        <li><img src="/files${hotnews.eduurl }"  width="100%" height="100%"></li>					
+        </c:forEach> 	
+    </ul>
+  </div>
+    <!--  -->
+		<%-- <div id="carousel-example-generic" class="carousel slide"
 			data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -339,16 +351,16 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox"
-				style=" padding-bottom: 6px;">
-				<div class="item active">	
-						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360" height="540" />     
+				style="padding-bottom: 6px;">
+				<div class="item active"style="width:360px; height:540px;">	
+						 <img src="/files${leftpicture.eduurl }"  alt="html5" width="360px" height="540px" />     
 					
 					<!-- <div class="carousel-caption">...</div> -->
 				</div>	
 				<c:forEach items="${hotnews }" var="hotnews">
 				<div class="item" >
 						
-						 <img src="/files${hotnews.eduurl }"  alt="html5" width="360" height="540" />     
+						 <img src="/files${hotnews.eduurl }"  width="360px" height="540px" />     
 					
 					<!-- <div class="carousel-caption">...</div> -->
 				</div>
@@ -364,10 +376,10 @@
 				role="button" data-slide="next"> <span
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
-			</a>
-		</div>
+			</a>--%>
+	<!-- 	</div>  -->
 	
-    </div>
+    </div> 
     <ul>
       <c:forEach items="${hotnews }" var="hotnews">
       <li> <a href="${pageContext.request.contextPath}/front/edu/querydudetailbyid.action?id=${hotnews.id}" >
@@ -545,6 +557,20 @@
 		
 
 //]]>
+</script>
+
+	<script type="text/javascript">
+    //因为使用了document，所以js需要放在需要执行的代码下面生效才能生效
+    var li=document.getElementById('newslunbo').getElementsByTagName("li");
+    var num=0;
+    var len=li.length;
+
+    setInterval(function(){
+        li[num].style.display="none";
+        num=++num==len?0:num;
+        li[num].style.display="inline-block";
+
+    },6000);//切换时间
 </script>
 </body>
 </html>

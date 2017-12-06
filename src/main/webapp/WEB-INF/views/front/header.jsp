@@ -64,12 +64,12 @@ color:red;
 			<li ><a href="${pageContext.request.contextPath}/front/activity/allActive"><font size="5px" >活动中心</font></a></li>
 			<li ><a href="${pageContext.request.contextPath}/front/videos/allvideo"><font size="5px" >教育系统</font></a></li>
 			<li ><a href="${pageContext.request.contextPath}/front/edu/alledunews.action"><font size="5px" >新闻中心</font></a></li>
-			<li ><%-- <c:if test="${oldUsers==null }"> --%>
+			<li > <c:if test="${oldUsers==null }"> 
 					<a href="#" id="sumbit"><font size="5px" >个人中心</font></a>
-				<%-- </c:if> --%> <%-- <c:if test="${oldUsers!=null }">
-					<a href="/front/oldUsers/selectByUid">${oldUsers.username}</a>
-				</c:if> --%></li>
+				 </c:if>   <c:if test="${oldUsers!=null }">
+					<a href="/front/oldUsers/selectByUid"><font size="5px" >个人中心</font></a>
+				</c:if> </li>
 </ul></div>
-	</header>
+	</header> 
 </body>
 </html>
