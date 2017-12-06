@@ -169,6 +169,7 @@
 		</div>
 	<!-- 底部 -->
 	<jsp:include page="EC_footer.jsp"></jsp:include>
+	<div style="width:100%;height:200px;"></div>
 	</body>
 <script src="/resources/front/js/self_exchange/jquery.min.js"></script>
 <script type="text/javascript">

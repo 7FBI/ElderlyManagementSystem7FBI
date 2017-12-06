@@ -85,14 +85,14 @@ public class OldUsersController {
 		return modelAndView;
 	}
 
-	@RequestMapping("/updatePasswordByUid")
+	/*@RequestMapping("/updatePasswordByUid")
 	public String updatePasswordByUid(OldUsers oldUsers, String sid, RedirectAttributes mAttributes) {
 		oldUsers.setUid(sid);
 		oldUsersService.updatePasswordByUid(oldUsers);
 		mAttributes.addFlashAttribute("uid", oldUsers.getUid());
 		return "redirect:/front/oldUsers/selectProfileByUid";
 	}
-
+*/
 	@RequestMapping("/selectProfileByUid")
 	public ModelAndView selectProfileByUid(HttpServletRequest request) {
 		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");

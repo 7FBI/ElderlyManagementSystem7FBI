@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bean.Classification;
 import com.bean.Credit;
+import com.bean.Frontinformation;
 import com.bean.Matchdisease;
 import com.bean.OldDiseaselibrary;
 import com.bean.OldUsers;
@@ -27,6 +29,7 @@ import com.bean.Stormproducts;
 import com.controller.util.shop.OldCollectionBoolean;
 import com.service.ClassificationService;
 import com.service.CreditshopService;
+import com.service.FrontinformationService;
 import com.service.MatchdiseaseService;
 import com.service.OldCollectionService;
 
@@ -78,6 +81,11 @@ public class ProductController {
 	@Qualifier("stormproductsService")
 	private StormproductsService stormproductsService;
 
+	@Autowired
+	@Resource
+	private FrontinformationService frontinformationService;
+	
+	
 	@RequestMapping("/selectAllProducts")
 	public ModelAndView selectAllProducts(HttpServletRequest request){
 	int num=0;
@@ -91,10 +99,12 @@ public class ProductController {
 	  }
 	  List<Products> products = productsService.selectAllProducts();
 	  List<Products> product = creditShopService.SelectAllCreditShop();
+	  List<Frontinformation> list=frontinformationService.selectEight("[公告]");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
 		modelAndView.addObject("product", product);
 		modelAndView.addObject("muns",num);
+		modelAndView.addObject("list", list);
 		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
 		

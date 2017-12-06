@@ -479,6 +479,13 @@
 		SELECT * from frontinformation 
 		ORDER BY  sendtiem DESC LIMIT 0,8 
 	</select>
+	
+	<!-- 首页信息板块的信息显示查询最新四条 -->
+	<select	id="selectEight" resultMap="BaseResultMap">
+		SELECT * from frontinformation where newstitle like '%${newstitle}%' and
+		ORDER BY  sendtiem DESC LIMIT 0,8 
+	</select>
+	
 	<!-- 信息列表页 -->
 	<select id="selectAll" resultMap="FrontinformationAndInfopicture">
 		SELECT *

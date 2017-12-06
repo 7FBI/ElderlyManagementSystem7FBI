@@ -220,7 +220,7 @@ et=UTF-8">
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/cake.png"></i><a
+											<i><img src="/resources/front/images/self_img/candy.png"></i><a
 												class="ml-22" title="女装"
 												href="#">女&nbsp;&nbsp;装</a>
 										</h3>
@@ -430,7 +430,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img
-												src="/resources/front/images/self_img/cookies.png"></i><a
+												src="/resources/front/images/self_img/chocolate.png"></i><a
 												class="ml-22" title="美食" href="#">美&nbsp;&nbsp;食</a>
 										</h3>
 										<em>&gt;</em>
@@ -611,7 +611,7 @@ et=UTF-8">
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/bamboo.png"></i><a class="ml-22"
+											<i><img src="/resources/front/images/self_img/cookies.png"></i><a class="ml-22"
 												title="医药馆" href="#">医药馆</a>
 										</h3>
 										<em>&gt;</em>
@@ -795,7 +795,7 @@ et=UTF-8">
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/candy.png"></i><a class="ml-22"
+											<i><img src="/resources/front/images/self_img/fish.png"></i><a class="ml-22"
 												title="运动健身" href="#">运动健身</a>
 										</h3>
 										<em>&gt;</em>
@@ -1027,7 +1027,7 @@ et=UTF-8">
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/tea.png"></i><a
+											<i><img src="/resources/front/images/self_img/nut.png"></i><a
 												class="ml-22" title="营养保健" href="#">营养保健</a>
 										</h3>
 										<em>&gt;</em>
@@ -1156,7 +1156,7 @@ et=UTF-8">
 								<li>
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
-											<i><img src="/resources/front/images/self_img/tea.png"></i><a
+											<i><img src="/resources/front/images/self_img/package.png"></i><a
 												class="ml-22" title="医疗器械" href="#">医疗器械</a>
 										</h3>
 										<em>&gt;</em>
@@ -1762,20 +1762,15 @@ et=UTF-8">
 				<div class="demo">
 
 					<ul>
-						<li class="title-first"><a target="_blank" href="#"> <img
-								src="/resources/front/images/self_img/TJ2.jpg"></img> <span>[特惠]</span>洋河年末大促，低至两件五折
-						</a></li>
-						<li class="title-first"><a target="_blank" href="#"> <span>[公告]</span>商城与广州市签署战略合作协议
-								<img src="/resources/front/images/self_img/TJ.jpg"></img>
-								<p>XXXXXXXXXXXXXXXXXX</p>
-						</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒
-						</a></li>
-						<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券
-								买1送1！</a></li>
+						<c:forEach items="${list }" var="list">
+					
+						<li><a target="_blank" href="#">${list.newstitle }</a></li>
+						
+						</c:forEach>
+						<!-- <li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券买1送1！</a></li>
 						<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
 						<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
+						<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒</a></li> -->
 
 					</ul>
 
@@ -1810,10 +1805,11 @@ et=UTF-8">
 			<!--热门活动 -->
 
 			<div class="am-container">
-
-				<div class="sale-mt">
-				<h3 style="font-size:28px;weight:bold;padding:20px;">今日活动</h3>
-				</div>
+					
+                     <div class="sale-mt">
+		                   <i></i>
+		                   <em class="sale-title">今日活动</em>
+	                  </div>
 
 
 				<div class="am-g am-g-fixed sale">
@@ -1824,7 +1820,7 @@ et=UTF-8">
 						<div class="s-info">
 							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
-								￥<b>29.99</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>
@@ -1836,7 +1832,7 @@ et=UTF-8">
 						<div class="s-info">
 							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
-								￥<b>9.90</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>
@@ -1848,7 +1844,7 @@ et=UTF-8">
 						<div class="s-info">
 							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
-								￥<b>88.88</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>
@@ -1860,7 +1856,7 @@ et=UTF-8">
 						<div class="s-info">
 							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
-								￥<b>999.99</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>

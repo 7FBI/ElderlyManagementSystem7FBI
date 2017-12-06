@@ -264,7 +264,7 @@ display: block;
 line-height:38px;
 width: 35px;
 height: 38px;
-background: url(../../images/self_img/ibar_sprites.jpg) no-repeat;
+background: url(/resources/front/images/self_img/ibar_sprites.jpg) no-repeat;
 }
 /*图标定位*/
 .item .setting {position:absolute;top: 10px;left: 10px;width: 18px;height: 19px;background-position: 0 0;}

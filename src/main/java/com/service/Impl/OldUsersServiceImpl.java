@@ -84,9 +84,9 @@ public class OldUsersServiceImpl implements OldUsersService {
 	}
 	
 	@Override
-	public void updatePasswordByUid(OldUsers oldUsers) {
+	public void updatePasswordByUid(Map map) {
 		// TODO Auto-generated method stub
-		oldUsersMapper.updatePasswordByUid(oldUsers);
+		oldUsersMapper.updatePasswordByUid(map);
 		
 	}
 

@@ -15,15 +15,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="/resources/front/css/self_exchange/personal.css"
 	rel="stylesheet" type="text/css">
-<!-- <script type="text/javascript"
-	src="/resources/front/js/self_exchange/jquery-1.7.2.min.js"></script>
-<script src="/resources/front/js/self_exchange/amazeui.js"></script> -->
 </head>
-<body>
-	<%-- <%
-		OldUsers oldUsers = (OldUsers) session.getAttribute("oldUsers");
-		String username = oldUsers.getUsername();
-	%> --%>
+<body style="background:#F8F8F8">
 	<header> <article>
 	<div class="mt-logo">
 		<!--顶部导航条 -->
@@ -31,7 +24,7 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<	<c:if test="${!empty oldUsers.username}">
+						<c:if test="${!empty oldUsers.username}">
 						<a href="/front/oldUsers/selectByUid" target="_top" class="h">${oldUsers.username}</a>，欢迎登录
 					</c:if>
 					<c:if test="${empty oldUsers.username}">

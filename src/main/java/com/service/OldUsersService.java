@@ -94,7 +94,7 @@ public interface OldUsersService {
 
 	public List<OldUsers> findUserNameById(OldUsers oldUsers);
 
-	public void updatePasswordByUid(OldUsers oldUsers);
+	public void updatePasswordByUid(Map map);
 
 	// 修改用户信息
 	public void modifyById(OldUsers oldUsers);

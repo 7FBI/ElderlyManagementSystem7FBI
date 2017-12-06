@@ -973,7 +973,7 @@ select * from old_users where queryByIdCard=#{queryByIdCard}
 	</update>
 
 	<!-- 用户前台修改密码 -->
-	<update id="updatePasswordByUid" parameterType="OldUsers">
+	<update id="updatePasswordByUid" parameterType="hashMap">
 		update old_users
 		set password=#{password} where uid=#{uid}
 	</update>

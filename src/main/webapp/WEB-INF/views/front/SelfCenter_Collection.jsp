@@ -48,37 +48,40 @@
 
 
 						<div class="goods">
+						<c:forEach items="${list}" var="list">
 							<div class="goods-box first-box">
 								<div class="goods-pic">
 									<div class="goods-pic-box">
 										<a class="goods-pic-link" target="_blank" href="#" title="意大利费列罗进口食品巧克力零食24粒  进口巧克力食品">
 											<img src="/resources/front/images/self_img/TB1_pic.jpg_200x200.jpg" class="goods-img"></a>
 									</div>
-									<a class="goods-delete" href="javascript:void(0);"><i class="am-icon-trash"></i></a>
+									<a class="goods-delete" href="/front/collection/delete?pid=${list.pid}"><i class="am-icon-trash"></i></a>
 									<div class="goods-status goods-status-show"><span class="desc"><a href="#" class="match-recom-item" style="">找相似</a></span></div>
 								</div>
 
 								<div class="goods-attr">
 									<div class="good-title">
-										<a class="title" href="#" target="_blank">意大利费列罗进口食品巧克力零食24粒  进口巧克力食品</a>
+										<a class="title" href="#" target="_blank">${list.products.pname }</a>
 									</div>
 									<div class="goods-price">
 										<span class="g_price">                                    
-                                        <span>¥</span><strong>71</strong>
+                                        <span>¥</span><strong>${list.products.price }</strong>
 										</span>
 										<span class="g_price g_price-original">                                    
-                                        <span>¥</span><strong>142</strong>
+                                        <span>¥</span><strong>${list.products.price }</strong>
 										</span>
 									</div>
 									
 								</div>
 							</div>
+							</c:forEach>
 						</div>
 
 	
 			
-						
+					
 					</div>
+					
 				</div>
 
 				<!--底部-->
@@ -91,6 +94,21 @@
 
 	
 <jsp:include page="EC_footer.jsp"></jsp:include>
+
+
+
+						
+										
+										
+
+						
+						
+</script>
+
+
+
+
+<script type="text/javascript " src="../basic/js/quick_links.js "></script>
 
 </body>
 </html>

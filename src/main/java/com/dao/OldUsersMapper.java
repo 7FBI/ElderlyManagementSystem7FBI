@@ -100,7 +100,7 @@ public interface OldUsersMapper {
 
 	public void updateByUidSelective(OldUsers oldUsers);
 
-	public void updatePasswordByUid(OldUsers oldUsers);
+	public void updatePasswordByUid(Map map);
 
 	public List<OldUsers> findUserNameById(OldUsers oldUsers);
 

@@ -264,7 +264,7 @@ text-align: center;float:none}
 .s-info .s-price b {font-size:20px}
 .s-buy{display: block;position: absolute;right:0px;bottom: 0px;height:22px;line-height:22px;font-size: 14px;background: #f52e1f;color: #fff;padding:0px 10px}
 /*时间*/
-.sale-mt i {float: left;display: block;width:380px;height: 93px;background: url(/resources/front/images/self_img/sale-t.jpg) no-repeat;}
+.sale-mt i {float: left;display: block;width:380px;height: 93px;background: url(/resources/front/images/self_img/sale-t_clock.jpg) no-repeat;}
 .sale-mt .sale-title{display: none;}
 .sale-mt .s-time {float: right;width: 160px;height: 39px;position: relative;margin-top:24px;margin-right:18px;background: url(../images/icon-sale.png);}
 .sale-mt .s-time span {width: 39px;height: 39px;line-height: 39px;font-size: 24px;color: #ffeee0;text-align: center;overflow: hidden;}

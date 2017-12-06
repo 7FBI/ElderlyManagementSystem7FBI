@@ -67,4 +67,7 @@ public interface FrontinformationMapper {
     
     //信息页面的所有列表信息，按照时间顺序
     List<Frontinformation> selectAll();
+    
+    
+	List<Frontinformation> selectEight(String newstitle);
 }

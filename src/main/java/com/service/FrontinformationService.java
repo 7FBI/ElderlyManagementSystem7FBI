@@ -64,4 +64,6 @@ public interface FrontinformationService {
     
     //信息列表页方法
     List<Frontinformation> selectAll();
+    
+    List<Frontinformation> selectEight(String newstitle);
 }
