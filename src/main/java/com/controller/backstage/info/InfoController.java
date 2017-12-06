@@ -112,7 +112,6 @@ public class InfoController {
 		ModelAndView view=new ModelAndView();
 		view.setViewName("backstage/frontinformationInfo");
 		Integer id=Integer.valueOf(request.getParameter("id"));
-		System.out.println(">>>id:"+id);
 		Frontinformation frontinformations=frontinformationService.selectByKey(id);
 		view.addObject("frontinformation", frontinformations);
 		List<Infopicture> list=infopictureService.selectByInfoid(id);
@@ -133,10 +132,7 @@ public class InfoController {
 		if (file!=null) {
 			url=UploadImage.addImage(file, "/info/main", request);
 			if (frontinformation.getFrontpicture()!=null) {
-				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+frontinformation.getFrontpicture());
-				if (oldfile.exists() && oldfile.isFile()) {
-		            oldfile.delete();
-		        }
+				UploadImage.deleteFile(UploadImage.getOSSClient(), frontinformation.getFrontpicture());
 			}
 		}
 		if (!"".equals(url)) {
@@ -149,14 +145,10 @@ public class InfoController {
 	public String deleteImageFile(HttpServletRequest request,Integer id){
 		List<Infopicture> infopictures =infopictureService.selectByInfoid(id);
 		for (Infopicture infopicture : infopictures) {
-			if (infopicture.getImagepath()!=null) {
-				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+infopicture.getImagepath());
-				if (oldfile.exists() && oldfile.isFile()) {
-		            oldfile.delete();
-		        }
+			if (infopicture.getImagepath()!=null && !"".equals(infopicture.getImagepath())) {
+				UploadImage.deleteFile(UploadImage.getOSSClient(), infopicture.getImagepath());
 			}
 		}
-			
 		return "redirect:/backstage/info/updateInfo?id="+id;
 	}
 }

@@ -223,19 +223,18 @@
 						closeBtn : false,
 						offset : [ 180, 0 ],
 						shade : 0.8,
-						area : '580px',
+						area : '550px',
 						id : 'LAY_layuipro', //设定一个id，防止重复弹出
-						btn : [ '取消' ],
 						btnAlign : 'c',
 						moveType : 1, //拖拽模式，0或者1
 						content : '<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">'
 							+ '<legend>用户帐号</legend></fieldset>'
 							+ '<form style="margin-top: 25px; padding: 0 15px;" id="f" class="layui-form layui-form-pane" action="">'
-							+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">帐号:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="username" autocomplete="off" placeholder="请输入帐号" class="layui-input" style="width: 200px;float: left;"></div></div>'
-							+ '<div class="layui-form-item" style="width: 500px;"><label class="layui-form-label" style="width: 110px">密码:</label><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input" style="width: 200px;float: left;"></div></div>'
-							+ '<div class="layui-form-item" style="width: 500px;"><img code="" class="layui-form-label" src="/code/front/getCode" style="width: 110px" /><div class="layui-input-block" style="width: 270px;"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input" style="width: 200px;float: left;"></div></div>'
-							+ '<div class="layui-form-item" style="width: 500px;"><a href="/gotoFront/register">未有帐号?</a></div>'
-							+ '<div class="layui-form-item"><div class="layui-input-block"><button id="loginBtn" type="button" class="layui-btn layui-btn-primary layui-btn-small" >登录</button></div></div>'
+							+ '<div class="layui-form-item" style="width: 550px;"><label class="layui-form-label" style="width: 160px;height:50px;">帐号:</label><div class="layui-input-block" style="width: 270px;height:50px;"><input NoNull="" type="text" name="username" autocomplete="off" placeholder="请输入帐号" class="layui-input" style="width: 200px;float: left;"></div></div>'
+							+ '<div class="layui-form-item" style="width: 550px;"><label class="layui-form-label" style="width: 160px;height:50px;">密码:</label><div class="layui-input-block" style="width: 270px;height:50px;"><input NoNull="" type="password" name="password" autocomplete="off" placeholder="请输入密码" class="layui-input" style="width: 200px;float: left;"></div></div>'
+							+ '<div class="layui-form-item" style="width: 550px;"><img code="" class="layui-form-label" src="/code/front/getCode" style="width: 160px;height:50px;" /><div class="layui-input-block" style="width: 270px;height:50px;"><input NoNull="" type="text" name="code" autocomplete="off" placeholder="请输入验证码" class="layui-input" style="width: 200px;float: left;"></div></div>'
+							+ '<div class="layui-form-item" style="width: 550px;"><a href="/gotoFront/register">未有帐号?</a></div>'
+							+ '<div class="layui-form-item"><div class="layui-input-block"><button id="loginBtn" type="button" class="layui-btn layui-btn-primary layui-btn-small" >登录</button><input type="button" class="layui-btn layui-btn-primary layui-btn-small" id="closess" value="取消"></div></div>'
 							+ '</form>',
 						success : function(layero) {
 							//var btn = layero.find('.layui-layer-btn');
@@ -258,8 +257,10 @@
 									rmvErr()
 								}
 	
-							})
-	
+							});
+							 $(document).on("click","#closess",function(){
+									layer.close(layer.index);
+									});
 	
 						}
 					});

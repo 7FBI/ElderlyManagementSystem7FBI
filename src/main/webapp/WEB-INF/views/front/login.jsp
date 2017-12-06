@@ -26,29 +26,29 @@
 			</fieldset>
 			<form style="margin-top: 25px; padding: 0 15px;" id="f"
 				class="layui-form layui-form-pane" action="">
-				<div class="layui-form-item" style="width: 480px;">
-					<label class="layui-form-label" style="width: 110px">帐号:</label>
-					<div class="layui-input-block" style="width: 270px;">
+				<div class="layui-form-item" style="width: 680px;height: 50px;">
+					<label class="layui-form-label" style="width: 110px;height: 50px;float: left;">帐号:</label>
+					<div class="layui-input-block" style="width: 320px;">
 						<input NoNull="" type="text" name="username" autocomplete="off"
 							placeholder="请输入帐号" class="layui-input"
-							style="width: 200px; float: left;" />
+							style="width: 320px;height: 50px;" />
 					</div>
 				</div>
-				<div class="layui-form-item" style="width: 480px;">
-					<label class="layui-form-label" style="width: 110px">密码:</label>
-					<div class="layui-input-block" style="width: 270px;">
+				<div class="layui-form-item" style="width: 680px;height: 50px;">
+					<label class="layui-form-label" style="width: 110px;height: 50px;float: left;">密码:</label>
+					<div class="layui-input-block" style="width: 320px;">
 						<input NoNull="" type="password" name="password"
 							autocomplete="off" placeholder="请输入密码" class="layui-input"
-							style="width: 200px; float: left;" />
+							style="width: 320px; height: 50px;" />
 					</div>
 				</div>
-				<div class="layui-form-item" style="width: 480px;">
+				<div class="layui-form-item" style="width: 680px;height: 50px;">
 					<img code="" class="layui-form-label" src="/code/front/getCode"
-						style="width: 110px" />
-					<div class="layui-input-block" style="width: 270px;">
+						style="width: 110px;height: 50px;float: left;" />
+					<div class="layui-input-block" style="width: 320px;">
 						<input NoNull="" type="text" name="code" autocomplete="off"
 							placeholder="请输入验证码" class="layui-input"
-							style="width: 200px; float: left;">
+							style="width: 320px; height: 50px;">
 					</div>
 				</div>
 				<div class="layui-form-item">

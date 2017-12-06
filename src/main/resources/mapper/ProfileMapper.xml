@@ -365,7 +365,7 @@
   
   
    <select id="selectProfileByUid" resultType="Profile" parameterType="java.lang.String" >
-    select id,signname,signaddress,signtell,uid from profile where uid = #{uid,jdbcType=INTEGER}
+    select * from profile where uid = #{uid}
   </select>
   
   <insert id="insertProfileByUid" parameterType="Profile" >

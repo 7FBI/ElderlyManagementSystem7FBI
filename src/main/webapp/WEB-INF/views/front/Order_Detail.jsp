@@ -31,63 +31,6 @@
 	<div class="concent">
 		<!--地址 -->
 		<div class="paycont">
-			<h3>您的位置：</h3>
-			<div class="address" style="border: 1px solid black;">
-				<div class="clear"></div>
-				<ul>
-					<c:forEach items="${profile}" var="pds">
-						<div class="per-border"></div>
-						<li class="user-addresslist defaultAddr">
-
-							<div class="address-left">
-								<div class="user DefaultAddr">
-
-									<span class="buy-address-detail"> </span>
-								</div>
-								<div class="default-address DefaultAddr">
-									<span class="buy-user">收货人：${oldUsers.username } </span> <br>
-									<br> <span class="buy-phone">买家留言：${oldUsers.tell }</span>
-									<br> <br> <span
-										class="buy-line-title buy-line-title-type">收货地址：</span> <span
-										class="buy--address-detail"> ${pds.signaddress} </span> </span>
-								</div>
-
-							</div>
-
-						</li>
-					</c:forEach>
-					<li class="order_status"
-						style="width: 400px; height: 150px; float: left; position: relative;">
-						<div class="status"
-							style="margin-top: 20px; width: 400px; height: 100px; float: left; position: absolute;">
-							<span style="font-size: 25px; padding-left: 50px;">订单状态：</span> <span>${orders.orderstatus==0?"待付款":orders.orderstatus==1?"待收货":"已完成" }
-							</span>
-						</div>
-						<div class="you_can"
-							style="width: 400px; height: 50px; top: 100px; float: left; position: absolute;">
-							<span style="padding-left: 50px;">您可以&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<c:choose>
-									<c:when test="${orders.orderstatus==0}">
-										<a href="#">立即付款</a>&nbsp;&nbsp;&nbsp;&nbsp; 
-										<a href="#">放弃订单</a>
-									</c:when>
-									<c:when test="${orders.orderstatus==1}">
-										<a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${orders.id}">确认收货</a>
-									</c:when>
-									<c:otherwise>
-										<a>再购一单</a>
-									</c:otherwise>
-								</c:choose>
-							</span>
-						</div>
-
-					</li>
-				</ul>
-
-				<div class="clear"></div>
-			</div>
-
-
 			<!--订单 -->
 			<div class="concent">
 				<div id="payTable">
@@ -119,10 +62,9 @@
 					style="background: red;">
 					<div id="J_Bundle_s_1911116345_1_0" class="bundle  bundle-last">
 						<div class="bundle-main">
-							<div
-								style="float: left; width: 500px; height: 50px; line-height: 50px;">
-								<label class="lables_d">订单编号:${orders.id}</label> <label
-									class="lables_v" id="oids"></label>
+							<div style="float: left; width: 500px; height: 50px; line-height: 50px;">
+								<label class="lables_d">订单编号:${orders.id}</label> 
+								<label class="lables_v" id="oids"></label>
 							</div>
 							<c:forEach items="${orderdetails}" var="ord">
 							<ul class="item-content clearfix">
@@ -205,7 +147,14 @@
 						合计: <span>¥</span><em class="pay-sum" id="allMonyes">${orders.money }</em>
 					</p>
 				</div>
-
+				<c:if test="${orders.orderstatus==1 }">
+				<div id="holyshit269" class="submitOrder">
+						<div class="go-btn-wrap">
+							<a id="overOrderBtn" vve="${orders.id }" class="btn-go"
+								tabindex="0" title="点击此按钮收货">确认收货</a>
+						</div>
+				</div>
+				</c:if>
 			</div>
 
 			<div class="clear"></div>

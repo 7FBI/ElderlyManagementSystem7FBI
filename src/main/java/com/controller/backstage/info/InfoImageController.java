@@ -39,10 +39,7 @@ public class InfoImageController {
 		if (file!=null&file.getName().length()>0) {
 			url=UploadImage.addImage(file, "/info/others", request);
 			if (infopicture.getImagepath()!=null) {
-				File oldfile=new File(request.getSession().getServletContext().getRealPath("/files")+infopicture.getImagepath());
-				if (oldfile.exists() && oldfile.isFile()) {
-		            oldfile.delete();
-		        }
+				UploadImage.deleteFile(UploadImage.getOSSClient(), infopicture.getImagepath());
 			}
 		}
 		if (!"".equals(url)) {

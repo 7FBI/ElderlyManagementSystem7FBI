@@ -102,11 +102,12 @@
 											<div class="order-status5">
 												<div class="order-title">
 													<div class="dd-num">订单编号：
+															<c:if test="${ord.orderstatus==0}">
+																<a href="/front/orders/ordersInfoByExchange?id=${ord.id }">${ord.id }</a>
+															</c:if>
+															 <c:if test="${ord.orderstatus>=1}">
 																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
-															
-															<%-- <c:if test="${ord.orderstatus>=1}">
-																<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a>
-															</c:if> --%>
+															</c:if>
 													</div>
 													<span>成交时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
@@ -160,7 +161,12 @@
 															<li class="td td-status">
 																<div class="item-status">
 																	<p class="Mystatus">${ord.orderstatus==0?"待付款":ord.orderstatus==1?"待收货":"已完成" }</p>
+																	<c:if test="${ord.orderstatus==0}">
+																		<p class="order-info"><a href="/front/orders/ordersInfoByExchange?id=${ord.id }">订单详情</a></p>
+																	</c:if>
+																	<c:if test="${ord.orderstatus>=1}">
 																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
+																	</c:if>
 																<c:if test="${ord.orderstatus==1 }"><p class="order-info"><a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${ord.id }">确认收货</a></p></c:if>
 																</div>
 															</li>
@@ -218,7 +224,7 @@
 											<c:if test="${ord.orderstatus==0 }">
 											<div class="order-status1">
 												<div class="order-title">
-													<div class="dd-num">订单编号：<a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">${ord.id }</a></div>
+													<div class="dd-num">订单编号：<a href="/front/orders/ordersInfoByExchange?id=${ord.id }">${ord.id }</a></div>
 													<span>付款时间：<fmt:formatDate value="${ord.ordertime }" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 													<!--    <em>店铺：小桔灯</em>-->
 												</div>
@@ -272,7 +278,7 @@
 																<div class="item-status">
 																	<p class="Mystatus">待付款</p>
 																	<p class="order-info"><a href="/front/orders/deleteOrders?id=${ord.id }">取消订单</a></p>
-																	<p class="order-info"><a href="/front/orders/ordersOverInfoByExchange?id=${ord.id }">订单详情</a></p>
+																	<p class="order-info"><a href="/front/orders/ordersInfoByExchange?id=${ord.id }">订单详情</a></p>
 																</div>
 															</li>
 															<li class="td td-change">

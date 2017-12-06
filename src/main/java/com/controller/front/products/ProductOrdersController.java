@@ -265,7 +265,6 @@ public class ProductOrdersController {
 		List<Orderdetails> list=ShopPrices.getAllOrderdetailsPrices(oid, discountService,orderdetailsService);
 		view.addObject("orderdetails", list);
 		view.addObject("orders", orders);
-		view.addObject("profile", profiles);
 		return view;
 	}
 

@@ -174,6 +174,13 @@ public class OldUsersController {
 		profileService.deleteAddressByPrimarykey(id);
 		return "redirect:/front/oldUsers/selectProfileByUid.action";
 	}
+	
+	@RequestMapping("/deleteAddressByPrimarykeyJson")
+	@ResponseBody
+	public String deleteAddressByPrimarykeyJson(Integer id) {
+		profileService.deleteAddressByPrimarykey(id);
+		return "true";
+	}
 
 	@RequestMapping("/selectDiseaseAndDiseaseDetailsByUid")
 	public ModelAndView selectDiseaseAndDiseaseDetailsByUid(HttpServletRequest request, Integer id) {

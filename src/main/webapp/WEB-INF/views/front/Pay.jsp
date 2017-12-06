@@ -44,14 +44,18 @@
 	<div class="concent">
 		<!--地址 -->
 		<div class="paycont">
+			
+			
+			<c:if test="${orders.orderstatus==0 }">
 			<div class="address">
 				<h3>确认收货地址</h3>
 				<div class="control">
 					<input type="button" id="secondsBtn" class="tc-btn createAddr theme-login am-btn am-btn-danger" value="使用新地址">
 				</div>
 				<div class="clear"></div>
+				<c:forEach items="${profile}" var="profiles">
 				<ul id="profiles">
-					<c:forEach items="${profiles}" var="profiles">
+					
 						<div class="per-border"></div>
 						<li class="user-addresslist defaultAddr">
 
@@ -66,45 +70,26 @@
 									<span class="buy-line-title buy-line-title-type">收货地址：</span> <span
 										class="buy--address-detail">
 										${profiles.signaddress}
-									</span> </span>
+									</span>
 								</div>
-								<ins class="deftip">默认地址</ins>
 							</div>
 							<div class="address-right">
-								<a href="../person/address.html"> <span
-									class="am-icon-angle-right am-icon-lg"></span></a>
+								<span class="am-icon-angle-right am-icon-lg"></span>
 							</div>
 							<div class="clear"></div>
 							<div class="new-addr-btn">
-								<a href="#" class="hidden">设为默认</a> <span
-									class="new-addr-bar hidden">|</span> <a href="#">编辑</a> <span
-									class="new-addr-bar">|</span> <a href="/front/orders/deleteAddressByPrimarykeyAndByExchange?id=${profiles.id }" id="delBtn">删除</a>
+								<a href="#overOrderBtn" setAdd="${profiles.id }"  r="${profiles.signaddress}" t="${profiles.signtell }" m="${profiles.signname }">设为默认</a> <span
+									class="new-addr-bar hidden">|</span> <a href="/front/oldUsers/updateAddressjsp?id=${profiles.id }&uid=${oldUsers.uid}">编辑</a> <span
+									class="new-addr-bar">|</span> <a href="#" de="${profiles.id }" name="delBtn">删除</a>
 							</div>
-
 						</li>
-					</c:forEach>
+					
 				</ul>
-
+				</c:forEach>
 				<div class="clear"></div>
 			</div>
+		</c:if>
 
-		
-
-
-
-
-			<!--支付方式-->
-			<div class="logistics">
-				<h3>选择支付方式</h3>
-				<ul class="pay-list">
-					<li class="pay card"><img
-						src="/resources/front/images/self_img/wangyin.jpg" />银联<span></span></li>
-					<li class="pay qq"><img
-						src="/resources/front/images/self_img/weizhifu.jpg" />微信<span></span></li>
-					<li class="pay taobao"><img
-						src="/resources/front/images/self_img/zhifubao.jpg" />支付宝<span></span></li>
-				</ul>
-			</div>
 			<div class="clear"></div>
 			<br>
 			<!--订单 -->
@@ -143,27 +128,25 @@
 								<label class="lables_d">订单编号:${orders.id}</label> <label
 									class="lables_v" id="oids"></label>
 							</div>
-
+						<c:forEach items="${orderdetails}" var="ord">
 							<ul class="item-content clearfix">
-								<c:forEach items="${orderdetails}" var="ord">
 									<div class="pay-phone">
 										<li class="td td-item">
 											<div class="item-pic">
 												<a href="#" class="J_MakePoint"> <img
-													src="/files${ord.products.producturl }"
+													src="/fbiImage${ord.products.producturl }"
 													class="itempic J_ItemImg"></a>
 											</div>
 											<div class="item-info">
 												<div class="item-basic-info">
-													<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色"
+													<a href="/front/products/selectProductDetailByPrimaryKey?id=${ord.pid}" target="_blank" title="${ord.products.pname}"
 														class="item-title J_MakePoint" data-point="tbcart.8.11">${ord.products.pname}</a>
 												</div>
 											</div>
 										</li>
 										<li class="td td-info">
 											<div class="item-props">
-												<span class="sku-line">商品类型：${ord.products.tid}</span>
-												<!-- <span class="sku-line">包装：两支手袋装（送彩带）</span> -->
+												<span class="sku-line">商品类型：${ord.products.classification.classname}</span>
 											</div>
 										</li>
 										<li class="td td-price">
@@ -180,13 +163,11 @@
 											<div class="item-amount ">
 												<span class="phone-title">购买数量</span>
 												<div class="sl" style="text-align: center;">
-													<input class="min am-btn" name="" type="button" value="-"
-														style="width: 40px; padding: 6px; line-heigt: 40px;" /><input
-														class="text_box" name="" type="text"
+
+														<input class="text_box" name="ordercount" disabled="disabled" type="text"
 														value="${ord.ordercount}"
-														style="width: 40px; padding: 6px; line-heigt: 40px;" /><input
-														class="add am-btn" name="" type="button" value="+"
 														style="width: 40px; padding: 6px; line-heigt: 40px;" />
+
 												</div>
 											</div>
 										</div>
@@ -205,8 +186,9 @@
 											</div>
 										</div>
 									</li>
-								</c:forEach>
+								
 							</ul>
+							</c:forEach>
 							<div class="clear"></div>
 
 						</div>
@@ -218,65 +200,22 @@
 				<div class="order-extra">
 					<div class="order-user-info">
 						<div id="holyshit257" class="memo">
-							<label>买家留言：</label> <input type="text"
-								title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）"
+							<label>买家留言：</label> 
+							<input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）"
 								placeholder="选填,建议填写和卖家达成一致的说明"
 								class="memo-input J_MakePoint c2c-text-default memo-close"
 								style="width: 500px; height: 100px;">
 							<div class="msg hidden J-msg">
-								<p class="error">最多输入500个字符</p>
+								<p class="error">最多输入100个字符</p>
 							</div>
 						</div>
 					</div>
 
 				</div>
-				<!--优惠券 -->
-				<div class="buy-agio">
-					<li class="td td-coupon"><span class="coupon-title">优惠券</span>
-						<select data-am-selected>
-							<option value="a">
-								<div class="c-price">
-									<strong>￥8</strong>
-								</div>
-								<div class="c-limit">【消费满95元可用】</div>
-							</option>
-							<option value="b" selected>
-								<div class="c-price">
-									<strong>￥3</strong>
-								</div>
-								<div class="c-limit">【无使用门槛】</div>
-							</option>
-					</select></li>
-
-					<li class="td td-bonus"><span class="bonus-title">红包</span> <select
-						data-am-selected>
-							<option value="a">
-								<div class="item-info">
-									¥50.00<span>元</span>
-								</div>
-								<div class="item-remainderprice">
-									<span>还剩</span>10.40<span>元</span>
-								</div>
-							</option>
-							<option value="b" selected>
-								<div class="item-info">
-									¥50.00<span>元</span>
-								</div>
-								<div class="item-remainderprice">
-									<span>还剩</span>50.00<span>元</span>
-								</div>
-							</option>
-					</select></li>
-
-				</div>
+				
 				<div class="clear"></div>
 			</div>
-			<!--含运费小计 -->
-			<div class="buy-point-discharge ">
-				<p class="price g_price ">
-					合计（含运费） <span>¥</span><em class="pay-sum">244.00</em>
-				</p>
-			</div>
+			
 
 			<!--信息 -->
 			<div class="order-go clearfix">
@@ -284,23 +223,21 @@
 					<div class="box">
 						<div tabindex="0" id="holyshit267" class="realPay">
 							<em class="t">实付款：</em> <span class="price g_price "> <span>¥</span>
-								<em class="style-large-bold-red " id="J_ActualFee">244.00</em>
+								<em class="style-large-bold-red " id="J_ActualFee">${orders.money }</em>
 							</span>
 						</div>
 
 						<div id="holyshit268" class="pay-address">
-
 							<p class="buy-footer-address">
-								<span class="buy-line-title buy-line-title-type">寄送至：</span> <span
-									class="buy--address-detail"> <span class="province">湖北</span>省
-									<span class="city">武汉</span>市 <span class="dist">洪山</span>区 <span
-									class="street">雄楚大道666号(中南财经政法大学)</span>
-								</span> </span>
+								<span class="buy-line-title buy-line-title-type">寄送至：</span> 
+								<span class="buy--address-detail" id="toaddress">
+									${orders.orderaddress }
+								</span> 
 							</p>
 							<p class="buy-footer-address">
-								<span class="buy-line-title">收货人：</span> <span
-									class="buy-address-detail"> <span class="buy-user">艾迪
-								</span> <span class="buy-phone">15871145629</span>
+								<span class="buy-line-title">收货人：</span> 
+								<span class="buy-address-detail"> 
+								<span class="buy-user" id="toman">${orders.orderman }</span> <span class="buy-phone" id="totell">${orders.tell }</span>
 								</span>
 							</p>
 						</div>
@@ -308,6 +245,12 @@
 
 					<div id="holyshit269" class="submitOrder">
 						<div class="go-btn-wrap">
+						<form id="f" >
+							<input type="hidden" value="" name="tell" />
+							<input type="hidden" value="" name="orderaddress" />
+							<input type="hidden" value="" name="orderman" />
+							<input type="hidden" value="${orders.money }" name="money" />
+						</form>
 							<a id="overOrderBtn" vve="${orders.id }" class="btn-go"
 								tabindex="0" title="点击此按钮，提交订单">提交订单</a>
 						</div>
@@ -319,27 +262,6 @@
 
 		<div class="clear"></div>
 	</div>
-	
-	<div class="footer">
-		<div class="footer-hd">
-			<p>
-				<a href="#">恒望科技</a> <b>|</b> <a href="#">商城首页</a> <b>|</b> <a
-					href="#">支付宝</a> <b>|</b> <a href="#">物流</a>
-			</p>
-		</div>
-		<div class="footer-bd">
-			<p>
-				<a href="#">关于恒望</a> <a href="#">合作伙伴</a> <a href="#">联系我们</a> <a
-					href="#">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有. 更多模板 <a
-					href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-					- Collect from <a href="http://www.cssmoban.com/" title="网页模板"
-					target="_blank">网页模板</a></em>
-			</p>
-		</div>
-	</div>
-	
-	
-	
 	<script src="/resources/unity/jquery/jquery-3.2.0.js"></script>
 	<script src="/resources/unity/address/js/area.js"></script>
 	
@@ -403,6 +325,7 @@
 								success : function(layero) {
 									//var btn = layero.find('.layui-layer-btn');
 									$(document).on("click","#savess",function(){
+										
 										var f=$("#f");
 											 $.ajax({
 												type:'post',
@@ -418,7 +341,8 @@
 												},error:function(){
 												alert("网络错误,无法添加新地址");
 												}
-											}) 
+											});
+											 layer.close(layer.index);
 									});
 									 $(document).on("click","#closess",function(){
 										layer.close(layer.index);
@@ -558,6 +482,81 @@ function addAddressHtml(profiles) {
 	uls.append(ahtmls);
 }
 
+
+$(document).on('click',"a[setAdd]",function(){
+	var address=$(this);
+	var toadd=$("#toaddress");
+	var toman=$("#toman");
+	var totell=$("#totell");
+	var iadd=$("input[name='orderaddress']");
+	var iman=$("input[name='orderman']");
+	var itell=$("input[name='tell']");
+	
+	toadd.text(address.attr("r"));
+	toman.text(address.attr("m"));
+	totell.text(address.attr("t"));
+	iadd.val(address.attr("r"));
+	iman.val(address.attr("m"));
+	itell.val(address.attr("t"));
+	var ords=$("#overOrderBtn");
+	var f=$("#f");
+	$.ajax({
+		type:'post',
+		url:'/front/orders/updateOrders?id='+ords.attr("vve"),
+		data:f.serialize(),
+		success:function(data){
+			if (data=="true") {
+				layer.msg("修改地址成功",{time:2000});
+			} else {
+				layer.msg(data,{time:2000});
+			}
+		},error:function(){
+			alert("网络错误");
+		}
+	})
+	
+});
+
+$(document).on('click',"a[name='delBtn']",function(){
+	var dels=$(this);
+	var hrs="/front/oldUsers/deleteAddressByPrimarykey?id="+dels.attr("de");
+	$.ajax({
+		type:'post',
+		url:hrs,
+		success:function(data){
+			layer.msg("刪除成功",{time:2000});
+			var uls=dels.parent().parent().parent();
+			uls.remove();
+		}
+	})
+})
+
+/* 提交訂單data:f.serialize(), */
+ $(document).on('click','#overOrderBtn',function(){
+	 var ords=$(this);
+	$.ajax({
+		type:'post',
+		url:'/front/orders/overOrders?id='+ords.attr("vve"),
+		success:function(data){
+			switch (data) {
+			case "login":
+				window.location.href = "/gotoFront/login";
+				break;
+			case "balance":
+				layer.msg( "余额不足", { tiem : 2000 }, { icon : 2 });
+				break;
+			default:
+				window.location.href = "/front/orders/ordersOverInfoByExchange?id="+ords.attr("vve");
+				break;
+				}
+			},
+			error:function(){
+				alert("网络错误");
+			}
+	})
+	 
+ })
+ 
  
        
 </script>

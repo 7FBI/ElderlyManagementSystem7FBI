@@ -86,8 +86,11 @@ public class EdunewsController {
 	//删除
 	@RequestMapping("/deleteedu")
 	public String deleteEdunews(Integer id){
+		Edunews ed=edunewsService.selectEduById(id);
+		if (ed.getEduurl()!=null && !"".equals(ed.getEduurl())) {
+			UploadImage.deleteFile(UploadImage.getOSSClient(), ed.getEduurl());
+		}
 		edunewsService.deleteEduById(id);
-		
 		return "redirect:/backstage/edu/alledu.action";
 		
 	}
@@ -95,10 +98,14 @@ public class EdunewsController {
 	@RequestMapping("/updateedu")
 	public String updateEdunews(@RequestParam("file") CommonsMultipartFile file,Edunews edunews,HttpServletRequest request) throws IOException{
 		String newuserUrl = UploadImage.addImage(file, "/backstage/edunews", request);
+		Edunews ed=edunewsService.selectEduById(edunews.getId());
+		if (ed.getEduurl()!=null && !"".equals(ed.getEduurl())) {
+			UploadImage.deleteFile(UploadImage.getOSSClient(), ed.getEduurl());
+		}
 		System.out.println(newuserUrl);
 		edunews.setEduurl(newuserUrl);
 		edunews.setEdutime(new Date());
-		edunewsService.updateEduById(edunews);;
+		edunewsService.updateEduById(edunews);
 		/*ModelAndView modelAndView =new ModelAndView();
 		List <Edunews> alleducational=edunewsService.selectAllEdu();
 		modelAndView.addObject("alleducational", alleducational);

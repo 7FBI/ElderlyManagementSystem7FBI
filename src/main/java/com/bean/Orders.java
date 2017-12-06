@@ -4,6 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 public class Orders {
+	private String orderman;
+	public String getOrderman() {
+		return orderman;
+	}
+
+	public void setOrderman(String orderman) {
+		this.orderman = orderman;
+	}
+
 	List<Orderdetails> orderdetails;
     public List<Orderdetails> getOrderdetails() {
 		return orderdetails;
@@ -251,9 +260,10 @@ public class Orders {
      *
      * @mbggenerated
      */
-    public Orders(String id, Date ordertime, String orderaddress, String uid, Integer orderstatus, Integer payment, String remarks, Double money, String tell, String extended1, String extended2, String extended3, String extended4, String extended5, String extended6, String extended7, String extended8, String extended9, String extended10, String extended11, String extended12, String extended13, String extended14, String extended15, String extended16, String extended17, String extended18, String extended19, String extended20) {
+    public Orders(String id, Date ordertime,String orderman, String orderaddress, String uid, Integer orderstatus, Integer payment, String remarks, Double money, String tell, String extended1, String extended2, String extended3, String extended4, String extended5, String extended6, String extended7, String extended8, String extended9, String extended10, String extended11, String extended12, String extended13, String extended14, String extended15, String extended16, String extended17, String extended18, String extended19, String extended20) {
         this.id = id;
         this.ordertime = ordertime;
+        this.orderman=orderman;
         this.orderaddress = orderaddress;
         this.uid = uid;
         this.orderstatus = orderstatus;
