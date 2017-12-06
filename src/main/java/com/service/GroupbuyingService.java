@@ -70,4 +70,6 @@ public interface GroupbuyingService {
 	int GroupCounts();
 	
 	public void delectBypidyu(int pid);
+	
+	public int selectAddGroupbuying(int pid);
 }

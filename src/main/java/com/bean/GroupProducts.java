@@ -5,7 +5,15 @@ public class GroupProducts {
 	private Products products;
 	
 	private Groupbuying groupbuying;
+	
+	private int totalpeople;
 
+	public int getTotalpeople() {
+		return totalpeople;
+	}
+	public void setTotalpeople(int totalpeople) {
+		this.totalpeople = totalpeople;
+	}
 	public Products getProducts() {
 		return products;
 	}

@@ -452,4 +452,8 @@
     <delete id="delectBypidyu" parameterType="java.lang.Integer">
      delete from groupbuying where pid=#{pid}
     </delete>
+    <!-- 查询团购人数 -->
+    <select id="selectAddGroupbuying" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+     SELECT count(*) FROM groupdetail,groupbuying where  groupbuying.id=groupdetail.gid and groupbuying.pid=#{pid,jdbcType=INTEGER}
+    </select>
 </mapper>

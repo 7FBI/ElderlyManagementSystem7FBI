@@ -89,7 +89,8 @@ public class GroupsbuyingController {
 			produ.setGroupbuying(lists);
 			Products hui=productsService.selectByPrimaryKey(lists.getPid());
 			produ.setProducts(hui);
-			System.out.println(produ.getGroupbuying().getGroupprice());
+			int totalpeople=groupbuyingService.selectAddGroupbuying(lists.getPid());
+			produ.setTotalpeople(totalpeople);
 			zhuij.add(produ);
 		}
 		request.setAttribute("toali",lebie);

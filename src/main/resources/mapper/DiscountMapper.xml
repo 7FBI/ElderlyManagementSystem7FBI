@@ -373,7 +373,7 @@
 	</select>
   <!-- 刘彪 团购商品详情界面打折推荐 -->
   <select id="selectDiscountproducts" resultType="com.bean.Discountproducts">
-  SELECT g.*,products.pname,products.productscolor,products.producturl 
+  SELECT g.*,products.pname,products.productscolor,products.producturl,price
   from discount g,products 
   WHERE DATE_FORMAT(g.discountstoptime,'%Y-%m-%d')>DATE(NOW()) 
   and products.id=g.pid LIMIT 4 

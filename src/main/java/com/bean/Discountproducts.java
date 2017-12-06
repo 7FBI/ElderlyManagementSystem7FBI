@@ -4,6 +4,13 @@ public class Discountproducts extends Discount{
      private String pname;
      private String productscolor;
      private String producturl;
+     private Double price;
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 	public String getPname() {
 		return pname;
 	}

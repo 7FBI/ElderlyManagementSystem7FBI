@@ -73,4 +73,6 @@ public interface GroupbuyingMapper {
 	public int GroupCounts();
 	
 	public void delectBypidyu(int pid);
+	
+	public int selectAddGroupbuying(int pid);
 }

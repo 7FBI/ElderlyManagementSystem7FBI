@@ -103,4 +103,10 @@ public class GroupbuyingServiceImpl implements GroupbuyingService {
 		groupbuyingMapper.delectBypidyu(pid);
 	}
 
+	@Override
+	public int selectAddGroupbuying(int pid) {
+		// TODO Auto-generated method stub
+		return groupbuyingMapper.selectAddGroupbuying(pid);
+	}
+
 }

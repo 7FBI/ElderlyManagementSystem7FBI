@@ -22,7 +22,7 @@
 			<dl>
 				<dt>
 				   <c:if test="${user.userurl!=null}">
-					<a href=""><img src="${user.userurl}" style="width:100%;height:100%;"/></a>
+					<a href=""><img src="/fbiImage${user.userurl}" style="width:100%;height:100%;"/></a>
 				   </c:if>
 				   <c:if test="${user.userurl==null}">
 					<a href=""><img src="/resources/front/images/default_head.png" style="width:100%;height:100%;"/></a>
@@ -66,17 +66,27 @@
 								<c:if test="${Groupbuyings.getProducts().tid==toalis.id}">
 									<li><a href=""><img
 											src="${Groupbuyings.getProducts().producturl}" /></a>
-										<h3>
-											<a href="#">${Groupbuyings.getProducts().pname}</a>
-										</h3>
-										<p class="p1">${Groupbuyings.getProducts().productstype1}</p>
-										<p class="p3">
-											团购价：<span>${Groupbuyings.getGroupbuying().groupprice*Groupbuyings.getGroupbuying().grouppeople}</span>
-										</p>
-										<p class="p4">商城价：¥ ${Groupbuyings.getProducts().price}</p>
-										<p class="p11">
-											<em>${Groupbuyings.getGroupbuying().grouppeople}</em>人开团
-										</p> <span class="p10"><a>去团购</a></span></li>
+										<div class="sitetpy">
+										 <font><a  class="balnk" target="_blank" style="color:red;">${Groupbuyings.getProducts().pname}</a></font>
+										 |
+										<a  class="balnk" target="_blank" style="color:#999;margin-right:2px;">${Groupbuyings.getProducts().size}</a>
+										</div>
+										 
+										<div class="info">
+										 <h4>宜嘉商城</h4>
+										 <em>|</em>
+										 <a target="_blank" rel="nofollow">${Groupbuyings.getProducts().pdescription}</a>
+										</div>
+									 
+										<h5>
+										<span>￥<b>${Groupbuyings.getGroupbuying().groupprice}</b></span>
+										<em>原价￥ ${Groupbuyings.getProducts().price} </em>
+										<span class="total">${Groupbuyings.getGroupbuying().grouppeople}人开团</span>
+										</h5>
+										<h2>
+										<span>${Groupbuyings.totalpeople}人正在拼团</span>
+										<a class="h3-1" target="_blank" rel="nofollow" href="/front/groupbuying/toxiangqing.action?pid=${Groupbuyings.getProducts().id}">去看看</a>
+										</h2></li>
 								</c:if>
 							</c:forEach>
 							<div style="clear: both;"></div>
@@ -84,39 +94,30 @@
 					</c:if>
 					<!-- 不是第一次迭代 -->
 					<c:if test="${!(i.first)}">
-						<ul class="int-con-ul1" id="products" style="display: none;" tid="${ toalis.id}">
+						<ul class="int-con-ul1" id="products" style="display: none;" tid="${toalis.id}">
 							<c:forEach items="${Groupbuyings}" var="Groupbuyings">
 								<c:if test="${Groupbuyings.getProducts().tid==toalis.id}">
 									<li><a href=""><img
 											src="${Groupbuyings.getProducts().producturl}" /></a>
-										<%-- <h3>
-											<a href="#">${Groupbuyings.getProducts().pname}</a>
-										</h3> --%>
 										<div class="sitetpy">
 										 <font><a  class="balnk" target="_blank" style="color:red;">${Groupbuyings.getProducts().pname}</a></font>
 										 |
 										<a  class="balnk" target="_blank" style="color:#999;margin-right:2px;">${Groupbuyings.getProducts().size}</a>
 										</div>
-										<%-- <p class="p1">${Groupbuyings.getProducts().productstype1}</p> --%>
+										 
 										<div class="info">
 										 <h4>宜嘉商城</h4>
 										 <em>|</em>
 										 <a target="_blank" rel="nofollow">${Groupbuyings.getProducts().pdescription}</a>
 										</div>
-									<%-- 	<p class="p3">
-											团购价：<span>${Groupbuyings.getGroupbuying().groupprice}</span>
-										</p> --%>
+									 
 										<h5>
 										<span>￥<b>${Groupbuyings.getGroupbuying().groupprice}</b></span>
 										<em>原价￥ ${Groupbuyings.getProducts().price} </em>
 										<span class="total">${Groupbuyings.getGroupbuying().grouppeople}人开团</span>
 										</h5>
-										<%-- <p class="p4">商城价：¥ ${Groupbuyings.getProducts().price}</p>
-										<p class="p11">
-											<em>${Groupbuyings.getGroupbuying().grouppeople}</em>人开团
-										</p> <span class="p10"><a>去团购</a></span> --%>
 										<h2>
-										<span>2人正在拼团</span>
+										<span>${Groupbuyings.totalpeople}人正在拼团</span>
 										<a class="h3-1" target="_blank" rel="nofollow" href="/front/groupbuying/toxiangqing.action?pid=${Groupbuyings.getProducts().id}">去看看</a>
 										</h2>
 										</li>
