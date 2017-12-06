@@ -42,7 +42,7 @@ et=UTF-8">
 			<div class="nav-cont">
 				<ul>
 					<li class="index"><a href="/front/products/selectAllProducts">首页</a></li>
-					<li class="qc"><a href="#">打折区</a></li>
+					<li class="qc"><a href="${pageContext.request.contextPath}/front/discount/selectAll">打折区</a></li>
 					<li class="qc"><a href="/front/groupbuying/Lookto.action">团购</a></li>
 					<li class="qc last"><a
 						href="/front/creditshop/SelectAllCreditShop">积分兑换区</a></li>

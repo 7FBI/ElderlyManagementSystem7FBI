@@ -504,6 +504,10 @@ position: relative;
     height: 20px;
       margin-top:-7px;
 }
+.activity_top .activity_handle .text{
+	color:#333;
+	font-size:12px;
+}
 .activity_handle .handle_2{
 	display: inline-block;
 	font-size: 12px;
