@@ -579,7 +579,7 @@ position: relative;
     top: 0;
 }
 .cart_bottom .cart_sum_num, .cart_bottom .cart_sum_price {
-    margin-right: 40px;
+    margin-right: 20px;
 }
 .color_f60 {
     display: inline-block;
@@ -587,19 +587,37 @@ position: relative;
     color: #f60;
 }
 .cart_bottom .cart_sum_price {
-    padding-top: 11px;
+	display:block;
+    margin-top:8px;
+    width:120px;
 }
 .cart_bottom .total_price {
-    line-height: 18px;
+    line-height: 34px;
+    height:34px;
 }
 .cart_bottom .total_price, .cart_bottom .cut_price {
     font-size: 12px;
 }
 .cart_bottom .total_price_inner {
-    color: #f60;
-    font-size: 18px;
-    line-height: 18px;
+    color:#f60;
+    line-height: 36px;
     font-weight: bolder;
+}
+.cart_bottom .total_price_inner .js_total_price{
+	font-size:22px;
+}
+.cart_bottom .total_price_inner .js_total_price label{
+	font-size:22px;
+}
+
+.cart_bottom .cart_sum_to_order{
+	color:#fff;
+	width: 160px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 60px;
+    background-color: #f60;
+    cursor: pointer;
 }
 .cart_bottom .cut_price {
     color: #333;
