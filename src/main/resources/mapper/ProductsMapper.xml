@@ -38,22 +38,21 @@
 			<arg column="producturl" javaType="java.lang.String" jdbcType="VARCHAR" />
 		</constructor>
 	</resultMap>
-	<resultMap type="com.bean.Products" id="ProductUrlByPid">
+<resultMap type="com.bean.Products" id="ProductUrlByPid">
 		<id column="id" property="id" />
 		<result column="pname" property="pname" />
 		<result column="price" property="price" />
 		<result column="pdescription" property="pdescription" />
-		<result column="producttype1" property="producttype1" />
-		<result column="producttype2" property="producttype2" />
+		<result column="productstype1" property="productstype1" />
+		<result column="productstype2" property="productstype2" />
 		<result column="size" property="size" />
 		<result column="count" property="count" />
-		<result column="producturl" property="producturl" />
+		<result column="productscolor" property="productscolor" />
 		<collection property="listPhotos" ofType="com.bean.Showsphotos">
 			<id column="sp_id" property="id" />
 			<result column="sp_url" property="showphotosurl" />
 		</collection>
 	</resultMap>
-
 	<resultMap type="com.bean.Products" id="ProductStatistics">
 		<result column="pname" property="pname" />
 		<result column="price" property="price" />
