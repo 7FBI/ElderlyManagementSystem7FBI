@@ -42,7 +42,7 @@
 		
 			<td width="182" valign="top">
 				<div id="container">
-				<c:if test="${manager!=null or ceoinfo!=null}">
+				<c:if test="${manager!=null }">
 				<h1 class="type">
 						<a href="javascript:void(0)">客户管理</a>
 					</h1>
@@ -244,7 +244,6 @@
 							<li><a href="${pageContext.request.contextPath}/gotoBackstage/statistics/productTypeDate" target="main">分类销售报表</a></li>
 						</c:if>
 							<li><a href="${pageContext.request.contextPath}/statistics/backStageOluser/ourOldUsersNumBers" target="main">系统情况</a></li>
-							<li><a href="${pageContext.request.contextPath}/backstage/Orders/selectOrders.action" target="main">已完成订单XXX</a></li>
 						</ul>
 					</div>
 					<!-- *********** -->

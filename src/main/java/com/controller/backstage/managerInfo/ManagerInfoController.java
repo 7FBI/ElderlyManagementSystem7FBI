@@ -81,9 +81,9 @@ public class ManagerInfoController {
 		List<Managerinfo> list=null;
 		map.put("page", page*max);
 		map.put("max", max);
-		map.put("managerInfo", managerinfo);
+		map.put("managerinfo", managerinfo);
 		list=managerInfoService.selectAllManagers(map);
-		view.addObject("managerInfo", list);
+		view.addObject("list", list);
 		view.addObject("counts", counts);
 		view.addObject("page", page);
 		return view;
