@@ -63,8 +63,19 @@
 			<result column="tid" property="tid" />
 			<collection property="listPhotos" ofType="com.bean.Showsphotos">
 				<id column="sp_id" property="id" />
-				<result column="sp_url" property="showphotosurl" />
+				<result column="image" property="image" />
 			</collection>
+		</association>
+	</resultMap>
+	<resultMap type="com.bean.Matchdisease" id="ProductByDiseasesId">
+		<id column="mid" property="id" />
+		<result column="did" property="did" />
+		<association property="product" javaType="com.bean.Products">
+			<id column="pid" property="id" />
+			<result column="pname" property="pname" />
+			<result column="price" property="price" />
+			<result column="pdescription" property="pdescription" />
+			<result column="producturl" property="producturl" />
 		</association>
 	</resultMap>
 	<!--前台推荐 -->
@@ -138,12 +149,22 @@
 		pname,p.price
 		price,p.pdescription pdescription,p.count
 		count,p.producturl
-		producturl,p.tid tid,sp.id sp_id,sp.showphotosurl
-		sp_url
+		producturl,p.tid tid,sp.id sp_id,sp.image
+		image
 		from
 		old_sickness os,matchdisease md,products p,showsphotos sp
 		WHERE
 		os.did=md.did AND md.pid=p.id and os.did=#{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectByDiseasesId" resultMap="ProductByDiseasesId"
+		parameterType="java.lang.Integer">
+		SELECT md.id mid,md.did did,p.id pid,p.pname
+		pname,p.price
+		price,p.pdescription pdescription,p.producturl producturl
+		from
+		matchdisease md,products p
+		WHERE
+		md.pid=p.id and md.did=#{id,jdbcType=INTEGER}
 	</select>
 
 	<!--根据用户的患病情况推荐 -->

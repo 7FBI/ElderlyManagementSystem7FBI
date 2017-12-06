@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -44,7 +43,7 @@ public class BackstsgeOldDiseaseDetailsController {
 
 	@RequestMapping("/querys")
 	// 查询UID账号的所有病例记录
-	public ModelAndView getOldDiseasedetails(@ModelAttribute("uid") String uid) {
+	public ModelAndView oldDiseasedetails(@ModelAttribute("uid") String uid) {
 		// String uid=(String) request.getSession().getAttribute("uid");
 		List<OldDiseasedetails> oldDiseasedetails = oldDiseasedetailsService.selectOldDiseasedetailsByUid(uid);
 		ModelAndView modelAndView = new ModelAndView();

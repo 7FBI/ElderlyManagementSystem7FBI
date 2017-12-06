@@ -31,7 +31,29 @@
 
 <!-- 验证 -->
  <script type="text/javascript" language="javascript" src="/resources/js/registercheck.js">
+ 
 </script> 
+<script type="text/javascript">
+function addcount(){
+	alert("eggrtht");
+	var count = document.getElementById("pcount").value;
+	if(count<=10){
+	document.getElementById("pcount").value = Number(count)+1;
+	}else{
+	document.getElementById("pcount").value = count;
+	}
+	
+}
+function subcount(){
+	var count = document.getElementById("pcount").value;
+	if(count>=1){
+		document.getElementById("pcount").value = count-1;
+	}else{
+		document.getElementById("pcount").value = count;
+	}
+	
+}
+</script>
 </head>
 
 <body>
@@ -75,9 +97,9 @@
 			<div class="form-group col-md-offset-3">
 				<label for="birthday" class="col-sm-2 control-label">购买数量</label>
 				<div class="col-sm-3 am-datepicker-date">
-					<button type="button" style="width:40px ;height:30px ; border-radius:3px;font-size:16px;" id="add" onclick="addcount()">+</button>&nbsp;&nbsp;
+					<button type="button" style="width:40px ;height:30px ; border-radius:3px;font-size:16px;" id="sub" onclick="subcount()">－</button>&nbsp;&nbsp;
 					<input style="width:50px ;height:30px ;text-align:right;" id="pcount" name="shoppingcount" value="0"/>&nbsp;&nbsp;
-					<button type="button" style="width:40px ;height:30px ; border-radius:3px; font-size:16px;" id="sub" onclick="subcount()">-</button>
+					<button type="button" style="width:40px ;height:30px ; border-radius:3px; font-size:16px;" id="add" onclick="addcount()">+</button>
 				</div>
 				<div class="pleft">
 					<font color="red"><p id="error9"></p></font> <font color="green">

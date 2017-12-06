@@ -216,12 +216,11 @@
 							                             <td>${olduser.localarea.provincename}</td>
 							                             <td>${olduser.uid}</td>
 
-							                             <td><a
-								                            href="${pageContext.request.contextPath}/returninfo/querys.action?
+							                             <td>
+							                             <a href="${pageContext.request.contextPath}/returninfo/querys.action?
 															uid=${olduser.uid}" role="button" class="btn btn-success btn-xs">回访记录</a></td>
 							                            <td><a
-								                             href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys.action?
-															    uid=${olduser.uid}" role="button" class="btn btn-success btn-xs">病例详情</a>
+								                             href="${pageContext.request.contextPath}/backstageOldDiseasedetails/querys?uid=${olduser.uid}&&uid=${olduser.uid}" role="button" class="btn btn-success btn-xs">病例详情</a>
  
 						                            	</td>
                                                       <td><a

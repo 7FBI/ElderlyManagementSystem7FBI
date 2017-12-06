@@ -64,11 +64,11 @@
 	</font></a>
 	<br>
 	<form class="form-horizontal col-md-offset-2"
-		action="/backstageOldDiseasedetails/add.action" method="post"
+		action="/backstageOldDiseasedetails/add.action?uid=${uid}" method="post"
 		enctype="multipart/form-data">
 
 		<label class="register_title"> <strong> <span
-				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;添加病例记录
+				class="glyphicon glyphicon-user" aria-hidden="true"> </span>&nbsp;${uid}添加病例记录
 		</strong></label>
 
 		<div class="form-group col-md-offset-3">

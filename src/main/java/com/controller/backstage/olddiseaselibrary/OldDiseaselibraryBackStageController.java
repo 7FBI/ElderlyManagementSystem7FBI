@@ -9,12 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bean.Matchdisease;
 import com.bean.OldDiseaselibrary;
+import com.bean.Products;
+import com.service.MatchdiseaseService;
 import com.service.OldDiseaselibraryService;
+import com.service.ProductsService;
 
 @Controller
 @RequestMapping("/oldDiseaselibrary")
@@ -22,6 +29,25 @@ public class OldDiseaselibraryBackStageController {
    @Autowired
    @Qualifier("oldDiseaselibraryService")
    private OldDiseaselibraryService oldDiseaselibraryService;
+   @Autowired
+   @Qualifier("productsService")
+   private ProductsService  productsService;
+   @Autowired
+   @Qualifier("matchdiseaseService")
+   private MatchdiseaseService  matchdiseaseService;
+   @RequestMapping("/matchproduct")
+ public ModelAndView getOldDiseaselibrary(@ModelAttribute("id") Integer id){
+   ModelAndView modelAndView=new ModelAndView();
+   List<Matchdisease> listMatchdiseases =matchdiseaseService.selectByDiseasesId(id);
+   List<Products> listProducts=productsService.selectProductsByTid();
+   modelAndView.addObject("listMatchdiseases",listMatchdiseases);
+   System.out.println(listMatchdiseases.size()+"kacbjewsvbesb");
+   modelAndView.addObject("listProducts",listProducts);
+   modelAndView.addObject("id",id);
+   modelAndView.setViewName("/backstage/matchproducts");
+   return modelAndView;
+}
+   
    @RequestMapping("/querys")
 //   public ModelAndView getOldDiseaselibrary(){
 //	   ModelAndView modelAndView=new ModelAndView();
@@ -94,5 +120,19 @@ public class OldDiseaselibraryBackStageController {
    public String updateOldDiseaselibrary(OldDiseaselibrary oldDiseaselibrary){
 	   oldDiseaselibraryService.updateDiseaselibraryById(oldDiseaselibrary);
 	   return "redirect:/oldDiseaselibrary/querys";
+   }
+   @RequestMapping("/addMacth")
+   public String addMacth(Matchdisease matchdisease, RedirectAttributes model){
+	   
+	   matchdiseaseService.insertMatch(matchdisease);
+	   model.addFlashAttribute("id", matchdisease.getDid());
+	   return "redirect:/oldDiseaselibrary/matchproduct";
+   }
+   @RequestMapping("/removeMacth")
+   public String removeMacth(Integer mid,Integer did, RedirectAttributes model){
+	   
+	   matchdiseaseService.removeMatch(mid);
+	   model.addFlashAttribute("id",did);
+	   return "redirect:/oldDiseaselibrary/matchproduct";
    }
 }

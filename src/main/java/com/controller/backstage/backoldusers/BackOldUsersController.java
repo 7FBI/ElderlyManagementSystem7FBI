@@ -68,6 +68,11 @@ public class BackOldUsersController {
 		// 日期格式转换
 		// 进行数据验证
 		ModelAndView modelAndView = new ModelAndView();
+		if(request.getSession().getAttribute("manager")!=null){
+			Manager manager = (Manager) request.getSession().getAttribute("manager");
+			List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+			
+			
 		OldUsers usertell = oldUsersService.queryByTell(oldUsers.getTell());
 		OldUsers userIdCard = oldUsersService.queryByIdCard(oldUsers.getIdcard());
 		OldUsers users = oldUsersService.queryByUid(oldUsers.getUid());
@@ -85,12 +90,14 @@ public class BackOldUsersController {
 		
 			oldUsersService.insertOldUsers(oldUsers);
 			//modelAndView.addObject("err", "");
-			if(request.getSession().getAttribute("manager")!=null){
+			
+				
 				/*Manager manager=(Manager) request.getSession().getAttribute("manager");
 				List<OldUsers> olduser=oldUsersService.findAllUserByManager(manager.getLocaid());
 				modelAndView.addObject("olduser", olduser);
 				modelAndView.setViewName("backstage/allolduser");*/
-				Manager manager = (Manager) request.getSession().getAttribute("manager");
+				
+				
 				modelAndView.setViewName("backstage/allolduser");
 				Map<String,Object>map=new HashMap<String, Object>();
 				Integer max=6;
@@ -113,7 +120,7 @@ public class BackOldUsersController {
 				}
 				map.put("page", page * max);
 				map.put("max", max);
-				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+			
 				List<OldUsers> olduser = oldUsersService.findUserMap(map);
 				modelAndView.addObject("olduser", olduser);
 				modelAndView.addObject("page", page);
@@ -183,6 +190,7 @@ public class BackOldUsersController {
 			}
 			if (request.getSession().getAttribute("manager") != null) {
 				Manager manager = (Manager) request.getSession().getAttribute("manager");
+				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
 				modelAndView.setViewName("backstage/allolduser");
 				Map<String,Object>map=new HashMap<String, Object>();
 				Integer max=6;
@@ -205,7 +213,7 @@ public class BackOldUsersController {
 				}
 				map.put("page", page * max);
 				map.put("max", max);
-				List<OldUsers> allLocalolduser = oldUsersService.findAllUserByManager(manager.getLocaid());
+				
 				List<OldUsers> olduser = oldUsersService.findUserMap(map);
 				modelAndView.addObject("olduser", olduser);
 				modelAndView.addObject("page", page);

@@ -57,7 +57,7 @@
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
 			<td valign="top" bgcolor="#F7F8F9">
-				 <a href="#" onclick="javascript:history.go(-1);"><font size="2px" color="blue"> 
+				 <a href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManagerPage.action"><font size="2px" color="blue"> 
 	
               <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
 	<br><br>

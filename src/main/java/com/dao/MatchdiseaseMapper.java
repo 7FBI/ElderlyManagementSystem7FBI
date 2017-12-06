@@ -58,4 +58,5 @@ public interface MatchdiseaseMapper {
     List<Matchdisease> selectProductByDiseasesId(Integer did);
     //病历详情
     public List<Matchdisease> queryOldUserDiseaseDetails(String uid);
+	List<Matchdisease> selectByDiseasesId(Integer id);
 }

@@ -148,32 +148,31 @@
 												<tr align="center" height="50px"><td colspan="6"><font size="5px">回访销售列表</font></td></tr>
 												<tr align="center" height="40px" class="td_title_color" width="100%">
 													<th >商品名</th>
-													<th >价格</th>
+													<th >单价</th>
+													<th >购买数量</th>
 													<th >商品描述</th>	
 													<th >图片</th>
-													<th ></th>
-													<th ></th>
-													<th >购买数量</th>
+													<th >总价</th>
 													<th >操作</th>
 												</tr>
 												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
 													<c:forEach items="${listReturnShoppings}" var="listReturnShopping">
 													<tr align="left" class="d">
-
+                                                       
 														<%-- <td>${var.count}</td> --%>
 														<td>${listReturnShopping.products.pname}</td>
 					                                    <td>${listReturnShopping.products.price}</td>
+					                                     <td>${listReturnShopping.shoppingcount}</td>
 					                                    <td>${listReturnShopping.products.pdescription}</td>
 					                                   <%--  <td>${listReturnShopping.products.count}</td> --%>
-					                                    <td>${listReturnShopping.products.producturl}</td>
-					                                    <td>${listReturnShopping.products.productstype1}</td>
-					                                    <td>${listReturnShopping.products.productstype2}</td>
+					                                    <td><img src="/fbiImage${listReturnShopping.products.producturl}" width="50px" height="60px"/></td>                     
 					                                    <%-- <td>${listReturnShopping.id}</td>
 					                                    <td>${listReturnShopping.returnid}</td> --%>
-					                                    <td>${listReturnShopping.shoppingcount}</td>
+					                                    <td>${listReturnShopping.shoppingcount*listReturnShopping.products.price}</td>
 					                                      <td><a href="${pageContext.request.contextPath}/returnshopping/updatejsp.action?returnid=${listReturnShopping.returnid}&&id=${listReturnShopping.id}&&uid=${uid}">修改</a> 
 					                                          <a href="${pageContext.request.contextPath}/returnshopping/remove.action?returnid=${listReturnShopping.returnid}&&id=${listReturnShopping.id}&&uid=${uid}">删除</a> </td>	
 													</tr>
+													
 												</c:forEach>
 
 											</table>

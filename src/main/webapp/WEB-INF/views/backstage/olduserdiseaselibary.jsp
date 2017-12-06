@@ -161,6 +161,7 @@
 
 													<th width="60%">病理特征</th>
 													<th width="10%">疾病别名</th>
+													<th width="10%">可用药品</th>
 													<th width="15%">操作</th>
 												</tr>
 												<c:forEach items="${listOldDiseaselibraries}"
@@ -172,6 +173,7 @@
 
 														<td>${listOldDiseaselibrary.description}</td>
 														<td>${listOldDiseaselibrary.alias}</td>
+														<td><a href="${pageContext.request.contextPath}/oldDiseaselibrary/matchproduct.action?id=${listOldDiseaselibrary.id}">查 看</a></td>
 														<td>
 															 <a
 															href="${pageContext.request.contextPath}/oldDiseaselibrary/updatejsp.action?id=${listOldDiseaselibrary.id}" role="button" class="btn btn-warning btn-xs">修改</a>

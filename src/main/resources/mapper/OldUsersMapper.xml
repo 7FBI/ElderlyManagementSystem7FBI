@@ -158,11 +158,11 @@ select * from old_users where queryByIdCard=#{queryByIdCard}
 			userurl,localarea.provincename myarea, localarea.id lid from localarea,old_users,manager 
 			where localarea.id=manager.locaid and old_users.area=manager.locaid and manager.locaid=#{locaid,jdbcType=INTEGER} -->
 		CREATE OR REPLACE view
-		localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,myarea,lid)
+		localuser(id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,type,myarea,lid)
 		AS
 		select old_users.id id,username,sex,
 		idcard,birthday,tell,address,uid,password,
-		userurl,balance,localarea.provincename myarea,
+		userurl,balance,type,localarea.provincename myarea,
 		localarea.id lid from
 		localarea,old_users,manager
 		where localarea.id=manager.locaid
@@ -228,7 +228,7 @@ select * from old_users where queryByIdCard=#{queryByIdCard}
 	<select id="queryById" parameterType="java.lang.Integer"
 		resultMap="alluserdetail">
 		select old_users.id
-		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,localarea.provincename
+		id,username,sex,idcard,birthday,tell,address,uid,password,userurl,balance,type,localarea.provincename
 		myarea, localarea.id from localarea,old_users where
 		localarea.id=old_users.area and old_users.id=#{id}
 	</select>

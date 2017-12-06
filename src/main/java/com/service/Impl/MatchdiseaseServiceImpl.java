@@ -34,4 +34,23 @@ public class MatchdiseaseServiceImpl implements MatchdiseaseService{
 		return matchdiseaseMapper.queryOldUserDiseaseDetails(uid);
 	}
 
+	@Override
+	public void insertMatch(Matchdisease matchdisease) {
+		// TODO Auto-generated method stub
+		matchdiseaseMapper.insert(matchdisease);
+		
+	}
+
+	@Override
+	public List<Matchdisease> selectByDiseasesId(Integer id) {
+		// TODO Auto-generated method stub
+		return matchdiseaseMapper.selectByDiseasesId(id);
+	}
+
+	@Override
+	public void removeMatch(Integer mid) {
+		// TODO Auto-generated method stub
+		matchdiseaseMapper.deleteByPrimaryKey(mid);
+	}
+
 }

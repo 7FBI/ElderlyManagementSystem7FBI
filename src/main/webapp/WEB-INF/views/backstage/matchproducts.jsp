@@ -30,7 +30,7 @@
 	href="/resources/backstage/Style/skin.css" />
 </head>
 <body>
-
+	
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<!-- 头部开始 -->
 		<tr>
@@ -56,71 +56,55 @@
 			<td valign="middle"
 				background="/resources/backstage/Images/mail_left_bg.gif">&nbsp;</td>
 			<!--第一行中间内容-->
-			<td valign="top" bgcolor="#F7F8F9"><a
-				href="${pageContext.request.contextPath}/backstage/oldusers/findUserByManagerPage.action"><font
-					size="2px" color="blue"> <span
-						class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回
-				</font></a> <br>
-			<br> <!-- <div   class="col-md-3  input-group addstyle">
-						
-                               <input type="text" class="form-control" name="" id="" />
-								
-								 <span
-									class="input-group-btn">
-									<a href="#" class="btn btn-primary btn-lg active" role="button"></a>
-									
-									</span>							
-						</div> -->
-				<div class="row">
-					<form
-						action="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action"
-						method="post">
-						<div class="col-md-offset-1 col-md-4 addstyle">
-							<div class="input-group">
-								<input type="text" class="form-control" name="findbycondition"
-									placeholder="Search for..."> <span
-									class="input-group-btn">
-									<button class="btn btn-info" type="submit">
-										<!-- <a href="#">   </a> -->
-										<!-- <a href="#" type="submit" role="button">Search</a> -->
-										<!--  <input type="submit" value="Search"> -->
-										Search
-									</button>
-
-								</span>
-							</div>
-					</form>
-
-					<%-- <div class="col-md-offset-1 col-md-4 addstyle">
-						<div class="input-group">
-							<input type="text" class="form-control" id="findbycondition" name="findbycondition"
-								placeholder="Search for..."/>
-								<span
-								class="input-group-btn">
-								<button class="btn btn-info" type="button">
-								<a href="${pageContext.request.contextPath}/oldusers/selectuserbyconditions.action?findbycondition=${findbycondition}">Search</a>
-								</button> 
-									
-							</span>
-						</div> --%>
-
-					<!-- /input-group -->
+			<td valign="top" bgcolor="#F7F8F9">
+				<a  href="${pageContext.request.contextPath}/oldDiseaselibrary/querys.action?
+															uid=${uid}" ><font size="2px" color="blue"> 
+	
+              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;返回</font></a>
+	<br><br>
+				
+	<form class="form-horizontal col-md-offset-2"
+		action="/oldDiseaselibrary/addMacth.action" method="post"
+		enctype="multipart/form-data">
+			<div class="form-group col-md-offset-3">
+				<label for="pname" class="col-sm-2 control-label">药品名称</label>
+			<div class="col-sm-3">
+				<select class="form-control" name="pid" >
+					<c:forEach items="${listProducts}" var="listProduct" varStatus="var">
+					<option value="${listProduct.id}">${listProduct.pname}</option>
+					</c:forEach>					
+				</select>
+				
+			</div>
+				<div class="pleft">
+				<font color="red"><span id="error5"></span></font> <font color="green"><span
+							id="success5"></span></font>
 				</div>
+				<c:if test="${!empty error}">
+					<div>
+						<span style="color: red">${err}</span>
+					</div>
+				</c:if>
+			</div>			
+					<input type="hidden" class="form-control" name="did"
+						value="${id}" >
+			
+			<div class="row">
+				<div class="col-sm-offset-3 col-md-3">
+					<br>
+					<button type="submit" class="btn btn-success">确认添加</button>
 
-				<div class="col-md-3 col-md-offset-1 addstyle">
-					<a href="${pageContext.request.contextPath}/returninfo/addgojsp?uid=${uid}"
-						class="btn btn-success"> <!-- <a href="register" class="btn btn-success"> -->
-						<span class="glyphicon glyphicon-plus" aria-hidden="true">添加回访记录</span>
-					</a>
-
-					<!-- /input-group -->
 				</div>
+			</div>
+	</form>
+					
+
+					
 				
 
 				<table width="100%" border="0" align="center" cellpadding="0"
 					cellspacing="0">
-					
-
+				
 					<tr>
 						<td height="40" colspan="4">
 							<table width="100%" height="1" border="0" cellpadding="0"
@@ -136,42 +120,40 @@
 						<td width="4%">&nbsp;&nbsp;&nbsp;</td>
 
 						<td>
+
 							<table width="100%">
 								<tr>
 									<td colspan="2">
 										<form action="" method="">
 											<table width="100%" class="cont tr_color"
 												style="table-layout:fixed;">
-												<tr align="center" height="50px">
-													<td colspan="6"><font size="5px">回访记录列表</font></td>
+												<tr align="center" height="50px"><td colspan="5"><font size="5px">适用药品列表</font></td></tr>
+												<tr align="center" height="40px" class="td_title_color" width="100%">
+													<th >药品名</th>
+													<th >单价</th>
+													<th >商品描述</th>	
+													<th >图片</th>	
+													<th >操作</th>
 												</tr>
-												<tr align="center" height="40px" class="td_title_color"
-													width="100%">
-													<th>序号</th>
-													<th>客户账号</th>
-													<th>客户姓名</th>
-													<th>回访内容</th>
-													<th>回访时间</th>
-													<th>回访者</th>
-													<th width="10%">操作</th>
-												</tr>
-												<%-- <c:forEach items="${localArea}" var="localArea" varStatus="var"> --%>
-												<c:forEach items="${listReturninfos}" var="listReturninfo">
-													<tr align="left" class="d">
-
-														<%-- <td>${var.count}</td> --%>
-														<td>${listReturninfo.id}</td>
-														<td>${listReturninfo.oldUser.uid}</td>
-														<td>${listReturninfo.oldUser.username}</td>
-														<td>${listReturninfo.returncontent}</td>
-														<td>${listReturninfo.returndate}</td>
-														<td>${listReturninfo.manager.mnane}</td>
-														<td><a
-															href="/returnshopping/querys.action?returnid=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">回访详情</a> 
-															<a href="/returninfo/updatejsp.action?id=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">修改</a>
-															<a href="/returninfo/remove.action?id=${listReturninfo.id}&&uid=${listReturninfo.oldUser.uid}">删除</a></td>								
-													</tr>
-												</c:forEach>
+												
+													
+                                                      <c:forEach items="${listMatchdiseases}" var="listMatchdisease">
+														<tr>
+														<td >
+														${listMatchdisease.product.pname}
+														</td>
+														<td >
+														${listMatchdisease.product.price}
+														</td>
+														<td >
+														${listMatchdisease.product.pdescription}
+														</td>
+														<td ><img src="/fbiImage${listMatchdisease.product.producturl}">
+				
+														</td>
+														<td><a href="${pageContext.request.contextPath}/oldDiseaselibrary/removeMacth?mid=${listMatchdisease.id}&&did=${listMatchdisease.did}">删除</a></td>
+													 </tr>
+													  </c:forEach>
 
 											</table>
 										</form>
@@ -204,7 +186,8 @@
 						<td>&nbsp;</td>
 						<td>&nbsp;</td> -->
 					</tr>
-				</table></td>
+				</table>
+			</td>
 			<td background="/resources/backstage/Images/mail_right_bg.gif">&nbsp;</td>
 		</tr>
 		<!-- 底部部分 -->

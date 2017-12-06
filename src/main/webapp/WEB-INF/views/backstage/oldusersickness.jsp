@@ -151,7 +151,7 @@
 										<form action="" method="">
 									
 											<table width="100%" class="cont tr_color"
-												style="table-la yout:fixed;">
+												>
 												
 												<tr align="center" height="40px" class="td_title_color" width="100%">
 													<!-- <th width="100px">商品名称</th>
@@ -163,17 +163,19 @@
 													<!-- <th  width="50%">推荐商品</th> -->
 												</tr>
 											<tr align="center" height="40px" class="td_title_color" width="100%">
-											<td colspan="3"><font size="5px">推荐商品</font></td></tr>	
+											<td colspan="4"><font size="5px">推荐商品</font></td></tr>	
 								
 												<c:forEach items="${listMatchdiseaseMap}" var="listMatchdiseaseMap">
-													<tr><td colspan="3"><font size="4px">${listMatchdiseaseMap.getKey()}</font></td></tr>
+													<tr><td colspan="4"><font size="4px">适用${listMatchdiseaseMap.getKey()}</font></td></tr>
 													<%-- <c:forEach items="${listMatchdiseaseMap.getValue()}" var="listMatchdisease"> --%>
-													<tr align="left" class="d">
-                                                      <c:forEach items="${listMatchdiseaseMap.getValue()}" var="listMatchdisease">
-														<td ><a href="/backstage/Store/productShowUrl.action?pid=${listMatchdisease.product.id}&&did=${did}&&uid=${uid}"><img src="${listMatchdisease.product.producturl}" />${listMatchdisease.product.producturl}</a>
-														 <br><a href="/backstage/Store/productShowUrl.action?pid=${listMatchdisease.product.id}&&did=${did}&&uid=${uid}">${listMatchdisease.product.pname}
+												
+													<tr align="left">
+                                                      <c:forEach items="${listMatchdiseaseMap.getValue()}" var="listMatchdisease" varStatus="var">
+														 <td >
+														 <img src="${listMatchdisease.product.producturl}" width="240px" height="190px"/>${listMatchdisease.product.producturl}
+														 <br>${listMatchdisease.product.pname}
 					                                      
-					                                      </a><br>
+					                                    <br>
 					                                       <font style="color: red ;font-size:3px;">￥:${listMatchdisease.product.price}</font>
 														</td>
 													  </c:forEach>

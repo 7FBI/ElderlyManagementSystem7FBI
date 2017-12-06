@@ -41,9 +41,11 @@
 	<result column="price" property="price"/>
 	<result column="pdescription" property="pdescription"/>
 	<result column="count" property="count"/>
+	<result column="size" property="size"/>
 	<result column="producturl" property="producturl"/>
-	<result column="producttype1" property="producttype1"/>
-	<result column="producttype2" property="producttype2"/>
+	<result column="productscolor" property="productscolor"/>
+	<result column="productstype1" property="productstype1"/>
+	<result column="productstype2" property="productstype2"/>
 	</association>
 	</resultMap>
 	<sql id="Base_Column_List">
@@ -68,8 +70,8 @@
 	<select id="ReturnShoppingByRid" parameterType="java.lang.Integer"
 		resultMap="ReturnShopping">
 		SELECT rs.id id,rs.returnid returnid,rs.shoppingcount shoppingcount,p.id pid,p.pname pname,p.price
-		price,p.pdescription pdescription,p.count,p.producttype1
-		producttype1,p.producttype2 producttype2,p.producturl
+		price,p.pdescription pdescription,p.count count,p.productstype1 productstype1,p.size size,p.productscolor productscolor,
+		p.productstype2 productstype2,p.producturl producturl
 		FROM returnshopping rs,products p
 		WHERE
 		rs.pid=p.id AND rs.returnid=#{returnid}

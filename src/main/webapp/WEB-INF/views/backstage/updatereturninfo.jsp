@@ -74,8 +74,10 @@
 			<div class="form-group col-md-offset-3">
 				<label for="uid" class="col-sm-2 control-label">回访者</label>
 				<div class="col-sm-3">
-					<input type="text" class="form-control" name="mid" id="mid"
-						value="1" readonly="readonly">
+					<input type="text" class="form-control"
+						value="${manager.mnane}" readonly="readonly">
+						<input type="hidden" class="form-control" name="mid" id="mid" 
+						value="${manager.id}" readonly="readonly">
 
 				</div>
 				<div class="pleft">
