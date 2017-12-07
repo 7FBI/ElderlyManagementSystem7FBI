@@ -166,7 +166,7 @@
 								href="${pageContext.request.contextPath}/front/videos/selectvideobyid.action?id=${allVideos.id}">
 									<font color="blue" size="3px">${allVideos.vtitle }</font>
 							</a> <font color="red">${allVideos.vprice}</font> </strong>
-							主讲人：${allVideos.vteacher}<br> ${allVideos.vcontent}.... <br>
+							主讲人：${allVideos.vteacher}<br><%--  ${allVideos.vcontent}.... <br> --%>
 						<br>
 
 						</li>
@@ -227,7 +227,7 @@
 									<font color="blue" size="3px">${matchpeoplebyvideolist.video.vtitle }</font>
 							</a>&nbsp;&nbsp; <font color="red">￥:${matchpeoplebyvideolist.video.vprice }</font>
 						</strong> <!--鼠标移上去显示  --> 主讲人： ${matchpeoplebyvideolist.video.vteacher}<br>
-							${matchpeoplebyvideolist.video.vcontent}....
+							<%-- ${matchpeoplebyvideolist.video.vcontent}.... --%>
 
 						</li>
 					</c:forEach>
@@ -266,7 +266,7 @@
 									<font color="blue" size="3px">${allMySeenVideo.video.vtitle }</font>
 							</a>&nbsp;&nbsp; <font color="red">￥:${allMySeenVideo.video.vprice }</font>
 						</strong> <!--鼠标移上去显示  --> 主讲人： ${allMySeenVideo.video.vteacher}<br>
-							${allMySeenVideo.video.vcontent}....
+							<%-- ${allMySeenVideo.video.vcontent}.... --%>
 
 						</li>
 					</c:forEach>
@@ -312,7 +312,7 @@
 									<font color="blue" size="3px">${freevideo.vtitle }</font>
 							</a>&nbsp;&nbsp; <font color="red">￥:${freevideo.vprice }</font>
 						</strong> <!--鼠标移上去显示  --> 主讲人： ${freevideo.vteacher}<br>
-							${freevideo.vcontent}....
+							<%-- ${freevideo.vcontent}.... --%>
 
 						</li>
 					</c:forEach>

@@ -110,7 +110,7 @@ select * from old_users where tell=#{tell}
 </select>
 <!--更据身份证查  -->
 <select id="queryByIdCard" parameterType="java.lang.String" resultMap="BaseResultMap">
-select * from old_users where queryByIdCard=#{queryByIdCard}
+select * from old_users where idcard=#{idcard}
 </select>
 
 	<!-- 查询所有用户 -->
