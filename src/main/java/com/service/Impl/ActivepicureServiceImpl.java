@@ -66,4 +66,6 @@ public class ActivepicureServiceImpl implements ActivepicutreService{
 		return activepicutreMapper.selectPictureByActivityId(activityid);
 	}
 
+	
+
 }

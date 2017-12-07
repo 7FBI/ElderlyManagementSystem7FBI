@@ -62,9 +62,14 @@ public ModelAndView queryAllActiveInfo(HttpServletRequest request){
 		if(activepicutre.size()>0){
 			 modelAndView.addObject("onePicture", activepicutre.get(0));
 			 activitydetailinfo.setActiveimageurl(activepicutre.get(0).getActiveimageurl());
-			 Date stoptime=(Date)activitydetailinfo.getActitvityendtime();
-				Date nowdate=new Date();
-				if(stoptime.getTime()<nowdate.getTime()){
+			 Date stoptime=activitydetailinfo.getActitvityendtime();
+			System.out.println("报名截止日期"+stoptime);
+			if(stoptime==null){
+				stoptime=new Date();
+			}
+			 Date nowdate=new Date();
+			 System.out.println("系统当前日期"+nowdate);
+				if(stoptime.getDate()<nowdate.getDate()){
 					activitydetailinfo.setActivityStatus(0);
 					System.out.println("活动已结束");
 				}else{

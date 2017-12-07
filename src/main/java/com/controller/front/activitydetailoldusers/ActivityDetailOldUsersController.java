@@ -66,6 +66,7 @@ public class ActivityDetailOldUsersController {
 			activityprice = 0.0;
 		}
 		int compareResult = TrsanforDateToString.trsanforDate(activitystoptime);
+	
 		System.out.println("比较结果" + compareResult);
 		ModelAndView modelAndView = new ModelAndView();
 		System.out.println("报名截止日期" + activitystoptime);

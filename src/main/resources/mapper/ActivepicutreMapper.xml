@@ -336,7 +336,7 @@
       extended20 = #{extended20,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="selectByActivityid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByActivityid" parameterType="java.lang.Integer" resultType="com.bean.Activepicutre">
     
     select *
     from activepicutre
