@@ -199,8 +199,10 @@
     
     layui.use('layer', function() {
 		var $ = layui.jquery, layer = layui.layer;
-		layer.msg("若文件较大，上传时间可能比较长，请耐心等待",{time:10000});
-		layer.load(0);
+		$(document).on('click',".btn",function(){
+			layer.msg("若文件较大，上传时间可能比较长，请耐心等待",{time:10000});
+			layer.load(0);
+		})
     })
     </script>
     </body>
