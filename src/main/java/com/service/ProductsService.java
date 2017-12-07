@@ -86,4 +86,5 @@ public interface ProductsService {
   public Products selectByitoBackstage(int id);
   
   public List<Products> selectProductsByLikeTypeName(String classname);
+  public List<Products> selectAllProductsByPrice(Double price);
 }

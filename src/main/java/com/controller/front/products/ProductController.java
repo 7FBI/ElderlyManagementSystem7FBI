@@ -99,12 +99,14 @@ public class ProductController {
 	  }
 	  List<Products> products = productsService.selectAllProducts();
 	  List<Products> product = creditShopService.SelectAllCreditShop();
-	 /* List<Frontinformation> list=frontinformationService.selectEight("[公告]");*/
+	 /* List<Products> productss = productsService.selectAllProductsByPrice(9.99);*/
+	  List<Frontinformation> list=frontinformationService.selectEight("[公告]");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
 		modelAndView.addObject("product", product);
+		/*modelAndView.addObject("productss", productss);*/
 		modelAndView.addObject("muns",num);
-		/*modelAndView.addObject("list", list);*/
+		modelAndView.addObject("list", list);
 		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
 		

@@ -233,4 +233,9 @@ public class ProductsServiceImpl implements ProductsService {
 		// TODO Auto-generated method stub
 		return productsMapper.selectProductsByLikeTypeName(classname);
 	}
+	@Override
+	public List<Products> selectAllProductsByPrice(Double price) {
+		// TODO Auto-generated method stub
+		return productsMapper.selectAllProductsByPrice(price);
+	}
 }

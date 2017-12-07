@@ -713,6 +713,14 @@
 		select * from products where tid = #{tid}
 
 	</select>
+	
+	
+	<!-- 根据商品价格查询商品 -->
+	<select id="selectAllProductsByPrice" parameterType="java.lang.Double"
+		resultType="Products">
+		select * from products where price = #{price}
+
+	</select>
 
 	<select id="selectProductDetailByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="productsAndClassification">

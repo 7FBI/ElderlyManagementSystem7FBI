@@ -1767,10 +1767,10 @@ et=UTF-8">
 						<li><a target="_blank" href="#">${list.newstitle }</a></li>
 						
 						</c:forEach>
-						<!-- <li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券买1送1！</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
-						<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒</a></li> -->
+						<!-- <li><a target="_blank" href="#"><span>[公告]家电狂欢千亿礼券买1送1！</a></li>
+						<li><a target="_blank" href="#"><span>[公告]洋河年末大促，低至两件五折</a></li>
+						<li><a target="_blank" href="#"><span>[公告]华北、华中部分地区配送延迟</a></li>
+						<li><a target="_blank" href="#"><span>[公告]女生节商城爆品1分秒</a></li> -->
 
 					</ul>
 
@@ -1806,50 +1806,62 @@ et=UTF-8">
 
 			<div class="am-container">
 					
-                     <div class="sale-mt">
+                     <div class="sale-mt" >
 		                   <i></i>
-		                   <em class="sale-title">今日活动</em>
+		                  <span style="font-size:25px;width:250px;height:25px;position:absolute;margin-top:30px;margin-left:-250px;">今日活动</span>
 	                  </div>
 
 
 				<div class="am-g am-g-fixed sale">
+				
+				<c:set var="i5" value="0"></c:set>
+					<c:forEach items="${products}" var="products">
+					<form action="/front/orders/addOneOrder" id="fromSubmin" method="post">
+					<input name="num" type="hidden" value="1">
+						 <input
+							name="pid" id="nowpids" type="hidden" value="${products.id}">
+						<input name="uid" type="hidden" value="${oldUsers.uid}">
+					</form>
+						<c:if test="${products.price==9.9 && i5<4 }">
+							<c:set var="i5" value="${i5+1}"></c:set>
 					<div class="am-u-sm-3 sale-item">
 						<div class="s-img">
-							<a href="# "><img src="/resources/front/images/self_img/sale3.jpg" /></a>
+							<a href="# "><img src="/fbiImage${products.producturl }" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#"><p class="s-title">${products.pname }</p></a>
 							<div class="s-price">
-								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>${products.price }</b> <a class="s-buy" href="#" id="pays">秒杀</a>
 							</div>
 						</div>
 					</div>
-
-					<div class="am-u-sm-3 sale-item">
+					</c:if>
+</c:forEach>
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/sale2.jpg" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#" ><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="am-u-sm-3 sale-item">
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/sale1.jpg" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#" class="active"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>
-
-					<div class="am-u-sm-3 sale-item">
+ -->
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/666.jpg " /></a>
 						</div>
@@ -1859,7 +1871,7 @@ et=UTF-8">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 				</div>
 			</div>
@@ -1933,7 +1945,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }" style="background:yellow;">
-										<img src="/resources/front/images/self_img/10.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2014,7 +2026,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/9.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2095,7 +2107,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/8.jpg"  style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }"  style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2173,7 +2185,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/7.jpg" style="width:150px;height:118px;">
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;">
 									</a>
 								</div>
 							</li>
@@ -2254,7 +2266,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/6.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2334,7 +2346,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/5.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2414,7 +2426,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/4.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2494,7 +2506,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/3.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2664,6 +2676,16 @@ et=UTF-8">
 					'layer',
 					function() {
 						var $ = layui.jquery, layer = layui.layer;
+						
+						
+						$(document).on('click',"#pays",function() {
+							$(this).parent().parent().parent().prev().prev().prev().submit();
+							
+						})
+									
+									
+									
+						
 
 						$(document)
 								.on(
