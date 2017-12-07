@@ -114,11 +114,15 @@ public class ProductController {
 
 	
 	@RequestMapping("/selectProductsByLikeName")
-	public ModelAndView selectProductsByLikeName(HttpServletRequest request){
-		System.out.println(request.getParameter("pname")+"uuybuggvbygvgh");
-		List<Products> products = productsService.selectProductsByLikeName(request.getParameter("pname"));
+	public ModelAndView selectProductsByLikeName(HttpServletRequest request) throws UnsupportedEncodingException{
+		String pname = request.getParameter("pname");
+		
+		String pnamess = new String(pname.trim().getBytes("ISO-8859-1"), "UTF-8");
+	
+		List<Products> products = productsService.selectProductsByLikeName(pnamess);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
+		modelAndView.addObject("pnamess", pnamess);
 		modelAndView.setViewName("front/ElectronicCommerce");
 		return modelAndView;
 	}
