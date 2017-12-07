@@ -112,7 +112,7 @@ a {
 	</div>
 	<div class="cart_btn">
 	<a href="/front/products/selectAllProducts">去购物</a>
-	<a href="/gotoFront/SelfCenter_Collection">去收藏夹</a>
+	<a href="/front/collection/select_list">去收藏夹</a>
 	</div>
 	</div>
 	</div>
