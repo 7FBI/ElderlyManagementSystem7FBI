@@ -10,7 +10,7 @@ function selectFocus(){
 
 function titleCheck(){
 	/*var reg = /^[\u4e00-\u9fa5]{2,20}$|^[\dA-Za-z_]{2,20}$/;*/
-	var reg =/^([A-Za-z]|[\u4E00-\u9FA5])+$/;
+	var reg =/^.{3,40}$/;
 	var vtitle = document.getElementById("vtitle").value;
 	if (vtitle.length == 0) {
 		var str = "× 标题不能为空";

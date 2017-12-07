@@ -27,10 +27,7 @@
 <script type="text/javascript"
 	src="/resources/unity/datetimepicker/jquery.js"></script>
 <!-- 验证 -->
-
-<script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
-
+  <script type="text/javascript" src="/resources/js/addusercheck.js"></script>
 </head>
 
 <body>

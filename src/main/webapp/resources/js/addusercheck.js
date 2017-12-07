@@ -252,8 +252,6 @@ function userscheck() {
 		return false;
 	}
 }
-
-
 function checkbalance() {
 	if (balanceCheck()) {
 		return true;

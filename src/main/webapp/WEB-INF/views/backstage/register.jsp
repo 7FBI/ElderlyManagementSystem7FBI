@@ -18,6 +18,8 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<!-- 验证 -->
+<script type="text/javascript" src="/resources/js/addusercheck.js"></script>
 <link href="/resources/unity/bootstrap-3.3.7-dist/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css">
 <link href="/resources/css/register.css" rel="stylesheet"
@@ -28,11 +30,6 @@
 	src="/resources/unity/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/resources/backstage/Style/skin.css" />
-
-<!-- 验证 -->
-<script type="text/javascript" language="javascript"
-	src="/resources/js/registercheck.js"></script>
-
 </head>
 
 <body>
