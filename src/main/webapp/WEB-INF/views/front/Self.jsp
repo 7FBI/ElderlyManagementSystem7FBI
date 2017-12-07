@@ -57,12 +57,12 @@
 
 							<div class="filePic">
 						<input type="file" class="inputPic"  name="userurl" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
-								<img class="am-circle am-img-thumbnail" src="/resources/front/images/self_img/getAvatar.do.jpg" alt="" />
+								<img class="am-circle am-img-thumbnail" src="/fbiImage${oldUsers.userurl }" alt="${oldUsers.username}" />
 							</div>
 <!-- 头像 -->
 							<p class="am-form-help">头像</p>
 
-							<div class="info-m">
+							<%-- <div class="info-m">
 								<div><b>用户名：<i>${oldUsers.username}</i></b></div>
 								<div class="u-level">
 									<span class="rank r2">
@@ -75,7 +75,7 @@
 									<span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">60分</i></span>
 									</a>
 								</div>
-							</div>
+							</div> --%>
 						</div>
 
 <!--个人信息 -->
