@@ -61,7 +61,7 @@
 
 								<div class="goods-attr">
 									<div class="good-title">
-										<a class="title" href="#" target="_blank">${list.products.pname }</a>
+										<a class="title" href="/front/products/selectProductDetailByPrimaryKey?id=${list.products.id}" target="_blank">${list.products.pname }</a>
 									</div>
 									<div class="goods-price">
 										<span class="g_price">                                    
