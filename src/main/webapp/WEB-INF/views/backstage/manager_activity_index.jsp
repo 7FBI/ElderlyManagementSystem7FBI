@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -72,8 +73,8 @@
                                                         <th>价格</th>
                                                         <th>教导老师</th>
                                                         <th>活动内容简介</th>
-                                                        <th>报名开始日期</th>
-                                                        <th>报名截至日期</th>
+                                                        <th>开始日期</th>
+                                                        <th>截至日期</th>
                                                         <th>活动编辑</th>
                                                     </tr>
                                                     <c:forEach items="${activitydetailinfoList}" var="activitydetailinfoList">
@@ -83,8 +84,8 @@
    														<th>${activitydetailinfoList.activityprice}</th>
    														<th>${activitydetailinfoList.activityteacher}</th>
    														<th>${activitydetailinfoList.activitycontent}</th>
- 														<th>${activitydetailinfoList.activitystarttime}</th>
- 														<th>${activitydetailinfoList.actitvityendtime}</th> 
+ 														<th><fmt:formatDate value="${activitydetailinfoList.activitystarttime}" pattern="yyyy-MM-dd"/> </th>
+ 														<th><fmt:formatDate value="${activitydetailinfoList.actitvityendtime}" pattern="yyyy-MM-dd"/> </th> 
 														<th>
 															<tt><a href="${pageContext.request.contextPath }/backstage/manager/selectById2?id=${activitydetailinfoList.id}">详情</a></tt>
 															<tt><a href="${pageContext.request.contextPath }/backstage/manager/delete?id=${activitydetailinfoList.id}">删除</a></tt>
