@@ -1874,8 +1874,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">我要我的品质</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">羽绒服</a>| <a href="# ">棉衣</a>| <a href="# ">加厚
-							</a>| <a href="# ">打底衫</a>| <a href="# ">衬衫</a>| <a href="# ">短裤</a>
+							<a href="# " class="outer">羽绒服</a>| <a href="# " class="outer">棉衣</a>| <a href="# " class="outer">加厚
+							</a>| <a href="# " class="outer">打底衫</a>| <a href="# " class="outer">衬衫</a>| <a href="# " class="outer">短裤</a>
 						</div>
 
 					</div>
@@ -1933,7 +1933,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }" style="background:yellow;">
-										<img src="/resources/front/images/self_img/10.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -1954,8 +1954,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">败家不是罪，怎么买都不贵</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">打底裤</a>| <a href="# ">保暖内衣</a>| <a href="# ">羊绒大衣 </a>|
-							<a href="# ">棉袄</a>| <a href="# ">打底衫</a>| <a href="# ">针织衫</a>
+							<a href="# " class="outer">打底裤</a>| <a href="# " class="outer">保暖内衣</a>| <a href="# " class="outer">羊绒大衣 </a>|
+							<a href="# " class="outer">棉袄</a>| <a href="# " class="outer">打底衫</a>| <a href="# " class="outer">针织衫</a>
 						</div>
 					</div>
 				</div>
@@ -2014,7 +2014,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/9.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2035,8 +2035,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">每一道食品都有一个故事</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">桂花糕</a>| <a href="# ">鲜花饼</a>| <a href="# ">栗子糕
-							</a>| <a href="# ">凤梨酥</a>| <a href="# ">铜锣烧</a>| <a href="# ">广式月饼</a>
+							<a href="# " class="outer">桂花糕</a>| <a href="# " class="outer">鲜花饼</a>| <a href="# " class="outer">栗子糕
+							</a>| <a href="# " class="outer">凤梨酥</a>| <a href="# "class="outer">铜锣烧</a>| <a href="# " class="outer">广式月饼</a>
 						</div>
 
 					</div>
@@ -2046,7 +2046,7 @@ et=UTF-8">
 
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
-							<a class="outer" href="#"><span class="inner"><b
+							<a class="outer" href="#" ><span class="inner"><b
 									class="text">华夫饼</b></span></a> <a class="outer" href="#"><span
 								class="inner"><b class="text">肉松饼</b></span></a> <a class="outer"
 								href="#"><span class="inner"><b class="text">黄山烧饼</b></span></a> <a
@@ -2095,7 +2095,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/8.jpg"  style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }"  style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2116,8 +2116,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你需要的温馨，我来替你营造</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">毛巾</a>| <a href="# ">被子</a>| <a href="# ">枕头 </a>|
-							<a href="# ">牙刷</a>| <a href="# ">热水器</a>| <a href="# ">空调</a>
+							<a href="# " class="outer">毛巾</a>| <a href="# " class="outer">被子</a>| <a href="# " class="outer">枕头 </a>|
+							<a href="# " class="outer">牙刷</a>| <a href="# " class="outer">热水器</a>| <a href="# " class="outer">空调</a>
 						</div>
 					</div>
 				</div>
@@ -2173,7 +2173,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/7.jpg" style="width:150px;height:118px;">
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;">
 									</a>
 								</div>
 							</li>
@@ -2194,8 +2194,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你的健康是我最大的关怀</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">海参</a>| <a href="# ">灵芝</a>| <a href="# ">贵州三宝
-							</a>| <a href="# ">阿胶枣</a>| <a href="# ">西洋参</a>
+							<a href="# " class="outer">海参</a>| <a href="# " class="outer">灵芝</a>| <a href="# " class="outer">贵州三宝
+							</a>| <a href="# " class="outer">阿胶枣</a>| <a href="# " class="outer">西洋参</a>
 						</div>
 
 					</div>
@@ -2254,7 +2254,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/6.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2274,8 +2274,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">把满意带给你，把健康带回家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">维生素</a>| <a href="# ">液体钙</a>| <a href="# ">调节三高 </a>|
-							<a href="# ">肝肾养护</a>| <a href="# ">养颜</a>| <a href="# ">胶原蛋白</a>
+							<a href="# " class="outer">维生素</a>| <a href="# " class="outer">液体钙</a>| <a href="# " class="outer">调节三高 </a>|
+							<a href="# " class="outer">肝肾养护</a>| <a href="# " class="outer">养颜</a>| <a href="# " class="outer">胶原蛋白</a>
 						</div>
 					</div>
 				</div>
@@ -2334,7 +2334,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/5.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2355,8 +2355,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">让健康谱写生命的乐章</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# ">羽毛球</a>| <a href="# ">腰鼓</a>| <a href="# ">自行车
-							</a>| <a href="# ">象棋</a>| <a href="# "></a>| <a href="# ">棒球</a>
+							<a href="# " class="outer">羽毛球</a>| <a href="# " class="outer">腰鼓</a>| <a href="# " class="outer">自行车
+							</a>| <a href="# " class="outer">象棋</a>| <a href="# " class="outer"></a>| <a href="# " class="outer">棒球</a>
 						</div>
 
 					</div>
@@ -2414,7 +2414,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/4.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2434,8 +2434,8 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">健康水果，美味到家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
-							<a href="# ">猕猴桃</a>| <a href="# ">苹果</a>| <a href="# ">香蕉</a>|
-							<a href="# ">火龙果</a>| <a href="# ">草莓</a>| <a href="# ">哈密瓜</a>
+							<a class="outer" href="# ">猕猴桃</a>| <a class="outer" href="# ">苹果</a>| <a class="outer" href="# ">香蕉</a>|
+							<a class="outer" href="# ">火龙果</a>| <a class="outer" href="# ">草莓</a>| <a class="outer" href="# ">哈密瓜</a>
 						</div>
 					</div>
 				</div>
@@ -2494,7 +2494,7 @@ et=UTF-8">
 									</div>
 									<a
 										href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
-										<img src="/resources/front/images/self_img/3.jpg" style="width:150px;height:118px;"/>
+										<img src="/fbiImage${products.producturl }" style="width:150px;height:118px;"/>
 									</a>
 								</div>
 							</li>
@@ -2701,7 +2701,14 @@ et=UTF-8">
 														+ classname;
 												window.location.href = hrs;
 											
-										})
+										});
+										
+						$(document).on('click',".outer",function() {
+							var classname = $(this).text();;
+								hrs = "/front/products/selectProductsByLikeName?pname="
+										+ classname;
+								window.location.href = hrs;
+						})
 										
 										
 										$(document).on('click',".type",function() {
@@ -2745,13 +2752,11 @@ et=UTF-8">
 													})
 											return false;
 										});
-						$('.item')
-								.on(
-										'click',
-										function() {
+						
+						//outer
+						$('.item').on('click',function() {
 											var f = $(this);
-											$
-													.ajax({
+											$.ajax({
 														type : 'post',
 														url : '/front/shoppingCart/intoshoppingCart.action',
 														success : function(data) {

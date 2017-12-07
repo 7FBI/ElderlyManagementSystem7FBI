@@ -650,7 +650,7 @@
 		/* 收藏功能 */
 		$("#btnCollect").click(function() {
 			var btn = $("#btnCollect")
-			var tg = ${product.id};
+			var tg = '${product.id}';
 			$.ajax({
 				type : 'get',
 				url : "/front/collection/insert_or_delete?pid=" + tg,

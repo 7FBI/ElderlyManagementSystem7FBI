@@ -62,7 +62,7 @@ public ModelAndView queryAllActiveInfo(HttpServletRequest request){
 		if(activepicutre.size()>0){
 			 modelAndView.addObject("onePicture", activepicutre.get(0));
 			 activitydetailinfo.setActiveimageurl(activepicutre.get(0).getActiveimageurl());
-			 Date stoptime=activitydetailinfo.getActitvityendtime();
+			 Date stoptime=(Date)activitydetailinfo.getActitvityendtime();
 				Date nowdate=new Date();
 				if(stoptime.getTime()<nowdate.getTime()){
 					activitydetailinfo.setActivityStatus(0);

@@ -46,11 +46,10 @@
 
 							<ul class="am-avg-sm-2 am-tabs-nav am-nav am-nav-tabs">
 								<li class="am-active"><a href="#tab1">所有评价</a></li>
-								<li><a href="#tab2">有图评价</a></li>
 
 							</ul>
 
-							<div class="am-tabs-bd">
+							<div class="am-tabs-bd" id="tab1">
 							<!-- 循环 -->
 								<c:forEach items="${opinions }" var="list">
 								<div class="am-tab-panel am-fade am-in am-active">

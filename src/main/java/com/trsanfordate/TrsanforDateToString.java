@@ -6,8 +6,15 @@ import java.util.Date;
 
 public class TrsanforDateToString {
 	public static int trsanforDate(String ds){
-		//SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		Date dates=new Date(ds);
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		//Date dates=new Date(ds);
+		Date dates=null;
+		try {
+			dates = sdf.parse(ds);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Date nowdate = new Date();
 		System.out.println("当前日期"+nowdate.getTime());
 		System.out.println("活动日期"+dates.getTime());
