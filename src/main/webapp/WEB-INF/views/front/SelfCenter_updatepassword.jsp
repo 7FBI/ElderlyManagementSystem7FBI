@@ -66,7 +66,7 @@
 						<div class="u-progress-bar-inner"></div>
 					</div> -->
 				</div>
-				<form class="am-form am-form-horizontal" action="/front/oldUsers/updatePasswordByUid" id="f">
+				<form class="am-form am-form-horizontal" id="f">
 					<input type="hidden" value="" />
 					
 					<div class="am-form-group">
@@ -105,53 +105,51 @@
 <script type="text/javascript">
 		layui.use('layer', function() {
 			var $ = layui.jquery, layer = layui.layer;
-			if(oldPassword()){
-				
-			}
-			
 		 	$("#saveP").on('click',function(){
-			if(oldPassword()){
-				if(twoPassword()){
-					if (isPassword()) {
-						var f=$("#f");
-						f.submit();
-					} else {
-						layer.msg("密码格式不正确",{time:2000})
-					}
-				}else{
-					layer.msg("两次密码不一致",{time:2000})
-				}
-				
-			}
-			layer.msg("原密码输入错误",{time:2000})
 			
-				
-			}) 
+		 		var p=$("#user-old-password");
+		 		var tgl=false;
+		 		if(p.val()=="" || p.val()==undefined){
+		 			layer.msg("不可输入空",{time:2000})
+		 			return tgl;
+		 		}else{
+		 			/* var data=location.href='/front/oldUsers/getOldPassword?oldPassword='+p.val(); */
+		 			$.ajax({
+		 				type:'post',
+		 				url:'/front/oldUsers/getOldPassword?oldPassword='+p.val(),
+		 				success:function(data){
+		 					layer.msg(data,{time:2000})
+		 					if(data=="true"){
+		 						if (isPassword()) {
+		 							if(twoPassword()){
+		 								var f=$("#f");
+		 								var pn=$("#user-new-password");
+		 								$.ajax({
+		 									type:'post',
+		 									url:'/front/oldUsers/setNewPasswordUser?newPassword='+pn.val(),
+		 									success:function(data2){
+		 										if(data2=="true"){
+		 											layer.msg("密码修改成功,新密码:"+pn.val(),{time:5000});
+		 											window.location.href="/front/oldUsers/selectByUid"
+		 										}else{
+		 											layer.msg("密码修改失败",{time:2000})
+		 										}
+		 									}
+		 								})
+		 							} else {
+		 								layer.msg("两次密码不一致",{time:2000})
+		 							}
+		 						}else{
+		 							layer.msg("密码格式不正确",{time:2000})
+		 						}
+		 					}else {
+		 						layer.msg("原密码输入错误",{time:2000});
+		 					}
+		 				}
+		 			})
+		 		}
 		})
-		
-		
-		
-function oldPassword(){
-	var p=$("#user-old-password");
-	if(p.val()=="" || p.val()==undefined){
-		p.appned('请输入密码')
-	}else{
-		$.get("/front/oldUsers/selectPassword",p.val(),function(date){
-			layer.close(layer.index);
-			if (data=="true") {
-				location.href=document.referrer;
-			} else (data=="false"){
-				alert:('密码错误');
-			}
-			
-			
-		});
-	}
-	
-	
-	
-}	
-		
+		})
 //两次密码验证
 function twoPassword(){
 	var p=$("#user-new-password");
@@ -163,14 +161,12 @@ function twoPassword(){
 	return tgl;
 }
 		//密码格式验证
-		function isPassword(){
-			var pattern=/^[0-9a-zA-Z_]{6,16}$/;
-			var p=$("#user-new-password");
-			var tgl = pattern.test(p.val());
-			return tgl;
-		}
-		
-</script>
+		 	function isPassword(){
+				var pattern=/^[0-9a-zA-Z_]{6,16}$/;
+				var p=$("#user-new-password");
+				var tgl = pattern.test(p.val());
+				return tgl;
+			}
 		
 </script>
 </html>

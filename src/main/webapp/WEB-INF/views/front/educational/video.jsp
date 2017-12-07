@@ -74,7 +74,7 @@
 					href="${pageContext.request.contextPath }/front/video/selectvideobyid.action?id=${allVideos.id}">
 						<!-- <video width="240" height="152" controls> --> <video
 							width="240" height="152" preload="metadata"> <source
-							src="/files${allVideos.vurl}" type="video/mp4"> <%-- <source
+							src="/fbiImage${allVideos.vurl}" type="video/mp4"> <%-- <source
 				src="/files${allVideos.vurl}" type="video/ogg">
 				<!-- 如果浏览器不支持video标签，则使用flash --> <embed
 				src="/files${allVideos.vurl}"

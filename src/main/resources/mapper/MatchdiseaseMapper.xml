@@ -174,21 +174,21 @@
 		matchdisease.id matchDiseaeId,matchdisease.did
 		did,matchdisease.pid pid,
 
-		old_DiseaseDetails.id
-		detailid,old_DiseaseDetails.uid
-		uid,old_DiseaseDetails.treat_tiem
+		old_diseasedetails.id
+		detailid,old_diseasedetails.uid
+		uid,old_diseasedetails.treat_tiem
 		treattiem,
-		old_DiseaseDetails.suggest
-		suggest,old_DiseaseDetails.history history,
+		old_diseasedetails.suggest
+		suggest,old_diseasedetails.history history,
 
-		old_Sickness.id
-		sicknessId,old_Sickness.detailid
-		detailid,old_Sickness.did did,
+		old_sickness.id
+		sicknessId,old_sickness.detailid
+		detailid,old_sickness.did did,
 
-		old_Diseaselibrary.id diseaselibraryId,old_Diseaselibrary.description
+		old_diseaselibrary.id diseaselibraryId,old_diseaselibrary.description
 		description,
-		old_Diseaselibrary.diseasename
-		diseasename,old_Diseaselibrary.alias
+		old_diseaselibrary.diseasename
+		diseasename,old_diseaselibrary.alias
 		alias,
 
 		<!-- classification.id classId,classification.classname classname, -->
@@ -201,21 +201,21 @@
 		products.productscolor productscolor,products.productstype1
 		productstype1,products.productstype2 productstype2
 		from
-		old_DiseaseDetails,
+		old_diseasedetails,
 		<!-- classification, -->
-		old_Sickness, old_Diseaselibrary,matchdisease,products
+		old_sickness, old_diseaselibrary,matchdisease,products
 		where
-		old_DiseaseDetails.id=old_Sickness.detailid
+		old_diseasedetails.id=old_sickness.detailid
 		AND
-		old_Sickness.did=old_Diseaselibrary.id
+		old_sickness.did=old_diseaselibrary.id
 		AND
 		matchdisease.did=
-		old_Diseaselibrary.id
+		old_diseaselibrary.id
 		AND
 		matchdisease.pid=products.id
 		<!-- AND classification.id=products.tid -->
 		AND
-		old_DiseaseDetails.uid=#{uid,jdbcType=VARCHAR}
+		old_diseasedetails.uid=#{uid,jdbcType=VARCHAR}
 
 	</select>
 
@@ -529,28 +529,28 @@
 		resultMap="diseaseDetails">
 
 		SELECT
-		old_DiseaseDetails.id id,old_DiseaseDetails.uid
-		uid,old_DiseaseDetails.treat_tiem treat_tiem,
+		old_diseasedetails.id id,old_diseasedetails.uid
+		uid,old_diseasedetails.treat_tiem treat_tiem,
 
-		old_DiseaseDetails.suggest suggest,old_DiseaseDetails.history history,
+		old_diseasedetails.suggest suggest,old_diseasedetails.history history,
 
-		old_Sickness.id sicknessId,old_Sickness.detailid
-		detailid,old_Sickness.did did,
+		old_sickness.id sicknessId,old_sickness.detailid
+		detailid,old_sickness.did did,
 
-		old_Diseaselibrary.id diseaselibraryId,
-		old_Diseaselibrary.description description,
+		old_diseaselibrary.id diseaselibraryId,
+		old_diseaselibrary.description description,
 
-		old_Diseaselibrary.diseasename diseasename,old_Diseaselibrary.alias
+		old_diseaselibrary.diseasename diseasename,old_diseaselibrary.alias
 		alias
 
 		from
-		old_Sickness, old_Diseaselibrary,old_DiseaseDetails
+		old_sickness, old_diseaselibrary,old_diseasedetails
 		where
-		old_DiseaseDetails.id=old_Sickness.detailid
+		old_diseasedetails.id=old_sickness.detailid
 		AND
-		old_Sickness.did=old_Diseaselibrary.id
+		old_sickness.did=old_diseaselibrary.id
 		AND
-		old_DiseaseDetails.uid=#{uid,jdbcType=VARCHAR}
+		old_diseasedetails.uid=#{uid,jdbcType=VARCHAR}
 
 	</select>
 </mapper>

@@ -92,9 +92,11 @@ public class ActivityDetailOldUsersController {
 				// 老人
 				System.out.println("管理员Id" + mid);
 				Manager manager = managerService.selectByPrimaryKey(mid);
-				System.out.println("管理员所在地" + manager.getLocaid());
+				//System.out.println("管理员所在地" + manager.getLocaid());
+				System.out.println("管理员所在地" + mid);
 				if (oldusers.getType() == 0) {
-					if (oldusers.getArea() != manager.getLocaid()) {
+					//if (oldusers.getArea() != manager.getLocaid()) {
+					if (oldusers.getArea() != mid) {
 						return "Sorry,您不在该活动所涉及的范围内，你可以参加您所在地的活动哦！";
 						 /*System.out.println(err);
 						 modelAndView.addObject("err", err);

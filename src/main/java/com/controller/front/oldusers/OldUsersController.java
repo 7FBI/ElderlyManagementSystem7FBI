@@ -353,5 +353,43 @@ public class OldUsersController {
 		oldUsersService.updateByPrimaryKeySelective(oldu);
 		return "redirect:/gotoFront/login";
 	}
+	
+	
+	@RequestMapping("/getOldPassword")
+	@ResponseBody
+	public String getOldPassword(HttpServletRequest request){
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			return "login";
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		String paswd=Encryption.encrypation(request.getParameter("oldPassword"));
+		if (paswd.equals(oldUsers.getPassword())) {
+			return "true";
+		} else {
+			request.getSession().setAttribute("oldUsers", null);
+			return "false";
+		}
+	}
+	
+	@RequestMapping("/setNewPasswordUser")
+	@ResponseBody
+	public String setNewPasswordUser(HttpServletRequest request){
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			return "login";
+		}
+		OldUsers oldUsers=(OldUsers) request.getSession().getAttribute("oldUsers");
+		String paswd = Encryption.encrypation(request.getParameter("newPassword"));
+		if (!"".equals(paswd)) {
+			OldUsers oUsers=new OldUsers();
+			oUsers.setPassword(paswd);
+			oUsers.setId(oldUsers.getId());
+			oldUsersService.updateByPrimaryKeySelective(oUsers);
+			oldUsers.setPassword(paswd);
+			request.getSession().setAttribute("oldUsers", oldUsers);
+			return "true";
+		} else {
+			return "false";
+		}
+	}
 
 }

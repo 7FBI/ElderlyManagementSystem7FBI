@@ -45,15 +45,13 @@
 						</div>
 						<hr/>
 						<div class="pointsTitle">
-						   <div class="usable">可用积分<br><br><span style="font-size:20px;">120</span></div>
+						   <div class="usable">可用积分<br><br><span style="font-size:20px;">${credit.rest_credit }</span></div>
 						   <div class="pointshop" ><a href="/front/creditshop/SelectAllCreditShop">积分商城</a></div>
-						   <div class="signIn" ><a href="#" ><i class="am-icon-calendar"></i>历史总积分</a></div>
+						   <div class="signIn" ></div>
 						</div>
 						<div class="pointlist am-tabs" data-am-tabs>
 							<ul class="am-avg-sm-3 am-tabs-nav am-nav am-nav-tabs">
 								<li class="am-active"><a href="#tab1">全部</a></li>
-								<li><a href="#tab2">获得</a></li>
-								<li><a href="#tab3">支出</a></li>
 							</ul>
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1" >
@@ -61,62 +59,23 @@
 										
 										<thead>
 											<tr>												
-												<th class="th1">积分详情</th>
-												<th class="th2">积分变动</th>
-												<th class="th3">日期</th>
+												<th class="th1">消费积分</th>
+												<th class="th2">剩余积分</th>
+												<th class="th2">总的积分</th>
 											</tr>
 										</thead>										
 										<tbody>
 											<tr>
-												<td class="pointType">积分兑换</td>
-												<td class="pointNum">-80</td>
-												<td class="pointTime">2016-03-10&nbsp15:27</td>
+												<td class="pointType">${credit.major_credit-credit.rest_credit }</td>
+												<td class="pointNum">${credit.rest_credit }</td>
+												<td class="pointNum">${credit.major_credit }</td>
 											</tr>
 											
 										
 										</tbody>
 									</table>
 								</div>
-								<div class="am-tab-panel am-fade" id="tab2">
-									<table style="width:770px;">
-										
-										<thead>
-											<tr>												
-												<th class="th1">积分详情</th>
-												<th class="th2">获取积分</th>
-												<th class="th3">日期</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="pointType">订单号7745926347132商品评论</td>
-												<td class="pointNum">+2</td>
-												<td class="pointTime">2016-03-12&nbsp09:32</td>
-											</tr>
-											
-										</tbody>
-									</table>
-								</div>
-								<div class="am-tab-panel am-fade" id="tab3">
-									<table style="width:770px;">
-										
-										<thead>
-											<tr>												
-												<th class="th1">积分详情</th>
-												<th class="th2">消耗积分</th>
-												<th class="th3">日期</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td class="pointType">积分兑换</td>
-												<td class="pointNum">-300</td>
-												<td class="pointTime">2016-03-10&nbsp15:27</td>
-											</tr>
-											
-										</tbody>
-									</table>
-								</div>
+								
 
 							</div>
 

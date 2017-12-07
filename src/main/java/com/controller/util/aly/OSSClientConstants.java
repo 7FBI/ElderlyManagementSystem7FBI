@@ -7,8 +7,9 @@ package com.controller.util.aly;
  * @author whong 
  */  
 public class OSSClientConstants {  
-    //阿里云API的外网域名  
-    public static final String ENDPOINT = "oss-cn-shanghai.aliyuncs.com";  
+    //阿里云API的外网域名  oss-cn-shanghai.aliyuncs.com
+	//内oss-cn-shanghai-internal.aliyuncs.com
+    public static final String ENDPOINT = "oss-cn-shanghai-internal.aliyuncs.com";
     //阿里云API的密钥Access Key ID  
     public static final String ACCESS_KEY_ID = "LTAIDznUaDSRfpRD";
     //阿里云API的密钥Access Key Secret  

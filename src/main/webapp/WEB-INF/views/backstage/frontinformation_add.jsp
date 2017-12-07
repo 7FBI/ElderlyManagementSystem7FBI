@@ -112,7 +112,7 @@
 												</tr>
 												<tr>
 													<td width="2%">&nbsp;</td>
-													<td width="15%">发布日期(yyyy/mm/dd)：</td>
+													<td width="15%">发布日期：</td>
 													<td width="25%"><input class="text" id="date"
 														type="text" name="sendtiem" value="" /></td>
 													<td>设置信息发布日期</td>
@@ -182,7 +182,7 @@
 </body>
 <script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.0.js"></script>
-<script src="/resources/unity/layer/laydate/laydate.js"></script>
+<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
 <!-- 改成你的路径 -->
 <script>
 	//执行一个laydate实例

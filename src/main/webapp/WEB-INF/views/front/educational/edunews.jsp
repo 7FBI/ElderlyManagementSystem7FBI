@@ -102,8 +102,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<c:forEach items="${newedunews }" var="newedunews">
 		<li style="list-style-type: none; "><a href="${pageContext.request.contextPath }/front/edu/querydudetailbyid.action?id=${newedunews.id}" >
 			  <img
-				src="/files${newedunews.eduurl }"	
-				 alt="新闻图片"/></a>
+				src="/fbiImage${newedunews.eduurl }"	
+				 alt="${newedunews.edutitle}"/></a>
 				
 			<div class="newslist" style="float: left;">
 				<a href="${pageContext.request.contextPath }/front/edu/querydudetailbyid.action?id=${newedunews.id}">${newedunews.edutitle}</a>															

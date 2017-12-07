@@ -46,7 +46,7 @@
 						<a href="#">我的资产</a>
 						<ul>
 							<li> <a href="/gotoFront/SelfCenter_Coupon">优惠券 </a></li>
-							<li> <a href="/gotoFront/SelfCenter_CreditDetail">积分</a></li>
+							<li> <a href="/front/credit/selectCreditByUid">积分</a></li>
 						</ul>
 					</li>
 

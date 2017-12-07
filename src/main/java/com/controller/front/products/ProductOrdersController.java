@@ -383,8 +383,6 @@ public class ProductOrdersController {
 				oldUsersService.updateByPrimaryKeySelective(oldUsers);
 				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
-				// 增加积分
-				ShopPrices.addCredit(oldUsers, orders.getMoney(), creditService);
 			} else {
 				return "balance";
 			}
@@ -419,10 +417,13 @@ public class ProductOrdersController {
 		}
 		String id = request.getParameter("id");
 		Orders orders = ordersService.selectByPrimaryKey(id);
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		if (orders != null) {
 				orders.setOrderstatus(2);
 				orders.setOrdertime(new Date());
 				ordersService.updateByPrimaryKeySelective(orders);
+				// 增加积分
+				ShopPrices.addCredit(oldUsers, orders.getMoney(), creditService);
 		}
 		return "true";
 	}
@@ -436,10 +437,13 @@ public class ProductOrdersController {
 		}
 		String id = request.getParameter("id");
 		Orders orders = ordersService.selectByPrimaryKey(id);
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
 		if (orders != null) {
 			orders.setOrderstatus(2);
 			orders.setOrdertime(new Date());
 			ordersService.updateByPrimaryKeySelective(orders);
+			// 增加积分
+			ShopPrices.addCredit(oldUsers, orders.getMoney(), creditService);
 		}
 		return allOrdersInfo(request);
 	}

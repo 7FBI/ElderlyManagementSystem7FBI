@@ -37,7 +37,7 @@
 			<ul class="message-r">
 				<div class="topMessage home">
 					<div class="menu-hd">
-						<a href="/gotoFront/index" target="_top" class="h"><i
+						<a href="/" target="_top" class="h"><i
 							class="am-icon-home am-icon-fw"></i>系统首页</a>
 					</div>
 				</div>

@@ -25,11 +25,15 @@ public class CreditsController {
 	
 	@RequestMapping("/selectCreditByUid")
 	public ModelAndView selectCreditByUid(HttpServletRequest request){
+		ModelAndView modelAndView = new ModelAndView();
+		if (request.getSession().getAttribute("oldUsers")==null) {
+			modelAndView.setViewName("front/login");
+			return modelAndView;
+		}
 		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");
 		Credit credit = creditService.selectCreditByUid(oldUser.getUid());
-		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("credit", credit);
-		modelAndView.setViewName("front/integral");
+		//modelAndView.setViewName("front/integral");
 		modelAndView.setViewName("front/SelfCenter_CreditDetail");
 		return modelAndView;
 	}

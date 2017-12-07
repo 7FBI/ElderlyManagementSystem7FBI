@@ -724,7 +724,7 @@
 	<select id="selectOldDiseaselibraryByProducts" parameterType="java.lang.Integer"
 		resultType="OldDiseaselibrary">
 		SELECT diseasename,description,alias FROM
-		old_Diseaselibrary odl,products
+		old_diseaselibrary odl,products
 		p,matchdisease md WHERE p.id = md.pid
 		AND md.did = odl.id AND pid =
 		#{pid}

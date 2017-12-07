@@ -98,7 +98,7 @@ img {
 													<td width="15%">发布时间：</td>
 													<td width="25%"><input class="text" type="text"
 														name="sendtiem" id="date"
-														value="${frontinformation.sendtiem}" /></td>
+														value="<fmt:formatDate value="${frontinformation.sendtiem}" pattern="yyyy-MM-dd HH:mm:ss" />" /></td>
 													<td>设置信息名称</td>
 													<td width="2%">&nbsp;</td>
 												</tr>
