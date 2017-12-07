@@ -85,14 +85,40 @@ public class OldUsersController {
 		return modelAndView;
 	}
 
-	/*@RequestMapping("/updatePasswordByUid")
-	public String updatePasswordByUid(OldUsers oldUsers, String sid, RedirectAttributes mAttributes) {
-		oldUsers.setUid(sid);
-		oldUsersService.updatePasswordByUid(oldUsers);
-		mAttributes.addFlashAttribute("uid", oldUsers.getUid());
-		return "redirect:/front/oldUsers/selectProfileByUid";
+	@RequestMapping("/updatePasswordByUid")
+	public String updatePasswordByUid(HttpServletRequest request) {
+		
+		
+		if (request.getSession().getAttribute("oldUsers") == null) {
+			return "/front/login";
+		}
+		
+		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+
+			String paswd = Encryption.encrypation(request.getParameter("newPassword"));
+			OldUsers oldu=new OldUsers();
+			oldu.setId(oldUsers.getId());
+			oldu.setPassword(paswd);
+			oldUsersService.updateByPrimaryKeySelective(oldu);
+		
+		return "redirect:/gotoFront/login";
 	}
-*/
+	
+	
+	@RequestMapping("/selectPassword")
+	public String selectPassword(HttpServletRequest request){
+		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");
+	  String password =  Encryption.encrypation(request.getParameter("oldPassword"));
+	  if(password.equals(oldUser.getPassword())){
+		  return "true";
+	  }
+	  
+		return "false";
+		
+	}
+
+	
+
 	@RequestMapping("/selectProfileByUid")
 	public ModelAndView selectProfileByUid(HttpServletRequest request) {
 		OldUsers oldUser = (OldUsers) request.getSession().getAttribute("oldUsers");
@@ -321,8 +347,10 @@ public class OldUsersController {
 		}
 		OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("paswdUsers");
 		String paswd = Encryption.encrypation(request.getParameter("newPassword"));
-		oldUsers.setPassword(paswd);
-		oldUsersService.updateByPrimaryKey(oldUsers);
+		OldUsers oldu=new OldUsers();
+		oldu.setId(oldUsers.getId());
+		oldu.setPassword(paswd);
+		oldUsersService.updateByPrimaryKeySelective(oldu);
 		return "redirect:/gotoFront/login";
 	}
 

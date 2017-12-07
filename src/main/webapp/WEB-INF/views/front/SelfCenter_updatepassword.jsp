@@ -53,7 +53,7 @@
 				<hr />
 				<!--进度条-->
 				<div class="m-progress">
-					<div class="m-progress-list">
+					<!-- <div class="m-progress-list">
 						<span class="step-1 step"> <em class="u-progress-stage-bg"></em>
 							<i class="u-stage-icon-inner">1<em class="bg"></em></i>
 							<p class="stage-name">重置密码</p>
@@ -64,10 +64,17 @@
 					</div>
 					<div class="u-progress-bar total-steps-2">
 						<div class="u-progress-bar-inner"></div>
-					</div>
+					</div> -->
 				</div>
-				<form class="am-form am-form-horizontal" action="/front/oldUsers/setNewPassword" id="f">
+				<form class="am-form am-form-horizontal" action="/front/oldUsers/updatePasswordByUid" id="f">
 					<input type="hidden" value="" />
+					
+					<div class="am-form-group">
+							<label for="user-new-password" class="am-form-label">旧密码</label>
+							<div class="am-form-content">
+								<input type="password" id="user-old-password" name="oldPassword" placeholder="由数字、字母组合">
+							</div>
+						</div>
 						<div class="am-form-group">
 							<label for="user-new-password" class="am-form-label">新密码</label>
 							<div class="am-form-content">
@@ -98,8 +105,12 @@
 <script type="text/javascript">
 		layui.use('layer', function() {
 			var $ = layui.jquery, layer = layui.layer;
+			if(oldPassword()){
+				
+			}
 			
-			$("#saveP").on('click',function(){
+		 	$("#saveP").on('click',function(){
+			if(oldPassword()){
 				if(twoPassword()){
 					if (isPassword()) {
 						var f=$("#f");
@@ -110,10 +121,36 @@
 				}else{
 					layer.msg("两次密码不一致",{time:2000})
 				}
-			})
+				
+			}
+			layer.msg("原密码输入错误",{time:2000})
+			
+				
+			}) 
 		})
 		
 		
+		
+function oldPassword(){
+	var p=$("#user-old-password");
+	if(p.val()=="" || p.val()==undefined){
+		p.appned('请输入密码')
+	}else{
+		$.get("/front/oldUsers/selectPassword",p.val(),function(date){
+			layer.close(layer.index);
+			if (data=="true") {
+				location.href=document.referrer;
+			} else (data=="false"){
+				alert:('密码错误');
+			}
+			
+			
+		});
+	}
+	
+	
+	
+}	
 		
 //两次密码验证
 function twoPassword(){
