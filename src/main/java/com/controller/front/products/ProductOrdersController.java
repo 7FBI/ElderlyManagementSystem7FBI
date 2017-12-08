@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bean.Credit;
+import com.bean.Creditshop;
 import com.bean.Frontinformation;
 import com.bean.Managerinfo;
 import com.bean.OldUsers;
@@ -29,6 +31,7 @@ import com.bean.ShoppingCart;
 import com.controller.front.oldusers.OldUsersController;
 import com.controller.util.shop.ShopPrices;
 import com.service.CreditService;
+import com.service.CreditshopService;
 import com.service.DiscountService;
 import com.service.GroupbuyingService;
 import com.service.OldUsersService;
@@ -41,6 +44,10 @@ import com.service.ShoppingCartService;
 @Controller
 @RequestMapping("/front/orders")
 public class ProductOrdersController {
+	@Autowired
+	@Qualifier("creditshopService")
+	private CreditshopService creditshopService;
+	
 	@Autowired
 	@Qualifier("oldUsersService")
 	private OldUsersService oldUsersService;
@@ -257,7 +264,6 @@ public class ProductOrdersController {
 			orders.setMoney(0.0);
 			ordersService.updateByPrimaryKeySelective(orders);
 		}
-		List<Profile> profiles = profileService.selectProfileByUid(oldUsers.getUid());
 		//List<Orderdetails> list = orderdetailsService.selectByOrdersId(oid);
 		List<Orderdetails> list=ShopPrices.getAllOrderdetailsPrices(oid, discountService,orderdetailsService);
 		view.addObject("orderdetails", list);
@@ -552,6 +558,31 @@ public class ProductOrdersController {
 			ordersService.updateByPrimaryKeySelective(orders);
 			request.setAttribute("id", orders.getId());
 			return ordersInfo(request,orders.getId());
+		}
+		
+		//积分兑换判断
+		@RequestMapping("/creditShowTrue")
+		@ResponseBody
+		public String creditShowTrue(HttpServletRequest request) {
+			if (request.getSession().getAttribute("oldUsers") == null) {
+				return "login";
+			}
+			Integer pid = Integer.valueOf(request.getParameter("pid"));
+			Creditshop creditshop=creditshopService.selectByPrimaryKey(pid);
+			OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+			Credit credit=creditService.selectByPrimaryKey(oldUsers.getUid());
+			if (creditshop != null) {
+					// 减少积分
+					if (creditshop.getCredit()<=credit.getRest_Credit()) {
+						credit.setRest_Credit(credit.getRest_Credit()-creditshop.getCredit());
+						creditService.updateByPrimaryKeySelective(credit);
+						return "true";
+					}else {
+						return "false";
+					}
+					
+			}
+			return "true";
 		}
 
 }

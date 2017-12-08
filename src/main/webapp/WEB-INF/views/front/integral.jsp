@@ -31,12 +31,12 @@
 				<img class="banner_img" alt="积分商城"
 				src="/resources/front/images/969211d12f73.png">
 			</a>
-			<div class="basic_bar login_ed" >
+			<%-- <div class="basic_bar login_ed" >
 				<!-- 头像部分 -->
 				<div class="head_bar">
 					<div class="head">
 						<img class="img" alt="用户头像"
-							src="/resources/front/images/self_img/getAvatar.do.jpg">
+							src="/fbiImage${oldUsers.userurl }">
 					</div>
 					<div class="head_text">
 						<div class="head_name"></div>
@@ -61,7 +61,7 @@
 						class="href_item" href="" target="_blank">查看积分明细</a> <a
 						class="href_item" href="" target="_blank">查看积分规则</a>
 				</div>
-			</div>
+			</div> --%>
 		</div>
 	</div>
 
@@ -70,9 +70,9 @@
 		<div class="wrapper">
 			<div class="coupon_bar buy_act">
 				<h2 class="main_title">积分换购专区</h2>
-				<a id="seeBuyRule" class="look_for" href="" title="查看兑换规则">
+				<!-- <a id="seeBuyRule" class="look_for" href="#" title="查看兑换规则">
 					查看换购规则 <span class=""></span>
-				</a>
+				</a> -->
 				<!-- 积分兑换商品区 -->
 				<div class="integral_buy_wrap" name="integral_buy"
 					>
@@ -83,12 +83,12 @@
 							
 							<a href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">
 								<div class="mc_product_img">
-									<img alt="国标排插 两位总控 一位小五孔 A1C02L1.2-A5"
-										src="/resources/front/image/ecaa0768c96b12feA32206_280 280.jpg">
+									<img alt="${products.pname }"
+										src="/fbiImage${products.producturl }">
 								</div>
 								<div class="mc_product_detail">${products.pname }</div>
 								</a>
-								<div class="mc_product_sale_point">商品积分抢购截止时间:2017-11-30</div>
+								<!-- <div class="mc_product_sale_point">商品积分抢购截止时间:2017-11-30</div> -->
 								<div class="mc_product_price">
 									<div class="mc_product_price_area">
 										<div class="mc_current_price">
@@ -99,19 +99,19 @@
 									</div>
 								</div>
 								<div class="mc_btn_area">
-									<a class="mc_btn_pre" href=""> <fmt:formatNumber
+									<a class="mc_btn_pre" href="#"> <fmt:formatNumber
 											value="${products.creditshop.credit}" var="i" type="number"
 											maxFractionDigits="0"></fmt:formatNumber>
 
 										<div class="mc_btn_left MC_BTN_LEFT_ABLE">${i }&nbsp;&nbsp;积分兑换</div>
 										
-										<form  action="/front/orders/addOneOrderByExchange" method="post">
+										<form  action="/front/orders/addOneOrderByExchange" method="post" id="f">
 										<input type="hidden" name="flag" value="1">
 							<input type="hidden" name="pid" value="${products.id }">
 							<input type="hidden" name="uid" value="${oldUsers.uid}">
 							<input type="hidden" name="num" value="1">
 								
-										<div class="mc_btn_right mc_btn_right_able" ><input type="submit" value="立即兑换"> <!-- 立&nbsp;&nbsp;即&nbsp;&nbsp;兑&nbsp;&nbsp;换 --></div>
+										<div class="mc_btn_right mc_btn_right_able" ><input type="button" cd="creditShowTrue" cred="${products.id}" value="立即兑换"> <!-- 立&nbsp;&nbsp;即&nbsp;&nbsp;兑&nbsp;&nbsp;换 --></div>
 								</form>
 								</div> <i class="mc_icon_tag"> <span class="middle_center">
 										<span class="mc_tag_top">每日</span> <span class="mc_tag_bottom">50份</span>
@@ -144,5 +144,41 @@
 		</div>
 	</div>
 	</div>
+	<!-- //creditShowTrue -->
+	
+	
+	<script type="text/javascript" src="/resources/unity/layer/layui.js"></script>
+			<script type="text/javascript">
+			layui.use('layer',function() {
+				var $ = layui.jquery, layer = layui.layer;
+				
+				$(document).on('click',"input[cd='creditShowTrue']",function(){
+					var p=$(this);
+					$.ajax({
+						type:'post',
+						url:'/front/orders/creditShowTrue?pid='+p.attr("cred"),
+								success:function(data){
+									switch (data) {
+									case "login":
+										layer.msg("正在前往登录", {tiem : 2000}, {icon : 2});
+										window.location.href = "/gotoFront/login";
+										break;
+									case "false":
+										layer.msg("积分余额不足", {tiem : 2000}, {icon : 2});
+										break;
+									default:
+										layer.msg("积分充足，正在兑换", {tiem : 2000}, {icon : 2});
+										var f=$("#f");
+										f.submit();
+										break;
+									}
+								}
+					})
+				})
+				
+			})
+	
+	
+	</script>
 </body>
 </html>

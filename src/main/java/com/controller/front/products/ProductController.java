@@ -70,7 +70,7 @@ public class ProductController {
 	private ShowsphotosService showsphotosService;
 	
 	@Autowired
-	@Qualifier("creditShopService")
+	@Qualifier("creditshopService")
 	private CreditshopService creditShopService;
     
 	@Autowired

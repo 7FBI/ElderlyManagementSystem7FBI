@@ -151,7 +151,7 @@
 												<tr>
 													<td>&nbsp;</td>
 													<td>描述(Description)：</td>
-													<td><textarea name="pdescription" value="${products2.pdescription }"></textarea></td>
+													<td><textarea name="pdescription" >${products2.pdescription }</textarea></td>
 													<td>产品简短描述</td>
 													<td>&nbsp;</td>
 												</tr>

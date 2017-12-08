@@ -18,7 +18,7 @@ import com.service.CreditshopService;
 public class CreditshopController {
 	
 	@Autowired
-	@Qualifier("creditShopService")
+	@Qualifier("creditshopService")
 	private CreditshopService creditShopService;
 
 	@Autowired

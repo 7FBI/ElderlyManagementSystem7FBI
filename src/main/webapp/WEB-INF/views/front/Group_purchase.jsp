@@ -65,7 +65,7 @@
 							<c:forEach items="${Groupbuyings}" var="Groupbuyings">
 								<c:if test="${Groupbuyings.getProducts().tid==toalis.id}">
 									<li><a href=""><img
-											src="${Groupbuyings.getProducts().producturl}" /></a>
+											src="/fbiImage${Groupbuyings.getProducts().producturl}" /></a>
 										<div class="sitetpy">
 										 <font><a  class="balnk" target="_blank" style="color:red;">${Groupbuyings.getProducts().pname}</a></font>
 										 |
@@ -98,7 +98,7 @@
 							<c:forEach items="${Groupbuyings}" var="Groupbuyings">
 								<c:if test="${Groupbuyings.getProducts().tid==toalis.id}">
 									<li><a href=""><img
-											src="${Groupbuyings.getProducts().producturl}" /></a>
+											src="/fbiImage${Groupbuyings.getProducts().producturl}" /></a>
 										<div class="sitetpy">
 										 <font><a  class="balnk" target="_blank" style="color:red;">${Groupbuyings.getProducts().pname}</a></font>
 										 |

@@ -350,5 +350,12 @@
 		p.id,p.pname,p.price,p.pdescription,p.count,p.producturl,c.classname,cs.credit
 		from creditshop cs ,products p,classification c where p.id = cs.pid  and c.id= p.tid 
 	</select>
+	
+	
+	<select id="selectAllCreditShopByPid" resultMap="BaseResultMap">
+		select
+		*
+		from creditshop where pid=#{pid}
+	</select>
 	<!-- 以上罗双 -->
 </mapper>

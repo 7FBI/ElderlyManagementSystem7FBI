@@ -1,7 +1,16 @@
 package com.bean;
 
 public class Orderdetails {
+	private Classification classification;
 	
+	public Classification getClassification() {
+		return classification;
+	}
+
+	public void setClassification(Classification classification) {
+		this.classification = classification;
+	}
+
 	private Products products;
     public Products getProducts() {
 		return products;

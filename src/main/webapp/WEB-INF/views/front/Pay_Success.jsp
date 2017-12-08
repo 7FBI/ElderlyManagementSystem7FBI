@@ -42,7 +42,7 @@
      </ul>
      <div class="option">
        <span class="info">您可以</span>
-        <a href="/front/orders/allOrdersList?status=2" class="J_MakePoint">查看<span>已买到的宝贝</span></a>
+        <a href="/front/orders/allOrdersList" class="J_MakePoint">查看<span>已买到的宝贝</span></a>
         <a href="/front/orders/ordersOverInfoByExchange?id=${orders.id }" class="J_MakePoint">查看<span>交易详情</span></a>
      </div>
     </div>

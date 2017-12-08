@@ -610,9 +610,6 @@ select {
 														+ ords.attr("vve");
 												break;
 											}
-										},
-										error : function() {
-											alert("网络错误");
 										}
 									})
 

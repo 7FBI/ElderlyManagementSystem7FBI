@@ -150,7 +150,7 @@
 				<c:if test="${orders.orderstatus==1 }">
 				<div id="holyshit269" class="submitOrder">
 						<div class="go-btn-wrap">
-							<a id="overOrderBtn" vve="${orders.id }" class="btn-go"
+							<a href="/front/orders/ordersOverInfoByExchangeConfirmReceipt?id=${orders.id }" id="overOrderBtn"class="btn-go"
 								tabindex="0" title="点击此按钮收货">确认收货</a>
 						</div>
 				</div>
@@ -164,6 +164,9 @@
 	<div class="theme-popover-mask"></div>
 	
 	<div class="clear"></div>
+	<script src="/resources/unity/jquery/jquery-3.2.0.js"
+		type="text/javascript"></script>
+	
 	<!-- <script src="/resources/unity/jquery/jquery-3.2.0.js"
 		type="text/javascript"></script>
 		
