@@ -91,6 +91,8 @@ public interface ProductsMapper {
 	
 	 public List<Products> selectProductsByLikeName(String pName);
 	 
+	 public List<Products> selectAllProductsByPrice(Double price);
+	 
 	 public List<Products> selectProductsByLikeTypeName(String classname);
 	 
 	 public List<Products> selectAllProductsByType(Integer tid);

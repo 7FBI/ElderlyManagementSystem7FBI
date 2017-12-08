@@ -77,7 +77,7 @@
 								<li>
 									<div class="i-pic limit">
 										<a
-												href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"><img src="/resources/front/images/self_img/imgsearch1.jpg" /></a>
+												href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }"><img src="/fbiImage${products.producturl }" /></a>
 										<p class="title fl">
 											<a
 												href="/front/products/selectProductDetailByPrimaryKey?id=${products.id }">${products.pname}</a>

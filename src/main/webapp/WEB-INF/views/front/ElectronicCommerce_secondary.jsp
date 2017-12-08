@@ -100,14 +100,14 @@ et=UTF-8">
 															</dt>
 
 															<dd>
-																<a pnames="羽绒服" title="羽绒服" href="#"><span
-																	style="font-size: 17px;">羽绒服</span></a>
+																<a pnames="貂皮" title="貂皮" href="#"><span
+																	style="font-size: 17px;">貂皮</span></a>
 															</dd>
 															<dd>
-																<a pnames="羊绒衫" title="羊绒衫" href="#"><span>羊绒衫</span></a>
+																<a pnames="夹克" title="夹克" href="#"><span>夹克</span></a>
 															</dd>
 															<dd>
-																<a pnames="男士衬衫" title="男士衬衫" href="#"><span>男士衬衫</span></a>
+																<a pnames="男装" title="男装" href="#"><span>男装</span></a>
 															</dd>
 															<dd>
 																<a pnames="打底衫" title="打底衫" href="#"><span>打底衫</span></a>
@@ -612,7 +612,7 @@ et=UTF-8">
 									<div class="category-info">
 										<h3 class="category-name b-category-name">
 											<i><img src="/resources/front/images/self_img/cookies.png"></i><a class="ml-22"
-												title="医药馆" href="#">医药馆</a>
+												title="医药品" href="#">医药品</a>
 										</h3>
 										<em>&gt;</em>
 									</div>
@@ -1767,10 +1767,10 @@ et=UTF-8">
 						<li><a target="_blank" href="#">${list.newstitle }</a></li>
 						
 						</c:forEach>
-						<!-- <li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券买1送1！</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
-						<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
-						<li><a target="_blank" href="#"><span>[特惠]</span>女生节商城爆品1分秒</a></li> -->
+						<!-- <li><a target="_blank" href="#"><span>[公告]家电狂欢千亿礼券买1送1！</a></li>
+						<li><a target="_blank" href="#"><span>[公告]洋河年末大促，低至两件五折</a></li>
+						<li><a target="_blank" href="#"><span>[公告]华北、华中部分地区配送延迟</a></li>
+						<li><a target="_blank" href="#"><span>[公告]女生节商城爆品1分秒</a></li> -->
 
 					</ul>
 
@@ -1806,50 +1806,62 @@ et=UTF-8">
 
 			<div class="am-container">
 					
-                     <div class="sale-mt">
+                     <div class="sale-mt" >
 		                   <i></i>
-		                   <em class="sale-title">今日活动</em>
+		                  <span style="font-size:25px;width:250px;height:25px;position:absolute;margin-top:30px;margin-left:-250px;">今日活动</span>
 	                  </div>
 
 
 				<div class="am-g am-g-fixed sale">
+				
+				<c:set var="i5" value="0"></c:set>
+					<c:forEach items="${products}" var="products">
+					<form action="/front/orders/addOneOrder" id="fromSubmin" method="post">
+					<input name="num" type="hidden" value="1">
+						 <input
+							name="pid" id="nowpids" type="hidden" value="${products.id}">
+						<input name="uid" type="hidden" value="${oldUsers.uid}">
+					</form>
+						<c:if test="${products.price==9.9 && i5<4 }">
+							<c:set var="i5" value="${i5+1}"></c:set>
 					<div class="am-u-sm-3 sale-item">
 						<div class="s-img">
-							<a href="# "><img src="/resources/front/images/self_img/sale3.jpg" /></a>
+							<a href="# "><img src="/fbiImage${products.producturl }" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#"><p class="s-title">${products.pname }</p></a>
 							<div class="s-price">
-								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
+								￥<b>${products.price }</b> <a class="s-buy" href="#" id="pays">秒杀</a>
 							</div>
 						</div>
 					</div>
-
-					<div class="am-u-sm-3 sale-item">
+					</c:if>
+</c:forEach>
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/sale2.jpg" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#" ><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<div class="am-u-sm-3 sale-item">
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/sale1.jpg" /></a>
 						</div>
 						<div class="s-info">
-							<a href="#"><p class="s-title">ZEK 原味海苔</p></a>
+							<a href="#" class="active"><p class="s-title">ZEK 原味海苔</p></a>
 							<div class="s-price">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
 					</div>
-
-					<div class="am-u-sm-3 sale-item">
+ -->
+					<!-- <div class="am-u-sm-3 sale-item">
 						<div class="s-img">
 							<a href="# "><img src="/resources/front/images/self_img/666.jpg " /></a>
 						</div>
@@ -1859,7 +1871,7 @@ et=UTF-8">
 								￥<b>9.99</b> <a class="s-buy" href="#">秒杀</a>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 				</div>
 			</div>
@@ -1874,8 +1886,13 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">我要我的品质</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
+
 							<a href="# " class="outer">羽绒服</a>| <a href="# " class="outer">棉衣</a>| <a href="# " class="outer">加厚
 							</a>| <a href="# " class="outer">打底衫</a>| <a href="# " class="outer">衬衫</a>| <a href="# " class="outer">短裤</a>
+
+							<a href="# " class="outer" >羽绒服</a>| <a href="# " class="outer" >棉衣</a>| <a href="# " class="outer" >加厚
+							</a>| <a href="# " class="outer" >打底衫</a>| <a href="# " class="outer" >衬衫</a>| <a href="# " class="outer" >短裤</a>
+
 						</div>
 
 					</div>
@@ -1954,8 +1971,13 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">败家不是罪，怎么买都不贵</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
+
 							<a href="# " class="outer">打底裤</a>| <a href="# " class="outer">保暖内衣</a>| <a href="# " class="outer">羊绒大衣 </a>|
 							<a href="# " class="outer">棉袄</a>| <a href="# " class="outer">打底衫</a>| <a href="# " class="outer">针织衫</a>
+
+							<a href="# " class="outer" >打底裤</a>| <a href="# " class="outer" >保暖内衣</a>| <a href="# " class="outer" >羊绒大衣 </a>|
+							<a href="# " class="outer" >棉袄</a>| <a href="# " class="outer" >打底衫</a>| <a href="# " class="outer" >针织衫</a>
+
 						</div>
 					</div>
 				</div>
@@ -2035,8 +2057,13 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">每一道食品都有一个故事</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
+<<<<<<< HEAD
 							<a href="# " class="outer">桂花糕</a>| <a href="# " class="outer">鲜花饼</a>| <a href="# " class="outer">栗子糕
 							</a>| <a href="# " class="outer">凤梨酥</a>| <a href="# "class="outer">铜锣烧</a>| <a href="# " class="outer">广式月饼</a>
+
+							<a href="# " class="outer" >桂花糕</a>| <a href="# " class="outer" >鲜花饼</a>| <a href="# " class="outer" >栗子糕
+							</a>| <a href="# " class="outer" >凤梨酥</a>| <a href="# " class="outer" >铜锣烧</a>| <a href="# " class="outer" >广式月饼</a>
+
 						</div>
 
 					</div>
@@ -2116,8 +2143,12 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你需要的温馨，我来替你营造</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
+
 							<a href="# " class="outer">毛巾</a>| <a href="# " class="outer">被子</a>| <a href="# " class="outer">枕头 </a>|
 							<a href="# " class="outer">牙刷</a>| <a href="# " class="outer">热水器</a>| <a href="# " class="outer">空调</a>
+
+							<a href="# " class="outer" >毛巾</a>| <a href="# " class="outer" >被子</a>| <a href="# " class="outer" >枕头 </a>|
+							<a href="# " class="outer" >牙刷</a>| <a href="# " class="outer" >热水器</a>| <a href="# " class="outer" >空调</a>
 						</div>
 					</div>
 				</div>
@@ -2194,8 +2225,12 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">你的健康是我最大的关怀</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
-							<a href="# " class="outer">海参</a>| <a href="# " class="outer">灵芝</a>| <a href="# " class="outer">贵州三宝
+
+							<a href="# " class="outer">益生菌</a>| <a href="# " class="outer">灵芝</a>| <a href="# " class="outer">贵州三宝
 							</a>| <a href="# " class="outer">阿胶枣</a>| <a href="# " class="outer">西洋参</a>
+
+							<a href="# " class="outer" >海参</a>| <a href="# " class="outer" >灵芝</a>| <a href="# " class="outer" >贵州三宝
+							</a>| <a href="# " class="outer" >阿胶枣</a>| <a href="# " class="outer" >西洋参</a>
 						</div>
 
 					</div>
@@ -2206,12 +2241,12 @@ et=UTF-8">
 					<div class="am-u-sm-5 am-u-md-3 text-one list">
 						<div class="word">
 							<a class="outer" href="#"><span class="inner"><b
-									class="text">蛋白粉</b></span></a> <a class="outer" href="#"><span
+									class="text">奶粉</b></span></a> <a class="outer" href="#"><span
 								class="inner"><b class="text">脑白金</b></span></a> <a class="outer"
 								href="#"><span class="inner"><b class="text">冬虫夏草</b></span></a> <a
 								class="outer" href="#"><span class="inner"><b
-									class="text">燕窝</b></span></a> <a class="outer" href="#"><span
-								class="inner"><b class="text">蜂蜜</b></span></a> <a class="outer"
+									class="text">孢子粉</b></span></a> <a class="outer" href="#"><span
+								class="inner"><b class="text">益生菌</b></span></a> <a class="outer"
 								href="#"><span class="inner"><b class="text">壮骨粉</b></span></a> 
 						</div>
 						<a href="# "> <img src="/resources/front/images/self_img/5.jpg" />
@@ -2274,8 +2309,13 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">把满意带给你，把健康带回家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
+
 							<a href="# " class="outer">维生素</a>| <a href="# " class="outer">液体钙</a>| <a href="# " class="outer">调节三高 </a>|
 							<a href="# " class="outer">肝肾养护</a>| <a href="# " class="outer">养颜</a>| <a href="# " class="outer">胶原蛋白</a>
+
+							<a href="# " class="outer" >维生素</a>| <a href="# " class="outer" >液体钙</a>| <a href="# " class="outer" >调节三高 </a>|
+							<a href="# " class="outer" >肝肾养护</a>| <a href="# " class="outer" >养颜</a>| <a href="# " class="outer" >胶原蛋白</a>
+
 						</div>
 					</div>
 				</div>
@@ -2355,8 +2395,13 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">让健康谱写生命的乐章</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px;">
+<<<<<<< HEAD
 							<a href="# " class="outer">羽毛球</a>| <a href="# " class="outer">腰鼓</a>| <a href="# " class="outer">自行车
 							</a>| <a href="# " class="outer">象棋</a>| <a href="# " class="outer"></a>| <a href="# " class="outer">棒球</a>
+=======
+							<a href="# " class="outer" >羽毛球</a>| <a href="# " class="outer" >腰鼓</a>| <a href="# " class="outer" >自行车
+							</a>| <a href="# " class="outer" >象棋</a>| <a href="# "></a>| <a href="# " class="outer" >棒球</a>
+>>>>>>> branch 'master' of https://github.com/7FBI/ElderlyManagementSystem7FBI.git
 						</div>
 
 					</div>
@@ -2434,8 +2479,12 @@ et=UTF-8">
 							<h3 style="margin-left:30px;">健康水果，美味到家</h3>
 						</div>
 						<div class="today-brands " style="right: 0px; top: 13px">
+
 							<a class="outer" href="# ">猕猴桃</a>| <a class="outer" href="# ">苹果</a>| <a class="outer" href="# ">香蕉</a>|
 							<a class="outer" href="# ">火龙果</a>| <a class="outer" href="# ">草莓</a>| <a class="outer" href="# ">哈密瓜</a>
+
+							<a href="# " class="outer" >猕猴桃</a>| <a href="# " class="outer" >苹果</a>| <a href="# " class="outer" >香蕉</a>|
+							<a href="# " class="outer" >火龙果</a>| <a href="# " class="outer" >草莓</a>| <a href="# " class="outer" >哈密瓜</a>
 						</div>
 					</div>
 				</div>
@@ -2664,6 +2713,16 @@ et=UTF-8">
 					'layer',
 					function() {
 						var $ = layui.jquery, layer = layui.layer;
+						
+						
+						$(document).on('click',"#pays",function() {
+							$(this).parent().parent().parent().prev().prev().prev().submit();
+							
+						})
+									
+									
+									
+						
 
 						$(document)
 								.on(
@@ -2693,8 +2752,19 @@ et=UTF-8">
 										
 										
 										
+										
+											$(document).on('click',".outer",function() {
+												var pname = $(this).text();;
+												
+													
+													hrs = "/front/products/selectProductsByLikeName?pname="+pname;
+													window.location.href = hrs;
+												
+											})
+										
+										
 										$(document).on('click',".ml-22",function() {
-											var classname = $(this).text();;
+											var classname = $(this).attr("title");
 											
 												//alert(pnamesValues+"<------------->"+tidDoc.attr("title"));
 												hrs = "/front/products/selectProductsByLikeTypeName?classname="

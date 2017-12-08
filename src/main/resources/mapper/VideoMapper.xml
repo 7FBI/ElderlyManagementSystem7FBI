@@ -83,7 +83,7 @@
 	</select>
 	<!--分页 -->
 	<select id="findVieoMap" parameterType="hashMap" resultMap="BaseResultMap">
-		select * from video where vprice!=0 ORDER BY id LIMIT #{page},#{max}
+		select * from video ORDER BY id LIMIT #{page},#{max}
 	</select>
 	<!--免费资源 -->
 	<select id="allFreePrice" resultMap="BaseResultMap">

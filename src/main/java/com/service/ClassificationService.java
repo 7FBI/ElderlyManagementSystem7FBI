@@ -13,5 +13,7 @@ public interface ClassificationService {
     public void insertSelective(Classification record);   //添加类别
     
     public void updateByPrimaryKeySelective(Classification record);  //修改类别
+//    该类是否为药品类
+    public Classification selectWetherMedicelProduct(Integer id);
 		 
 }

@@ -482,7 +482,7 @@
 	
 	<!-- 首页信息板块的信息显示查询最新四条 -->
 	<select	id="selectEight" resultMap="BaseResultMap" parameterType="java.lang.String">
-		SELECT * from frontinformation where newstitle like '%${newstitle}%' and
+		SELECT * from frontinformation where newstitle like '%${value}%' 
 		ORDER BY  sendtiem DESC LIMIT 0,8 
 	</select>
 	

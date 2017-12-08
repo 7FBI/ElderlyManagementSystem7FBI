@@ -42,4 +42,10 @@ public class ClassificationServiceImpl implements ClassificationService {
 		classificationMapper.updateByPrimaryKeySelective(record);
 	}
 
+	@Override
+	public Classification selectWetherMedicelProduct(Integer id) {
+		// TODO Auto-generated method stub
+		return classificationMapper.selectWetherMedicelProduct(id);
+	}
+
 }

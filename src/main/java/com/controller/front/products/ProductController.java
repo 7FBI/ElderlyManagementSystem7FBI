@@ -71,7 +71,7 @@ public class ProductController {
 	
 	@Autowired
 	@Qualifier("creditshopService")
-	private CreditshopService creditShopService;
+	private CreditshopService creditshopService;
     
 	@Autowired
 	@Qualifier("matchdiseaseService")
@@ -85,7 +85,6 @@ public class ProductController {
 	@Resource
 	private FrontinformationService frontinformationService;
 	
-	
 	@RequestMapping("/selectAllProducts")
 	public ModelAndView selectAllProducts(HttpServletRequest request){
 	int num=0;
@@ -98,13 +97,15 @@ public class ProductController {
 	      }
 	  }
 	  List<Products> products = productsService.selectAllProducts();
-	  List<Products> product = creditShopService.SelectAllCreditShop();
-	 /* List<Frontinformation> list=frontinformationService.selectEight("[公告]");*/
+	  List<Products> product = creditshopService.SelectAllCreditShop();
+	 /* List<Products> productss = productsService.selectAllProductsByPrice(9.99);*/
+	  List<Frontinformation> list=frontinformationService.selectEight("[公告]");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
 		modelAndView.addObject("product", product);
+		/*modelAndView.addObject("productss", productss);*/
 		modelAndView.addObject("muns",num);
-		/*modelAndView.addObject("list", list);*/
+		modelAndView.addObject("list", list);
 		modelAndView.setViewName("front/ElectronicCommerce_secondary");
 		return modelAndView;
 		
@@ -112,11 +113,15 @@ public class ProductController {
 
 	
 	@RequestMapping("/selectProductsByLikeName")
-	public ModelAndView selectProductsByLikeName(HttpServletRequest request){
-		System.out.println(request.getParameter("pname")+"uuybuggvbygvgh");
-		List<Products> products = productsService.selectProductsByLikeName(request.getParameter("pname"));
+	public ModelAndView selectProductsByLikeName(HttpServletRequest request) throws UnsupportedEncodingException{
+		String pname = request.getParameter("pname");
+		
+		String pnamess = new String(pname.trim().getBytes("ISO-8859-1"), "UTF-8");
+	
+		List<Products> products = productsService.selectProductsByLikeName(pnamess);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("products", products);
+		modelAndView.addObject("pnamess", pnamess);
 		modelAndView.setViewName("front/ElectronicCommerce");
 		return modelAndView;
 	}
@@ -130,6 +135,47 @@ public class ProductController {
 		String classnamess = new String(classname.trim().getBytes("ISO-8859-1"), "UTF-8");
 		List<Products> products = productsService.selectProductsByLikeTypeName(classnamess);
 		ModelAndView modelAndView = new ModelAndView();
+		System.out.println("该类商品"+products.size());
+		System.out.println("类名"+classnamess);
+		if(products.size()!=0){
+		Classification medicelProducts=classificationService.selectWetherMedicelProduct(products.get(0).getTid());
+		System.out.println("查找结果"+medicelProducts);
+		if (medicelProducts !=null) {
+			if (request.getSession().getAttribute("oldUsers") == null) { 
+				List<Products> hotMedicationProducts = productsService.querySaleProductCountByTid(medicelProducts.getId());
+				System.out.println("药品---------药药药---------销量：" + hotMedicationProducts.size());
+				modelAndView.addObject("hotMedicationProducts", hotMedicationProducts);
+				modelAndView.setViewName("front/ElectronicCommerce");
+			} else {
+				OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+				System.out.println("用户类型：" + oldUsers.getType());
+				if (oldUsers.getType() == 1) {
+					List<Products> hotMedicationProducts = productsService.querySaleProductCountByTid(medicelProducts.getId());
+					System.out.println("药品---------药药药---------销量：" + hotMedicationProducts.size());
+					modelAndView.addObject("hotMedicationProducts", hotMedicationProducts);
+					modelAndView.setViewName("front/ElectronicCommerce");
+				} else {
+					List<Matchdisease> matchMedicationProducts = matchdiseaseService.queryProductByUid(oldUsers.getUid());				
+					System.out.println("=====推荐药品=======：" + matchMedicationProducts.size());
+					modelAndView.addObject("matchMedicationProducts", matchMedicationProducts);
+					modelAndView.setViewName("front/ElectronicCommerce");
+
+				}
+			}
+		} else {
+			// 热销商品
+			if(products.size()!=0){
+			List<Products> hotProducts = productsService.querySaleProductCountByTid(products.get(0).getTid());
+			System.out.println("---------热销商品------：" + hotProducts.size());
+			modelAndView.addObject("hotProducts", hotProducts);
+			modelAndView.setViewName("front/ElectronicCommerce");}}
+		}
+		//销售为空时显示
+		if(products.size()!=0){
+		List<Products> someProducts = productsService.querySomeProductByTid(products.get(0).getTid());
+		System.out.println("---------商品------：" + someProducts.size());
+		modelAndView.addObject("someProducts", someProducts);
+		modelAndView.setViewName("front/ElectronicCommerce");}
 		modelAndView.addObject("products", products);
 		 modelAndView.addObject("classnamess", classnamess);
 		modelAndView.setViewName("front/ElectronicCommerce");
@@ -153,7 +199,52 @@ public class ProductController {
 		 map.put("pname", pnamess);
 		 map.put("classname", classnamess);
 		 System.out.println(pnamess+"vxvcbc"+classnamess);
+		 
 		 List<Products> products = productsService.selectProductsByTypeAndLikeName(map);
+		
+		 System.out.println("该类商品"+products.size());
+		 if(products.size()!=0){
+		  System.out.println("该类商品id"+products.get(0).getTid());
+		  Classification medicelProducts=classificationService.selectWetherMedicelProduct(products.get(0).getTid());
+			System.out.println("查找结果"+medicelProducts);
+			if (medicelProducts !=null) {
+				if (request.getSession().getAttribute("oldUsers") == null) {
+			 
+					List<Products> hotMedicationProducts = productsService.querySaleProductCountByTid(medicelProducts.getId());
+					System.out.println("药品---------药药药---------销量：" + hotMedicationProducts.size());
+					modelAndView.addObject("hotMedicationProducts", hotMedicationProducts);
+					modelAndView.setViewName("front/ElectronicCommerce");
+				} else {
+					OldUsers oldUsers = (OldUsers) request.getSession().getAttribute("oldUsers");
+					System.out.println("用户类型：" + oldUsers.getType());
+					if (oldUsers.getType() == 1) {
+						List<Products> hotMedicationProducts = productsService.querySaleProductCountByTid(medicelProducts.getId());
+						System.out.println("药品---------药药药---------销量：" + hotMedicationProducts.size());
+						modelAndView.addObject("hotMedicationProducts", hotMedicationProducts);
+						modelAndView.setViewName("front/ElectronicCommerce");
+					} else {
+						List<Matchdisease> matchMedicationProducts = matchdiseaseService.queryProductByUid(oldUsers.getUid());				
+						System.out.println("=====推荐药品=======：" + matchMedicationProducts.size());
+						modelAndView.addObject("matchMedicationProducts", matchMedicationProducts);
+						modelAndView.setViewName("front/ElectronicCommerce");
+
+					}
+				}
+			} else {
+				// 热销商品
+				if(products.size()!=0){
+				List<Products> hotProducts = productsService.querySaleProductCountByTid(products.get(0).getTid());
+				System.out.println("---------热销商品------：" + hotProducts.size());
+				modelAndView.addObject("hotProducts", hotProducts);
+				modelAndView.setViewName("front/ElectronicCommerce");}
+			}
+			//销售为空时显示
+			if(products.size()!=0){
+			List<Products> someProducts = productsService.querySomeProductByTid(products.get(0).getTid());
+			System.out.println("---------商品------：" + someProducts.size());
+			modelAndView.addObject("someProducts", someProducts);
+			modelAndView.setViewName("front/ElectronicCommerce");}}
+//		 
 		 modelAndView.addObject("pnamess", pnamess);
 		 modelAndView.addObject("classnamess", classnamess);
 		 modelAndView.addObject("products", products);

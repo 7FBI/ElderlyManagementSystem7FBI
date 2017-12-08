@@ -332,4 +332,8 @@
   <select id="selectBypidtoClassname">
      
   </select>
+  <!--  -->
+  <select id="selectWetherMedicelProduct" parameterType="java.lang.Integer" resultType="com.bean.Classification">
+select * from classification where classname like '%药%' and id=#{id}
+  </select>
 </mapper>

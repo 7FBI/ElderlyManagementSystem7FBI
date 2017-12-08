@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="../../../../resources/css/frontactivity.css"
 	type="text/css" />
 	<!--  -->
+	<link rel="stylesheet" href="/resources/css/frontedu.css" type="text/css"/>
+	
 	<script type="text/javascript"
 	src="/resources/unity/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript"
@@ -64,13 +66,24 @@
  --%>
 	<div class="activitylist">
 		<div class="imgs">
-		<c:if test="${!empty onePicture }">
+		<%-- <c:if test="${!empty onePicture }">
 			<img alt="" src="/fbiImage${onePicture.activeimageurl }" width="100%" height="100%">
 		</c:if>
 		<c:if test="${empty onePicture }">
-			<img alt="" src="/resources/upload/front/jianshnegcao2.jpg" width="100%" height="100%">
-			<img alt="" src="/resources/upload/front/douniuwu2.jpg" width="100%" height="100%">
-		</c:if>
+			<img alt="" src="/resources/upload/front/jianshnegcao2.jpg" width="100%" height="100%">	
+		</c:if> --%>
+		<div id="lunbo">
+    <ul>
+        <li><img src="/resources/upload/front/pic2.jpg" alt="..." width="100%"
+						height="100%"></li>
+        <li><img src="/resources/upload/front/pic14.jpg" alt="..." width="100%"
+						height="100%"></li>
+        <li><img src="/resources/upload/front/pic3.jpg" alt="..." width="100%"
+						height="100%"></li>
+        <li><img src="/resources/upload/front/pic23.jpg" alt="..." width="100%"
+						height="100%"></li>
+    </ul>
+</div>
 		</div>
 		<div class="activitycontent">
 			<ul>
@@ -92,7 +105,7 @@
 						   href="${pageContext.request.contextPath}/front/activity/activeDetailInfo?id=${allActivitiyAndPicture.id}" >&nbsp;&nbsp;&nbsp;&nbsp;
 						   <div style="background-color: orange;float: right;margin-right: 10px;width: 180px;height: 50px;text-align: center;border-radius: 10px;">
 						   <font size="6px" color="white">
-						         活动已结束
+						         报名已结束
 						   </font></div></a>
 						</c:if>
 						<c:if test="${allActivitiyAndPicture.activityStatus==1 }">					
@@ -145,5 +158,19 @@
 			window.location.href = "/front/activity/allActive?page=" + b;
 		})
 	</script>
+	
+	<script type="text/javascript">
+    //因为使用了document，所以js需要放在需要执行的代码下面生效才能生效
+    var li=document.getElementById('lunbo').getElementsByTagName("li");
+    var num=0;
+    var len=li.length;
+
+    setInterval(function(){
+        li[num].style.display="none";
+        num=++num==len?0:num;
+        li[num].style.display="inline-block";
+
+    },9000);//切换时间
+</script>
 </body>
 </html>

@@ -54,4 +54,6 @@ public interface ClassificationMapper {
     int updateByPrimaryKey(Classification record);
     
     List<Classification> selectClassifiaction();         //查询类别
+//  该类是否为药品类
+  public Classification selectWetherMedicelProduct(Integer id);
 }

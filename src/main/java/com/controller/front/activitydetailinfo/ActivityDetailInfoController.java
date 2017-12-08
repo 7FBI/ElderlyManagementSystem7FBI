@@ -69,7 +69,7 @@ public ModelAndView queryAllActiveInfo(HttpServletRequest request){
 			}
 			 Date nowdate=new Date();
 			 System.out.println("系统当前日期"+nowdate);
-				if(stoptime.getDate()<nowdate.getDate()){
+				if(stoptime.getTime()<nowdate.getTime()){
 					activitydetailinfo.setActivityStatus(0);
 					System.out.println("活动已结束");
 				}else{
